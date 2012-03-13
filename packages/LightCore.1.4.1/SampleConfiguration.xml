@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LightCoreConfiguration xmlns="clr-namespace:LightCore.Configuration;assembly=LightCore.Configuration">
+    <LightCoreConfiguration.TypeAliases>
+        <TypeAlias Alias="HttpRequest" Type="LightCore.Integration.Web.Lifecycle.HttpRequestLifecycle, LightCore.Integration.Web" />
+    </LightCoreConfiguration.TypeAliases>
+    <LightCoreConfiguration.Registrations>
+        <Registration ContractType="System.ComponentModel.IDisposable" ImplementationType="System.IO.Stream, mscorlib" />
+        <Registration ContractType="LightCore.TestTypes.IRepository{2}, LightCore.TestTypes" ImplementationType="LightCore.TestTypes.Repository{2}, LightCore.TestTypes" />
+        <Registration ContractType="LightCore.TestTypes.IFoo" ImplementationType="LightCore.TestTypes.Foo">
+            <Registration.Arguments>
+                <Argument Value="Alexander" />
+                <Argument Value="44" Type="int" Name="AgeProperty"/>
+                <Argument Value="true" Type="bool" />
+            </Registration.Arguments>
+        </Registration>
+    </LightCoreConfiguration.Registrations>
+    <LightCoreConfiguration.RegistrationGroups>
+        <RegistrationGroup Name="Real">
+            <RegistrationGroup.Registrations>
+                <Registration ContractType="System.ComponentModel.IDisposable" ImplementationType="System.IO.Stream, mscorlib"/>
+            </RegistrationGroup.Registrations>
+        </RegistrationGroup>
+        <RegistrationGroup Name="Fake">
+            <RegistrationGroup.Registrations>
+                <Registration ContractType="System.ComponentModel.IDisposable" ImplementationType="MyDisposableType, MyProject"/>
+            </RegistrationGroup.Registrations>
+        </RegistrationGroup>
+    </LightCoreConfiguration.RegistrationGroups>
+</LightCoreConfiguration>
+
+<!--
+Embedded in app.config / web.config
+
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <section name="LightCoreConfiguration" type="LightCore.Configuration.XamlConfigSectionHandler, LightCore.Configuration" />
+    </configSections>
+    <LightCoreConfiguration xmlns="clr-namespace:LightCore.Configuration;assembly=LightCore.Configuration">
+        <LightCoreConfiguration.TypeAliases>
+            <TypeAlias Alias="HttpRequest" Type="LightCore.Integration.Web.HttpRequestLifecycle, LightCore.Integration.Web" />
+        </LightCoreConfiguration.TypeAliases>
+        <LightCoreConfiguration.Registrations>
+            <Registration ContractType="System.ComponentModel.IDisposable" ImplementationType="System.IO.Stream, mscorlib"/>
+            <Registration Name="MyCustomKey" ContractType="System.ComponentModel.IDisposable" ImplementationType="System.IO.Stream, mscorlib"/>
+        </LightCoreConfiguration.Registrations>
+        <LightCoreConfiguration.RegistrationGroups>
+            <RegistrationGroup Name="Real">
+                <RegistrationGroup.Registrations>
+                    <Registration ContractType="System.ComponentModel.IDisposable" ImplementationType="System.IO.Stream, mscorlib"/>
+                </RegistrationGroup.Registrations>
+            </RegistrationGroup>
+            <RegistrationGroup Name="Fake">
+                <RegistrationGroup.Registrations>
+                    <Registration ContractType="System.ComponentModel.IDisposable" ImplementationType="MyDisposableType, MyProject"/>
+                </RegistrationGroup.Registrations>
+            </RegistrationGroup>
+        </LightCoreConfiguration.RegistrationGroups>
+    </LightCoreConfiguration>
+    </configuration>
+-->

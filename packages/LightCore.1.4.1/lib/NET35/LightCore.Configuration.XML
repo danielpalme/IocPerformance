@@ -1,0 +1,395 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LightCore.Configuration</name>
+    </assembly>
+    <members>
+        <member name="T:LightCore.Configuration.ActiveGroupNotFoundException">
+            <summary>
+            Thrown when a given active group was not found in registration.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.ActiveGroupNotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightCore.RegistrationNotFoundException"/> type.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.ActiveGroupNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightCore.RegistrationNotFoundException"/> type.
+            </summary>
+            <param name="message">The exception message.</param>
+        </member>
+        <member name="M:LightCore.Configuration.ActiveGroupNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightCore.RegistrationNotFoundException"/> type.
+            </summary>
+            <param name="message">The exception message.</param>
+            <param name="innerException">The inner exception</param>
+        </member>
+        <member name="M:LightCore.Configuration.ActiveGroupNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightCore.RegistrationNotFoundException"/> type.
+            </summary>
+            <param name="info">The serialization info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:LightCore.Configuration.Argument">
+            <summary>
+            Represents a registration argument.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.Argument.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:LightCore.Configuration.Argument.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Argument.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Argument.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+        </member>
+        <member name="T:LightCore.Configuration.RegistrationGroup">
+            <summary>
+            Represents a registration group.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.RegistrationGroup.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:LightCore.Configuration.RegistrationGroup"/>.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.RegistrationGroup.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:LightCore.Configuration.RegistrationGroup.Name">
+            <summary>
+            Gets or sets the registration group name.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.RegistrationGroup.Enabled">
+            <summary>
+            Gets or sets whether the registration group is enabled or not.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.RegistrationGroup.Registrations">
+            <summary>
+            Gets or sets the registrations associated with this group.
+            </summary>
+        </member>
+        <member name="T:LightCore.Configuration.XamlRegistrationException">
+            <summary>
+            Thrown when the container accessor container accessor is not implemented.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.XamlRegistrationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightCore.Configuration.XamlRegistrationException"/> type.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.XamlRegistrationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightCore.Configuration.XamlRegistrationException"/> type.
+            </summary>
+            <param name="message">The exception message.</param>
+        </member>
+        <member name="M:LightCore.Configuration.XamlRegistrationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightCore.Configuration.XamlRegistrationException"/> type.
+            </summary>
+            <param name="message">The exception message.</param>
+            <param name="innerException">The inner exception</param>
+        </member>
+        <member name="M:LightCore.Configuration.XamlRegistrationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightCore.Configuration.XamlRegistrationException"/> type.
+            </summary>
+            <param name="info">The serialization info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:LightCore.Configuration.LightCoreConfiguration">
+            <summary>
+            Represents the current configuration.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.LightCoreConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightCore.Configuration.LightCoreConfiguration"/> type.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.LightCoreConfiguration.DefaultLifecycle">
+            <summary>
+             Gets or sets the default lifecycle.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.LightCoreConfiguration.ActiveRegistrationGroups">
+            <summary>
+            Gets or sets the active registration groups.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.LightCoreConfiguration.TypeAliases">
+            <summary>
+             Gets or sets the type aliases.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.LightCoreConfiguration.Registrations">
+            <summary>
+            Represents the registrations.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.LightCoreConfiguration.RegistrationGroups">
+            <summary>
+            Represents the registration groups.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.LightCoreConfiguration.Instance">
+            <summary>
+            Gets the configuration instance.
+            </summary>
+            <value>The configuration instance.</value>
+        </member>
+        <member name="T:LightCore.Configuration.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Properties.Resources.ActiveRegistrationGroupNotFoundFormat">
+            <summary>
+              Looks up a localized string similar to Active registration group with name &apos;{0}&apos; was not found. Maybe its the case sensitivity..
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Properties.Resources.BadStreamContent">
+            <summary>
+              Looks up a localized string similar to Bad stream content, empty or malformed not found..
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Properties.Resources.ConfigurationFileNotFoundFormat">
+            <summary>
+              Looks up a localized string similar to Xml configuration file not found. Path: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Properties.Resources.ContractTypeCannotBeEmptyFormat">
+            <summary>
+              Looks up a localized string similar to Contract type for following registration cannot be empty. Registration: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Properties.Resources.CouldNotLoadTypeFormat">
+            <summary>
+              Looks up a localized string similar to Could not load type: &apos;{0}&apos;, maybe wrong full qualified info. Try e.g.: &quot;Namespace.Type, Assembly&quot;. Or check bin folder and copy DLLs if necessary..
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Properties.Resources.ImplementationTypeCannotBeEmptyFormat">
+            <summary>
+              Looks up a localized string similar to Implementation type for following registration cannot be empty. Registration: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Properties.Resources.SectionNotFoundFormat">
+            <summary>
+              Looks up a localized string similar to Configuration section &apos;{0}&apos; not found..
+            </summary>
+        </member>
+        <member name="T:LightCore.Configuration.Registration">
+            <summary>
+            Represents a registration configuration.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.Registration.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:LightCore.Configuration.Registration"/>.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.Registration.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:LightCore.Configuration.Registration.Enabled">
+            <summary>
+            Gets or sets whether the registration group is enabled or not.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Registration.ContractType">
+            <summary>
+            Gets or sets the identifier for the contract type.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Registration.ImplementationType">
+            <summary>
+            Gets or sets the identifier for the implementation type.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Registration.Lifecycle">
+            <summary>
+            Gets or sets the lifecycle
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.Registration.Arguments">
+            <summary>
+            Gets or sets the arguments.
+            </summary>
+        </member>
+        <member name="T:LightCore.Configuration.RegistrationLoader">
+            <summary>
+             Represents the loader for a LightCore registration.
+            </summary>
+        </member>
+        <member name="F:LightCore.Configuration.RegistrationLoader._configuration">
+            <summary>
+            Contains the configuration.
+            </summary>
+        </member>
+        <member name="F:LightCore.Configuration.RegistrationLoader._containerBuilder">
+            <summary>
+            Contains the container builder.
+            </summary>
+        </member>
+        <member name="F:LightCore.Configuration.RegistrationLoader._instance">
+            <summary>
+            Contains the singleton instance.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.RegistrationLoader.Register(LightCore.IContainerBuilder,LightCore.Configuration.LightCoreConfiguration)">
+            <summary>
+            Registers all candidates.
+            </summary>
+            <param name="containerBuilder">The containerbuilder.</param>
+            <param name="configuration">The configuration</param>
+        </member>
+        <member name="M:LightCore.Configuration.RegistrationLoader.ProcessRegistration(LightCore.Configuration.Registration)">
+            <summary>
+            Processes a Registration.
+            </summary>
+            <param name="registration">The registration to process.</param>
+        </member>
+        <member name="M:LightCore.Configuration.RegistrationLoader.ResolveAlias(System.String)">
+            <summary>
+            Resolves a potential alias to the full qualified type string.
+            </summary>
+            <param name="rawType">The alias or full qualified type string.</param>
+            <returns>The rawType, if no alias found, otherwise the full qualified type string according to the alias data.</returns>
+        </member>
+        <member name="M:LightCore.Configuration.RegistrationLoader.FindAlias(LightCore.Configuration.TypeAlias,System.String)">
+            <summary>
+            Finds an alias. Supports multiple alias pro alias instance.
+            </summary>
+            <param name="alias">The alias.</param>
+            <param name="rawType">The rawType.</param>
+            <returns><value>true</value> if the alias was found, otherwise <value>false</value>.</returns>
+        </member>
+        <member name="M:LightCore.Configuration.RegistrationLoader.LoadType(System.String)">
+            <summary>
+            Loads type according to the registration.
+            </summary>
+            <param name="typeName">The type to register.</param>
+            <returns>The type to register.</returns>
+        </member>
+        <member name="P:LightCore.Configuration.RegistrationLoader.Instance">
+            <summary>
+             Gets the current instance of <see cref="T:LightCore.Configuration.RegistrationLoader"/>.
+            </summary>
+        </member>
+        <member name="T:LightCore.Configuration.TypeAlias">
+            <summary>
+             Represents a type alias for registrations.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.TypeAlias.Alias">
+            <summary>
+             Gets or sets the type alias.
+            </summary>
+        </member>
+        <member name="P:LightCore.Configuration.TypeAlias.Type">
+            <summary>
+             Gets or sets the type value for this alias.
+            </summary>
+        </member>
+        <member name="T:LightCore.Configuration.XamlConfigSectionHandler">
+            <summary>
+            Represents a generic XAML config section handler.
+            </summary>
+        </member>
+        <member name="F:LightCore.Configuration.XamlConfigSectionHandler._lightCoreConfigSection">
+            <summary>
+            Contains the silkveil configuration section.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.XamlConfigSectionHandler.GetInstance``1">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <typeparam name="TConfiguration">The type of the configuration.</typeparam>
+            <returns>The configuration.</returns>
+        </member>
+        <member name="M:LightCore.Configuration.XamlConfigSectionHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>Creates a configuration section handler.</summary>
+            <param name="parent">Parent object.</param>
+            <param name="configContext">Configuration context object.</param>
+            <param name="section">Section XML node.</param>
+            <returns>The created section handler object.</returns>
+        </member>
+        <member name="T:LightCore.Configuration.XamlRegistrationModule">
+            <summary>
+            Represents a xaml registration module for LightCore.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.XamlRegistrationModule.#ctor">
+            <summary>
+             Initializes a new instance of <see cref="T:LightCore.Configuration.XamlRegistrationModule"/>.
+             Uses the default app.config or web.config for loading the configuration.
+            </summary>
+        </member>
+        <member name="M:LightCore.Configuration.XamlRegistrationModule.#ctor(System.String)">
+            <summary>
+             Initializes a new instance of <see cref="T:LightCore.Configuration.XamlRegistrationModule"/>.
+            </summary>
+            <param name="configurationPath">The path to a xaml config file.</param>
+        </member>
+        <member name="M:LightCore.Configuration.XamlRegistrationModule.#ctor(System.IO.Stream)">
+            <summary>
+             Initializes a new instance of <see cref="T:LightCore.Configuration.XamlRegistrationModule"/>.
+            </summary>
+            <param name="configurationStream">The stream containing the configuration file content.</param>
+        </member>
+        <member name="M:LightCore.Configuration.XamlRegistrationModule.Register(LightCore.IContainerBuilder)">
+            <summary>
+            Registers all candidates.
+            </summary>
+            <param name="containerBuilder">The containerbuilder.</param>
+        </member>
+    </members>
+</doc>

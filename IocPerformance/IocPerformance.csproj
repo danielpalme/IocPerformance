@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F73089D4-651F-4008-9EEA-CDFCACE60EAD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IocPerformance</RootNamespace>
+    <AssemblyName>IocPerformance</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=2.6.1.841, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.2.6.1.841\lib\NET40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration, Version=2.6.1.841, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.2.6.1.841\lib\NET40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamo.Ioc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=584702d813863cbd, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dynamo.Ioc.1.0\Dynamo.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
+    </Reference>
+    <Reference Include="Hiro, Version=0.1.0.19167, Culture=neutral, PublicKeyToken=f0efb83db47c0105, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.dll</HintPath>
+    </Reference>
+    <Reference Include="Hiro.Containers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0efb83db47c0105, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.Containers.dll</HintPath>
+    </Reference>
+    <Reference Include="Hiro.Web">
+      <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="LightCore, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightCore.1.4.1\lib\NET40\LightCore.dll</HintPath>
+    </Reference>
+    <Reference Include="LightCore.CommonServiceLocator, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LightCore.1.4.1\lib\NET40\LightCore.CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="LightCore.Configuration, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightCore.1.4.1\lib\NET40\LightCore.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.Core, Version=2.3.0.41559, Culture=neutral, PublicKeyToken=a4c63a184389506f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LinFu.2.3\LinFu.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightCore.1.4.1\lib\NET40\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Munq.IocContainer, Version=3.0.4403.17721, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Munq.IocContainer.3.1.4\Lib\Munq.IocContainer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=2.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=1.4.0.12049, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SimpleInjector.1.4.0.12049\lib\net35\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spring.Core.1.3.2\lib\net40\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapters\AutofacContainerAdapter.cs" />
+    <Compile Include="Adapters\LightInjectContainerAdapter.cs" />
+    <Compile Include="Adapters\DynamoContainerAdapter.cs" />
+    <Compile Include="Adapters\FunqContainerAdapter.cs" />
+    <Compile Include="Adapters\HiroContainerAdapter.cs" />
+    <Compile Include="Adapters\IContainerAdapter.cs" />
+    <Compile Include="Adapters\LightCoreContainerAdapter.cs" />
+    <Compile Include="Adapters\LinFuContainerAdapter.cs" />
+    <Compile Include="Adapters\MunqContainerAdapter.cs" />
+    <Compile Include="Adapters\NinjectContainerAdapter.cs" />
+    <Compile Include="Adapters\PetiteContainerAdapter.cs" />
+    <Compile Include="Adapters\SimpleInjectorContainerAdapter.cs" />
+    <Compile Include="Adapters\SpringContainerAdapter.cs" />
+    <Compile Include="Adapters\StructureMapContainerAdapter.cs" />
+    <Compile Include="Adapters\NoContainerAdapter.cs" />
+    <Compile Include="Adapters\TinyIOCContainerAdapter.cs" />
+    <Compile Include="Adapters\UnityContainerAdapter.cs" />
+    <Compile Include="Adapters\WindsorContainerAdapter.cs" />
+    <Compile Include="Classes.cs" />
+    <Compile Include="Petite.Container.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LightInject.cs" />
+    <Compile Include="TinyIoC.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
