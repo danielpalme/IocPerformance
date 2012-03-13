@@ -1,7 +1,7 @@
 Ioc Performance
 ===============
 
-Source code of my performance comparison of the most popular IoC containers:
+Source code of my performance comparison of the most popular .NET IoC containers:
 [www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison](http://www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison)
 
 Author: Daniel Palme
