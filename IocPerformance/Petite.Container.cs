@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Serialization;
 
 namespace Petite
@@ -143,7 +144,15 @@ namespace Petite
 			if(container == null)
 				throw new ArgumentNullException("container");
 			var method = container.GetType().GetMethod("Resolve").MakeGenericMethod(serviceType);
-			return method.Invoke(container, new object[] { null });
+			try
+			{
+				return method.Invoke(container, new object[] { null });
+			}
+			catch(TargetInvocationException ex)
+			{
+				// Unwrap TargetInvocationException
+				throw ex.InnerException;
+			}
 		}
 
 		/// <summary>
@@ -162,7 +171,15 @@ namespace Petite
 			if(container == null)
 				throw new ArgumentNullException("container");
 			var method = container.GetType().GetMethod("Resolve").MakeGenericMethod(serviceType);
-			return method.Invoke(container, new object[] { name });
+			try
+			{
+				return method.Invoke(container, new object[] { name });
+			}
+			catch(TargetInvocationException ex)
+			{
+				// Unwrap TargetInvocationException
+				throw ex.InnerException;
+			}
 		}
 
 		/// <summary>
@@ -180,10 +197,19 @@ namespace Petite
 			if(container == null)
 				throw new ArgumentNullException("container");
 			var method = container.GetType().GetMethod("ResolveAll").MakeGenericMethod(serviceType);
-			return (IEnumerable<object>)method.Invoke(container, null);
+			try
+			{
+				return (IEnumerable<object>)method.Invoke(container, null);
+			}
+			catch(TargetInvocationException ex)
+			{
+				// Unwrap TargetInvocationException
+				throw ex.InnerException;
+			}
 		}
 	}
 
+	[System.Diagnostics.DebuggerNonUserCode]
 	public sealed class Container
 	{
 		private readonly ConcurrentDictionary<ServiceKey, IServiceHandler> _serviceLookup = new ConcurrentDictionary<ServiceKey, IServiceHandler>();
