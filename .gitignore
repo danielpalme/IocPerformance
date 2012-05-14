@@ -1,0 +1,4 @@
+
+*.suo
+/IocPerformance/bin
+/IocPerformance/obj

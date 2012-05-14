@@ -21,6 +21,7 @@ namespace IocPerformance
                 Tuple.Create<string, IContainerAdapter>("LightCore", new LightCoreContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("LightInject", new LightInjectContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("LinFu", new LinFuContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Mugen", new MugenContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Munq", new MunqContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Ninject", new NinjectContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Petite", new PetiteContainerAdapter()),
