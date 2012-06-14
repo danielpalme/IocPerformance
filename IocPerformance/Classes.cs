@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Composition;
 
 namespace IocPerformance
 {
@@ -7,6 +8,7 @@ namespace IocPerformance
         void DoSomething();
     }
 
+    [Export(typeof(IInterface1)), PartCreationPolicy(CreationPolicy.Shared)]
     public class Implementation1 : IInterface1
     {
         public static int Instances { get; set; }
@@ -27,6 +29,7 @@ namespace IocPerformance
         void DoSomething();
     }
 
+    [Export(typeof(IInterface2))]
     public class Implementation2 : IInterface2
     {
         public static int Instances { get; set; }
@@ -47,10 +50,12 @@ namespace IocPerformance
         void DoSomething();
     }
 
+    [Export(typeof(ICombined))]
     public class Combined : ICombined
     {
         public static int Instances { get; set; }
 
+        [ImportingConstructor]
         public Combined(IInterface1 first, IInterface2 second)
         {
             if (first == null)
