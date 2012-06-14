@@ -8,7 +8,7 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            var catalog = new AssemblyCatalog(typeof(Program).Assembly);
+            var catalog = new TypeCatalog(typeof(Implementation1), typeof(Implementation2), typeof(Combined));
             this.container = new CompositionContainer(catalog);
         }
 
@@ -19,6 +19,7 @@ namespace IocPerformance.Adapters
 
         public void Dispose()
         {
+            // Allow the container and everything it references to be disposed.
             this.container = null;
         }
     }
