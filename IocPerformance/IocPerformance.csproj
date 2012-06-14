@@ -112,11 +112,13 @@
       <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\AutofacContainerAdapter.cs" />
+    <Compile Include="Adapters\MefContainerAdapter.cs" />
     <Compile Include="Adapters\MugenContainerAdapter.cs" />
     <Compile Include="Adapters\LightInjectContainerAdapter.cs" />
     <Compile Include="Adapters\DynamoContainerAdapter.cs" />
