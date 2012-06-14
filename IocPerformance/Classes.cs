@@ -29,7 +29,7 @@ namespace IocPerformance
         void DoSomething();
     }
 
-    [Export(typeof(IInterface2))]
+    [Export(typeof(IInterface2)), PartCreationPolicy(CreationPolicy.NonShared)]
     public class Implementation2 : IInterface2
     {
         public static int Instances { get; set; }
@@ -50,7 +50,7 @@ namespace IocPerformance
         void DoSomething();
     }
 
-    [Export(typeof(ICombined))]
+    [Export(typeof(ICombined)), PartCreationPolicy(CreationPolicy.NonShared)]
     public class Combined : ICombined
     {
         public static int Instances { get; set; }
