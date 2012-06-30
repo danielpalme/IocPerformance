@@ -10,12 +10,12 @@ namespace IocPerformance.Adapters
         {
             var autofacContainerBuilder = new ContainerBuilder();
 
-            autofacContainerBuilder.RegisterType<Implementation1>()
-                    .As<IInterface1>()
+            autofacContainerBuilder.RegisterType<Transient>()
+                    .As<ITransient>()
                     .SingleInstance();
 
-            autofacContainerBuilder.RegisterType<Implementation2>()
-                    .As<IInterface2>();
+            autofacContainerBuilder.RegisterType<Singleton>()
+                    .As<ISingleton>();
 
             autofacContainerBuilder.RegisterType<Combined>()
                     .As<ICombined>();

@@ -10,11 +10,11 @@ namespace IocPerformance.Adapters
         {
             this.container = new Petite.Container();
 
-            this.container.RegisterSingleton<IInterface1>(c => new Implementation1());
-            this.container.Register<IInterface2>(c => new Implementation2());
+            this.container.RegisterSingleton<ITransient>(c => new Transient());
+            this.container.Register<ISingleton>(c => new Singleton());
             this.container.Register<ICombined>(c => new Combined(
-                c.Resolve<IInterface1>(),
-                c.Resolve<IInterface2>()));
+                c.Resolve<ITransient>(),
+                c.Resolve<ISingleton>()));
         }
 
         public T Resolve<T>() where T : class

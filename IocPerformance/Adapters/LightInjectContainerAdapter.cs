@@ -9,9 +9,9 @@ namespace IocPerformance.Adapters
         public void Prepare()
         {
             this.container = new ServiceContainer();
-            container.RegisterAsSingleton<IInterface1>(() => new Implementation1());
-            container.Register<IInterface2>(c => new Implementation2());
-            container.Register<ICombined>(c => new Combined(c.GetInstance<IInterface1>(), c.GetInstance<IInterface2>()));
+            container.RegisterAsSingleton<ITransient>(() => new Transient());
+            container.Register<ISingleton>(c => new Singleton());
+            container.Register<ICombined>(c => new Combined(c.GetInstance<ITransient>(), c.GetInstance<ISingleton>()));
         }
 
         public T Resolve<T>() where T : class

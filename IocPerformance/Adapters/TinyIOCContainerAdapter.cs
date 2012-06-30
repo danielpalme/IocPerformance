@@ -10,8 +10,8 @@ namespace IocPerformance.Adapters
         {
             this.container = new TinyIoC.TinyIoCContainer();
 
-            this.container.Register<IInterface1, Implementation1>().AsSingleton();
-            this.container.Register<IInterface2, Implementation2>().AsMultiInstance();
+            this.container.Register<ITransient, Transient>().AsSingleton();
+            this.container.Register<ISingleton, Singleton>().AsMultiInstance();
             this.container.Register<ICombined, Combined>().AsMultiInstance();
         }
 

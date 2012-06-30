@@ -9,8 +9,8 @@ namespace IocPerformance.Adapters
         public void Prepare()
         {
             this.container = new StandardKernel();
-            this.container.Bind<IInterface1>().To<Implementation1>().InSingletonScope();
-            this.container.Bind<IInterface2>().To<Implementation2>().InTransientScope();
+            this.container.Bind<ITransient>().To<Transient>().InSingletonScope();
+            this.container.Bind<ISingleton>().To<Singleton>().InTransientScope();
             this.container.Bind<ICombined>().To<Combined>().InTransientScope();
         }
 
