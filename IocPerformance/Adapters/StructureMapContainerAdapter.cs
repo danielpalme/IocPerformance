@@ -10,8 +10,8 @@ namespace IocPerformance.Adapters
         {
             this.container = new Container(r =>
             {
-                r.For<ITransient>().Singleton().Use<Transient>();
-                r.For<ISingleton>().Transient().Use<Singleton>();
+                r.For<ISingleton>().Singleton().Use<Singleton>();
+                r.For<ITransient>().Transient().Use<Transient>();
                 r.For<ICombined>().Transient().Use<Combined>();
             });
         }

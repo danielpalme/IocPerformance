@@ -12,8 +12,8 @@ namespace IocPerformance.Adapters
             // I made an optimization here, since Munq allows to do constructor injection. Not only is this
             // the preferable way of doing things, it is faster.
             this.container = new IocContainer();
-            this.container.Register<ITransient, Transient>().WithLifetimeManager(new ContainerLifetime());
-            this.container.Register<ISingleton, Singleton>().WithLifetimeManager(new AlwaysNewLifetime());
+            this.container.Register<ISingleton, Singleton>().WithLifetimeManager(new ContainerLifetime());
+            this.container.Register<ITransient, Transient>().WithLifetimeManager(new AlwaysNewLifetime());
             this.container.Register<ICombined, Combined>().WithLifetimeManager(new AlwaysNewLifetime());
         }
 

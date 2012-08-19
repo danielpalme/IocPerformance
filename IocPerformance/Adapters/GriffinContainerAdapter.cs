@@ -9,8 +9,8 @@ namespace IocPerformance.Adapters
         public void Prepare()
         {
             var registrar = new ContainerRegistrar();
-            registrar.RegisterType<ITransient, Transient>(Lifetime.Singleton);
-            registrar.RegisterType<ISingleton, Singleton>(Lifetime.Transient);
+            registrar.RegisterType<ISingleton, Singleton>(Lifetime.Singleton);
+            registrar.RegisterType<ITransient, Transient>(Lifetime.Transient);
             registrar.RegisterType<ICombined, Combined>(Lifetime.Transient);
 
             this.container = registrar.Build();

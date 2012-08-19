@@ -3,17 +3,17 @@ using System.ComponentModel.Composition;
 
 namespace IocPerformance
 {
-    public interface ITransient
+    public interface ISingleton
     {
         void DoSomething();
     }
 
-    [Export(typeof(ITransient)), PartCreationPolicy(CreationPolicy.Shared)]
-    public class Transient : ITransient
+    [Export(typeof(ISingleton)), PartCreationPolicy(CreationPolicy.Shared)]
+    public class Singleton : ISingleton
     {
         public static int Instances { get; set; }
 
-        public Transient()
+        public Singleton()
         {
             Instances++;
         }
@@ -24,17 +24,17 @@ namespace IocPerformance
         }
     }
 
-    public interface ISingleton
+    public interface ITransient
     {
         void DoSomething();
     }
 
-    [Export(typeof(ISingleton)), PartCreationPolicy(CreationPolicy.NonShared)]
-    public class Singleton : ISingleton
+    [Export(typeof(ITransient)), PartCreationPolicy(CreationPolicy.NonShared)]
+    public class Transient : ITransient
     {
         public static int Instances { get; set; }
 
-        public Singleton()
+        public Transient()
         {
             Instances++;
         }
@@ -56,7 +56,7 @@ namespace IocPerformance
         public static int Instances { get; set; }
 
         [ImportingConstructor]
-        public Combined(ITransient first, ISingleton second)
+        public Combined(ISingleton first, ITransient second)
         {
             if (first == null)
             {

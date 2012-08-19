@@ -11,8 +11,8 @@ namespace IocPerformance.Adapters
         {
             this.container = new WindsorContainer();
 
-            this.container.Register(Component.For<ITransient>().ImplementedBy<Transient>());
-            this.container.Register(Component.For<ISingleton>().ImplementedBy<Singleton>().LifeStyle.Transient);
+            this.container.Register(Component.For<ISingleton>().ImplementedBy<Singleton>());
+            this.container.Register(Component.For<ITransient>().ImplementedBy<Transient>().LifeStyle.Transient);
             this.container.Register(Component.For<ICombined>().ImplementedBy<Combined>().LifeStyle.Transient);
         }
 

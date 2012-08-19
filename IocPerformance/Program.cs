@@ -63,12 +63,12 @@ namespace IocPerformance
                 singletonTime,
                 transientTime,
                 combinedTime,
-                Transient.Instances,
                 Singleton.Instances,
+                Transient.Instances,
                 Combined.Instances));
 
-            Transient.Instances = 0;
             Singleton.Instances = 0;
+            Transient.Instances = 0;
             Combined.Instances = 0;
 
             container.Dispose();
@@ -82,7 +82,7 @@ namespace IocPerformance
 
             for (int i = 0; i < LoopCount; i++)
             {
-                container.Resolve<ITransient>();
+                container.Resolve<ISingleton>();
             }
 
             return watch.ElapsedMilliseconds;
@@ -94,7 +94,7 @@ namespace IocPerformance
 
             for (int i = 0; i < LoopCount; i++)
             {
-                container.Resolve<ISingleton>();
+                container.Resolve<ITransient>();
             }
 
             return watch.ElapsedMilliseconds;
@@ -125,9 +125,9 @@ namespace IocPerformance
 
         private static void WarmUp(IContainerAdapter container)
         {
-            var interface1 = container.Resolve<ITransient>();
-            var interface2 = container.Resolve<ISingleton>();
-            var combined = container.Resolve<ITransient>();
+            var interface1 = container.Resolve<ISingleton>();
+            var interface2 = container.Resolve<ITransient>();
+            var combined = container.Resolve<ISingleton>();
         }
     }
 }

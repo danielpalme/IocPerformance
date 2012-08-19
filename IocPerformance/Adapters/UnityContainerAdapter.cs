@@ -10,8 +10,8 @@ namespace IocPerformance.Adapters
         {
             this.container = new UnityContainer();
 
-            this.container.RegisterType<ITransient, Transient>(new ContainerControlledLifetimeManager());
-            this.container.RegisterType<ISingleton, Singleton>(new TransientLifetimeManager());
+            this.container.RegisterType<ISingleton, Singleton>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<ITransient, Transient>(new TransientLifetimeManager());
             this.container.RegisterType<ICombined, Combined>(new TransientLifetimeManager());
         }
 

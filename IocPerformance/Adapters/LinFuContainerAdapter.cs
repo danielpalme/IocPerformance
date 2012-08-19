@@ -4,13 +4,13 @@ namespace IocPerformance.Adapters
 {
     public sealed class LinFuContainerAdapter : IContainerAdapter
     {
-        private ServiceContainer container;
+        private LinFu.IoC.ServiceContainer container;
 
         public void Prepare()
         {
-            this.container = new ServiceContainer();
-            this.container.Inject<ITransient>().Using<Transient>().AsSingleton();
-            this.container.Inject<ISingleton>().Using<Singleton>().OncePerRequest();
+            this.container = new LinFu.IoC.ServiceContainer();
+            this.container.Inject<ISingleton>().Using<Singleton>().AsSingleton();
+            this.container.Inject<ITransient>().Using<Transient>().OncePerRequest();
             this.container.Inject<ICombined>().Using<Combined>().OncePerRequest();
         }
 

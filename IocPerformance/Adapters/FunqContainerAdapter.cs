@@ -9,15 +9,15 @@ namespace IocPerformance.Adapters
         public void Prepare()
         {
             this.container = new Funq.Container();
-            this.container.Register<ITransient>(ioc => new Transient())
+            this.container.Register<ISingleton>(ioc => new Singleton())
                 .ReusedWithin(Funq.ReuseScope.Container);
 
-            this.container.Register<ISingleton>(ioc => new Singleton())
+            this.container.Register<ITransient>(ioc => new Transient())
                 .ReusedWithin(Funq.ReuseScope.None);
 
             this.container.Register<ICombined>(ioc => new Combined(
-                ioc.Resolve<ITransient>(),
-                ioc.Resolve<ISingleton>()))
+                ioc.Resolve<ISingleton>(),
+                ioc.Resolve<ITransient>()))
                 .ReusedWithin(Funq.ReuseScope.None);
         }
 

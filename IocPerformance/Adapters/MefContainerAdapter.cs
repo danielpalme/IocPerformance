@@ -8,7 +8,7 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            var catalog = new TypeCatalog(typeof(Transient), typeof(Singleton), typeof(Combined));
+            var catalog = new TypeCatalog(typeof(Singleton), typeof(Transient), typeof(Combined));
             this.container = new CompositionContainer(catalog);
         }
 

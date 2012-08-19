@@ -10,8 +10,8 @@ namespace IocPerformance.Adapters
         {
             this.container = new Container();
 
-            this.container.Register<ITransient, Transient>().WithLifetime(Lifetime.Container());
-            this.container.Register<ISingleton, Singleton>();
+            this.container.Register<ISingleton, Singleton>().WithLifetime(Lifetime.Container());
+            this.container.Register<ITransient, Transient>();
             this.container.Register<ICombined, Combined>();
             this.container.Compile();
         }

@@ -10,8 +10,8 @@ namespace IocPerformance.Adapters
         {
             this.container = new SimpleInjector.Container();
 
-            this.container.RegisterSingle<ITransient, Transient>();
-            this.container.Register<ISingleton, Singleton>();
+            this.container.RegisterSingle<ISingleton, Singleton>();
+            this.container.Register<ITransient, Transient>();
             this.container.Register<ICombined, Combined>();
 
             this.container.Verify();

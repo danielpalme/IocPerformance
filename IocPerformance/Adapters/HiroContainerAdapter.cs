@@ -11,8 +11,8 @@ namespace IocPerformance.Adapters
         {
             var map = new DependencyMap();
 
-            map.AddSingletonService<ITransient, Transient>();
-            map.AddService<ISingleton, Singleton>();
+            map.AddSingletonService<ISingleton, Singleton>();
+            map.AddService<ITransient, Transient>();
             map.AddService<ICombined, Combined>();
 
             this.container = map.CreateContainer();

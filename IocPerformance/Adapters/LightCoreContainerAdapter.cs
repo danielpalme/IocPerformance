@@ -11,8 +11,8 @@ namespace IocPerformance.Adapters
         {
             var builder = new ContainerBuilder();
 
-            builder.Register<ITransient, Transient>().ControlledBy<SingletonLifecycle>();
-            builder.Register<ISingleton, Singleton>().ControlledBy<TransientLifecycle>();
+            builder.Register<ISingleton, Singleton>().ControlledBy<SingletonLifecycle>();
+            builder.Register<ITransient, Transient>().ControlledBy<TransientLifecycle>();
             builder.Register<ICombined, Combined>().ControlledBy<TransientLifecycle>();
 
             this.container = builder.Build();

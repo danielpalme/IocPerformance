@@ -1,5 +1,4 @@
-﻿using LightInject;
-
+﻿
 namespace IocPerformance.Adapters
 {
     public sealed class LightInjectContainerAdapter : IContainerAdapter
@@ -9,9 +8,9 @@ namespace IocPerformance.Adapters
         public void Prepare()
         {
             this.container = new ServiceContainer();
-            container.RegisterAsSingleton<ITransient>(() => new Transient());
-            container.Register<ISingleton>(c => new Singleton());
-            container.Register<ICombined>(c => new Combined(c.GetInstance<ITransient>(), c.GetInstance<ISingleton>()));
+            container.Register<ISingleton>(c => new Singleton(), LifeCycleType.Singleton);
+            container.Register<ITransient>(c => new Transient(), LifeCycleType.Transient);
+            container.Register<ICombined>(c => new Combined(c.GetInstance<ISingleton>(), c.GetInstance<ITransient>()), LifeCycleType.Transient);
         }
 
         public T Resolve<T>() where T : class

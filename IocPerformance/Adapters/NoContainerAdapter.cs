@@ -4,11 +4,11 @@ namespace IocPerformance.Adapters
 {
     public sealed class NoContainerAdapter : IContainerAdapter
     {
-        private static readonly Type IInterface1Type = typeof(ITransient);
-        private static readonly Type IInterface2Type = typeof(ISingleton);
+        private static readonly Type IInterface1Type = typeof(ISingleton);
+        private static readonly Type IInterface2Type = typeof(ITransient);
         private static readonly Type CombinedType = typeof(ICombined);
 
-        private static readonly ITransient singleton = new Transient();
+        private static readonly ISingleton singleton = new Singleton();
 
         public void Prepare()
         {
@@ -24,12 +24,12 @@ namespace IocPerformance.Adapters
             }
             else if (serviceType == IInterface2Type)
             {
-                ISingleton transient = new Singleton();
+                ITransient transient = new Transient();
                 return (T)transient;
             }
             else if (serviceType == CombinedType)
             {
-                ICombined combined = new Combined(singleton, new Singleton());
+                ICombined combined = new Combined(singleton, new Transient());
                 return (T)combined;
             }
 

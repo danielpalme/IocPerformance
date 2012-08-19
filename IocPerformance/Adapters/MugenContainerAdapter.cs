@@ -10,8 +10,8 @@ namespace IocPerformance.Adapters
         {
             this.container = new MugenInjector();
 
-            this.container.Bind<ITransient>().To<Transient>().InSingletonScope();
-            this.container.Bind<ISingleton>().To<Singleton>().InTransientScope();
+            this.container.Bind<ISingleton>().To<Singleton>().InSingletonScope();
+            this.container.Bind<ITransient>().To<Transient>().InTransientScope();
             this.container.Bind<ICombined>().To<Combined>().InTransientScope();
         }
 
