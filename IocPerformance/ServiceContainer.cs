@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 ******************************************************************************
-   LightInject version 2.0.0.0 
+   LightInject version 2.0.0.1 
    https://github.com/seesharper/LightInject/wiki/Getting-started
 ******************************************************************************/
 [module: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1101:PrefixLocalCallsWithThis", Justification = "No inheritance")]
@@ -304,7 +304,8 @@ namespace IocPerformance
         /// <param name="assembly">The <see cref="Assembly"/> to scan.</param>        
         /// <param name="serviceRegistry">The target <see cref="IServiceRegistry"/> instance.</param>
         /// <param name="lifeCycleType">The <see cref="LifeCycleType"/> used to register the services found within the assembly.</param>
-        void Scan(Assembly assembly, IServiceRegistry serviceRegistry, LifeCycleType lifeCycleType);
+        /// <param name="shouldRegister">A function delegate that determines if a service implementation should be registered.</param>
+        void Scan(Assembly assembly, IServiceRegistry serviceRegistry, LifeCycleType lifeCycleType, Func<Type, bool> shouldRegister);
     }
 
     /// <summary>
@@ -326,12 +327,35 @@ namespace IocPerformance
         /// Registers services from the given <paramref name="assembly"/>.
         /// </summary>
         /// <param name="assembly">The assembly to be scanned for services.</param>
+        /// <param name="shouldRegister">A function delegate that determines if a service implementation should be registered.</param>
+        /// <remarks>
+        /// If the target <paramref name="assembly"/> contains an implementation of the <see cref="ICompositionRoot"/> interface, this 
+        /// will be used to configure the container.
+        /// </remarks>     
+        void RegisterAssembly(Assembly assembly, Func<Type, bool> shouldRegister);
+
+        /// <summary>
+        /// Registers services from the given <paramref name="assembly"/>.
+        /// </summary>
+        /// <param name="assembly">The assembly to be scanned for services.</param>
         /// <param name="lifeCycleType">The <see cref="LifeCycleType"/> used to register the services found within the assembly.</param>
         /// <remarks>
         /// If the target <paramref name="assembly"/> contains an implementation of the <see cref="ICompositionRoot"/> interface, this 
         /// will be used to configure the container.
         /// </remarks>     
         void RegisterAssembly(Assembly assembly, LifeCycleType lifeCycleType);
+
+        /// <summary>
+        /// Registers services from the given <paramref name="assembly"/>.
+        /// </summary>
+        /// <param name="assembly">The assembly to be scanned for services.</param>
+        /// <param name="lifeCycleType">The <see cref="LifeCycleType"/> used to register the services found within the assembly.</param>
+        /// <param name="shouldRegister">A function delegate that determines if a service implementation should be registered.</param>
+        /// <remarks>
+        /// If the target <paramref name="assembly"/> contains an implementation of the <see cref="ICompositionRoot"/> interface, this 
+        /// will be used to configure the container.
+        /// </remarks>     
+        void RegisterAssembly(Assembly assembly, LifeCycleType lifeCycleType, Func<Type, bool> shouldRegister);
         
         /// <summary>
         /// Registers services from assemblies in the base directory that matches the <paramref name="searchPattern"/>.
@@ -347,13 +371,14 @@ namespace IocPerformance
     {        
         private const string UnresolvedDependencyError = "Unresolved dependency {0}";        
         private static readonly MethodInfo GetInstanceMethod;
-        private readonly ServiceRegistry<Action<DynamicMethodInfo>> services = new ServiceRegistry<Action<DynamicMethodInfo>>();
-        private readonly ServiceRegistry<OpenGenericServiceInfo> openGenericServices = new ServiceRegistry<OpenGenericServiceInfo>();
+        private readonly ServiceRegistry<Action<DynamicMethodInfo>> emitters = new ServiceRegistry<Action<DynamicMethodInfo>>();
+        private readonly ServiceRegistry<OpenGenericEmitter> openGenericEmitters = new ServiceRegistry<OpenGenericEmitter>();
         private readonly DelegateRegistry<Type> delegates = new DelegateRegistry<Type>();
         private readonly DelegateRegistry<Tuple<Type, string>> namedDelegates = new DelegateRegistry<Tuple<Type, string>>();
-        private readonly ThreadSafeDictionary<Type, ServiceInfo> implementations = new ThreadSafeDictionary<Type, ServiceInfo>();
+        private readonly ThreadSafeDictionary<Type, ImplementationInfo> implementations = new ThreadSafeDictionary<Type, ImplementationInfo>();
         private readonly ThreadSafeDictionary<Type, Lazy<object>> singletons = new ThreadSafeDictionary<Type, Lazy<object>>();
         private readonly Storage<object> constants = new Storage<object>();
+        private readonly Stack<Action<DynamicMethodInfo>> dependencyStack = new Stack<Action<DynamicMethodInfo>>(); 
         private Storage<IFactory> factories;
         private bool firstServiceRequest = true;
 
@@ -405,6 +430,20 @@ namespace IocPerformance
         /// Registers services from the given <paramref name="assembly"/>.
         /// </summary>
         /// <param name="assembly">The assembly to be scanned for services.</param>
+        /// <param name="shouldRegister">A function delegate that determines if a service implementation should be registered.</param>
+        /// <remarks>
+        /// If the target <paramref name="assembly"/> contains an implementation of the <see cref="ICompositionRoot"/> interface, this 
+        /// will be used to configure the container.
+        /// </remarks>     
+        public void RegisterAssembly(Assembly assembly, Func<Type, bool> shouldRegister)
+        {
+            AssemblyScanner.Scan(assembly, this, LifeCycleType.Transient, shouldRegister);
+        }
+
+        /// <summary>
+        /// Registers services from the given <paramref name="assembly"/>.
+        /// </summary>
+        /// <param name="assembly">The assembly to be scanned for services.</param>
         /// <param name="lifeCycleType">The <see cref="LifeCycleType"/> used to register the services found within the assembly.</param>
         /// <remarks>
         /// If the target <paramref name="assembly"/> contains an implementation of the <see cref="ICompositionRoot"/> interface, this 
@@ -412,7 +451,22 @@ namespace IocPerformance
         /// </remarks>     
         public void RegisterAssembly(Assembly assembly, LifeCycleType lifeCycleType)
         {
-            AssemblyScanner.Scan(assembly, this, lifeCycleType);
+            AssemblyScanner.Scan(assembly, this, lifeCycleType, t => true);
+        }
+
+        /// <summary>
+        /// Registers services from the given <paramref name="assembly"/>.
+        /// </summary>
+        /// <param name="assembly">The assembly to be scanned for services.</param>
+        /// <param name="lifeCycleType">The <see cref="LifeCycleType"/> used to register the services found within the assembly.</param>
+        /// <param name="shouldRegister">A function delegate that determines if a service implementation should be registered.</param>
+        /// <remarks>
+        /// If the target <paramref name="assembly"/> contains an implementation of the <see cref="ICompositionRoot"/> interface, this 
+        /// will be used to configure the container.
+        /// </remarks>     
+        public void RegisterAssembly(Assembly assembly, LifeCycleType lifeCycleType, Func<Type, bool> shouldRegister)
+        {
+            AssemblyScanner.Scan(assembly, this, lifeCycleType, shouldRegister);
         }
        
         /// <summary>
@@ -603,7 +657,7 @@ namespace IocPerformance
 
             if (!delegates.TryGetValue(serviceType, out del))
             {
-                del = delegates.GetOrAdd(serviceType, t => CreateDelegate(serviceType, string.Empty));
+                del = delegates.GetOrAdd(serviceType, t => CreateDelegate(t, string.Empty));
             }
 
             return del(constants.Items);                       
@@ -642,7 +696,7 @@ namespace IocPerformance
 
             if (!namedDelegates.TryGetValue(Tuple.Create(serviceType, serviceName), out del))
             {
-                del = delegates.GetOrAdd(serviceType, t => CreateDelegate(serviceType, serviceName));
+                del = namedDelegates.GetOrAdd(Tuple.Create(serviceType, serviceName), t => CreateDelegate(t.Item1, serviceName));
             }
 
             return del(constants.Items);                              
@@ -759,9 +813,9 @@ namespace IocPerformance
                     p => new ConstructorDependency { ServiceName = string.Empty, ServiceType = p.ParameterType, Parameter = p });
         }
        
-        private ServiceInfo CreateServiceInfo(Type implementingType)
+        private ImplementationInfo CreateServiceInfo(Type implementingType)
         {
-            var serviceInfo = new ServiceInfo();
+            var serviceInfo = new ImplementationInfo();
             ConstructorInfo constructorInfo = GetConstructorWithTheMostParameters(implementingType);
             serviceInfo.ImplementingType = implementingType;
             serviceInfo.Constructor = constructorInfo;
@@ -781,56 +835,76 @@ namespace IocPerformance
             return PropertySelector.Select(implementingType);
         }
 
-        private ServiceInfo CreateServiceInfoFromExpression(LambdaExpression lambdaExpression)
+        private ImplementationInfo CreateServiceInfoFromExpression(LambdaExpression lambdaExpression)
         {
             var lambdaExpressionParser = new LambdaExpressionParser();
-            ServiceInfo serviceInfo = lambdaExpressionParser.Parse(lambdaExpression);
-            return serviceInfo;
+            ImplementationInfo implementationInfo = lambdaExpressionParser.Parse(lambdaExpression);
+            return implementationInfo;
         }
 
         private Action<DynamicMethodInfo> GetEmitMethod(Type serviceType, string serviceName)
         {
-            Action<DynamicMethodInfo> emitMethod = GetRegisteredEmitMethod(serviceType, serviceName);
+            Action<DynamicMethodInfo> emitter = GetRegisteredEmitMethod(serviceType, serviceName);
 
             IFactory factory = GetCustomFactory(serviceType, serviceName);
             if (factory != null)
             {
-                emitMethod = GetCustomFactoryEmitMethod(serviceType, serviceName, factory, emitMethod);
+                emitter = GetCustomFactoryEmitMethod(serviceType, serviceName, factory, emitter);
+            }
+            
+            return this.CreateEmitMethodWrapper(emitter, serviceType, serviceName);
+        }
+
+        private Action<DynamicMethodInfo> CreateEmitMethodWrapper(Action<DynamicMethodInfo> emitter, Type serviceType, string serviceName)
+        {
+            if (emitter == null)
+            {
+                return null;
             }
 
-            UpdateServiceRegistration(serviceType, serviceName, emitMethod);
-            
-            return emitMethod;            
+            return dmi =>
+                {
+                    if (dependencyStack.Contains(emitter))
+                    {
+                        throw new InvalidOperationException(
+                            string.Format("Recursive dependency detected: ServiceType:{0}, ServiceName:{1}]", serviceType, serviceName));
+                    }
+
+                    dependencyStack.Push(emitter);
+                    emitter(dmi);
+                    dependencyStack.Pop();
+                };
         }
-        
-        private Action<DynamicMethodInfo> GetCustomFactoryEmitMethod(Type serviceType, string serviceName, IFactory factory, Action<DynamicMethodInfo> emitMethod)
+
+        private Action<DynamicMethodInfo> GetCustomFactoryEmitMethod(Type serviceType, string serviceName, IFactory factory, Action<DynamicMethodInfo> emitter)
         {
-            if (emitMethod != null)
+            if (emitter != null)
             {
-                var del = CreateDynamicMethodDelegate(emitMethod, typeof(IFactory));
-                emitMethod = this.CreateEmitMethodBasedOnCustomFactory(serviceType, serviceName, factory, () => del(constants.Items));
+                var del = CreateDynamicMethodDelegate(emitter, typeof(IFactory));
+                emitter = CreateEmitMethodBasedOnCustomFactory(serviceType, serviceName, factory, () => del(constants.Items));
             }
             else
             {
-                emitMethod = this.CreateEmitMethodBasedOnCustomFactory(serviceType, serviceName, factory, null);
+                emitter = CreateEmitMethodBasedOnCustomFactory(serviceType, serviceName, factory, null);
             }
 
-            return emitMethod;
+            UpdateServiceRegistration(serviceType, serviceName, emitter);
+            return emitter;
         }
 
         private Action<DynamicMethodInfo> GetRegisteredEmitMethod(Type serviceType, string serviceName)
         {
-            Action<DynamicMethodInfo> emitMethod;
+            Action<DynamicMethodInfo> emitter;
             var registrations = this.GetServiceRegistrations(serviceType);
-            registrations.TryGetValue(serviceName, out emitMethod);
-            return emitMethod ?? ResolveUnknownServiceEmitter(serviceType, serviceName);
+            registrations.TryGetValue(serviceName, out emitter);
+            return emitter ?? ResolveUnknownServiceEmitter(serviceType, serviceName);
         }
 
-        private void UpdateServiceRegistration(Type serviceType, string serviceName, Action<DynamicMethodInfo> emitMethod)
+        private void UpdateServiceRegistration(Type serviceType, string serviceName, Action<DynamicMethodInfo> emitter)
         {
-            if (emitMethod != null)
+            if (emitter != null)
             {
-                GetServiceRegistrations(serviceType).AddOrUpdate(serviceName, s => emitMethod, (s, m) => emitMethod);
+                GetServiceRegistrations(serviceType).AddOrUpdate(serviceName, s => emitter, (s, m) => emitter);
             }
         }
 
@@ -847,16 +921,16 @@ namespace IocPerformance
 
         private void EmitNewInstance(Type implementingType, DynamicMethodInfo dynamicMethodInfo)
         {
-            ServiceInfo serviceInfo = GetServiceInfo(implementingType);
+            ImplementationInfo implementationInfo = GetServiceInfo(implementingType);
             ILGenerator generator = dynamicMethodInfo.GetILGenerator();
-            EmitConstructorDependencies(serviceInfo, dynamicMethodInfo);
-            generator.Emit(OpCodes.Newobj, serviceInfo.Constructor);
-            EmitPropertyDependencies(serviceInfo, dynamicMethodInfo);
+            EmitConstructorDependencies(implementationInfo, dynamicMethodInfo);
+            generator.Emit(OpCodes.Newobj, implementationInfo.Constructor);
+            EmitPropertyDependencies(implementationInfo, dynamicMethodInfo);
         }
 
-        private void EmitConstructorDependencies(ServiceInfo serviceInfo, DynamicMethodInfo dynamicMethodInfo)
+        private void EmitConstructorDependencies(ImplementationInfo implementationInfo, DynamicMethodInfo dynamicMethodInfo)
         {
-            foreach (ConstructorDependency dependency in serviceInfo.ConstructorDependencies)
+            foreach (ConstructorDependency dependency in implementationInfo.ConstructorDependencies)
             {
                 this.EmitDependency(dynamicMethodInfo, dependency);
             }
@@ -874,22 +948,34 @@ namespace IocPerformance
             }
             else
             {
-                var emitter = this.GetEmitMethod(dependency.ServiceType, dependency.ServiceName);
+                Action<DynamicMethodInfo> emitter = GetEmitMethod(dependency.ServiceType, dependency.ServiceName);                                                
                 if (emitter == null)
                 {
                     throw new InvalidOperationException(string.Format(UnresolvedDependencyError, dependency));
                 }
 
-                emitter(dynamicMethodInfo);
+                try
+                {
+                    emitter(dynamicMethodInfo);
+                }
+                catch (InvalidOperationException ex)
+                {
+                    throw new InvalidOperationException(string.Format(UnresolvedDependencyError, dependency), ex);
+                }                
             }
         }
 
-        private void EmitPropertyDependencies(ServiceInfo serviceInfo, DynamicMethodInfo dynamicMethodInfo)
+        private void EmitPropertyDependencies(ImplementationInfo implementationInfo, DynamicMethodInfo dynamicMethodInfo)
         {
+            if (implementationInfo.PropertyDependencies.Count == 0)
+            {
+                return;
+            }
+
             ILGenerator generator = dynamicMethodInfo.GetILGenerator();
-            LocalBuilder instance = generator.DeclareLocal(serviceInfo.ImplementingType);
+            LocalBuilder instance = generator.DeclareLocal(implementationInfo.ImplementingType);
             generator.Emit(OpCodes.Stloc, instance);
-            foreach (var propertyDependency in serviceInfo.PropertyDependencies)
+            foreach (var propertyDependency in implementationInfo.PropertyDependencies)
             {
                 generator.Emit(OpCodes.Ldloc, instance);
                 EmitDependency(dynamicMethodInfo, propertyDependency);
@@ -901,32 +987,31 @@ namespace IocPerformance
 
         private Action<DynamicMethodInfo> ResolveUnknownServiceEmitter(Type serviceType, string serviceName)
         {
+            Action<DynamicMethodInfo> emitter = null;
             if (IsFunc(serviceType))
             {
-                return CreateServiceEmitterBasedOnFuncServiceRequest(serviceType, false);
+                emitter = CreateServiceEmitterBasedOnFuncServiceRequest(serviceType, false);
             }
-
-            if (IsEnumerableOfT(serviceType))
+            else if (IsEnumerableOfT(serviceType))
             {
-                return CreateEnumerableServiceEmitter(serviceType);
+                emitter = CreateEnumerableServiceEmitter(serviceType);
             }
-
-            if (IsFuncWithStringArgument(serviceType))
+            else if (IsFuncWithStringArgument(serviceType))
             {
-                return CreateServiceEmitterBasedOnFuncServiceRequest(serviceType, true);
+                emitter = CreateServiceEmitterBasedOnFuncServiceRequest(serviceType, true);
             }
-
-            if (CanRedirectRequestForDefaultServiceToSingleNamedService(serviceType, serviceName))
+            else if (CanRedirectRequestForDefaultServiceToSingleNamedService(serviceType, serviceName))
             {
-                return CreateServiceEmitterBasedOnSingleNamedInstance(serviceType);
+                emitter = CreateServiceEmitterBasedOnSingleNamedInstance(serviceType);
             }
-
-            if (IsClosedGeneric(serviceType))
+            else if (IsClosedGeneric(serviceType))
             {
-                return CreateServiceEmitterBasedOnClosedGenericServiceRequest(serviceType, serviceName);
+                emitter = CreateServiceEmitterBasedOnClosedGenericServiceRequest(serviceType, serviceName);
             }
-
-            return null;
+                        
+            UpdateServiceRegistration(serviceType, serviceName, emitter);
+            
+            return emitter;
         }
 
         private Action<DynamicMethodInfo> CreateEmitMethodBasedOnCustomFactory(Type serviceType, string serviceName, IFactory factory, Func<object> proceed)
@@ -962,12 +1047,29 @@ namespace IocPerformance
         private Action<DynamicMethodInfo> CreateEnumerableServiceEmitter(Type serviceType)
         {
             Type actualServiceType = serviceType.GetGenericArguments()[0];
+            if (actualServiceType.IsGenericType)
+            {
+                EnsureEmitMethodsForOpenGenericTypesAreCreated(actualServiceType);
+            }
+
             IList<Action<DynamicMethodInfo>> serviceEmitters = GetServiceRegistrations(actualServiceType).Values.ToList();
-            var dynamicMethodInfo = new DynamicMethodInfo();
-            EmitEnumerable(serviceEmitters, actualServiceType, dynamicMethodInfo);
-            var array = dynamicMethodInfo.CreateDelegate()(constants.Items);
-            int index = constants.Add(array);
-            return dmi => EmitLoadConstant(dmi, index, actualServiceType.MakeArrayType());
+            
+            if (dependencyStack.Count > 0 && serviceEmitters.Contains(dependencyStack.Peek()))
+            {
+                serviceEmitters.Remove(dependencyStack.Peek());
+            }
+
+            return dmi => EmitEnumerable(serviceEmitters, actualServiceType, dmi);
+        }
+
+        private void EnsureEmitMethodsForOpenGenericTypesAreCreated(Type actualServiceType)
+        {
+            var openGenericServiceType = actualServiceType.GetGenericTypeDefinition();
+            var openGenericServiceEmitters = this.GetOpenGenericRegistrations(openGenericServiceType);
+            foreach (var openGenericEmitterEntry in openGenericServiceEmitters.Keys)
+            {
+                GetRegisteredEmitMethod(actualServiceType, openGenericEmitterEntry);
+            }
         }
 
         private Action<DynamicMethodInfo> CreateServiceEmitterBasedOnFuncServiceRequest(Type serviceType, bool namedService)
@@ -997,17 +1099,17 @@ namespace IocPerformance
         {
             Type openGenericType = serviceType.GetGenericTypeDefinition();
 
-            OpenGenericServiceInfo openGenericServiceInfo = GetOpenGenericTypeInfo(openGenericType, serviceName);
-            if (openGenericServiceInfo == null)
+            OpenGenericEmitter openGenericEmitter = GetOpenGenericTypeInfo(openGenericType, serviceName);
+            if (openGenericEmitter == null)
             {
                 return null;
             }
 
-            Type closedGenericType = openGenericServiceInfo.ImplementingType.MakeGenericType(serviceType.GetGenericArguments());
-            return dmi => openGenericServiceInfo.EmitMethod(dmi, closedGenericType);
+            Type closedGenericType = openGenericEmitter.ImplementingType.MakeGenericType(serviceType.GetGenericArguments());
+            return dmi => openGenericEmitter.EmitMethod(dmi, closedGenericType);
         }
 
-        private OpenGenericServiceInfo GetOpenGenericTypeInfo(Type serviceType, string serviceName)
+        private OpenGenericEmitter GetOpenGenericTypeInfo(Type serviceType, string serviceName)
         {
             var openGenericRegistrations = GetOpenGenericRegistrations(serviceType);
             if (CanRedirectRequestForDefaultOpenGenericServiceToSingleNamedService(serviceType, serviceName))
@@ -1015,14 +1117,14 @@ namespace IocPerformance
                 return openGenericRegistrations.First().Value;
             }
 
-            OpenGenericServiceInfo openGenericServiceInfo;
-            openGenericRegistrations.TryGetValue(serviceName, out openGenericServiceInfo);
-            return openGenericServiceInfo;
+            OpenGenericEmitter openGenericEmitter;
+            openGenericRegistrations.TryGetValue(serviceName, out openGenericEmitter);
+            return openGenericEmitter;
         }
 
         private Action<DynamicMethodInfo> CreateServiceEmitterBasedOnSingleNamedInstance(Type serviceType)
         {
-            return this.GetEmitMethod(serviceType, GetServiceRegistrations(serviceType).First().Key);
+            return GetEmitMethod(serviceType, GetServiceRegistrations(serviceType).First().Key);
         }
 
         private bool CanRedirectRequestForDefaultServiceToSingleNamedService(Type serviceType, string serviceName)
@@ -1035,19 +1137,19 @@ namespace IocPerformance
             return string.IsNullOrEmpty(serviceName) && GetOpenGenericRegistrations(serviceType).Count == 1;
         }
 
-        private ServiceInfo GetServiceInfo(Type implementingType)
+        private ImplementationInfo GetServiceInfo(Type implementingType)
         {
             return implementations.GetOrAdd(implementingType, CreateServiceInfo);
         }
 
         private ThreadSafeDictionary<string, Action<DynamicMethodInfo>> GetServiceRegistrations(Type serviceType)
         {
-            return services.GetOrAdd(serviceType, s => new ThreadSafeDictionary<string, Action<DynamicMethodInfo>>(StringComparer.InvariantCultureIgnoreCase));
+            return this.emitters.GetOrAdd(serviceType, s => new ThreadSafeDictionary<string, Action<DynamicMethodInfo>>(StringComparer.InvariantCultureIgnoreCase));
         }
 
-        private ThreadSafeDictionary<string, OpenGenericServiceInfo> GetOpenGenericRegistrations(Type serviceType)
+        private ThreadSafeDictionary<string, OpenGenericEmitter> GetOpenGenericRegistrations(Type serviceType)
         {
-            return openGenericServices.GetOrAdd(serviceType, s => new ThreadSafeDictionary<string, OpenGenericServiceInfo>(StringComparer.InvariantCultureIgnoreCase));
+            return this.openGenericEmitters.GetOrAdd(serviceType, s => new ThreadSafeDictionary<string, OpenGenericEmitter>(StringComparer.InvariantCultureIgnoreCase));
         }
 
         private void RegisterService(Type serviceType, Type implementingType, LifeCycleType lifeCycleType, string serviceName)
@@ -1065,7 +1167,7 @@ namespace IocPerformance
 
         private void RegisterOpenGenericService(Type serviceType, Type implementingType, LifeCycleType lifeCycleType, string serviceName)
         {
-            var openGenericTypeInfo = new OpenGenericServiceInfo { ImplementingType = implementingType };
+            var openGenericTypeInfo = new OpenGenericEmitter { ImplementingType = implementingType };
             if (lifeCycleType == LifeCycleType.Transient)
             {
                 openGenericTypeInfo.EmitMethod = (d, t) => EmitNewInstance(t, d);
@@ -1084,21 +1186,21 @@ namespace IocPerformance
 
         private Action<DynamicMethodInfo> GetEmitDelegate(Type implementingType, LifeCycleType lifeCycleType)
         {
-            Action<DynamicMethodInfo> emitDelegate = null;
+            Action<DynamicMethodInfo> emitter = null;
             switch (lifeCycleType)
             {
                 case LifeCycleType.Transient:
-                    emitDelegate = dynamicMethodInfo => EmitNewInstance(implementingType, dynamicMethodInfo);
+                    emitter = dynamicMethodInfo => EmitNewInstance(implementingType, dynamicMethodInfo);                    
                     break;
                 case LifeCycleType.Request:
-                    emitDelegate = dynamicMethodInfo => EmitRequestInstance(implementingType, dynamicMethodInfo);
+                    emitter = dynamicMethodInfo => EmitRequestInstance(implementingType, dynamicMethodInfo);                   
                     break;
                 case LifeCycleType.Singleton:
-                    emitDelegate = dynamicMethodInfo => EmitSingletonInstance(implementingType, dynamicMethodInfo);
+                    emitter = dynamicMethodInfo => EmitSingletonInstance(implementingType, dynamicMethodInfo);                   
                     break;
             }
 
-            return emitDelegate;
+            return emitter;
         }
 
         private void EmitSingletonInstance(Type implementingType, DynamicMethodInfo dynamicMethodInfo)
@@ -1132,13 +1234,21 @@ namespace IocPerformance
                 CreateCustomFactories();
             }
 
+            dependencyStack.Clear();
             var serviceEmitter = this.GetEmitMethod(serviceType, serviceName);
             if (serviceEmitter == null)
             {
                 throw new InvalidOperationException(string.Format("Unable to resolve type: {0}, service name: {1}", serviceType, serviceName));
             }
 
-            return CreateDynamicMethodDelegate(serviceEmitter, serviceType);
+            try
+            {
+                return CreateDynamicMethodDelegate(serviceEmitter, serviceType);
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new InvalidOperationException(string.Format("Unable to resolve type: {0}, service name: {1}", serviceType, serviceName), ex);
+            }            
         }
 
         private bool FirstServiceRequest()
@@ -1167,7 +1277,7 @@ namespace IocPerformance
          
         private bool ServiceRegistryIsEmpty()
         {
-            return services.Count == 0 && openGenericServices.Count == 0;
+            return this.emitters.Count == 0 && this.openGenericEmitters.Count == 0;
         }
 
         private void RegisterValue(Type serviceType, object value, string serviceName)
@@ -1187,16 +1297,16 @@ namespace IocPerformance
         }
 
         /// <summary>
-        /// Parses a <see cref="LambdaExpression"/> into a <see cref="ServiceInfo"/> instance.
+        /// Parses a <see cref="LambdaExpression"/> into a <see cref="ImplementationInfo"/> instance.
         /// </summary>
         public class LambdaExpressionParser
         {                                                
             /// <summary>
-            /// Parses the <paramref name="lambdaExpression"/> and returns a <see cref="ServiceInfo"/> instance.
+            /// Parses the <paramref name="lambdaExpression"/> and returns a <see cref="ImplementationInfo"/> instance.
             /// </summary>
             /// <param name="lambdaExpression">The <see cref="LambdaExpression"/> to parse.</param>
-            /// <returns>A <see cref="ServiceInfo"/> instance.</returns>
-            public ServiceInfo Parse(LambdaExpression lambdaExpression)
+            /// <returns>A <see cref="ImplementationInfo"/> instance.</returns>
+            public ImplementationInfo Parse(LambdaExpression lambdaExpression)
             {                                
                 switch (lambdaExpression.Body.NodeType)
                 {
@@ -1209,7 +1319,7 @@ namespace IocPerformance
                 }                
             }
                         
-            private static ServiceInfo CreateServiceInfoBasedOnNewExpression(NewExpression newExpression)
+            private static ImplementationInfo CreateServiceInfoBasedOnNewExpression(NewExpression newExpression)
             {
                 var serviceInfo = CreateServiceInfo(newExpression);
                 ParameterInfo[] parameters = newExpression.Constructor.GetParameters();
@@ -1223,13 +1333,13 @@ namespace IocPerformance
                 return serviceInfo;
             }
 
-            private static ServiceInfo CreateServiceInfo(NewExpression newExpression)
+            private static ImplementationInfo CreateServiceInfo(NewExpression newExpression)
             {
-                var serviceInfo = new ServiceInfo { Constructor = newExpression.Constructor, ImplementingType = newExpression.Constructor.DeclaringType };
+                var serviceInfo = new ImplementationInfo { Constructor = newExpression.Constructor, ImplementingType = newExpression.Constructor.DeclaringType };
                 return serviceInfo;
             }
 
-            private static ServiceInfo CreateServiceInfoBasedOnHandleMemberInitExpression(MemberInitExpression memberInitExpression)
+            private static ImplementationInfo CreateServiceInfoBasedOnHandleMemberInitExpression(MemberInitExpression memberInitExpression)
             {
                 var serviceInfo = CreateServiceInfoBasedOnNewExpression(memberInitExpression.NewExpression);
                 foreach (MemberBinding memberBinding in memberInitExpression.Bindings)
@@ -1240,11 +1350,11 @@ namespace IocPerformance
                 return serviceInfo;
             }
            
-            private static void HandleMemberAssignment(MemberAssignment memberAssignment, ServiceInfo serviceInfo)
+            private static void HandleMemberAssignment(MemberAssignment memberAssignment, ImplementationInfo implementationInfo)
             {
                 var propertyDependency = CreatePropertyDependency(memberAssignment);
                 ApplyDependencyDetails(memberAssignment.Expression, propertyDependency);
-                serviceInfo.PropertyDependencies.Add(propertyDependency);
+                implementationInfo.PropertyDependencies.Add(propertyDependency);
             }
 
             private static ConstructorDependency CreateConstructorDependency(ParameterInfo parameterInfo)
@@ -1343,12 +1453,12 @@ namespace IocPerformance
         /// <summary>
         /// Contains information about how to create a service instance.
         /// </summary>
-        public class ServiceInfo
+        public class ImplementationInfo
         {
             /// <summary>
-            /// Initializes a new instance of the <see cref="ServiceInfo"/> class.
+            /// Initializes a new instance of the <see cref="ImplementationInfo"/> class.
             /// </summary>
-            public ServiceInfo()
+            public ImplementationInfo()
             {
                 PropertyDependencies = new List<PropertyDependecy>();
                 ConstructorDependencies = new List<ConstructorDependency>();
@@ -1398,7 +1508,7 @@ namespace IocPerformance
             public Expression Expression { get; set; }
 
             /// <summary>
-            /// Returns textual information about the depenency.
+            /// Returns textual information about the dependency.
             /// </summary>
             /// <returns>A string that describes the dependency.</returns>
             public override string ToString()
@@ -1419,7 +1529,7 @@ namespace IocPerformance
             public PropertyInfo Property { get; set; }
 
             /// <summary>
-            /// Returns textual information about the depenency.
+            /// Returns textual information about the dependency.
             /// </summary>
             /// <returns>A string that describes the dependency.</returns>
             public override string ToString()
@@ -1439,7 +1549,7 @@ namespace IocPerformance
             public ParameterInfo Parameter { get; set; }
 
             /// <summary>
-            /// Returns textual information about the depenency.
+            /// Returns textual information about the dependency.
             /// </summary>
             /// <returns>A string that describes the dependency.</returns>
             public override string ToString()
@@ -1519,7 +1629,7 @@ namespace IocPerformance
 
             public bool TryGetValue(TKey key, out TValue value)
             {
-                return dictionary.TryGetValue(key, out value);
+                return dictionary.TryGetValue(key, out value);                
             }
 
             public TValue GetOrAdd(TKey key, Func<TKey, TValue> valueFactory)
@@ -1533,7 +1643,7 @@ namespace IocPerformance
                     }
                 }
 
-                return value;
+               return value;
             }
 
             private TValue TryAddValue(TKey key, Func<TKey, TValue> valueFactory)
@@ -1607,7 +1717,7 @@ namespace IocPerformance
             {
             }
         }
-        
+
         private class ServiceRegistry<T> : ThreadSafeDictionary<Type, ThreadSafeDictionary<string, T>>
         {
         }
@@ -1616,12 +1726,12 @@ namespace IocPerformance
         {
         }
 
-        private class OpenGenericServiceInfo
+        private class OpenGenericEmitter
         {
             public Type ImplementingType { get; set; }
 
             public Action<DynamicMethodInfo, Type> EmitMethod { get; set; }
-        }
+        }      
     }
 
     /// <summary>
@@ -1663,8 +1773,9 @@ namespace IocPerformance
         /// </summary>
         /// <param name="assembly">The <see cref="Assembly"/> to scan.</param>        
         /// <param name="serviceRegistry">The target <see cref="IServiceRegistry"/> instance.</param>
-        /// <param name="lifeCycleType">The <see cref="LifeCycleType"/> used to register the services found withing the assembly.</param>
-        public void Scan(Assembly assembly, IServiceRegistry serviceRegistry, LifeCycleType lifeCycleType)
+        /// <param name="lifeCycleType">The <see cref="LifeCycleType"/> used to register the services found within the assembly.</param>
+        /// <param name="shouldRegister">A function delegate that determines if a service implementation should be registered.</param>
+        public void Scan(Assembly assembly, IServiceRegistry serviceRegistry, LifeCycleType lifeCycleType, Func<Type, bool> shouldRegister)
         {            
             IEnumerable<Type> concreteTypes = GetConcreteTypes(assembly).ToList();
             var compositionRoots = concreteTypes.Where(t => typeof(ICompositionRoot).IsAssignableFrom(t)).ToList();
@@ -1674,7 +1785,7 @@ namespace IocPerformance
             }
             else
             {
-                foreach (Type type in concreteTypes)
+                foreach (Type type in concreteTypes.Where(shouldRegister))
                 {
                     BuildImplementationMap(type, serviceRegistry, lifeCycleType);
                 }
@@ -1749,7 +1860,7 @@ namespace IocPerformance
     }
 
     /// <summary>
-    /// Selects the properties that represents a dependecy to the target <see cref="Type"/>.
+    /// Selects the properties that represents a dependency to the target <see cref="Type"/>.
     /// </summary>
     internal class PropertySelector : IPropertySelector
     {

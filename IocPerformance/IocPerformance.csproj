@@ -62,7 +62,7 @@
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
     <Reference Include="Griffin.Container">
-      <HintPath>..\packages\Griffin.Container.1.0.1\lib\net40\Griffin.Container.dll</HintPath>
+      <HintPath>..\packages\Griffin.Container.1.0.5\lib\net40\Griffin.Container.dll</HintPath>
     </Reference>
     <Reference Include="Hiro, Version=0.1.0.19167, Culture=neutral, PublicKeyToken=f0efb83db47c0105, processorArchitecture=MSIL">
       <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.dll</HintPath>

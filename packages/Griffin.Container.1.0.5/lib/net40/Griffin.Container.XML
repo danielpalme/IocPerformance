@@ -8,7 +8,7 @@
             <summary>
             Filter used when the registrar is looking for the services that a class implement.
             </summary>
-            <remarks>This filter ignores all .NET Framework classes.</remarks>
+            <remarks>This filter ignores all .NET Framework classes (i.e. all classes with a namespace that starts with "Microsoft." and "System.").</remarks>
         </member>
         <member name="T:Griffin.Container.IServiceFilter">
             <summary>
@@ -206,7 +206,7 @@
         </member>
         <member name="P:Griffin.Container.BuildPlans.IBuildPlan.Services">
             <summary>
-            gets services that the concrete implements.
+            Gets services that the concrete implements.
             </summary>
         </member>
         <member name="P:Griffin.Container.BuildPlans.IBuildPlan.Lifetime">
@@ -282,16 +282,6 @@
         <member name="M:Griffin.Container.IScopedStartable.StartScoped">
             <summary>
             Invoked when the scoped container is created.
-            </summary>
-        </member>
-        <member name="T:Griffin.Container.ISingletonStartable">
-            <summary>
-            Will be invoked when a parent container is created.
-            </summary>
-        </member>
-        <member name="M:Griffin.Container.ISingletonStartable.StartScoped">
-            <summary>
-            Invoked when the parent container is created.
             </summary>
         </member>
         <member name="T:Griffin.Container.InstanceStrategies.IInstanceStrategy">
@@ -475,6 +465,19 @@
             <summary>
             Gets instance lifetime
             </summary>
+        </member>
+        <member name="T:Griffin.Container.IAttributeRegistrar">
+            <summary>
+            Let your custom attribute configure the container
+            </summary>
+            <remarks>Used together <see cref="M:Griffin.Container.IContainerRegistrar.RegisterUsingAttribute``1(System.Reflection.Assembly[])"/>. Your custom attribute should implement this interface.</remarks>
+        </member>
+        <member name="M:Griffin.Container.IAttributeRegistrar.Register(System.Type,Griffin.Container.IContainerRegistrar)">
+            <summary>
+            Register the class in the container
+            </summary>
+            <param name="concrete">Class which has been decorated with the attribute.</param>
+            <param name="registrar">The container registrar.</param>
         </member>
         <member name="T:Griffin.Container.ContainerBase">
             <summary>
@@ -795,6 +798,16 @@
             </summary>
             <param name="service">The service.</param>
         </member>
+        <member name="T:Griffin.Container.ISingletonStartable">
+            <summary>
+            Will be invoked when a parent container is created.
+            </summary>
+        </member>
+        <member name="M:Griffin.Container.ISingletonStartable.StartSingleton">
+            <summary>
+            Invoked when the parent container is created.
+            </summary>
+        </member>
         <member name="T:Griffin.Container.Commands.CommandDispatcher">
             <summary>
             Facade for the command handling
@@ -818,6 +831,21 @@
             <summary>
             Used to register classes in the container.
             </summary>
+        </member>
+        <member name="M:Griffin.Container.IContainerRegistrar.RegisterUsingAttribute``1(System.Reflection.Assembly[])">
+            <summary>
+            Register classes using your own custom attribute
+            </summary>
+            <typeparam name="T">Your custom attribute used to identify concretes.</typeparam>
+            <param name="assemblies">Assemblies to scan after the attribute</param>
+        </member>
+        <member name="M:Griffin.Container.IContainerRegistrar.RegisterUsingAttribute``1(System.String,System.String)">
+            <summary>
+            Register classes using your own custom attribute
+            </summary>
+            <typeparam name="T">Your custom attribute used to identify concretes.</typeparam>
+            <param name="path">File path to load assemblies from.</param>
+            <param name="filePattern">File pattern to search for, same as for <see cref="M:System.IO.Directory.GetFiles(System.String,System.String)"/>.</param>
         </member>
         <member name="M:Griffin.Container.IContainerRegistrar.RegisterComponents(Griffin.Container.Lifetime,System.String,System.String)">
             <summary>
@@ -918,6 +946,7 @@
             <summary>
             Used to register all services which will be created by the container.
             </summary>
+            <remarks>Uses the <see cref="T:Griffin.Container.NonFrameworkClasses"/> when registering concretes without service specification (i.e. <c>RegisterConcrete</c> and <c>RegisterComponents</c>).</remarks>
         </member>
         <member name="M:Griffin.Container.ContainerRegistrar.#ctor(Griffin.Container.IServiceFilter,Griffin.Container.Lifetime)">
             <summary>
@@ -932,11 +961,20 @@
             </summary>
             <param name="defaultLifetime">The default lifetime if not specified in the methods.</param>
         </member>
-        <member name="M:Griffin.Container.ContainerRegistrar.Build">
+        <member name="M:Griffin.Container.ContainerRegistrar.RegisterUsingAttribute``1(System.Reflection.Assembly[])">
             <summary>
-            Builds the container directly.
+            Register classes using your own custom attribute
             </summary>
-            <returns>Generated container.</returns>
+            <typeparam name="T">Your custom attribute used to identify concretes.</typeparam>
+            <param name="assemblies">Assemblies to scan after the attribute</param>
+        </member>
+        <member name="M:Griffin.Container.ContainerRegistrar.RegisterUsingAttribute``1(System.String,System.String)">
+            <summary>
+            Register classes using your own custom attribute
+            </summary>
+            <typeparam name="T">Your custom attribute used to identify concretes.</typeparam>
+            <param name="path">File path to load assemblies from.</param>
+            <param name="filePattern">File pattern to search for, same as for <see cref="M:System.IO.Directory.GetFiles(System.String,System.String)"/>.</param>
         </member>
         <member name="M:Griffin.Container.ContainerRegistrar.RegisterComponents(Griffin.Container.Lifetime,System.String,System.String)">
             <summary>
@@ -1025,6 +1063,20 @@
             </summary>
             <param name="service">Type which will be requested</param>
             <param name="instance">Object which will be returned</param>
+        </member>
+        <member name="M:Griffin.Container.ContainerRegistrar.Build">
+            <summary>
+            Builds the container directly.
+            </summary>
+            <returns>Generated container.</returns>
+        </member>
+        <member name="M:Griffin.Container.ContainerRegistrar.FindTypesUsing``1(System.Reflection.Assembly,System.Action{``0,System.Type})">
+            <summary>
+            Finds the types using.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="assembly">The assembly.</param>
+            <param name="callback">The callback.</param>
         </member>
         <member name="M:Griffin.Container.ContainerRegistrar.RegisterComponent(System.Type,Griffin.Container.Lifetime)">
             <summary>
@@ -1224,6 +1276,34 @@
             Invokes the specified command.
             </summary>
             <param name="command">The command.</param>
+        </member>
+        <member name="T:Griffin.Container.Commands.CommandValidationFailedException">
+            <summary>
+            Thrown by <see cref="T:Griffin.Container.Commands.ValidationDecorator`1"/>.
+            </summary>
+        </member>
+        <member name="M:Griffin.Container.Commands.CommandValidationFailedException.#ctor(Griffin.Container.Commands.ICommand,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Griffin.Container.Commands.CommandValidationFailedException"/> class.
+            </summary>
+            <param name="command">The command that failed.</param>
+            <param name="results">Validation errors.</param>
+        </member>
+        <member name="P:Griffin.Container.Commands.CommandValidationFailedException.Command">
+            <summary>
+            Gets command which was invoked.
+            </summary>
+        </member>
+        <member name="P:Griffin.Container.Commands.CommandValidationFailedException.Results">
+            <summary>
+            Gets validation failure reasons
+            </summary>
+        </member>
+        <member name="P:Griffin.Container.Commands.CommandValidationFailedException.Message">
+            <summary>
+            Gets a message that describes the current exception.
+            </summary>
+            <returns>The error message that explains the reason for the exception, or an empty string("").</returns>
         </member>
         <member name="T:Griffin.Container.IParentContainer">
             <summary>
@@ -1517,6 +1597,25 @@
             </para>
             </remarks>
         </member>
+        <member name="T:Griffin.Container.Commands.ValidationDecorator`1">
+            <summary>
+            Uses data annotation to validate commands.
+            </summary>
+            <typeparam name="T">Type of command</typeparam>
+            <remarks>Throws <see cref="T:Griffin.Container.Commands.CommandValidationFailedException"/> if validation fails.</remarks>
+        </member>
+        <member name="M:Griffin.Container.Commands.ValidationDecorator`1.#ctor(Griffin.Container.Commands.IHandlerOf{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Griffin.Container.Commands.ValidationDecorator`1"/> class.
+            </summary>
+            <param name="inner">The inner.</param>
+        </member>
+        <member name="M:Griffin.Container.Commands.ValidationDecorator`1.Invoke(`0)">
+            <summary>
+            Invokes the specified command.
+            </summary>
+            <param name="command">The command.</param>
+        </member>
         <member name="T:Griffin.Container.ConstructorFailedReason">
             <summary>
             A failed constructor and the reason.
@@ -1640,7 +1739,7 @@
             <summary>
             Sets the constructor to use
             </summary>
-            <param name="constructor"></param>
+            <param name="constructor">Set the constructor which should be used.</param>
         </member>
         <member name="M:Griffin.Container.BuildPlans.ConcreteBuildPlan.GetCreateDelegate">
             <summary>
@@ -1734,6 +1833,26 @@
             </summary>
             <returns>The error message that explains the reason for the exception, or an empty string("").</returns>
         </member>
+        <member name="T:Griffin.Container.TypeExtensionMethods">
+            <summary>
+            Extension methods for Type
+            </summary>
+        </member>
+        <member name="M:Griffin.Container.TypeExtensionMethods.ToBetterString(System.Type)">
+            <summary>
+            Displays generic in the same ways as they are declared.
+            </summary>
+            <param name="type">Type to print</param>
+            <returns>Code formatted string</returns>
+            <example>
+            <code>
+            <![CDATA[
+            var type = typeof(IEnumerable<User>);
+            Console.WriteLine(type.ToBetterString()); // prints "System.Collections.Generic.IEnumerable<Your.Namespace.User>" instead of "System.Collections.Generic.IEnumerable`1"
+            ]]>
+            </code>
+            </example>
+        </member>
         <member name="T:Griffin.Container.Lifetime">
             <summary>
             Lifetime of an object
@@ -1822,6 +1941,13 @@
             <returns>A created container.</returns>
             <remarks>Will analyze all registrations and create a build plan for each service</remarks>
         </member>
+        <member name="M:Griffin.Container.ContainerBuilder.GetBuildPlans(System.Type)">
+            <summary>
+            Gets build plans for the requested service
+            </summary>
+            <param name="requestedService"><![CDATA[IEnumerable<T>]]> to resolve all services or a single service type.</param>
+            <returns>Services if found; otherwise <c>null</c>.</returns>
+        </member>
         <member name="M:Griffin.Container.ContainerBuilder.Validate">
             <summary>
             Validate that all services can be built.
@@ -1852,6 +1978,15 @@
             <param name="concreteType">Type to create</param>
             <param name="constructor">Chosen constructor</param>
             <returns>Error if any; otherwise null.</returns>
+        </member>
+        <member name="M:Griffin.Container.ContainerBuilder.FindMissingArgument(System.Reflection.ConstructorInfo)">
+            <summary>
+            Tries to find a constructor argument which can not be resolved.
+            </summary>
+            <param name="constructorInfo">Constructor to check</param>
+            <returns>Missing parameter if any; otherwise <c>null</c>.</returns>
+            <remarks>Used to find the first constructor which can be properly resolved and in the same time find the first
+            missing argument for each constructor that can't be resolved properly (as a hint to the developer)</remarks>
         </member>
         <member name="T:Griffin.Container.InstanceStrategies.SingletonFactoryStrategy">
             <summary>
@@ -1896,6 +2031,7 @@
             <summary>
             Interface which should be implemented by commands.
             </summary>
+            <remarks>Empty interface, but added to show intent.</remarks>
         </member>
         <member name="T:Griffin.Container.Commands.ContainerDispatcher">
             <summary>
@@ -1963,52 +2099,97 @@
             <param name="handler">Current handler</param>
             <returns><paramref name="handler"/> if no decorators are found; otherwise the last decorator.</returns>
         </member>
-        <member name="T:Griffin.Container.Commands.ValidationDecorator`1">
+        <member name="T:Griffin.Container.BuildPlans.CompositeBuildPlan">
             <summary>
-            Uses data annotation to validate commands.
+            Used for constructor parameters that is of type <c><![CDATA[IEnumerable<T>]]></c>.
             </summary>
-            <typeparam name="T">Type of command</typeparam>
-            <remarks>Throws <see cref="T:Griffin.Container.Commands.CommandValidationFailedException"/> if validation fails.</remarks>
+            <remarks>Contains two or more build plans which is used for the construction</remarks>
         </member>
-        <member name="M:Griffin.Container.Commands.ValidationDecorator`1.#ctor(Griffin.Container.Commands.IHandlerOf{`0})">
+        <member name="M:Griffin.Container.BuildPlans.CompositeBuildPlan.#ctor(System.Type,Griffin.Container.BuildPlans.IBuildPlan[])">
             <summary>
-            Initializes a new instance of the <see cref="T:Griffin.Container.Commands.ValidationDecorator`1"/> class.
+            Initializes a new instance of the <see cref="T:Griffin.Container.BuildPlans.CompositeBuildPlan"/> class.
             </summary>
-            <param name="inner">The inner.</param>
+            <param name="serviceType">Should be type of <c><![CDATA[IEnumerable<TheType>]]></c></param>
+            <param name="buildPlans">The build plans.</param>
         </member>
-        <member name="M:Griffin.Container.Commands.ValidationDecorator`1.Invoke(`0)">
+        <member name="M:Griffin.Container.BuildPlans.CompositeBuildPlan.GetInstance(Griffin.Container.CreateContext,System.Object@)">
             <summary>
-            Invokes the specified command.
+            Get the instance.
             </summary>
-            <param name="command">The command.</param>
+            <param name="context">Context used to create instances.</param>
+            <param name="instance">The instance.</param>
+            <returns>
+            If an existing or an new instance is returned.
+            </returns>
+            <remarks>
+            Use one of the set methods to assigned the instance.
+            </remarks>
         </member>
-        <member name="T:Griffin.Container.Commands.CommandValidationFailedException">
+        <member name="M:Griffin.Container.BuildPlans.CompositeBuildPlan.SetCreateCallback(Griffin.Container.ICreateCallback)">
             <summary>
-            Thrown by <see cref="T:Griffin.Container.Commands.ValidationDecorator`1"/>.
+            Callback invoked each time a new instance is created.
             </summary>
+            <param name="callback">Callback to invoke</param>
         </member>
-        <member name="M:Griffin.Container.Commands.CommandValidationFailedException.#ctor(Griffin.Container.Commands.ICommand,System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+        <member name="P:Griffin.Container.BuildPlans.CompositeBuildPlan.Services">
             <summary>
-            Initializes a new instance of the <see cref="T:Griffin.Container.Commands.CommandValidationFailedException"/> class.
-            </summary>
-            <param name="command">The command that failed.</param>
-            <param name="results">Validation errors.</param>
-        </member>
-        <member name="P:Griffin.Container.Commands.CommandValidationFailedException.Command">
-            <summary>
-            Gets command which was invoked.
-            </summary>
-        </member>
-        <member name="P:Griffin.Container.Commands.CommandValidationFailedException.Results">
-            <summary>
-            Gets validation failure reasons
+            gets services that the concrete implements.
             </summary>
         </member>
-        <member name="P:Griffin.Container.Commands.CommandValidationFailedException.Message">
+        <member name="P:Griffin.Container.BuildPlans.CompositeBuildPlan.Lifetime">
             <summary>
-            Gets a message that describes the current exception.
+            Gets lifetime of the object.
             </summary>
-            <returns>The error message that explains the reason for the exception, or an empty string("").</returns>
+        </member>
+        <member name="P:Griffin.Container.BuildPlans.CompositeBuildPlan.DisplayName">
+            <summary>
+            Either name of the concrete or anything else which can help the user to identify the registration.
+            </summary>
+        </member>
+        <member name="T:Griffin.Container.BuildPlans.EmptyListBuildPlan">
+            <summary>
+            Used for constructors that want a list of services when no services has been registered.
+            </summary>
+        </member>
+        <member name="M:Griffin.Container.BuildPlans.EmptyListBuildPlan.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Griffin.Container.BuildPlans.EmptyListBuildPlan"/> class.
+            </summary>
+            <param name="service">The service.</param>
+        </member>
+        <member name="M:Griffin.Container.BuildPlans.EmptyListBuildPlan.GetInstance(Griffin.Container.CreateContext,System.Object@)">
+            <summary>
+            Get the instance.
+            </summary>
+            <param name="context">Context used to create instances.</param>
+            <param name="instance">The instance.</param>
+            <returns>
+            If an existing or an new instance is returned.
+            </returns>
+            <remarks>
+            Use one of the set methods to assigned the instance.
+            </remarks>
+        </member>
+        <member name="M:Griffin.Container.BuildPlans.EmptyListBuildPlan.SetCreateCallback(Griffin.Container.ICreateCallback)">
+            <summary>
+            Callback invoked each time a new instance is created.
+            </summary>
+            <param name="callback">Callback to invoke</param>
+        </member>
+        <member name="P:Griffin.Container.BuildPlans.EmptyListBuildPlan.Services">
+            <summary>
+            Gets services that the concrete implements.
+            </summary>
+        </member>
+        <member name="P:Griffin.Container.BuildPlans.EmptyListBuildPlan.Lifetime">
+            <summary>
+            Gets lifetime of the object.
+            </summary>
+        </member>
+        <member name="P:Griffin.Container.BuildPlans.EmptyListBuildPlan.DisplayName">
+            <summary>
+            Either name of the concrete or anything else which can help the user to identify the registration.
+            </summary>
         </member>
     </members>
 </doc>
