@@ -13,8 +13,26 @@ namespace IocPerformance
 
             var containers = new List<Tuple<string, IContainerAdapter>>
             {
+                Tuple.Create<string, IContainerAdapter>("No", new NoContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("AutoFac", new AutofacContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Dynamo", new DynamoContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Funq", new FunqContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Griffin", new GriffinContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Hiro", new HiroContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("LightCore", new LightCoreContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("LightInject", new LightInjectContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("LinFu", new LinFuContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Mef", new MefContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Mugen", new MugenContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Munq", new MunqContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Ninject", new NinjectContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Petite", new PetiteContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("SimpleInjector", new SimpleInjectorContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Spring.NET", new SpringContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("StructureMap", new StructureMapContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("TinyIOC", new TinyIOCContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Unity", new UnityContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Windsor", new WindsorContainerAdapter())
             };
 
             foreach (var container in containers)
