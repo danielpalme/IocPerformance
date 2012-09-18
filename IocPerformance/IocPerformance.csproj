@@ -51,6 +51,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Castle.Windsor.3.1.0\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Catel.Core">
+      <HintPath>..\packages\Catel.Core.3.3\lib\NET40\Catel.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Common.Logging, Version=2.1.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Common.Logging.2.1.1\lib\net40\Common.Logging.dll</HintPath>
@@ -125,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\AutofacContainerAdapter.cs" />
+    <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\GriffinContainerAdapter.cs" />
     <Compile Include="Adapters\MefContainerAdapter.cs" />
     <Compile Include="Adapters\MugenContainerAdapter.cs" />
