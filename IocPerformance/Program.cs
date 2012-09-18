@@ -15,6 +15,7 @@ namespace IocPerformance
             {
                 Tuple.Create<string, IContainerAdapter>("No", new NoContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("AutoFac", new AutofacContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Catel", new CatelContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Dynamo", new DynamoContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Funq", new FunqContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Griffin", new GriffinContainerAdapter()),
