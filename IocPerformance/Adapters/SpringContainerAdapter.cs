@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using Spring.Context;
-using Spring.Objects.Factory;
+﻿using Spring.Context;
 
 namespace IocPerformance.Adapters
 {
@@ -15,14 +13,7 @@ namespace IocPerformance.Adapters
 
         public T Resolve<T>() where T : class
         {
-            IEnumerator enumerator = this.container.GetObjectsOfType(typeof(T)).Values.GetEnumerator();
-
-            if (!enumerator.MoveNext())
-            {
-                throw new ObjectCreationException(string.Format("no services of type '{0}' defined", typeof(T).FullName));
-            }
-
-            return (T)enumerator.Current;
+            return (T)container.GetObject(typeof(T).FullName);
         }
 
         public void Dispose()
