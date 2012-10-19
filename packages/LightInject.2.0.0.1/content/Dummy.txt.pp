@@ -1,1 +1,0 @@
-This file exists only so that the scripts in the Tools folder will execute

@@ -1,7 +1,0 @@
-﻿<configuration>
-	<system.webServer>
-		<modules>
-			<add name="MunqRequestLifetime" type="Munq.LifetimeManagers.RequestLifetimeModule" preCondition="managedHandler"/>
-		</modules>
-		</system.webServer>
-</configuration>
