@@ -12,11 +12,11 @@ namespace IocPerformance.Adapters
         {
             var serviceLocator = new ServiceLocator();
 
-            serviceLocator.RegisterType<ISingleton, Singleton>(false, true);
+            serviceLocator.RegisterType<ISingleton, Singleton>(RegistrationType.Singleton);
 
-            serviceLocator.RegisterType<ITransient, Transient>(false, false);
+            serviceLocator.RegisterType<ITransient, Transient>(RegistrationType.Transient);
 
-            serviceLocator.RegisterType<ICombined, Combined>(false, false);
+            serviceLocator.RegisterType<ICombined, Combined>(RegistrationType.Transient);
 
             container = serviceLocator;
         }
