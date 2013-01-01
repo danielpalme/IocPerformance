@@ -134,6 +134,7 @@
   <ItemGroup>
     <Compile Include="Adapters\AutofacContainerAdapter.cs" />
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
+    <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
     <Compile Include="Adapters\GriffinContainerAdapter.cs" />
     <Compile Include="Adapters\MefContainerAdapter.cs" />
     <Compile Include="Adapters\MugenContainerAdapter.cs" />
@@ -154,6 +155,9 @@
     <Compile Include="Adapters\TinyIOCContainerAdapter.cs" />
     <Compile Include="Adapters\UnityContainerAdapter.cs" />
     <Compile Include="Adapters\WindsorContainerAdapter.cs" />
+    <Compile Include="Caliburn.Micro\ContainerExtensions.cs" />
+    <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
+    <Compile Include="Caliburn.Micro\SimpleContainer.cs" />
     <Compile Include="Classes.cs" />
     <Compile Include="Petite.Container.cs" />
     <Compile Include="Program.cs" />
