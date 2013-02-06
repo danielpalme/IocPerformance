@@ -1,5 +1,6 @@
 
 *.suo
+*proj.user
 /IocPerformance/bin
 /IocPerformance/obj
 /packages/Autofac*
@@ -19,6 +20,7 @@
 /packages/Ninject*
 /packages/Petite.Container*
 /packages/SimpleInjector*
+/packages/Speedioc*
 /packages/Spring.Core*
 /packages/structuremap*
 /packages/TinyIoC*
