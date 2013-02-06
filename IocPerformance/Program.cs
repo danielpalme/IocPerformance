@@ -15,7 +15,7 @@ namespace IocPerformance
             {
                 Tuple.Create<string, IContainerAdapter>("No", new NoContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("AutoFac", new AutofacContainerAdapter()),
-                Tuple.Create<string, IContainerAdapter>("Caliburn.Micro", new CaliburnMicroContainer()),
+                Tuple.Create<string, IContainerAdapter>("Caliburn.Micro", new CatelContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Catel", new CatelContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Dynamo", new DynamoContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Funq", new FunqContainerAdapter()),
@@ -30,6 +30,7 @@ namespace IocPerformance
                 Tuple.Create<string, IContainerAdapter>("Ninject", new NinjectContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Petite", new PetiteContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("SimpleInjector", new SimpleInjectorContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Speedioc", new SpeediocContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Spring.NET", new SpringContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("StructureMap", new StructureMapContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("TinyIOC", new TinyIOCContainerAdapter()),
