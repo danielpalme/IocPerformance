@@ -1,10 +1,25 @@
-﻿using Petite;
+﻿using System.Linq;
+using System.Xml.Linq;
+using Petite;
 
 namespace IocPerformance.Adapters
 {
     public sealed class PetiteContainerAdapter : IContainerAdapter
     {
         private Container container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "Petite.Container")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

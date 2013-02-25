@@ -1,10 +1,25 @@
-﻿using Catel.IoC;
+﻿using System.Linq;
+using System.Xml.Linq;
+using Catel.IoC;
 
 namespace IocPerformance.Adapters
 {
     public class CatelContainerAdapter : IContainerAdapter
     {
         private IServiceLocator container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "Catel.Core")
+                    .Attribute("version").Value;
+            }
+        }
 
         #region IContainerAdapter Members
 

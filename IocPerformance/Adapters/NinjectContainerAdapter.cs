@@ -1,10 +1,25 @@
-﻿using Ninject;
+﻿using System.Linq;
+using System.Xml.Linq;
+using Ninject;
 
 namespace IocPerformance.Adapters
 {
     public sealed class NinjectContainerAdapter : IContainerAdapter
     {
         private StandardKernel container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "Ninject")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

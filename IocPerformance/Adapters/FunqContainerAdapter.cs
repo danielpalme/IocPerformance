@@ -6,6 +6,11 @@ namespace IocPerformance.Adapters
     {
         private Container container;
 
+        public string Version
+        {
+            get { return typeof(Container).Assembly.GetName().Version.ToString(); }
+        }
+
         public void Prepare()
         {
             this.container = new Funq.Container();

@@ -1,4 +1,6 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using System.Linq;
+using System.Xml.Linq;
+using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 
 namespace IocPerformance.Adapters
@@ -6,6 +8,19 @@ namespace IocPerformance.Adapters
     public sealed class WindsorContainerAdapter : IContainerAdapter
     {
         private WindsorContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "Castle.Windsor")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

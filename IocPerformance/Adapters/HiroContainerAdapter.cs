@@ -1,4 +1,6 @@
-﻿using Hiro;
+﻿using System.Linq;
+using System.Xml.Linq;
+using Hiro;
 using Hiro.Containers;
 
 namespace IocPerformance.Adapters
@@ -6,6 +8,19 @@ namespace IocPerformance.Adapters
     public sealed class HiroContainerAdapter : IContainerAdapter
     {
         private IMicroContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "Hiro")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

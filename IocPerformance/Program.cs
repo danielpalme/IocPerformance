@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using IocPerformance.Adapters;
+using IocPerformance.Output;
 
 namespace IocPerformance
 {
@@ -9,13 +10,14 @@ namespace IocPerformance
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Name        \tSingleton\tTransient\tCombined\t#.ctor Singleton\t#.ctor Transient\t#.ctor Combined");
+            IOutput output = new MultiOutput(new IOutput[] { new HtmlOutput(), new ConsoleOutput() });
+            output.Start();
 
             var containers = new List<Tuple<string, IContainerAdapter>>
             {
                 Tuple.Create<string, IContainerAdapter>("No", new NoContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("AutoFac", new AutofacContainerAdapter()),
-                Tuple.Create<string, IContainerAdapter>("Caliburn.Micro", new CatelContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("Caliburn.Micro", new CaliburnMicroContainer()),
                 Tuple.Create<string, IContainerAdapter>("Catel", new CatelContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Dynamo", new DynamoContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Funq", new FunqContainerAdapter()),
@@ -40,15 +42,13 @@ namespace IocPerformance
 
             foreach (var container in containers)
             {
-                MeasurePerformance(container.Item1, container.Item2);
+                output.Result(MeasurePerformance(container.Item1, container.Item2));
             }
 
-            Console.WriteLine("Done.");
-
-            Console.ReadKey();
+            output.Finish();
         }
 
-        private static void MeasurePerformance(string name, IContainerAdapter container)
+        private static Result MeasurePerformance(string name, IContainerAdapter container)
         {
             CollectMemory();
 
@@ -56,25 +56,23 @@ namespace IocPerformance
 
             WarmUp(container);
 
-            long singletonTime = MeasureSingleton(container);
-            long transientTime = MeasureTransient(container);
-            long combinedTime = MeasureCombined(container);
-
-            Console.WriteLine(string.Format(
-                "{0}\t{1}\t\t{2}\t\t{3}\t\t{4}\t\t\t{5}\t\t\t\t{6}",
-                name + "             ".Substring(name.Length - 1),
-                singletonTime,
-                transientTime,
-                combinedTime,
-                Singleton.Instances,
-                Transient.Instances,
-                Combined.Instances));
+            var result = new Result();
+            result.Name = name;
+            result.Version = container.Version;
+            result.SingletonTime = MeasureSingleton(container);
+            result.TransientTime = MeasureTransient(container);
+            result.CombinedTime = MeasureCombined(container);
+            result.SingletonInstances = Singleton.Instances;
+            result.TransientInstances = Transient.Instances;
+            result.CombinedInstances = Combined.Instances;
 
             Singleton.Instances = 0;
             Transient.Instances = 0;
             Combined.Instances = 0;
 
             container.Dispose();
+
+            return result;
         }
 
         private const int LoopCount = 1000000;

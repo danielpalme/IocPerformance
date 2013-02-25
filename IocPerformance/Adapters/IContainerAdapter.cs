@@ -7,5 +7,7 @@ namespace IocPerformance.Adapters
         void Prepare();
 
         T Resolve<T>() where T : class;
+
+        string Version { get; }
     }
 }

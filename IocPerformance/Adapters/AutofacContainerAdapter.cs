@@ -1,10 +1,25 @@
-﻿using Autofac;
+﻿using System.Linq;
+using System.Xml.Linq;
+using Autofac;
 
 namespace IocPerformance.Adapters
 {
     public sealed class AutofacContainerAdapter : IContainerAdapter
     {
         private IContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "Autofac")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

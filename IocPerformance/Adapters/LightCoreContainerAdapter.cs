@@ -1,4 +1,6 @@
-﻿using LightCore;
+﻿using System.Linq;
+using System.Xml.Linq;
+using LightCore;
 using LightCore.Lifecycle;
 
 namespace IocPerformance.Adapters
@@ -6,6 +8,19 @@ namespace IocPerformance.Adapters
     public sealed class LightCoreContainerAdapter : IContainerAdapter
     {
         private IContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "LightCore")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

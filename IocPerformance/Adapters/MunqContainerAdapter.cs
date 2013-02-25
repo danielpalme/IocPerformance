@@ -1,4 +1,6 @@
-﻿using Munq;
+﻿using System.Linq;
+using System.Xml.Linq;
+using Munq;
 using Munq.LifetimeManagers;
 
 namespace IocPerformance.Adapters
@@ -6,6 +8,19 @@ namespace IocPerformance.Adapters
     public sealed class MunqContainerAdapter : IContainerAdapter
     {
         private IocContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "Munq.IocContainer")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

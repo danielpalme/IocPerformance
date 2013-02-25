@@ -1,10 +1,25 @@
-﻿using Dynamo.Ioc;
+﻿using System.Linq;
+using System.Xml.Linq;
+using Dynamo.Ioc;
 
 namespace IocPerformance.Adapters
 {
     public sealed class DynamoContainerAdapter : IContainerAdapter
     {
         private IocContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "Dynamo.Ioc")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

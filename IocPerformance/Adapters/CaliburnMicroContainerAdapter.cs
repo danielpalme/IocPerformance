@@ -1,10 +1,25 @@
-﻿using Caliburn.Micro;
+﻿using System.Linq;
+using System.Xml.Linq;
+using Caliburn.Micro;
 
 namespace IocPerformance.Adapters
 {
     public sealed class CaliburnMicroContainer : IContainerAdapter
     {
         private SimpleContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "Caliburn.Micro.Container")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

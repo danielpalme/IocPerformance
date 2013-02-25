@@ -1,9 +1,24 @@
-﻿
+﻿using System.Linq;
+using System.Xml.Linq;
+
 namespace IocPerformance.Adapters
 {
     public sealed class LightInjectContainerAdapter : IContainerAdapter
     {
         private IServiceContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "LightInject")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

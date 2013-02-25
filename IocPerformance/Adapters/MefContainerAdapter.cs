@@ -6,6 +6,11 @@ namespace IocPerformance.Adapters
     {
         private CompositionContainer container;
 
+        public string Version
+        {
+            get { return typeof(CompositionContainer).Assembly.GetName().Version.ToString(); }
+        }
+
         public void Prepare()
         {
             var catalog = new TypeCatalog(typeof(Singleton), typeof(Transient), typeof(Combined));

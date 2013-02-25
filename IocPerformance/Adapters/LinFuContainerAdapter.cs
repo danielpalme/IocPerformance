@@ -1,10 +1,25 @@
-﻿using LinFu.IoC;
+﻿using System.Linq;
+using System.Xml.Linq;
+using LinFu.IoC;
 
 namespace IocPerformance.Adapters
 {
     public sealed class LinFuContainerAdapter : IContainerAdapter
     {
         private LinFu.IoC.ServiceContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "LinFu.Core")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

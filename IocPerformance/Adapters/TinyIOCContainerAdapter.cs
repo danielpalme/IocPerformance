@@ -1,10 +1,25 @@
-﻿using TinyIoC;
+﻿using System.Linq;
+using System.Xml.Linq;
+using TinyIoC;
 
 namespace IocPerformance.Adapters
 {
     public sealed class TinyIOCContainerAdapter : IContainerAdapter
     {
         private TinyIoCContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "TinyIoC")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

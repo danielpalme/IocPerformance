@@ -1,10 +1,25 @@
-﻿using Microsoft.Practices.Unity;
+﻿using System.Linq;
+using System.Xml.Linq;
+using Microsoft.Practices.Unity;
 
 namespace IocPerformance.Adapters
 {
     public sealed class UnityContainerAdapter : IContainerAdapter
     {
         private UnityContainer container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "Unity")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {

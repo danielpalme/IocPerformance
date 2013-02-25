@@ -1,10 +1,25 @@
-﻿using MugenInjection;
+﻿using System.Linq;
+using System.Xml.Linq;
+using MugenInjection;
 
 namespace IocPerformance.Adapters
 {
     public sealed class MugenContainerAdapter : IContainerAdapter
     {
         private MugenInjector container;
+
+        public string Version
+        {
+            get
+            {
+                return XDocument
+                    .Load("packages.config")
+                    .Root
+                    .Elements()
+                    .First(e => e.Attribute("id").Value == "MugenInjection")
+                    .Attribute("version").Value;
+            }
+        }
 
         public void Prepare()
         {
