@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Xml.Linq;
+using IocPerformance.Interception;
 using StructureMap;
 
 namespace IocPerformance.Adapters
@@ -21,17 +22,28 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return true; } }
+
         public void Prepare()
         {
+            var pg = new Castle.DynamicProxy.ProxyGenerator();
+
             this.container = new Container(r =>
             {
                 r.For<ISingleton>().Singleton().Use<Singleton>();
                 r.For<ITransient>().Transient().Use<Transient>();
                 r.For<ICombined>().Transient().Use<Combined>();
+                r.For<ICalculator>().Transient().Use<Calculator>()
+                    .EnrichWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator>(c, new StructureMapInterceptionLogger()));
             });
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.GetInstance<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.GetInstance<T>();
         }

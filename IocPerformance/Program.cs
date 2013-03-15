@@ -62,13 +62,21 @@ namespace IocPerformance
             result.SingletonTime = MeasureSingleton(container);
             result.TransientTime = MeasureTransient(container);
             result.CombinedTime = MeasureCombined(container);
+
+            if (container.SupportsInterception)
+            {
+                result.InterceptionTime = MeasureProxy(container);
+            }
+
             result.SingletonInstances = Singleton.Instances;
             result.TransientInstances = Transient.Instances;
             result.CombinedInstances = Combined.Instances;
+            result.InterceptionInstances = Calculator.Instances;
 
             Singleton.Instances = 0;
             Transient.Instances = 0;
             Combined.Instances = 0;
+            Calculator.Instances = 0;
 
             container.Dispose();
 
@@ -113,6 +121,18 @@ namespace IocPerformance
             return watch.ElapsedMilliseconds;
         }
 
+        private static long MeasureProxy(IContainerAdapter container)
+        {
+            var watch = Stopwatch.StartNew();
+
+            for (int i = 0; i < LoopCount; i++)
+            {
+                container.ResolveProxy<ICalculator>();
+            }
+
+            return watch.ElapsedMilliseconds;
+        }
+
         private static void CollectMemory()
         {
             GC.Collect();
@@ -129,6 +149,12 @@ namespace IocPerformance
             var interface1 = container.Resolve<ISingleton>();
             var interface2 = container.Resolve<ITransient>();
             var combined = container.Resolve<ISingleton>();
+
+            if (container.SupportsInterception)
+            {
+                var calculator = container.ResolveProxy<ICalculator>();
+                calculator.Add(1, 2);
+            }
         }
     }
 }

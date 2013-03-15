@@ -21,6 +21,8 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return false; } }
+
         public void Prepare()
         {
             this.container = new IocContainer(defaultCompileMode: CompileMode.Dynamic);
@@ -32,6 +34,11 @@ namespace IocPerformance.Adapters
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.Resolve<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.Resolve<T>();
         }

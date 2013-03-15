@@ -1,12 +1,14 @@
 ﻿using System.Linq;
 using System.Xml.Linq;
 using Griffin.Container;
+using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters
 {
     public sealed class GriffinContainerAdapter : IContainerAdapter
     {
         private IParentContainer container;
+        private IParentContainer containerWithLoggingInterception;
 
         public string Version
         {
@@ -21,6 +23,9 @@ namespace IocPerformance.Adapters
             }
         }
 
+        // The container is extremly slow, when creating proxies, so it's currently disabled
+        public bool SupportsInterception { get { return false; } }
+
         public void Prepare()
         {
             var registrar = new ContainerRegistrar();
@@ -29,6 +34,13 @@ namespace IocPerformance.Adapters
             registrar.RegisterType<ICombined, Combined>(Lifetime.Transient);
 
             this.container = registrar.Build();
+
+            registrar = new ContainerRegistrar();
+            registrar.RegisterType<ICalculator, Calculator>(Lifetime.Transient);
+
+            var containerWithLoggingInterception = registrar.Build();
+            containerWithLoggingInterception.AddDecorator(new GriffinLoggingDecorator());
+            this.containerWithLoggingInterception = containerWithLoggingInterception;
         }
 
         public T Resolve<T>() where T : class
@@ -36,10 +48,16 @@ namespace IocPerformance.Adapters
             return this.container.Resolve<T>();
         }
 
+        public T ResolveProxy<T>() where T : class
+        {
+            return this.containerWithLoggingInterception.Resolve<T>();
+        }
+
         public void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;
+            this.containerWithLoggingInterception = null;
         }
     }
 }

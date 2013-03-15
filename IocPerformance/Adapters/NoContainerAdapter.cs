@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters
 {
@@ -7,10 +8,9 @@ namespace IocPerformance.Adapters
     {
         private readonly Dictionary<Type, Func<object>> container = new Dictionary<Type, Func<object>>();
 
-        public string Version
-        {
-            get { return null; }
-        }
+        public string Version { get { return null; } }
+
+        public bool SupportsInterception { get { return true; } }
 
         public void Prepare()
         {
@@ -19,9 +19,15 @@ namespace IocPerformance.Adapters
             container[typeof(ISingleton)] = () => singleton;
             container[typeof(ITransient)] = () => new Transient();
             container[typeof(ICombined)] = () => new Combined(singleton, new Transient());
+            container[typeof(ICalculator)] = () => new LoggerDecorator(new Calculator());
         }
 
         public T Resolve<T>() where T : class
+        {
+            return (T)this.container[typeof(T)]();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return (T)this.container[typeof(T)]();
         }

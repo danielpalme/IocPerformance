@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Xml.Linq;
 using Autofac;
+using Autofac.Extras.DynamicProxy2;
+using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters
 {
@@ -21,9 +23,13 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return true; } }
+
         public void Prepare()
         {
             var autofacContainerBuilder = new ContainerBuilder();
+
+            autofacContainerBuilder.Register(c => new AutofacInterceptionLogger());
 
             autofacContainerBuilder.RegisterType<Singleton>()
                     .As<ISingleton>()
@@ -35,10 +41,19 @@ namespace IocPerformance.Adapters
             autofacContainerBuilder.RegisterType<Combined>()
                     .As<ICombined>();
 
+            autofacContainerBuilder.RegisterType<Calculator>()
+                    .As<ICalculator>()
+                    .EnableInterfaceInterceptors();
+            
             this.container = autofacContainerBuilder.Build();
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.Resolve<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.Resolve<T>();
         }

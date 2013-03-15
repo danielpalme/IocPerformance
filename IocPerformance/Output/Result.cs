@@ -13,10 +13,14 @@ namespace IocPerformance.Output
 
         public long CombinedTime { get; set; }
 
+        public long? InterceptionTime { get; set; }
+
         public int SingletonInstances { get; set; }
 
         public int TransientInstances { get; set; }
 
         public int CombinedInstances { get; set; }
+
+        public int InterceptionInstances { get; set; }
     }
 }

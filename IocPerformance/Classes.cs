@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using IocPerformance.Interception;
 
 namespace IocPerformance
 {
@@ -74,6 +75,27 @@ namespace IocPerformance
         public void DoSomething()
         {
             Console.WriteLine("Combined");
+        }
+    }
+
+    public interface ICalculator
+    {
+        int Add(int first, int second);
+    }
+
+    [UnityInterceptionLogger]
+    public class Calculator : ICalculator
+    {
+        public static int Instances { get; set; }
+
+        public Calculator()
+        {
+            Instances++;
+        }
+
+        public virtual int Add(int first, int second)
+        {
+            return first + second;
         }
     }
 }

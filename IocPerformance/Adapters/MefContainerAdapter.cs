@@ -11,6 +11,8 @@ namespace IocPerformance.Adapters
             get { return typeof(CompositionContainer).Assembly.GetName().Version.ToString(); }
         }
 
+        public bool SupportsInterception { get { return false; } }
+
         public void Prepare()
         {
             var catalog = new TypeCatalog(typeof(Singleton), typeof(Transient), typeof(Combined));
@@ -18,6 +20,11 @@ namespace IocPerformance.Adapters
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.GetExportedValue<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.GetExportedValue<T>();
         }

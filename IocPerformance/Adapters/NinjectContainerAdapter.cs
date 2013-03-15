@@ -21,6 +21,8 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return false; } }
+
         public void Prepare()
         {
             this.container = new StandardKernel();
@@ -30,6 +32,11 @@ namespace IocPerformance.Adapters
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.Get<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.Get<T>();
         }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Xml.Linq;
 using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.InterceptionExtension;
 
 namespace IocPerformance.Adapters
 {
@@ -21,16 +22,27 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return true; } }
+
         public void Prepare()
         {
             this.container = new UnityContainer();
+            this.container.AddNewExtension<Microsoft.Practices.Unity.InterceptionExtension.Interception>();
 
             this.container.RegisterType<ISingleton, Singleton>(new ContainerControlledLifetimeManager());
             this.container.RegisterType<ITransient, Transient>(new TransientLifetimeManager());
             this.container.RegisterType<ICombined, Combined>(new TransientLifetimeManager());
+            this.container.RegisterType<ICalculator, Calculator>(new TransientLifetimeManager())
+              .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
+              .SetInterceptorFor<ICalculator>(new InterfaceInterceptor());
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.Resolve<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.Resolve<T>();
         }

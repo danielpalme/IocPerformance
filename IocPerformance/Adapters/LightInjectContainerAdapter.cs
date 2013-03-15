@@ -20,6 +20,8 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return false; } }
+
         public void Prepare()
         {
             this.container = new ServiceContainer();
@@ -29,6 +31,11 @@ namespace IocPerformance.Adapters
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.GetInstance<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.GetInstance<T>();
         }

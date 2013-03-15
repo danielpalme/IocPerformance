@@ -22,6 +22,7 @@ namespace IocPerformance.Adapters
                     .Attribute("version").Value;
             }
         }
+        public bool SupportsInterception { get { return false; } }
 
         public void Prepare()
         {
@@ -43,6 +44,11 @@ namespace IocPerformance.Adapters
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.GetInstance<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.GetInstance<T>();
         }

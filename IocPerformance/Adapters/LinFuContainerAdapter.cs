@@ -21,15 +21,23 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return false; } }
+
         public void Prepare()
         {
             this.container = new LinFu.IoC.ServiceContainer();
             this.container.Inject<ISingleton>().Using<Singleton>().AsSingleton();
             this.container.Inject<ITransient>().Using<Transient>().OncePerRequest();
             this.container.Inject<ICombined>().Using<Combined>().OncePerRequest();
+            this.container.Inject<ICalculator>().Using<Calculator>().OncePerRequest();
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.GetService<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.GetService<T>();
         }

@@ -21,12 +21,19 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return true; } }
+
         public void Prepare()
         {
             this.container = Spring.Context.Support.ContextRegistry.GetContext();
         }
 
         public T Resolve<T>() where T : class
+        {
+            return (T)container.GetObject(typeof(T).FullName);
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return (T)container.GetObject(typeof(T).FullName);
         }

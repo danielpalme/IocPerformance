@@ -21,7 +21,7 @@ namespace IocPerformance.Adapters
             }
         }
 
-        #region IContainerAdapter Members
+        public bool SupportsInterception { get { return false; } }
 
         public void Prepare()
         {
@@ -41,12 +41,15 @@ namespace IocPerformance.Adapters
             return container.ResolveType<T>();
         }
 
+        public T ResolveProxy<T>() where T : class
+        {
+            return container.ResolveType<T>();
+        }
+
         public void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             container = null;
         }
-
-        #endregion
     }
 }

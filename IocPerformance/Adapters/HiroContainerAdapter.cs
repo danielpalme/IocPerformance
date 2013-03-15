@@ -22,6 +22,8 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return false; } }
+
         public void Prepare()
         {
             var map = new DependencyMap();
@@ -34,6 +36,11 @@ namespace IocPerformance.Adapters
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.GetInstance<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.GetInstance<T>();
         }

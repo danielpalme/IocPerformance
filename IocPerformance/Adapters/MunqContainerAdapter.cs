@@ -22,6 +22,8 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return false; } }
+
         public void Prepare()
         {
             // I made an optimization here, since Munq allows to do constructor injection. Not only is this
@@ -33,6 +35,11 @@ namespace IocPerformance.Adapters
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.Resolve<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.Resolve<T>();
         }

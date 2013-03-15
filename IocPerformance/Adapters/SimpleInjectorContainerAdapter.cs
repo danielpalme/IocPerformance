@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Xml.Linq;
+using IocPerformance.Interception;
 using SimpleInjector;
+using SimpleInjector.Extensions.Interception;
 
 namespace IocPerformance.Adapters
 {
@@ -21,6 +23,8 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public bool SupportsInterception { get { return true; } }
+
         public void Prepare()
         {
             this.container = new SimpleInjector.Container();
@@ -28,11 +32,19 @@ namespace IocPerformance.Adapters
             this.container.RegisterSingle<ISingleton, Singleton>();
             this.container.Register<ITransient, Transient>();
             this.container.Register<ICombined, Combined>();
+            this.container.Register<ICalculator, Calculator>();
+
+            container.InterceptWith<SimpleInjectorInterceptionLogger>(type => type == typeof(ICalculator));
 
             this.container.Verify();
         }
 
         public T Resolve<T>() where T : class
+        {
+            return this.container.GetInstance<T>();
+        }
+
+        public T ResolveProxy<T>() where T : class
         {
             return this.container.GetInstance<T>();
         }
