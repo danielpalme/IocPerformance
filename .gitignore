@@ -15,6 +15,7 @@
 /packages/LightCore*
 /packages/LightInject*
 /packages/LinFu.Core*
+/packages/MicroSliver*
 /packages/MugenInjection*
 /packages/Munq.IocContainer*
 /packages/Ninject*

@@ -103,6 +103,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LinFu.Core.2.3.0.41559\lib\net35\LinFu.Core.dll</HintPath>
     </Reference>
+    <Reference Include="MicroSliver">
+      <HintPath>..\packages\MicroSliver.2.1.6.0\lib\net40\MicroSliver.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LightCore.1.5.1\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -156,6 +159,7 @@
     <Compile Include="Adapters\AutofacContainerAdapter.cs" />
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
+    <Compile Include="Adapters\MicroSliverContainerAdapter.cs" />
     <Compile Include="Adapters\GriffinContainerAdapter.cs" />
     <Compile Include="Adapters\MefContainerAdapter.cs" />
     <Compile Include="Adapters\MugenContainerAdapter.cs" />
