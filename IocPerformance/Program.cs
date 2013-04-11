@@ -10,7 +10,7 @@ namespace IocPerformance
     {
         public static void Main(string[] args)
         {
-            IOutput output = new MultiOutput(new IOutput[] { new HtmlOutput(), new ConsoleOutput() });
+            IOutput output = new MultiOutput(new IOutput[] { new HtmlOutput(), new MarkdownOutput(), new ChartOutput(), new ConsoleOutput() });
             output.Start();
 
             var containers = new List<Tuple<string, IContainerAdapter>>

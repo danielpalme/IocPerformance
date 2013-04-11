@@ -10,7 +10,7 @@ namespace IocPerformance.Adapters
 
         public string Version { get { return null; } }
 
-        public bool SupportsInterception { get { return true; } }
+        public bool SupportsInterception { get { return false; } }
 
         public void Prepare()
         {
@@ -19,7 +19,6 @@ namespace IocPerformance.Adapters
             container[typeof(ISingleton)] = () => singleton;
             container[typeof(ITransient)] = () => new Transient();
             container[typeof(ICombined)] = () => new Combined(singleton, new Transient());
-            container[typeof(ICalculator)] = () => new LoggerDecorator(new Calculator());
         }
 
         public T Resolve<T>() where T : class

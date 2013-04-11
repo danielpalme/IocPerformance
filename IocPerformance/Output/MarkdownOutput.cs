@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace IocPerformance.Output
 {
-    public class HtmlOutput : IOutput
+    public class MarkdownOutput : IOutput
     {
         private readonly List<Result> results = new List<Result>();
 
@@ -19,15 +19,24 @@ namespace IocPerformance.Output
 
         public void Finish()
         {
-            if (!Directory.Exists("output"))
-            {
-                Directory.CreateDirectory("output");
-            }
-
-            using (var fileStream = new FileStream("output\\result.txt", FileMode.Create))
+            using (var fileStream = new FileStream("../../../README.md", FileMode.Create))
             {
                 using (var writer = new StreamWriter(fileStream))
                 {
+                    writer.WriteLine("Ioc Performance");
+                    writer.WriteLine("===============");
+                    writer.WriteLine("");
+                    writer.WriteLine("Source code of my performance comparison of the most popular .NET IoC containers:  ");
+                    writer.WriteLine("[www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison](http://www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison)");
+                    writer.WriteLine("");
+                    writer.WriteLine("Author: Daniel Palme  ");
+                    writer.WriteLine("Blog: [www.palmmedia.de](http://www.palmmedia.de)  ");
+                    writer.WriteLine("Twitter: [@danielpalme](http://twitter.com/danielpalme)  ");
+                    writer.WriteLine("");
+                    writer.WriteLine("Results");
+                    writer.WriteLine("-------");
+                    writer.WriteLine("<table>");
+
                     writer.WriteLine("<tr><th>Container</th><th>Singleton</th><th>Transient</th><th>Combined</th><th>Interception</th></tr>");
 
                     foreach (var result in this.results)
@@ -46,6 +55,8 @@ namespace IocPerformance.Output
                             result.InterceptionTime == results.Skip(1).Min(r => r.InterceptionTime) ? "h" : "d",
                             result.InterceptionTime);
                     }
+
+                    writer.WriteLine("</table>");
                 }
             }
         }

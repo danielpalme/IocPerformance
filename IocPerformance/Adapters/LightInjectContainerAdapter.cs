@@ -25,9 +25,9 @@ namespace IocPerformance.Adapters
         public void Prepare()
         {
             this.container = new ServiceContainer();
-            container.Register<ISingleton>(c => new Singleton(), LifeCycleType.Singleton);
-            container.Register<ITransient>(c => new Transient(), LifeCycleType.Transient);
-            container.Register<ICombined>(c => new Combined(c.GetInstance<ISingleton>(), c.GetInstance<ITransient>()), LifeCycleType.Transient);
+            container.Register<ISingleton>(c => new Singleton(), new PerContainerLifetime());
+            container.Register<ITransient>(c => new Transient(), new PerRequestLifeTime());
+            container.Register<ICombined>(c => new Combined(c.GetInstance<ISingleton>(), c.GetInstance<ITransient>()), new PerRequestLifeTime());
         }
 
         public T Resolve<T>() where T : class
