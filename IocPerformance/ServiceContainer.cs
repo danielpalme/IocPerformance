@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 ******************************************************************************
-   LightInject version 3.0.0.1 
+   LightInject version 3.0.0.5 
    https://github.com/seesharper/LightInject/wiki/Getting-started
 ******************************************************************************/
 [module: System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1126:PrefixCallsCorrectly", Justification = "Reviewed")]
@@ -118,6 +118,19 @@ namespace IocPerformance
         /// <typeparam name="TService">The service type to register.</typeparam>
         /// <param name="instance">The instance returned when this service is requested.</param>
         void Register<TService>(TService instance);
+
+        /// <summary>
+        /// Registers a concrete type as a service.
+        /// </summary>
+        /// <typeparam name="TService">The service type to register.</typeparam>
+        void Register<TService>();
+
+        /// <summary>
+        /// Registers a concrete type as a service.
+        /// </summary>
+        /// <typeparam name="TService">The service type to register.</typeparam>
+        /// <param name="lifetime">The <see cref="ILifetime"/> instance that controls the lifetime of the registered service.</param>
+        void Register<TService>(ILifetime lifetime);
 
         /// <summary>
         /// Registers the <typeparamref name="TService"/> with the given <paramref name="instance"/>. 
@@ -355,7 +368,14 @@ namespace IocPerformance
         /// Starts a new <see cref="Scope"/>.
         /// </summary>
         /// <returns><see cref="Scope"/></returns>
-        Scope BeginScope();        
+        Scope BeginScope();
+
+        /// <summary>
+        /// Injects the property dependencies for a given <paramref name="instance"/>.
+        /// </summary>
+        /// <param name="instance">The target instance for which to inject its property dependencies.</param>
+        /// <returns>The <paramref name="instance"/> with its property dependencies injected.</returns>
+        object InjectProperties(object instance);      
     }
 
     /// <summary>
@@ -406,9 +426,9 @@ namespace IocPerformance
         /// Selects the property dependencies for the given <paramref name="type"/>.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> for which to select the property dependencies.</param>
-        /// <returns>A list of <see cref="PropertyDependecy"/> instances that represents the property
+        /// <returns>A list of <see cref="PropertyDependency"/> instances that represents the property
         /// dependencies for the given <paramref name="type"/>.</returns>
-        IEnumerable<PropertyDependecy> Execute(Type type);
+        IEnumerable<PropertyDependency> Execute(Type type);
     }
 
     /// <summary>
@@ -555,7 +575,8 @@ namespace IocPerformance
         private readonly ServiceRegistry<Action<IMethodSkeleton>> emitters = new ServiceRegistry<Action<IMethodSkeleton>>();        
         private readonly ServiceRegistry<Action<IMethodSkeleton, Type>> openGenericEmitters = new ServiceRegistry<Action<IMethodSkeleton, Type>>(); 
         private readonly DelegateRegistry<Type> delegates = new DelegateRegistry<Type>();
-        private readonly DelegateRegistry<Tuple<Type, string>> namedDelegates = new DelegateRegistry<Tuple<Type, string>>();        
+        private readonly DelegateRegistry<Tuple<Type, string>> namedDelegates = new DelegateRegistry<Tuple<Type, string>>();
+        private readonly DelegateRegistry<Type> propertyInjectionDelegates = new DelegateRegistry<Type>();
         private readonly Storage<object> constants = new Storage<object>();
         private readonly Storage<FactoryRule> factoryRules = new Storage<FactoryRule>();
         private readonly Stack<Action<IMethodSkeleton>> dependencyStack = new Stack<Action<IMethodSkeleton>>();
@@ -566,6 +587,8 @@ namespace IocPerformance
         
         private readonly ThreadLocal<ScopeManager> scopeManagers = new ThreadLocal<ScopeManager>(() => new ScopeManager());
 
+        private readonly Lazy<IConstructionInfoProvider> constructionInfoProvider;
+
         private bool firstServiceRequest = true;
         
         /// <summary>
@@ -573,18 +596,25 @@ namespace IocPerformance
         /// </summary>
         public ServiceContainer()
         {            
-            AssemblyScanner = new AssemblyScanner();            
-            ConstructionInfoProvider = CreateConstructionInfoProvider();
+            AssemblyScanner = new AssemblyScanner();
+            PropertyDependencySelector = new PropertyDependencySelector(new PropertySelector());
+            ConstructorDependencySelector = new ConstructorDependencySelector();
+            constructionInfoProvider = new Lazy<IConstructionInfoProvider>(CreateConstructionInfoProvider);            
             methodSkeletonFactory = () => new DynamicMethodSkeleton();
             AssemblyLoader = new AssemblyLoader();
         }
+        /// <summary>
+        /// Gets or sets the <see cref="IPropertyDependencySelector"/> instance that 
+        /// is responsible for selecting the property dependencies for a given type.
+        /// </summary>
+        public IPropertyDependencySelector PropertyDependencySelector { get; set; }
 
         /// <summary>
-        /// Gets or sets the <see cref="IConstructionInfoProvider"/> that is responsible 
-        /// for providing a <see cref="ConstructionInfo"/> instance for a given <see cref="Registration"/>.
+        /// Gets or sets the <see cref="IConstructorDependencySelector"/> instance that 
+        /// is responsible for selecting the constructor dependencies for a given constructor.
         /// </summary>
-        public IConstructionInfoProvider ConstructionInfoProvider { get; set; }
-
+        public IConstructorDependencySelector ConstructorDependencySelector { get; set; }
+                
         /// <summary>
         /// Gets or sets the <see cref="IAssemblyScanner"/> instance that is responsible for scanning assemblies.
         /// </summary>
@@ -625,7 +655,13 @@ namespace IocPerformance
         {
             return scopeManagers.Value.BeginScope();
         }
-
+       
+        public object InjectProperties(object instance)
+        {
+            var type = instance.GetType();
+            return propertyInjectionDelegates.GetOrAdd(type, t => CreatePropertyInjectionDelegate(type, instance))();                        
+        }
+      
         /// <summary>
         /// Registers the <typeparamref name="TService"/> with the <paramref name="expression"/> that 
         /// describes the dependencies of the service. 
@@ -874,6 +910,25 @@ namespace IocPerformance
         }
 
         /// <summary>
+        /// Registers a concrete type as a service.
+        /// </summary>
+        /// <typeparam name="TService">The service type to register.</typeparam>
+        public void Register<TService>()
+        {
+            Register<TService, TService>();
+        }
+
+        /// <summary>
+        /// Registers a concrete type as a service.
+        /// </summary>
+        /// <typeparam name="TService">The service type to register.</typeparam>
+        /// <param name="lifetime">The <see cref="ILifetime"/> instance that controls the lifetime of the registered service.</param>
+        public void Register<TService>(ILifetime lifetime)
+        {
+            Register<TService, TService>(lifetime);
+        }
+
+        /// <summary>
         /// Registers the <typeparamref name="TService"/> with the given <paramref name="instance"/>. 
         /// </summary>
         /// <typeparam name="TService">The service type to register.</typeparam>
@@ -1036,27 +1091,7 @@ namespace IocPerformance
 
             scopeManagers.Dispose();
         }
-
-        private static ConstructionInfoProvider CreateConstructionInfoProvider()
-        {
-            return new ConstructionInfoProvider(CreateConstructionInfoBuilder());
-        }
-
-        private static ConstructionInfoBuilder CreateConstructionInfoBuilder()
-        {
-            return new ConstructionInfoBuilder(() => new LambdaConstructionInfoBuilder(), CreateTypeConstructionInfoBuilder);
-        }
-
-        private static TypeConstructionInfoBuilder CreateTypeConstructionInfoBuilder()
-        {
-            return new TypeConstructionInfoBuilder(new ConstructorSelector(), new ConstructorDependencySelector(), CreatePropertyDependencySelector());
-        }
-
-        private static PropertyDependencySelector CreatePropertyDependencySelector()
-        {
-            return new PropertyDependencySelector(new PropertySelector());
-        }
-
+      
         private static void EmitLoadConstant(IMethodSkeleton dynamicMethodSkeleton, int index, Type type)
         {           
             var generator = dynamicMethodSkeleton.GetILGenerator();
@@ -1110,6 +1145,65 @@ namespace IocPerformance
         private static ILifetime CloneLifeTime(ILifetime lifetime)
         {
             return lifetime == null ? null : (ILifetime)Activator.CreateInstance(lifetime.GetType());
+        }
+
+        private Func<object> CreatePropertyInjectionDelegate(Type concreteType, object instance)
+        {
+            IMethodSkeleton methodSkeleton = new DynamicMethodSkeleton();
+            var arguments = new[] { instance };
+            ConstructionInfo constructionInfo = GetContructionInfoForConcreteType(concreteType);
+            EmitLoadConstant(methodSkeleton, 0, concreteType);
+            try
+            {
+                EmitPropertyDependencies(constructionInfo, methodSkeleton);
+            }
+            catch (Exception)
+            {
+                dependencyStack.Clear();
+                throw;
+            }
+
+            var del = methodSkeleton.CreateDelegate();
+            return () => del(arguments);
+        }
+
+        private ConstructionInfo GetContructionInfoForConcreteType(Type concreteType)
+        {
+            var serviceRegistration = GetServiceRegistrationForConcreteType(concreteType);
+            return GetConstructionInfo(serviceRegistration);
+        }
+
+        private ServiceRegistration GetServiceRegistrationForConcreteType(Type concreteType)
+        {
+            var serviceKey = Tuple.Create(concreteType, string.Empty);
+            return availableServices.GetOrAdd(
+                serviceKey, tuple => CreateServiceRegistrationBasedOnConcreteType(tuple.Item1));
+        }
+
+        private ServiceRegistration CreateServiceRegistrationBasedOnConcreteType(Type type)
+        {
+            var serviceRegistration = new ServiceRegistration
+                                          {
+                                              ServiceType = type,
+                                              ImplementingType = type,
+                                              ServiceName = string.Empty
+                                          };
+            return serviceRegistration;
+        }
+
+        private ConstructionInfoProvider CreateConstructionInfoProvider()
+        {
+            return new ConstructionInfoProvider(CreateConstructionInfoBuilder());
+        }
+
+        private ConstructionInfoBuilder CreateConstructionInfoBuilder()
+        {
+            return new ConstructionInfoBuilder(() => new LambdaConstructionInfoBuilder(), CreateTypeConstructionInfoBuilder);
+        }
+
+        private TypeConstructionInfoBuilder CreateTypeConstructionInfoBuilder()
+        {
+            return new TypeConstructionInfoBuilder(new ConstructorSelector(), ConstructorDependencySelector, PropertyDependencySelector);
         }
 
         private Func<object> GetDefaultDelegate(Type serviceType, bool throwError)
@@ -1343,38 +1437,61 @@ namespace IocPerformance
                 }
             }
         }
-
+       
         private void EmitDependency(IMethodSkeleton dynamicMethodSkeleton, Dependency dependency)
+        {            
+            var emitter = this.GetEmitMethodForDependency(dependency);
+
+            try
+            {
+                emitter(dynamicMethodSkeleton);
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new InvalidOperationException(string.Format(UnresolvedDependencyError, dependency), ex);
+            }            
+        }
+
+        private void EmitPropertyDependency(IMethodSkeleton dynamicMethodSkeleton, PropertyDependency propertyDependency, LocalBuilder instance)
+        {                       
+            var emitter = GetEmitMethodForDependency(propertyDependency);
+            var generator = dynamicMethodSkeleton.GetILGenerator();
+            
+            if (emitter != null)
+            {
+                generator.Emit(OpCodes.Ldloc, instance);
+                emitter(dynamicMethodSkeleton);
+                dynamicMethodSkeleton.GetILGenerator().Emit(OpCodes.Callvirt, propertyDependency.Property.GetSetMethod());
+            }                            
+        }
+
+        private Action<IMethodSkeleton> GetEmitMethodForDependency(Dependency dependency)
         {
-            ILGenerator generator = dynamicMethodSkeleton.GetILGenerator();
             if (dependency.FactoryExpression != null)
             {
-                var lambda = Expression.Lambda(dependency.FactoryExpression, new ParameterExpression[] { }).Compile();
-                MethodInfo methodInfo = lambda.GetType().GetMethod("Invoke");
-                EmitLoadConstant(dynamicMethodSkeleton, constants.Add(lambda), lambda.GetType());
-                generator.Emit(OpCodes.Callvirt, methodInfo);
+                return skeleton => EmitDependencyUsingFactoryExpression(skeleton, dependency);
             }
-            else
+                        
+            Action<IMethodSkeleton> emitter = this.GetEmitMethod(dependency.ServiceType, dependency.ServiceName);
+            if (emitter == null)
             {
-                Action<IMethodSkeleton> emitter = GetEmitMethod(dependency.ServiceType, dependency.ServiceName);                                                
-                if (emitter == null)
+                emitter = this.GetEmitMethod(dependency.ServiceType, dependency.Name);
+                if (emitter == null && dependency.IsRequired)
                 {
-                    emitter = GetEmitMethod(dependency.ServiceType, dependency.Name);
-                    if (emitter == null)
-                    {
-                        throw new InvalidOperationException(string.Format(UnresolvedDependencyError, dependency));    
-                    }                    
+                    throw new InvalidOperationException(string.Format(UnresolvedDependencyError, dependency));
                 }
-
-                try
-                {
-                    emitter(dynamicMethodSkeleton);
-                }
-                catch (InvalidOperationException ex)
-                {
-                    throw new InvalidOperationException(string.Format(UnresolvedDependencyError, dependency), ex);
-                }                
             }
+
+            return emitter;
+        }
+
+        private void EmitDependencyUsingFactoryExpression(IMethodSkeleton dynamicMethodSkeleton, Dependency dependency)
+        {
+            var generator = dynamicMethodSkeleton.GetILGenerator();
+            var lambda = Expression.Lambda(dependency.FactoryExpression, new ParameterExpression[] { }).Compile();
+            MethodInfo methodInfo = lambda.GetType().GetMethod("Invoke");
+            EmitLoadConstant(dynamicMethodSkeleton, constants.Add(lambda), lambda.GetType());
+            generator.Emit(OpCodes.Callvirt, methodInfo);
         }
 
         private void EmitPropertyDependencies(ConstructionInfo constructionInfo, IMethodSkeleton dynamicMethodSkeleton)
@@ -1388,10 +1505,8 @@ namespace IocPerformance
             LocalBuilder instance = generator.DeclareLocal(constructionInfo.ImplementingType);
             generator.Emit(OpCodes.Stloc, instance);
             foreach (var propertyDependency in constructionInfo.PropertyDependencies)
-            {
-                generator.Emit(OpCodes.Ldloc, instance);
-                EmitDependency(dynamicMethodSkeleton, propertyDependency);
-                dynamicMethodSkeleton.GetILGenerator().Emit(OpCodes.Callvirt, propertyDependency.Property.GetSetMethod());
+            {                
+                EmitPropertyDependency(dynamicMethodSkeleton, propertyDependency, instance);                
             }
 
             generator.Emit(OpCodes.Ldloc, instance);
@@ -1405,7 +1520,7 @@ namespace IocPerformance
             if (rule != null)
             {
                 emitter = CreateServiceEmitterBasedOnFactoryRule(rule, serviceType, serviceName);
-            }
+            }            
             else if (IsFunc(serviceType))
             {
                 emitter = CreateServiceEmitterBasedOnFuncServiceRequest(serviceType, false);
@@ -1421,7 +1536,7 @@ namespace IocPerformance
             else if (CanRedirectRequestForDefaultServiceToSingleNamedService(serviceType, serviceName))
             {
                 emitter = CreateServiceEmitterBasedOnSingleNamedInstance(serviceType);
-            }
+            }            
             else if (IsClosedGeneric(serviceType))
             {
                 emitter = CreateServiceEmitterBasedOnClosedGenericServiceRequest(serviceType, serviceName);
@@ -1535,7 +1650,7 @@ namespace IocPerformance
 
         private ConstructionInfo GetConstructionInfo(Registration registration)
         {
-            return ConstructionInfoProvider.GetConstructionInfo(registration);
+            return constructionInfoProvider.Value.GetConstructionInfo(registration);
         }
 
         private ThreadSafeDictionary<string, Action<IMethodSkeleton>> GetServiceEmitters(Type serviceType)
@@ -1664,7 +1779,7 @@ namespace IocPerformance
             delegates.Clear();
             namedDelegates.Clear();
             constants.Clear();
-            ConstructionInfoProvider.Invalidate();
+            constructionInfoProvider.Value.Invalidate();
         }
 
         private void EnsureThatServiceRegistryIsConfigured(Type serviceType)
@@ -1962,11 +2077,11 @@ namespace IocPerformance
         /// <param name="constructor">The <see cref="ConstructionInfo"/> for which to select the constructor dependencies.</param>
         /// <returns>A list of <see cref="ConstructorDependency"/> instances that represents the constructor
         /// dependencies for the given <paramref name="constructor"/>.</returns>
-        public IEnumerable<ConstructorDependency> Execute(ConstructorInfo constructor)
+        public virtual IEnumerable<ConstructorDependency> Execute(ConstructorInfo constructor)
         {
             return
                 constructor.GetParameters().OrderBy(p => p.Position).Select(
-                    p => new ConstructorDependency { ServiceName = string.Empty, ServiceType = p.ParameterType, Parameter = p });
+                    p => new ConstructorDependency { ServiceName = string.Empty, ServiceType = p.ParameterType, Parameter = p, IsRequired = true });
         }
     }
 
@@ -1986,18 +2101,22 @@ namespace IocPerformance
             PropertySelector = propertySelector;
         }
 
+        /// <summary>
+        /// Gets the <see cref="IPropertySelector"/> that is responsible for selecting a 
+        /// list of injectable properties.
+        /// </summary>
         protected IPropertySelector PropertySelector { get; private set; }
 
         /// <summary>
         /// Selects the property dependencies for the given <paramref name="type"/>.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> for which to select the property dependencies.</param>
-        /// <returns>A list of <see cref="PropertyDependecy"/> instances that represents the property
+        /// <returns>A list of <see cref="PropertyDependency"/> instances that represents the property
         /// dependencies for the given <paramref name="type"/>.</returns>
-        public virtual IEnumerable<PropertyDependecy> Execute(Type type)
+        public virtual IEnumerable<PropertyDependency> Execute(Type type)
         {
             return this.PropertySelector.Execute(type).Select(
-                p => new PropertyDependecy { Property = p, ServiceName = string.Empty, ServiceType = p.PropertyType });
+                p => new PropertyDependency { Property = p, ServiceName = string.Empty, ServiceType = p.PropertyType });
         }
     }
 
@@ -2210,9 +2329,9 @@ namespace IocPerformance
             return constructorDependency;
         }
 
-        private static PropertyDependecy CreatePropertyDependency(MemberAssignment memberAssignment)
+        private static PropertyDependency CreatePropertyDependency(MemberAssignment memberAssignment)
         {
-            var propertyDependecy = new PropertyDependecy
+            var propertyDependecy = new PropertyDependency
             {
                 Property = (PropertyInfo)memberAssignment.Member,
                 ServiceType = ((PropertyInfo)memberAssignment.Member).PropertyType
@@ -2476,7 +2595,7 @@ namespace IocPerformance
         /// </summary>
         public ConstructionInfo()
         {
-            PropertyDependencies = new List<PropertyDependecy>();
+            PropertyDependencies = new List<PropertyDependency>();
             ConstructorDependencies = new List<ConstructorDependency>();
         }
 
@@ -2491,10 +2610,10 @@ namespace IocPerformance
         public ConstructorInfo Constructor { get; set; }
 
         /// <summary>
-        /// Gets a list of <see cref="PropertyDependecy"/> instances that represent 
+        /// Gets a list of <see cref="PropertyDependency"/> instances that represent 
         /// the property dependencies for the target service instance. 
         /// </summary>
-        public List<PropertyDependecy> PropertyDependencies { get; private set; }
+        public List<PropertyDependency> PropertyDependencies { get; private set; }
 
         /// <summary>
         /// Gets a list of <see cref="ConstructorDependency"/> instances that represent 
@@ -2534,6 +2653,11 @@ namespace IocPerformance
         public abstract string Name { get; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this dependency is required.
+        /// </summary>
+        public bool IsRequired { get; set; }
+
+        /// <summary>
         /// Returns textual information about the dependency.
         /// </summary>
         /// <returns>A string that describes the dependency.</returns>
@@ -2548,7 +2672,7 @@ namespace IocPerformance
     /// Represents a property dependency.
     /// </summary>
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
-    internal class PropertyDependecy : Dependency
+    internal class PropertyDependency : Dependency
     {
         /// <summary>
         /// Gets or sets the <see cref="MethodInfo"/> that is used to set the property value.
@@ -2565,7 +2689,7 @@ namespace IocPerformance
                 return Property.Name;
             }
         }
-
+        
         /// <summary>
         /// Returns textual information about the dependency.
         /// </summary>
@@ -2894,34 +3018,16 @@ namespace IocPerformance
     /// </summary>    
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class AssemblyScanner : IAssemblyScanner
-    {
-        private static readonly List<Type> InternalInterfaces = new List<Type>();
+    {        
         private static readonly List<Type> InternalTypes = new List<Type>();
         private Assembly currentAssembly;
 
         static AssemblyScanner()
         {
-            InternalInterfaces.Add(typeof(IServiceContainer));
-            InternalInterfaces.Add(typeof(IServiceFactory));
-            InternalInterfaces.Add(typeof(IServiceRegistry));
-            InternalInterfaces.Add(typeof(IPropertySelector));
-            InternalInterfaces.Add(typeof(IAssemblyLoader));
-            InternalInterfaces.Add(typeof(IAssemblyScanner));
-            InternalInterfaces.Add(typeof(ILifetime));
-            InternalInterfaces.Add(typeof(IMethodSkeleton));
-            InternalInterfaces.Add(typeof(IPropertySelector));
-            InternalInterfaces.Add(typeof(IPropertyDependencySelector));
-            InternalInterfaces.Add(typeof(IConstructorSelector));
-            InternalInterfaces.Add(typeof(IConstructorDependencySelector));
-            InternalInterfaces.Add(typeof(IConstructionInfoProvider));
-            InternalInterfaces.Add(typeof(IConstructionInfoBuilder));
-            InternalInterfaces.Add(typeof(IConstructorSelector));
-            InternalInterfaces.Add(typeof(ITypeConstructionInfoBuilder));
-
             InternalTypes.Add(typeof(LambdaConstructionInfoBuilder));
             InternalTypes.Add(typeof(LambdaExpressionValidator));
             InternalTypes.Add(typeof(ConstructorDependency));
-            InternalTypes.Add(typeof(PropertyDependecy));
+            InternalTypes.Add(typeof(PropertyDependency));
             InternalTypes.Add(typeof(ThreadSafeDictionary<,>));
             InternalTypes.Add(typeof(Scope));
             InternalTypes.Add(typeof(PerContainerLifetime));
@@ -2931,7 +3037,20 @@ namespace IocPerformance
             InternalTypes.Add(typeof(DecoratorRegistration));
             InternalTypes.Add(typeof(ServiceRequest));                        
             InternalTypes.Add(typeof(Registration));
-            InternalTypes.Add(typeof(ServiceContainer));            
+            InternalTypes.Add(typeof(ServiceContainer));
+            InternalTypes.Add(typeof(ConstructionInfo));
+            InternalTypes.Add(typeof(AssemblyLoader));
+            InternalTypes.Add(typeof(TypeConstructionInfoBuilder));
+            InternalTypes.Add(typeof(ConstructionInfoProvider));
+            InternalTypes.Add(typeof(ConstructionInfoBuilder));
+            InternalTypes.Add(typeof(ConstructorSelector));
+            InternalTypes.Add(typeof(PerContainerLifetime));
+            InternalTypes.Add(typeof(PerContainerLifetime));
+            InternalTypes.Add(typeof(PerRequestLifeTime));
+            InternalTypes.Add(typeof(PropertySelector));
+            InternalTypes.Add(typeof(AssemblyScanner));
+            InternalTypes.Add(typeof(ConstructorDependencySelector));
+            InternalTypes.Add(typeof(PropertyDependencySelector));
         }
 
         /// <summary>
@@ -2988,7 +3107,7 @@ namespace IocPerformance
 
         private static IEnumerable<Type> GetBaseTypes(Type concreteType)
         {
-            Type baseType = concreteType.BaseType;
+            Type baseType = concreteType;
             while (baseType != typeof(object) && baseType != null)
             {
                 yield return baseType;
@@ -3010,11 +3129,8 @@ namespace IocPerformance
         {
             Type[] interfaces = implementingType.GetInterfaces();
             foreach (Type interfaceType in interfaces)
-            {
-                if (InternalInterfaces.All(i => i != interfaceType))
-                {
-                    RegisterInternal(interfaceType, implementingType, serviceRegistry, lifetimeFactory());
-                }
+            {                
+                RegisterInternal(interfaceType, implementingType, serviceRegistry, lifetimeFactory());                
             }
 
             foreach (Type baseType in GetBaseTypes(implementingType))
