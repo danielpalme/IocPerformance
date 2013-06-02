@@ -63,8 +63,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Common.Logging.2.1.2\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Dynamo.Ioc">
-      <HintPath>..\packages\Dynamo.Ioc.3.0.1.0\lib\net45\Dynamo.Ioc.dll</HintPath>
+    <Reference Include="Dynamo.Ioc, Version=3.0.2.0, Culture=neutral, PublicKeyToken=584702d813863cbd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Dynamo.Ioc.3.0.2.0\lib\net45\Dynamo.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="fFastInjector">
+      <HintPath>..\packages\fFastInjector.0.8.1\lib\portable-net4+sl4+wp8+win8\fFastInjector.dll</HintPath>
     </Reference>
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
@@ -75,6 +79,9 @@
     </Reference>
     <Reference Include="Griffin.Container.Interception">
       <HintPath>..\packages\Griffin.Container.Interception.1.0.0\lib\net40\Griffin.Container.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="HaveBox">
+      <HintPath>..\packages\HaveBox.1.0.0\lib\net45\HaveBox.dll</HintPath>
     </Reference>
     <Reference Include="Hiro, Version=0.1.0.19167, Culture=neutral, PublicKeyToken=f0efb83db47c0105, processorArchitecture=MSIL">
       <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.dll</HintPath>
@@ -160,6 +167,8 @@
     <Compile Include="Adapters\AutofacContainerAdapter.cs" />
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
+    <Compile Include="Adapters\HaveBoxContainerAdapter.cs" />
+    <Compile Include="Adapters\FFastInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\MicroSliverContainerAdapter.cs" />
     <Compile Include="Adapters\GriffinContainerAdapter.cs" />
     <Compile Include="Adapters\MefContainerAdapter.cs" />

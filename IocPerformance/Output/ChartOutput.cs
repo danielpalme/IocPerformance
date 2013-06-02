@@ -56,6 +56,7 @@ namespace IocPerformance.Output
             singletonChart.Series.Add("Series1");
             singletonChart.Series["Series1"].ChartType = SeriesChartType.Bar;
             singletonChart.ChartAreas[0].AxisX.Interval = 1;
+            singletonChart.ChartAreas[0].AxisY.IsLogarithmic = true;
 
             foreach (var value in values)
             {

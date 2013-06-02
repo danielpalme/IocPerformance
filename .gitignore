@@ -10,7 +10,9 @@
 /packages/Common.Logging*
 /packages/CommonServiceLocator*
 /packages/Dynamo.Ioc*
+/packages/fFastInjector*
 /packages/Griffin.Container*
+/packages/HaveBox*
 /packages/Hiro*
 /packages/LightCore*
 /packages/LightInject*
