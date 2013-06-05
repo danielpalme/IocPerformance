@@ -1,6 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Reflection;
 using System.Xml.Linq;
-using IocPerformance.Interception;
 using HaveBox;
 
 namespace IocPerformance.Adapters
@@ -8,6 +9,7 @@ namespace IocPerformance.Adapters
     public sealed class HaveBoxContainerAdapter : IContainerAdapter
     {
         private Container container;
+	    private MethodInfo _methodInfo;
 
         public string Version
         {
@@ -31,17 +33,24 @@ namespace IocPerformance.Adapters
             this.container.Configure(config => config.For<ISingleton>().Use<Singleton>().AsSingleton());
             this.container.Configure(config => config.For<ITransient>().Use<Transient>());
             this.container.Configure(config => config.For<ICombined>().Use<Combined>());
+
+			Func<Object> pointer = container.GetInstance<Object>;
+			_methodInfo = pointer.Method.GetGenericMethodDefinition();
         }
 
-        public T Resolve<T>() where T : class
-        {
-            return this.container.GetInstance<T>();
-        }
+		public object Resolve(Type type)
+		{
+			// It only provides a generic GetInstance<>() method.
+			var genericMethod = _methodInfo.MakeGenericMethod(new Type[] { type });
+			return genericMethod.Invoke(container, new object[] {});
+		}
 
-        public T ResolveProxy<T>() where T : class
-        {
-            return this.container.GetInstance<T>();
-        }
+		public object ResolveProxy(Type type)
+		{
+			// It only provides a generic GetInstance<>() method.
+			var genericMethod = _methodInfo.MakeGenericMethod(new Type[] { type });
+			return genericMethod.Invoke(container, new object[] { });
+		}
 
         public void Dispose()
         {

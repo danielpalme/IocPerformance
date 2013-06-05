@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using IocPerformance.Interception;
 using SimpleInjector;
@@ -39,15 +40,15 @@ namespace IocPerformance.Adapters
             this.container.Verify();
         }
 
-        public T Resolve<T>() where T : class
-        {
-            return this.container.GetInstance<T>();
-        }
+		public object Resolve(Type type)
+		{
+			return this.container.GetInstance(type);
+		}
 
-        public T ResolveProxy<T>() where T : class
-        {
-            return this.container.GetInstance<T>();
-        }
+		public object ResolveProxy(Type type)
+		{
+			return this.container.GetInstance(type);
+		}
 
         public void Dispose()
         {

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using LinFu.IoC;
 
@@ -32,15 +33,15 @@ namespace IocPerformance.Adapters
             this.container.Inject<ICalculator>().Using<Calculator>().OncePerRequest();
         }
 
-        public T Resolve<T>() where T : class
-        {
-            return this.container.GetService<T>();
-        }
+		public object Resolve(Type type)
+		{
+			return this.container.GetService(type);
+		}
 
-        public T ResolveProxy<T>() where T : class
-        {
-            return this.container.GetService<T>();
-        }
+		public object ResolveProxy(Type type)
+		{
+			return this.container.GetService(type);
+		}
 
         public void Dispose()
         {

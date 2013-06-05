@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using Catel.IoC;
 
@@ -36,15 +37,15 @@ namespace IocPerformance.Adapters
             container = serviceLocator;
         }
 
-        public T Resolve<T>() where T : class
-        {
-            return container.ResolveType<T>();
-        }
+		public object Resolve(Type type)
+		{
+			return this.container.ResolveType(type);
+		}
 
-        public T ResolveProxy<T>() where T : class
-        {
-            return container.ResolveType<T>();
-        }
+		public object ResolveProxy(Type type)
+		{
+			return this.container.ResolveType(type);
+		}
 
         public void Dispose()
         {
