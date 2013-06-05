@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 
 namespace IocPerformance.Adapters
@@ -30,15 +31,15 @@ namespace IocPerformance.Adapters
             container.Register<ICombined>(c => new Combined(c.GetInstance<ISingleton>(), c.GetInstance<ITransient>()), new PerRequestLifeTime());
         }
 
-        public T Resolve<T>() where T : class
-        {
-            return this.container.GetInstance<T>();
-        }
+		public object Resolve(Type type)
+		{
+			return this.container.GetInstance(type);
+		}
 
-        public T ResolveProxy<T>() where T : class
-        {
-            return this.container.GetInstance<T>();
-        }
+		public object ResolveProxy(Type type)
+		{
+			return this.container.GetInstance(type);
+		}
 
         public void Dispose()
         {

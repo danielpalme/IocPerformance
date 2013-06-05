@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using Hiro;
 using Hiro.Containers;
@@ -35,15 +36,15 @@ namespace IocPerformance.Adapters
             this.container = map.CreateContainer();
         }
 
-        public T Resolve<T>() where T : class
-        {
-            return this.container.GetInstance<T>();
-        }
+		public object Resolve(Type type)
+		{
+			return this.container.GetInstance(type, null);
+		}
 
-        public T ResolveProxy<T>() where T : class
-        {
-            return this.container.GetInstance<T>();
-        }
+		public object ResolveProxy(Type type)
+		{
+			return this.container.GetInstance(type, null);
+		}
 
         public void Dispose()
         {
