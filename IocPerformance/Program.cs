@@ -6,14 +6,14 @@ using IocPerformance.Output;
 
 namespace IocPerformance
 {
-    internal class Program
-    {
-        public static void Main(string[] args)
-        {
-            IOutput output = new MultiOutput(new IOutput[] { new HtmlOutput(), new MarkdownOutput(), new ChartOutput(), new ConsoleOutput() });
-            output.Start();
+	internal class Program
+	{
+		public static void Main(string[] args)
+		{
+			IOutput output = new MultiOutput(new IOutput[] { new HtmlOutput(), new MarkdownOutput(), new ChartOutput(), new ConsoleOutput() });
+			output.Start();
 
-            var containers = new List<Tuple<string, IContainerAdapter>>
+			var containers = new List<Tuple<string, IContainerAdapter>>
             {
                 Tuple.Create<string, IContainerAdapter>("No", new NoContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("AutoFac", new AutofacContainerAdapter()),
@@ -43,126 +43,116 @@ namespace IocPerformance
                 Tuple.Create<string, IContainerAdapter>("Windsor", new WindsorContainerAdapter())
             };
 
-            foreach (var container in containers)
-            {
-                output.Result(MeasurePerformance(container.Item1, container.Item2));
-            }
+			foreach (var container in containers)
+			{
+				output.Result(MeasurePerformance(container.Item1, container.Item2));
+			}
 
-            output.Finish();
-        }
+			output.Finish();
+		}
 
-        private static Result MeasurePerformance(string name, IContainerAdapter container)
-        {
-            CollectMemory();
+		private static Result MeasurePerformance(string name, IContainerAdapter container)
+		{
+			CollectMemory();
 
-            container.Prepare();
+			container.Prepare();
 
-            WarmUp(container);
+			WarmUp(container);
 
-            var result = new Result();
-            result.Name = name;
-            result.Version = container.Version;
-            result.SingletonTime = MeasureSingleton(container);
-            result.TransientTime = MeasureTransient(container);
-            result.CombinedTime = MeasureCombined(container);
+			var timings = MeasurePerformance(container);
+			
+			var result = new Result();
+			result.Name = name;
+			result.Version = container.Version;
+			result.SingletonTime = timings.Item1;
+			result.TransientTime = timings.Item2;
+			result.CombinedTime = timings.Item3;
 
-            if (container.SupportsInterception)
-            {
-                result.InterceptionTime = MeasureProxy(container);
-            }
+			if (container.SupportsInterception)
+			{
+				result.InterceptionTime = MeasureProxy(container);
+			}
 
-            result.SingletonInstances = Singleton.Instances;
-            result.TransientInstances = Transient.Instances;
-            result.CombinedInstances = Combined.Instances;
-            result.InterceptionInstances = Calculator.Instances;
+			result.SingletonInstances = Singleton.Instances;
+			result.TransientInstances = Transient.Instances;
+			result.CombinedInstances = Combined.Instances;
+			result.InterceptionInstances = Calculator.Instances;
 
-            Singleton.Instances = 0;
-            Transient.Instances = 0;
-            Combined.Instances = 0;
-            Calculator.Instances = 0;
+			Singleton.Instances = 0;
+			Transient.Instances = 0;
+			Combined.Instances = 0;
+			Calculator.Instances = 0;
 
-            container.Dispose();
+			container.Dispose();
 
-            return result;
-        }
+			return result;
+		}
 
-        private const int LoopCount = 1000000;
+		private const int LoopCount = 1000000;
 
-        private static long MeasureSingleton(IContainerAdapter container)
-        {
-            var watch = Stopwatch.StartNew();
+		private static Tuple<long, long, long> MeasurePerformance(IContainerAdapter container)
+		{
+			var singletonWatch = new Stopwatch();
+			var transientWatch = new Stopwatch();
+			var combinedWatch = new Stopwatch();
 
-            for (int i = 0; i < LoopCount; i++)
-            {
-                container.Resolve<ISingleton>();
-            }
+			for (int i = 0; i < LoopCount; i++)
+			{
+				singletonWatch.Start();
+				container.Resolve<ISingleton>();
+				singletonWatch.Stop();
 
-            return watch.ElapsedMilliseconds;
-        }
+				transientWatch.Start();
+				container.Resolve<ITransient>();
+				transientWatch.Stop();
 
-        private static long MeasureTransient(IContainerAdapter container)
-        {
-            var watch = Stopwatch.StartNew();
+				combinedWatch.Start();
+				container.Resolve<ICombined>();
+				combinedWatch.Stop();
+			}
 
-            for (int i = 0; i < LoopCount; i++)
-            {
-                container.Resolve<ITransient>();
-            }
+			return new Tuple<long, long, long>(singletonWatch.ElapsedMilliseconds, transientWatch.ElapsedMilliseconds, combinedWatch.ElapsedMilliseconds);
+		}
 
-            return watch.ElapsedMilliseconds;
-        }
+		private static long MeasureProxy(IContainerAdapter container)
+		{
+			var watch = Stopwatch.StartNew();
 
-        private static long MeasureCombined(IContainerAdapter container)
-        {
-            var watch = Stopwatch.StartNew();
+			for (int i = 0; i < LoopCount; i++)
+			{
+				container.ResolveProxy<ICalculator>();
+			}
 
-            for (int i = 0; i < LoopCount; i++)
-            {
-                container.Resolve<ICombined>();
-            }
+			return watch.ElapsedMilliseconds;
+		}
 
-            return watch.ElapsedMilliseconds;
-        }
+		private static void CollectMemory()
+		{
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
 
-        private static long MeasureProxy(IContainerAdapter container)
-        {
-            var watch = Stopwatch.StartNew();
+			// Do this a second time to ensure finalizable objects that survived the previous collect are now
+			// collected.
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
+		}
 
-            for (int i = 0; i < LoopCount; i++)
-            {
-                container.ResolveProxy<ICalculator>();
-            }
+		private static void WarmUp(IContainerAdapter container)
+		{
+			var interface1 = container.Resolve<ISingleton>();
+			var interface2 = container.Resolve<ITransient>();
+			var combined = container.Resolve<ICombined>();
 
-            return watch.ElapsedMilliseconds;
-        }
-
-        private static void CollectMemory()
-        {
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-
-            // Do this a second time to ensure finalizable objects that survived the previous collect are now
-            // collected.
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-        }
-
-        private static void WarmUp(IContainerAdapter container)
-        {
-            var interface1 = container.Resolve<ISingleton>();
-            var interface2 = container.Resolve<ITransient>();
-            var combined = container.Resolve<ICombined>();
-
-            if (container.SupportsInterception)
-            {
-                var calculator = container.ResolveProxy<ICalculator>();
-                calculator.Add(1, 2);
-            }
-        }
-    }
+			if (container.SupportsInterception)
+			{
+				var calculator = container.ResolveProxy<ICalculator>();
+				calculator.Add(1, 2);
+			}
+		}
+	}
 }
 
 namespace System.Runtime.CompilerServices
 {
-    public class ExtensionAttribute : Attribute { }
+	public class ExtensionAttribute : Attribute { }
 }
