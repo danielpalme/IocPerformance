@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using Spring.Context;
 
@@ -28,14 +29,14 @@ namespace IocPerformance.Adapters
             this.container = Spring.Context.Support.ContextRegistry.GetContext();
         }
 
-        public T Resolve<T>() where T : class
+        public object Resolve(Type type)
         {
-            return (T)container.GetObject(typeof(T).FullName);
+            return this.container.GetObject(type.FullName);
         }
 
-        public T ResolveProxy<T>() where T : class
+        public object ResolveProxy(Type type)
         {
-            return (T)container.GetObject(typeof(T).FullName);
+            return this.container.GetObject(type.FullName);
         }
 
         public void Dispose()

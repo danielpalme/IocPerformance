@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.Composition.Hosting;
+﻿using System;
+using System.ComponentModel.Composition.Hosting;
+using System.Linq;
 
 namespace IocPerformance.Adapters
 {
@@ -19,14 +21,14 @@ namespace IocPerformance.Adapters
             this.container = new CompositionContainer(catalog);
         }
 
-        public T Resolve<T>() where T : class
+        public object Resolve(Type type)
         {
-            return this.container.GetExportedValue<T>();
+            return this.container.GetExports(type, null, null).First().Value;
         }
 
-        public T ResolveProxy<T>() where T : class
+        public object ResolveProxy(Type type)
         {
-            return this.container.GetExportedValue<T>();
+            return this.container.GetExports(type, null, null).First().Value;
         }
 
         public void Dispose()

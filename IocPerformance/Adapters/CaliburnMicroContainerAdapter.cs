@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using Caliburn.Micro;
 
@@ -34,14 +35,14 @@ namespace IocPerformance.Adapters
                 (ITransient)ioc.GetInstance(typeof(ITransient), null)));
         }
 
-        public T Resolve<T>() where T : class
+        public object Resolve(Type type)
         {
-            return (T)this.container.GetInstance(typeof(T), null);
+            return this.container.GetInstance(type, null);
         }
 
-        public T ResolveProxy<T>() where T : class
+        public object ResolveProxy(Type type)
         {
-            return (T)this.container.GetInstance(typeof(T), null);
+            return this.container.GetInstance(type, null);
         }
 
         public void Dispose()

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using Griffin.Container;
 using IocPerformance.Interception;
@@ -43,14 +44,14 @@ namespace IocPerformance.Adapters
             this.containerWithLoggingInterception = containerWithLoggingInterception;
         }
 
-        public T Resolve<T>() where T : class
+        public object Resolve(Type type)
         {
-            return this.container.Resolve<T>();
+            return this.container.Resolve(type);
         }
 
-        public T ResolveProxy<T>() where T : class
+        public object ResolveProxy(Type type)
         {
-            return this.containerWithLoggingInterception.Resolve<T>();
+            return this.containerWithLoggingInterception.Resolve(type);
         }
 
         public void Dispose()

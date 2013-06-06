@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using fFastInjector;
 
@@ -30,14 +31,14 @@ namespace IocPerformance.Adapters
             Injector.SetResolver<ICombined, Combined>();
         }
 
-        public T Resolve<T>() where T : class
+        public object Resolve(Type type)
         {
-            return Injector.Resolve<T>();
+            return Injector.Resolve(type);
         }
 
-        public T ResolveProxy<T>() where T : class
+        public object ResolveProxy(Type type)
         {
-            return Injector.Resolve<T>();
+            return Injector.Resolve(type);
         }
 
         public void Dispose()

@@ -35,7 +35,6 @@ namespace IocPerformance
                 Tuple.Create<string, IContainerAdapter>("Ninject", new NinjectContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Petite", new PetiteContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("SimpleInjector", new SimpleInjectorContainerAdapter()),
-                // SpeedIoc crashes too often
                 // Tuple.Create<string, IContainerAdapter>("Speedioc", new SpeediocContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Spring.NET", new SpringContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("StructureMap", new StructureMapContainerAdapter()),
@@ -100,15 +99,15 @@ namespace IocPerformance
             for (int i = 0; i < LoopCount; i++)
             {
                 singletonWatch.Start();
-                container.Resolve<ISingleton>();
+                var result1 = (ISingleton)container.Resolve(typeof(ISingleton));
                 singletonWatch.Stop();
 
                 transientWatch.Start();
-                container.Resolve<ITransient>();
+                var result2 = (ITransient)container.Resolve(typeof(ITransient));
                 transientWatch.Stop();
 
                 combinedWatch.Start();
-                container.Resolve<ICombined>();
+                var result3 = (ICombined)container.Resolve(typeof(ICombined));
                 combinedWatch.Stop();
             }
 
@@ -121,7 +120,7 @@ namespace IocPerformance
 
             for (int i = 0; i < LoopCount; i++)
             {
-                container.ResolveProxy<ICalculator>();
+                var result = (ICalculator)container.ResolveProxy(typeof(ICalculator));
             }
 
             return watch.ElapsedMilliseconds;
@@ -140,13 +139,13 @@ namespace IocPerformance
 
         private static void WarmUp(IContainerAdapter container)
         {
-            var interface1 = container.Resolve<ISingleton>();
-            var interface2 = container.Resolve<ITransient>();
-            var combined = container.Resolve<ICombined>();
+            var interface1 = (ISingleton)container.Resolve(typeof(ISingleton));
+            var interface2 = (ITransient)container.Resolve(typeof(ITransient));
+            var combined = (ICombined)container.Resolve(typeof(ICombined));
 
             if (container.SupportsInterception)
             {
-                var calculator = container.ResolveProxy<ICalculator>();
+                var calculator = (ICalculator)container.ResolveProxy(typeof(ICalculator));
                 calculator.Add(1, 2);
             }
         }

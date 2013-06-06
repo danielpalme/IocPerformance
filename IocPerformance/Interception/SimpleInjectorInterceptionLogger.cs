@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using SimpleInjector.Extensions.Interception;
 using System.Linq;
+using SimpleInjector.Extensions.Interception;
 
 namespace IocPerformance.Interception
 {

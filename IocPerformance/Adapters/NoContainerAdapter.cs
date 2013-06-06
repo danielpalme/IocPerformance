@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters
 {
@@ -21,14 +20,14 @@ namespace IocPerformance.Adapters
             container[typeof(ICombined)] = () => new Combined(singleton, new Transient());
         }
 
-        public T Resolve<T>() where T : class
+        public object Resolve(Type type)
         {
-            return (T)this.container[typeof(T)]();
+            return this.container[type]();
         }
 
-        public T ResolveProxy<T>() where T : class
+        public object ResolveProxy(Type type)
         {
-            return (T)this.container[typeof(T)]();
+            return this.container[type]();
         }
 
         public void Dispose()

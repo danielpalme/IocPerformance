@@ -1,10 +1,13 @@
-﻿using Funq;
+﻿using System;
+using System.Reflection;
+using Funq;
 
 namespace IocPerformance.Adapters
 {
     public sealed class FunqContainerAdapter : IContainerAdapter
     {
         private Container container;
+        private MethodInfo _methodInfo;
 
         public string Version
         {
@@ -26,16 +29,23 @@ namespace IocPerformance.Adapters
                 ioc.Resolve<ISingleton>(),
                 ioc.Resolve<ITransient>()))
                 .ReusedWithin(Funq.ReuseScope.None);
+
+            Func<Object> pointer = container.Resolve<Object>;
+            _methodInfo = pointer.Method.GetGenericMethodDefinition();
         }
 
-        public T Resolve<T>() where T : class
+        public object Resolve(Type type)
         {
-            return this.container.Resolve<T>();
+            // It only provides a generic Resolve<>() method.
+            var genericMethod = _methodInfo.MakeGenericMethod(new Type[] { type });
+            return genericMethod.Invoke(container, new object[] { });
         }
 
-        public T ResolveProxy<T>() where T : class
+        public object ResolveProxy(Type type)
         {
-            return this.container.Resolve<T>();
+            // It only provides a generic Resolve<>() method.
+            var genericMethod = _methodInfo.MakeGenericMethod(new Type[] { type });
+            return genericMethod.Invoke(container, new object[] { });
         }
 
         public void Dispose()

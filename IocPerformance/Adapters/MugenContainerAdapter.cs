@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using MugenInjection;
 
@@ -32,14 +33,14 @@ namespace IocPerformance.Adapters
             this.container.Bind<ICombined>().To<Combined>().InTransientScope();
         }
 
-        public T Resolve<T>() where T : class
+        public object Resolve(Type type)
         {
-            return this.container.Get<T>();
+            return this.container.Get(type);
         }
 
-        public T ResolveProxy<T>() where T : class
+        public object ResolveProxy(Type type)
         {
-            return this.container.Get<T>();
+            return this.container.Get(type);
         }
 
         public void Dispose()

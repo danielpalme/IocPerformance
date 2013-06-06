@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using MicroSliver;
 
@@ -31,14 +32,14 @@ namespace IocPerformance.Adapters
             this.container.Map<ICombined, Combined>();
         }
 
-        public T Resolve<T>() where T : class
+        public object Resolve(Type type)
         {
-            return this.container.Get<T>();
+            return this.container.GetByType(type);
         }
 
-        public T ResolveProxy<T>() where T : class
+        public object ResolveProxy(Type type)
         {
-            return this.container.Get<T>();
+            return this.container.GetByType(type);
         }
 
         public void Dispose()
