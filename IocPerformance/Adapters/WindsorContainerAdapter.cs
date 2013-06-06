@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
@@ -36,15 +37,15 @@ namespace IocPerformance.Adapters
             this.container.Register(Component.For<ICalculator>().ImplementedBy<Calculator>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
         }
 
-        public T Resolve<T>() where T : class
-        {
-            return this.container.Resolve<T>();
-        }
+		public object Resolve(Type type)
+		{
+			return this.container.Resolve(type);
+		}
 
-        public T ResolveProxy<T>() where T : class
-        {
-            return this.container.Resolve<T>();
-        }
+		public object ResolveProxy(Type type)
+		{
+			return this.container.Resolve(type);
+		}
 
         public void Dispose()
         {
