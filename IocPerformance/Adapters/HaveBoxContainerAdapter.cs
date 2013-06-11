@@ -9,7 +9,6 @@ namespace IocPerformance.Adapters
     public sealed class HaveBoxContainerAdapter : IContainerAdapter
     {
         private Container container;
-        private MethodInfo _methodInfo;
 
         public string Version
         {
@@ -33,23 +32,16 @@ namespace IocPerformance.Adapters
             this.container.Configure(config => config.For<ISingleton>().Use<Singleton>().AsSingleton());
             this.container.Configure(config => config.For<ITransient>().Use<Transient>());
             this.container.Configure(config => config.For<ICombined>().Use<Combined>());
-
-            Func<Object> pointer = container.GetInstance<Object>;
-            _methodInfo = pointer.Method.GetGenericMethodDefinition();
         }
 
         public object Resolve(Type type)
         {
-            // It only provides a generic GetInstance<>() method.
-            var genericMethod = _methodInfo.MakeGenericMethod(new Type[] { type });
-            return genericMethod.Invoke(container, new object[] { });
+            return container.GetInstance(type);
         }
 
         public object ResolveProxy(Type type)
         {
-            // It only provides a generic GetInstance<>() method.
-            var genericMethod = _methodInfo.MakeGenericMethod(new Type[] { type });
-            return genericMethod.Invoke(container, new object[] { });
+            return container.GetInstance(type);
         }
 
         public void Dispose()
