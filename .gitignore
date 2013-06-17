@@ -27,6 +27,7 @@
 /packages/Spring.Aop*
 /packages/Spring.Core*
 /packages/structuremap*
+/packages/StyleMVVM*
 /packages/TinyIoC*
 /packages/Unity*
 /packages/Caliburn.Micro.Container*

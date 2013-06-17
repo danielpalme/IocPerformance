@@ -155,12 +155,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
+    <Reference Include="StyleMVVM.DotNet">
+      <HintPath>..\packages\StyleMVVM.3.0.0\lib\net45\StyleMVVM.DotNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\StyleMVVM.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -189,6 +195,7 @@
     <Compile Include="Adapters\SpringContainerAdapter.cs" />
     <Compile Include="Adapters\StructureMapContainerAdapter.cs" />
     <Compile Include="Adapters\NoContainerAdapter.cs" />
+    <Compile Include="Adapters\StyleMVVMContainerAdapter.cs" />
     <Compile Include="Adapters\TinyIOCContainerAdapter.cs">
       <SubType>Code</SubType>
     </Compile>

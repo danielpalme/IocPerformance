@@ -38,6 +38,7 @@ namespace IocPerformance
                 // Tuple.Create<string, IContainerAdapter>("Speedioc", new SpeediocContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Spring.NET", new SpringContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("StructureMap", new StructureMapContainerAdapter()),
+                Tuple.Create<string, IContainerAdapter>("StyleMVVM", new StyleMVVMContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("TinyIOC", new TinyIOCContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Unity", new UnityContainerAdapter()),
                 Tuple.Create<string, IContainerAdapter>("Windsor", new WindsorContainerAdapter())
