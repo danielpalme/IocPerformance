@@ -1,33 +1,23 @@
 ﻿using System;
-using System.Linq;
-using System.Xml.Linq;
 using Griffin.Container;
 using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class GriffinContainerAdapter : IContainerAdapter
+    public sealed class GriffinContainerAdapter : ContainerAdapterBase
     {
         private IParentContainer container;
         private IParentContainer containerWithLoggingInterception;
 
-        public string Version
+        protected override string PackageName
         {
-            get
-            {
-                return XDocument
-                    .Load("packages.config")
-                    .Root
-                    .Elements()
-                    .First(e => e.Attribute("id").Value == "Griffin.Container")
-                    .Attribute("version").Value;
-            }
+            get { return "Griffin.Container"; }
         }
 
         // The container is extremly slow, when creating proxies, so it's currently disabled
-        public bool SupportsInterception { get { return false; } }
+        public override bool SupportsInterception { get { return false; } }
 
-        public void Prepare()
+        public override void Prepare()
         {
             var registrar = new ContainerRegistrar();
             registrar.RegisterType<ISingleton, Singleton>(Lifetime.Singleton);
@@ -44,17 +34,17 @@ namespace IocPerformance.Adapters
             this.containerWithLoggingInterception = containerWithLoggingInterception;
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
         }
 
-        public object ResolveProxy(Type type)
+        public override object ResolveProxy(Type type)
         {
             return this.containerWithLoggingInterception.Resolve(type);
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;

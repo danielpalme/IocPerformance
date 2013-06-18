@@ -1,30 +1,18 @@
 ﻿using System;
-using System.Linq;
-using System.Xml.Linq;
 using TinyIoC;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class TinyIOCContainerAdapter : IContainerAdapter
+    public sealed class TinyIOCContainerAdapter : ContainerAdapterBase
     {
         private TinyIoCContainer container;
 
-        public string Version
+        protected override string PackageName
         {
-            get
-            {
-                return XDocument
-                    .Load("packages.config")
-                    .Root
-                    .Elements()
-                    .First(e => e.Attribute("id").Value == "TinyIoC")
-                    .Attribute("version").Value;
-            }
+            get { return "TinyIoC"; }
         }
 
-        public bool SupportsInterception { get { return false; } }
-
-        public void Prepare()
+        public override void Prepare()
         {
             this.container = new TinyIoC.TinyIoCContainer();
 
@@ -33,17 +21,12 @@ namespace IocPerformance.Adapters
             this.container.Register<ICombined, Combined>().AsMultiInstance();
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
         }
 
-        public object ResolveProxy(Type type)
-        {
-            return this.container.Resolve(type);
-        }
-
-        public void Dispose()
+        public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;

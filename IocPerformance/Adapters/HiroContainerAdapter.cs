@@ -1,31 +1,19 @@
 ﻿using System;
-using System.Linq;
-using System.Xml.Linq;
 using Hiro;
 using Hiro.Containers;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class HiroContainerAdapter : IContainerAdapter
+    public sealed class HiroContainerAdapter : ContainerAdapterBase
     {
         private IMicroContainer container;
 
-        public string Version
+        protected override string PackageName
         {
-            get
-            {
-                return XDocument
-                    .Load("packages.config")
-                    .Root
-                    .Elements()
-                    .First(e => e.Attribute("id").Value == "Hiro")
-                    .Attribute("version").Value;
-            }
+            get { return "Hiro"; }
         }
 
-        public bool SupportsInterception { get { return false; } }
-
-        public void Prepare()
+        public override void Prepare()
         {
             var map = new DependencyMap();
 
@@ -36,17 +24,12 @@ namespace IocPerformance.Adapters
             this.container = map.CreateContainer();
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             return this.container.GetInstance(type, null);
         }
 
-        public object ResolveProxy(Type type)
-        {
-            return this.container.GetInstance(type, null);
-        }
-
-        public void Dispose()
+        public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;

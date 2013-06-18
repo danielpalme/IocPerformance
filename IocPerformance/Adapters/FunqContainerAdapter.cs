@@ -4,19 +4,22 @@ using Funq;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class FunqContainerAdapter : IContainerAdapter
+    public sealed class FunqContainerAdapter : ContainerAdapterBase
     {
         private Container container;
-        private MethodInfo _methodInfo;
+        private MethodInfo methodInfo;
 
-        public string Version
+        protected override string PackageName
+        {
+            get { return "Funq"; }
+        }
+
+        public override string Version
         {
             get { return typeof(Container).Assembly.GetName().Version.ToString(); }
         }
 
-        public bool SupportsInterception { get { return false; } }
-
-        public void Prepare()
+        public override void Prepare()
         {
             this.container = new Funq.Container();
             this.container.Register<ISingleton>(ioc => new Singleton())
@@ -31,24 +34,17 @@ namespace IocPerformance.Adapters
                 .ReusedWithin(Funq.ReuseScope.None);
 
             Func<Object> pointer = container.Resolve<Object>;
-            _methodInfo = pointer.Method.GetGenericMethodDefinition();
+            methodInfo = pointer.Method.GetGenericMethodDefinition();
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             // It only provides a generic Resolve<>() method.
-            var genericMethod = _methodInfo.MakeGenericMethod(new Type[] { type });
+            var genericMethod = methodInfo.MakeGenericMethod(new Type[] { type });
             return genericMethod.Invoke(container, new object[] { });
         }
 
-        public object ResolveProxy(Type type)
-        {
-            // It only provides a generic Resolve<>() method.
-            var genericMethod = _methodInfo.MakeGenericMethod(new Type[] { type });
-            return genericMethod.Invoke(container, new object[] { });
-        }
-
-        public void Dispose()
+        public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;

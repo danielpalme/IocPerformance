@@ -1,29 +1,17 @@
 ﻿using System;
-using System.Linq;
-using System.Xml.Linq;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class LightInjectContainerAdapter : IContainerAdapter
+    public sealed class LightInjectContainerAdapter : ContainerAdapterBase
     {
         private IServiceContainer container;
 
-        public string Version
+        protected override string PackageName
         {
-            get
-            {
-                return XDocument
-                    .Load("packages.config")
-                    .Root
-                    .Elements()
-                    .First(e => e.Attribute("id").Value == "LightInject")
-                    .Attribute("version").Value;
-            }
+            get { return "LightInject"; }
         }
 
-        public bool SupportsInterception { get { return false; } }
-
-        public void Prepare()
+        public override void Prepare()
         {
             this.container = new ServiceContainer();
             container.Register<ISingleton>(c => new Singleton(), new PerContainerLifetime());
@@ -31,17 +19,12 @@ namespace IocPerformance.Adapters
             container.Register<ICombined>(c => new Combined(c.GetInstance<ISingleton>(), c.GetInstance<ITransient>()), new PerRequestLifeTime());
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             return this.container.GetInstance(type);
         }
 
-        public object ResolveProxy(Type type)
-        {
-            return this.container.GetInstance(type);
-        }
-
-        public void Dispose()
+        public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;

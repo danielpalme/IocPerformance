@@ -5,24 +5,14 @@ using fFastInjector;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class FFastInjectorContainerAdapter : IContainerAdapter
+    public sealed class FFastInjectorContainerAdapter : ContainerAdapterBase
     {
-        public string Version
+        protected override string PackageName
         {
-            get
-            {
-                return XDocument
-                    .Load("packages.config")
-                    .Root
-                    .Elements()
-                    .First(e => e.Attribute("id").Value == "fFastInjector")
-                    .Attribute("version").Value;
-            }
+            get { return "fFastInjector"; }
         }
 
-        public bool SupportsInterception { get { return false; } }
-
-        public void Prepare()
+        public override void Prepare()
         {
             var singleton = new Singleton();
 
@@ -31,17 +21,12 @@ namespace IocPerformance.Adapters
             Injector.SetResolver<ICombined, Combined>();
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             return Injector.Resolve(type);
         }
 
-        public object ResolveProxy(Type type)
-        {
-            return Injector.Resolve(type);
-        }
-
-        public void Dispose()
+        public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
         }

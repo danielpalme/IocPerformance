@@ -1,30 +1,18 @@
 ﻿using System;
-using System.Linq;
-using System.Xml.Linq;
 using Petite;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class PetiteContainerAdapter : IContainerAdapter
+    public sealed class PetiteContainerAdapter : ContainerAdapterBase
     {
         private Container container;
 
-        public string Version
+        protected override string PackageName
         {
-            get
-            {
-                return XDocument
-                    .Load("packages.config")
-                    .Root
-                    .Elements()
-                    .First(e => e.Attribute("id").Value == "Petite.Container")
-                    .Attribute("version").Value;
-            }
+            get { return "Petite.Container"; }
         }
 
-        public bool SupportsInterception { get { return false; } }
-
-        public void Prepare()
+        public override void Prepare()
         {
             this.container = new Petite.Container();
 
@@ -35,17 +23,12 @@ namespace IocPerformance.Adapters
                 c.Resolve<ITransient>()));
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
         }
 
-        public object ResolveProxy(Type type)
-        {
-            return this.container.Resolve(type);
-        }
-
-        public void Dispose()
+        public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;

@@ -7,6 +7,7 @@ namespace IocPerformance.Adapters
         void Prepare();
 
         object Resolve(Type type);
+
         object ResolveProxy(Type type);
 
         string Version { get; }

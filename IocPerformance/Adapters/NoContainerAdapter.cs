@@ -3,15 +3,18 @@ using System.Collections.Generic;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class NoContainerAdapter : IContainerAdapter
+    public sealed class NoContainerAdapter : ContainerAdapterBase
     {
         private readonly Dictionary<Type, Func<object>> container = new Dictionary<Type, Func<object>>();
 
-        public string Version { get { return null; } }
+        protected override string PackageName
+        {
+            get { return "No"; }
+        }
 
-        public bool SupportsInterception { get { return false; } }
+        public override string Version { get { return null; } }
 
-        public void Prepare()
+        public override void Prepare()
         {
             ISingleton singleton = new Singleton();
 
@@ -20,19 +23,13 @@ namespace IocPerformance.Adapters
             container[typeof(ICombined)] = () => new Combined(singleton, new Transient());
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             return this.container[type]();
         }
 
-        public object ResolveProxy(Type type)
-        {
-            return this.container[type]();
-        }
-
-        public void Dispose()
+        public override void Dispose()
         {
         }
     }
-
 }

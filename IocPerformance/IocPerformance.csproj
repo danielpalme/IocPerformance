@@ -109,6 +109,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LinFu.Core.2.3.0.41559\lib\net35\LinFu.Core.dll</HintPath>
     </Reference>
+    <Reference Include="LinFu.DynamicProxy">
+      <HintPath>..\packages\Ninject.Extensions.Interception.Linfu.3.0.0.8\lib\net35\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
     <Reference Include="MicroSliver">
       <HintPath>..\packages\MicroSliver.2.1.6.0\lib\net40\MicroSliver.dll</HintPath>
     </Reference>
@@ -137,6 +140,12 @@
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Interception">
+      <HintPath>..\packages\Ninject.Extensions.Interception.3.0.0.8\lib\net45-full\Ninject.Extensions.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Interception.LinFu">
+      <HintPath>..\packages\Ninject.Extensions.Interception.Linfu.3.0.0.8\lib\net35\Ninject.Extensions.Interception.LinFu.dll</HintPath>
     </Reference>
     <Reference Include="SimpleInjector, Version=2.2.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -174,6 +183,7 @@
     <Compile Include="Adapters\AutofacContainerAdapter.cs" />
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
+    <Compile Include="Adapters\ContainerAdapterBase.cs" />
     <Compile Include="Adapters\HaveBoxContainerAdapter.cs" />
     <Compile Include="Adapters\FFastInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\MicroSliverContainerAdapter.cs" />
@@ -206,6 +216,7 @@
     <Compile Include="Caliburn.Micro\SimpleContainer.cs" />
     <Compile Include="Classes.cs" />
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
+    <Compile Include="Interception\NinjectInterceptionLogger.cs" />
     <Compile Include="Interception\SpringInterceptionLogger.cs" />
     <Compile Include="Interception\StructureMapInterceptionLogger.cs" />
     <Compile Include="Interception\WindsorInterceptionLogger.cs" />

@@ -1,48 +1,37 @@
 ﻿using System;
-using System.Linq;
-using System.Xml.Linq;
+using IocPerformance.Interception;
 using Ninject;
+using Ninject.Extensions.Interception.Infrastructure.Language;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class NinjectContainerAdapter : IContainerAdapter
+    public sealed class NinjectContainerAdapter : ContainerAdapterBase
     {
         private StandardKernel container;
 
-        public string Version
+        protected override string PackageName
         {
-            get
-            {
-                return XDocument
-                    .Load("packages.config")
-                    .Root
-                    .Elements()
-                    .First(e => e.Attribute("id").Value == "Ninject")
-                    .Attribute("version").Value;
-            }
+            get { return "Ninject"; }
         }
 
-        public bool SupportsInterception { get { return false; } }
+        public override bool SupportsInterception { get { return true; } }
 
-        public void Prepare()
+        public override void Prepare()
         {
             this.container = new StandardKernel();
             this.container.Bind<ISingleton>().To<Singleton>().InSingletonScope();
             this.container.Bind<ITransient>().To<Transient>().InTransientScope();
             this.container.Bind<ICombined>().To<Combined>().InTransientScope();
+            this.container.Bind<ICalculator>().To<Calculator>().InTransientScope()
+                .Intercept().With(new NinjectInterceptionLogger());
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             return this.container.Get(type);
         }
 
-        public object ResolveProxy(Type type)
-        {
-            return this.container.Get(type);
-        }
-
-        public void Dispose()
+        public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;

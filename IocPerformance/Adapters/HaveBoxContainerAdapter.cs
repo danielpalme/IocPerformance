@@ -1,31 +1,18 @@
 ﻿using System;
-using System.Linq;
-using System.Reflection;
-using System.Xml.Linq;
 using HaveBox;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class HaveBoxContainerAdapter : IContainerAdapter
+    public sealed class HaveBoxContainerAdapter : ContainerAdapterBase
     {
         private Container container;
 
-        public string Version
+        protected override string PackageName
         {
-            get
-            {
-                return XDocument
-                    .Load("packages.config")
-                    .Root
-                    .Elements()
-                    .First(e => e.Attribute("id").Value == "HaveBox")
-                    .Attribute("version").Value;
-            }
+            get { return "HaveBox"; }
         }
 
-        public bool SupportsInterception { get { return false; } }
-
-        public void Prepare()
+        public override void Prepare()
         {
             this.container = new Container();
 
@@ -34,17 +21,12 @@ namespace IocPerformance.Adapters
             this.container.Configure(config => config.For<ICombined>().Use<Combined>());
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             return container.GetInstance(type);
         }
 
-        public object ResolveProxy(Type type)
-        {
-            return container.GetInstance(type);
-        }
-
-        public void Dispose()
+        public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;

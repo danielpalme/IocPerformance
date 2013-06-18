@@ -1,45 +1,30 @@
 ﻿using System;
-using System.Linq;
-using System.Xml.Linq;
 using Spring.Context;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class SpringContainerAdapter : IContainerAdapter
+    public sealed class SpringContainerAdapter : ContainerAdapterBase
     {
         private IApplicationContext container;
 
-        public string Version
+        protected override string PackageName
         {
-            get
-            {
-                return XDocument
-                    .Load("packages.config")
-                    .Root
-                    .Elements()
-                    .First(e => e.Attribute("id").Value == "Spring.Core")
-                    .Attribute("version").Value;
-            }
+            get { return "Spring.Core"; }
         }
 
-        public bool SupportsInterception { get { return true; } }
+        public override bool SupportsInterception { get { return true; } }
 
-        public void Prepare()
+        public override void Prepare()
         {
             this.container = Spring.Context.Support.ContextRegistry.GetContext();
         }
 
-        public object Resolve(Type type)
+        public override object Resolve(Type type)
         {
             return this.container.GetObject(type.FullName);
         }
 
-        public object ResolveProxy(Type type)
-        {
-            return this.container.GetObject(type.FullName);
-        }
-
-        public void Dispose()
+        public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;
