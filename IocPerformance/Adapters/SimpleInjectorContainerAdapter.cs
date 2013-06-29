@@ -1,4 +1,5 @@
 ﻿using System;
+using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using SimpleInjector;
 using SimpleInjector.Extensions.Interception;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
+using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {

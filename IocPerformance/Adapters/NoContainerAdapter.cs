@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {

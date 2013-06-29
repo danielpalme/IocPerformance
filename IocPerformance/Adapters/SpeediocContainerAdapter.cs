@@ -1,4 +1,5 @@
 ﻿using System;
+using IocPerformance.Classes.Standard;
 using Speedioc;
 using Speedioc.Core;
 using Speedioc.Registration;

@@ -1,4 +1,5 @@
 ﻿using System;
+using IocPerformance.Classes.Standard;
 using LinFu.IoC;
 
 namespace IocPerformance.Adapters

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Xml.Linq;
 using Autofac;
 using Autofac.Extras.DynamicProxy2;
+using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters

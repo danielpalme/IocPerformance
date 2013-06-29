@@ -1,4 +1,5 @@
 ﻿using System;
+using IocPerformance.Classes.Standard;
 using StyleMVVM.DependencyInjection;
 using StyleMVVM.DependencyInjection.Impl;
 

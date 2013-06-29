@@ -1,5 +1,6 @@
 ﻿using System;
 using Griffin.Container;
+using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters

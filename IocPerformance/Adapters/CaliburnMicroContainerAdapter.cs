@@ -1,5 +1,6 @@
 ﻿using System;
 using Caliburn.Micro;
+using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {

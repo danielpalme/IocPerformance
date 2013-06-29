@@ -1,6 +1,7 @@
 ﻿using System;
 using Hiro;
 using Hiro.Containers;
+using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {

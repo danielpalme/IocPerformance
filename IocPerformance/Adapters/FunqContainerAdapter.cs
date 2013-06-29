@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using Funq;
+using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {

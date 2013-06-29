@@ -1,6 +1,7 @@
 ﻿using System;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters

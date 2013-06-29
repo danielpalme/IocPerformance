@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using IocPerformance.Adapters;
+using IocPerformance.Classes.Standard;
 using IocPerformance.Output;
 
 namespace IocPerformance

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Xml.Linq;
 using Dynamo.Ioc;
+using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {

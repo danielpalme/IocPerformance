@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Xml.Linq;
+using IocPerformance.Classes.Standard;
 using fFastInjector;
 
 namespace IocPerformance.Adapters

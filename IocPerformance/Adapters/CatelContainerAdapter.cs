@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Xml.Linq;
 using Catel.IoC;
+using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {

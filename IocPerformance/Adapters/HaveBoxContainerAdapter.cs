@@ -1,5 +1,6 @@
 ﻿using System;
 using HaveBox;
+using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {
