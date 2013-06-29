@@ -9,7 +9,7 @@ namespace IocPerformance.Adapters
     {
         private Container container;
 
-        protected override string PackageName
+		  public override string PackageName
         {
             get { return "structuremap"; }
         }

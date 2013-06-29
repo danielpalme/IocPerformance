@@ -10,7 +10,7 @@ namespace IocPerformance.Adapters
         private Container container;
         private MethodInfo methodInfo;
 
-        protected override string PackageName
+		  public override string PackageName
         {
             get { return "Funq"; }
         }

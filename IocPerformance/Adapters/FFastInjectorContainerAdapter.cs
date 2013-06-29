@@ -8,7 +8,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class FFastInjectorContainerAdapter : ContainerAdapterBase
     {
-        protected override string PackageName
+		 public override string PackageName
         {
             get { return "fFastInjector"; }
         }

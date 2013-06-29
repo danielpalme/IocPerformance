@@ -8,7 +8,7 @@ namespace IocPerformance.Adapters
     {
         private IoC container;
 
-        protected override string PackageName
+        public override string PackageName
         {
             get { return "MicroSliver"; }
         }

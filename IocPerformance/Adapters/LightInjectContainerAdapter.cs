@@ -7,7 +7,7 @@ namespace IocPerformance.Adapters
     {
         private IServiceContainer container;
 
-        protected override string PackageName
+        public override string PackageName
         {
             get { return "LightInject"; }
         }

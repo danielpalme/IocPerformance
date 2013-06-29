@@ -10,7 +10,7 @@ namespace IocPerformance.Adapters
         private IParentContainer container;
         private IParentContainer containerWithLoggingInterception;
 
-        protected override string PackageName
+		  public override string PackageName
         {
             get { return "Griffin.Container"; }
         }

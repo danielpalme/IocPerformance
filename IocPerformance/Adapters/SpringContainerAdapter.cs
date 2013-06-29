@@ -7,7 +7,7 @@ namespace IocPerformance.Adapters
     {
         private IApplicationContext container;
 
-        protected override string PackageName
+        public override string PackageName
         {
             get { return "Spring.Core"; }
         }

@@ -8,7 +8,7 @@ namespace IocPerformance.Adapters
     {
         private TinyIoCContainer container;
 
-        protected override string PackageName
+        public override string PackageName
         {
             get { return "TinyIoC"; }
         }
