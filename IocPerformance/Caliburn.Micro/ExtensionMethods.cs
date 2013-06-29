@@ -1,5 +1,8 @@
-﻿namespace Caliburn.Micro
-{
+﻿#if NETFX_CORE && !WinRT
+#define WinRT
+#endif
+
+namespace Caliburn.Micro {
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -66,8 +69,8 @@
             return memberExpression.Member;
         }
 
-#if WP71
-		//Method missing in WP71 Linq
+#if WINDOWS_PHONE && !WP8
+		//Method missing in WP7.1 Linq
 
 		/// <summary>
 		/// Merges two sequences by using the specified predicate function.
@@ -79,8 +82,8 @@
 		/// <param name="second">The second sequence to merge.</param>
 		/// <param name="resultSelector"> A function that specifies how to merge the elements from the two sequences.</param>
 		/// <returns>An System.Collections.Generic.IEnumerable&lt;T&gt; that contains merged elements of two input sequences.</returns>
-		public static IEnumerable<TResult> Zip<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first, IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> resultSelector){
-			if (first == null){
+		public static IEnumerable<TResult> Zip<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first, IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> resultSelector) {
+			if (first == null) {
 				throw new ArgumentNullException("first");
             }
 
@@ -99,6 +102,31 @@
 				yield return resultSelector(enumFirst.Current, enumSecond.Current);
 			}
 		}
+#endif
+
+#if WinRT
+        /// <summary>
+        /// Gets a collection of the public types defined in this assembly that are visible outside the assembly.
+        /// </summary>
+        /// <param name="assembly">The assembly.</param>
+        /// <returns>A collection of the public types defined in this assembly that are visible outside the assembly.</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static IEnumerable<Type> GetExportedTypes(this Assembly assembly) {
+            if (assembly == null)
+                throw new ArgumentNullException("assembly");
+
+            return assembly.ExportedTypes;
+        }
+
+        /// <summary>
+        /// Returns a value that indicates whether the specified type can be assigned to the current type.
+        /// </summary>
+        /// <param name="target">The target type</param>
+        /// <param name="type">The type to check.</param>
+        /// <returns>true if the specified type can be assigned to this type; otherwise, false.</returns>
+        public static bool IsAssignableFrom(this Type target, Type type) {
+            return target.GetTypeInfo().IsAssignableFrom(type.GetTypeInfo());
+        }
 #endif
     }
 }

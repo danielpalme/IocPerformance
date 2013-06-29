@@ -80,9 +80,9 @@
     <Reference Include="Griffin.Container.Interception">
       <HintPath>..\packages\Griffin.Container.Interception.1.0.0\lib\net40\Griffin.Container.Interception.dll</HintPath>
     </Reference>
-    <Reference Include="HaveBox, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="HaveBox, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HaveBox.1.2.0\lib\net45\HaveBox.dll</HintPath>
+      <HintPath>..\packages\HaveBox.1.3.0\lib\net45\HaveBox.dll</HintPath>
     </Reference>
     <Reference Include="Hiro, Version=0.1.0.19167, Culture=neutral, PublicKeyToken=f0efb83db47c0105, processorArchitecture=MSIL">
       <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.dll</HintPath>
@@ -164,8 +164,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
-    <Reference Include="StyleMVVM.DotNet">
-      <HintPath>..\packages\StyleMVVM.3.0.0\lib\net45\StyleMVVM.DotNet.dll</HintPath>
+    <Reference Include="StyleMVVM.DotNet, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\StyleMVVM.3.0.3\lib\net45\StyleMVVM.DotNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -174,7 +175,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\StyleMVVM.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\StyleMVVM.3.0.3\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
