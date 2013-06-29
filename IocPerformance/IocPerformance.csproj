@@ -255,6 +255,7 @@
     <Compile Include="Interception\UnityInterceptionLoggerAttribute.cs" />
     <Compile Include="Output\ConsoleOutput.cs" />
     <Compile Include="Output\ChartOutput.cs" />
+    <Compile Include="Output\CsvOutput.cs" />
     <Compile Include="Output\MarkdownOutput.cs" />
     <Compile Include="Output\HtmlOutput.cs" />
     <Compile Include="Output\IOutput.cs" />
