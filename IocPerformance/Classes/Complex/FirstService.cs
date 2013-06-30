@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace IocPerformance.Classes.Complex
 		
 	}
 
+
+	[Export(typeof(IFirstService)), PartCreationPolicy(CreationPolicy.Shared)]
 	public class FirstService : IFirstService
 	{
 

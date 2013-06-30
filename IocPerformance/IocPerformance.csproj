@@ -227,6 +227,16 @@
     <Compile Include="Classes\Conditional\IExportConditionInterface.cs" />
     <Compile Include="Classes\Conditional\ImportConditionObject.cs" />
     <Compile Include="Classes\Conditional\ImportConditionObject2.cs" />
+    <Compile Include="Classes\Dummy\DummyEight.cs" />
+    <Compile Include="Classes\Dummy\DummyFive.cs" />
+    <Compile Include="Classes\Dummy\DummyFour.cs" />
+    <Compile Include="Classes\Dummy\DummyNine.cs" />
+    <Compile Include="Classes\Dummy\DummyOne.cs" />
+    <Compile Include="Classes\Dummy\DummySeven.cs" />
+    <Compile Include="Classes\Dummy\DummySix.cs" />
+    <Compile Include="Classes\Dummy\DummyTen.cs" />
+    <Compile Include="Classes\Dummy\DummyThree.cs" />
+    <Compile Include="Classes\Dummy\DummyTwo.cs" />
     <Compile Include="Classes\Generics\GenericExport.cs" />
     <Compile Include="Classes\Generics\IGenericInterface.cs" />
     <Compile Include="Classes\Generics\ImportGeneric.cs" />

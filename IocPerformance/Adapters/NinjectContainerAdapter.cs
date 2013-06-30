@@ -2,6 +2,7 @@
 using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
+using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Standard;
@@ -49,10 +50,13 @@ namespace IocPerformance.Adapters
 		public override void Prepare()
 		{
 			this.container = new StandardKernel();
-			this.container.Bind<ISingleton>().To<Singleton>().InSingletonScope();
-			this.container.Bind<ITransient>().To<Transient>().InTransientScope();
-			this.container.Bind<ICombined>().To<Combined>().InTransientScope();
-			this.container.Bind<ICalculator>().To<Calculator>().InTransientScope()
+
+			RegisterDummies();
+
+			container.Bind<ISingleton>().To<Singleton>().InSingletonScope();
+			container.Bind<ITransient>().To<Transient>().InTransientScope();
+			container.Bind<ICombined>().To<Combined>().InTransientScope();
+			container.Bind<ICalculator>().To<Calculator>().InTransientScope()
 				 .Intercept().With(new NinjectInterceptionLogger());
 
 			// complex export
@@ -87,6 +91,22 @@ namespace IocPerformance.Adapters
 			container.Bind<ISimpleAdapter>().To<SimpleAdapterFour>().InTransientScope();
 			container.Bind<ISimpleAdapter>().To<SimpleAdapterFive>().InTransientScope();
 			container.Bind<ImportMultiple>().To<ImportMultiple>().InTransientScope();
+		}
+
+		private void RegisterDummies()
+		{
+
+			container.Bind<IDummyOne>().To<DummyOne>().InTransientScope();
+			container.Bind<IDummyTwo>().To<DummyTwo>().InTransientScope();
+			container.Bind<IDummyThree>().To<DummyThree>().InTransientScope();
+			container.Bind<IDummyFour>().To<DummyFour>().InTransientScope();
+			container.Bind<IDummyFive>().To<DummyFive>().InTransientScope();
+			container.Bind<IDummySix>().To<DummySix>().InTransientScope();
+			container.Bind<IDummySeven>().To<DummySeven>().InTransientScope();
+			container.Bind<IDummyEight>().To<DummyEight>().InTransientScope();
+			container.Bind<IDummyNine>().To<DummyNine>().InTransientScope();
+			container.Bind<IDummyTen>().To<DummyTen>().InTransientScope();
+
 		}
 
 		public override object Resolve(Type type)

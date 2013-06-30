@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,12 @@ namespace IocPerformance.Classes.Complex
 
 	}
 
+	[Export(typeof(IComplex)), PartCreationPolicy(CreationPolicy.NonShared)]
 	public class Complex : IComplex
 	{
 		public static int Instances { get; set; }
 
+		[ImportingConstructor]
 		public Complex(IFirstService firstService, 
 						   ISecondService secondService,
 							IThirdService thirdService,	
