@@ -14,13 +14,20 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.container = new ServiceContainer();
-            container.Register<ISingleton>(c => new Singleton(), new PerContainerLifetime());
-            container.Register<ITransient>(c => new Transient(), new PerRequestLifeTime());
-            container.Register<ICombined>(c => new Combined(c.GetInstance<ISingleton>(), c.GetInstance<ITransient>()), new PerRequestLifeTime());
+	        this.container = new ServiceContainer();
+
+	        RegisterStandard();
         }
 
-        public override object Resolve(Type type)
+	    private void RegisterStandard()
+	    {
+		    container.Register<ISingleton>(c => new Singleton(), new PerContainerLifetime());
+		    container.Register<ITransient>(c => new Transient(), new PerRequestLifeTime());
+		    container.Register<ICombined>(c => new Combined(c.GetInstance<ISingleton>(), c.GetInstance<ITransient>()),
+		                                  new PerRequestLifeTime());
+	    }
+
+	    public override object Resolve(Type type)
         {
             return this.container.GetInstance(type);
         }
