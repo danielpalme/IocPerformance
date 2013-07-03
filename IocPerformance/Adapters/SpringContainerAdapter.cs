@@ -12,20 +12,21 @@ namespace IocPerformance.Adapters
 			get { return "Spring.Core"; }
 		}
 
-		public override bool SupportsInterception { get { return true; } }
+		// Doesn't create a new instance each time
+		//public override bool SupportsInterception { get { return true; } }
 
-		public override bool SupportGeneric
-		{
-			get { return true; }
-		}
+		//public override bool SupportGeneric
+		//{
+		//	get { return true; }
+		//}
 
-		public override bool SupportsMultiple
-		{
-			get
-			{
-				return true;
-			}
-		}
+		//public override bool SupportsMultiple
+		//{
+		//	get
+		//	{
+		//		return true;
+		//	}
+		//}
 
 		public override void Prepare()
 		{

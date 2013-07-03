@@ -23,7 +23,7 @@ namespace IocPerformance.Output
 			{
 				using (var writer = new StreamWriter(fileStream))
 				{
-			
+
 					writer.WriteLine("Ioc Performance (Fork)");
 					writer.WriteLine("===============");
 					writer.WriteLine("");
@@ -41,13 +41,12 @@ namespace IocPerformance.Output
 					writer.WriteLine("-------");
 					writer.WriteLine("<table>");
 
-					writer.WriteLine("<tr><th>Container</th><th>Singleton</th><th>Transient</th><th>Combined</th>");
-					writer.WriteLine("<th>Complex</th><th>Generics</th><th>Multiple</th><th>Conditional</th><th>Interception</th></tr>");
+					writer.WriteLine("<tr><th>Container</th><th>Singleton</th><th>Transient</th><th>Combined</th><th>Complex</th></tr>");
 
 					foreach (var result in this.results)
 					{
 						writer.WriteLine(
-							"<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}>",
+							"<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}></tr>",
 							result.Name,
 							result.Version == null ? string.Empty : " ",
 							result.Version,
@@ -56,19 +55,30 @@ namespace IocPerformance.Output
 							result.TransientTime == results.Skip(1).Min(r => r.TransientTime) ? "h" : "d",
 							result.TransientTime,
 							result.CombinedTime == results.Skip(1).Min(r => r.CombinedTime) ? "h" : "d",
-							result.CombinedTime);
+							result.CombinedTime,
+							result.ComplexTime == results.Skip(1).Min(r => r.ComplexTime) ? "h" : "d",
+							result.ComplexTime);
+					}
 
-						writer.WriteLine("<t{0}>{1}</t{0}><t{2}>{3}</t{2}><t{4}>{5}</t{4}><t{6}>{7}</t{6}><t{8}>{9}</t{8}></tr>",
-							  result.ComplexTime == results.Skip(1).Min(r => r.ComplexTime) ? "h" : "d",
-							  result.ComplexTime,
-							  result.GenericTime == results.Skip(1).Min(r => r.GenericTime) ? "h" : "d",
-							  result.GenericTime,
-							  result.MultipleImport == results.Skip(1).Min(r => r.MultipleImport) ? "h" : "d",
-							  result.MultipleImport,
-							  result.ConditionalTime == results.Skip(1).Min(r => r.ConditionalTime) ? "h" : "d",
-							  result.ConditionalTime,
-							  result.InterceptionTime == results.Skip(1).Min(r => r.InterceptionTime) ? "h" : "d",
-							  result.InterceptionTime);
+					writer.WriteLine("</table>");
+					writer.WriteLine("Advanced Features");
+					writer.WriteLine("<table>");
+					writer.WriteLine("<tr><th>Container</th><th>Generics</th><th>Multiple</th><th>Conditional</th><th>Interception</th></tr>");
+
+					foreach (var result in this.results)
+					{
+						writer.WriteLine("<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}></tr>",
+								  result.Name,
+								  result.Version == null ? string.Empty : " ",
+								  result.Version,
+								  result.GenericTime == results.Skip(1).Min(r => r.GenericTime) ? "h" : "d",
+								  result.GenericTime,
+								  result.MultipleImport == results.Skip(1).Min(r => r.MultipleImport) ? "h" : "d",
+								  result.MultipleImport,
+								  result.ConditionalTime == results.Skip(1).Min(r => r.ConditionalTime) ? "h" : "d",
+								  result.ConditionalTime,
+								  result.InterceptionTime == results.Skip(1).Min(r => r.InterceptionTime) ? "h" : "d",
+								  result.InterceptionTime);
 					}
 
 					writer.WriteLine("</table>");
