@@ -1,4 +1,5 @@
 ﻿using System;
+using IocPerformance.Classes.Standard;
 using Speedioc;
 using Speedioc.Core;
 using Speedioc.Registration;
@@ -9,7 +10,7 @@ namespace IocPerformance.Adapters
     {
         private IContainer container;
 
-        protected override string PackageName
+		  public override string PackageName
         {
             get { return "Speedioc"; }
         }

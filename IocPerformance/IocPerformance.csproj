@@ -215,7 +215,42 @@
     <Compile Include="Caliburn.Micro\ContainerExtensions.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
     <Compile Include="Caliburn.Micro\SimpleContainer.cs" />
-    <Compile Include="Classes.cs" />
+    <Compile Include="Classes\Complex\Complex.cs" />
+    <Compile Include="Classes\Complex\FirstService.cs" />
+    <Compile Include="Classes\Complex\SecondService.cs" />
+    <Compile Include="Classes\Complex\SubObjectOne.cs" />
+    <Compile Include="Classes\Complex\SubObjectThree.cs" />
+    <Compile Include="Classes\Complex\SubObjectTwo.cs" />
+    <Compile Include="Classes\Complex\ThirdService.cs" />
+    <Compile Include="Classes\Conditional\ExportConditionalObject.cs" />
+    <Compile Include="Classes\Conditional\ExportConditionalObject2.cs" />
+    <Compile Include="Classes\Conditional\IExportConditionInterface.cs" />
+    <Compile Include="Classes\Conditional\ImportConditionObject.cs" />
+    <Compile Include="Classes\Conditional\ImportConditionObject2.cs" />
+    <Compile Include="Classes\Dummy\DummyEight.cs" />
+    <Compile Include="Classes\Dummy\DummyFive.cs" />
+    <Compile Include="Classes\Dummy\DummyFour.cs" />
+    <Compile Include="Classes\Dummy\DummyNine.cs" />
+    <Compile Include="Classes\Dummy\DummyOne.cs" />
+    <Compile Include="Classes\Dummy\DummySeven.cs" />
+    <Compile Include="Classes\Dummy\DummySix.cs" />
+    <Compile Include="Classes\Dummy\DummyTen.cs" />
+    <Compile Include="Classes\Dummy\DummyThree.cs" />
+    <Compile Include="Classes\Dummy\DummyTwo.cs" />
+    <Compile Include="Classes\Generics\GenericExport.cs" />
+    <Compile Include="Classes\Generics\IGenericInterface.cs" />
+    <Compile Include="Classes\Generics\ImportGeneric.cs" />
+    <Compile Include="Classes\Multiple\ImportMultiple.cs" />
+    <Compile Include="Classes\Multiple\ISimpleAdapter.cs" />
+    <Compile Include="Classes\Multiple\SimpleAdapterFive.cs" />
+    <Compile Include="Classes\Multiple\SimpleAdapterFour.cs" />
+    <Compile Include="Classes\Multiple\SimpleAdapterOne.cs" />
+    <Compile Include="Classes\Multiple\SimpleAdapterThree.cs" />
+    <Compile Include="Classes\Multiple\SimpleAdapterTwo.cs" />
+    <Compile Include="Classes\Standard\Calculator.cs" />
+    <Compile Include="Classes\Standard\Combined.cs" />
+    <Compile Include="Classes\Standard\Singleton.cs" />
+    <Compile Include="Classes\Standard\Transient.cs" />
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
     <Compile Include="Interception\NinjectInterceptionLogger.cs" />
     <Compile Include="Interception\SpringInterceptionLogger.cs" />
@@ -230,6 +265,7 @@
     <Compile Include="Interception\UnityInterceptionLoggerAttribute.cs" />
     <Compile Include="Output\ConsoleOutput.cs" />
     <Compile Include="Output\ChartOutput.cs" />
+    <Compile Include="Output\CsvOutput.cs" />
     <Compile Include="Output\MarkdownOutput.cs" />
     <Compile Include="Output\HtmlOutput.cs" />
     <Compile Include="Output\IOutput.cs" />
@@ -250,6 +286,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

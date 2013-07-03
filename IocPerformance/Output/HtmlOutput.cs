@@ -4,50 +4,61 @@ using System.Linq;
 
 namespace IocPerformance.Output
 {
-    public class HtmlOutput : IOutput
-    {
-        private readonly List<Result> results = new List<Result>();
+	public class HtmlOutput : IOutput
+	{
+		private readonly List<Result> results = new List<Result>();
 
-        public void Start()
-        {
-        }
+		public void Start()
+		{
+		}
 
-        public void Result(Result result)
-        {
-            this.results.Add(result);
-        }
+		public void Result(Result result)
+		{
+			this.results.Add(result);
+		}
 
-        public void Finish()
-        {
-            if (!Directory.Exists("output"))
-            {
-                Directory.CreateDirectory("output");
-            }
+		public void Finish()
+		{
+			if (!Directory.Exists("output"))
+			{
+				Directory.CreateDirectory("output");
+			}
 
-            using (var fileStream = new FileStream("output\\result.txt", FileMode.Create))
-            {
-                using (var writer = new StreamWriter(fileStream))
-                {
-                    writer.WriteLine("<tr><th>Container</th><th>Singleton</th><th>Transient</th><th>Combined</th><th>Interception</th></tr>");
+			using (var fileStream = new FileStream("output\\result.txt", FileMode.Create))
+			{
+				using (var writer = new StreamWriter(fileStream))
+				{
+					writer.WriteLine("<tr><th>Container</th><th>Singleton</th><th>Transient</th><th>Combined</th>");
+					writer.WriteLine("<th>Complex</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th><th>Interception</th></tr>");
 
-                    foreach (var result in this.results)
-                    {
-                        writer.WriteLine(
-                            "<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}></tr>",
-                            result.Name,
-                            result.Version == null ? string.Empty : " ",
-                            result.Version,
-                            result.SingletonTime == results.Skip(1).Min(r => r.SingletonTime) ? "h" : "d",
-                            result.SingletonTime,
-                            result.TransientTime == results.Skip(1).Min(r => r.TransientTime) ? "h" : "d",
-                            result.TransientTime,
-                            result.CombinedTime == results.Skip(1).Min(r => r.CombinedTime) ? "h" : "d",
-                            result.CombinedTime,
-                            result.InterceptionTime == results.Skip(1).Min(r => r.InterceptionTime) ? "h" : "d",
-                            result.InterceptionTime);
-                    }
-                }
-            }
-        }
-    }
+					foreach (var result in this.results)
+					{
+						writer.WriteLine(
+							"<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}>",
+							result.Name,
+							result.Version == null ? string.Empty : " ",
+							result.Version,
+							result.SingletonTime == results.Skip(1).Min(r => r.SingletonTime) ? "h" : "d",
+							result.SingletonTime,
+							result.TransientTime == results.Skip(1).Min(r => r.TransientTime) ? "h" : "d",
+							result.TransientTime,
+							result.CombinedTime == results.Skip(1).Min(r => r.CombinedTime) ? "h" : "d",
+							result.CombinedTime);
+
+						writer.WriteLine("<t{0}>{1}</t{0}><t{2}>{3}</t{2}><t{4}>{5}</t{4}><t{6}>{7}</t{6}><t{8}>{9}</t{8}></tr>",
+							  result.ComplexTime == results.Skip(1).Min(r => r.ComplexTime) ? "h" : "d",
+							  result.ComplexTime,
+							  result.GenericTime == results.Skip(1).Min(r => r.GenericTime) ? "h" : "d",
+							  result.GenericTime,
+							  result.MultipleImport == results.Skip(1).Min(r => r.MultipleImport) ? "h" : "d",
+							  result.MultipleImport,
+							  result.ConditionalTime == results.Skip(1).Min(r => r.ConditionalTime) ? "h" : "d",
+							  result.ConditionalTime,
+							  result.InterceptionTime == results.Skip(1).Min(r => r.InterceptionTime) ? "h" : "d",
+							  result.InterceptionTime);
+					}
+				}
+			}
+		}
+	}
 }
