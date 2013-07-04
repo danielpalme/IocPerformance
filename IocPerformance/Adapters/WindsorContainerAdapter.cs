@@ -101,13 +101,13 @@ namespace IocPerformance.Adapters
         {
             this.container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel, true));
 
-            this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterOne>());
-            this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterTwo>());
-            this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterThree>());
-            this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterFour>());
-            this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterFive>());
+            this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterOne>().LifeStyle.Transient);
+            this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterTwo>().LifeStyle.Transient);
+            this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterThree>().LifeStyle.Transient);
+            this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterFour>().LifeStyle.Transient);
+            this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterFive>().LifeStyle.Transient);
 
-            this.container.Register(Component.For<ImportMultiple>());
+            this.container.Register(Component.For<ImportMultiple>().LifeStyle.Transient);
         }
 
         private void RegisterInterceptor()
