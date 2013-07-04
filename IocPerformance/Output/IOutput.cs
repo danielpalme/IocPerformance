@@ -1,5 +1,4 @@
-﻿
-namespace IocPerformance.Output
+﻿namespace IocPerformance.Output
 {
     public interface IOutput
     {

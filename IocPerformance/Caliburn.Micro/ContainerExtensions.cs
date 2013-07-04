@@ -2,7 +2,8 @@
 #define WinRT
 #endif
 
-namespace Caliburn.Micro {
+namespace Caliburn.Micro
+{
     using System;
     using System.Linq;
     using System.Reflection;
@@ -10,14 +11,16 @@ namespace Caliburn.Micro {
     /// <summary>
     /// Extension methods for the <see cref="SimpleContainer"/>.
     /// </summary>
-    public static class ContainerExtensions {
+    public static class ContainerExtensions
+    {
         /// <summary>
         /// Registers a singleton.
         /// </summary>
         /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
         /// <param name="container">The container.</param>
         /// <returns>The container.</returns>
-        public static SimpleContainer Singleton<TImplementation>(this SimpleContainer container) {
+        public static SimpleContainer Singleton<TImplementation>(this SimpleContainer container)
+        {
             container.RegisterSingleton(typeof(TImplementation), null, typeof(TImplementation));
             return container;
         }
@@ -30,7 +33,8 @@ namespace Caliburn.Micro {
         /// <param name="container">The container.</param>
         /// <returns>The container.</returns>
         public static SimpleContainer Singleton<TService, TImplementation>(this SimpleContainer container)
-            where TImplementation : TService {
+            where TImplementation : TService
+        {
             container.RegisterSingleton(typeof(TService), null, typeof(TImplementation));
             return container;
         }
@@ -43,7 +47,8 @@ namespace Caliburn.Micro {
         /// <param name="container">The container.</param>
         /// <returns>The container.</returns>
         public static SimpleContainer PerRequest<TService, TImplementation>(this SimpleContainer container)
-            where TImplementation : TService {
+            where TImplementation : TService
+        {
             container.RegisterPerRequest(typeof(TService), null, typeof(TImplementation));
             return container;
         }
@@ -54,7 +59,8 @@ namespace Caliburn.Micro {
         /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
         /// <param name="container">The container.</param>
         /// <returns>The container.</returns>
-        public static SimpleContainer PerRequest<TImplementation>(this SimpleContainer container) {
+        public static SimpleContainer PerRequest<TImplementation>(this SimpleContainer container)
+        {
             container.RegisterPerRequest(typeof(TImplementation), null, typeof(TImplementation));
             return container;
         }
@@ -66,7 +72,8 @@ namespace Caliburn.Micro {
         /// <param name="container">The container.</param>
         /// <param name="instance">The instance.</param>
         /// <returns>The container.</returns>
-        public static SimpleContainer Instance<TService>(this SimpleContainer container, TService instance) {
+        public static SimpleContainer Instance<TService>(this SimpleContainer container, TService instance)
+        {
             container.RegisterInstance(typeof(TService), null, instance);
             return container;
         }
@@ -78,7 +85,8 @@ namespace Caliburn.Micro {
         /// <param name="container">The container.</param>
         /// <param name="handler">The handler.</param>
         /// <returns>The container.</returns>
-        public static SimpleContainer Handler<TService>(this SimpleContainer container, Func<SimpleContainer, object> handler) {
+        public static SimpleContainer Handler<TService>(this SimpleContainer container, Func<SimpleContainer, object> handler)
+        {
             container.RegisterHandler(typeof(TService), null, handler);
             return container;
         }
@@ -91,8 +99,9 @@ namespace Caliburn.Micro {
         /// <param name="assembly">The assembly.</param>
         /// <param name="filter">The type filter.</param>
         /// <returns>The container.</returns>
-        public static SimpleContainer AllTypesOf<TService>(this SimpleContainer container, Assembly assembly, Func<Type, bool> filter = null) {
-            if(filter == null)
+        public static SimpleContainer AllTypesOf<TService>(this SimpleContainer container, Assembly assembly, Func<Type, bool> filter = null)
+        {
+            if (filter == null)
                 filter = type => true;
 
 #if WinRT
@@ -114,7 +123,8 @@ namespace Caliburn.Micro {
                         select type;
 #endif
 
-            foreach (var type in types) {
+            foreach (var type in types)
+            {
                 container.RegisterSingleton(typeof(TService), null, type);
             }
 

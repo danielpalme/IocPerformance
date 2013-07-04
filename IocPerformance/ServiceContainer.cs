@@ -636,7 +636,7 @@ namespace IocPerformance
     /// <summary>
     /// An ultra lightweight service container.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ServiceContainer : IServiceContainer
     {
         private const string UnresolvedDependencyError = "Unresolved dependency {0}";
@@ -2103,7 +2103,7 @@ namespace IocPerformance
         }
     }
 
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ThreadSafeDictionary<TKey, TValue> : ConcurrentDictionary<TKey, TValue>
     {
         public ThreadSafeDictionary()
@@ -2121,7 +2121,7 @@ namespace IocPerformance
     /// <summary>
     /// Selects the <see cref="ConstructionInfo"/> from a given type that has the highest number of parameters.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ConstructorSelector : IConstructorSelector
     {
         /// <summary>
@@ -2139,7 +2139,7 @@ namespace IocPerformance
     /// <summary>
     /// Selects the constructor dependencies for a given <see cref="ConstructorInfo"/>.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ConstructorDependencySelector : IConstructorDependencySelector
     {
         /// <summary>
@@ -2168,7 +2168,7 @@ namespace IocPerformance
     /// <summary>
     /// Selects the property dependencies for a given <see cref="Type"/>.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class PropertyDependencySelector : IPropertyDependencySelector
     {
         /// <summary>
@@ -2203,7 +2203,7 @@ namespace IocPerformance
     /// <summary>
     /// Builds a <see cref="ConstructionInfo"/> instance based on the implementing <see cref="Type"/>.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class TypeConstructionInfoBuilder : ITypeConstructionInfoBuilder
     {
         private readonly IConstructorSelector constructorSelector;
@@ -2239,7 +2239,7 @@ namespace IocPerformance
     /// <summary>
     /// Keeps track of a <see cref="ConstructionInfo"/> instance for each <see cref="Registration"/>.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ConstructionInfoProvider : IConstructionInfoProvider
     {
         private readonly IConstructionInfoBuilder constructionInfoBuilder;
@@ -2279,7 +2279,7 @@ namespace IocPerformance
     /// Provides a <see cref="ConstructorInfo"/> instance 
     /// that describes how to create a service instance.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ConstructionInfoBuilder : IConstructionInfoBuilder
     {
         private readonly Lazy<ILambdaConstructionInfoBuilder> lambdaConstructionInfoBuilder;
@@ -2328,7 +2328,7 @@ namespace IocPerformance
     /// <summary>
     /// Parses a <see cref="LambdaExpression"/> into a <see cref="ConstructionInfo"/> instance.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class LambdaConstructionInfoBuilder : ILambdaConstructionInfoBuilder
     {
         /// <summary>
@@ -2495,7 +2495,7 @@ namespace IocPerformance
     /// <summary>
     /// Inspects the body of a <see cref="LambdaExpression"/> and determines if the expression can be parsed.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class LambdaExpressionValidator : ExpressionVisitor
     {
         private bool canParse = true;
@@ -2545,7 +2545,7 @@ namespace IocPerformance
     /// <summary>
     /// Contains information about a service request that originates from a rule based service registration.
     /// </summary>    
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ServiceRequest
     {
         /// <summary>
@@ -2601,7 +2601,7 @@ namespace IocPerformance
     /// <summary>
     /// Contains information about a registered decorator.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class DecoratorRegistration : Registration
     {
         /// <summary>
@@ -2614,7 +2614,7 @@ namespace IocPerformance
     /// <summary>
     /// Contains information about a registered service.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ServiceRegistration : Registration
     {
         /// <summary>
@@ -2667,7 +2667,7 @@ namespace IocPerformance
     /// <summary>
     /// Contains information about how to create a service instance.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ConstructionInfo
     {
         /// <summary>
@@ -2751,7 +2751,7 @@ namespace IocPerformance
     /// <summary>
     /// Represents a property dependency.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class PropertyDependency : Dependency
     {
         /// <summary>
@@ -2783,7 +2783,7 @@ namespace IocPerformance
     /// <summary>
     /// Represents a constructor dependency.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ConstructorDependency : Dependency
     {
         /// <summary>
@@ -2821,7 +2821,7 @@ namespace IocPerformance
     /// <summary>
     /// Ensures that only one instance of a given service can exist within the current <see cref="IServiceContainer"/>.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class PerContainerLifetime : ILifetime, IDisposable
     {
         private readonly object syncRoot = new object();
@@ -2867,7 +2867,7 @@ namespace IocPerformance
     /// <summary>
     /// Ensures that a new instance is created for each request in addition to tracking disposable instances.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class PerRequestLifeTime : ILifetime
     {
         /// <summary>
@@ -2906,7 +2906,7 @@ namespace IocPerformance
     /// If the service instance implements <see cref="IDisposable"/>, 
     /// it will be disposed when the <see cref="Scope"/> ends.
     /// </remarks>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class PerScopeLifetime : ILifetime
     {
         private readonly ThreadSafeDictionary<Scope, object> instances = new ThreadSafeDictionary<Scope, object>();
@@ -2958,7 +2958,7 @@ namespace IocPerformance
     /// <summary>
     /// Manages a set of <see cref="Scope"/> instances.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ScopeManager
     {
         private readonly object syncRoot = new object();
@@ -3023,7 +3023,7 @@ namespace IocPerformance
     /// <summary>
     /// Represents a scope 
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class Scope : IDisposable
     {
         private readonly IList<IDisposable> disposableObjects = new List<IDisposable>();
@@ -3096,7 +3096,7 @@ namespace IocPerformance
     /// <summary>
     /// An assembly scanner that registers services based on the types contained within an <see cref="Assembly"/>.
     /// </summary>    
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class AssemblyScanner : IAssemblyScanner
     {
         private static readonly List<Type> InternalTypes = new List<Type>();
@@ -3240,7 +3240,7 @@ namespace IocPerformance
     /// <summary>
     /// Selects the properties that represents a dependency to the target <see cref="Type"/>.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class PropertySelector : IPropertySelector
     {
         /// <summary>
@@ -3272,7 +3272,7 @@ namespace IocPerformance
     /// <summary>
     /// Loads all assemblies from the application base directory that matches the given search pattern.
     /// </summary>
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class AssemblyLoader : IAssemblyLoader
     {
         /// <summary>

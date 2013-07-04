@@ -6,6 +6,8 @@ namespace IocPerformance.Interception
 {
     public class UnityInterceptionLogger : ICallHandler
     {
+        public int Order { get; set; }
+
         public IMethodReturn Invoke(IMethodInvocation input, GetNextHandlerDelegate getNext)
         {
             IMethodReturn result = getNext()(input, getNext);
@@ -15,7 +17,5 @@ namespace IocPerformance.Interception
 
             return result;
         }
-
-        public int Order { get; set; }
     }
 }

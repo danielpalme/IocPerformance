@@ -2,7 +2,8 @@
 #define WinRT
 #endif
 
-namespace Caliburn.Micro {
+namespace Caliburn.Micro
+{
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -12,13 +13,15 @@ namespace Caliburn.Micro {
     /// <summary>
     /// Generic extension methods used by the framework.
     /// </summary>
-    public static class ExtensionMethods {
+    public static class ExtensionMethods
+    {
         /// <summary>
         /// Get's the name of the assembly.
         /// </summary>
         /// <param name="assembly">The assembly.</param>
         /// <returns>The assembly's name.</returns>
-        public static string GetAssemblyName(this Assembly assembly) {
+        public static string GetAssemblyName(this Assembly assembly)
+        {
             return assembly.FullName.Remove(assembly.FullName.IndexOf(','));
         }
 
@@ -29,7 +32,8 @@ namespace Caliburn.Micro {
         /// <param name="member">The member to inspect for attributes.</param>
         /// <param name="inherit">Whether or not to search for inherited attributes.</param>
         /// <returns>The list of attributes found.</returns>
-        public static IEnumerable<T> GetAttributes<T>(this MemberInfo member, bool inherit) {
+        public static IEnumerable<T> GetAttributes<T>(this MemberInfo member, bool inherit)
+        {
 #if WinRT
             return member.GetCustomAttributes(inherit).OfType<T>();
 #else
@@ -43,8 +47,10 @@ namespace Caliburn.Micro {
         /// <typeparam name="T">The enumerable item's type.</typeparam>
         /// <param name="enumerable">The elements to enumerate.</param>
         /// <param name="action">The action to apply to each item in the list.</param>
-        public static void Apply<T>(this IEnumerable<T> enumerable, Action<T> action) {
-            foreach(var item in enumerable) {
+        public static void Apply<T>(this IEnumerable<T> enumerable, Action<T> action)
+        {
+            foreach (var item in enumerable)
+            {
                 action(item);
             }
         }
@@ -54,15 +60,18 @@ namespace Caliburn.Micro {
         /// </summary>
         /// <param name="expression">The expression to convert.</param>
         /// <returns>The member info.</returns>
-        public static MemberInfo GetMemberInfo(this Expression expression) {
+        public static MemberInfo GetMemberInfo(this Expression expression)
+        {
             var lambda = (LambdaExpression)expression;
 
             MemberExpression memberExpression;
-            if (lambda.Body is UnaryExpression) {
+            if (lambda.Body is UnaryExpression)
+            {
                 var unaryExpression = (UnaryExpression)lambda.Body;
                 memberExpression = (MemberExpression)unaryExpression.Operand;
             }
-            else {
+            else
+            {
                 memberExpression = (MemberExpression)lambda.Body;
             }
 

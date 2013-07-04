@@ -6,17 +6,17 @@ namespace IocPerformance.Output
     {
         private readonly IEnumerable<IOutput> outputs;
 
+        public MultiOutput(IEnumerable<IOutput> outputs)
+        {
+            this.outputs = outputs;
+        }
+
         public void Start()
         {
             foreach (var output in this.outputs)
             {
                 output.Start();
             }
-        }
-
-        public MultiOutput(IEnumerable<IOutput> outputs)
-        {
-            this.outputs = outputs;
         }
 
         public void Result(Result result)

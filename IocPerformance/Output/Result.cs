@@ -1,5 +1,4 @@
-﻿
-namespace IocPerformance.Output
+﻿namespace IocPerformance.Output
 {
     public class Result
     {
@@ -13,14 +12,14 @@ namespace IocPerformance.Output
 
         public long CombinedTime { get; set; }
 
+        public long ComplexTime { get; set; }
+
+        public long? GenericTime { get; set; }
+
+        public long? ConditionalTime { get; set; }
+
+        public long? MultipleImport { get; set; }
+
         public long? InterceptionTime { get; set; }
-
-        public int SingletonInstances { get; set; }
-
-        public int TransientInstances { get; set; }
-
-        public int CombinedInstances { get; set; }
-
-        public int InterceptionInstances { get; set; }
     }
 }

@@ -11,20 +11,38 @@ namespace IocPerformance.Adapters
             get
             {
                 return XDocument
-                    .Load("packages.config")
-                    .Root
-                    .Elements()
-                    .First(e => e.Attribute("id").Value == this.PackageName)
-                    .Attribute("version").Value;
+                     .Load("packages.config")
+                     .Root
+                     .Elements()
+                     .First(e => e.Attribute("id").Value == this.PackageName)
+                     .Attribute("version").Value;
             }
         }
 
-        protected abstract string PackageName
+        public abstract string PackageName
         {
             get;
         }
 
-        public virtual bool SupportsInterception { get { return false; } }
+        public virtual bool SupportsInterception
+        {
+            get { return false; }
+        }
+
+        public virtual bool SupportsConditional
+        {
+            get { return false; }
+        }
+
+        public virtual bool SupportGeneric
+        {
+            get { return false; }
+        }
+
+        public virtual bool SupportsMultiple
+        {
+            get { return false; }
+        }
 
         public abstract void Prepare();
 

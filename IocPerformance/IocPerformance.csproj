@@ -1,41 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F73089D4-651F-4008-9EEA-CDFCACE60EAD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IocPerformance</RootNamespace>
     <AssemblyName>IocPerformance</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>IocPerformance.Program</StartupObject>
@@ -56,8 +50,9 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Catel.Core">
-      <HintPath>..\packages\Catel.Core.3.5\lib\NET45\Catel.Core.dll</HintPath>
+    <Reference Include="Catel.Core, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Catel.Core.3.6\lib\NET45\Catel.Core.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging, Version=2.1.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -147,9 +142,9 @@
     <Reference Include="Ninject.Extensions.Interception.LinFu">
       <HintPath>..\packages\Ninject.Extensions.Interception.Linfu.3.0.0.8\lib\net35\Ninject.Extensions.Interception.LinFu.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector, Version=2.2.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+    <Reference Include="SimpleInjector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SimpleInjector.2.2.3\lib\net40-client\SimpleInjector.dll</HintPath>
+      <HintPath>..\packages\SimpleInjector.2.3.0\lib\net40-client\SimpleInjector.dll</HintPath>
     </Reference>
     <Reference Include="Speedioc">
       <HintPath>..\packages\Speedioc.0.1.33\lib\net40\Speedioc.dll</HintPath>
@@ -170,7 +165,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -215,7 +209,42 @@
     <Compile Include="Caliburn.Micro\ContainerExtensions.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
     <Compile Include="Caliburn.Micro\SimpleContainer.cs" />
-    <Compile Include="Classes.cs" />
+    <Compile Include="Classes\Complex\Complex.cs" />
+    <Compile Include="Classes\Complex\FirstService.cs" />
+    <Compile Include="Classes\Complex\SecondService.cs" />
+    <Compile Include="Classes\Complex\SubObjectOne.cs" />
+    <Compile Include="Classes\Complex\SubObjectThree.cs" />
+    <Compile Include="Classes\Complex\SubObjectTwo.cs" />
+    <Compile Include="Classes\Complex\ThirdService.cs" />
+    <Compile Include="Classes\Conditional\ExportConditionalObject.cs" />
+    <Compile Include="Classes\Conditional\ExportConditionalObject2.cs" />
+    <Compile Include="Classes\Conditional\IExportConditionInterface.cs" />
+    <Compile Include="Classes\Conditional\ImportConditionObject.cs" />
+    <Compile Include="Classes\Conditional\ImportConditionObject2.cs" />
+    <Compile Include="Classes\Dummy\DummyEight.cs" />
+    <Compile Include="Classes\Dummy\DummyFive.cs" />
+    <Compile Include="Classes\Dummy\DummyFour.cs" />
+    <Compile Include="Classes\Dummy\DummyNine.cs" />
+    <Compile Include="Classes\Dummy\DummyOne.cs" />
+    <Compile Include="Classes\Dummy\DummySeven.cs" />
+    <Compile Include="Classes\Dummy\DummySix.cs" />
+    <Compile Include="Classes\Dummy\DummyTen.cs" />
+    <Compile Include="Classes\Dummy\DummyThree.cs" />
+    <Compile Include="Classes\Dummy\DummyTwo.cs" />
+    <Compile Include="Classes\Generics\GenericExport.cs" />
+    <Compile Include="Classes\Generics\IGenericInterface.cs" />
+    <Compile Include="Classes\Generics\ImportGeneric.cs" />
+    <Compile Include="Classes\Multiple\ImportMultiple.cs" />
+    <Compile Include="Classes\Multiple\ISimpleAdapter.cs" />
+    <Compile Include="Classes\Multiple\SimpleAdapterFive.cs" />
+    <Compile Include="Classes\Multiple\SimpleAdapterFour.cs" />
+    <Compile Include="Classes\Multiple\SimpleAdapterOne.cs" />
+    <Compile Include="Classes\Multiple\SimpleAdapterThree.cs" />
+    <Compile Include="Classes\Multiple\SimpleAdapterTwo.cs" />
+    <Compile Include="Classes\Standard\Calculator.cs" />
+    <Compile Include="Classes\Standard\Combined.cs" />
+    <Compile Include="Classes\Standard\Singleton.cs" />
+    <Compile Include="Classes\Standard\Transient.cs" />
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
     <Compile Include="Interception\NinjectInterceptionLogger.cs" />
     <Compile Include="Interception\SpringInterceptionLogger.cs" />
@@ -230,6 +259,7 @@
     <Compile Include="Interception\UnityInterceptionLoggerAttribute.cs" />
     <Compile Include="Output\ConsoleOutput.cs" />
     <Compile Include="Output\ChartOutput.cs" />
+    <Compile Include="Output\CsvOutput.cs" />
     <Compile Include="Output\MarkdownOutput.cs" />
     <Compile Include="Output\HtmlOutput.cs" />
     <Compile Include="Output\IOutput.cs" />
@@ -250,6 +280,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

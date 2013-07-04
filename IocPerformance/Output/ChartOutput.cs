@@ -48,6 +48,41 @@ namespace IocPerformance.Output
                 .OrderByDescending(r => r.CombinedTime)
                 .Concat(this.results.Take(1))
                 .Select(r => new Tuple<string, double>(r.Name, r.CombinedTime)));
+            this.CreateChart(
+                "output\\04-Complex.png",
+                this.results.AsEnumerable()
+                .Skip(1)
+                .OrderByDescending(r => r.ComplexTime)
+                .Concat(this.results.Take(1))
+                .Select(r => new Tuple<string, double>(r.Name, r.ComplexTime)));
+            this.CreateChart(
+                "output\\05-Generic.png",
+                this.results.AsEnumerable()
+                .Skip(1)
+                .Where(r => r.GenericTime.HasValue)
+                .OrderByDescending(r => r.GenericTime.Value)
+                .Select(r => new Tuple<string, double>(r.Name, r.GenericTime.Value)));
+            this.CreateChart(
+                "output\\06-IEnumerable.png",
+                this.results.AsEnumerable()
+                .Skip(1)
+                .Where(r => r.MultipleImport.HasValue)
+                .OrderByDescending(r => r.MultipleImport.Value)
+                .Select(r => new Tuple<string, double>(r.Name, r.MultipleImport.Value)));
+            this.CreateChart(
+                "output\\07-Conditional.png",
+                this.results.AsEnumerable()
+                .Skip(1)
+                .Where(r => r.ConditionalTime.HasValue)
+                .OrderByDescending(r => r.ConditionalTime.Value)
+                .Select(r => new Tuple<string, double>(r.Name, r.ConditionalTime.Value)));
+            this.CreateChart(
+                "output\\08-Interception.png",
+                this.results.AsEnumerable()
+                .Skip(1)
+                .Where(r => r.InterceptionTime.HasValue)
+                .OrderByDescending(r => r.InterceptionTime.Value)
+                .Select(r => new Tuple<string, double>(r.Name, r.InterceptionTime.Value)));
 
             // Blog images
             File.Copy("output\\01-Singleton.png", "output\\41fb475d-167c-43e0-83bf-42a051d5ec72.png", true);
@@ -57,6 +92,11 @@ namespace IocPerformance.Output
 
         private void CreateChart(string filename, IEnumerable<Tuple<string, double>> values)
         {
+            if (!values.Any())
+            {
+                return;
+            }
+
             Chart singletonChart = new Chart()
             {
                 Size = new Size(800, 600),

@@ -7,16 +7,9 @@ namespace IocPerformance.Adapters
     {
         private IApplicationContext container;
 
-        protected override string PackageName
+        public override string PackageName
         {
             get { return "Spring.Core"; }
-        }
-
-        public override bool SupportsInterception { get { return true; } }
-
-        public override void Prepare()
-        {
-            this.container = Spring.Context.Support.ContextRegistry.GetContext();
         }
 
         public override object Resolve(Type type)
@@ -28,6 +21,11 @@ namespace IocPerformance.Adapters
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;
+        }
+
+        public override void Prepare()
+        {
+            this.container = Spring.Context.Support.ContextRegistry.GetContext();
         }
     }
 }

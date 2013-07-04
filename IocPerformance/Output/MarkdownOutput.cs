@@ -25,19 +25,19 @@ namespace IocPerformance.Output
                 {
                     writer.WriteLine("Ioc Performance");
                     writer.WriteLine("===============");
-                    writer.WriteLine("");
+                    writer.WriteLine(string.Empty);
                     writer.WriteLine("Source code of my performance comparison of the most popular .NET IoC containers:  ");
                     writer.WriteLine("[www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison](http://www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison)");
-                    writer.WriteLine("");
+                    writer.WriteLine(string.Empty);
                     writer.WriteLine("Author: Daniel Palme  ");
                     writer.WriteLine("Blog: [www.palmmedia.de](http://www.palmmedia.de)  ");
                     writer.WriteLine("Twitter: [@danielpalme](http://twitter.com/danielpalme)  ");
-                    writer.WriteLine("");
+                    writer.WriteLine(string.Empty);
                     writer.WriteLine("Results");
                     writer.WriteLine("-------");
                     writer.WriteLine("<table>");
 
-                    writer.WriteLine("<tr><th>Container</th><th>Singleton</th><th>Transient</th><th>Combined</th><th>Interception</th></tr>");
+                    writer.WriteLine("<tr><th>Container</th><th>Singleton</th><th>Transient</th><th>Combined</th><th>Complex</th></tr>");
 
                     foreach (var result in this.results)
                     {
@@ -46,13 +46,35 @@ namespace IocPerformance.Output
                             result.Name,
                             result.Version == null ? string.Empty : " ",
                             result.Version,
-                            result.SingletonTime == results.Skip(1).Min(r => r.SingletonTime) ? "h" : "d",
+                            result.SingletonTime == this.results.Skip(1).Min(r => r.SingletonTime) ? "h" : "d",
                             result.SingletonTime,
-                            result.TransientTime == results.Skip(1).Min(r => r.TransientTime) ? "h" : "d",
+                            result.TransientTime == this.results.Skip(1).Min(r => r.TransientTime) ? "h" : "d",
                             result.TransientTime,
-                            result.CombinedTime == results.Skip(1).Min(r => r.CombinedTime) ? "h" : "d",
+                            result.CombinedTime == this.results.Skip(1).Min(r => r.CombinedTime) ? "h" : "d",
                             result.CombinedTime,
-                            result.InterceptionTime == results.Skip(1).Min(r => r.InterceptionTime) ? "h" : "d",
+                            result.ComplexTime == this.results.Skip(1).Min(r => r.ComplexTime) ? "h" : "d",
+                            result.ComplexTime);
+                    }
+
+                    writer.WriteLine("</table>");
+                    writer.WriteLine("Advanced Features");
+                    writer.WriteLine("<table>");
+                    writer.WriteLine("<tr><th>Container</th><th>Generics</th><th>Multiple</th><th>Conditional</th><th>Interception</th></tr>");
+
+                    foreach (var result in this.results)
+                    {
+                        writer.WriteLine(
+                            "<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}></tr>",
+                            result.Name,
+                            result.Version == null ? string.Empty : " ",
+                            result.Version,
+                            result.GenericTime == this.results.Skip(1).Min(r => r.GenericTime) ? "h" : "d",
+                            result.GenericTime,
+                            result.MultipleImport == this.results.Skip(1).Min(r => r.MultipleImport) ? "h" : "d",
+                            result.MultipleImport,
+                            result.ConditionalTime == this.results.Skip(1).Min(r => r.ConditionalTime) ? "h" : "d",
+                            result.ConditionalTime,
+                            result.InterceptionTime == this.results.Skip(1).Min(r => r.InterceptionTime) ? "h" : "d",
                             result.InterceptionTime);
                     }
 

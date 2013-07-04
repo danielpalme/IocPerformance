@@ -1,4 +1,8 @@
 ﻿using System;
+using IocPerformance.Classes.Complex;
+using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Standard;
 using LinFu.IoC;
 
 namespace IocPerformance.Adapters
@@ -7,18 +11,14 @@ namespace IocPerformance.Adapters
     {
         private LinFu.IoC.ServiceContainer container;
 
-        protected override string PackageName
+        public override string PackageName
         {
             get { return "LinFu.Core"; }
         }
 
-        public override void Prepare()
+        public override bool SupportsMultiple
         {
-            this.container = new LinFu.IoC.ServiceContainer();
-            this.container.Inject<ISingleton>().Using<Singleton>().AsSingleton();
-            this.container.Inject<ITransient>().Using<Transient>().OncePerRequest();
-            this.container.Inject<ICombined>().Using<Combined>().OncePerRequest();
-            this.container.Inject<ICalculator>().Using<Calculator>().OncePerRequest();
+            get { return false; }
         }
 
         public override object Resolve(Type type)
@@ -30,6 +30,61 @@ namespace IocPerformance.Adapters
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;
+        }
+
+        public override void Prepare()
+        {
+            this.container = new LinFu.IoC.ServiceContainer();
+
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
+            this.RegisterMultiple();
+        }
+
+        private void RegisterDummies()
+        {
+            this.container.Inject<IDummyOne>().Using<DummyOne>().OncePerRequest();
+            this.container.Inject<IDummyTwo>().Using<DummyTwo>().OncePerRequest();
+            this.container.Inject<IDummyThree>().Using<DummyThree>().OncePerRequest();
+            this.container.Inject<IDummyFour>().Using<DummyFour>().OncePerRequest();
+            this.container.Inject<IDummyFive>().Using<DummyFive>().OncePerRequest();
+            this.container.Inject<IDummySix>().Using<DummySix>().OncePerRequest();
+            this.container.Inject<IDummySeven>().Using<DummySeven>().OncePerRequest();
+            this.container.Inject<IDummyEight>().Using<DummyEight>().OncePerRequest();
+            this.container.Inject<IDummyNine>().Using<DummyNine>().OncePerRequest();
+            this.container.Inject<IDummyTen>().Using<DummyTen>().OncePerRequest();
+        }
+
+        private void RegisterStandard()
+        {
+            this.container.Inject<ISingleton>().Using<Singleton>().AsSingleton();
+            this.container.Inject<ITransient>().Using<Transient>().OncePerRequest();
+            this.container.Inject<ICombined>().Using<Combined>().OncePerRequest();
+        }
+
+        private void RegisterComplex()
+        {
+            this.container.Inject<IFirstService>().Using<FirstService>().AsSingleton();
+            this.container.Inject<ISecondService>().Using<SecondService>().AsSingleton();
+            this.container.Inject<IThirdService>().Using<ThirdService>().AsSingleton();
+            this.container.Inject<ISubObjectOne>().Using<SubObjectOne>().OncePerRequest();
+            this.container.Inject<ISubObjectTwo>().Using<SubObjectTwo>().OncePerRequest();
+            this.container.Inject<ISubObjectThree>().Using<SubObjectThree>().OncePerRequest();
+
+            this.container.Inject<IComplex>().Using<Complex>().OncePerRequest();
+        }
+
+        private void RegisterMultiple()
+        {
+            // TODO: This doesn't seem to work
+            this.container.Inject<ISimpleAdapter>().Using<SimpleAdapterOne>().OncePerRequest();
+            this.container.Inject<ISimpleAdapter>().Using<SimpleAdapterTwo>().OncePerRequest();
+            this.container.Inject<ISimpleAdapter>().Using<SimpleAdapterThree>().OncePerRequest();
+            this.container.Inject<ISimpleAdapter>().Using<SimpleAdapterFour>().OncePerRequest();
+            this.container.Inject<ISimpleAdapter>().Using<SimpleAdapterFive>().OncePerRequest();
+
+            this.container.Inject<ImportMultiple>().Using<ImportMultiple>().OncePerRequest();
         }
     }
 }
