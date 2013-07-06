@@ -1,7 +1,11 @@
 ﻿using System;
 using IocPerformance.Classes.Complex;
+using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generics;
+using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Standard;
+using IocPerformance.Interception;
 using MugenInjection;
 
 namespace IocPerformance.Adapters
@@ -13,6 +17,26 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "MugenInjection"; }
+        }
+
+        public override bool SupportsConditional
+        {
+            get { return true; }
+        }
+
+        public override bool SupportGeneric
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsMultiple
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsInterception
+        {
+            get { return true; }
         }
 
         public override object Resolve(Type type)
@@ -33,6 +57,10 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterMultiple();
+            this.RegisterOpenGeneric();
+            this.RegisterConditional();
+            this.RegisterInterceptor();
         }
 
         private void RegisterDummies()
@@ -65,6 +93,44 @@ namespace IocPerformance.Adapters
             this.container.Bind<ISubObjectTwo>().To<SubObjectTwo>().InTransientScope();
             this.container.Bind<ISubObjectThree>().To<SubObjectThree>().InTransientScope();
             this.container.Bind<IComplex>().To<Complex>().InTransientScope();
+        }
+
+        private void RegisterConditional()
+        {
+            // conditional export
+            container.Bind<ImportConditionObject>().To<ImportConditionObject>().InTransientScope();
+            container.Bind<ImportConditionObject2>().To<ImportConditionObject2>().InTransientScope();
+            container.Bind<IExportConditionInterface>()
+                     .To<ExportConditionalObject>()
+                     .WhenIntoIsAssignable<ImportConditionObject>()
+                     .InTransientScope();
+            container.Bind<IExportConditionInterface>()
+                     .To<ExportConditionalObject2>()
+                     .WhenIntoIsAssignable<ImportConditionObject2>()
+                     .InTransientScope();
+        }
+
+        private void RegisterOpenGeneric()
+        {
+            // generic export
+            container.Bind(typeof(IGenericInterface<>)).To(typeof(GenericExport<>)).InTransientScope();
+            container.Bind(typeof(ImportGeneric<>)).To(typeof(ImportGeneric<>)).InTransientScope();
+        }
+
+        private void RegisterMultiple()
+        {
+            // multiple exports
+            container.Bind<ISimpleAdapter>().To<SimpleAdapterOne>().InTransientScope();
+            container.Bind<ISimpleAdapter>().To<SimpleAdapterTwo>().InTransientScope();
+            container.Bind<ISimpleAdapter>().To<SimpleAdapterThree>().InTransientScope();
+            container.Bind<ISimpleAdapter>().To<SimpleAdapterFour>().InTransientScope();
+            container.Bind<ISimpleAdapter>().To<SimpleAdapterFive>().InTransientScope();
+            container.Bind<ImportMultiple>().To<ImportMultiple>().InTransientScope();
+        }
+
+        private void RegisterInterceptor()
+        {
+            this.container.Bind<ICalculator>().To<Calculator>().InTransientScope().InterceptAsTarget(new MugenInjectionInterceptionLogger());
         }
     }
 }
