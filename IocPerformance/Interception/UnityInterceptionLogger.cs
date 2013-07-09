@@ -13,7 +13,7 @@ namespace IocPerformance.Interception
             IMethodReturn result = getNext()(input, getNext);
 
             var args = string.Join(", ", input.Arguments.Cast<object>().Select(x => (x ?? string.Empty).ToString()));
-            Trace.WriteLine(string.Format("Unity: {0}({1})", input.MethodBase.Name, args));
+            Debug.WriteLine(string.Format("Unity: {0}({1})", input.MethodBase.Name, args));
 
             return result;
         }

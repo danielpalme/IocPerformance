@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using IocPerformance.Adapters;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
@@ -20,46 +20,27 @@ namespace IocPerformance
             IOutput output = new MultiOutput(new IOutput[] { new HtmlOutput(), new MarkdownOutput(), new ChartOutput(), new CsvOutput(), new ConsoleOutput() });
             output.Start();
 
-            var containers = new List<Tuple<string, IContainerAdapter>>
-            {
-                Tuple.Create<string, IContainerAdapter>("No", new NoContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("AutoFac", new AutofacContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("Caliburn.Micro", new CaliburnMicroContainer()), 
-                Tuple.Create<string, IContainerAdapter>("Catel", new CatelContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("Dynamo", new DynamoContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("fFastInjector", new FFastInjectorContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("Funq", new FunqContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("Griffin", new GriffinContainerAdapter()),
-                Tuple.Create<string, IContainerAdapter>("HaveBox", new HaveBoxContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("Hiro", new HiroContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("LightCore", new LightCoreContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("LightInject", new LightInjectContainerAdapter()),
-                Tuple.Create<string, IContainerAdapter>("LinFu", new LinFuContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("Mef", new MefContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("MicroSliver", new MicroSliverContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("Mugen", new MugenContainerAdapter()),
-                Tuple.Create<string, IContainerAdapter>("Munq", new MunqContainerAdapter()),
-                Tuple.Create<string, IContainerAdapter>("Ninject", new NinjectContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("Petite", new PetiteContainerAdapter()),
-                Tuple.Create<string, IContainerAdapter>("SimpleInjector", new SimpleInjectorContainerAdapter()), 
-                //Tuple.Create<string, IContainerAdapter>("Speedioc", new SpeediocContainerAdapter()),
-                Tuple.Create<string, IContainerAdapter>("Spring.NET", new SpringContainerAdapter()),
-                Tuple.Create<string, IContainerAdapter>("StructureMap", new StructureMapContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("StyleMVVM", new StyleMVVMContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("TinyIOC", new TinyIOCContainerAdapter()),
-                Tuple.Create<string, IContainerAdapter>("Unity", new UnityContainerAdapter()), 
-                Tuple.Create<string, IContainerAdapter>("Windsor", new WindsorContainerAdapter())
-            };
+            var containers = ContainerAdapterFactory.CreateAdapters();
+
+            bool onlyUpdateChangedContainers = args != null && args.Any(a => a.Equals("-update", StringComparison.OrdinalIgnoreCase));
+            var csvOutputReader = new CsvOutputReader();
 
             foreach (var container in containers)
             {
-                output.Result(MeasurePerformance(container.Item1, container.Item2));
+                Result result = csvOutputReader.GetExistingResult(container.Name);
+
+                if (!onlyUpdateChangedContainers || result == null || result.Version != container.Version)
+                {
+                    result = MeasurePerformance(container);
+                }
+
+                output.Result(result);
             }
 
             output.Finish();
         }
 
-        private static Result MeasurePerformance(string name, IContainerAdapter container)
+        private static Result MeasurePerformance(IContainerAdapter container)
         {
             ClearInstanceProperties();
 
@@ -70,7 +51,7 @@ namespace IocPerformance
             WarmUp(container);
 
             var result = new Result();
-            result.Name = name;
+            result.Name = container.Name;
             result.Version = container.Version;
 
             MeasureResolvePerformance(container, result);

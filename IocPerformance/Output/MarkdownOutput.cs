@@ -44,7 +44,7 @@ namespace IocPerformance.Output
                         writer.WriteLine(
                             "<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}></tr>",
                             result.Name,
-                            result.Version == null ? string.Empty : " ",
+                            string.IsNullOrEmpty(result.Version) ? string.Empty : " ",
                             result.Version,
                             result.SingletonTime == this.results.Skip(1).Min(r => r.SingletonTime) ? "h" : "d",
                             result.SingletonTime,
@@ -59,7 +59,7 @@ namespace IocPerformance.Output
                     writer.WriteLine("</table>");
                     writer.WriteLine("Advanced Features");
                     writer.WriteLine("<table>");
-                    writer.WriteLine("<tr><th>Container</th><th>Generics</th><th>Multiple</th><th>Conditional</th><th>Interception</th></tr>");
+                    writer.WriteLine("<tr><th>Container</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th><th>Interception</th></tr>");
 
                     foreach (var result in this.results)
                     {

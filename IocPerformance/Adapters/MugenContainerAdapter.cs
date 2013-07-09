@@ -14,6 +14,11 @@ namespace IocPerformance.Adapters
     {
         private MugenInjector container;
 
+        public override string Name
+        {
+            get { return "Mugen"; }
+        }
+
         public override string PackageName
         {
             get { return "MugenInjection"; }

@@ -10,6 +10,11 @@ namespace IocPerformance.Adapters
     {
         private IocContainer container;
 
+        public override string Name
+        {
+            get { return "Dynamo"; }
+        }
+
         public override string PackageName
         {
             get { return "Dynamo.Ioc"; }

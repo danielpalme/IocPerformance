@@ -12,6 +12,11 @@ namespace IocPerformance.Adapters
         private IParentContainer container;
         private IParentContainer containerWithLoggingInterception;
 
+        public override string Name
+        {
+            get { return "Griffin"; }
+        }
+
         public override string PackageName
         {
             get { return "Griffin.Container"; }

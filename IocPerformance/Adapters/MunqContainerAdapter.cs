@@ -11,6 +11,11 @@ namespace IocPerformance.Adapters
     {
         private IocContainer container;
 
+        public override string Name
+        {
+            get { return "Munq"; }
+        }
+
         public override string PackageName
         {
             get { return "Munq.IocContainer"; }

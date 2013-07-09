@@ -27,14 +27,15 @@ namespace IocPerformance.Output
             {
                 using (var writer = new StreamWriter(fileStream))
                 {
-                    writer.WriteLine("Container,Singleton,Transient,Combined,Complex,Generics,IEnumerable,Conditional,Interception");
+                    writer.WriteLine("Container,Version,Singleton,Transient,Combined,Complex,Generics,IEnumerable,Conditional,Interception");
 
                     foreach (Result result in this.results)
                     {
                         // write container name and resolve times
                         writer.WriteLine(
-                            "{0},{1},{2},{3},{4},{5},{6},{7},{8}",
+                            "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}",
                             result.Name,
+                            result.Version,
                             result.SingletonTime,
                             result.TransientTime,
                             result.CombinedTime,

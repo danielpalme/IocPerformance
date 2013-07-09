@@ -11,6 +11,11 @@ namespace IocPerformance.Adapters
     {
         private LinFu.IoC.ServiceContainer container;
 
+        public override string Name
+        {
+            get { return "LinFu"; }
+        }
+
         public override string PackageName
         {
             get { return "LinFu.Core"; }

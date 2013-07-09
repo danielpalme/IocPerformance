@@ -12,6 +12,11 @@ namespace IocPerformance.Adapters
     {
         private IServiceLocator container;
 
+        public override string Name
+        {
+            get { return "Catel"; }
+        }
+
         public override string PackageName
         {
             get { return "Catel.Core"; }

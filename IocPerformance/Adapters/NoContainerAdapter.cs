@@ -17,7 +17,7 @@ namespace IocPerformance.Adapters
 
         public override string Version
         {
-            get { return null; }
+            get { return string.Empty; }
         }
 
         public override object Resolve(Type type)

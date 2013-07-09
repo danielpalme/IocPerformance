@@ -12,6 +12,11 @@ namespace IocPerformance.Adapters
     {
         private SimpleContainer container;
 
+        public override string Name
+        {
+            get { return "Caliburn.Micro"; }
+        }
+
         public override string PackageName
         {
             get { return "Caliburn.Micro.Container"; }

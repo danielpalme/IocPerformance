@@ -15,6 +15,11 @@ namespace IocPerformance.Adapters
     {
         private WindsorContainer container;
 
+        public override string Name
+        {
+            get { return "Windsor"; }
+        }
+
         public override string PackageName
         {
             get { return "Castle.Windsor"; }

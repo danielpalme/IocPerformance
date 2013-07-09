@@ -10,6 +10,11 @@ namespace IocPerformance.Adapters
     {
         private Container container;
 
+        public override string Name
+        {
+            get { return "Petite"; }
+        }
+
         public override string PackageName
         {
             get { return "Petite.Container"; }

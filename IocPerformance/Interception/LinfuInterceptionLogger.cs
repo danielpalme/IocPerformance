@@ -9,7 +9,7 @@ namespace IocPerformance.Interception
         public object Intercept(IInvocationInfo info)
         {
             var args = string.Join(", ", info.Arguments.Select(x => (x ?? string.Empty).ToString()));
-            Trace.WriteLine(string.Format("Linfu: {0}({1})", info.TargetMethod.Name, args));
+            Debug.WriteLine(string.Format("Linfu: {0}({1})", info.TargetMethod.Name, args));
 
             return info.TargetMethod.Invoke(info.Target, info.Arguments);
         }
@@ -27,7 +27,7 @@ namespace IocPerformance.Interception
         public void BeforeInvoke(IInvocationInfo info)
         {
             var args = string.Join(", ", info.Arguments.Select(x => (x ?? string.Empty).ToString()));
-            Trace.WriteLine(string.Format("Linfu: {0}({1})", info.TargetMethod.Name, args));
+            Debug.WriteLine(string.Format("Linfu: {0}({1})", info.TargetMethod.Name, args));
         }
 
         public object DoInvoke(IInvocationInfo info)

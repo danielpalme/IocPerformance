@@ -19,6 +19,11 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public virtual string Name
+        {
+            get { return this.PackageName; }
+        }
+
         public abstract string PackageName
         {
             get;

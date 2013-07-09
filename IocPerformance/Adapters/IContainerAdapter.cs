@@ -6,6 +6,8 @@ namespace IocPerformance.Adapters
     {
         string Version { get; }
 
+        string Name { get; }
+
         string PackageName { get; }
 
         bool SupportsConditional { get; }

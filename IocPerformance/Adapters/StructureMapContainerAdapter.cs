@@ -14,6 +14,11 @@ namespace IocPerformance.Adapters
     {
         private Container container;
 
+        public override string Name
+        {
+            get { return "StructureMap"; }
+        }
+
         public override string PackageName
         {
             get { return "structuremap"; }

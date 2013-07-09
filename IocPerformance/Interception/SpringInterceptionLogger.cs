@@ -12,7 +12,7 @@ namespace IocPerformance.Interception
         {
             // Perform logging here, e.g.:
             var args = string.Join(", ", invocation.Arguments.Select(x => (x ?? string.Empty).ToString()));
-            Trace.WriteLine(string.Format("Spring.NET: {0}({1})", invocation.Method.Name, args));
+            Debug.WriteLine(string.Format("Spring.NET: {0}({1})", invocation.Method.Name, args));
 
             return invocation.Proceed();
         }

@@ -10,7 +10,7 @@ namespace IocPerformance.Interception
         {
             // Perform logging here, e.g.:
             var args = string.Join(", ", invocation.Request.Arguments.Select(x => (x ?? string.Empty).ToString()));
-            Trace.WriteLine(string.Format("Ninject: {0}({1})", invocation.Request.Method.Name, args));
+            Debug.WriteLine(string.Format("Ninject: {0}({1})", invocation.Request.Method.Name, args));
 
             invocation.Proceed();
         }

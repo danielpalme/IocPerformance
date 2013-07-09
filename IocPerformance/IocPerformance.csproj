@@ -250,6 +250,7 @@
     <Compile Include="Classes\Standard\Combined.cs" />
     <Compile Include="Classes\Standard\Singleton.cs" />
     <Compile Include="Classes\Standard\Transient.cs" />
+    <Compile Include="ContainerAdapterFactory.cs" />
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
     <Compile Include="Interception\MugenInjectionInterceptionLogger.cs" />
     <Compile Include="Interception\NinjectInterceptionLogger.cs" />
@@ -266,6 +267,7 @@
     <Compile Include="Output\ConsoleOutput.cs" />
     <Compile Include="Output\ChartOutput.cs" />
     <Compile Include="Output\CsvOutput.cs" />
+    <Compile Include="Output\CsvOutputReader.cs" />
     <Compile Include="Output\MarkdownOutput.cs" />
     <Compile Include="Output\HtmlOutput.cs" />
     <Compile Include="Output\IOutput.cs" />

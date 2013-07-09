@@ -14,6 +14,11 @@ namespace IocPerformance.Adapters
     {
         private IContainer container;
 
+        public override string Name
+        {
+            get { return "AutoFac"; }
+        }
+
         public override string PackageName
         {
             get { return "Autofac"; }
