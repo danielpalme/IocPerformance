@@ -250,6 +250,7 @@
     <Compile Include="Classes\Standard\Combined.cs" />
     <Compile Include="Classes\Standard\Singleton.cs" />
     <Compile Include="Classes\Standard\Transient.cs" />
+    <Compile Include="Conditional\SimpleInjectorContextDependentExtensions.cs" />
     <Compile Include="ContainerAdapterFactory.cs" />
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
     <Compile Include="Interception\MugenInjectionInterceptionLogger.cs" />
