@@ -184,6 +184,7 @@
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
     <Compile Include="Adapters\ContainerAdapterBase.cs" />
+    <Compile Include="Adapters\IfFastInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\HaveBoxContainerAdapter.cs" />
     <Compile Include="Adapters\FFastInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\MicroSliverContainerAdapter.cs" />
@@ -252,6 +253,8 @@
     <Compile Include="Classes\Standard\Transient.cs" />
     <Compile Include="Conditional\SimpleInjectorContextDependentExtensions.cs" />
     <Compile Include="ContainerAdapterFactory.cs" />
+    <Compile Include="IfFastInjector.cs" />
+    <Compile Include="IfFastInjectorInternal.cs" />
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
     <Compile Include="Interception\MugenInjectionInterceptionLogger.cs" />
     <Compile Include="Interception\NinjectInterceptionLogger.cs" />
