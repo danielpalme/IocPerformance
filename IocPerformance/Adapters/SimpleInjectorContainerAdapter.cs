@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq.Expressions;
 using IocPerformance.Classes.Complex;
+using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
@@ -8,6 +10,7 @@ using IocPerformance.Interception;
 using SimpleInjector;
 using SimpleInjector.Extensions;
 using SimpleInjector.Extensions.Interception;
+using IocPerformance.Conditional;
 
 namespace IocPerformance.Adapters
 {
@@ -18,6 +21,11 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "SimpleInjector"; }
+        }
+
+        public override bool SupportsConditional
+        {
+            get { return true; }
         }
 
         public override bool SupportGeneric
@@ -54,6 +62,7 @@ namespace IocPerformance.Adapters
             this.RegisterStandard();
             this.RegisterComplex();
             this.RegisterOpenGeneric();
+            this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterIntercepter();
 
@@ -97,6 +106,19 @@ namespace IocPerformance.Adapters
         {
             this.container.RegisterOpenGeneric(typeof(IGenericInterface<>), typeof(GenericExport<>));
             this.container.RegisterOpenGeneric(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
+        }
+
+        private void RegisterConditional()
+        {
+            var container = this.container;
+
+            container.Register<ImportConditionObject>();
+            container.Register<ImportConditionObject2>();
+
+            container.RegisterWithContext<IExportConditionInterface>(context =>
+                context.ImplementationType == typeof(ImportConditionObject) 
+                    ? (IExportConditionInterface)container.GetInstance<ExportConditionalObject>()
+                    : (IExportConditionInterface)container.GetInstance<ExportConditionalObject2>());
         }
 
         private void RegisterMultiple()

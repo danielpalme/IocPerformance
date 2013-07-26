@@ -37,11 +37,9 @@
     <StartupObject>IocPerformance.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac">
-      <HintPath>..\packages\Autofac.3.0.2\lib\net40\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="Autofac.Configuration">
-      <HintPath>..\packages\Autofac.3.0.2\lib\net40\Autofac.Configuration.dll</HintPath>
+    <Reference Include="Autofac, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.3.1.1\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Autofac.Extras.DynamicProxy2">
       <HintPath>..\packages\Autofac.Extras.DynamicProxy2.3.0.2\lib\net40\Autofac.Extras.DynamicProxy2.dll</HintPath>
@@ -49,8 +47,9 @@
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor">
-      <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net45\Castle.Windsor.dll</HintPath>
+    <Reference Include="Castle.Windsor, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="Catel.Core, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -184,6 +183,7 @@
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
     <Compile Include="Adapters\ContainerAdapterBase.cs" />
+    <Compile Include="Adapters\IfFastInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\HaveBoxContainerAdapter.cs" />
     <Compile Include="Adapters\FFastInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\MicroSliverContainerAdapter.cs" />
@@ -250,7 +250,10 @@
     <Compile Include="Classes\Standard\Combined.cs" />
     <Compile Include="Classes\Standard\Singleton.cs" />
     <Compile Include="Classes\Standard\Transient.cs" />
+    <Compile Include="Conditional\SimpleInjectorContextDependentExtensions.cs" />
     <Compile Include="ContainerAdapterFactory.cs" />
+    <Compile Include="IfFastInjector.cs" />
+    <Compile Include="IfFastInjectorInternal.cs" />
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
     <Compile Include="Interception\MugenInjectionInterceptionLogger.cs" />
     <Compile Include="Interception\NinjectInterceptionLogger.cs" />
