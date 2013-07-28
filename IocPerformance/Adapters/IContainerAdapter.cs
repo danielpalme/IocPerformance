@@ -18,6 +18,8 @@ namespace IocPerformance.Adapters
 
         bool SupportsInterception { get; }
 
+		  bool SupportsPropertyInjection { get; }
+
         void Prepare();
 
         object Resolve(Type type);
