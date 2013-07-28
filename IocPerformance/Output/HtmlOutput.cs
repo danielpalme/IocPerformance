@@ -46,9 +46,11 @@ namespace IocPerformance.Output
                             result.CombinedTime);
 
                         writer.WriteLine(
-                            "<t{0}>{1}</t{0}><t{2}>{3}</t{2}><t{4}>{5}</t{4}><t{6}>{7}</t{6}><t{8}>{9}</t{8}></tr>",
-                            result.ComplexTime == this.results.Skip(1).Min(r => r.ComplexTime) ? "h" : "d",
-                            result.ComplexTime,
+									 "<t{0}>{1}</t{0}><t{2}>{3}</t{2}><t{4}>{5}</t{4}><t{6}>{7}</t{6}><t{8}>{9}</t{8}><t{10}>{11}</t{10}></tr>",
+									 result.ComplexTime == this.results.Skip(1).Min(r => r.ComplexTime) ? "h" : "d",
+									 result.ComplexTime,
+									 result.PropertyInjectionTime == this.results.Skip(1).Min(r => r.PropertyInjectionTime) ? "h" : "d",
+									 result.PropertyInjectionTime,
                             result.GenericTime == this.results.Skip(1).Min(r => r.GenericTime) ? "h" : "d",
                             result.GenericTime,
                             result.MultipleImport == this.results.Skip(1).Min(r => r.MultipleImport) ? "h" : "d",
