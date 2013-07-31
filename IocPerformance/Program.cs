@@ -6,6 +6,7 @@ using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Output;
 
@@ -72,13 +73,13 @@ namespace IocPerformance
         {
             if (Singleton.Instances != 1)
             {
-                throw new Exception("Singleton instance count must be one");
+                throw new Exception("Singleton instance count must be one container: " + container.PackageName);
             }
 
             if (Transient.Instances < (LoopCount * 2) + 1 || Transient.Instances > (LoopCount * 2) + 4)
             {
                 throw new Exception(
-                    string.Format("Transient count must be between {0} and {1} was {2}", (LoopCount * 2) + 1, (LoopCount * 2) + 4, Transient.Instances));
+                     string.Format("Transient count must be between {0} and {1} was {2}", (LoopCount * 2) + 1, (LoopCount * 2) + 4, Transient.Instances));
             }
 
             if (Combined.Instances != LoopCount + 1 && Combined.Instances != LoopCount + 2)
@@ -118,6 +119,7 @@ namespace IocPerformance
             var genericWatch = new Stopwatch();
             var complexWatch = new Stopwatch();
             var multipleWatch = new Stopwatch();
+            var propertyWatch = new Stopwatch();
 
             for (int i = 0; i < LoopCount; i++)
             {
@@ -136,6 +138,13 @@ namespace IocPerformance
                 complexWatch.Start();
                 var complexResult = (IComplex)container.Resolve(typeof(IComplex));
                 complexWatch.Stop();
+
+                if (container.SupportsPropertyInjection)
+                {
+                    propertyWatch.Start();
+                    var propertyInjectionResult = (IComplexPropertyObject)container.Resolve(typeof(IComplexPropertyObject));
+                    propertyWatch.Stop();
+                }
 
                 if (container.SupportsConditional)
                 {
@@ -164,6 +173,11 @@ namespace IocPerformance
             outputResult.TransientTime = transientWatch.ElapsedMilliseconds;
             outputResult.CombinedTime = combinedWatch.ElapsedMilliseconds;
             outputResult.ComplexTime = complexWatch.ElapsedMilliseconds;
+
+            if (container.SupportsPropertyInjection)
+            {
+                outputResult.PropertyInjectionTime = propertyWatch.ElapsedMilliseconds;
+            }
 
             if (container.SupportGeneric)
             {
@@ -237,6 +251,21 @@ namespace IocPerformance
                 throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(IComplex)));
             }
 
+            if (container.SupportsPropertyInjection)
+            {
+                var propertyInjectionObject = (IComplexPropertyObject)container.Resolve(typeof(IComplexPropertyObject));
+
+                if (propertyInjectionObject == null)
+                {
+                    throw new Exception(
+                        string.Format("Container {0} could not create type {1}",
+                        container.PackageName,
+                        typeof(IComplexPropertyObject)));
+                }
+
+                propertyInjectionObject.Verify(container.PackageName);
+            }
+
             if (container.SupportGeneric)
             {
                 var generic = (ImportGeneric<int>)container.Resolve(typeof(ImportGeneric<int>));
@@ -285,7 +314,7 @@ namespace IocPerformance
 
 namespace System.Runtime.CompilerServices
 {
-    public class ExtensionAttribute : Attribute 
+    public class ExtensionAttribute : Attribute
     {
     }
 }

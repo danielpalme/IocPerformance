@@ -4,6 +4,7 @@ using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using StyleMVVM.DependencyInjection;
 using StyleMVVM.DependencyInjection.Impl;
@@ -30,6 +31,11 @@ namespace IocPerformance.Adapters
         }
 
         public override bool SupportsMultiple
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsPropertyInjection
         {
             get { return true; }
         }
@@ -61,6 +67,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
@@ -100,6 +107,25 @@ namespace IocPerformance.Adapters
             this.container.Register<Complex>().As<IComplex>().ImportDefaultConstructor();
         }
 
+        private void RegisterPropertyInjection()
+        {
+            this.container.Register<ServiceA>().As<IServiceA>().AndSharedPermenantly();
+            this.container.Register<ServiceB>().As<IServiceB>().AndSharedPermenantly();
+            this.container.Register<ServiceC>().As<IServiceC>().AndSharedPermenantly();
+
+            this.container.Register<SubObjectA>().As<ISubObjectA>().ImportProperty(x => x.ServiceA);
+            this.container.Register<SubObjectB>().As<ISubObjectB>().ImportProperty(x => x.ServiceB);
+            this.container.Register<SubObjectC>().As<ISubObjectC>().ImportProperty(x => x.ServiceC);
+
+            this.container.Register<ComplexPropertyObject>().As<IComplexPropertyObject>()
+                .ImportProperty(x => x.ServiceA)
+                .ImportProperty(x => x.ServiceB)
+                .ImportProperty(x => x.ServiceC)
+                .ImportProperty(x => x.SubObjectA)
+                .ImportProperty(x => x.SubObjectB)
+                .ImportProperty(x => x.SubObjectC);
+        }
+
         private void RegisterOpenGeneric()
         {
             this.container.Register(typeof(ImportGeneric<>)).As(typeof(ImportGeneric<>)).ImportDefaultConstructor();
@@ -109,16 +135,16 @@ namespace IocPerformance.Adapters
         private void RegisterConditional()
         {
             this.container.Register<ImportConditionObject>()
-                        .As<ImportConditionObject>().ImportDefaultConstructor();
+                            .As<ImportConditionObject>().ImportDefaultConstructor();
             this.container.Register<ImportConditionObject2>()
-                        .As<ImportConditionObject2>().ImportDefaultConstructor();
+                            .As<ImportConditionObject2>().ImportDefaultConstructor();
 
             this.container.Register<ExportConditionalObject>()
-                        .As<IExportConditionInterface>()
-                        .WhenInjectedInto<ImportConditionObject>();
+                            .As<IExportConditionInterface>()
+                            .WhenInjectedInto<ImportConditionObject>();
             this.container.Register<ExportConditionalObject2>()
-                        .As<IExportConditionInterface>()
-                        .WhenInjectedInto<ImportConditionObject2>();
+                            .As<IExportConditionInterface>()
+                            .WhenInjectedInto<ImportConditionObject2>();
         }
 
         private void RegisterMultiple()

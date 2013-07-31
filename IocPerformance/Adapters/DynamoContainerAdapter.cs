@@ -2,6 +2,7 @@
 using Dynamo.Ioc;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
@@ -18,6 +19,11 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "Dynamo.Ioc"; }
+        }
+
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
         }
 
         public override object Resolve(Type type)
@@ -38,7 +44,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
-
+            this.RegisterPropertyInjection();
             this.container.Compile();
         }
 
@@ -72,6 +78,28 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectTwo, SubObjectTwo>();
             this.container.Register<ISubObjectThree, SubObjectThree>();
             this.container.Register<IComplex, Complex>();
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            this.container.Register<IServiceA, ServiceA>().WithContainerLifetime();
+            this.container.Register<IServiceB, ServiceB>().WithContainerLifetime();
+            this.container.Register<IServiceC, ServiceC>().WithContainerLifetime();
+
+            this.container.Register<ISubObjectA>(x => new SubObjectA { ServiceA = x.Resolve<IServiceA>() })
+                .WithTransientLifetime();
+            this.container.Register<ISubObjectB>(x => new SubObjectB { ServiceB = x.Resolve<IServiceB>() }).WithTransientLifetime();
+            this.container.Register<ISubObjectC>(x => new SubObjectC { ServiceC = x.Resolve<IServiceC>() }).WithTransientLifetime();
+
+            this.container.Register<IComplexPropertyObject>(x => new ComplexPropertyObject
+                                                                     {
+                                                                         ServiceA = x.Resolve<IServiceA>(),
+                                                                         ServiceB = x.Resolve<IServiceB>(),
+                                                                         ServiceC = x.Resolve<IServiceC>(),
+                                                                         SubObjectA = x.Resolve<ISubObjectA>(),
+                                                                         SubObjectB = x.Resolve<ISubObjectB>(),
+                                                                         SubObjectC = x.Resolve<ISubObjectC>()
+                                                                     }).WithTransientLifetime();
         }
     }
 }

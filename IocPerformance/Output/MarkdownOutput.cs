@@ -59,15 +59,17 @@ namespace IocPerformance.Output
                     writer.WriteLine("</table>");
                     writer.WriteLine("Advanced Features");
                     writer.WriteLine("<table>");
-                    writer.WriteLine("<tr><th>Container</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th><th>Interception</th></tr>");
+                    writer.WriteLine("<tr><th>Container</th><th>Property</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th><th>Interception</th></tr>");
 
                     foreach (var result in this.results)
                     {
                         writer.WriteLine(
-                            "<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}></tr>",
+                                     "<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}><t{11}>{12}</t{11}></tr>",
                             result.Name,
                             result.Version == null ? string.Empty : " ",
                             result.Version,
+                            result.PropertyInjectionTime == this.results.Skip(1).Min(r => r.PropertyInjectionTime) ? "h" : "d",
+                            result.PropertyInjectionTime,
                             result.GenericTime == this.results.Skip(1).Min(r => r.GenericTime) ? "h" : "d",
                             result.GenericTime,
                             result.MultipleImport == this.results.Skip(1).Min(r => r.MultipleImport) ? "h" : "d",

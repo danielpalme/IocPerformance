@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Linq.Expressions;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using IocPerformance.Conditional;
 using IocPerformance.Interception;
+using IocPerformance.PropertyInjection;
 using SimpleInjector;
 using SimpleInjector.Extensions;
 using SimpleInjector.Extensions.Interception;
-using IocPerformance.Conditional;
 
 namespace IocPerformance.Adapters
 {
@@ -43,6 +44,11 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.GetInstance(type);
@@ -58,9 +64,12 @@ namespace IocPerformance.Adapters
         {
             this.container = new SimpleInjector.Container();
 
+            this.container.Options.EnablePropertyAutowiring();
+
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
@@ -102,6 +111,33 @@ namespace IocPerformance.Adapters
             this.container.Register<IComplex, Complex>();
         }
 
+        private void RegisterPropertyInjection()
+        {
+            this.container.RegisterSingle<IServiceA, ServiceA>();
+            this.container.RegisterSingle<IServiceB, ServiceB>();
+            this.container.RegisterSingle<IServiceC, ServiceC>();
+
+            this.container.Register<ISubObjectA, SubObjectA>();
+            this.container.RegisterInitializer<SubObjectA>(x => x.ServiceA = this.container.GetInstance<IServiceA>());
+
+            this.container.Register<ISubObjectB, SubObjectB>();
+            this.container.RegisterInitializer<SubObjectB>(x => x.ServiceB = this.container.GetInstance<IServiceB>());
+
+            this.container.Register<ISubObjectC, SubObjectC>();
+            this.container.RegisterInitializer<SubObjectC>(x => x.ServiceC = this.container.GetInstance<IServiceC>());
+
+            this.container.Register<IComplexPropertyObject, ComplexPropertyObject>();
+            this.container.RegisterInitializer<ComplexPropertyObject>(x =>
+                {
+                    x.ServiceA = this.container.GetInstance<IServiceA>();
+                    x.ServiceB = this.container.GetInstance<IServiceB>();
+                    x.ServiceC = this.container.GetInstance<IServiceC>();
+                    x.SubObjectA = this.container.GetInstance<ISubObjectA>();
+                    x.SubObjectB = this.container.GetInstance<ISubObjectB>();
+                    x.SubObjectC = this.container.GetInstance<ISubObjectC>();
+                });
+        }
+
         private void RegisterOpenGeneric()
         {
             this.container.RegisterOpenGeneric(typeof(IGenericInterface<>), typeof(GenericExport<>));
@@ -116,19 +152,19 @@ namespace IocPerformance.Adapters
             container.Register<ImportConditionObject2>();
 
             container.RegisterWithContext<IExportConditionInterface>(context =>
-                context.ImplementationType == typeof(ImportConditionObject) 
-                    ? (IExportConditionInterface)container.GetInstance<ExportConditionalObject>()
-                    : (IExportConditionInterface)container.GetInstance<ExportConditionalObject2>());
+                 context.ImplementationType == typeof(ImportConditionObject)
+                      ? (IExportConditionInterface)container.GetInstance<ExportConditionalObject>()
+                      : (IExportConditionInterface)container.GetInstance<ExportConditionalObject2>());
         }
 
         private void RegisterMultiple()
         {
             this.container.RegisterAll<ISimpleAdapter>(
-                typeof(SimpleAdapterOne),
-                typeof(SimpleAdapterTwo),
-                typeof(SimpleAdapterThree),
-                typeof(SimpleAdapterFour),
-                typeof(SimpleAdapterFive));
+                 typeof(SimpleAdapterOne),
+                 typeof(SimpleAdapterTwo),
+                 typeof(SimpleAdapterThree),
+                 typeof(SimpleAdapterFour),
+                 typeof(SimpleAdapterFive));
         }
 
         private void RegisterIntercepter()

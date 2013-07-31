@@ -1,6 +1,7 @@
 ﻿using System;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
@@ -12,6 +13,11 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "LightInject"; }
+        }
+
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
         }
 
         public override object Resolve(Type type)
@@ -32,6 +38,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
         }
 
         private void RegisterDummies()
@@ -53,8 +60,8 @@ namespace IocPerformance.Adapters
             this.container.Register<ISingleton>(c => new Singleton(), new PerContainerLifetime());
             this.container.Register<ITransient>(c => new Transient(), new PerRequestLifeTime());
             this.container.Register<ICombined>(
-                c => new Combined(c.GetInstance<ISingleton>(), c.GetInstance<ITransient>()),
-                new PerRequestLifeTime());
+                 c => new Combined(c.GetInstance<ISingleton>(), c.GetInstance<ITransient>()),
+                 new PerRequestLifeTime());
         }
 
         private void RegisterComplex()
@@ -67,14 +74,35 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectThree>(c => new SubObjectThree(c.GetInstance<IThirdService>()), new PerRequestLifeTime());
 
             this.container.Register<IComplex>(
-                c => new Complex(
-                    c.GetInstance<IFirstService>(),
-                    c.GetInstance<ISecondService>(),
-                    c.GetInstance<IThirdService>(),
-                    c.GetInstance<ISubObjectOne>(),
-                    c.GetInstance<ISubObjectTwo>(),
-                    c.GetInstance<ISubObjectThree>()),
-                    new PerRequestLifeTime());
+                 c => new Complex(
+                      c.GetInstance<IFirstService>(),
+                      c.GetInstance<ISecondService>(),
+                      c.GetInstance<IThirdService>(),
+                      c.GetInstance<ISubObjectOne>(),
+                      c.GetInstance<ISubObjectTwo>(),
+                      c.GetInstance<ISubObjectThree>()),
+                      new PerRequestLifeTime());
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            this.container.Register<IServiceA>(c => new ServiceA(), new PerContainerLifetime());
+            this.container.Register<IServiceB>(c => new ServiceB(), new PerContainerLifetime());
+            this.container.Register<IServiceC>(c => new ServiceC(), new PerContainerLifetime());
+            this.container.Register<ISubObjectA>(c => new SubObjectA { ServiceA = c.GetInstance<IServiceA>() }, new PerRequestLifeTime());
+            this.container.Register<ISubObjectB>(c => new SubObjectB { ServiceB = c.GetInstance<IServiceB>() }, new PerRequestLifeTime());
+            this.container.Register<ISubObjectC>(c => new SubObjectC { ServiceC = c.GetInstance<IServiceC>() }, new PerRequestLifeTime());
+            this.container.Register<IComplexPropertyObject>(
+                c => new ComplexPropertyObject
+                {
+                    ServiceA = c.GetInstance<IServiceA>(),
+                    ServiceB = c.GetInstance<IServiceB>(),
+                    ServiceC = c.GetInstance<IServiceC>(),
+                    SubObjectA = c.GetInstance<ISubObjectA>(),
+                    SubObjectB = c.GetInstance<ISubObjectB>(),
+                    SubObjectC = c.GetInstance<ISubObjectC>()
+                },
+                new PerRequestLifeTime());
         }
     }
 }

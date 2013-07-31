@@ -2,6 +2,7 @@
 using Griffin.Container;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 
@@ -24,6 +25,12 @@ namespace IocPerformance.Adapters
 
         // The container is extremly slow, when creating proxies, so it's currently disabled
         public override bool SupportsInterception
+        {
+            get { return false; }
+        }
+
+        // It says it supports property injection but there is no documentation on how to turn it on and it doesn't work out of the box so ... it's turned off
+        public override bool SupportsPropertyInjection
         {
             get { return false; }
         }
@@ -52,6 +59,7 @@ namespace IocPerformance.Adapters
             RegisterDummies(registrar);
             RegisterStandard(registrar);
             RegisterComplex(registrar);
+            RegisterPropertyInjection(registrar);
 
             this.container = registrar.Build();
 
@@ -94,6 +102,27 @@ namespace IocPerformance.Adapters
             registrar.RegisterType<ISubObjectThree, SubObjectThree>(Lifetime.Transient);
 
             registrar.RegisterType<IComplex, Complex>(Lifetime.Transient);
+        }
+
+        private static void RegisterPropertyInjection(ContainerRegistrar registrar)
+        {
+            registrar.RegisterType<IServiceA, ServiceA>(Lifetime.Singleton);
+            registrar.RegisterType<IServiceB, ServiceB>(Lifetime.Singleton);
+            registrar.RegisterType<IServiceC, ServiceC>(Lifetime.Singleton);
+            registrar.RegisterService<ISubObjectA>(x => new SubObjectA { ServiceA = x.Resolve<IServiceA>() }, Lifetime.Transient);
+            registrar.RegisterService<ISubObjectB>(x => new SubObjectB { ServiceB = x.Resolve<IServiceB>() }, Lifetime.Transient);
+            registrar.RegisterService<ISubObjectC>(x => new SubObjectC { ServiceC = x.Resolve<IServiceC>() }, Lifetime.Transient);
+            registrar.RegisterService<IComplexPropertyObject>(
+                x => new ComplexPropertyObject
+                {
+                    ServiceA = x.Resolve<IServiceA>(),
+                    ServiceB = x.Resolve<IServiceB>(),
+                    ServiceC = x.Resolve<IServiceC>(),
+                    SubObjectA = x.Resolve<ISubObjectA>(),
+                    SubObjectB = x.Resolve<ISubObjectB>(),
+                    SubObjectC = x.Resolve<ISubObjectC>()
+                }, 
+                Lifetime.Transient);
         }
     }
 }

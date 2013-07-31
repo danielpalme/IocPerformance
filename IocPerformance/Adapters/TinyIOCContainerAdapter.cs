@@ -2,6 +2,7 @@
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using TinyIoC;
 
@@ -33,6 +34,11 @@ namespace IocPerformance.Adapters
             }
         }
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
@@ -51,6 +57,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
         }
 
@@ -84,6 +91,30 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectTwo, SubObjectTwo>().AsMultiInstance();
             this.container.Register<ISubObjectThree, SubObjectThree>().AsMultiInstance();
             this.container.Register<IComplex, Complex>().AsMultiInstance();
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            this.container.Register<IServiceA, ServiceA>().AsSingleton();
+            this.container.Register<IServiceB, ServiceB>().AsSingleton();
+            this.container.Register<IServiceC, ServiceC>().AsSingleton();
+            this.container.Register<ISubObjectA>(
+                (ioc, names) => new SubObjectA { ServiceA = ioc.Resolve<IServiceA>() });
+            this.container.Register<ISubObjectB>(
+                (ioc, names) => new SubObjectB { ServiceB = ioc.Resolve<IServiceB>() });
+            this.container.Register<ISubObjectC>(
+                (ioc, names) => new SubObjectC { ServiceC = ioc.Resolve<IServiceC>() });
+
+            this.container.Register<IComplexPropertyObject>(
+                (ioc, names) => new ComplexPropertyObject
+                                    {
+                                        ServiceA = ioc.Resolve<IServiceA>(),
+                                        ServiceB = ioc.Resolve<IServiceB>(),
+                                        ServiceC = ioc.Resolve<IServiceC>(),
+                                        SubObjectA = ioc.Resolve<ISubObjectA>(),
+                                        SubObjectB = ioc.Resolve<ISubObjectB>(),
+                                        SubObjectC = ioc.Resolve<ISubObjectC>()
+                                    });
         }
 
         private void RegisterOpenGeneric()

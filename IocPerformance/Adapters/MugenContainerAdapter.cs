@@ -4,6 +4,7 @@ using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using MugenInjection;
@@ -25,6 +26,11 @@ namespace IocPerformance.Adapters
         }
 
         public override bool SupportsConditional
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsPropertyInjection
         {
             get { return true; }
         }
@@ -62,6 +68,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
             this.RegisterMultiple();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
@@ -100,37 +107,48 @@ namespace IocPerformance.Adapters
             this.container.Bind<IComplex>().To<Complex>().InTransientScope();
         }
 
+        private void RegisterPropertyInjection()
+        {
+            this.container.Bind<IComplexPropertyObject>().To<ComplexPropertyObject>().InTransientScope();
+            this.container.Bind<IServiceA>().To<ServiceA>().InSingletonScope();
+            this.container.Bind<IServiceB>().To<ServiceB>().InSingletonScope();
+            this.container.Bind<IServiceC>().To<ServiceC>().InSingletonScope();
+            this.container.Bind<ISubObjectA>().To<SubObjectA>().InTransientScope();
+            this.container.Bind<ISubObjectB>().To<SubObjectB>().InTransientScope();
+            this.container.Bind<ISubObjectC>().To<SubObjectC>().InTransientScope();
+        }
+
         private void RegisterConditional()
         {
             // conditional export
-            container.Bind<ImportConditionObject>().To<ImportConditionObject>().InTransientScope();
-            container.Bind<ImportConditionObject2>().To<ImportConditionObject2>().InTransientScope();
-            container.Bind<IExportConditionInterface>()
-                     .To<ExportConditionalObject>()
-                     .WhenIntoIsAssignable<ImportConditionObject>()
-                     .InTransientScope();
-            container.Bind<IExportConditionInterface>()
-                     .To<ExportConditionalObject2>()
-                     .WhenIntoIsAssignable<ImportConditionObject2>()
-                     .InTransientScope();
+            this.container.Bind<ImportConditionObject>().To<ImportConditionObject>().InTransientScope();
+            this.container.Bind<ImportConditionObject2>().To<ImportConditionObject2>().InTransientScope();
+            this.container.Bind<IExportConditionInterface>()
+                        .To<ExportConditionalObject>()
+                        .WhenIntoIsAssignable<ImportConditionObject>()
+                        .InTransientScope();
+            this.container.Bind<IExportConditionInterface>()
+                        .To<ExportConditionalObject2>()
+                        .WhenIntoIsAssignable<ImportConditionObject2>()
+                        .InTransientScope();
         }
 
         private void RegisterOpenGeneric()
         {
             // generic export
-            container.Bind(typeof(IGenericInterface<>)).To(typeof(GenericExport<>)).InTransientScope();
-            container.Bind(typeof(ImportGeneric<>)).To(typeof(ImportGeneric<>)).InTransientScope();
+            this.container.Bind(typeof(IGenericInterface<>)).To(typeof(GenericExport<>)).InTransientScope();
+            this.container.Bind(typeof(ImportGeneric<>)).To(typeof(ImportGeneric<>)).InTransientScope();
         }
 
         private void RegisterMultiple()
         {
             // multiple exports
-            container.Bind<ISimpleAdapter>().To<SimpleAdapterOne>().InTransientScope();
-            container.Bind<ISimpleAdapter>().To<SimpleAdapterTwo>().InTransientScope();
-            container.Bind<ISimpleAdapter>().To<SimpleAdapterThree>().InTransientScope();
-            container.Bind<ISimpleAdapter>().To<SimpleAdapterFour>().InTransientScope();
-            container.Bind<ISimpleAdapter>().To<SimpleAdapterFive>().InTransientScope();
-            container.Bind<ImportMultiple>().To<ImportMultiple>().InTransientScope();
+            this.container.Bind<ISimpleAdapter>().To<SimpleAdapterOne>().InTransientScope();
+            this.container.Bind<ISimpleAdapter>().To<SimpleAdapterTwo>().InTransientScope();
+            this.container.Bind<ISimpleAdapter>().To<SimpleAdapterThree>().InTransientScope();
+            this.container.Bind<ISimpleAdapter>().To<SimpleAdapterFour>().InTransientScope();
+            this.container.Bind<ISimpleAdapter>().To<SimpleAdapterFive>().InTransientScope();
+            this.container.Bind<ImportMultiple>().To<ImportMultiple>().InTransientScope();
         }
 
         private void RegisterInterceptor()

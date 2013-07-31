@@ -25,42 +25,42 @@ namespace IocPerformance.Adapters
 
         public override object Resolve(Type type)
         {
-            return injector.Resolve(type);
+            return this.injector.Resolve(type);
         }
 
         public override sealed void Dispose()
         {
             // Allow the container and everything it references to be disposed.
-            injector = null;
+            this.injector = null;
         }
 
         public override void Prepare()
         {
-            injector = IfInjector.NewInstance();
-            RegisterDummies();
-            RegisterStandard();
-            RegisterComplex();
+            this.injector = IfInjector.NewInstance();
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterDummies()
         {
-            injector.Bind<IDummyOne, DummyOne>();
-            injector.Bind<IDummyTwo, DummyTwo>();
-            injector.Bind<IDummyThree, DummyThree>();
-            injector.Bind<IDummyFour, DummyFour>();
-            injector.Bind<IDummyFive, DummyFive>();
-            injector.Bind<IDummySix, DummySix>();
-            injector.Bind<IDummySeven, DummySeven>();
-            injector.Bind<IDummyEight, DummyEight>();
-            injector.Bind<IDummyNine, DummyNine>();
-            injector.Bind<IDummyTen, DummyTen>();
+            this.injector.Bind<IDummyOne, DummyOne>();
+            this.injector.Bind<IDummyTwo, DummyTwo>();
+            this.injector.Bind<IDummyThree, DummyThree>();
+            this.injector.Bind<IDummyFour, DummyFour>();
+            this.injector.Bind<IDummyFive, DummyFive>();
+            this.injector.Bind<IDummySix, DummySix>();
+            this.injector.Bind<IDummySeven, DummySeven>();
+            this.injector.Bind<IDummyEight, DummyEight>();
+            this.injector.Bind<IDummyNine, DummyNine>();
+            this.injector.Bind<IDummyTen, DummyTen>();
         }
 
         private void RegisterStandard()
         {
-            injector.Bind<ISingleton, Singleton>().AsSingleton();
-            injector.Bind<ITransient, Transient>();
-            injector.Bind<ICombined, Combined>();
+            this.injector.Bind<ISingleton, Singleton>().AsSingleton();
+            this.injector.Bind<ITransient, Transient>();
+            this.injector.Bind<ICombined, Combined>();
         }
 
         private void RegisterComplex()
@@ -69,14 +69,14 @@ namespace IocPerformance.Adapters
             var secondService = new SecondService();
             var thirdService = new ThirdService();
 
-            injector.Bind<IFirstService, FirstService>().AsSingleton();
-            injector.Bind<ISecondService, SecondService>().AsSingleton();
-            injector.Bind<IThirdService, ThirdService>().AsSingleton();
-            injector.Bind<ISubObjectOne, SubObjectOne>();
-            injector.Bind<ISubObjectTwo, SubObjectTwo>();
-            injector.Bind<ISubObjectThree, SubObjectThree>();
+            this.injector.Bind<IFirstService, FirstService>().AsSingleton();
+            this.injector.Bind<ISecondService, SecondService>().AsSingleton();
+            this.injector.Bind<IThirdService, ThirdService>().AsSingleton();
+            this.injector.Bind<ISubObjectOne, SubObjectOne>();
+            this.injector.Bind<ISubObjectTwo, SubObjectTwo>();
+            this.injector.Bind<ISubObjectThree, SubObjectThree>();
 
-            injector.Bind<IComplex, Complex>();
+            this.injector.Bind<IComplex, Complex>();
         }
     }
 }

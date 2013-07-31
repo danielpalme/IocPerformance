@@ -5,6 +5,7 @@ using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
@@ -16,6 +17,11 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "Mef"; }
+        }
+
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
         }
 
         public override bool SupportsMultiple
@@ -47,40 +53,49 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             var dummyCatalog = new TypeCatalog(
-                typeof(DummyOne),
-                typeof(DummyTwo),
-                typeof(DummyThree),
-                typeof(DummyFour),
-                typeof(DummyFive),
-                typeof(DummySix),
-                typeof(DummySeven),
-                typeof(DummyEight),
-                typeof(DummyNine),
-                typeof(DummyTen));
+                 typeof(DummyOne),
+                 typeof(DummyTwo),
+                 typeof(DummyThree),
+                 typeof(DummyFour),
+                 typeof(DummyFive),
+                 typeof(DummySix),
+                 typeof(DummySeven),
+                 typeof(DummyEight),
+                 typeof(DummyNine),
+                 typeof(DummyTen));
 
             var standardCatalog = new TypeCatalog(typeof(Singleton), typeof(Transient), typeof(Combined));
 
             var complexCatalog = new TypeCatalog(
-                typeof(FirstService),
-                typeof(SecondService),
-                typeof(ThirdService),
-                typeof(SubObjectOne),
-                typeof(SubObjectTwo),
-                typeof(SubObjectThree),
-                typeof(Complex));
+                 typeof(FirstService),
+                 typeof(SecondService),
+                 typeof(ThirdService),
+                 typeof(SubObjectOne),
+                 typeof(SubObjectTwo),
+                 typeof(SubObjectThree),
+                 typeof(Complex));
+
+            var propertyInjectionCatalog = new TypeCatalog(
+                typeof(ComplexPropertyObject),
+                typeof(ServiceA),
+                typeof(ServiceB),
+                typeof(ServiceC),
+                typeof(SubObjectA),
+                typeof(SubObjectB),
+                typeof(SubObjectC));
 
             var multipleCatalog = new TypeCatalog(
-                typeof(SimpleAdapterOne),
-                typeof(SimpleAdapterTwo),
-                typeof(SimpleAdapterThree),
-                typeof(SimpleAdapterFour),
-                typeof(SimpleAdapterFive),
-                typeof(ImportMultiple));
+                 typeof(SimpleAdapterOne),
+                 typeof(SimpleAdapterTwo),
+                 typeof(SimpleAdapterThree),
+                 typeof(SimpleAdapterFour),
+                 typeof(SimpleAdapterFive),
+                 typeof(ImportMultiple));
 
             var openGenericCatalog = new TypeCatalog(typeof(ImportGeneric<>), typeof(GenericExport<>));
 
             this.container = new CompositionContainer(
-                new AggregateCatalog(dummyCatalog, standardCatalog, complexCatalog, multipleCatalog, openGenericCatalog));
+                 new AggregateCatalog(dummyCatalog, standardCatalog, complexCatalog, propertyInjectionCatalog, multipleCatalog, openGenericCatalog));
         }
     }
 }

@@ -56,28 +56,35 @@ namespace IocPerformance.Output
                 .Concat(this.results.Take(1))
                 .Select(r => new Tuple<string, double>(r.Name, r.ComplexTime)));
             this.CreateChart(
-                "output\\05-Generic.png",
+                 "output\\05-Property.png",
+                 this.results.AsEnumerable()
+                 .Skip(1)
+                 .Where(r => r.PropertyInjectionTime.HasValue)
+                 .OrderByDescending(r => r.PropertyInjectionTime.Value)
+                 .Select(r => new Tuple<string, double>(r.Name, r.PropertyInjectionTime.Value)));
+            this.CreateChart(
+                "output\\06-Generic.png",
                 this.results.AsEnumerable()
                 .Skip(1)
                 .Where(r => r.GenericTime.HasValue)
                 .OrderByDescending(r => r.GenericTime.Value)
                 .Select(r => new Tuple<string, double>(r.Name, r.GenericTime.Value)));
             this.CreateChart(
-                "output\\06-IEnumerable.png",
+                "output\\07-IEnumerable.png",
                 this.results.AsEnumerable()
                 .Skip(1)
                 .Where(r => r.MultipleImport.HasValue)
                 .OrderByDescending(r => r.MultipleImport.Value)
                 .Select(r => new Tuple<string, double>(r.Name, r.MultipleImport.Value)));
             this.CreateChart(
-                "output\\07-Conditional.png",
+                "output\\08-Conditional.png",
                 this.results.AsEnumerable()
                 .Skip(1)
                 .Where(r => r.ConditionalTime.HasValue)
                 .OrderByDescending(r => r.ConditionalTime.Value)
                 .Select(r => new Tuple<string, double>(r.Name, r.ConditionalTime.Value)));
             this.CreateChart(
-                "output\\08-Interception.png",
+                "output\\09-Interception.png",
                 this.results.AsEnumerable()
                 .Skip(1)
                 .Where(r => r.InterceptionTime.HasValue)

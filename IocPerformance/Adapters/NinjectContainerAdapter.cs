@@ -4,6 +4,7 @@ using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using Ninject;
@@ -21,6 +22,11 @@ namespace IocPerformance.Adapters
         }
 
         public override bool SupportsInterception
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsPropertyInjection
         {
             get { return true; }
         }
@@ -58,6 +64,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplexObject();
+            this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
@@ -90,10 +97,21 @@ namespace IocPerformance.Adapters
             this.container.Bind<IFirstService>().To<FirstService>().InSingletonScope();
             this.container.Bind<ISecondService>().To<SecondService>().InSingletonScope();
             this.container.Bind<IThirdService>().To<ThirdService>().InSingletonScope();
+            this.container.Bind<ISubObjectA>().To<SubObjectA>().InTransientScope();
+            this.container.Bind<ISubObjectB>().To<SubObjectB>().InTransientScope();
+            this.container.Bind<ISubObjectC>().To<SubObjectC>().InTransientScope();
+            this.container.Bind<IComplex>().To<Complex>().InTransientScope();
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            this.container.Bind<IComplexPropertyObject>().To<ComplexPropertyObject>().InTransientScope();
+            this.container.Bind<IServiceA>().To<ServiceA>().InSingletonScope();
+            this.container.Bind<IServiceB>().To<ServiceB>().InSingletonScope();
+            this.container.Bind<IServiceC>().To<ServiceC>().InSingletonScope();
             this.container.Bind<ISubObjectOne>().To<SubObjectOne>().InTransientScope();
             this.container.Bind<ISubObjectTwo>().To<SubObjectTwo>().InTransientScope();
             this.container.Bind<ISubObjectThree>().To<SubObjectThree>().InTransientScope();
-            this.container.Bind<IComplex>().To<Complex>().InTransientScope();
         }
 
         private void RegisterOpenGeneric()
@@ -107,13 +125,13 @@ namespace IocPerformance.Adapters
             this.container.Bind<ImportConditionObject>().To<ImportConditionObject>().InTransientScope();
             this.container.Bind<ImportConditionObject2>().To<ImportConditionObject2>().InTransientScope();
             this.container.Bind<IExportConditionInterface>()
-                     .To<ExportConditionalObject>()
-                     .WhenInjectedInto<ImportConditionObject>()
-                     .InTransientScope();
+                        .To<ExportConditionalObject>()
+                        .WhenInjectedInto<ImportConditionObject>()
+                        .InTransientScope();
             this.container.Bind<IExportConditionInterface>()
-                     .To<ExportConditionalObject2>()
-                     .WhenInjectedInto<ImportConditionObject2>()
-                     .InTransientScope();
+                        .To<ExportConditionalObject2>()
+                        .WhenInjectedInto<ImportConditionObject2>()
+                        .InTransientScope();
         }
 
         private void RegisterMultiple()
@@ -129,7 +147,7 @@ namespace IocPerformance.Adapters
         private void RegisterInterceptor()
         {
             this.container.Bind<ICalculator>().To<Calculator>().InTransientScope()
-                .Intercept().With(new NinjectInterceptionLogger());
+                 .Intercept().With(new NinjectInterceptionLogger());
         }
     }
 }

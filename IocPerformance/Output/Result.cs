@@ -14,6 +14,8 @@
 
         public long ComplexTime { get; set; }
 
+        public long? PropertyInjectionTime { get; set; }
+
         public long? GenericTime { get; set; }
 
         public long? ConditionalTime { get; set; }

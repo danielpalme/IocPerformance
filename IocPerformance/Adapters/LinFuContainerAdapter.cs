@@ -2,6 +2,7 @@
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using LinFu.IoC;
 
@@ -19,6 +20,13 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "LinFu.Core"; }
+        }
+
+        // After trying to configure it multiple way I'm not sure why this doesn't work
+        // but it doesn't so I'm marking as false
+        public override bool SupportsPropertyInjection
+        {
+            get { return false; }
         }
 
         public override bool SupportsMultiple
@@ -45,6 +53,7 @@ namespace IocPerformance.Adapters
             this.RegisterStandard();
             this.RegisterComplex();
             this.RegisterMultiple();
+            this.RegisterPropertyInjection();
         }
 
         private void RegisterDummies()
@@ -78,6 +87,37 @@ namespace IocPerformance.Adapters
             this.container.Inject<ISubObjectThree>().Using<SubObjectThree>().OncePerRequest();
 
             this.container.Inject<IComplex>().Using<Complex>().OncePerRequest();
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            this.container.Inject<IServiceA>().Using<ServiceA>().AsSingleton();
+            this.container.Inject<IServiceB>().Using<ServiceB>().AsSingleton();
+            this.container.Inject<IServiceC>().Using<ServiceC>().AsSingleton();
+
+            this.container.LoadFrom(GetType().Assembly);
+
+            /* While is looks like it should work it doesn't
+               Not sure why but commented out to try loadfrom container
+            //container.Inject<ISubObjectA>().Using<SubObjectA>().OncePerRequest();
+            //container.Initialize<SubObjectA>().With((ioc,x) => x.ServiceA = ioc.GetService<IServiceA>());
+
+            //container.Inject<ISubObjectB>().Using<SubObjectB>().OncePerRequest();
+            //container.Initialize<SubObjectB>().With((ioc, x) => x.ServiceB = ioc.GetService<IServiceB>());
+
+            //container.Inject<ISubObjectC>().Using<SubObjectC>().OncePerRequest();
+            //container.Initialize<SubObjectC>().With((ioc, x) => x.ServiceC = ioc.GetService<IServiceC>());
+
+            //container.Inject<IComplexPropertyObject>().Using<ComplexPropertyObject>().OncePerRequest();
+            container.Initialize<ComplexPropertyObject>().With((ioc, x) =>
+                {
+                    x.ServiceA = ioc.GetService<IServiceA>();
+                    x.ServiceB = ioc.GetService<IServiceB>();
+                    x.ServiceC = ioc.GetService<IServiceC>();
+                    x.SubObjectA = ioc.GetService<ISubObjectA>();
+                    x.SubObjectB = ioc.GetService<ISubObjectB>();
+                    x.SubObjectC = ioc.GetService<ISubObjectC>();
+                }); */
         }
 
         private void RegisterMultiple()

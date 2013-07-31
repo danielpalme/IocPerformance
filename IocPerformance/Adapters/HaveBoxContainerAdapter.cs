@@ -2,6 +2,7 @@
 using HaveBox;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
@@ -13,6 +14,11 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "HaveBox"; }
+        }
+
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
         }
 
         public override object Resolve(Type type)
@@ -33,6 +39,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
         }
 
         private void RegisterDummies()
@@ -65,6 +72,27 @@ namespace IocPerformance.Adapters
             this.container.Configure(config => config.For<ISubObjectTwo>().Use<SubObjectTwo>());
             this.container.Configure(config => config.For<ISubObjectThree>().Use<SubObjectThree>());
             this.container.Configure(config => config.For<IComplex>().Use<Complex>());
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            this.container.Configure(config => config.For<IServiceA>().Use<ServiceA>().AsSingleton());
+            this.container.Configure(config => config.For<IServiceB>().Use<ServiceB>().AsSingleton());
+            this.container.Configure(config => config.For<IServiceC>().Use<ServiceC>().AsSingleton());
+            this.container.Configure(config => config.For<ISubObjectA>().Use(() => new SubObjectA { ServiceA = this.container.GetInstance<IServiceA>() }));
+            this.container.Configure(config => config.For<ISubObjectB>().Use(() => new SubObjectB { ServiceB = this.container.GetInstance<IServiceB>() }));
+            this.container.Configure(config => config.For<ISubObjectC>().Use(() => new SubObjectC { ServiceC = this.container.GetInstance<IServiceC>() }));
+            this.container.Configure(
+                config => config.For<IComplexPropertyObject>().Use(
+                    () => new ComplexPropertyObject
+                        {
+                            ServiceA = this.container.GetInstance<IServiceA>(),
+                            ServiceB = this.container.GetInstance<IServiceB>(),
+                            ServiceC = this.container.GetInstance<IServiceC>(),
+                            SubObjectA = this.container.GetInstance<ISubObjectA>(),
+                            SubObjectB = this.container.GetInstance<ISubObjectB>(),
+                            SubObjectC = this.container.GetInstance<ISubObjectC>()
+                        }));
         }
     }
 }

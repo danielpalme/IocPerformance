@@ -17,6 +17,11 @@ namespace IocPerformance.Adapters
             get { return "Spring.Core"; }
         }
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.GetObject(type.FullName);

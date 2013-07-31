@@ -3,6 +3,7 @@ using Hiro;
 using Hiro.Containers;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
@@ -14,6 +15,11 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "Hiro"; }
+        }
+
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
         }
 
         public override object Resolve(Type type)
@@ -34,6 +40,7 @@ namespace IocPerformance.Adapters
             RegisterDummies(map);
             RegisterStandard(map);
             RegisterComplex(map);
+            RegisterPropertyInjection(map);
 
             this.container = map.CreateContainer();
         }
@@ -68,6 +75,29 @@ namespace IocPerformance.Adapters
             map.AddService<ISubObjectTwo, SubObjectTwo>();
             map.AddService<ISubObjectThree, SubObjectThree>();
             map.AddService<IComplex, Complex>();
+        }
+
+        private static void RegisterPropertyInjection(DependencyMap map)
+        {
+            map.AddSingletonService<IServiceA, ServiceA>();
+            map.AddSingletonService<IServiceB, ServiceB>();
+            map.AddSingletonService<IServiceC, ServiceC>();
+            map.AddService(new Func<IMicroContainer, ISubObjectA>(
+                microContainer => new SubObjectA { ServiceA = microContainer.GetInstance<IServiceA>() }));
+            map.AddService(new Func<IMicroContainer, ISubObjectB>(
+                microContainer => new SubObjectB { ServiceB = microContainer.GetInstance<IServiceB>() }));
+            map.AddService(new Func<IMicroContainer, ISubObjectC>(
+                microContainer => new SubObjectC { ServiceC = microContainer.GetInstance<IServiceC>() }));
+            map.AddService(new Func<IMicroContainer, IComplexPropertyObject>(
+                microContainer => new ComplexPropertyObject
+                                      {
+                                          ServiceA = microContainer.GetInstance<IServiceA>(),
+                                          ServiceB = microContainer.GetInstance<IServiceB>(),
+                                          ServiceC = microContainer.GetInstance<IServiceC>(),
+                                          SubObjectA = microContainer.GetInstance<ISubObjectA>(),
+                                          SubObjectB = microContainer.GetInstance<ISubObjectB>(),
+                                          SubObjectC = microContainer.GetInstance<ISubObjectC>()
+                                      }));
         }
     }
 }

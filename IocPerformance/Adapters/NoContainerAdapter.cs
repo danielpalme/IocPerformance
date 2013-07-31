@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
@@ -20,6 +21,11 @@ namespace IocPerformance.Adapters
             get { return string.Empty; }
         }
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container[type]();
@@ -34,6 +40,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
         }
 
         private void RegisterDummies()
@@ -69,12 +76,30 @@ namespace IocPerformance.Adapters
             this.container[typeof(ISecondService)] = () => secondService;
             this.container[typeof(IThirdService)] = () => thirdService;
             this.container[typeof(IComplex)] = () => new Complex(
-                firstService,
-                secondService,
-                thirdService,
-                new SubObjectOne(firstService),
-                new SubObjectTwo(secondService),
-                new SubObjectThree(thirdService));
+                 firstService,
+                 secondService,
+                 thirdService,
+                 new SubObjectOne(firstService),
+                 new SubObjectTwo(secondService),
+                 new SubObjectThree(thirdService));
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            IServiceA serviceA = new ServiceA();
+            IServiceB serviceB = new ServiceB();
+            IServiceC serviceC = new ServiceC();
+
+            this.container[typeof(IComplexPropertyObject)] = () =>
+                new ComplexPropertyObject
+                {
+                    ServiceA = serviceA,
+                    ServiceB = serviceB,
+                    ServiceC = serviceC,
+                    SubObjectA = new SubObjectA { ServiceA = serviceA },
+                    SubObjectB = new SubObjectB { ServiceB = serviceB },
+                    SubObjectC = new SubObjectC { ServiceC = serviceC }
+                };
         }
     }
 }

@@ -246,6 +246,13 @@
     <Compile Include="Classes\Multiple\SimpleAdapterOne.cs" />
     <Compile Include="Classes\Multiple\SimpleAdapterThree.cs" />
     <Compile Include="Classes\Multiple\SimpleAdapterTwo.cs" />
+    <Compile Include="Classes\Properties\ComplexPropertyObject.cs" />
+    <Compile Include="Classes\Properties\ServiceA.cs" />
+    <Compile Include="Classes\Properties\ServiceB.cs" />
+    <Compile Include="Classes\Properties\ServiceC.cs" />
+    <Compile Include="Classes\Properties\SubObjectA.cs" />
+    <Compile Include="Classes\Properties\SubObjectB.cs" />
+    <Compile Include="Classes\Properties\SubObjectC.cs" />
     <Compile Include="Classes\Standard\Calculator.cs" />
     <Compile Include="Classes\Standard\Combined.cs" />
     <Compile Include="Classes\Standard\Singleton.cs" />
@@ -279,6 +286,7 @@
     <Compile Include="Petite.Container.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyInjection\SimpleInjectorPropertyInjectionExtensions.cs" />
     <Compile Include="ServiceContainer.cs" />
     <Compile Include="TinyIoC.cs" />
   </ItemGroup>

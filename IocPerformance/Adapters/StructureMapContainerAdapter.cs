@@ -4,6 +4,7 @@ using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using StructureMap;
@@ -39,6 +40,11 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.GetInstance(type);
@@ -59,6 +65,7 @@ namespace IocPerformance.Adapters
                 RegisterDummies(r);
                 RegisterStandard(r);
                 RegisterComplex(r);
+                RegisterPropertyInjection(r);
                 RegisterGeneric(r);
                 RegisterMultiple(r);
                 RegisterInterceptor(r, pg);
@@ -95,6 +102,30 @@ namespace IocPerformance.Adapters
             r.For<ISubObjectTwo>().Transient().Use<SubObjectTwo>();
             r.For<ISubObjectThree>().Transient().Use<SubObjectThree>();
             r.For<IComplex>().Transient().Use<Complex>();
+        }
+
+        private static void RegisterPropertyInjection(ConfigurationExpression r)
+        {
+            r.For<IServiceA>().Singleton().Use<ServiceA>();
+            r.For<IServiceB>().Singleton().Use<ServiceB>();
+            r.For<IServiceC>().Singleton().Use<ServiceC>();
+
+            r.For<ISubObjectA>().Transient().Use<SubObjectA>()
+                .Setter(x => x.ServiceA).IsTheDefault();
+
+            r.For<ISubObjectB>().Transient().Use<SubObjectB>()
+                .Setter(x => x.ServiceB).IsTheDefault();
+
+            r.For<ISubObjectC>().Transient().Use<SubObjectC>()
+                .Setter(x => x.ServiceC).IsTheDefault();
+
+            r.For<IComplexPropertyObject>().Transient().Use<ComplexPropertyObject>()
+                .Setter(x => x.ServiceA).IsTheDefault()
+                .Setter(x => x.ServiceB).IsTheDefault()
+                .Setter(x => x.ServiceC).IsTheDefault()
+                .Setter(x => x.SubObjectA).IsTheDefault()
+                .Setter(x => x.SubObjectB).IsTheDefault()
+                .Setter(x => x.SubObjectC).IsTheDefault();
         }
 
         private static void RegisterGeneric(ConfigurationExpression r)

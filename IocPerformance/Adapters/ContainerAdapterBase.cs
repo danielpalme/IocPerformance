@@ -11,11 +11,11 @@ namespace IocPerformance.Adapters
             get
             {
                 return XDocument
-                     .Load("packages.config")
-                     .Root
-                     .Elements()
-                     .First(e => e.Attribute("id").Value == this.PackageName)
-                     .Attribute("version").Value;
+                      .Load("packages.config")
+                      .Root
+                      .Elements()
+                      .First(e => e.Attribute("id").Value == this.PackageName)
+                      .Attribute("version").Value;
             }
         }
 
@@ -30,6 +30,11 @@ namespace IocPerformance.Adapters
         }
 
         public virtual bool SupportsInterception
+        {
+            get { return false; }
+        }
+
+        public virtual bool SupportsPropertyInjection
         {
             get { return false; }
         }

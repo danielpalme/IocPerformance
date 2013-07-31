@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.InterceptionExtension;
@@ -28,6 +29,11 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
@@ -47,6 +53,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
             this.RegisterMultiple();
             this.RegisterInterceptor();
         }
@@ -83,6 +90,17 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<IComplex, Complex>(new TransientLifetimeManager());
         }
 
+        private void RegisterPropertyInjection()
+        {
+            this.container.RegisterType<IServiceA, ServiceA>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<IServiceB, ServiceB>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<IServiceC, ServiceC>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<ISubObjectA, SubObjectA>(new TransientLifetimeManager());
+            this.container.RegisterType<ISubObjectB, SubObjectB>(new TransientLifetimeManager());
+            this.container.RegisterType<ISubObjectC, SubObjectC>(new TransientLifetimeManager());
+            this.container.RegisterType<IComplexPropertyObject, ComplexPropertyObject>(new TransientLifetimeManager());
+        }
+
         private void RegisterMultiple()
         {
             this.container.RegisterType<IEnumerable<ISimpleAdapter>, ISimpleAdapter[]>();
@@ -99,8 +117,8 @@ namespace IocPerformance.Adapters
         private void RegisterInterceptor()
         {
             this.container.RegisterType<ICalculator, Calculator>(new TransientLifetimeManager())
-                .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
-                .SetInterceptorFor<ICalculator>(new InterfaceInterceptor());
+                 .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
+                 .SetInterceptorFor<ICalculator>(new InterfaceInterceptor());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using Petite;
 
@@ -18,6 +19,11 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "Petite.Container"; }
+        }
+
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
         }
 
         public override object Resolve(Type type)
@@ -38,6 +44,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
         }
 
         private void RegisterDummies()
@@ -59,8 +66,8 @@ namespace IocPerformance.Adapters
             this.container.RegisterSingleton<ISingleton>(c => new Singleton());
             this.container.Register<ITransient>(c => new Transient());
             this.container.Register<ICombined>(c => new Combined(
-                c.Resolve<ISingleton>(),
-                c.Resolve<ITransient>()));
+                 c.Resolve<ISingleton>(),
+                 c.Resolve<ITransient>()));
         }
 
         private void RegisterComplex()
@@ -72,12 +79,31 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectTwo>(c => new SubObjectTwo(c.Resolve<ISecondService>()));
             this.container.Register<ISubObjectThree>(c => new SubObjectThree(c.Resolve<IThirdService>()));
             this.container.Register<IComplex>(c => new Complex(
-                c.Resolve<IFirstService>(),
-                c.Resolve<ISecondService>(),
-                c.Resolve<IThirdService>(),
-                c.Resolve<ISubObjectOne>(),
-                c.Resolve<ISubObjectTwo>(),
-                c.Resolve<ISubObjectThree>()));
+                 c.Resolve<IFirstService>(),
+                 c.Resolve<ISecondService>(),
+                 c.Resolve<IThirdService>(),
+                 c.Resolve<ISubObjectOne>(),
+                 c.Resolve<ISubObjectTwo>(),
+                 c.Resolve<ISubObjectThree>()));
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            this.container.RegisterSingleton<IServiceA>(c => new ServiceA());
+            this.container.RegisterSingleton<IServiceB>(c => new ServiceB());
+            this.container.RegisterSingleton<IServiceC>(c => new ServiceC());
+            this.container.Register<ISubObjectA>(c => new SubObjectA { ServiceA = c.Resolve<IServiceA>() });
+            this.container.Register<ISubObjectB>(c => new SubObjectB { ServiceB = c.Resolve<IServiceB>() });
+            this.container.Register<ISubObjectC>(c => new SubObjectC { ServiceC = c.Resolve<IServiceC>() });
+            this.container.Register<IComplexPropertyObject>(c => new ComplexPropertyObject
+                                                                     {
+                                                                         ServiceA = c.Resolve<IServiceA>(),
+                                                                         ServiceB = c.Resolve<IServiceB>(),
+                                                                         ServiceC = c.Resolve<IServiceC>(),
+                                                                         SubObjectA = c.Resolve<ISubObjectA>(),
+                                                                         SubObjectB = c.Resolve<ISubObjectB>(),
+                                                                         SubObjectC = c.Resolve<ISubObjectC>()
+                                                                     });
         }
     }
 }

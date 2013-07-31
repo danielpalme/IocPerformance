@@ -1,6 +1,7 @@
 ﻿using System;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using Munq;
 using Munq.LifetimeManagers;
@@ -21,6 +22,11 @@ namespace IocPerformance.Adapters
             get { return "Munq.IocContainer"; }
         }
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
@@ -39,6 +45,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
         }
 
         private void RegisterDummies()
@@ -71,6 +78,32 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectTwo, SubObjectTwo>().WithLifetimeManager(new AlwaysNewLifetime());
             this.container.Register<ISubObjectThree, SubObjectThree>().WithLifetimeManager(new AlwaysNewLifetime());
             this.container.Register<IComplex, Complex>().WithLifetimeManager(new AlwaysNewLifetime());
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            this.container.Register<IServiceA, ServiceA>().WithLifetimeManager(new ContainerLifetime());
+            this.container.Register<IServiceB, ServiceB>().WithLifetimeManager(new ContainerLifetime());
+            this.container.Register<IServiceC, ServiceC>().WithLifetimeManager(new ContainerLifetime());
+
+            this.container.Register<ISubObjectA>(x => new SubObjectA { ServiceA = x.Resolve<IServiceA>() })
+                .WithLifetimeManager(new AlwaysNewLifetime());
+
+            this.container.Register<ISubObjectB>(x => new SubObjectB { ServiceB = x.Resolve<IServiceB>() })
+                 .WithLifetimeManager(new AlwaysNewLifetime());
+
+            this.container.Register<ISubObjectC>(x => new SubObjectC { ServiceC = x.Resolve<IServiceC>() })
+                .WithLifetimeManager(new AlwaysNewLifetime());
+
+            this.container.Register<IComplexPropertyObject>(x => new ComplexPropertyObject
+            {
+                ServiceA = x.Resolve<IServiceA>(),
+                ServiceB = x.Resolve<IServiceB>(),
+                ServiceC = x.Resolve<IServiceC>(),
+                SubObjectA = x.Resolve<ISubObjectA>(),
+                SubObjectB = x.Resolve<ISubObjectB>(),
+                SubObjectC = x.Resolve<ISubObjectC>()
+            }).WithLifetimeManager(new AlwaysNewLifetime());
         }
     }
 }

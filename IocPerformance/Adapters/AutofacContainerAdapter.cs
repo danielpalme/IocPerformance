@@ -5,6 +5,7 @@ using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 
@@ -39,6 +40,11 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
@@ -59,6 +65,7 @@ namespace IocPerformance.Adapters
             RegisterDummies(autofacContainerBuilder);
             RegisterStandard(autofacContainerBuilder);
             RegisterComplexObject(autofacContainerBuilder);
+            RegisterPropertyInjection(autofacContainerBuilder);
             RegisterOpenGeneric(autofacContainerBuilder);
             RegisterMultiple(autofacContainerBuilder);
             RegisterInterceptor(autofacContainerBuilder);
@@ -83,14 +90,14 @@ namespace IocPerformance.Adapters
         private static void RegisterStandard(ContainerBuilder autofacContainerBuilder)
         {
             autofacContainerBuilder.RegisterType<Singleton>()
-                                   .As<ISingleton>()
-                                   .SingleInstance();
+                                          .As<ISingleton>()
+                                          .SingleInstance();
 
             autofacContainerBuilder.RegisterType<Transient>()
-                                   .As<ITransient>();
+                                          .As<ITransient>();
 
             autofacContainerBuilder.RegisterType<Combined>()
-                                   .As<ICombined>();
+                                          .As<ICombined>();
         }
 
         private static void RegisterComplexObject(ContainerBuilder autofacContainerBuilder)
@@ -102,6 +109,19 @@ namespace IocPerformance.Adapters
             autofacContainerBuilder.RegisterType<SubObjectTwo>().As<ISubObjectTwo>();
             autofacContainerBuilder.RegisterType<SubObjectThree>().As<ISubObjectThree>();
             autofacContainerBuilder.RegisterType<Complex>().As<IComplex>();
+        }
+
+        private static void RegisterPropertyInjection(ContainerBuilder autofacContainerBuilder)
+        {
+            autofacContainerBuilder.RegisterType<ServiceA>().As<IServiceA>().SingleInstance();
+            autofacContainerBuilder.RegisterType<ServiceB>().As<IServiceB>().SingleInstance();
+            autofacContainerBuilder.RegisterType<ServiceC>().As<IServiceC>().SingleInstance();
+
+            autofacContainerBuilder.RegisterType<SubObjectA>().As<ISubObjectA>().PropertiesAutowired();
+            autofacContainerBuilder.RegisterType<SubObjectB>().As<ISubObjectB>().PropertiesAutowired();
+            autofacContainerBuilder.RegisterType<SubObjectC>().As<ISubObjectC>().PropertiesAutowired();
+
+            autofacContainerBuilder.RegisterType<ComplexPropertyObject>().As<IComplexPropertyObject>().PropertiesAutowired();
         }
 
         private static void RegisterOpenGeneric(ContainerBuilder autofacContainerBuilder)
@@ -124,8 +144,8 @@ namespace IocPerformance.Adapters
         private static void RegisterInterceptor(ContainerBuilder autofacContainerBuilder)
         {
             autofacContainerBuilder.RegisterType<Calculator>()
-                                   .As<ICalculator>()
-                                   .EnableInterfaceInterceptors();
+                                          .As<ICalculator>()
+                                          .EnableInterfaceInterceptors();
         }
     }
 }

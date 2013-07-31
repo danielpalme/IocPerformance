@@ -4,6 +4,7 @@ using Caliburn.Micro;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
@@ -27,6 +28,11 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.GetInstance(type, null);
@@ -45,6 +51,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterPropertyInjection();
             this.RegisterMultiple();
         }
 
@@ -67,11 +74,11 @@ namespace IocPerformance.Adapters
             this.container.RegisterSingleton(typeof(ISingleton), null, typeof(Singleton));
             this.container.RegisterHandler(typeof(ITransient), null, (ioc) => new Transient());
             this.container.RegisterHandler(
-                typeof(ICombined),
-                null,
-                (ioc) => new Combined(
-                            (ISingleton)ioc.GetInstance(typeof(ISingleton), null),
-                            (ITransient)ioc.GetInstance(typeof(ITransient), null)));
+                 typeof(ICombined),
+                 null,
+                 (ioc) => new Combined(
+                                 (ISingleton)ioc.GetInstance(typeof(ISingleton), null),
+                                 (ITransient)ioc.GetInstance(typeof(ITransient), null)));
         }
 
         private void RegisterComplex()
@@ -81,28 +88,59 @@ namespace IocPerformance.Adapters
             this.container.RegisterSingleton(typeof(IThirdService), null, typeof(ThirdService));
 
             this.container.RegisterHandler(
-                typeof(ISubObjectOne),
-                null,
-                (ioc) => new SubObjectOne((IFirstService)ioc.GetInstance(typeof(IFirstService), null)));
+                 typeof(ISubObjectOne),
+                 null,
+                 (ioc) => new SubObjectOne((IFirstService)ioc.GetInstance(typeof(IFirstService), null)));
             this.container.RegisterHandler(
-                typeof(ISubObjectTwo),
-                null,
-                (ioc) => new SubObjectTwo((ISecondService)ioc.GetInstance(typeof(ISecondService), null)));
+                 typeof(ISubObjectTwo),
+                 null,
+                 (ioc) => new SubObjectTwo((ISecondService)ioc.GetInstance(typeof(ISecondService), null)));
             this.container.RegisterHandler(
-                typeof(ISubObjectThree),
-                null,
-                (ioc) => new SubObjectThree((IThirdService)ioc.GetInstance(typeof(IThirdService), null)));
+                 typeof(ISubObjectThree),
+                 null,
+                 (ioc) => new SubObjectThree((IThirdService)ioc.GetInstance(typeof(IThirdService), null)));
 
             this.container.RegisterHandler(
-                typeof(IComplex),
-                null,
-                (ioc) => new Complex(
-                            (IFirstService)ioc.GetInstance(typeof(IFirstService), null),
-                            (ISecondService)ioc.GetInstance(typeof(ISecondService), null),
-                            (IThirdService)ioc.GetInstance(typeof(IThirdService), null),
-                            (ISubObjectOne)ioc.GetInstance(typeof(ISubObjectOne), null),
-                            (ISubObjectTwo)ioc.GetInstance(typeof(ISubObjectTwo), null),
-                            (ISubObjectThree)ioc.GetInstance(typeof(ISubObjectThree), null)));
+                 typeof(IComplex),
+                 null,
+                 (ioc) => new Complex(
+                                 (IFirstService)ioc.GetInstance(typeof(IFirstService), null),
+                                 (ISecondService)ioc.GetInstance(typeof(ISecondService), null),
+                                 (IThirdService)ioc.GetInstance(typeof(IThirdService), null),
+                                 (ISubObjectOne)ioc.GetInstance(typeof(ISubObjectOne), null),
+                                 (ISubObjectTwo)ioc.GetInstance(typeof(ISubObjectTwo), null),
+                                 (ISubObjectThree)ioc.GetInstance(typeof(ISubObjectThree), null)));
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            this.container.RegisterSingleton(typeof(IServiceA), null, typeof(ServiceA));
+            this.container.RegisterSingleton(typeof(IServiceB), null, typeof(ServiceB));
+            this.container.RegisterSingleton(typeof(IServiceC), null, typeof(ServiceC));
+            this.container.RegisterHandler(
+                    typeof(ISubObjectA),
+                    null,
+                    (ioc) => new SubObjectA { ServiceA = (IServiceA)ioc.GetInstance(typeof(IServiceA), null) });
+            this.container.RegisterHandler(
+                    typeof(ISubObjectB),
+                    null,
+                    (ioc) => new SubObjectB { ServiceB = (IServiceB)ioc.GetInstance(typeof(IServiceB), null) });
+            this.container.RegisterHandler(
+                    typeof(ISubObjectC),
+                    null,
+                    (ioc) => new SubObjectC { ServiceC = (IServiceC)ioc.GetInstance(typeof(IServiceC), null) });
+            this.container.RegisterHandler(
+                    typeof(IComplexPropertyObject),
+                    null,
+                    (ioc) => new ComplexPropertyObject
+                                 {
+                                     ServiceA = (IServiceA)ioc.GetInstance(typeof(IServiceA), null),
+                                     ServiceB = (IServiceB)ioc.GetInstance(typeof(IServiceB), null),
+                                     ServiceC = (IServiceC)ioc.GetInstance(typeof(IServiceC), null),
+                                     SubObjectA = (ISubObjectA)ioc.GetInstance(typeof(ISubObjectA), null),
+                                     SubObjectB = (ISubObjectB)ioc.GetInstance(typeof(ISubObjectB), null),
+                                     SubObjectC = (ISubObjectC)ioc.GetInstance(typeof(ISubObjectC), null),
+                                 });
         }
 
         private void RegisterMultiple()
@@ -114,9 +152,9 @@ namespace IocPerformance.Adapters
             this.container.RegisterHandler(typeof(ISimpleAdapter), null, ioc => new SimpleAdapterFive());
 
             this.container.RegisterHandler(
-                typeof(ImportMultiple),
-                null,
-                ioc => new ImportMultiple((IEnumerable<ISimpleAdapter>)ioc.GetInstance(typeof(IEnumerable<ISimpleAdapter>), null)));
+                 typeof(ImportMultiple),
+                 null,
+                 ioc => new ImportMultiple((IEnumerable<ISimpleAdapter>)ioc.GetInstance(typeof(IEnumerable<ISimpleAdapter>), null)));
         }
     }
 }

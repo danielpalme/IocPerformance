@@ -6,6 +6,7 @@ using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 
@@ -23,6 +24,11 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "Castle.Windsor"; }
+        }
+
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
         }
 
         public override bool SupportGeneric
@@ -58,6 +64,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplexType();
+            this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterMultiple();
             this.RegisterInterceptor();
@@ -95,6 +102,19 @@ namespace IocPerformance.Adapters
             this.container.Register(Component.For<IComplex>().ImplementedBy<Complex>().LifeStyle.Transient);
         }
 
+        private void RegisterPropertyInjection()
+        {
+            this.container.Register(Component.For<IServiceA>().ImplementedBy<ServiceA>());
+            this.container.Register(Component.For<IServiceB>().ImplementedBy<ServiceB>());
+            this.container.Register(Component.For<IServiceC>().ImplementedBy<ServiceC>());
+
+            this.container.Register(Component.For<ISubObjectA>().ImplementedBy<SubObjectA>().LifeStyle.Transient);
+            this.container.Register(Component.For<ISubObjectB>().ImplementedBy<SubObjectB>().LifeStyle.Transient);
+            this.container.Register(Component.For<ISubObjectC>().ImplementedBy<SubObjectC>().LifeStyle.Transient);
+
+            this.container.Register(Component.For<IComplexPropertyObject>().ImplementedBy<ComplexPropertyObject>().LifeStyle.Transient);
+        }
+
         private void RegisterOpenGeneric()
         {
             this.container.Register(Component.For(typeof(IGenericInterface<>)).ImplementedBy(typeof(GenericExport<>)));
@@ -104,7 +124,7 @@ namespace IocPerformance.Adapters
 
         private void RegisterMultiple()
         {
-            this.container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel, true));
+            this.container.Kernel.Resolver.AddSubResolver(new CollectionResolver(this.container.Kernel, true));
 
             this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterOne>().LifeStyle.Transient);
             this.container.Register(Component.For<ISimpleAdapter>().ImplementedBy<SimpleAdapterTwo>().LifeStyle.Transient);
@@ -119,7 +139,7 @@ namespace IocPerformance.Adapters
         {
             this.container.Register(Component.For<WindsorInterceptionLogger>());
             this.container.Register(
-                Component.For<ICalculator>().ImplementedBy<Calculator>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
+                 Component.For<ICalculator>().ImplementedBy<Calculator>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
         }
     }
 }

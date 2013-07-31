@@ -51,7 +51,7 @@ namespace IocPerformance.Adapters
             this.container = containerBuilder.Build();
         }
 
-        private void RegisterDummies(IRegistry registry)
+        private static void RegisterDummies(IRegistry registry)
         {
             registry.Register<DummyOne>().As<IDummyOne>().WithLifetime(Lifetime.Transient);
             registry.Register<DummyTwo>().As<IDummyTwo>().WithLifetime(Lifetime.Transient);
@@ -65,7 +65,7 @@ namespace IocPerformance.Adapters
             registry.Register<DummyTen>().As<IDummyTen>().WithLifetime(Lifetime.Transient);
         }
 
-        private void RegisterStandard(IRegistry registry)
+        private static void RegisterStandard(IRegistry registry)
         {
             registry.Register<Singleton>().As<ISingleton>().WithLifetime(Lifetime.Container).PreCreateInstance();
             registry.Register<Transient>().As<ITransient>().WithLifetime(Lifetime.Transient);
@@ -76,7 +76,7 @@ namespace IocPerformance.Adapters
                 .AsLastParameter();
         }
 
-        private void RegisterComplex(IRegistry registry)
+        private static void RegisterComplex(IRegistry registry)
         {
             registry.Register<SubObjectOne>().As<ISubObjectOne>().WithLifetime(Lifetime.Transient);
             registry.Register<SubObjectTwo>().As<ISubObjectTwo>().WithLifetime(Lifetime.Transient);
