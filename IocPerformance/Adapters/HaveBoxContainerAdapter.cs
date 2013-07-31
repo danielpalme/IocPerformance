@@ -3,6 +3,7 @@ using HaveBox;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Standard;
+using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters
 {
@@ -13,6 +14,11 @@ namespace IocPerformance.Adapters
         public override string PackageName
         {
             get { return "HaveBox"; }
+        }
+
+        public override bool SupportsInterception
+        {
+            get { return true; }
         }
 
         public override object Resolve(Type type)
@@ -33,6 +39,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            this.RegisterInterceptor();
         }
 
         private void RegisterDummies()
@@ -65,6 +72,11 @@ namespace IocPerformance.Adapters
             this.container.Configure(config => config.For<ISubObjectTwo>().Use<SubObjectTwo>());
             this.container.Configure(config => config.For<ISubObjectThree>().Use<SubObjectThree>());
             this.container.Configure(config => config.For<IComplex>().Use<Complex>());
+        }
+
+        private void RegisterInterceptor()
+        {
+            this.container.Configure(config => config.For<ICalculator>().Use<Calculator>().AndInterceptMethodsWith<HaveBoxInterceptionLogger>());
         }
     }
 }
