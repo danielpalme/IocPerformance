@@ -4,6 +4,7 @@ using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters
 {
@@ -15,8 +16,13 @@ namespace IocPerformance.Adapters
         {
             get { return "HaveBox"; }
         }
-
+        
         public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsInterception
         {
             get { return true; }
         }
@@ -40,6 +46,7 @@ namespace IocPerformance.Adapters
             this.RegisterStandard();
             this.RegisterComplex();
             this.RegisterPropertyInjection();
+            this.RegisterInterceptor();
         }
 
         private void RegisterDummies()
@@ -93,6 +100,11 @@ namespace IocPerformance.Adapters
                             SubObjectB = this.container.GetInstance<ISubObjectB>(),
                             SubObjectC = this.container.GetInstance<ISubObjectC>()
                         }));
+        }
+
+        private void RegisterInterceptor()
+        {
+            this.container.Configure(config => config.For<ICalculator>().Use<Calculator>().AndInterceptMethodsWith<HaveBoxInterceptionLogger>());
         }
     }
 }

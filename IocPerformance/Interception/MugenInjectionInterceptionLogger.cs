@@ -7,10 +7,13 @@ namespace IocPerformance.Interception
 {
     public class MugenInjectionInterceptionLogger : IInterceptorProcess
     {
+        public int Priority { get; private set; }
+
         public void InterceptMethod(IMethodInterceptor methodInterceptor)
         {
             // Perform logging here, e.g.:
-            string args = string.Join(", ",
+            string args = string.Join(
+                ", ",
                 methodInterceptor.InputParameters.Select(x => (x ?? string.Empty).ToString()));
             Debug.WriteLine(string.Format("Mugen: {0}({1})", methodInterceptor.Member.Name, args));
             
@@ -36,7 +39,5 @@ namespace IocPerformance.Interception
         {
             throw new NotSupportedException();
         }
-
-        public int Priority { get; private set; }
     }
 }
