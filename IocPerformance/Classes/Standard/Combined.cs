@@ -12,6 +12,7 @@ namespace IocPerformance.Classes.Standard
     public class Combined : ICombined
     {
         [ImportingConstructor]
+        [Stiletto.Inject]
         public Combined(ISingleton first, ITransient second)
         {
             if (first == null)

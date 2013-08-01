@@ -24,6 +24,8 @@ namespace IocPerformance.Adapters
 
         object Resolve(Type type);
 
+        T Resolve<T>();
+
         object ResolveProxy(Type type);
     }
 }

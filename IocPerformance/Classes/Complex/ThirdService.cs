@@ -9,5 +9,10 @@ namespace IocPerformance.Classes.Complex
     [Export(typeof(IThirdService)), PartCreationPolicy(CreationPolicy.Shared)]
     public class ThirdService : IThirdService
     {
+        [Stiletto.Inject]
+        public ThirdService()
+        {
+
+        }
     }
 }

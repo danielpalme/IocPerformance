@@ -9,5 +9,10 @@ namespace IocPerformance.Classes.Complex
     [Export(typeof(IFirstService)), PartCreationPolicy(CreationPolicy.Shared)]
     public class FirstService : IFirstService
     {
+        [Stiletto.Inject]
+        public FirstService()
+        {
+
+        }
     }
 }

@@ -58,6 +58,11 @@ namespace IocPerformance.Adapters
 
         public abstract object Resolve(Type type);
 
+        public virtual T Resolve<T>()
+        {
+            return (T) Resolve(typeof (T));
+        }
+
         public virtual object ResolveProxy(Type type)
         {
             return this.Resolve(type);

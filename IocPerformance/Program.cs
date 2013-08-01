@@ -124,47 +124,47 @@ namespace IocPerformance
             for (int i = 0; i < LoopCount; i++)
             {
                 singletonWatch.Start();
-                var result1 = (ISingleton)container.Resolve(typeof(ISingleton));
+                var result1 = container.Resolve<ISingleton>();
                 singletonWatch.Stop();
 
                 transientWatch.Start();
-                var result2 = (ITransient)container.Resolve(typeof(ITransient));
+                var result2 = container.Resolve<ITransient>();
                 transientWatch.Stop();
 
                 combinedWatch.Start();
-                var result3 = (ICombined)container.Resolve(typeof(ICombined));
+                var result3 = container.Resolve<ICombined>();
                 combinedWatch.Stop();
 
                 complexWatch.Start();
-                var complexResult = (IComplex)container.Resolve(typeof(IComplex));
+                var complexResult = container.Resolve<IComplex>();
                 complexWatch.Stop();
 
                 if (container.SupportsPropertyInjection)
                 {
                     propertyWatch.Start();
-                    var propertyInjectionResult = (IComplexPropertyObject)container.Resolve(typeof(IComplexPropertyObject));
+                    var propertyInjectionResult = container.Resolve<IComplexPropertyObject>();
                     propertyWatch.Stop();
                 }
 
                 if (container.SupportsConditional)
                 {
                     conditionsWatch.Start();
-                    var result4 = (ImportConditionObject)container.Resolve(typeof(ImportConditionObject));
-                    var result5 = (ImportConditionObject2)container.Resolve(typeof(ImportConditionObject2));
+                    var result4 = container.Resolve<ImportConditionObject>();
+                    var result5 = container.Resolve<ImportConditionObject2>();
                     conditionsWatch.Stop();
                 }
 
                 if (container.SupportGeneric)
                 {
                     genericWatch.Start();
-                    var genericResult = (ImportGeneric<int>)container.Resolve(typeof(ImportGeneric<int>));
+                    var genericResult = container.Resolve<ImportGeneric<int>>();
                     genericWatch.Stop();
                 }
 
                 if (container.SupportsMultiple)
                 {
                     multipleWatch.Start();
-                    var importMultiple = (ImportMultiple)container.Resolve(typeof(ImportMultiple));
+                    var importMultiple = container.Resolve<ImportMultiple>();
                     multipleWatch.Stop();
                 }
             }
@@ -201,7 +201,7 @@ namespace IocPerformance
 
             for (int i = 0; i < LoopCount; i++)
             {
-                var result = (ICalculator)container.ResolveProxy(typeof(ICalculator));
+                var result = container.Resolve<ICalculator>();
 
                 // Call method because part of the time spent with a proxy is how long does it take to execute a proxied method
                 result.Add(5, 10);
@@ -223,28 +223,28 @@ namespace IocPerformance
 
         private static void WarmUp(IContainerAdapter container)
         {
-            var interface1 = (ISingleton)container.Resolve(typeof(ISingleton));
+            var interface1 = container.Resolve<ISingleton>();
 
             if (interface1 == null)
             {
                 throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ISingleton)));
             }
 
-            var interface2 = (ITransient)container.Resolve(typeof(ITransient));
+            var interface2 = container.Resolve<ITransient>();
 
             if (interface2 == null)
             {
                 throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ITransient)));
             }
 
-            var combined = (ICombined)container.Resolve(typeof(ICombined));
+            var combined = container.Resolve<ICombined>();
 
             if (combined == null)
             {
                 throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ICombined)));
             }
 
-            var complex = (IComplex)container.Resolve(typeof(IComplex));
+            var complex = container.Resolve<IComplex>();
 
             if (complex == null)
             {
@@ -253,7 +253,7 @@ namespace IocPerformance
 
             if (container.SupportsPropertyInjection)
             {
-                var propertyInjectionObject = (IComplexPropertyObject)container.Resolve(typeof(IComplexPropertyObject));
+                var propertyInjectionObject = container.Resolve<IComplexPropertyObject>();
 
                 if (propertyInjectionObject == null)
                 {
@@ -268,7 +268,7 @@ namespace IocPerformance
 
             if (container.SupportGeneric)
             {
-                var generic = (ImportGeneric<int>)container.Resolve(typeof(ImportGeneric<int>));
+                var generic = container.Resolve<ImportGeneric<int>>();
 
                 if (generic == null)
                 {
@@ -278,7 +278,7 @@ namespace IocPerformance
 
             if (container.SupportsMultiple)
             {
-                var importMultiple = (ImportMultiple)container.Resolve(typeof(ImportMultiple));
+                var importMultiple = container.Resolve<ImportMultiple>();
 
                 if (importMultiple == null)
                 {
@@ -288,14 +288,14 @@ namespace IocPerformance
 
             if (container.SupportsConditional)
             {
-                var importObject = (ImportConditionObject)container.Resolve(typeof(ImportConditionObject));
+                var importObject = container.Resolve<ImportConditionObject>();
 
                 if (importObject == null)
                 {
                     throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ImportConditionObject)));
                 }
 
-                var importObject2 = (ImportConditionObject2)container.Resolve(typeof(ImportConditionObject2));
+                var importObject2 = container.Resolve<ImportConditionObject2>();
 
                 if (importObject2 == null)
                 {
@@ -305,7 +305,7 @@ namespace IocPerformance
 
             if (container.SupportsInterception)
             {
-                var calculator = (ICalculator)container.ResolveProxy(typeof(ICalculator));
+                var calculator = container.Resolve<ICalculator>();
                 calculator.Add(1, 2);
             }
         }
