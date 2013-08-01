@@ -11,6 +11,7 @@ namespace IocPerformance.Classes.Complex
     public class SubObjectThree : ISubObjectThree
     {
         [ImportingConstructor]
+        [Stiletto.Inject]
         public SubObjectThree(IThirdService thirdService)
         {
             if (thirdService == null)

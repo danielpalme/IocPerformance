@@ -24,6 +24,7 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [StructureAttr.SetterProperty]
+        [Stiletto.Inject]
         public IServiceA ServiceA { get; set; }
 
         public void Verify(string containerName)

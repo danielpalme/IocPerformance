@@ -9,5 +9,10 @@ namespace IocPerformance.Classes.Complex
     [Export(typeof(ISecondService)), PartCreationPolicy(CreationPolicy.Shared)]
     public class SecondService : ISecondService
     {
+        [Stiletto.Inject]
+        public SecondService()
+        {
+
+        }
     }
 }

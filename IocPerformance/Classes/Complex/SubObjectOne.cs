@@ -11,6 +11,7 @@ namespace IocPerformance.Classes.Complex
     public class SubObjectOne : ISubObjectOne
     {
         [ImportingConstructor]
+        [Stiletto.Inject]
         public SubObjectOne(IFirstService firstService)
         {
             if (firstService == null)

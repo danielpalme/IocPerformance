@@ -22,6 +22,7 @@ namespace IocPerformance.Classes.Properties
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
+        [Stiletto.Inject]
         public IServiceB ServiceB { get; set; }
 
         public void Verify(string containerName)

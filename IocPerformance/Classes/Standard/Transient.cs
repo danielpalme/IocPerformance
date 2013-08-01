@@ -11,6 +11,7 @@ namespace IocPerformance.Classes.Standard
     [Export(typeof(ITransient)), PartCreationPolicy(CreationPolicy.NonShared)]
     public class Transient : ITransient
     {
+        [Stiletto.Inject]
         public Transient()
         {
             Instances++;

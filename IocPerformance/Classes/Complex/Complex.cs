@@ -11,6 +11,7 @@ namespace IocPerformance.Classes.Complex
     public class Complex : IComplex
     {
         [ImportingConstructor]
+        [Stiletto.Inject]
         public Complex(
             IFirstService firstService,
             ISecondService secondService,
