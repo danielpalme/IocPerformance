@@ -94,7 +94,20 @@ namespace IfFastInjector
         /// <param name="factoryExpression">Factory expression.</param>
         /// <typeparam name="T">The 1st type parameter.</typeparam>
         /// <typeparam name="CT">The 2nd type parameter. This parameter is required to allow for auto-injection of factory provided object.</typeparam>
-        public abstract IfInjectorTypes.IfFastInjectorBinding<CT> Bind<T, CT>(Expression<Func<CT>> factoryExpression)
+        public IfInjectorTypes.IfFastInjectorBinding<CT> Bind<T, CT>(Expression<Func<CT>> factoryExpression)
+            where T : class
+            where CT : class, T
+        {
+            return Bind<T, CT>(factoryExpression as LambdaExpression);
+        }
+
+        /// <summary>
+        /// Bind the specified factoryExpression.
+        /// </summary>
+        /// <param name="factoryExpression">Factory expression.</param>
+        /// <typeparam name="T">The 1st type parameter.</typeparam>
+        /// <typeparam name="CT">The 2nd type parameter.</typeparam>
+        protected abstract IfInjectorTypes.IfFastInjectorBinding<CT> Bind<T, CT>(LambdaExpression factoryExpression)
             where T : class
             where CT : class, T;
 
@@ -106,6 +119,68 @@ namespace IfFastInjector
         /// <typeparam name="T">The 1st type parameter.</typeparam>
         public abstract T InjectProperties<T>(T instance)
             where T : class;
+
+        /// <summary>
+        /// Binds the lambda factory. Do not use thid directly, but instead create extension methods that take N-input Func<> methods.
+        /// </summary>
+        /// <returns>The lambda factory.</returns>
+        /// <param name="injector">Injector.</param>
+        /// <param name="factoryExpression">Factory expression.</param>
+        /// <typeparam name="T">The 1st type parameter.</typeparam>
+        /// <typeparam name="CT">The 2nd type parameter.</typeparam>
+        public static IfInjectorTypes.IfFastInjectorBinding<CT> BindFactory<T, CT>(IfInjector injector, LambdaExpression factoryExpression)
+            where T : class
+            where CT : class, T
+        {
+            return injector.Bind<T, CT>(factoryExpression);
+        }
+    }
+
+    namespace IfFastExtensions
+    {
+        /// <summary>
+        /// Provide extension methods up to Func<P1..P4,CT>
+        /// </summary>
+        public static class IfInjectorBindingExtensions
+        {
+            public static IfInjectorTypes.IfFastInjectorBinding<CT> Bind<T, P1, CT>(this IfInjector injector, Expression<Func<P1, CT>> factoryExpression)
+                where T : class
+                where CT : class, T
+                where P1 : class
+            {
+                return IfInjector.BindFactory<T, CT>(injector, factoryExpression as LambdaExpression);
+            }
+
+            public static IfInjectorTypes.IfFastInjectorBinding<CT> Bind<T, P1, P2, CT>(this IfInjector injector, Expression<Func<P1, P2, CT>> factoryExpression)
+                where T : class
+                where CT : class, T
+                where P1 : class
+                where P2 : class
+            {
+                return IfInjector.BindFactory<T, CT>(injector, factoryExpression as LambdaExpression);
+            }
+
+            public static IfInjectorTypes.IfFastInjectorBinding<CT> Bind<T, P1, P2, P3, CT>(this IfInjector injector, Expression<Func<P1, P2, P3, CT>> factoryExpression)
+                where T : class
+                where CT : class, T
+                where P1 : class
+                where P2 : class
+                where P3 : class
+            {
+                return IfInjector.BindFactory<T, CT>(injector, factoryExpression as LambdaExpression);
+            }
+
+            public static IfInjectorTypes.IfFastInjectorBinding<CT> Bind<T, P1, P2, P3, P4, CT>(this IfInjector injector, Expression<Func<P1, P2, P3, P4, CT>> factoryExpression)
+                where T : class
+                where CT : class, T
+                where P1 : class
+                where P2 : class
+                where P3 : class
+                where P4 : class
+            {
+                return IfInjector.BindFactory<T, CT>(injector, factoryExpression as LambdaExpression);
+            }
+        }
     }
 
     /// <summary>
@@ -114,25 +189,63 @@ namespace IfFastInjector
     namespace IfInjectorTypes
     {
         /// <summary>
+        /// Represents an error code constant.
+        /// </summary>
+        public class IfFastInjectorError
+        {
+            internal IfFastInjectorError(int messageCode, string messageTemplate)
+            {
+                MessageCode = string.Format("IF{0:D4}", messageCode);
+                MessageTemplate = messageTemplate;
+            }
+
+            public string MessageCode { get; private set; }
+            public string MessageTemplate { get; private set; }
+
+            public IfFastInjectorException FormatEx(params object[] args)
+            {
+                var msgFormatted = string.Format(MessageTemplate, args);
+                return new IfFastInjectorException(this, msgFormatted);
+            }
+
+            public IfFastInjectorException FormatEx(Exception innerException, params object[] args)
+            {
+                var msgFormatted = string.Format(MessageTemplate, args);
+                return new IfFastInjectorException(this, msgFormatted, innerException);
+            }
+        }
+
+        /// <summary>
         /// If fast injector errors.
         /// </summary>
         public static class IfFastInjectorErrors
         {
-            public const string ErrorResolutionRecursionDetected = "Resolution recursion detected.  Resolve<{0}> is called by a dependency of Resolve<{0}> leading to an infinite loop.";
-            public const string ErrorUnableToResultInterface = "Error on {0}. Unable to resolve Interface and Abstract classes without a configuration.";
-            public const string ErrorMustContainMemberExpression = "Must contain a MemberExpression";
-            public const string ErrorAmbiguousBinding = "Multiple implicit bindings exist for type: {0}. Please disambiguate by adding an explicit binding for this type.";
-            public const string ErrorUnableToBindNonClassFieldsProperties = "Autoinjection is only supported on single instance 'class' fields. Please define a manual binding for the field or property '{0}' on class '{1}'.";
+            public static readonly IfFastInjectorError ErrorResolutionRecursionDetected = new IfFastInjectorError(1, "Resolution recursion detected.  Resolve<{0}> is called by a dependency of Resolve<{0}> leading to an infinite loop.");
+            public static readonly IfFastInjectorError ErrorUnableToResultInterface = new IfFastInjectorError(2, "Error on {0}. Unable to resolve Interface and Abstract classes without a configuration.");
+            public static readonly IfFastInjectorError ErrorMustContainMemberExpression = new IfFastInjectorError(3, "Must contain a MemberExpression");
+            public static readonly IfFastInjectorError ErrorAmbiguousBinding = new IfFastInjectorError(4, "Multiple implicit bindings exist for type: {0}. Please disambiguate by adding an explicit binding for this type.");
+            public static readonly IfFastInjectorError ErrorUnableToBindNonClassFieldsProperties = new IfFastInjectorError(5, "Autoinjection is only supported on single instance 'class' fields. Please define a manual binding for the field or property '{0}' on class '{1}'.");
         }
 
         /// <summary>
-        /// F fast injector exception.
+        /// If fast injector exception.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2237:MarkISerializableTypesWithSerializable")]
         public class IfFastInjectorException : Exception
         {
-            public IfFastInjectorException() : base() { }
-            public IfFastInjectorException(string message) : base(message) { }
-            public IfFastInjectorException(string message, Exception innerException) : base(message, innerException) { }
+            public IfFastInjectorException(IfFastInjectorError errorType, string message)
+                : base(message)
+            {
+                ErrorType = errorType;
+            }
+
+            public IfFastInjectorException(IfFastInjectorError errorType, string message, Exception innerException)
+                : base(message, innerException)
+            {
+                ErrorType = errorType;
+            }
+
+            public IfFastInjectorError ErrorType { get; private set; }
         }
 
         /// <summary>
