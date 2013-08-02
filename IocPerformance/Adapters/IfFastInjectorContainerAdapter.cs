@@ -2,6 +2,7 @@
 using IfFastInjector;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
@@ -10,6 +11,11 @@ namespace IocPerformance.Adapters
     {
         private IfInjector injector;
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override string PackageName
         {
             get { return "IfFastInjector"; }
@@ -17,10 +23,7 @@ namespace IocPerformance.Adapters
 
         public override string Version
         {
-            get
-            {
-                return "0.1";
-            }
+            get { return "0.2"; }
         }
 
         public override object Resolve(Type type)
@@ -36,10 +39,11 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.injector = IfInjector.NewInstance();
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            injector = IfInjector.NewInstance();
+            RegisterDummies();
+            RegisterStandard();
+            RegisterComplex();
+            RegisterPropertyInjection();
         }
 
         private void RegisterDummies()
@@ -65,10 +69,6 @@ namespace IocPerformance.Adapters
 
         private void RegisterComplex()
         {
-            var firstService = new FirstService();
-            var secondService = new SecondService();
-            var thirdService = new ThirdService();
-
             this.injector.Bind<IFirstService, FirstService>().AsSingleton();
             this.injector.Bind<ISecondService, SecondService>().AsSingleton();
             this.injector.Bind<IThirdService, ThirdService>().AsSingleton();
@@ -77,6 +77,28 @@ namespace IocPerformance.Adapters
             this.injector.Bind<ISubObjectThree, SubObjectThree>();
 
             this.injector.Bind<IComplex, Complex>();
+        }
+
+        private void RegisterPropertyInjection()
+        {
+            this.injector.Bind<IServiceA,ServiceA>().AsSingleton();
+            this.injector.Bind<IServiceB,ServiceB>().AsSingleton();
+            this.injector.Bind<IServiceC,ServiceC>().AsSingleton();
+
+            this.injector.Bind<ISubObjectA,SubObjectA>()
+                .AddPropertyInjector((i) => i.ServiceA);
+            this.injector.Bind<ISubObjectB,SubObjectB>()
+                .AddPropertyInjector((i) => i.ServiceB);
+            this.injector.Bind<ISubObjectC,SubObjectC>()
+                .AddPropertyInjector((i) => i.ServiceC);
+
+            this.injector.Bind<IComplexPropertyObject, ComplexPropertyObject>()
+                .AddPropertyInjector((i) => i.ServiceA)
+                .AddPropertyInjector((i) => i.ServiceB)
+                .AddPropertyInjector((i) => i.ServiceC)
+                .AddPropertyInjector((i) => i.SubObjectA)
+                .AddPropertyInjector((i) => i.SubObjectB)
+                .AddPropertyInjector((i) => i.SubObjectC);
         }
     }
 }
