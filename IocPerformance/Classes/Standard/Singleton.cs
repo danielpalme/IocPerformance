@@ -9,8 +9,10 @@ namespace IocPerformance.Classes.Standard
     }
 
     [Export(typeof(ISingleton)), PartCreationPolicy(CreationPolicy.Shared)]
+    [Stiletto.Singleton]
     public class Singleton : ISingleton
     {
+        [Stiletto.Inject]
         public Singleton()
         {
             Instances++;

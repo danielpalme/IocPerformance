@@ -39,11 +39,11 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            injector = IfInjector.NewInstance();
-            RegisterDummies();
-            RegisterStandard();
-            RegisterComplex();
-            RegisterPropertyInjection();
+            this.injector = IfInjector.NewInstance();
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
+            this.RegisterPropertyInjection();
         }
 
         private void RegisterDummies()
@@ -81,15 +81,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterPropertyInjection()
         {
-            this.injector.Bind<IServiceA,ServiceA>().AsSingleton();
-            this.injector.Bind<IServiceB,ServiceB>().AsSingleton();
-            this.injector.Bind<IServiceC,ServiceC>().AsSingleton();
+            this.injector.Bind<IServiceA, ServiceA>().AsSingleton();
+            this.injector.Bind<IServiceB, ServiceB>().AsSingleton();
+            this.injector.Bind<IServiceC, ServiceC>().AsSingleton();
 
-            this.injector.Bind<ISubObjectA,SubObjectA>()
+            this.injector.Bind<ISubObjectA, SubObjectA>()
                 .AddPropertyInjector((i) => i.ServiceA);
-            this.injector.Bind<ISubObjectB,SubObjectB>()
+            this.injector.Bind<ISubObjectB, SubObjectB>()
                 .AddPropertyInjector((i) => i.ServiceB);
-            this.injector.Bind<ISubObjectC,SubObjectC>()
+            this.injector.Bind<ISubObjectC, SubObjectC>()
                 .AddPropertyInjector((i) => i.ServiceC);
 
             this.injector.Bind<IComplexPropertyObject, ComplexPropertyObject>()

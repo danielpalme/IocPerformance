@@ -22,6 +22,7 @@ namespace IocPerformance.Classes.Properties
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
+        [Stiletto.Inject]
         public IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
@@ -29,6 +30,7 @@ namespace IocPerformance.Classes.Properties
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
+        [Stiletto.Inject]
         public IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
@@ -36,6 +38,7 @@ namespace IocPerformance.Classes.Properties
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
+        [Stiletto.Inject]
         public IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
@@ -43,6 +46,7 @@ namespace IocPerformance.Classes.Properties
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
+        [Stiletto.Inject]
         public ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
@@ -50,6 +54,7 @@ namespace IocPerformance.Classes.Properties
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
+        [Stiletto.Inject]
         public ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
@@ -57,6 +62,7 @@ namespace IocPerformance.Classes.Properties
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
+        [Stiletto.Inject]
         public ISubObjectC SubObjectC { get; set; }
 
         public void Verify(string containerName)

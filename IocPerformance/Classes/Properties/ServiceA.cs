@@ -10,5 +10,9 @@ namespace IocPerformance.Classes.Properties
     [MEFAttr.PartCreationPolicy(MEFAttr.CreationPolicy.Shared)]
     public class ServiceA : IServiceA
     {
+        [Stiletto.Inject]
+        public ServiceA()
+        {
+        }
     }
 }
