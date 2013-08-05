@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
@@ -10,7 +9,6 @@ namespace IocPerformance.Adapters
     public class StilettoContainerAdapter : ContainerAdapterBase
     {
         private Container container;
-        private MethodInfo methodInfo;
 
         public override string PackageName
         {
@@ -25,16 +23,40 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             this.container = Container.Create(typeof(StilettoModule));
-
-            Func<object> pointer = this.container.Get<object>;
-            this.methodInfo = pointer.Method.GetGenericMethodDefinition();
         }
 
         public override object Resolve(Type type)
         {
-            // It only provides a generic Resolve<>() method.
-            var genericMethod = this.methodInfo.MakeGenericMethod(new Type[] { type });
-            return genericMethod.Invoke(this.container, new object[] { });
+            // Because Resolve(Type) is non-generic, we can't rely on efficient dispatch from the
+            // container.  Resolvable types are hard-coded in the [Module] attribute anyways, so
+            // there's minimal harm in reproducing that here.
+            if (type == typeof(ITransient))
+            {
+                return container.Get<ITransient>();
+            }
+
+            if (type == typeof(ISingleton))
+            {
+                return container.Get<ISingleton>();
+            }
+
+            if (type == typeof(ICombined))
+            {
+                return container.Get<ICombined>();
+            }
+
+            if (type == typeof(IComplex))
+            {
+                return container.Get<IComplex>();
+            }
+
+            if (type == typeof(IComplexPropertyObject))
+            {
+                return container.Get<IComplexPropertyObject>();
+            }
+
+            // This is an unexpected type, and should have been configured.
+            throw new Stiletto.Internal.BindingException("Non-injectable type requested: " + type.FullName);
         }
 
         public override void Dispose()
