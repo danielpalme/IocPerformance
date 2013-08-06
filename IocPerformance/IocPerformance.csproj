@@ -73,7 +73,8 @@
     <Reference Include="Griffin.Container">
       <HintPath>..\packages\Griffin.Container.1.0.5\lib\net40\Griffin.Container.dll</HintPath>
     </Reference>
-    <Reference Include="Griffin.Container.Interception">
+    <Reference Include="Griffin.Container.Interception, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Griffin.Container.Interception.1.0.0\lib\net40\Griffin.Container.Interception.dll</HintPath>
     </Reference>
     <Reference Include="HaveBox, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -88,6 +89,9 @@
     </Reference>
     <Reference Include="Hiro.Web">
       <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="IfInjector">
+      <HintPath>..\packages\IfInjector.0.5\lib\portable-net45+sl4+wp71+win8\IfInjector.dll</HintPath>
     </Reference>
     <Reference Include="LightCore, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -186,7 +190,7 @@
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
     <Compile Include="Adapters\ContainerAdapterBase.cs" />
-    <Compile Include="Adapters\IfFastInjectorContainerAdapter.cs" />
+    <Compile Include="Adapters\IfInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\HaveBoxContainerAdapter.cs" />
     <Compile Include="Adapters\FFastInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\MicroSliverContainerAdapter.cs" />
@@ -263,8 +267,6 @@
     <Compile Include="Classes\Standard\Transient.cs" />
     <Compile Include="Conditional\SimpleInjectorContextDependentExtensions.cs" />
     <Compile Include="ContainerAdapterFactory.cs" />
-    <Compile Include="IfFastInjector.cs" />
-    <Compile Include="IfFastInjectorInternal.cs" />
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
     <Compile Include="Interception\HaveBoxInterceptionLogger.cs" />
     <Compile Include="Interception\MugenInjectionInterceptionLogger.cs" />
