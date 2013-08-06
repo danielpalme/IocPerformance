@@ -1,5 +1,5 @@
 ﻿using System;
-using IfFastInjector;
+using IfInjector;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Properties;
@@ -7,9 +7,9 @@ using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class IfFastInjectorContainerAdapter : ContainerAdapterBase
+    public sealed class IfInjectorContainerAdapter : ContainerAdapterBase
     {
-        private IfInjector injector;
+        private Injector injector;
 
         public override bool SupportsPropertyInjection
         {
@@ -18,12 +18,7 @@ namespace IocPerformance.Adapters
 
         public override string PackageName
         {
-            get { return "IfFastInjector"; }
-        }
-
-        public override string Version
-        {
-            get { return "0.2"; }
+            get { return "IfInjector"; }
         }
 
         public override object Resolve(Type type)
@@ -39,7 +34,7 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.injector = IfInjector.NewInstance();
+            this.injector = Injector.NewInstance();
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
