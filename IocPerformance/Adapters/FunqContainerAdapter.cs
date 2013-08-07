@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using Funq;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
@@ -11,7 +10,6 @@ namespace IocPerformance.Adapters
     public sealed class FunqContainerAdapter : ContainerAdapterBase
     {
         private Container container;
-        private MethodInfo methodInfo;
 
         public override string PackageName
         {
@@ -30,9 +28,32 @@ namespace IocPerformance.Adapters
 
         public override object Resolve(Type type)
         {
-            // It only provides a generic Resolve<>() method.
-            var genericMethod = this.methodInfo.MakeGenericMethod(new Type[] { type });
-            return genericMethod.Invoke(this.container, new object[] { });
+            if (type == typeof(ITransient))
+            {
+                return this.container.Resolve<ITransient>();
+            }
+
+            if (type == typeof(ISingleton))
+            {
+                return this.container.Resolve<ISingleton>();
+            }
+
+            if (type == typeof(ICombined))
+            {
+                return this.container.Resolve<ICombined>();
+            }
+
+            if (type == typeof(IComplex))
+            {
+                return this.container.Resolve<IComplex>();
+            }
+
+            if (type == typeof(IComplexPropertyObject))
+            {
+                return this.container.Resolve<IComplexPropertyObject>();
+            }
+
+            throw new ArgumentException("Non-injectable type requested: " + type.FullName, "type");
         }
 
         public override void Dispose()
@@ -49,9 +70,6 @@ namespace IocPerformance.Adapters
             this.RegisterStandard();
             this.RegisterComplex();
             this.RegisterPropertyInjection();
-
-            Func<object> pointer = this.container.Resolve<object>;
-            this.methodInfo = pointer.Method.GetGenericMethodDefinition();
         }
 
         private void RegisterDummies()
