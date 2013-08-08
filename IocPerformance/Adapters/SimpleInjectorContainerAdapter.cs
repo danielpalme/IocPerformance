@@ -1,4 +1,7 @@
 ﻿using System;
+using System.ComponentModel.Composition;
+using System.Linq;
+using System.Reflection;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -8,8 +11,8 @@ using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Conditional;
 using IocPerformance.Interception;
-using IocPerformance.PropertyInjection;
 using SimpleInjector;
+using SimpleInjector.Advanced;
 using SimpleInjector.Extensions;
 using SimpleInjector.Extensions.Interception;
 
@@ -64,7 +67,7 @@ namespace IocPerformance.Adapters
         {
             this.container = new SimpleInjector.Container();
 
-            this.container.Options.EnablePropertyAutowiring();
+            this.container.Options.PropertySelectionBehavior = new InjectPropertiesMarkedWith<ImportAttribute>();
 
             this.RegisterDummies();
             this.RegisterStandard();
@@ -118,24 +121,10 @@ namespace IocPerformance.Adapters
             this.container.RegisterSingle<IServiceC, ServiceC>();
 
             this.container.Register<ISubObjectA, SubObjectA>();
-            this.container.RegisterInitializer<SubObjectA>(x => x.ServiceA = this.container.GetInstance<IServiceA>());
-
             this.container.Register<ISubObjectB, SubObjectB>();
-            this.container.RegisterInitializer<SubObjectB>(x => x.ServiceB = this.container.GetInstance<IServiceB>());
-
             this.container.Register<ISubObjectC, SubObjectC>();
-            this.container.RegisterInitializer<SubObjectC>(x => x.ServiceC = this.container.GetInstance<IServiceC>());
 
             this.container.Register<IComplexPropertyObject, ComplexPropertyObject>();
-            this.container.RegisterInitializer<ComplexPropertyObject>(x =>
-                {
-                    x.ServiceA = this.container.GetInstance<IServiceA>();
-                    x.ServiceB = this.container.GetInstance<IServiceB>();
-                    x.ServiceC = this.container.GetInstance<IServiceC>();
-                    x.SubObjectA = this.container.GetInstance<ISubObjectA>();
-                    x.SubObjectB = this.container.GetInstance<ISubObjectB>();
-                    x.SubObjectC = this.container.GetInstance<ISubObjectC>();
-                });
         }
 
         private void RegisterOpenGeneric()
@@ -170,6 +159,15 @@ namespace IocPerformance.Adapters
         private void RegisterIntercepter()
         {
             this.container.InterceptWith<SimpleInjectorInterceptionLogger>(type => type == typeof(ICalculator));
+        }
+
+        private sealed class InjectPropertiesMarkedWith<TAttribute> : IPropertySelectionBehavior
+            where TAttribute : Attribute
+        {
+            public bool SelectProperty(Type serviceType, PropertyInfo propertyInfo)
+            {
+                return propertyInfo.GetCustomAttributes<TAttribute>().Any();
+            }
         }
     }
 }
