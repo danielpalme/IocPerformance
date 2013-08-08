@@ -71,7 +71,7 @@
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
     <Reference Include="Griffin.Container">
-      <HintPath>..\packages\Griffin.Container.1.0.5\lib\net40\Griffin.Container.dll</HintPath>
+      <HintPath>..\packages\Griffin.Container.1.1.0\lib\net40\Griffin.Container.dll</HintPath>
     </Reference>
     <Reference Include="Griffin.Container.Interception">
       <HintPath>..\packages\Griffin.Container.Interception.1.0.0\lib\net40\Griffin.Container.Interception.dll</HintPath>

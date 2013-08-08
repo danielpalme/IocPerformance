@@ -19,7 +19,7 @@ Results
 <tr><th>Dynamo 3.0.2.0</th><td>98</td><td>105</td><td>164</td><td>444</td></tr>
 <tr><th>fFastInjector 0.8.1</th><td>86</td><td>113</td><td>140</td><td>216</td></tr>
 <tr><th>Funq 1.0.0.0</th><td>137</td><td>195</td><td>429</td><td>1221</td></tr>
-<tr><th>Griffin 1.0.5</th><td>187</td><td>226</td><td>505</td><td>1419</td></tr>
+<tr><th>Griffin 1.1.0</th><td>207</td><td>262</td><td>552</td><td>1475</td></tr>
 <tr><th>HaveBox 1.4.0</th><th>72</th><td>107</td><th>106</th><th>144</th></tr>
 <tr><th>Hiro 1.0.3</th><td>130</td><td>123</td><td>183</td><td>191</td></tr>
 <tr><th>IfInjector 0.5</th><td>90</td><td>107</td><td>129</td><td>178</td></tr>
@@ -51,7 +51,7 @@ Advanced Features
 <tr><th>Dynamo 3.0.2.0</th><td>584</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>fFastInjector 0.8.1</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Funq 1.0.0.0</th><th>194</th><td></td><td></td><td></td><td></td></tr>
-<tr><th>Griffin 1.0.5</th><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><th>Griffin 1.1.0</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>HaveBox 1.4.0</th><td>829</td><td></td><td></td><td></td><th>583</th></tr>
 <tr><th>Hiro 1.0.3</th><td>1880</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>IfInjector 0.5</th><td>287</td><td></td><td></td><td></td><td></td></tr>
