@@ -73,8 +73,7 @@
     <Reference Include="Griffin.Container">
       <HintPath>..\packages\Griffin.Container.1.0.5\lib\net40\Griffin.Container.dll</HintPath>
     </Reference>
-    <Reference Include="Griffin.Container.Interception, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Griffin.Container.Interception">
       <HintPath>..\packages\Griffin.Container.Interception.1.0.0\lib\net40\Griffin.Container.Interception.dll</HintPath>
     </Reference>
     <Reference Include="HaveBox, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
