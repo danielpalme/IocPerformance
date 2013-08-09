@@ -253,12 +253,27 @@ namespace IocPerformance
 
             if (container.SupportsPropertyInjection)
             {
-                var propertyInjectionObject = (IComplexPropertyObject)container.Resolve(typeof(IComplexPropertyObject));
+                var propertyInjectionObject = (ComplexPropertyObject)container.Resolve(typeof(IComplexPropertyObject));
+                var propertyInjectionObject2 = (ComplexPropertyObject)container.Resolve(typeof(IComplexPropertyObject));
 
-                if (propertyInjectionObject == null)
+                if (propertyInjectionObject == null || propertyInjectionObject2 == null)
                 {
                     throw new Exception(
                         string.Format("Container {0} could not create type {1}",
+                        container.PackageName,
+                        typeof(IComplexPropertyObject)));
+                }
+
+                if (object.ReferenceEquals(propertyInjectionObject, propertyInjectionObject2) ||
+                    !object.ReferenceEquals(propertyInjectionObject.ServiceA, propertyInjectionObject2.ServiceA) ||
+                    !object.ReferenceEquals(propertyInjectionObject.ServiceB, propertyInjectionObject2.ServiceB) ||
+                    !object.ReferenceEquals(propertyInjectionObject.ServiceC, propertyInjectionObject2.ServiceC) ||
+                    object.ReferenceEquals(propertyInjectionObject.SubObjectA, propertyInjectionObject2.SubObjectA) ||
+                    object.ReferenceEquals(propertyInjectionObject.SubObjectB, propertyInjectionObject2.SubObjectB) ||
+                    object.ReferenceEquals(propertyInjectionObject.SubObjectC, propertyInjectionObject2.SubObjectC))
+                {
+                    throw new Exception(
+                        string.Format("Container {0} could not correctly create type {1}",
                         container.PackageName,
                         typeof(IComplexPropertyObject)));
                 }
