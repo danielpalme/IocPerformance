@@ -20,7 +20,7 @@ Results
 <tr><th>fFastInjector 0.8.1</th><td>86</td><td>113</td><td>140</td><td>216</td></tr>
 <tr><th>Funq 1.0.0.0</th><td>137</td><td>195</td><td>429</td><td>1221</td></tr>
 <tr><th>Griffin 1.1.0</th><td>207</td><td>262</td><td>552</td><td>1475</td></tr>
-<tr><th>HaveBox 1.4.0</th><th>72</th><td>107</td><th>106</th><th>144</th></tr>
+<tr><th>HaveBox 1.4.0</th><th>72</th><td>107</td><th>106</th><td>144</td></tr>
 <tr><th>Hiro 1.0.3</th><td>130</td><td>123</td><td>183</td><td>191</td></tr>
 <tr><th>IfInjector 0.5</th><td>90</td><td>107</td><td>129</td><td>178</td></tr>
 <tr><th>LightCore 1.5.1</th><td>451</td><td>2871</td><td>19797</td><td>102595</td></tr>
@@ -32,7 +32,7 @@ Results
 <tr><th>Munq 3.1.6</th><td>92</td><td>127</td><td>411</td><td>1355</td></tr>
 <tr><th>Ninject 3.0.1.10</th><td>8997</td><td>18530</td><td>50983</td><td>138221</td></tr>
 <tr><th>Petite 0.3.2</th><td>5715</td><td>5375</td><td>5651</td><td>7121</td></tr>
-<tr><th>SimpleInjector 2.3.0</th><td>105</td><th>100</th><td>132</td><td>153</td></tr>
+<tr><th>SimpleInjector 2.3.0</th><td>103</td><th>98</th><td>117</td><th>140</th></tr>
 <tr><th>Spring.NET 1.3.2</th><td>1641</td><td>16664</td><td>40305</td><td>101881</td></tr>
 <tr><th>Stiletto 0.2.1.2</th><td>719</td><td>644</td><td>717</td><td>857</td></tr>
 <tr><th>StructureMap 2.6.4.1</th><td>2178</td><td>2009</td><td>5984</td><td>15834</td></tr>
@@ -50,7 +50,7 @@ Advanced Features
 <tr><th>Catel 3.6</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Dynamo 3.0.2.0</th><td>584</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>fFastInjector 0.8.1</th><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>Funq 1.0.0.0</th><th>194</th><td></td><td></td><td></td><td></td></tr>
+<tr><th>Funq 1.0.0.0</th><td>194</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Griffin 1.1.0</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>HaveBox 1.4.0</th><td>829</td><td></td><td></td><td></td><th>583</th></tr>
 <tr><th>Hiro 1.0.3</th><td>1880</td><td></td><td></td><td></td><td></td></tr>
@@ -64,7 +64,7 @@ Advanced Features
 <tr><th>Munq 3.1.6</th><td>1160</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Ninject 3.0.1.10</th><td>131647</td><td>57254</td><td>113691</td><td>79990</td><td>26303</td></tr>
 <tr><th>Petite 0.3.2</th><td>9532</td><td></td><td></td><td></td><td></td></tr>
-<tr><th>SimpleInjector 2.3.0</th><td>936</td><th>107</th><th>286</th><th>386</th><td>11284</td></tr>
+<tr><th>SimpleInjector 2.3.0</th><th>182</th><th>100</th><th>247</th><th>346</th><td>6177</td></tr>
 <tr><th>Spring.NET 1.3.2</th><td>98173</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Stiletto 0.2.1.2</th><td>906</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>StructureMap 2.6.4.1</th><td>19103</td><td>4577</td><td>19800</td><td></td><td>11168</td></tr>
