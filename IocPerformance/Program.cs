@@ -259,7 +259,8 @@ namespace IocPerformance
                 if (propertyInjectionObject == null || propertyInjectionObject2 == null)
                 {
                     throw new Exception(
-                        string.Format("Container {0} could not create type {1}",
+                        string.Format(
+                        "Container {0} could not create type {1}",
                         container.PackageName,
                         typeof(IComplexPropertyObject)));
                 }
@@ -273,7 +274,8 @@ namespace IocPerformance
                     object.ReferenceEquals(propertyInjectionObject.SubObjectC, propertyInjectionObject2.SubObjectC))
                 {
                     throw new Exception(
-                        string.Format("Container {0} could not correctly create type {1}",
+                        string.Format(
+                        "Container {0} could not correctly create type {1}",
                         container.PackageName,
                         typeof(IComplexPropertyObject)));
                 }
