@@ -17,6 +17,11 @@ namespace IocPerformance.Adapters
             get { return "Speedioc"; }
         }
 
+        public override string Url
+        {
+            get { return "https://github.com/wade/Speedioc"; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.GetInstance(type);

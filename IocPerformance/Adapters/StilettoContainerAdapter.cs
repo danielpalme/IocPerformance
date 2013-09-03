@@ -15,6 +15,11 @@ namespace IocPerformance.Adapters
             get { return "Stiletto"; }
         }
 
+        public override string Url
+        {
+            get { return "http://stiletto.bendb.com"; }
+        }
+
         public override bool SupportsPropertyInjection
         {
             get { return true; }

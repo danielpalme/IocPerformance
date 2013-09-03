@@ -13,6 +13,11 @@ namespace IocPerformance.Adapters
             get { return "fFastInjector"; }
         }
 
+        public override string Url
+        {
+            get { return "http://ffastinjector.codeplex.com"; }
+        }
+
         public override object Resolve(Type type)
         {
             return Injector.Resolve(type);

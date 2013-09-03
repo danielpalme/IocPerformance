@@ -16,6 +16,11 @@ namespace IocPerformance.Adapters
             get { return "Funq"; }
         }
 
+        public override string Url
+        {
+            get { return "http://funq.codeplex.com"; }
+        }
+
         public override string Version
         {
             get { return typeof(Container).Assembly.GetName().Version.ToString(); }

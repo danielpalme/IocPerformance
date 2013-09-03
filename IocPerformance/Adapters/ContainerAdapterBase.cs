@@ -29,6 +29,11 @@ namespace IocPerformance.Adapters
             get;
         }
 
+        public abstract string Url
+        {
+            get;
+        }
+
         public virtual bool SupportsInterception
         {
             get { return false; }

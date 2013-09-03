@@ -19,6 +19,11 @@ namespace IocPerformance.Adapters
             get { return "LightCore"; }
         }
 
+        public override string Url
+        {
+            get { return "http://www.lightcore.ch"; }
+        }
+
         public override bool SupportGeneric
         {
             get { return true; }

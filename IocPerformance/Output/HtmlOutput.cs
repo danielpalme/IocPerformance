@@ -34,10 +34,8 @@ namespace IocPerformance.Output
                     foreach (var result in this.results)
                     {
                         writer.Write(
-                            "<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}>",
-                            result.Name,
-                            string.IsNullOrEmpty(result.Version) ? string.Empty : " ",
-                            result.Version,
+                            "<tr><th>{0}</th><t{1}>{2}</t{1}><t{3}>{4}</t{3}><t{5}>{6}</t{5}>",
+                            GetName(result),
                             result.SingletonTime == this.results.Skip(1).Min(r => r.SingletonTime) ? "h" : "d",
                             result.SingletonTime,
                             result.TransientTime == this.results.Skip(1).Min(r => r.TransientTime) ? "h" : "d",
@@ -62,6 +60,22 @@ namespace IocPerformance.Output
                     }
                 }
             }
+        }
+
+        private static string GetName(Result result)
+        {
+            string name = string.Format(
+                "{0}{1}{2}",
+                result.Name,
+                string.IsNullOrEmpty(result.Version) ? string.Empty : " ",
+                result.Version);
+
+            if (!string.IsNullOrEmpty(result.Url))
+            {
+                name = string.Format("<a href=\"{0}\">{1}</a>", result.Url, name);
+            }
+
+            return name;
         }
     }
 }

@@ -15,6 +15,11 @@ namespace IocPerformance.Adapters
             get { return "MicroSliver"; }
         }
 
+        public override string Url
+        {
+            get { return "http://microsliver.codeplex.com"; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.GetByType(type);

@@ -16,6 +16,11 @@ namespace IocPerformance.Adapters
         {
             get { return "HaveBox"; }
         }
+
+        public override string Url
+        {
+            get { return "https://bitbucket.org/Have/havebox"; }
+        }
         
         public override bool SupportsPropertyInjection
         {

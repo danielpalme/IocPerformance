@@ -17,6 +17,11 @@ namespace IocPerformance.Adapters
             get { return "Hiro"; }
         }
 
+        public override string Url
+        {
+            get { return "https://github.com/philiplaureano/Hiro"; }
+        }
+
         public override bool SupportsPropertyInjection
         {
             get { return true; }

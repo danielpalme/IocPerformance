@@ -16,7 +16,7 @@ namespace IocPerformance
                  .Where(t => !t.Equals(typeof(NoContainerAdapter)) && !t.Equals(typeof(SpeediocContainerAdapter)))
                  .Select(t => Activator.CreateInstance(t))
                  .Cast<IContainerAdapter>()
-                 .OrderBy(c => c.Name);
+                 .OrderBy(c => c.Name).Take(2);
 
             foreach (var container in containers)
             {

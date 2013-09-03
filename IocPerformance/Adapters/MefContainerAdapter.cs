@@ -19,6 +19,11 @@ namespace IocPerformance.Adapters
             get { return "Mef"; }
         }
 
+        public override string Url
+        {
+            get { return "http://mef.codeplex.com"; }
+        }
+
         public override bool SupportsPropertyInjection
         {
             get { return true; }

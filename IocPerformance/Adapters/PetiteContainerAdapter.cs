@@ -21,6 +21,11 @@ namespace IocPerformance.Adapters
             get { return "Petite.Container"; }
         }
 
+        public override string Url
+        {
+            get { return "https://github.com/andlju/Petite"; }
+        }
+
         public override bool SupportsPropertyInjection
         {
             get { return true; }

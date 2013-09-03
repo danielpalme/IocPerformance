@@ -10,6 +10,8 @@ namespace IocPerformance.Adapters
 
         string PackageName { get; }
 
+        string Url { get; }
+
         bool SupportsConditional { get; }
 
         bool SupportGeneric { get; }

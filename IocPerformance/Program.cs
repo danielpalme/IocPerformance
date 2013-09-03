@@ -53,6 +53,7 @@ namespace IocPerformance
 
             var result = new Result();
             result.Name = container.Name;
+            result.Url = container.Url;
             result.Version = container.Version;
 
             MeasureResolvePerformance(container, result);

@@ -23,6 +23,11 @@ namespace IocPerformance.Adapters
             get { return "Caliburn.Micro.Container"; }
         }
 
+        public override string Url
+        {
+            get { return "http://caliburnmicro.codeplex.com"; }
+        }
+
         public override bool SupportsMultiple
         {
             get { return true; }

@@ -22,6 +22,11 @@ namespace IocPerformance.Adapters
             get { return "LinFu.Core"; }
         }
 
+        public override string Url
+        {
+            get { return "https://github.com/philiplaureano/LinFu"; }
+        }
+
         // After trying to configure it multiple way I'm not sure why this doesn't work
         // but it doesn't so I'm marking as false
         public override bool SupportsPropertyInjection

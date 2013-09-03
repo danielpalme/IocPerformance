@@ -17,6 +17,11 @@ namespace IocPerformance.Adapters
             get { return "Spring.Core"; }
         }
 
+        public override string Url
+        {
+            get { return "http://www.springframework.net/"; }
+        }
+
         public override bool SupportsPropertyInjection
         {
             get { return true; }

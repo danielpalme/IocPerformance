@@ -27,6 +27,11 @@ namespace IocPerformance.Adapters
             get { return "SimpleInjector"; }
         }
 
+        public override string Url
+        {
+            get { return "http://simpleinjector.codeplex.com"; }
+        }
+
         public override bool SupportsConditional
         {
             get { return true; }

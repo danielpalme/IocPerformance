@@ -19,6 +19,11 @@ namespace IocPerformance.Adapters
             get { return "Unity"; }
         }
 
+        public override string Url
+        {
+            get { return "http://msdn.microsoft.com/unity"; }
+        }
+
         public override bool SupportsInterception
         {
             get { return true; }

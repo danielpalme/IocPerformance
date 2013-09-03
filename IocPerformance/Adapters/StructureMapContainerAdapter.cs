@@ -25,6 +25,11 @@ namespace IocPerformance.Adapters
             get { return "structuremap"; }
         }
 
+        public override string Url
+        {
+            get { return "http://structuremap.net/structuremap"; }
+        }
+
         public override bool SupportsInterception
         {
             get { return true; }

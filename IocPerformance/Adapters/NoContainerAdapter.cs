@@ -16,6 +16,11 @@ namespace IocPerformance.Adapters
             get { return "No"; }
         }
 
+        public override string Url
+        {
+            get { return string.Empty; }
+        }
+
         public override string Version
         {
             get { return string.Empty; }

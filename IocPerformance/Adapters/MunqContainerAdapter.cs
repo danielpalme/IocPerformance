@@ -22,6 +22,11 @@ namespace IocPerformance.Adapters
             get { return "Munq.IocContainer"; }
         }
 
+        public override string Url
+        {
+            get { return "http://munq.codeplex.com"; }
+        }
+
         public override bool SupportsPropertyInjection
         {
             get { return true; }

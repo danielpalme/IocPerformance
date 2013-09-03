@@ -25,6 +25,11 @@ namespace IocPerformance.Adapters
             get { return "Autofac"; }
         }
 
+        public override string Url
+        {
+            get { return "http://code.google.com/p/autofac"; }
+        }
+
         public override bool SupportsInterception
         {
             get { return true; }
