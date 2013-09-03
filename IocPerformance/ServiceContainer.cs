@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 ******************************************************************************
-   LightInject version 3.0.0.6 
+   LightInject version 3.0.0.7 
    http://www.lightinject.net/
    http://twitter.com/bernhardrichter
 ******************************************************************************/
@@ -26,6 +26,7 @@
 namespace IocPerformance
 {
     using System;
+    using System.Collections;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.IO;
@@ -265,6 +266,13 @@ namespace IocPerformance
         void Decorate(Type serviceType, Type decoratorType);
 
         /// <summary>
+        /// Decorates the <typeparamref name="TService"/> with the given <typeparamref name="TDecorator"/>.
+        /// </summary>
+        /// <typeparam name="TService">The target service type.</typeparam>
+        /// <typeparam name="TDecorator">The decorator type used to decorate the <typeparamref name="TService"/>.</typeparam>
+        void Decorate<TService, TDecorator>() where TDecorator : TService;
+
+        /// <summary>
         /// Decorates the <typeparamref name="TService"/> using the given decorator <paramref name="factory"/>.
         /// </summary>
         /// <typeparam name="TService">The target service type.</typeparam>
@@ -403,6 +411,19 @@ namespace IocPerformance
         /// </summary>
         /// <param name="serviceRegistry">The target <see cref="IServiceRegistry"/>.</param>
         void Compose(IServiceRegistry serviceRegistry);
+    }
+
+    /// <summary>
+    /// Represents a class that extracts a set of types from an <see cref="Assembly"/>.
+    /// </summary>
+    internal interface ITypeExtractor
+    {
+        /// <summary>
+        /// Extracts types found in the given <paramref name="assembly"/>.
+        /// </summary>
+        /// <param name="assembly">The <see cref="Assembly"/> for which to extract types.</param>
+        /// <returns>A set of types found in the given <paramref name="assembly"/>.</returns>
+        IEnumerable<Type> Execute(Assembly assembly);
     }
 
     /// <summary>
@@ -555,7 +576,7 @@ namespace IocPerformance
         /// <summary>
         /// Gets the <see cref="ILGenerator"/> for the this dynamic method.
         /// </summary>
-        /// <returns>The <see cref="ILGenerator"/> for the this dynamic method</returns>
+        /// <returns>The <see cref="ILGenerator"/> for the this dynamic method.</returns>
         ILGenerator GetILGenerator();
 
         /// <summary>
@@ -565,6 +586,185 @@ namespace IocPerformance
         Func<object[], object> CreateDelegate();
     }
 
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    internal static class ReflectionHelper
+    {
+        private static readonly Lazy<MethodInfo> LifetimeGetInstanceMethodInfo;
+        private static readonly Lazy<MethodInfo> OpenGenericGetInstanceMethodInfo;
+        private static readonly Lazy<MethodInfo> OpenGenericGetNamedInstanceMethodInfo;
+        private static readonly Lazy<MethodInfo[]> OpenGenericGetInstanceMethods;
+        private static readonly Lazy<MethodInfo> GetCurrentScopeMethodInfo;
+        private static readonly Lazy<MethodInfo> GetCurrentScopeManagerMethodInfo;
+        private static readonly Lazy<ThreadSafeDictionary<Type, Type>> LazyTypes;
+        private static readonly Lazy<ThreadSafeDictionary<Type, Type>> FuncTypes;
+        private static readonly Lazy<ThreadSafeDictionary<Type, Type>> StringFuncTypes;
+        private static readonly Lazy<ThreadSafeDictionary<Type, ConstructorInfo>> LazyConstructors;
+        private static readonly Lazy<ThreadSafeDictionary<Type, ConstructorInfo>> LazyCollectionConstructors;
+        private static readonly Lazy<ThreadSafeDictionary<Type, Type[]>> GenericArgumentTypes;
+
+        private static readonly Lazy<ThreadSafeDictionary<Type, MethodInfo>> GetInstanceMethods;
+        private static readonly Lazy<ThreadSafeDictionary<Type, MethodInfo>> GetNamedInstanceMethods;
+
+        private static readonly Lazy<ThreadSafeDictionary<Type, Type>> EnumerableTypes;
+
+        static ReflectionHelper()
+        {
+            LifetimeGetInstanceMethodInfo = new Lazy<MethodInfo>(() => typeof(ILifetime).GetMethod("GetInstance"));
+            OpenGenericGetInstanceMethods = new Lazy<MethodInfo[]>(
+                () => typeof(IServiceFactory).GetMethods().Where(TypeHelper.IsGenericGetInstanceMethod).ToArray());
+            OpenGenericGetInstanceMethodInfo = new Lazy<MethodInfo>(
+                () => OpenGenericGetInstanceMethods.Value.FirstOrDefault(m => !m.GetParameters().Any()));
+            OpenGenericGetNamedInstanceMethodInfo = new Lazy<MethodInfo>(
+                () => OpenGenericGetInstanceMethods.Value.FirstOrDefault(m => m.GetParameters().Any()));
+            GetCurrentScopeMethodInfo = new Lazy<MethodInfo>(
+                () => typeof(ScopeManager).GetProperty("CurrentScope").GetGetMethod());
+            GetCurrentScopeManagerMethodInfo = new Lazy<MethodInfo>(
+                () => typeof(ThreadLocal<ScopeManager>).GetProperty("Value").GetGetMethod());
+            LazyTypes = new Lazy<ThreadSafeDictionary<Type, Type>>(() => new ThreadSafeDictionary<Type, Type>());
+            FuncTypes = new Lazy<ThreadSafeDictionary<Type, Type>>(() => new ThreadSafeDictionary<Type, Type>());
+            StringFuncTypes = new Lazy<ThreadSafeDictionary<Type, Type>>(() => new ThreadSafeDictionary<Type, Type>());
+            LazyConstructors = new Lazy<ThreadSafeDictionary<Type, ConstructorInfo>>(() => new ThreadSafeDictionary<Type, ConstructorInfo>());
+            LazyCollectionConstructors = new Lazy<ThreadSafeDictionary<Type, ConstructorInfo>>(() => new ThreadSafeDictionary<Type, ConstructorInfo>());
+            GetInstanceMethods = new Lazy<ThreadSafeDictionary<Type, MethodInfo>>(() => new ThreadSafeDictionary<Type, MethodInfo>());
+            GetNamedInstanceMethods = new Lazy<ThreadSafeDictionary<Type, MethodInfo>>(() => new ThreadSafeDictionary<Type, MethodInfo>());
+
+            GenericArgumentTypes = new Lazy<ThreadSafeDictionary<Type, Type[]>>();
+
+            EnumerableTypes = new Lazy<ThreadSafeDictionary<Type, Type>>(() => new ThreadSafeDictionary<Type, Type>());
+        }
+
+        public static MethodInfo LifetimeGetInstanceMethod
+        {
+            get
+            {
+                return LifetimeGetInstanceMethodInfo.Value;
+            }
+        }
+
+        public static MethodInfo GetCurrentScopeMethod
+        {
+            get
+            {
+                return GetCurrentScopeMethodInfo.Value;
+            }
+        }
+
+        public static MethodInfo GetCurrentScopeManagerMethod
+        {
+            get
+            {
+                return GetCurrentScopeManagerMethodInfo.Value;
+            }
+        }
+
+        public static Delegate CreateGetInstanceDelegate(Type serviceType, IServiceFactory serviceFactory)
+        {
+            Type delegateType = GetFuncType(serviceType);
+            MethodInfo getInstanceMethod = GetGetInstanceMethod(serviceType);
+            return getInstanceMethod.CreateDelegate(delegateType, serviceFactory);
+        }
+
+        public static Delegate CreateGetNamedInstanceDelegate(Type serviceType, IServiceFactory serviceFactory)
+        {
+            Type delegateType = GetStringFuncType(serviceType);
+            MethodInfo getInstanceMethod = GetGetNamedInstanceMethod(serviceType);
+            return getInstanceMethod.CreateDelegate(delegateType, serviceFactory);
+        }
+
+        public static Type[] GetGenericArguments(Type type)
+        {
+            return GenericArgumentTypes.Value.GetOrAdd(type, ResolveGenericArguments);
+        }
+
+        public static Type GetEnumerableType(Type type)
+        {
+            return EnumerableTypes.Value.GetOrAdd(type, CreateEnumerableType);
+        }
+
+        public static Type GetFuncType(Type type)
+        {
+            return FuncTypes.Value.GetOrAdd(type, CreateFuncType);
+        }
+
+        public static Type GetStringFuncType(Type type)
+        {
+            return StringFuncTypes.Value.GetOrAdd(type, CreateStringFuncType);
+        }
+
+        public static Type GetLazyType(Type type)
+        {
+            return LazyTypes.Value.GetOrAdd(type, CreateLazyType);
+        }
+
+        public static ConstructorInfo GetLazyConstructor(Type type)
+        {
+            return LazyConstructors.Value.GetOrAdd(type, ResolveLazyConstructor);
+        }
+
+        public static ConstructorInfo GetLazyCollectionConstructor(Type elementType)
+        {
+            return LazyCollectionConstructors.Value.GetOrAdd(elementType, ResolveLazyCollectionConstructor);
+        }
+
+        private static Type CreateLazyType(Type type)
+        {
+            return typeof(Lazy<>).MakeGenericType(type);
+        }
+
+        private static Type CreateEnumerableType(Type type)
+        {
+            return typeof(IEnumerable<>).MakeGenericType(type);
+        }
+
+        private static Type[] ResolveGenericArguments(Type type)
+        {
+            return type.GetGenericArguments();
+        }
+
+        private static ConstructorInfo ResolveLazyConstructor(Type type)
+        {
+            return GetLazyType(type).GetConstructor(new[] { GetFuncType(type) });
+        }
+
+        private static ConstructorInfo ResolveLazyCollectionConstructor(Type elementType)
+        {
+            Type lazyType = GetLazyType(GetEnumerableType(elementType));
+            var collectionType = typeof(LazyReadOnlyCollection<>).MakeGenericType(elementType);
+            return collectionType.GetConstructor(new[] { lazyType, typeof(int) });
+        }
+
+        private static Type CreateFuncType(Type type)
+        {
+            return typeof(Func<>).MakeGenericType(type);
+        }
+
+        private static Type CreateStringFuncType(Type type)
+        {
+            return typeof(Func<,>).MakeGenericType(typeof(string), type);
+        }
+
+        private static MethodInfo GetGetInstanceMethod(Type type)
+        {
+            return GetInstanceMethods.Value.GetOrAdd(type, CreateClosedGenericGetInstanceMethod);
+        }
+
+        private static MethodInfo CreateClosedGenericGetInstanceMethod(Type type)
+        {
+            return OpenGenericGetInstanceMethodInfo.Value.MakeGenericMethod(type);
+        }
+
+        private static MethodInfo GetGetNamedInstanceMethod(Type type)
+        {
+            return GetNamedInstanceMethods.Value.GetOrAdd(type, CreateClosedGenericGetNamedInstanceMethod);
+        }
+
+        private static MethodInfo CreateClosedGenericGetNamedInstanceMethod(Type type)
+        {
+            return OpenGenericGetNamedInstanceMethodInfo.Value.MakeGenericMethod(type);
+        }
+    }
+
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal static class TypeHelper
     {
         public static Delegate CreateDelegate(this MethodInfo methodInfo, Type delegateType, object target)
@@ -572,64 +772,85 @@ namespace IocPerformance
             return Delegate.CreateDelegate(delegateType, target, methodInfo);
         }
 
-        public static bool IsClass(Type type)
+        public static bool IsClass(this Type type)
         {
             return type.IsClass;
         }
 
-        public static bool IsAbstract(Type type)
+        public static bool IsAbstract(this Type type)
         {
             return type.IsAbstract;
         }
 
-        public static bool IsNestedPrivate(Type type)
+        public static bool IsNestedPrivate(this Type type)
         {
             return type.IsNestedPrivate;
         }
 
-        public static bool IsGenericType(Type type)
+        public static bool IsGenericType(this Type type)
         {
             return type.IsGenericType;
         }
 
-        public static bool ContainsGenericParameters(Type type)
+        public static bool ContainsGenericParameters(this Type type)
         {
             return type.ContainsGenericParameters;
         }
 
-        public static Type GetBaseType(Type type)
+        public static Type GetBaseType(this Type type)
         {
             return type.BaseType;
         }
 
-        public static bool IsGenericTypeDefinition(Type type)
+        public static bool IsGenericTypeDefinition(this Type type)
         {
             return type.IsGenericTypeDefinition;
         }
-
-        public static MethodInfo GetSetMethod(this PropertyInfo propertyInfo)
-        {
-            return propertyInfo.GetSetMethod();
-        }
-
-        public static MethodInfo GetGetMethod(this PropertyInfo propertyInfo)
-        {
-            return propertyInfo.GetGetMethod();
-        }
-
-        public static Type[] GetTypes(this Assembly assembly)
-        {
-            return assembly.GetTypes();
-        }
-
-        public static Assembly GetAssembly(Type type)
+   
+        public static Assembly GetAssembly(this Type type)
         {
             return type.Assembly;
         }
 
-        public static bool IsValueType(Type type)
+        public static bool IsValueType(this Type type)
         {
             return type.IsValueType;
+        }        
+
+        public static MethodInfo GetPrivateMethod(this Type type, string name)
+        {            
+            return type.GetMethod(name, BindingFlags.Instance | BindingFlags.NonPublic);
+        }
+
+        public static bool IsEnumerableOfT(this Type serviceType)
+        {
+            return serviceType.IsGenericType() && serviceType.GetGenericTypeDefinition() == typeof(IEnumerable<>);
+        }
+
+        public static bool IsLazy(this Type serviceType)
+        {
+            return serviceType.IsGenericType() && serviceType.GetGenericTypeDefinition() == typeof(Lazy<>);
+        }
+
+        public static bool IsFunc(this Type serviceType)
+        {
+            return serviceType.IsGenericType() && serviceType.GetGenericTypeDefinition() == typeof(Func<>);
+        }
+
+        public static bool IsClosedGeneric(this Type serviceType)
+        {
+            return serviceType.IsGenericType() && !serviceType.IsGenericTypeDefinition();
+        }
+
+        public static bool IsFuncWithStringArgument(this Type serviceType)
+        {
+            return serviceType.IsGenericType() && serviceType.GetGenericTypeDefinition() == typeof(Func<,>)
+                   && ReflectionHelper.GetGenericArguments(serviceType)[0] == typeof(string);
+        }
+
+        public static bool IsGenericGetInstanceMethod(MethodInfo m)
+        {
+            return m.Name == "GetInstance" && m.IsGenericMethodDefinition;
         }
     }
 
@@ -641,37 +862,35 @@ namespace IocPerformance
     {
         private const string UnresolvedDependencyError = "Unresolved dependency {0}";
         private readonly Func<IMethodSkeleton> methodSkeletonFactory;
-        private readonly ServiceRegistry<Action<IMethodSkeleton>> emitters = new ServiceRegistry<Action<IMethodSkeleton>>();
-        private readonly ServiceRegistry<Action<IMethodSkeleton, Type>> openGenericEmitters = new ServiceRegistry<Action<IMethodSkeleton, Type>>();
+        private readonly ServiceRegistry<Action<IMethodSkeleton>> emitters = new ServiceRegistry<Action<IMethodSkeleton>>();        
         private readonly DelegateRegistry<Type> delegates = new DelegateRegistry<Type>();
         private readonly DelegateRegistry<Tuple<Type, string>> namedDelegates = new DelegateRegistry<Tuple<Type, string>>();
         private readonly DelegateRegistry<Type> propertyInjectionDelegates = new DelegateRegistry<Type>();
         private readonly Storage<object> constants = new Storage<object>();
         private readonly Storage<FactoryRule> factoryRules = new Storage<FactoryRule>();
         private readonly Stack<Action<IMethodSkeleton>> dependencyStack = new Stack<Action<IMethodSkeleton>>();
-        private readonly ThreadSafeDictionary<Tuple<Type, string>, ServiceRegistration> availableServices =
-            new ThreadSafeDictionary<Tuple<Type, string>, ServiceRegistration>();
+        
+        private readonly ServiceRegistry<ServiceRegistration> availableServices = new ServiceRegistry<ServiceRegistration>();
 
-        private readonly ThreadSafeDictionary<Type, List<DecoratorRegistration>> decorators = new ThreadSafeDictionary<Type, List<DecoratorRegistration>>();
-
-        private readonly ThreadLocal<ScopeManager> scopeManagers = new ThreadLocal<ScopeManager>(() => new ScopeManager());
+        private readonly Storage<DecoratorRegistration> decorators = new Storage<DecoratorRegistration>();
+        private readonly ThreadLocal<ScopeManager> scopeManagers =
+            new ThreadLocal<ScopeManager>(() => new ScopeManager());
 
         private readonly Lazy<IConstructionInfoProvider> constructionInfoProvider;
-
-        private bool firstServiceRequest = true;
-
+                
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceContainer"/> class.
         /// </summary>
         public ServiceContainer()
         {
-            AssemblyScanner = new AssemblyScanner();
+            AssemblyScanner = new AssemblyScanner(new ConcreteTypeExtractor());
             PropertyDependencySelector = new PropertyDependencySelector(new PropertySelector());
             ConstructorDependencySelector = new ConstructorDependencySelector();
             constructionInfoProvider = new Lazy<IConstructionInfoProvider>(CreateConstructionInfoProvider);
             methodSkeletonFactory = () => new DynamicMethodSkeleton();
             AssemblyLoader = new AssemblyLoader();
         }
+
         /// <summary>
         /// Gets or sets the <see cref="IPropertyDependencySelector"/> instance that 
         /// is responsible for selecting the property dependencies for a given type.
@@ -701,7 +920,7 @@ namespace IocPerformance
         {
             get
             {
-                return availableServices.Values;
+                return availableServices.Values.SelectMany(t => t.Values);                
             }
         }
 
@@ -728,7 +947,7 @@ namespace IocPerformance
         public object InjectProperties(object instance)
         {
             var type = instance.GetType();
-            return propertyInjectionDelegates.GetOrAdd(type, t => CreatePropertyInjectionDelegate(type, instance))();
+            return propertyInjectionDelegates.GetOrAdd(type, t => CreatePropertyInjectionDelegate(type))(new[] { instance });
         }
 
         /// <summary>
@@ -771,8 +990,12 @@ namespace IocPerformance
         /// <param name="serviceRegistration">The <see cref="ServiceRegistration"/> instance that contains service metadata.</param>
         public void Register(ServiceRegistration serviceRegistration)
         {
-            UpdateServiceEmitter(serviceRegistration.ServiceType, serviceRegistration.ServiceName, GetEmitDelegate(serviceRegistration));
-            UpdateServiceRegistration(serviceRegistration);
+            var services = GetAvailableServices(serviceRegistration.ServiceType);            
+            var sr = serviceRegistration;
+            services.AddOrUpdate(
+                serviceRegistration.ServiceName,
+                s => AddServiceRegistration(sr),
+                (k, existing) => UpdateServiceRegistration(existing, sr));            
         }
 
         /// <summary>
@@ -853,7 +1076,8 @@ namespace IocPerformance
         public void Decorate(Type serviceType, Type decoratorType, Func<ServiceRegistration, bool> predicate)
         {
             var decoratorInfo = new DecoratorRegistration { ServiceType = serviceType, ImplementingType = decoratorType, CanDecorate = predicate };
-            GetRegisteredDecorators(serviceType).Add(decoratorInfo);
+            int index = decorators.Add(decoratorInfo);
+            decoratorInfo.Index = index;            
         }
 
         /// <summary>
@@ -867,6 +1091,16 @@ namespace IocPerformance
         }
 
         /// <summary>
+        /// Decorates the <typeparamref name="TService"/> with the given <typeparamref name="TDecorator"/>.
+        /// </summary>
+        /// <typeparam name="TService">The target service type.</typeparam>
+        /// <typeparam name="TDecorator">The decorator type used to decorate the <typeparamref name="TService"/>.</typeparam>
+        public void Decorate<TService, TDecorator>() where TDecorator : TService
+        {
+            Decorate(typeof(TService), typeof(TDecorator));
+        }
+
+        /// <summary>
         /// Decorates the <typeparamref name="TService"/> using the given decorator <paramref name="factory"/>.
         /// </summary>
         /// <typeparam name="TService">The target service type.</typeparam>
@@ -874,7 +1108,8 @@ namespace IocPerformance
         public void Decorate<TService>(Expression<Func<IServiceFactory, TService, TService>> factory)
         {
             var decoratorInfo = new DecoratorRegistration { FactoryExpression = factory, ServiceType = typeof(TService), CanDecorate = si => true };
-            GetRegisteredDecorators(typeof(TService)).Add(decoratorInfo);
+            int index = decorators.Add(decoratorInfo);
+            decoratorInfo.Index = index;            
         }
 
         /// <summary>
@@ -1047,7 +1282,7 @@ namespace IocPerformance
         /// <returns>The requested service instance.</returns>
         public object GetInstance(Type serviceType)
         {
-            return GetDefaultDelegate(serviceType, true)();
+            return GetDefaultDelegate(serviceType, true)(constants.Items);
         }
 
         /// <summary>
@@ -1078,7 +1313,7 @@ namespace IocPerformance
         /// <returns>The requested service instance if available, otherwise null.</returns>
         public object TryGetInstance(Type serviceType)
         {
-            return GetDefaultDelegate(serviceType, false)();
+            return GetDefaultDelegate(serviceType, false)(constants.Items);
         }
 
         /// <summary>
@@ -1089,7 +1324,7 @@ namespace IocPerformance
         /// <returns>The requested service instance if available, otherwise null.</returns>
         public object TryGetInstance(Type serviceType, string serviceName)
         {
-            return GetNamedDelegate(serviceType, serviceName, false)();
+            return GetNamedDelegate(serviceType, serviceName, false)(constants.Items);
         }
 
         /// <summary>
@@ -1121,7 +1356,7 @@ namespace IocPerformance
         /// <returns>The requested service instance.</returns>
         public object GetInstance(Type serviceType, string serviceName)
         {
-            return GetNamedDelegate(serviceType, serviceName, true)();
+            return GetNamedDelegate(serviceType, serviceName, true)(constants.Items);
         }
 
         /// <summary>
@@ -1131,7 +1366,7 @@ namespace IocPerformance
         /// <returns>A list that contains all implementations of the <paramref name="serviceType"/>.</returns>
         public IEnumerable<object> GetAllInstances(Type serviceType)
         {
-            return (IEnumerable<object>)GetInstance(typeof(IEnumerable<>).MakeGenericType(serviceType));
+            return (IEnumerable<object>)GetInstance(ReflectionHelper.GetEnumerableType(serviceType));
         }
 
         /// <summary>
@@ -1149,7 +1384,7 @@ namespace IocPerformance
         /// </summary>
         public void Dispose()
         {
-            var disposableLifetimeInstances = availableServices.Values
+            var disposableLifetimeInstances = availableServices.Values.SelectMany(t => t.Values)
                 .Where(sr => sr.Lifetime != null)
                 .Select(sr => sr.Lifetime)
                 .Where(lt => lt is IDisposable).Cast<IDisposable>();
@@ -1167,10 +1402,10 @@ namespace IocPerformance
             generator.Emit(OpCodes.Ldarg_0);
             generator.Emit(OpCodes.Ldc_I4, index);
             generator.Emit(OpCodes.Ldelem_Ref);
-            generator.Emit(TypeHelper.IsValueType(type) ? OpCodes.Unbox_Any : OpCodes.Castclass, type);
+            generator.Emit(type.IsValueType() ? OpCodes.Unbox_Any : OpCodes.Castclass, type);
         }
 
-        private static void EmitEnumerable(IList<Action<IMethodSkeleton>> serviceEmitters, Type elementType, IMethodSkeleton dynamicMethodSkeleton)
+        private static void EmitNewArray(IList<Action<IMethodSkeleton>> serviceEmitters, Type elementType, IMethodSkeleton dynamicMethodSkeleton)
         {
             ILGenerator generator = dynamicMethodSkeleton.GetILGenerator();
             LocalBuilder array = generator.DeclareLocal(elementType.MakeArrayType());
@@ -1189,37 +1424,42 @@ namespace IocPerformance
 
             generator.Emit(OpCodes.Ldloc, array);
         }
-
-        private static bool IsEnumerableOfT(Type serviceType)
-        {
-            return TypeHelper.IsGenericType(serviceType) && serviceType.GetGenericTypeDefinition() == typeof(IEnumerable<>);
-        }
-
-        private static bool IsFunc(Type serviceType)
-        {
-            return TypeHelper.IsGenericType(serviceType) && serviceType.GetGenericTypeDefinition() == typeof(Func<>);
-        }
-
-        private static bool IsClosedGeneric(Type serviceType)
-        {
-            return TypeHelper.IsGenericType(serviceType) && !TypeHelper.IsGenericTypeDefinition(serviceType);
-        }
-
-        private static bool IsFuncWithStringArgument(Type serviceType)
-        {
-            return TypeHelper.IsGenericType(serviceType) && serviceType.GetGenericTypeDefinition() == typeof(Func<,>)
-                && serviceType.GetGenericArguments()[0] == typeof(string);
-        }
-
+        
         private static ILifetime CloneLifeTime(ILifetime lifetime)
         {
             return lifetime == null ? null : (ILifetime)Activator.CreateInstance(lifetime.GetType());
         }
 
-        private Func<object> CreatePropertyInjectionDelegate(Type concreteType, object instance)
+        private static ConstructorDependency GetConstructorDependencyThatRepresentsDecoratorTarget(
+            DecoratorRegistration decoratorRegistration, ConstructionInfo constructionInfo)
         {
-            IMethodSkeleton methodSkeleton = new DynamicMethodSkeleton();
-            var arguments = new[] { instance };
+            var constructorDependency =
+                constructionInfo.ConstructorDependencies.FirstOrDefault(
+                    cd =>
+                    cd.ServiceType == decoratorRegistration.ServiceType
+                    || (cd.ServiceType.IsLazy()
+                        && ReflectionHelper.GetGenericArguments(cd.ServiceType)[0] == decoratorRegistration.ServiceType));
+            return constructorDependency;
+        }
+
+        private void EmitEnumerable(IList<Action<IMethodSkeleton>> serviceEmitters, Type elementType, IMethodSkeleton dynamicMethodSkeleton)
+        {
+            Type enumerableType = ReflectionHelper.GetEnumerableType(elementType);
+            var factoryDelegate = CreateTypedInstanceDelegate(skeleton => EmitNewArray(serviceEmitters, elementType, skeleton), enumerableType);
+
+            ConstructorInfo lazyConstructor = ReflectionHelper.GetLazyConstructor(enumerableType);
+            ConstructorInfo lazyCollectionConstructor = ReflectionHelper.GetLazyCollectionConstructor(elementType);
+
+            var constantIndex = constants.Add(factoryDelegate);
+            EmitLoadConstant(dynamicMethodSkeleton, constantIndex, ReflectionHelper.GetFuncType(enumerableType));
+            dynamicMethodSkeleton.GetILGenerator().Emit(OpCodes.Newobj, lazyConstructor);
+            dynamicMethodSkeleton.GetILGenerator().Emit(OpCodes.Ldc_I4, serviceEmitters.Count);
+            dynamicMethodSkeleton.GetILGenerator().Emit(OpCodes.Newobj, lazyCollectionConstructor);
+        }
+
+        private Func<object[], object> CreatePropertyInjectionDelegate(Type concreteType)
+        {
+            IMethodSkeleton methodSkeleton = methodSkeletonFactory();            
             ConstructionInfo constructionInfo = GetContructionInfoForConcreteType(concreteType);
             EmitLoadConstant(methodSkeleton, 0, concreteType);
             try
@@ -1232,8 +1472,7 @@ namespace IocPerformance
                 throw;
             }
 
-            var del = methodSkeleton.CreateDelegate();
-            return () => del(arguments);
+            return methodSkeleton.CreateDelegate();                        
         }
 
         private ConstructionInfo GetContructionInfoForConcreteType(Type concreteType)
@@ -1244,9 +1483,8 @@ namespace IocPerformance
 
         private ServiceRegistration GetServiceRegistrationForConcreteType(Type concreteType)
         {
-            var serviceKey = Tuple.Create(concreteType, string.Empty);
-            return availableServices.GetOrAdd(
-                serviceKey, tuple => CreateServiceRegistrationBasedOnConcreteType(tuple.Item1));
+            var services = GetAvailableServices(concreteType);            
+            return services.GetOrAdd(string.Empty, s => CreateServiceRegistrationBasedOnConcreteType(concreteType));            
         }
 
         private ServiceRegistration CreateServiceRegistrationBasedOnConcreteType(Type type)
@@ -1275,54 +1513,67 @@ namespace IocPerformance
             return new TypeConstructionInfoBuilder(new ConstructorSelector(), ConstructorDependencySelector, PropertyDependencySelector);
         }
 
-        private Func<object> GetDefaultDelegate(Type serviceType, bool throwError)
+        private Func<object[], object> GetDefaultDelegate(Type serviceType, bool throwError)
         {
-            Func<object> del;
+            Func<object[], object> del;
 
-            if (!this.delegates.TryGetValue(serviceType, out del))
+            if (!delegates.TryGetValue(serviceType, out del))
             {
-                del = this.delegates.GetOrAdd(serviceType, t => this.CreateDelegate(t, string.Empty, throwError));
+                del = delegates.GetOrAdd(serviceType, t => CreateDelegate(t, string.Empty, throwError));
             }
 
             return del;
         }
 
-        private Func<object> GetNamedDelegate(Type serviceType, string serviceName, bool throwError)
+        private Func<object[], object> GetNamedDelegate(Type serviceType, string serviceName, bool throwError)
         {
-            Func<object> del;
+            Func<object[], object> del;
 
-            if (!this.namedDelegates.TryGetValue(Tuple.Create(serviceType, serviceName), out del))
+            if (!namedDelegates.TryGetValue(Tuple.Create(serviceType, serviceName), out del))
             {
-                del = this.namedDelegates.GetOrAdd(
-                    Tuple.Create(serviceType, serviceName), t => this.CreateDelegate(t.Item1, serviceName, throwError));
+                del = namedDelegates.GetOrAdd(
+                    Tuple.Create(serviceType, serviceName), t => CreateDelegate(t.Item1, serviceName, throwError));
             }
 
             return del;
         }
 
-        private Func<object> CreateDynamicMethodDelegate(Action<IMethodSkeleton> serviceEmitter, Type serviceType)
+        private Func<object[], object> CreateDynamicMethodDelegate(Action<IMethodSkeleton> serviceEmitter, Type serviceType)
         {
             var methodSkeleton = methodSkeletonFactory();
             serviceEmitter(methodSkeleton);
-            if (TypeHelper.IsValueType(serviceType))
+            if (serviceType.IsValueType())
             {
                 methodSkeleton.GetILGenerator().Emit(OpCodes.Box, serviceType);
             }
 
-            var del = methodSkeleton.CreateDelegate();
-            return () => del(constants.Items);
+            return methodSkeleton.CreateDelegate();                                    
         }
 
-        private Action<IMethodSkeleton> GetEmitMethod(Type serviceType, string serviceName)
+        private Func<object> WrapAsFuncDelegate(Func<object[], object> instanceDelegate)
         {
-            if (FirstServiceRequest())
-            {
-                EnsureThatServiceRegistryIsConfigured(serviceType);
-            }
-
+            return () => instanceDelegate(constants.Items);
+        }
+       
+        private Action<IMethodSkeleton> GetEmitMethod(Type serviceType, string serviceName)
+        {           
             Action<IMethodSkeleton> emitter = GetRegisteredEmitMethod(serviceType, serviceName);
 
+            if (emitter == null)
+            {
+                if (!HasProcessedTypesFromThisAssembly(serviceType.GetAssembly()))
+                {
+                    RegisterAssembly(serviceType.GetAssembly());
+                    emitter = GetRegisteredEmitMethod(serviceType, serviceName);
+                }
+            }
+        
             return CreateEmitMethodWrapper(emitter, serviceType, serviceName);
+        }
+
+        private bool HasProcessedTypesFromThisAssembly(Assembly assembly)
+        {
+            return availableServices.Keys.Select(TypeHelper.GetAssembly).Any(a => Equals(a, assembly));
         }
 
         private Action<IMethodSkeleton> CreateEmitMethodWrapper(Action<IMethodSkeleton> emitter, Type serviceType, string serviceName)
@@ -1361,19 +1612,29 @@ namespace IocPerformance
                 GetServiceEmitters(serviceType).AddOrUpdate(serviceName, s => emitter, (s, m) => emitter);
             }
         }
-
-        private void UpdateServiceRegistration(ServiceRegistration serviceRegistration)
+        
+        private ServiceRegistration AddServiceRegistration(ServiceRegistration serviceRegistration)
         {
-            var key = Tuple.Create(serviceRegistration.ServiceType, serviceRegistration.ServiceName);
-            var sr = serviceRegistration;
-            availableServices.AddOrUpdate(
-                key,
-                k => sr,
-                (k, s) =>
-                {
-                    Invalidate();
-                    return serviceRegistration;
-                });
+            var emitDelegate = ResolveEmitDelegate(serviceRegistration);
+            GetServiceEmitters(serviceRegistration.ServiceType).TryAdd(serviceRegistration.ServiceName, emitDelegate);                
+            return serviceRegistration;
+        }
+
+        private ServiceRegistration UpdateServiceRegistration(ServiceRegistration existingRegistration, ServiceRegistration newRegistration)
+        {
+            if (existingRegistration.IsReadOnly)
+            {
+                return existingRegistration;
+            }
+
+            Invalidate();
+            Action<IMethodSkeleton> emitDelegate = ResolveEmitDelegate(newRegistration);
+            Action<IMethodSkeleton> existingDelegate;
+            var serviceEmitters = GetServiceEmitters(newRegistration.ServiceType);
+            serviceEmitters.TryGetValue(newRegistration.ServiceName, out existingDelegate);
+            serviceEmitters.TryUpdate(newRegistration.ServiceName, emitDelegate, existingDelegate);
+                        
+            return newRegistration;
         }
 
         private void EmitNewInstance(ServiceRegistration serviceRegistration, IMethodSkeleton dynamicMethodSkeleton)
@@ -1381,7 +1642,7 @@ namespace IocPerformance
             var serviceDecorators = GetDecorators(serviceRegistration.ServiceType);
             if (serviceDecorators.Length > 0)
             {
-                EmitDecorators(serviceRegistration, serviceDecorators, dynamicMethodSkeleton, () => DoEmitNewInstance(GetConstructionInfo(serviceRegistration), dynamicMethodSkeleton));
+                EmitDecorators(serviceRegistration, serviceDecorators, dynamicMethodSkeleton, dm => DoEmitNewInstance(GetConstructionInfo(serviceRegistration), dm));
             }
             else
             {
@@ -1391,30 +1652,28 @@ namespace IocPerformance
 
         private DecoratorRegistration[] GetDecorators(Type serviceType)
         {
-            var registeredDecorators = GetRegisteredDecorators(serviceType);
-            if (registeredDecorators.Count == 0 && TypeHelper.IsGenericType(serviceType))
+            var registeredDecorators = decorators.Items.Where(d => d.ServiceType == serviceType).ToList();
+            if (serviceType.IsGenericType())
             {
                 var openGenericServiceType = serviceType.GetGenericTypeDefinition();
-                var openGenericDecorators = GetRegisteredDecorators(openGenericServiceType);
-                if (openGenericDecorators.Count >= 0)
+                var openGenericDecorators = decorators.Items.Where(d => d.ServiceType == openGenericServiceType);
+                foreach (DecoratorRegistration openGenericDecorator in openGenericDecorators)
                 {
-                    foreach (DecoratorRegistration openGenericDecorator in openGenericDecorators)
-                    {
-                        var closedGenericDecoratorType = openGenericDecorator.ImplementingType.MakeGenericType(serviceType.GetGenericArguments());
-                        var decoratorInfo = new DecoratorRegistration { ServiceType = serviceType, ImplementingType = closedGenericDecoratorType, CanDecorate = openGenericDecorator.CanDecorate };
-                        registeredDecorators.Add(decoratorInfo);
-                    }
+                    var closedGenericDecoratorType = openGenericDecorator.ImplementingType.MakeGenericType(ReflectionHelper.GetGenericArguments(serviceType));
+                    var decoratorInfo = new DecoratorRegistration { ServiceType = serviceType, ImplementingType = closedGenericDecoratorType, CanDecorate = openGenericDecorator.CanDecorate };
+                    registeredDecorators.Add(decoratorInfo);
                 }
             }
 
-            return registeredDecorators.ToArray();
+            return registeredDecorators.OrderBy(d => d.Index).ToArray();
         }
 
-        private void DoEmitDecoratorInstance(DecoratorRegistration decoratorRegistration, IMethodSkeleton dynamicMethodSkeleton, Action pushInstance)
+        private void DoEmitDecoratorInstance(DecoratorRegistration decoratorRegistration, IMethodSkeleton dynamicMethodSkeleton, Action<IMethodSkeleton> pushInstance)
         {
             ConstructionInfo constructionInfo = GetConstructionInfo(decoratorRegistration);
-            var constructorDependency =
-                constructionInfo.ConstructorDependencies.FirstOrDefault(cd => cd.ServiceType == decoratorRegistration.ServiceType);
+            var constructorDependency = GetConstructorDependencyThatRepresentsDecoratorTarget(
+                decoratorRegistration, constructionInfo);
+                
             if (constructorDependency != null)
             {
                 constructorDependency.IsDecoratorTarget = true;
@@ -1430,14 +1689,14 @@ namespace IocPerformance
             }
         }
 
-        private void EmitNewDecoratorUsingFactoryDelegate(Delegate factoryDelegate, IMethodSkeleton dynamicMethodSkeleton, Action pushInstance)
+        private void EmitNewDecoratorUsingFactoryDelegate(Delegate factoryDelegate, IMethodSkeleton dynamicMethodSkeleton, Action<IMethodSkeleton> pushInstance)
         {
             var factoryDelegateIndex = constants.Add(factoryDelegate);
             var serviceFactoryIndex = constants.Add(this);
             Type funcType = factoryDelegate.GetType();
             EmitLoadConstant(dynamicMethodSkeleton, factoryDelegateIndex, funcType);
             EmitLoadConstant(dynamicMethodSkeleton, serviceFactoryIndex, typeof(IServiceFactory));
-            pushInstance();
+            pushInstance(dynamicMethodSkeleton);
             ILGenerator generator = dynamicMethodSkeleton.GetILGenerator();
             MethodInfo invokeMethod = funcType.GetMethod("Invoke");
             generator.Emit(OpCodes.Callvirt, invokeMethod);
@@ -1455,7 +1714,7 @@ namespace IocPerformance
             }
         }
 
-        private void EmitDecorators(ServiceRegistration serviceRegistration, IEnumerable<DecoratorRegistration> serviceDecorators, IMethodSkeleton dynamicMethodSkeleton, Action decoratorTargetEmitter)
+        private void EmitDecorators(ServiceRegistration serviceRegistration, IEnumerable<DecoratorRegistration> serviceDecorators, IMethodSkeleton dynamicMethodSkeleton, Action<IMethodSkeleton> decoratorTargetEmitter)
         {
             foreach (DecoratorRegistration decorator in serviceDecorators)
             {
@@ -1464,15 +1723,15 @@ namespace IocPerformance
                     continue;
                 }
 
-                Action currentDecoratorTargetEmitter = decoratorTargetEmitter;
+                Action<IMethodSkeleton> currentDecoratorTargetEmitter = decoratorTargetEmitter;
                 DecoratorRegistration currentDecorator = decorator;
-                decoratorTargetEmitter = () => DoEmitDecoratorInstance(currentDecorator, dynamicMethodSkeleton, currentDecoratorTargetEmitter);
+                decoratorTargetEmitter = dm => DoEmitDecoratorInstance(currentDecorator, dynamicMethodSkeleton, currentDecoratorTargetEmitter);
             }
 
-            decoratorTargetEmitter();
+            decoratorTargetEmitter(dynamicMethodSkeleton);
         }
 
-        private void EmitNewInstanceUsingImplementingType(IMethodSkeleton dynamicMethodSkeleton, ConstructionInfo constructionInfo, Action decoratorTargetEmitter)
+        private void EmitNewInstanceUsingImplementingType(IMethodSkeleton dynamicMethodSkeleton, ConstructionInfo constructionInfo, Action<IMethodSkeleton> decoratorTargetEmitter)
         {
             ILGenerator generator = dynamicMethodSkeleton.GetILGenerator();
             EmitConstructorDependencies(constructionInfo, dynamicMethodSkeleton, decoratorTargetEmitter);
@@ -1492,7 +1751,7 @@ namespace IocPerformance
             generator.Emit(OpCodes.Callvirt, invokeMethod);
         }
 
-        private void EmitConstructorDependencies(ConstructionInfo constructionInfo, IMethodSkeleton dynamicMethodSkeleton, Action decoratorTargetEmitter)
+        private void EmitConstructorDependencies(ConstructionInfo constructionInfo, IMethodSkeleton dynamicMethodSkeleton, Action<IMethodSkeleton> decoratorTargetEmitter)
         {
             foreach (ConstructorDependency dependency in constructionInfo.ConstructorDependencies)
             {
@@ -1501,15 +1760,35 @@ namespace IocPerformance
                     EmitDependency(dynamicMethodSkeleton, dependency);
                 }
                 else
-                {
-                    decoratorTargetEmitter();
+                {                    
+                    if (dependency.ServiceType.IsLazy())
+                    {
+                        Action<IMethodSkeleton> instanceEmitter = decoratorTargetEmitter;
+                        decoratorTargetEmitter = CreateServiceEmitterBasedOnLazyServiceRequest(
+                            dependency.ServiceType, t => CreateTypedInstanceDelegate(instanceEmitter, t));
+                    }
+
+                    decoratorTargetEmitter(dynamicMethodSkeleton);
                 }
             }
         }
 
+        private Delegate CreateTypedInstanceDelegate(Action<IMethodSkeleton> serviceEmitter, Type serviceType)
+        {                        
+            var openGenericMethod = GetType().GetPrivateMethod("CreateGenericDynamicMethodDelegate");
+            var closedGenericMethod = openGenericMethod.MakeGenericMethod(serviceType);
+            var del = WrapAsFuncDelegate(CreateDynamicMethodDelegate(serviceEmitter, serviceType));
+            return (Delegate)closedGenericMethod.Invoke(this, new object[] { del });
+        }
+
+        private Func<T> CreateGenericDynamicMethodDelegate<T>(Func<object> del)
+        {            
+            return () => (T)del();
+        }
+        
         private void EmitDependency(IMethodSkeleton dynamicMethodSkeleton, Dependency dependency)
         {
-            var emitter = this.GetEmitMethodForDependency(dependency);
+            var emitter = GetEmitMethodForDependency(dependency);
 
             try
             {
@@ -1541,10 +1820,10 @@ namespace IocPerformance
                 return skeleton => EmitDependencyUsingFactoryExpression(skeleton, dependency);
             }
 
-            Action<IMethodSkeleton> emitter = this.GetEmitMethod(dependency.ServiceType, dependency.ServiceName);
+            Action<IMethodSkeleton> emitter = GetEmitMethod(dependency.ServiceType, dependency.ServiceName);
             if (emitter == null)
             {
-                emitter = this.GetEmitMethod(dependency.ServiceType, dependency.Name);
+                emitter = GetEmitMethod(dependency.ServiceType, dependency.Name);
                 if (emitter == null && dependency.IsRequired)
                 {
                     throw new InvalidOperationException(string.Format(UnresolvedDependencyError, dependency));
@@ -1590,15 +1869,19 @@ namespace IocPerformance
             {
                 emitter = CreateServiceEmitterBasedOnFactoryRule(rule, serviceType, serviceName);
             }
-            else if (IsFunc(serviceType))
+            else if (serviceType.IsLazy())
+            {
+                emitter = CreateServiceEmitterBasedOnLazyServiceRequest(serviceType, t => ReflectionHelper.CreateGetInstanceDelegate(t, this));
+            }
+            else if (serviceType.IsFunc())
             {
                 emitter = CreateServiceEmitterBasedOnFuncServiceRequest(serviceType, false);
             }
-            else if (IsEnumerableOfT(serviceType))
+            else if (serviceType.IsEnumerableOfT())
             {
                 emitter = CreateEnumerableServiceEmitter(serviceType);
             }
-            else if (IsFuncWithStringArgument(serviceType))
+            else if (serviceType.IsFuncWithStringArgument())
             {
                 emitter = CreateServiceEmitterBasedOnFuncServiceRequest(serviceType, true);
             }
@@ -1606,7 +1889,7 @@ namespace IocPerformance
             {
                 emitter = CreateServiceEmitterBasedOnSingleNamedInstance(serviceType);
             }
-            else if (IsClosedGeneric(serviceType))
+            else if (serviceType.IsClosedGeneric())
             {
                 emitter = CreateServiceEmitterBasedOnClosedGenericServiceRequest(serviceType, serviceName);
             }
@@ -1615,7 +1898,7 @@ namespace IocPerformance
 
             return emitter;
         }
-
+        
         private Action<IMethodSkeleton> CreateServiceEmitterBasedOnFactoryRule(FactoryRule rule, Type serviceType, string serviceName)
         {
             var serviceRegistration = new ServiceRegistration { ServiceType = serviceType, ServiceName = serviceName, Lifetime = rule.LifeTime };
@@ -1639,8 +1922,8 @@ namespace IocPerformance
 
         private Action<IMethodSkeleton> CreateEnumerableServiceEmitter(Type serviceType)
         {
-            Type actualServiceType = serviceType.GetGenericArguments()[0];
-            if (TypeHelper.IsGenericType(actualServiceType))
+            Type actualServiceType = ReflectionHelper.GetGenericArguments(serviceType)[0];
+            if (actualServiceType.IsGenericType())
             {
                 EnsureEmitMethodsForOpenGenericTypesAreCreated(actualServiceType);
             }
@@ -1658,16 +1941,31 @@ namespace IocPerformance
         private void EnsureEmitMethodsForOpenGenericTypesAreCreated(Type actualServiceType)
         {
             var openGenericServiceType = actualServiceType.GetGenericTypeDefinition();
-            var openGenericServiceEmitters = GetOpenGenericRegistrations(openGenericServiceType);
+            var openGenericServiceEmitters = GetAvailableServices(openGenericServiceType);
             foreach (var openGenericEmitterEntry in openGenericServiceEmitters.Keys)
             {
                 GetRegisteredEmitMethod(actualServiceType, openGenericEmitterEntry);
             }
         }
 
-        private Action<IMethodSkeleton> CreateServiceEmitterBasedOnFuncServiceRequest(Type serviceType, bool namedService)
+        private Action<IMethodSkeleton> CreateServiceEmitterBasedOnLazyServiceRequest(Type serviceType, Func<Type, Delegate> valueFactoryDelegate)
         {
-            var actualServiceType = serviceType.GetGenericArguments().Last();
+            Type actualServiceType = ReflectionHelper.GetGenericArguments(serviceType)[0];                        
+            Type funcType = ReflectionHelper.GetFuncType(actualServiceType);            
+            ConstructorInfo lazyConstructor = ReflectionHelper.GetLazyConstructor(actualServiceType);
+            Delegate getInstanceDelegate = valueFactoryDelegate(actualServiceType);
+            var constantIndex = constants.Add(getInstanceDelegate);
+
+            return ms =>
+                {
+                    EmitLoadConstant(ms, constantIndex, funcType);
+                    ms.GetILGenerator().Emit(OpCodes.Newobj, lazyConstructor);
+                };
+        }
+
+        private Action<IMethodSkeleton> CreateServiceEmitterBasedOnFuncServiceRequest(Type serviceType, bool namedService)
+        {            
+            var actualServiceType = ReflectionHelper.GetGenericArguments(serviceType).Last();
 
             Delegate getInstanceDelegate = namedService ? ReflectionHelper.CreateGetNamedInstanceDelegate(actualServiceType, this)
                                                : ReflectionHelper.CreateGetInstanceDelegate(actualServiceType, this);
@@ -1675,31 +1973,53 @@ namespace IocPerformance
             var constantIndex = constants.Add(getInstanceDelegate);
             return ms => EmitLoadConstant(ms, constantIndex, serviceType);
         }
+        
+        private ServiceRegistration GetOpenGenericServiceRegistration(Type openGenericServiceType, string serviceName)
+        {
+            var services = GetAvailableServices(openGenericServiceType);
+            if (services.Count == 0)
+            {
+                return null;
+            } 
+           
+            ServiceRegistration openGenericServiceRegistration;
+            services.TryGetValue(serviceName, out openGenericServiceRegistration);
+            if (openGenericServiceRegistration == null && string.IsNullOrEmpty(serviceName) && services.Count == 1)
+            {
+                return services.First().Value;
+            }
+
+            return openGenericServiceRegistration;
+        }
 
         private Action<IMethodSkeleton> CreateServiceEmitterBasedOnClosedGenericServiceRequest(Type closedGenericServiceType, string serviceName)
         {
             Type openGenericServiceType = closedGenericServiceType.GetGenericTypeDefinition();
-
-            Action<IMethodSkeleton, Type> openGenericEmitter = GetOpenGenericTypeInfo(openGenericServiceType, serviceName);
-            if (openGenericEmitter == null)
+            ServiceRegistration openGenericServiceRegistration =
+                GetOpenGenericServiceRegistration(openGenericServiceType, serviceName);
+           
+            if (openGenericServiceRegistration == null)
             {
                 return null;
             }
 
-            return ms => openGenericEmitter(ms, closedGenericServiceType);
-        }
+            Type closedGenericImplementingType =
+                openGenericServiceRegistration.ImplementingType.MakeGenericType(
+                    ReflectionHelper.GetGenericArguments(closedGenericServiceType));
 
-        private Action<IMethodSkeleton, Type> GetOpenGenericTypeInfo(Type openGenericServiceType, string serviceName)
-        {
-            var openGenericRegistrations = GetOpenGenericRegistrations(openGenericServiceType);
-            if (CanRedirectRequestForDefaultOpenGenericServiceToSingleNamedService(openGenericServiceType, serviceName))
-            {
-                return openGenericRegistrations.First().Value;
-            }
-
-            Action<IMethodSkeleton, Type> openGenericEmitter;
-            openGenericRegistrations.TryGetValue(serviceName, out openGenericEmitter);
-            return openGenericEmitter;
+            var serviceRegistration = new ServiceRegistration
+                                                          {
+                                                              ServiceType = closedGenericServiceType,
+                                                              ImplementingType =
+                                                                  closedGenericImplementingType,
+                                                              ServiceName = serviceName,
+                                                              Lifetime =
+                                                                  CloneLifeTime(
+                                                                      openGenericServiceRegistration
+                                                                  .Lifetime)
+                                                          };            
+            Register(serviceRegistration);
+            return GetEmitMethod(serviceRegistration.ServiceType, serviceRegistration.ServiceName);            
         }
 
         private Action<IMethodSkeleton> CreateServiceEmitterBasedOnSingleNamedInstance(Type serviceType)
@@ -1711,12 +2031,7 @@ namespace IocPerformance
         {
             return string.IsNullOrEmpty(serviceName) && GetServiceEmitters(serviceType).Count == 1;
         }
-
-        private bool CanRedirectRequestForDefaultOpenGenericServiceToSingleNamedService(Type serviceType, string serviceName)
-        {
-            return string.IsNullOrEmpty(serviceName) && GetOpenGenericRegistrations(serviceType).Count == 1;
-        }
-
+        
         private ConstructionInfo GetConstructionInfo(Registration registration)
         {
             return constructionInfoProvider.Value.GetConstructionInfo(registration);
@@ -1726,47 +2041,27 @@ namespace IocPerformance
         {
             return emitters.GetOrAdd(serviceType, s => new ThreadSafeDictionary<string, Action<IMethodSkeleton>>(StringComparer.CurrentCultureIgnoreCase));
         }
-
-        private List<DecoratorRegistration> GetRegisteredDecorators(Type serviceType)
+       
+        private ThreadSafeDictionary<string, ServiceRegistration> GetAvailableServices(Type serviceType)
         {
-            return decorators.GetOrAdd(serviceType, s => new List<DecoratorRegistration>());
-        }
-
-        private ThreadSafeDictionary<string, Action<IMethodSkeleton, Type>> GetOpenGenericRegistrations(Type serviceType)
-        {
-            return openGenericEmitters.GetOrAdd(serviceType, s => new ThreadSafeDictionary<string, Action<IMethodSkeleton, Type>>(StringComparer.CurrentCultureIgnoreCase));
+            return availableServices.GetOrAdd(serviceType, s => new ThreadSafeDictionary<string, ServiceRegistration>(StringComparer.CurrentCultureIgnoreCase));
         }
 
         private void RegisterService(Type serviceType, Type implementingType, ILifetime lifetime, string serviceName)
         {
-            if (TypeHelper.IsGenericTypeDefinition(serviceType))
-            {
-                RegisterOpenGenericService(serviceType, implementingType, lifetime, serviceName);
-            }
-            else
-            {
-                var serviceRegistration = new ServiceRegistration { ServiceType = serviceType, ImplementingType = implementingType, ServiceName = serviceName, Lifetime = lifetime };
-                UpdateServiceEmitter(serviceType, serviceName, GetEmitDelegate(serviceRegistration));
-                UpdateServiceRegistration(serviceRegistration);
-            }
+            var serviceRegistration = new ServiceRegistration { ServiceType = serviceType, ImplementingType = implementingType, ServiceName = serviceName, Lifetime = lifetime };
+            Register(serviceRegistration);         
         }
 
-        private void RegisterOpenGenericService(Type openGenericServiceType, Type openGenericImplementingType, ILifetime lifetime, string serviceName)
+        private Action<IMethodSkeleton> ResolveEmitDelegate(ServiceRegistration serviceRegistration)
         {
-            Action<IMethodSkeleton, Type> emitter = (ms, closedGenericServiceType) =>
+            if (serviceRegistration.Value != null)
             {
-                Type closedGenericImplementingType = openGenericImplementingType.MakeGenericType(closedGenericServiceType.GetGenericArguments());
-                var serviceRegistration = new ServiceRegistration { ServiceType = closedGenericServiceType, ImplementingType = closedGenericImplementingType, ServiceName = serviceName, Lifetime = CloneLifeTime(lifetime) };
-                var closedGenericEmitter = GetEmitDelegate(serviceRegistration);
-                UpdateServiceEmitter(closedGenericServiceType, serviceName, closedGenericEmitter);
-                UpdateServiceRegistration(serviceRegistration);
-                closedGenericEmitter(ms);
-            };
-            GetOpenGenericRegistrations(openGenericServiceType).AddOrUpdate(serviceName, s => emitter, (s, e) => emitter);
-        }
-
-        private Action<IMethodSkeleton> GetEmitDelegate(ServiceRegistration serviceRegistration)
-        {
+                int index = constants.Add(serviceRegistration.Value);
+                Type serviceType = serviceRegistration.ServiceType;
+                return methodSkeleton => EmitLoadConstant(methodSkeleton, index, serviceType);
+            }
+            
             if (serviceRegistration.Lifetime == null)
             {
                 return methodSkeleton => EmitNewInstance(serviceRegistration, methodSkeleton);
@@ -1777,18 +2072,30 @@ namespace IocPerformance
 
         private void EmitLifetime(ServiceRegistration serviceRegistration, Action<IMethodSkeleton> instanceEmitter, IMethodSkeleton dynamicMethodSkeleton)
         {
-            ILGenerator generator = dynamicMethodSkeleton.GetILGenerator();
-            int instanceDelegateIndex = CreateInstanceDelegateIndex(instanceEmitter, serviceRegistration.ServiceType);
-            int lifetimeIndex = CreateLifetimeIndex(serviceRegistration.Lifetime);
-            int scopeManagerIndex = CreateScopeManagerIndex();
-            var getInstanceMethod = ReflectionHelper.LifetimeGetInstanceMethod;
-            EmitLoadConstant(dynamicMethodSkeleton, lifetimeIndex, typeof(ILifetime));
-            EmitLoadConstant(dynamicMethodSkeleton, instanceDelegateIndex, typeof(Func<object>));
-            EmitLoadConstant(dynamicMethodSkeleton, scopeManagerIndex, typeof(ThreadLocal<ScopeManager>));
-            generator.Emit(OpCodes.Callvirt, ReflectionHelper.GetCurrentScopeManagerMethod);
-            generator.Emit(OpCodes.Callvirt, ReflectionHelper.GetCurrentScopeMethod);
-            generator.Emit(OpCodes.Callvirt, getInstanceMethod);
-            generator.Emit(TypeHelper.IsValueType(serviceRegistration.ServiceType) ? OpCodes.Unbox_Any : OpCodes.Castclass, serviceRegistration.ServiceType);
+            if (serviceRegistration.Lifetime is PerContainerLifetime)
+            {
+                var del =
+                    WrapAsFuncDelegate(
+                        CreateDynamicMethodDelegate(instanceEmitter, serviceRegistration.ServiceType));
+                var instance = serviceRegistration.Lifetime.GetInstance(del, null);
+                var instanceIndex = constants.Add(instance);
+                EmitLoadConstant(dynamicMethodSkeleton, instanceIndex, serviceRegistration.ServiceType);
+            }
+            else
+            {
+                ILGenerator generator = dynamicMethodSkeleton.GetILGenerator();
+                int instanceDelegateIndex = CreateInstanceDelegateIndex(instanceEmitter, serviceRegistration.ServiceType);
+                int lifetimeIndex = CreateLifetimeIndex(serviceRegistration.Lifetime);
+                int scopeManagerIndex = CreateScopeManagerIndex();
+                var getInstanceMethod = ReflectionHelper.LifetimeGetInstanceMethod;
+                EmitLoadConstant(dynamicMethodSkeleton, lifetimeIndex, typeof(ILifetime));
+                EmitLoadConstant(dynamicMethodSkeleton, instanceDelegateIndex, typeof(Func<object>));
+                EmitLoadConstant(dynamicMethodSkeleton, scopeManagerIndex, typeof(ThreadLocal<ScopeManager>));
+                generator.Emit(OpCodes.Callvirt, ReflectionHelper.GetCurrentScopeManagerMethod);
+                generator.Emit(OpCodes.Callvirt, ReflectionHelper.GetCurrentScopeMethod);
+                generator.Emit(OpCodes.Callvirt, getInstanceMethod);
+                generator.Emit(serviceRegistration.ServiceType.IsValueType() ? OpCodes.Unbox_Any : OpCodes.Castclass, serviceRegistration.ServiceType);
+            }
         }
 
         private int CreateScopeManagerIndex()
@@ -1798,16 +2105,15 @@ namespace IocPerformance
 
         private int CreateInstanceDelegateIndex(Action<IMethodSkeleton> instanceEmitter, Type serviceType)
         {
-            return constants.Add(
-                CreateDynamicMethodDelegate(instanceEmitter, serviceType));
-        }
+            return constants.Add(WrapAsFuncDelegate(CreateDynamicMethodDelegate(instanceEmitter, serviceType)));
+        }                
 
         private int CreateLifetimeIndex(ILifetime lifetime)
         {
             return constants.Add(lifetime);
         }
 
-        private Func<object> CreateDelegate(Type serviceType, string serviceName, bool throwError)
+        private Func<object[], object> CreateDelegate(Type serviceType, string serviceName, bool throwError)
         {
             var serviceEmitter = GetEmitMethod(serviceType, serviceName);
             if (serviceEmitter == null && throwError)
@@ -1818,7 +2124,7 @@ namespace IocPerformance
             if (serviceEmitter != null)
             {
                 try
-                {
+                {                   
                     return CreateDynamicMethodDelegate(serviceEmitter, serviceType);
                 }
                 catch (InvalidOperationException ex)
@@ -1829,20 +2135,9 @@ namespace IocPerformance
                 }
             }
 
-            return () => null;
+            return c => null;
         }
-
-        private bool FirstServiceRequest()
-        {
-            if (firstServiceRequest)
-            {
-                firstServiceRequest = false;
-                return true;
-            }
-
-            return false;
-        }
-
+    
         private void Invalidate()
         {
             delegates.Clear();
@@ -1850,102 +2145,18 @@ namespace IocPerformance
             constants.Clear();
             constructionInfoProvider.Value.Invalidate();
         }
-
-        private void EnsureThatServiceRegistryIsConfigured(Type serviceType)
-        {
-            if (ServiceRegistryIsEmpty())
-            {
-                RegisterAssembly(TypeHelper.GetAssembly(serviceType), () => null);
-            }
-        }
-
-        private bool ServiceRegistryIsEmpty()
-        {
-            return emitters.Count == 0 && openGenericEmitters.Count == 0 && factoryRules.Items.Length == 0;
-        }
-
+        
         private void RegisterValue(Type serviceType, object value, string serviceName)
         {
-            int index = constants.Add(value);
-            UpdateServiceEmitter(serviceType, serviceName, ms => EmitLoadConstant(ms, index, serviceType));
+            var serviceRegistration = new ServiceRegistration { ServiceType = serviceType, ServiceName = serviceName, Value = value };
+            Register(serviceRegistration);            
         }
 
         private void RegisterServiceFromLambdaExpression<TService>(
             Expression<Func<IServiceFactory, TService>> factory, ILifetime lifetime, string serviceName)
         {
             var serviceRegistration = new ServiceRegistration { ServiceType = typeof(TService), FactoryExpression = factory, ServiceName = serviceName, Lifetime = lifetime };
-            UpdateServiceEmitter(typeof(TService), serviceName, GetEmitDelegate(serviceRegistration));
-            UpdateServiceRegistration(serviceRegistration);
-        }
-
-        private static class ReflectionHelper
-        {
-            private static readonly Lazy<MethodInfo> LazyLifetimeGetInstanceMethod;
-            private static readonly Lazy<MethodInfo> LazyServiceFactoryGetInstanceMethod;
-            private static readonly Lazy<MethodInfo> LazyServiceFactoryGetNamedInstanceMethod;
-            private static readonly Lazy<MethodInfo[]> LazyGetInstanceMethods;
-            private static readonly Lazy<MethodInfo> LazyGetCurrentScopeMethod;
-            private static readonly Lazy<MethodInfo> LazyGetCurrentScopeManagerMethod;
-
-            static ReflectionHelper()
-            {
-                LazyLifetimeGetInstanceMethod = new Lazy<MethodInfo>(() => typeof(ILifetime).GetMethod("GetInstance"));
-                LazyGetInstanceMethods = new Lazy<MethodInfo[]>(
-                    () => typeof(IServiceFactory).GetMethods().Where(IsGenericGetInstanceMethod).ToArray());
-                LazyServiceFactoryGetInstanceMethod = new Lazy<MethodInfo>(
-                    () => LazyGetInstanceMethods.Value.FirstOrDefault(m => !m.GetParameters().Any()));
-                LazyServiceFactoryGetNamedInstanceMethod = new Lazy<MethodInfo>(
-                    () => LazyGetInstanceMethods.Value.FirstOrDefault(m => m.GetParameters().Any()));
-                LazyGetCurrentScopeMethod = new Lazy<MethodInfo>(
-                    () => typeof(ScopeManager).GetProperty("CurrentScope").GetGetMethod());
-                LazyGetCurrentScopeManagerMethod = new Lazy<MethodInfo>(
-                    () => typeof(ThreadLocal<ScopeManager>).GetProperty("Value").GetGetMethod());
-            }
-
-            public static MethodInfo LifetimeGetInstanceMethod
-            {
-                get
-                {
-                    return LazyLifetimeGetInstanceMethod.Value;
-                }
-            }
-
-            public static MethodInfo GetCurrentScopeMethod
-            {
-                get
-                {
-                    return LazyGetCurrentScopeMethod.Value;
-                }
-            }
-
-            public static MethodInfo GetCurrentScopeManagerMethod
-            {
-                get
-                {
-                    return LazyGetCurrentScopeManagerMethod.Value;
-                }
-            }
-
-            public static Delegate CreateGetInstanceDelegate(Type serviceType, IServiceFactory serviceFactory)
-            {
-                Type delegateType = typeof(Func<>).MakeGenericType(serviceType);
-                MethodInfo openGenericGetInstanceMethod = LazyServiceFactoryGetInstanceMethod.Value;
-                MethodInfo closedGenericGetInstanceMethod = openGenericGetInstanceMethod.MakeGenericMethod(serviceType);
-                return closedGenericGetInstanceMethod.CreateDelegate(delegateType, serviceFactory);
-            }
-
-            public static Delegate CreateGetNamedInstanceDelegate(Type serviceType, IServiceFactory serviceFactory)
-            {
-                Type delegateType = typeof(Func<,>).MakeGenericType(typeof(string), serviceType);
-                MethodInfo openGenericGetNamedInstanceMethod = LazyServiceFactoryGetNamedInstanceMethod.Value;
-                MethodInfo closedGenericGetNamedInstanceMethod = openGenericGetNamedInstanceMethod.MakeGenericMethod(serviceType);
-                return closedGenericGetNamedInstanceMethod.CreateDelegate(delegateType, serviceFactory);
-            }
-
-            private static bool IsGenericGetInstanceMethod(MethodInfo m)
-            {
-                return m.Name == "GetInstance" && m.IsGenericMethodDefinition;
-            }
+            Register(serviceRegistration);
         }
 
         private class Storage<T>
@@ -2059,11 +2270,11 @@ namespace IocPerformance
         }
 
         private class DynamicMethodSkeleton : IMethodSkeleton
-        {
+        {            
             private DynamicMethod dynamicMethod;
 
             public DynamicMethodSkeleton()
-            {
+            {         
                 CreateDynamicMethod();
             }
 
@@ -2073,7 +2284,7 @@ namespace IocPerformance
             }
 
             public Func<object[], object> CreateDelegate()
-            {
+            {                                                         
                 dynamicMethod.GetILGenerator().Emit(OpCodes.Ret);
                 return (Func<object[], object>)dynamicMethod.CreateDelegate(typeof(Func<object[], object>));
             }
@@ -2089,7 +2300,7 @@ namespace IocPerformance
         {
         }
 
-        private class DelegateRegistry<TKey> : KeyValueStorage<TKey, Func<object>>
+        private class DelegateRegistry<TKey> : KeyValueStorage<TKey, Func<object[], object>>
         {
         }
 
@@ -2102,7 +2313,7 @@ namespace IocPerformance
             public ILifetime LifeTime { get; set; }
         }
     }
-
+    
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class ThreadSafeDictionary<TKey, TValue> : ConcurrentDictionary<TKey, TValue>
     {
@@ -2115,8 +2326,6 @@ namespace IocPerformance
         {
         }
     }
-
-
 
     /// <summary>
     /// Selects the <see cref="ConstructionInfo"/> from a given type that has the highest number of parameters.
@@ -2195,7 +2404,7 @@ namespace IocPerformance
         /// dependencies for the given <paramref name="type"/>.</returns>
         public virtual IEnumerable<PropertyDependency> Execute(Type type)
         {
-            return this.PropertySelector.Execute(type).Select(
+            return PropertySelector.Execute(type).Select(
                 p => new PropertyDependency { Property = p, ServiceName = string.Empty, ServiceType = p.PropertyType });
         }
     }
@@ -2298,8 +2507,8 @@ namespace IocPerformance
             Func<ILambdaConstructionInfoBuilder> lambdaConstructionInfoBuilderFactory,
             Func<ITypeConstructionInfoBuilder> typeConstructionInfoBuilderFactory)
         {
-            this.typeConstructionInfoBuilder = new Lazy<ITypeConstructionInfoBuilder>(typeConstructionInfoBuilderFactory);
-            this.lambdaConstructionInfoBuilder = new Lazy<ILambdaConstructionInfoBuilder>(lambdaConstructionInfoBuilderFactory);
+            typeConstructionInfoBuilder = new Lazy<ITypeConstructionInfoBuilder>(typeConstructionInfoBuilderFactory);
+            lambdaConstructionInfoBuilder = new Lazy<ILambdaConstructionInfoBuilder>(lambdaConstructionInfoBuilderFactory);
         }
 
         /// <summary>
@@ -2609,6 +2818,11 @@ namespace IocPerformance
         /// represented by the supplied <see cref="ServiceRegistration"/>.
         /// </summary>
         public Func<ServiceRegistration, bool> CanDecorate { get; internal set; }
+
+        /// <summary>
+        /// Gets or sets the index of this <see cref="DecoratorRegistration"/>.
+        /// </summary>
+        public int Index { get; set; }
     }
 
     /// <summary>
@@ -2633,6 +2847,12 @@ namespace IocPerformance
         public object Value { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="ServiceRegistration"/> can be overridden 
+        /// by another registration.
+        /// </summary>
+        public bool IsReadOnly { get; set; }
+
+        /// <summary>
         /// Serves as a hash function for a particular type. 
         /// </summary>
         /// <returns>
@@ -2648,7 +2868,7 @@ namespace IocPerformance
         /// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
         /// </summary>
         /// <returns>
-        /// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+        /// True if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
         /// </returns>
         /// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>. </param><filterpriority>2</filterpriority>
         public override bool Equals(object obj)
@@ -3021,7 +3241,7 @@ namespace IocPerformance
     }
 
     /// <summary>
-    /// Represents a scope 
+    /// Represents a scope. 
     /// </summary>
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     internal class Scope : IDisposable
@@ -3094,15 +3314,36 @@ namespace IocPerformance
     }
 
     /// <summary>
-    /// An assembly scanner that registers services based on the types contained within an <see cref="Assembly"/>.
-    /// </summary>    
+    /// Used at the assembly level to describe the composition root(s) for the target assembly.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
-    internal class AssemblyScanner : IAssemblyScanner
+    internal class CompositionRootTypeAttribute : Attribute
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CompositionRootTypeAttribute"/> class.
+        /// </summary>
+        /// <param name="compositionRootType">A <see cref="Type"/> that implements the <see cref="ICompositionRoot"/> interface.</param>
+        public CompositionRootTypeAttribute(Type compositionRootType)
+        {
+            CompositionRootType = compositionRootType;
+        }
+
+        /// <summary>
+        /// Gets the <see cref="Type"/> that implements the <see cref="ICompositionRoot"/> interface.
+        /// </summary>
+        public Type CompositionRootType { get; private set; }
+    }
+
+    /// <summary>
+    /// Extracts concrete types from an <see cref="Assembly"/>.
+    /// </summary>
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    internal class ConcreteTypeExtractor : ITypeExtractor
     {
         private static readonly List<Type> InternalTypes = new List<Type>();
-        private Assembly currentAssembly;
-
-        static AssemblyScanner()
+        
+        static ConcreteTypeExtractor()
         {
             InternalTypes.Add(typeof(LambdaConstructionInfoBuilder));
             InternalTypes.Add(typeof(LambdaExpressionValidator));
@@ -3119,6 +3360,7 @@ namespace IocPerformance
             InternalTypes.Add(typeof(Registration));
             InternalTypes.Add(typeof(ServiceContainer));
             InternalTypes.Add(typeof(ConstructionInfo));
+            InternalTypes.Add(typeof(LazyReadOnlyCollection<>));
             InternalTypes.Add(typeof(AssemblyLoader));
             InternalTypes.Add(typeof(TypeConstructionInfoBuilder));
             InternalTypes.Add(typeof(ConstructionInfoProvider));
@@ -3131,8 +3373,46 @@ namespace IocPerformance
             InternalTypes.Add(typeof(AssemblyScanner));
             InternalTypes.Add(typeof(ConstructorDependencySelector));
             InternalTypes.Add(typeof(PropertyDependencySelector));
+            InternalTypes.Add(typeof(CompositionRootTypeAttribute));
+            InternalTypes.Add(typeof(ConcreteTypeExtractor));
         }
 
+        /// <summary>
+        /// Extracts concrete types found in the given <paramref name="assembly"/>.
+        /// </summary>
+        /// <param name="assembly">The <see cref="Assembly"/> for which to extract types.</param>
+        /// <returns>A set of concrete types found in the given <paramref name="assembly"/>.</returns>
+        public IEnumerable<Type> Execute(Assembly assembly)
+        {
+            return assembly.GetTypes().Where(t => t.IsClass() && !t.IsNestedPrivate()
+                && !t.IsAbstract() && !(t.Namespace ?? string.Empty).StartsWith("System") && !IsCompilerGenerated(t)).Except(InternalTypes);
+        }
+
+        private static bool IsCompilerGenerated(Type type)
+        {
+            return type.IsDefined(typeof(CompilerGeneratedAttribute), false);
+        }
+    }
+
+    /// <summary>
+    /// An assembly scanner that registers services based on the types contained within an <see cref="Assembly"/>.
+    /// </summary>    
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    internal class AssemblyScanner : IAssemblyScanner
+    {
+        private readonly ITypeExtractor typeExtractor;        
+        private Assembly currentAssembly;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AssemblyScanner"/> class.
+        /// </summary>
+        /// <param name="typeExtractor">The <see cref="ITypeExtractor"/> that is responsible for 
+        /// extracting types from the assembly being scanned.</param>
+        public AssemblyScanner(ITypeExtractor typeExtractor)
+        {
+            this.typeExtractor = typeExtractor;
+        }
+                
         /// <summary>
         /// Scans the target <paramref name="assembly"/> and registers services found within the assembly.
         /// </summary>
@@ -3144,7 +3424,7 @@ namespace IocPerformance
         {
             IEnumerable<Type> concreteTypes = GetConcreteTypes(assembly).ToList();
             var compositionRoots = concreteTypes.Where(t => typeof(ICompositionRoot).IsAssignableFrom(t)).ToList();
-            if (compositionRoots.Count > 0 && currentAssembly != assembly)
+            if (compositionRoots.Count > 0 && !Equals(currentAssembly, assembly))
             {
                 currentAssembly = assembly;
                 ExecuteCompositionRoots(compositionRoots, serviceRegistry);
@@ -3170,7 +3450,7 @@ namespace IocPerformance
         {
             string implementingTypeName = implementingType.Name;
             string serviceTypeName = serviceType.Name;
-            if (TypeHelper.IsGenericTypeDefinition(implementingType))
+            if (implementingType.IsGenericTypeDefinition())
             {
                 var regex = new Regex("((?:[a-z][a-z]+))", RegexOptions.IgnoreCase);
                 implementingTypeName = regex.Match(implementingTypeName).Groups[1].Value;
@@ -3191,19 +3471,13 @@ namespace IocPerformance
             while (baseType != typeof(object) && baseType != null)
             {
                 yield return baseType;
-                baseType = TypeHelper.GetBaseType(baseType);
+                baseType = baseType.GetBaseType();
             }
         }
 
-        private static IEnumerable<Type> GetConcreteTypes(Assembly assembly)
+        private IEnumerable<Type> GetConcreteTypes(Assembly assembly)
         {
-            return assembly.GetTypes().Where(t => TypeHelper.IsClass(t) && !TypeHelper.IsNestedPrivate(t)
-                && !TypeHelper.IsAbstract(t) && !(t.Namespace ?? string.Empty).StartsWith("System") && !IsCompilerGenerated(t)).Except(InternalTypes);
-        }
-
-        private static bool IsCompilerGenerated(Type type)
-        {
-            return type.IsDefined(typeof(CompilerGeneratedAttribute), false);
+            return typeExtractor.Execute(assembly);            
         }
 
         private void BuildImplementationMap(Type implementingType, IServiceRegistry serviceRegistry, Func<ILifetime> lifetimeFactory, Func<Type, Type, bool> shouldRegister)
@@ -3228,7 +3502,7 @@ namespace IocPerformance
 
         private void RegisterInternal(Type serviceType, Type implementingType, IServiceRegistry serviceRegistry, ILifetime lifetime)
         {
-            if (TypeHelper.IsGenericType(serviceType) && TypeHelper.ContainsGenericParameters(serviceType))
+            if (serviceType.IsGenericType() && serviceType.ContainsGenericParameters())
             {
                 serviceType = serviceType.GetGenericTypeDefinition();
             }
@@ -3303,4 +3577,68 @@ namespace IocPerformance
             return true;
         }
     }
+
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    internal class LazyReadOnlyCollection<T> : ICollection<T>
+    {
+        private readonly Lazy<IEnumerable<T>> lazyEnumerable;
+        private readonly int count;
+
+        public LazyReadOnlyCollection(Lazy<IEnumerable<T>> lazyEnumerable, int count)
+        {
+            this.lazyEnumerable = lazyEnumerable;
+            this.count = count;
+        }
+
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+
+        public bool IsReadOnly
+        {
+            get
+            {
+                return true;
+            }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return lazyEnumerable.Value.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public void Add(T item)
+        {
+            throw new NotSupportedException();
+        }
+
+        public void Clear()
+        {
+            throw new NotSupportedException();
+        }
+
+        public bool Contains(T item)
+        {
+            return lazyEnumerable.Value.Contains(item);
+        }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            lazyEnumerable.Value.ToArray().CopyTo(array, arrayIndex);
+        }
+
+        public bool Remove(T item)
+        {
+            throw new NotSupportedException();
+        }        
+    }    
 }
