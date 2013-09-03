@@ -91,7 +91,7 @@ namespace IocPerformance.Output
 
             if (!string.IsNullOrEmpty(result.Url))
             {
-                name = string.Format("[{0}]({1})", name, result.Url);
+                name = string.Format("{0} ({1})", name, result.Url);
             }
 
             return name;
