@@ -29,6 +29,7 @@ namespace IocPerformance
             foreach (var container in containers)
             {
                 Result result = csvOutputReader.GetExistingResult(container.Name);
+                result.Url = container.Url;
 
                 if (!onlyUpdateChangedContainers || result == null || result.Version != container.Version)
                 {

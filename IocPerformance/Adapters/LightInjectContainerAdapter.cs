@@ -1,6 +1,9 @@
 ﻿using System;
 using IocPerformance.Classes.Complex;
+using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generics;
+using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
@@ -18,6 +21,20 @@ namespace IocPerformance.Adapters
         public override string Url
         {
             get { return "https://github.com/seesharper/LightInject"; }
+        }
+        public override bool SupportsConditional
+        {
+            get { return true; }
+        }
+
+        public override bool SupportGeneric
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsMultiple
+        {
+            get { return true; }
         }
 
         public override bool SupportsPropertyInjection
@@ -44,6 +61,9 @@ namespace IocPerformance.Adapters
             this.RegisterStandard();
             this.RegisterComplex();
             this.RegisterPropertyInjection();
+            this.RegisterOpenGeneric();
+            this.RegisterConditional();
+            this.RegisterMultiple();
         }
 
         private void RegisterDummies()
@@ -98,6 +118,31 @@ namespace IocPerformance.Adapters
                     SubObjectC = c.GetInstance<ISubObjectC>()
                 },
                 new PerRequestLifeTime());
+        }
+
+        private void RegisterOpenGeneric()
+        {
+            this.container.Register(typeof(IGenericInterface<>), typeof(GenericExport<>));
+            this.container.Register(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
+        }
+
+        private void RegisterConditional()
+        {
+            var container = this.container;
+            container.Register<IExportConditionInterface, ExportConditionalObject>("ExportConditionalObject");
+            container.Register<IExportConditionInterface, ExportConditionalObject2>("ExportConditionalObject2");
+            container.Register(f => new ImportConditionObject(f.GetInstance<IExportConditionInterface>("ExportConditionalObject")));
+            container.Register(f => new ImportConditionObject2(f.GetInstance<IExportConditionInterface>("ExportConditionalObject2")));
+        }
+
+        private void RegisterMultiple()
+        {
+            container.Register<ImportMultiple>();
+            container.Register<ISimpleAdapter, SimpleAdapterOne>("SimpleAdapterOne");
+            container.Register<ISimpleAdapter, SimpleAdapterTwo>("SimpleAdapterTwo");
+            container.Register<ISimpleAdapter, SimpleAdapterThree>("SimpleAdapterThree");
+            container.Register<ISimpleAdapter, SimpleAdapterFour>("SimpleAdapterFour");
+            container.Register<ISimpleAdapter, SimpleAdapterFive>("SimpleAdapterFive");
         }
     }
 }
