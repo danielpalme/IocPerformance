@@ -22,7 +22,7 @@ Results
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td>207</td><td>262</td><td>552</td><td>1475</td></tr>
 <tr><th>HaveBox 1.4.0 (https://bitbucket.org/Have/havebox)</th><th>72</th><td>107</td><td>106</td><td>144</td></tr>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>130</td><td>123</td><td>183</td><td>191</td></tr>
-<tr><th>IfInjector 0.6 (https://github.com/iamahern/IfInjector)</th><td>125</td><td>138</td><td>164</td><td>214</td></tr>
+<tr><th>IfInjector 0.6.2 (https://github.com/iamahern/IfInjector)</th><td>94</td><td>95</td><td>115</td><td>185</td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>451</td><td>2871</td><td>19797</td><td>102595</td></tr>
 <tr><th>LightInject 3.0.0.7 (https://github.com/seesharper/LightInject)</th><td>93</td><th>88</th><th>100</th><th>127</th></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td>6384</td><td>28237</td><td>70343</td><td>189899</td></tr>
@@ -53,7 +53,7 @@ Advanced Features
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>HaveBox 1.4.0 (https://bitbucket.org/Have/havebox)</th><td>829</td><td></td><td></td><td></td><th>583</th></tr>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>1880</td><td></td><td></td><td></td><td></td></tr>
-<tr><th>IfInjector 0.6 (https://github.com/iamahern/IfInjector)</th><td>314</td><td></td><td></td><td></td><td></td></tr>
+<tr><th>IfInjector 0.6.2 (https://github.com/iamahern/IfInjector)</th><td>259</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>2111</td><td>12611</td><td>30342</td><td></td><td></td></tr>
 <tr><th>LightInject 3.0.0.7 (https://github.com/seesharper/LightInject)</th><th>161</th><td>111</td><th>132</th><th>157</th><td></td></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td></td><td></td><td></td><td></td><td></td></tr>

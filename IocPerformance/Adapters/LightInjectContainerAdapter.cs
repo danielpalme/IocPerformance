@@ -22,6 +22,7 @@ namespace IocPerformance.Adapters
         {
             get { return "https://github.com/seesharper/LightInject"; }
         }
+
         public override bool SupportsConditional
         {
             get { return true; }
@@ -127,21 +128,20 @@ namespace IocPerformance.Adapters
 
         private void RegisterConditional()
         {
-            var container = this.container;
-            container.Register<IExportConditionInterface, ExportConditionalObject>("ExportConditionalObject");
-            container.Register<IExportConditionInterface, ExportConditionalObject2>("ExportConditionalObject2");
-            container.Register(f => new ImportConditionObject(f.GetInstance<IExportConditionInterface>("ExportConditionalObject")));
-            container.Register(f => new ImportConditionObject2(f.GetInstance<IExportConditionInterface>("ExportConditionalObject2")));
+            this.container.Register<IExportConditionInterface, ExportConditionalObject>("ExportConditionalObject");
+            this.container.Register<IExportConditionInterface, ExportConditionalObject2>("ExportConditionalObject2");
+            this.container.Register(f => new ImportConditionObject(f.GetInstance<IExportConditionInterface>("ExportConditionalObject")));
+            this.container.Register(f => new ImportConditionObject2(f.GetInstance<IExportConditionInterface>("ExportConditionalObject2")));
         }
 
         private void RegisterMultiple()
         {
-            container.Register<ImportMultiple>();
-            container.Register<ISimpleAdapter, SimpleAdapterOne>("SimpleAdapterOne");
-            container.Register<ISimpleAdapter, SimpleAdapterTwo>("SimpleAdapterTwo");
-            container.Register<ISimpleAdapter, SimpleAdapterThree>("SimpleAdapterThree");
-            container.Register<ISimpleAdapter, SimpleAdapterFour>("SimpleAdapterFour");
-            container.Register<ISimpleAdapter, SimpleAdapterFive>("SimpleAdapterFive");
+            this.container.Register<ImportMultiple>();
+            this.container.Register<ISimpleAdapter, SimpleAdapterOne>("SimpleAdapterOne");
+            this.container.Register<ISimpleAdapter, SimpleAdapterTwo>("SimpleAdapterTwo");
+            this.container.Register<ISimpleAdapter, SimpleAdapterThree>("SimpleAdapterThree");
+            this.container.Register<ISimpleAdapter, SimpleAdapterFour>("SimpleAdapterFour");
+            this.container.Register<ISimpleAdapter, SimpleAdapterFive>("SimpleAdapterFive");
         }
     }
 }
