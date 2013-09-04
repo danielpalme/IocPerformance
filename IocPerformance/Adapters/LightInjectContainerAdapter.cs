@@ -68,23 +68,23 @@ namespace IocPerformance.Adapters
 
         private void RegisterDummies()
         {
-            this.container.Register<IDummyOne, DummyOne>(new PerRequestLifeTime());
-            this.container.Register<IDummyTwo, DummyTwo>(new PerRequestLifeTime());
-            this.container.Register<IDummyThree, DummyThree>(new PerRequestLifeTime());
-            this.container.Register<IDummyFour, DummyFour>(new PerRequestLifeTime());
-            this.container.Register<IDummyFive, DummyFive>(new PerRequestLifeTime());
-            this.container.Register<IDummySix, DummySix>(new PerRequestLifeTime());
-            this.container.Register<IDummySeven, DummySeven>(new PerRequestLifeTime());
-            this.container.Register<IDummyEight, DummyEight>(new PerRequestLifeTime());
-            this.container.Register<IDummyNine, DummyNine>(new PerRequestLifeTime());
-            this.container.Register<IDummyTen, DummyTen>(new PerRequestLifeTime());
+            this.container.Register<IDummyOne, DummyOne>();
+            this.container.Register<IDummyTwo, DummyTwo>();
+            this.container.Register<IDummyThree, DummyThree>();
+            this.container.Register<IDummyFour, DummyFour>();
+            this.container.Register<IDummyFive, DummyFive>();
+            this.container.Register<IDummySix, DummySix>();
+            this.container.Register<IDummySeven, DummySeven>();
+            this.container.Register<IDummyEight, DummyEight>();
+            this.container.Register<IDummyNine, DummyNine>();
+            this.container.Register<IDummyTen, DummyTen>();
         }
 
         private void RegisterStandard()
         {
             this.container.Register<ISingleton, Singleton>(new PerContainerLifetime());
-            this.container.Register<ITransient, Transient>(new PerRequestLifeTime());
-            this.container.Register<ICombined, Combined>(new PerRequestLifeTime());
+            this.container.Register<ITransient, Transient>();
+            this.container.Register<ICombined, Combined>();
         }
 
         private void RegisterComplex()
@@ -96,7 +96,7 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectTwo>(c => new SubObjectTwo(c.GetInstance<ISecondService>()));
             this.container.Register<ISubObjectThree>(c => new SubObjectThree(c.GetInstance<IThirdService>()));
 
-            this.container.Register<IComplex, Complex>(new PerRequestLifeTime());
+            this.container.Register<IComplex, Complex>();
         }
 
         private void RegisterPropertyInjection()
@@ -116,8 +116,7 @@ namespace IocPerformance.Adapters
                     SubObjectA = c.GetInstance<ISubObjectA>(),
                     SubObjectB = c.GetInstance<ISubObjectB>(),
                     SubObjectC = c.GetInstance<ISubObjectC>()
-                },
-                new PerRequestLifeTime());
+                });
         }
 
         private void RegisterOpenGeneric()
