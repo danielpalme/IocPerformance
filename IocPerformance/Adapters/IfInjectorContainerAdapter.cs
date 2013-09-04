@@ -21,6 +21,11 @@ namespace IocPerformance.Adapters
             get { return "IfInjector"; }
         }
 
+        public override string Url
+        {
+            get { return "https://github.com/iamahern/IfInjector"; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.injector.Resolve(type);

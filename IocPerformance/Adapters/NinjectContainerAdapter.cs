@@ -21,6 +21,11 @@ namespace IocPerformance.Adapters
             get { return "Ninject"; }
         }
 
+        public override string Url
+        {
+            get { return "http://ninject.org"; }
+        }
+
         public override bool SupportsInterception
         {
             get { return true; }

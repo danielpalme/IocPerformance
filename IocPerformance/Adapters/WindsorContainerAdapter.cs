@@ -26,6 +26,11 @@ namespace IocPerformance.Adapters
             get { return "Castle.Windsor"; }
         }
 
+        public override string Url
+        {
+            get { return "http://castleproject.org"; }
+        }
+
         public override bool SupportsPropertyInjection
         {
             get { return true; }

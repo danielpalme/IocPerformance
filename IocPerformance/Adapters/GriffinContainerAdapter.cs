@@ -23,6 +23,11 @@ namespace IocPerformance.Adapters
             get { return "Griffin.Container"; }
         }
 
+        public override string Url
+        {
+            get { return "https://github.com/jgauffin/griffin.container"; }
+        }
+
         // The container is extremly slow, when creating proxies, so it's currently disabled
         public override bool SupportsInterception
         {

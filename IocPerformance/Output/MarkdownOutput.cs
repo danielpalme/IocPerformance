@@ -42,10 +42,8 @@ namespace IocPerformance.Output
                     foreach (var result in this.results)
                     {
                         writer.WriteLine(
-                            "<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}></tr>",
-                            result.Name,
-                            string.IsNullOrEmpty(result.Version) ? string.Empty : " ",
-                            result.Version,
+                            "<tr><th>{0}</th><t{1}>{2}</t{1}><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}></tr>",
+                            GetName(result),
                             result.SingletonTime == this.results.Skip(1).Min(r => r.SingletonTime) ? "h" : "d",
                             result.SingletonTime,
                             result.TransientTime == this.results.Skip(1).Min(r => r.TransientTime) ? "h" : "d",
@@ -64,10 +62,8 @@ namespace IocPerformance.Output
                     foreach (var result in this.results)
                     {
                         writer.WriteLine(
-                                     "<tr><th>{0}{1}{2}</th><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}><t{11}>{12}</t{11}></tr>",
-                            result.Name,
-                            result.Version == null ? string.Empty : " ",
-                            result.Version,
+                                     "<tr><th>{0}</th><t{1}>{2}</t{1}><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}></tr>",
+                            GetName(result),
                             result.PropertyInjectionTime == this.results.Skip(1).Min(r => r.PropertyInjectionTime) ? "h" : "d",
                             result.PropertyInjectionTime,
                             result.GenericTime == this.results.Skip(1).Min(r => r.GenericTime) ? "h" : "d",
@@ -83,6 +79,22 @@ namespace IocPerformance.Output
                     writer.WriteLine("</table>");
                 }
             }
+        }
+
+        private static string GetName(Result result)
+        {
+            string name = string.Format(
+                "{0}{1}{2}",
+                result.Name,
+                string.IsNullOrEmpty(result.Version) ? string.Empty : " ",
+                result.Version);
+
+            if (!string.IsNullOrEmpty(result.Url))
+            {
+                name = string.Format("{0} ({1})", name, result.Url);
+            }
+
+            return name;
         }
     }
 }

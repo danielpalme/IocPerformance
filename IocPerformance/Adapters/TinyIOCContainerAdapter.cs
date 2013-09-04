@@ -17,6 +17,11 @@ namespace IocPerformance.Adapters
             get { return "TinyIoC"; }
         }
 
+        public override string Url
+        {
+            get { return "https://github.com/grumpydev/TinyIoC"; }
+        }
+
         public override bool SupportGeneric
         {
             get { return true; }

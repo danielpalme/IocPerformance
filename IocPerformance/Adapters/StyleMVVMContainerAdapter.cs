@@ -20,6 +20,11 @@ namespace IocPerformance.Adapters
             get { return "StyleMVVM"; }
         }
 
+        public override string Url
+        {
+            get { return "http://stylemvvm.codeplex.com"; }
+        }
+
         public override bool SupportsConditional
         {
             get { return true; }

@@ -25,6 +25,11 @@ namespace IocPerformance.Adapters
             get { return "MugenInjection"; }
         }
 
+        public override string Url
+        {
+            get { return "http://mugeninjection.codeplex.com"; }
+        }
+
         public override bool SupportsConditional
         {
             get { return true; }
