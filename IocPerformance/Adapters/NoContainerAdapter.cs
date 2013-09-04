@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using IocPerformance.Classes.Complex;
+using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generics;
+using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
@@ -26,6 +29,21 @@ namespace IocPerformance.Adapters
             get { return string.Empty; }
         }
 
+        public override bool SupportsConditional
+        {
+            get { return true; }
+        }
+
+        public override bool SupportGeneric
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsMultiple
+        {
+            get { return true; }
+        }
+
         public override bool SupportsPropertyInjection
         {
             get { return true; }
@@ -46,6 +64,9 @@ namespace IocPerformance.Adapters
             this.RegisterStandard();
             this.RegisterComplex();
             this.RegisterPropertyInjection();
+            this.RegisterOpenGeneric();
+            this.RegisterConditional();
+            this.RegisterMultiple();
         }
 
         private void RegisterDummies()
@@ -105,6 +126,37 @@ namespace IocPerformance.Adapters
                     SubObjectB = new SubObjectB { ServiceB = serviceB },
                     SubObjectC = new SubObjectC { ServiceC = serviceC }
                 };
+        }
+
+        private void RegisterOpenGeneric()
+        {
+            this.container[typeof(ImportGeneric<int>)] =
+                () => new ImportGeneric<int>(new GenericExport<int>());
+        }
+
+        private void RegisterConditional()
+        {
+            this.container[typeof(ImportConditionObject)] =
+                () => new ImportConditionObject(new ExportConditionalObject());
+
+            this.container[typeof(ImportConditionObject2)] =
+                () => new ImportConditionObject2(new ExportConditionalObject2());
+        }
+
+        private void RegisterMultiple()
+        {
+            var adapters = GetAllSimpleAdapters();
+
+            this.container[typeof(ImportMultiple)] = () => new ImportMultiple(adapters);
+        }
+
+        private static IEnumerable<ISimpleAdapter> GetAllSimpleAdapters()
+        {
+            yield return new SimpleAdapterOne();
+            yield return new SimpleAdapterTwo();
+            yield return new SimpleAdapterThree();
+            yield return new SimpleAdapterFour();
+            yield return new SimpleAdapterFive();
         }
     }
 }
