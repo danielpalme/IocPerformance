@@ -3,6 +3,7 @@ using System.ComponentModel.Composition;
 
 namespace IocPerformance.Classes.Complex
 {
+    [IfInjector.ImplementedBy(typeof(Complex))]
     public interface IComplex
     {
     }
@@ -12,6 +13,7 @@ namespace IocPerformance.Classes.Complex
     {
         [ImportingConstructor]
         [Stiletto.Inject]
+        [IfInjector.Inject]
         public Complex(
             IFirstService firstService,
             ISecondService secondService,

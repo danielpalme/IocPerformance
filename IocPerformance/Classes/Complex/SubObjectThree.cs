@@ -3,6 +3,7 @@ using System.ComponentModel.Composition;
 
 namespace IocPerformance.Classes.Complex
 {
+    [IfInjector.ImplementedBy(typeof(SubObjectThree))]
     public interface ISubObjectThree
     {
     }
