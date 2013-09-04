@@ -3,6 +3,7 @@ using System.ComponentModel.Composition;
 
 namespace IocPerformance.Classes.Standard
 {
+    [IfInjector.ImplementedBy(typeof(Combined))]
     public interface ICombined
     {
         void DoSomething();

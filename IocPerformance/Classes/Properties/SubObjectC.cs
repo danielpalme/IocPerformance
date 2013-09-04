@@ -7,6 +7,7 @@ using UnityAttr = Microsoft.Practices.Unity;
 
 namespace IocPerformance.Classes.Properties
 {
+    [IfInjector.ImplementedBy(typeof(SubObjectC))]
     public interface ISubObjectC
     {
         void Verify(string containerName);
@@ -23,6 +24,7 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
+        [IfInjector.Inject]
         public IServiceC ServiceC { get; set; }
 
         public void Verify(string containerName)
