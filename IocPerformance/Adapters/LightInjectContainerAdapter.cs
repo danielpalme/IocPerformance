@@ -92,9 +92,9 @@ namespace IocPerformance.Adapters
             this.container.Register<IFirstService, FirstService>(new PerContainerLifetime());
             this.container.Register<ISecondService, SecondService>(new PerContainerLifetime());
             this.container.Register<IThirdService, ThirdService>(new PerContainerLifetime());
-            this.container.Register<ISubObjectOne>(c => new SubObjectOne(c.GetInstance<IFirstService>()), new PerRequestLifeTime());
-            this.container.Register<ISubObjectTwo>(c => new SubObjectTwo(c.GetInstance<ISecondService>()), new PerRequestLifeTime());
-            this.container.Register<ISubObjectThree>(c => new SubObjectThree(c.GetInstance<IThirdService>()), new PerRequestLifeTime());
+            this.container.Register<ISubObjectOne>(c => new SubObjectOne(c.GetInstance<IFirstService>()));
+            this.container.Register<ISubObjectTwo>(c => new SubObjectTwo(c.GetInstance<ISecondService>()));
+            this.container.Register<ISubObjectThree>(c => new SubObjectThree(c.GetInstance<IThirdService>()));
 
             this.container.Register<IComplex, Complex>(new PerRequestLifeTime());
         }
@@ -104,9 +104,9 @@ namespace IocPerformance.Adapters
             this.container.Register<IServiceA, ServiceA>(new PerContainerLifetime());
             this.container.Register<IServiceB, ServiceB>(new PerContainerLifetime());
             this.container.Register<IServiceC, ServiceC>(new PerContainerLifetime());
-            this.container.Register<ISubObjectA>(c => new SubObjectA { ServiceA = c.GetInstance<IServiceA>() }, new PerRequestLifeTime());
-            this.container.Register<ISubObjectB>(c => new SubObjectB { ServiceB = c.GetInstance<IServiceB>() }, new PerRequestLifeTime());
-            this.container.Register<ISubObjectC>(c => new SubObjectC { ServiceC = c.GetInstance<IServiceC>() }, new PerRequestLifeTime());
+            this.container.Register<ISubObjectA>(c => new SubObjectA { ServiceA = c.GetInstance<IServiceA>() });
+            this.container.Register<ISubObjectB>(c => new SubObjectB { ServiceB = c.GetInstance<IServiceB>() });
+            this.container.Register<ISubObjectC>(c => new SubObjectC { ServiceC = c.GetInstance<IServiceC>() });
             this.container.Register<IComplexPropertyObject>(
                 c => new ComplexPropertyObject
                 {

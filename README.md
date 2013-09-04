@@ -24,7 +24,7 @@ Results
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>130</td><td>123</td><td>183</td><td>191</td></tr>
 <tr><th>IfInjector 0.6 (https://github.com/iamahern/IfInjector)</th><td>125</td><td>138</td><td>164</td><td>214</td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>451</td><td>2871</td><td>19797</td><td>102595</td></tr>
-<tr><th>LightInject 3.0.0.7 (https://github.com/seesharper/LightInject)</th><td>108</td><td>171</td><td>252</td><td>451</td></tr>
+<tr><th>LightInject 3.0.0.7 (https://github.com/seesharper/LightInject)</th><td>88</td><td>159</td><td>240</td><td>205</td></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td>6384</td><td>28237</td><td>70343</td><td>189899</td></tr>
 <tr><th>Mef 4.0.0.0 (http://mef.codeplex.com)</th><td>36949</td><td>40471</td><td>67467</td><td>131693</td></tr>
 <tr><th>MicroSliver 2.1.6.0 (http://microsliver.codeplex.com)</th><td>335</td><td>956</td><td>3057</td><td>8282</td></tr>
@@ -55,7 +55,7 @@ Advanced Features
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>1880</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>IfInjector 0.6 (https://github.com/iamahern/IfInjector)</th><td>314</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>2111</td><td>12611</td><td>30342</td><td></td><td></td></tr>
-<tr><th>LightInject 3.0.0.7 (https://github.com/seesharper/LightInject)</th><td>455</td><th>102</th><th>176</th><th>172</th><td></td></tr>
+<tr><th>LightInject 3.0.0.7 (https://github.com/seesharper/LightInject)</th><td>229</td><td>109</td><th>132</th><th>161</th><td></td></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Mef 4.0.0.0 (http://mef.codeplex.com)</th><td>139083</td><td>156400</td><td>103587</td><td></td><td></td></tr>
 <tr><th>MicroSliver 2.1.6.0 (http://microsliver.codeplex.com)</th><td></td><td></td><td></td><td></td><td></td></tr>
@@ -63,7 +63,7 @@ Advanced Features
 <tr><th>Munq 3.1.6 (http://munq.codeplex.com)</th><td>1160</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Ninject 3.0.1.10 (http://ninject.org)</th><td>131647</td><td>57254</td><td>113691</td><td>79990</td><td>26303</td></tr>
 <tr><th>Petite 0.3.2 (https://github.com/andlju/Petite)</th><td>9532</td><td></td><td></td><td></td><td></td></tr>
-<tr><th>SimpleInjector 2.3.5 (http://simpleinjector.codeplex.com)</th><th>186</th><td>107</td><td>259</td><td>383</td><td>6235</td></tr>
+<tr><th>SimpleInjector 2.3.5 (http://simpleinjector.codeplex.com)</th><th>186</th><th>107</th><td>259</td><td>383</td><td>6235</td></tr>
 <tr><th>Spring.NET 1.3.2 (http://www.springframework.net/)</th><td>98173</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>StructureMap 2.6.4.1 (http://structuremap.net/structuremap)</th><td>19103</td><td>4577</td><td>19800</td><td></td><td>11168</td></tr>
 <tr><th>StyleMVVM 3.1.1 (http://stylemvvm.codeplex.com)</th><td>1300</td><td>1064</td><td>2734</td><td>2136</td><td></td></tr>
