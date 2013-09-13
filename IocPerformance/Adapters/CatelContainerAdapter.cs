@@ -24,7 +24,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://catel.codeplex.com"; }
+            get { return "http://www.catelproject.com"; }
         }
 
         public override bool SupportGeneric
