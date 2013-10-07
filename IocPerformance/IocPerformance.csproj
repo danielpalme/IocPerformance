@@ -76,9 +76,8 @@
     <Reference Include="Griffin.Container.Interception">
       <HintPath>..\packages\Griffin.Container.Interception.1.0.0\lib\net40\Griffin.Container.Interception.dll</HintPath>
     </Reference>
-    <Reference Include="HaveBox, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HaveBox.1.4.0\lib\net45\HaveBox.dll</HintPath>
+    <Reference Include="HaveBox">
+      <HintPath>..\packages\HaveBox.1.5.0\lib\net45\HaveBox.dll</HintPath>
     </Reference>
     <Reference Include="Hiro, Version=0.1.0.19167, Culture=neutral, PublicKeyToken=f0efb83db47c0105, processorArchitecture=MSIL">
       <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.dll</HintPath>
@@ -89,9 +88,8 @@
     <Reference Include="Hiro.Web">
       <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.Web.dll</HintPath>
     </Reference>
-    <Reference Include="IfInjector, Version=1.0.4993.38914, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IfInjector.0.6\lib\portable-win+net45+sl40+wp71\IfInjector.dll</HintPath>
+    <Reference Include="IfInjector">
+      <HintPath>..\packages\IfInjector.0.6.2\lib\portable-win+net45+sl40+wp71\IfInjector.dll</HintPath>
     </Reference>
     <Reference Include="LightCore, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
