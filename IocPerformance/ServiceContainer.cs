@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 ******************************************************************************
-   LightInject version 3.0.0.7 
+   LightInject version 3.0.0.8 
    http://www.lightinject.net/
    http://twitter.com/bernhardrichter
 ******************************************************************************/
@@ -278,6 +278,12 @@ namespace IocPerformance
         /// <typeparam name="TService">The target service type.</typeparam>
         /// <param name="factory">A factory delegate used to create a decorator instance.</param>
         void Decorate<TService>(Expression<Func<IServiceFactory, TService, TService>> factory);
+
+        /// <summary>
+        /// Registers a decorator based on a <see cref="DecoratorRegistration"/> instance.
+        /// </summary>
+        /// <param name="decoratorRegistration">The <see cref="DecoratorRegistration"/> instance that contains the decorator metadata.</param>
+        void Decorate(DecoratorRegistration decoratorRegistration);
     }
 
     /// <summary>
@@ -1075,9 +1081,8 @@ namespace IocPerformance
         /// should be applied to the target <paramref name="serviceType"/>.</param>
         public void Decorate(Type serviceType, Type decoratorType, Func<ServiceRegistration, bool> predicate)
         {
-            var decoratorInfo = new DecoratorRegistration { ServiceType = serviceType, ImplementingType = decoratorType, CanDecorate = predicate };
-            int index = decorators.Add(decoratorInfo);
-            decoratorInfo.Index = index;            
+            var decoratorRegistration = new DecoratorRegistration { ServiceType = serviceType, ImplementingType = decoratorType, CanDecorate = predicate };
+            Decorate(decoratorRegistration);
         }
 
         /// <summary>
@@ -1107,9 +1112,14 @@ namespace IocPerformance
         /// <param name="factory">A factory delegate used to create a decorator instance.</param>
         public void Decorate<TService>(Expression<Func<IServiceFactory, TService, TService>> factory)
         {
-            var decoratorInfo = new DecoratorRegistration { FactoryExpression = factory, ServiceType = typeof(TService), CanDecorate = si => true };
-            int index = decorators.Add(decoratorInfo);
-            decoratorInfo.Index = index;            
+            var decoratorRegistration = new DecoratorRegistration { FactoryExpression = factory, ServiceType = typeof(TService), CanDecorate = si => true };
+            Decorate(decoratorRegistration);            
+        }
+
+        public void Decorate(DecoratorRegistration decoratorRegistration)
+        {
+            int index = decorators.Add(decoratorRegistration);
+            decoratorRegistration.Index = index;            
         }
 
         /// <summary>
@@ -1639,32 +1649,46 @@ namespace IocPerformance
 
         private void EmitNewInstance(ServiceRegistration serviceRegistration, IMethodSkeleton dynamicMethodSkeleton)
         {
-            var serviceDecorators = GetDecorators(serviceRegistration.ServiceType);
+            var serviceDecorators = GetDecorators(serviceRegistration);
             if (serviceDecorators.Length > 0)
             {
-                EmitDecorators(serviceRegistration, serviceDecorators, dynamicMethodSkeleton, dm => DoEmitNewInstance(GetConstructionInfo(serviceRegistration), dm));
+                EmitDecorators(serviceRegistration, serviceDecorators, dynamicMethodSkeleton, dm => DoEmitNewInstance(serviceRegistration, dm));
             }
             else
             {
-                DoEmitNewInstance(GetConstructionInfo(serviceRegistration), dynamicMethodSkeleton);
+                DoEmitNewInstance(serviceRegistration, dynamicMethodSkeleton);
             }
         }
 
-        private DecoratorRegistration[] GetDecorators(Type serviceType)
+        private DecoratorRegistration[] GetDecorators(ServiceRegistration serviceRegistration)
         {
-            var registeredDecorators = decorators.Items.Where(d => d.ServiceType == serviceType).ToList();
-            if (serviceType.IsGenericType())
+            var registeredDecorators = decorators.Items.Where(d => d.ServiceType == serviceRegistration.ServiceType).ToList();
+            if (serviceRegistration.ServiceType.IsGenericType())
             {
-                var openGenericServiceType = serviceType.GetGenericTypeDefinition();
+                var openGenericServiceType = serviceRegistration.ServiceType.GetGenericTypeDefinition();
                 var openGenericDecorators = decorators.Items.Where(d => d.ServiceType == openGenericServiceType);
                 foreach (DecoratorRegistration openGenericDecorator in openGenericDecorators)
                 {
-                    var closedGenericDecoratorType = openGenericDecorator.ImplementingType.MakeGenericType(ReflectionHelper.GetGenericArguments(serviceType));
-                    var decoratorInfo = new DecoratorRegistration { ServiceType = serviceType, ImplementingType = closedGenericDecoratorType, CanDecorate = openGenericDecorator.CanDecorate };
+                    var closedGenericDecoratorType = openGenericDecorator.ImplementingType.MakeGenericType(ReflectionHelper.GetGenericArguments(serviceRegistration.ServiceType));
+                    var decoratorInfo = new DecoratorRegistration { ServiceType = serviceRegistration.ServiceType, ImplementingType = closedGenericDecoratorType, CanDecorate = openGenericDecorator.CanDecorate };
                     registeredDecorators.Add(decoratorInfo);
                 }
             }
 
+            var deferredDecorators =
+                decorators.Items.Where(ds => ds.CanDecorate(serviceRegistration) && ds.HasDeferredImplementingType);
+            foreach (var deferredDecorator in deferredDecorators)
+            {
+                var decoratorRegistration = new DecoratorRegistration()
+                {
+                    ServiceType = serviceRegistration.ServiceType,
+                    ImplementingType =
+                        deferredDecorator.ImplementingTypeFactory(this, serviceRegistration),                           
+                    CanDecorate = sr => true
+                };
+                registeredDecorators.Add(decoratorRegistration);                
+            }
+            
             return registeredDecorators.OrderBy(d => d.Index).ToArray();
         }
 
@@ -1702,16 +1726,27 @@ namespace IocPerformance
             generator.Emit(OpCodes.Callvirt, invokeMethod);
         }
 
-        private void DoEmitNewInstance(ConstructionInfo constructionInfo, IMethodSkeleton dynamicMethodSkeleton)
+        private void DoEmitNewInstance(ServiceRegistration serviceRegistration, IMethodSkeleton dynamicMethodSkeleton)
         {
-            if (constructionInfo.FactoryDelegate != null)
+            if (serviceRegistration.Value != null)
             {
-                EmitNewInstanceUsingFactoryDelegate(constructionInfo.FactoryDelegate, dynamicMethodSkeleton);
+                int index = constants.Add(serviceRegistration.Value);
+                Type serviceType = serviceRegistration.ServiceType;
+                EmitLoadConstant(dynamicMethodSkeleton, index, serviceType);                
             }
             else
             {
-                EmitNewInstanceUsingImplementingType(dynamicMethodSkeleton, constructionInfo, null);
-            }
+                var constructionInfo = GetConstructionInfo(serviceRegistration);
+
+                if (constructionInfo.FactoryDelegate != null)
+                {
+                    EmitNewInstanceUsingFactoryDelegate(constructionInfo.FactoryDelegate, dynamicMethodSkeleton);
+                }
+                else
+                {
+                    EmitNewInstanceUsingImplementingType(dynamicMethodSkeleton, constructionInfo, null);
+                }    
+            }                        
         }
 
         private void EmitDecorators(ServiceRegistration serviceRegistration, IEnumerable<DecoratorRegistration> serviceDecorators, IMethodSkeleton dynamicMethodSkeleton, Action<IMethodSkeleton> decoratorTargetEmitter)
@@ -1722,7 +1757,7 @@ namespace IocPerformance
                 {
                     continue;
                 }
-
+                
                 Action<IMethodSkeleton> currentDecoratorTargetEmitter = decoratorTargetEmitter;
                 DecoratorRegistration currentDecorator = decorator;
                 decoratorTargetEmitter = dm => DoEmitDecoratorInstance(currentDecorator, dynamicMethodSkeleton, currentDecoratorTargetEmitter);
@@ -1781,7 +1816,9 @@ namespace IocPerformance
             return (Delegate)closedGenericMethod.Invoke(this, new object[] { del });
         }
 
+        // ReSharper disable UnusedMember.Local
         private Func<T> CreateGenericDynamicMethodDelegate<T>(Func<object> del)
+        // ReSharper restore UnusedMember.Local
         {            
             return () => (T)del();
         }
@@ -2052,16 +2089,9 @@ namespace IocPerformance
             var serviceRegistration = new ServiceRegistration { ServiceType = serviceType, ImplementingType = implementingType, ServiceName = serviceName, Lifetime = lifetime };
             Register(serviceRegistration);         
         }
-
+        
         private Action<IMethodSkeleton> ResolveEmitDelegate(ServiceRegistration serviceRegistration)
-        {
-            if (serviceRegistration.Value != null)
-            {
-                int index = constants.Add(serviceRegistration.Value);
-                Type serviceType = serviceRegistration.ServiceType;
-                return methodSkeleton => EmitLoadConstant(methodSkeleton, index, serviceType);
-            }
-            
+        {                    
             if (serviceRegistration.Lifetime == null)
             {
                 return methodSkeleton => EmitNewInstance(serviceRegistration, methodSkeleton);
@@ -2069,7 +2099,7 @@ namespace IocPerformance
 
             return methodSkeleton => EmitLifetime(serviceRegistration, ms => EmitNewInstance(serviceRegistration, ms), methodSkeleton);
         }
-
+        
         private void EmitLifetime(ServiceRegistration serviceRegistration, Action<IMethodSkeleton> instanceEmitter, IMethodSkeleton dynamicMethodSkeleton)
         {
             if (serviceRegistration.Lifetime is PerContainerLifetime)
@@ -2148,7 +2178,7 @@ namespace IocPerformance
         
         private void RegisterValue(Type serviceType, object value, string serviceName)
         {
-            var serviceRegistration = new ServiceRegistration { ServiceType = serviceType, ServiceName = serviceName, Value = value };
+            var serviceRegistration = new ServiceRegistration { ServiceType = serviceType, ServiceName = serviceName, Value = value, Lifetime = new PerContainerLifetime() };
             Register(serviceRegistration);            
         }
 
@@ -2292,7 +2322,7 @@ namespace IocPerformance
             private void CreateDynamicMethod()
             {
                 dynamicMethod = new DynamicMethod(
-                    "DynamicMethod", typeof(object), new[] { typeof(object[]) }, typeof(ServiceContainer).Module, false);
+                    "DynamicMethod", typeof(object), new[] { typeof(object[]) }, typeof(ServiceContainer).Module, true);
             }
         }
 
@@ -2341,7 +2371,13 @@ namespace IocPerformance
         /// when creating a new instance of the <paramref name="implementingType"/>.</returns>
         public ConstructorInfo Execute(Type implementingType)
         {
-            return implementingType.GetConstructors().OrderBy(c => c.GetParameters().Count()).LastOrDefault();
+            ConstructorInfo constructorInfo = implementingType.GetConstructors().OrderBy(c => c.GetParameters().Count()).LastOrDefault();
+            if (constructorInfo == null)
+            {
+                throw new InvalidOperationException("Missing public constructor for Type: " + implementingType.FullName);
+            }
+
+            return constructorInfo;
         }
     }
 
@@ -2799,7 +2835,7 @@ namespace IocPerformance
         /// <summary>
         /// Gets or sets the <see cref="Type"/> that implements the <see cref="Registration.ServiceType"/>.
         /// </summary>
-        public Type ImplementingType { get; internal set; }
+        public virtual Type ImplementingType { get; internal set; }
 
         /// <summary>
         /// Gets or sets the <see cref="LambdaExpression"/> used to create a service instance.
@@ -2820,9 +2856,25 @@ namespace IocPerformance
         public Func<ServiceRegistration, bool> CanDecorate { get; internal set; }
 
         /// <summary>
+        /// Gets or sets a <see cref="Lazy{T}"/> that defers resolving of the decorators implementing type.
+        /// </summary>
+        public Func<IServiceFactory, ServiceRegistration, Type> ImplementingTypeFactory { get; internal set; }
+
+        /// <summary>
         /// Gets or sets the index of this <see cref="DecoratorRegistration"/>.
         /// </summary>
         public int Index { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether this registration has a deferred implementing type.
+        /// </summary>
+        public bool HasDeferredImplementingType
+        {
+            get
+            {
+                return ImplementingType == null && FactoryExpression == null;
+            }
+        }       
     }
 
     /// <summary>
@@ -3384,8 +3436,11 @@ namespace IocPerformance
         /// <returns>A set of concrete types found in the given <paramref name="assembly"/>.</returns>
         public IEnumerable<Type> Execute(Assembly assembly)
         {
-            return assembly.GetTypes().Where(t => t.IsClass() && !t.IsNestedPrivate()
-                && !t.IsAbstract() && !(t.Namespace ?? string.Empty).StartsWith("System") && !IsCompilerGenerated(t)).Except(InternalTypes);
+            return assembly.GetTypes().Where(t => t.IsClass()
+                                               && !t.IsNestedPrivate()
+                                               && !t.IsAbstract() 
+                                               && !(t.Namespace ?? string.Empty).StartsWith("System") 
+                                               && !IsCompilerGenerated(t)).Except(InternalTypes);
         }
 
         private static bool IsCompilerGenerated(Type type)

@@ -2,6 +2,7 @@
 using HaveBox;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
@@ -21,7 +22,7 @@ namespace IocPerformance.Adapters
         {
             get { return "https://bitbucket.org/Have/havebox"; }
         }
-        
+
         public override bool SupportsPropertyInjection
         {
             get { return true; }
@@ -31,6 +32,11 @@ namespace IocPerformance.Adapters
         {
             get { return true; }
         }
+
+        //public override bool SupportsMultiple
+        //{
+        //    get { return true; }
+        //}
 
         public override object Resolve(Type type)
         {
@@ -52,6 +58,7 @@ namespace IocPerformance.Adapters
             this.RegisterComplex();
             this.RegisterPropertyInjection();
             this.RegisterInterceptor();
+            //this.RegisterMultiple();
         }
 
         private void RegisterDummies()
@@ -110,6 +117,20 @@ namespace IocPerformance.Adapters
         private void RegisterInterceptor()
         {
             this.container.Configure(config => config.For<ICalculator>().Use<Calculator>().AndInterceptMethodsWith<HaveBoxInterceptionLogger>());
+        }
+
+        private void RegisterMultiple()
+        {
+            this.container.Configure(config =>
+            {
+                // TODO: The following line fails
+                config.For<ImportMultiple>().Use<ImportMultiple>();
+                config.For<ISimpleAdapter>().Use<SimpleAdapterOne>();
+                config.For<ISimpleAdapter>().Use<SimpleAdapterTwo>();
+                config.For<ISimpleAdapter>().Use<SimpleAdapterThree>();
+                config.For<ISimpleAdapter>().Use<SimpleAdapterFour>();
+                config.For<ISimpleAdapter>().Use<SimpleAdapterFive>();
+            });
         }
     }
 }
