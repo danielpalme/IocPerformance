@@ -45,16 +45,16 @@ namespace IocPerformance.Adapters
 
         private void RegisterDummies()
         {
-            this.injector.Bind<IDummyOne, DummyOne>();
-            this.injector.Bind<IDummyTwo, DummyTwo>();
-            this.injector.Bind<IDummyThree, DummyThree>();
-            this.injector.Bind<IDummyFour, DummyFour>();
-            this.injector.Bind<IDummyFive, DummyFive>();
-            this.injector.Bind<IDummySix, DummySix>();
-            this.injector.Bind<IDummySeven, DummySeven>();
-            this.injector.Bind<IDummyEight, DummyEight>();
-            this.injector.Bind<IDummyNine, DummyNine>();
-            this.injector.Bind<IDummyTen, DummyTen>();
+            this.injector.Register(Binding.For<IDummyOne>().To<DummyOne>());
+            this.injector.Register(Binding.For<IDummyTwo>().To<DummyTwo>());
+            this.injector.Register(Binding.For<IDummyThree>().To<DummyThree>());
+            this.injector.Register(Binding.For<IDummyFour>().To<DummyFour>());
+            this.injector.Register(Binding.For<IDummyFive>().To<DummyFive>());
+            this.injector.Register(Binding.For<IDummySix>().To<DummySix>());
+            this.injector.Register(Binding.For<IDummySeven>().To<DummySeven>());
+            this.injector.Register(Binding.For<IDummyEight>().To<DummyEight>());
+            this.injector.Register(Binding.For<IDummyNine>().To<DummyNine>());
+            this.injector.Register(Binding.For<IDummyTen>().To<DummyTen>());
         }
     }
 }
