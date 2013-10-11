@@ -16,11 +16,6 @@ namespace IocPerformance.Adapters
     {
         private IContainer container;
 
-        public override string Name
-        {
-            get { return "Autofac"; }
-        }
-
         public override string PackageName
         {
             get { return "Autofac"; }
@@ -123,9 +118,9 @@ namespace IocPerformance.Adapters
             autofacContainerBuilder.Register(c => new ServiceB()).As<IServiceB>().SingleInstance();
             autofacContainerBuilder.Register(c => new ServiceC()).As<IServiceC>().SingleInstance();
 
-            autofacContainerBuilder.Register(c => new SubObjectA {ServiceA = c.Resolve<IServiceA>()}).As<ISubObjectA>();
-            autofacContainerBuilder.Register(c => new SubObjectB {ServiceB = c.Resolve<IServiceB>()}).As<ISubObjectB>();
-            autofacContainerBuilder.Register(c => new SubObjectC {ServiceC = c.Resolve<IServiceC>()}).As<ISubObjectC>();
+            autofacContainerBuilder.Register(c => new SubObjectA { ServiceA = c.Resolve<IServiceA>() }).As<ISubObjectA>();
+            autofacContainerBuilder.Register(c => new SubObjectB { ServiceB = c.Resolve<IServiceB>() }).As<ISubObjectB>();
+            autofacContainerBuilder.Register(c => new SubObjectC { ServiceC = c.Resolve<IServiceC>() }).As<ISubObjectC>();
 
             autofacContainerBuilder.Register(c => new ComplexPropertyObject
             {

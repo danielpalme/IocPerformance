@@ -13,7 +13,7 @@ Results
 <table>
 <tr><th>Container</th><th>Singleton</th><th>Transient</th><th>Combined</th><th>Complex</th></tr>
 <tr><th>No</th><td>81</td><td>88</td><td>97</td><td>106</td></tr>
-<tr><th>AutoFac 3.1.1 (http://code.google.com/p/autofac)</th><td>1137</td><td>1722</td><td>3976</td><td>10883</td></tr>
+<tr><th>Autofac 3.1.1 (http://code.google.com/p/autofac)</th><td>1152</td><td>798</td><td>1866</td><td>5591</td></tr>
 <tr><th>Caliburn.Micro 1.5.2 (http://caliburnmicro.codeplex.com)</th><td>435</td><td>409</td><td>1132</td><td>4488</td></tr>
 <tr><th>Catel 3.6 (http://www.catelproject.com)</th><td>277</td><td>1756</td><td>4241</td><td>11326</td></tr>
 <tr><th>Dynamo 3.0.2.0 (http://www.dynamoioc.com)</th><td>98</td><td>105</td><td>164</td><td>444</td></tr>
@@ -22,7 +22,7 @@ Results
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td>207</td><td>262</td><td>552</td><td>1475</td></tr>
 <tr><th>HaveBox 1.5.0 (https://bitbucket.org/Have/havebox)</th><th>77</th><th>92</th><th>100</th><td>146</td></tr>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>130</td><td>123</td><td>183</td><td>191</td></tr>
-<tr><th>IfInjector 0.6.2 (https://github.com/iamahern/IfInjector)</th><td>94</td><td>95</td><td>115</td><td>185</td></tr>
+<tr><th>IfInjector 0.7 (https://github.com/iamahern/IfInjector)</th><td>111</td><td>130</td><td>148</td><td>258</td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>451</td><td>2871</td><td>19797</td><td>102595</td></tr>
 <tr><th>LightInject 3.0.0.8 (https://github.com/seesharper/LightInject)</th><td>95</td><td>110</td><td>118</td><th>138</th></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td>6384</td><td>28237</td><td>70343</td><td>189899</td></tr>
@@ -44,7 +44,7 @@ Advanced Features
 <table>
 <tr><th>Container</th><th>Property</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th><th>Interception</th></tr>
 <tr><th>No</th><td>118</td><td>89</td><td>193</td><td>157</td><td></td></tr>
-<tr><th>AutoFac 3.1.1 (http://code.google.com/p/autofac)</th><td>20592</td><td>3495</td><td>10055</td><td></td><td>30659</td></tr>
+<tr><th>Autofac 3.1.1 (http://code.google.com/p/autofac)</th><td>5546</td><td>3970</td><td>5692</td><td></td><td>29582</td></tr>
 <tr><th>Caliburn.Micro 1.5.2 (http://caliburnmicro.codeplex.com)</th><td>5810</td><td></td><td>5222</td><td></td><td></td></tr>
 <tr><th>Catel 3.6 (http://www.catelproject.com)</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Dynamo 3.0.2.0 (http://www.dynamoioc.com)</th><td>584</td><td></td><td></td><td></td><td></td></tr>
@@ -53,7 +53,7 @@ Advanced Features
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>HaveBox 1.5.0 (https://bitbucket.org/Have/havebox)</th><td>919</td><td></td><td></td><td></td><th>567</th></tr>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>1880</td><td></td><td></td><td></td><td></td></tr>
-<tr><th>IfInjector 0.6.2 (https://github.com/iamahern/IfInjector)</th><td>259</td><td></td><td></td><td></td><td></td></tr>
+<tr><th>IfInjector 0.7 (https://github.com/iamahern/IfInjector)</th><td>394</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>2111</td><td>12611</td><td>30342</td><td></td><td></td></tr>
 <tr><th>LightInject 3.0.0.8 (https://github.com/seesharper/LightInject)</th><th>148</th><th>93</th><th>137</th><th>171</th><td></td></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td></td><td></td><td></td><td></td><td></td></tr>
