@@ -88,8 +88,9 @@
     <Reference Include="Hiro.Web">
       <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.Web.dll</HintPath>
     </Reference>
-    <Reference Include="IfInjector">
-      <HintPath>..\packages\IfInjector.0.6.2\lib\portable-win+net45+sl40+wp71\IfInjector.dll</HintPath>
+    <Reference Include="IfInjector, Version=0.7.0.41843, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\IfInjector.0.7\lib\portable-win+net45+sl40+wp71\IfInjector.dll</HintPath>
     </Reference>
     <Reference Include="LightCore, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
