@@ -33,10 +33,10 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
-        //public override bool SupportsMultiple
-        //{
-        //    get { return true; }
-        //}
+        public override bool SupportsMultiple
+        {
+            get { return true; }
+        }
 
         public override object Resolve(Type type)
         {
@@ -58,7 +58,7 @@ namespace IocPerformance.Adapters
             this.RegisterComplex();
             this.RegisterPropertyInjection();
             this.RegisterInterceptor();
-            //this.RegisterMultiple();
+            this.RegisterMultiple();
         }
 
         private void RegisterDummies()
@@ -123,7 +123,6 @@ namespace IocPerformance.Adapters
         {
             this.container.Configure(config =>
             {
-                // TODO: The following line fails
                 config.For<ImportMultiple>().Use<ImportMultiple>();
                 config.For<ISimpleAdapter>().Use<SimpleAdapterOne>();
                 config.For<ISimpleAdapter>().Use<SimpleAdapterTwo>();

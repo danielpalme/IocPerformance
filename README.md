@@ -17,10 +17,10 @@ Results
 <tr><th>Caliburn.Micro 1.5.2 (http://caliburnmicro.codeplex.com)</th><td>435</td><td>409</td><td>1132</td><td>4488</td></tr>
 <tr><th>Catel 3.6 (http://www.catelproject.com)</th><td>277</td><td>1756</td><td>4241</td><td>11326</td></tr>
 <tr><th>Dynamo 3.0.2.0 (http://www.dynamoioc.com)</th><td>98</td><td>105</td><td>164</td><td>444</td></tr>
-<tr><th>fFastInjector 0.8.1 (http://ffastinjector.codeplex.com)</th><td>86</td><td>113</td><td>140</td><td>216</td></tr>
+<tr><th>fFastInjector 0.8.1 (http://ffastinjector.codeplex.com)</th><th>86</th><td>113</td><td>140</td><td>216</td></tr>
 <tr><th>Funq 1.0.0.0 (http://funq.codeplex.com)</th><td>127</td><td>131</td><td>289</td><td>952</td></tr>
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td>207</td><td>262</td><td>552</td><td>1475</td></tr>
-<tr><th>HaveBox 1.5.0 (https://bitbucket.org/Have/havebox)</th><th>77</th><th>92</th><th>100</th><td>146</td></tr>
+<tr><th>HaveBox 1.5.0 (https://bitbucket.org/Have/havebox)</th><td>97</td><th>100</th><th>113</th><td>160</td></tr>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>130</td><td>123</td><td>183</td><td>191</td></tr>
 <tr><th>IfInjector 0.7 (https://github.com/iamahern/IfInjector)</th><td>111</td><td>130</td><td>148</td><td>258</td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>451</td><td>2871</td><td>19797</td><td>102595</td></tr>
@@ -51,7 +51,7 @@ Advanced Features
 <tr><th>fFastInjector 0.8.1 (http://ffastinjector.codeplex.com)</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Funq 1.0.0.0 (http://funq.codeplex.com)</th><td>962</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><th>HaveBox 1.5.0 (https://bitbucket.org/Have/havebox)</th><td>919</td><td></td><td></td><td></td><th>567</th></tr>
+<tr><th>HaveBox 1.5.0 (https://bitbucket.org/Have/havebox)</th><td>916</td><td></td><td>320</td><td></td><th>591</th></tr>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>1880</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>IfInjector 0.7 (https://github.com/iamahern/IfInjector)</th><td>394</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>2111</td><td>12611</td><td>30342</td><td></td><td></td></tr>
