@@ -70,6 +70,10 @@
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
+    <Reference Include="Grace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Grace.1.0.0\lib\portable-windows8+net45\Grace.dll</HintPath>
+    </Reference>
     <Reference Include="Griffin.Container">
       <HintPath>..\packages\Griffin.Container.1.1.0\lib\net40\Griffin.Container.dll</HintPath>
     </Reference>
@@ -190,6 +194,7 @@
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
     <Compile Include="Adapters\ContainerAdapterBase.cs" />
+    <Compile Include="Adapters\GraceContainerAdapter.cs" />
     <Compile Include="Adapters\IfInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\HaveBoxContainerAdapter.cs" />
     <Compile Include="Adapters\FFastInjectorContainerAdapter.cs" />
