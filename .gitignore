@@ -11,6 +11,7 @@
 /packages/CommonServiceLocator*
 /packages/Dynamo.Ioc*
 /packages/fFastInjector*
+/packages/Grace*
 /packages/Griffin.Container*
 /packages/HaveBox*
 /packages/Hiro*

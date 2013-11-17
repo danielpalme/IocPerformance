@@ -6,6 +6,7 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using LightInject;
 
 namespace IocPerformance.Adapters
 {
