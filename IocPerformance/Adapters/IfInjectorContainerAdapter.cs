@@ -1,9 +1,6 @@
 ﻿using System;
 using IfInjector;
-using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
-using IocPerformance.Classes.Properties;
-using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {
@@ -23,10 +20,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportGeneric
         {
-            get
-            {
-                return true;
-            }
+            get { return true; }
         }
 
         public override string Url

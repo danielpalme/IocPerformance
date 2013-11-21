@@ -23,7 +23,7 @@ Results
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td>207</td><td>262</td><td>552</td><td>1475</td></tr>
 <tr><th>HaveBox 1.6.0 (https://bitbucket.org/Have/havebox)</th><td>99</td><td>107</td><td>99</td><th>144</th></tr>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>130</td><td>123</td><td>183</td><td>191</td></tr>
-<tr><th>IfInjector 0.7 (https://github.com/iamahern/IfInjector)</th><td>111</td><td>130</td><td>148</td><td>258</td></tr>
+<tr><th>IfInjector 0.8 (https://github.com/iamahern/IfInjector)</th><td>99</td><td>110</td><td>122</td><td>169</td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>451</td><td>2871</td><td>19797</td><td>102595</td></tr>
 <tr><th>LightInject 3.0.1.0 (https://github.com/seesharper/LightInject)</th><td>95</td><td>114</td><th>97</th><td>148</td></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td>6384</td><td>28237</td><td>70343</td><td>189899</td></tr>
@@ -55,7 +55,7 @@ Advanced Features
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>HaveBox 1.6.0 (https://bitbucket.org/Have/havebox)</th><td>904</td><td></td><td>441</td><td></td><th>621</th></tr>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>1880</td><td></td><td></td><td></td><td></td></tr>
-<tr><th>IfInjector 0.7 (https://github.com/iamahern/IfInjector)</th><td>394</td><td></td><td></td><td></td><td></td></tr>
+<tr><th>IfInjector 0.8 (https://github.com/iamahern/IfInjector)</th><td>264</td><td>116</td><td></td><td></td><td></td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>2111</td><td>12611</td><td>30342</td><td></td><td></td></tr>
 <tr><th>LightInject 3.0.1.0 (https://github.com/seesharper/LightInject)</th><th>140</th><td>114</td><th>139</th><th>165</th><td></td></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td></td><td></td><td></td><td></td><td></td></tr>
