@@ -21,6 +21,14 @@ namespace IocPerformance.Adapters
             get { return "IfInjector"; }
         }
 
+        public override bool SupportGeneric
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         public override string Url
         {
             get { return "https://github.com/iamahern/IfInjector"; }
