@@ -93,11 +93,11 @@
     <Reference Include="Hiro.Web">
       <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.Web.dll</HintPath>
     </Reference>
-    <Reference Include="IfInjector, Version=0.7.0.41843, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="IfInjector, Version=0.7.1.31658, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IfInjector.0.7\lib\portable-win+net45+sl40+wp71\IfInjector.dll</HintPath>
+      <HintPath>..\packages\IfInjector.0.8\lib\portable-win+net45+sl40+wp71\IfInjector.dll</HintPath>
     </Reference>
-    <Reference Include="LightCore, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+	<Reference Include="LightCore, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LightCore.1.5.1\lib\net40\LightCore.dll</HintPath>
     </Reference>

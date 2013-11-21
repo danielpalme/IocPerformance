@@ -1,6 +1,7 @@
 
 *.suo
 *proj.user
+/IocPerformance.userprefs
 /IocPerformance/bin
 /IocPerformance/obj
 /packages/Autofac*
