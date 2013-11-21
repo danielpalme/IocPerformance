@@ -22,8 +22,7 @@ namespace IocPerformance
 
             foreach (var container in containers)
             {
-                if (container.Name.Contains("IfInjector") || container.Name.Contains("SimpleInjector"))
-                    yield return container;
+                yield return container;
             }
         }
     }
