@@ -46,15 +46,15 @@
     </Reference>
     <Reference Include="Castle.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Castle.Core.3.2.1\lib\net45\Castle.Core.dll</HintPath>
+      <HintPath>..\packages\Castle.Core.3.2.2\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Catel.Core, Version=3.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Catel.Core, Version=3.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Catel.Core.3.7\lib\net45\Catel.Core.dll</HintPath>
+      <HintPath>..\packages\Catel.Core.3.8\lib\net45\Catel.Core.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging, Version=2.1.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -80,9 +80,9 @@
     <Reference Include="Griffin.Container.Interception">
       <HintPath>..\packages\Griffin.Container.Interception.1.0.0\lib\net40\Griffin.Container.Interception.dll</HintPath>
     </Reference>
-    <Reference Include="HaveBox, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="HaveBox, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HaveBox.1.6.0\lib\net45\HaveBox.dll</HintPath>
+      <HintPath>..\packages\HaveBox.1.6.1\lib\net45\HaveBox.dll</HintPath>
     </Reference>
     <Reference Include="Hiro, Version=0.1.0.19167, Culture=neutral, PublicKeyToken=f0efb83db47c0105, processorArchitecture=MSIL">
       <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.dll</HintPath>
@@ -93,9 +93,9 @@
     <Reference Include="Hiro.Web">
       <HintPath>..\packages\Hiro.1.0.3\lib\Hiro.Web.dll</HintPath>
     </Reference>
-    <Reference Include="IfInjector, Version=0.7.1.31658, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="IfInjector, Version=0.8.1.42024, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IfInjector.0.8\lib\portable-win+net45+sl40+wp71\IfInjector.dll</HintPath>
+      <HintPath>..\packages\IfInjector.0.8.1\lib\portable-win+net45+sl40+wp71\IfInjector.dll</HintPath>
     </Reference>
     <Reference Include="LightCore, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -109,8 +109,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LightCore.1.5.1\lib\net40\LightCore.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="LightInject">
-      <HintPath>..\packages\LightInject.3.0.1.0\lib\net45\LightInject.dll</HintPath>
+    <Reference Include="LightInject, Version=3.0.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LightInject.3.0.1.2\lib\net45\LightInject.dll</HintPath>
     </Reference>
     <Reference Include="LinFu.Core, Version=2.3.0.41559, Culture=neutral, PublicKeyToken=a4c63a184389506f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -166,9 +167,12 @@
     <Reference Include="Ninject.Extensions.Interception.LinFu">
       <HintPath>..\packages\Ninject.Extensions.Interception.Linfu.3.0.0.8\lib\net35\Ninject.Extensions.Interception.LinFu.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector, Version=2.3.6.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+    <Reference Include="SimpleInjector, Version=2.4.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SimpleInjector.2.3.6\lib\net40-client\SimpleInjector.dll</HintPath>
+      <HintPath>..\packages\SimpleInjector.2.4.0\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Diagnostics">
+      <HintPath>..\packages\SimpleInjector.2.4.0\lib\net45\SimpleInjector.Diagnostics.dll</HintPath>
     </Reference>
     <Reference Include="Speedioc">
       <HintPath>..\packages\Speedioc.0.1.33\lib\net40\Speedioc.dll</HintPath>
