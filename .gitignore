@@ -20,6 +20,7 @@
 /packages/LightCore*
 /packages/LightInject*
 /packages/LinFu.Core*
+/packages/Maestro*
 /packages/MicroSliver*
 /packages/MugenInjection*
 /packages/Munq.IocContainer*
@@ -37,3 +38,4 @@
 /packages/Stiletto*
 /packages/Fody*
 *.Cache
+_ReSharper*
