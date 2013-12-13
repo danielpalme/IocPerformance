@@ -17,6 +17,14 @@ namespace IocPerformance.Adapters
             get { return "Spring.Core"; }
         }
 
+        public override bool SupportsInterception
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         public override string Url
         {
             get { return "http://www.springframework.net/"; }

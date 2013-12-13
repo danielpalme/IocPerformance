@@ -10,6 +10,12 @@ using LightInject;
 
 namespace IocPerformance.Adapters
 {
+    using System.Runtime.Remoting.Messaging;
+
+    using IocPerformance.Interception;
+
+    using LightInject.Interception;
+
     public sealed class LightInjectContainerAdapter : ContainerAdapterBase
     {
         private IServiceContainer container;
@@ -22,6 +28,11 @@ namespace IocPerformance.Adapters
         public override string Url
         {
             get { return "https://github.com/seesharper/LightInject"; }
+        }
+
+        public override bool SupportsInterception
+        {
+            get { return true; }
         }
 
         public override bool SupportsConditional
@@ -66,6 +77,12 @@ namespace IocPerformance.Adapters
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
+            this.RegisterInterceptor();            
+        }
+
+        private void RegisterInterceptor()
+        {
+            this.container.Intercept(sr => sr.ServiceType == typeof(ICalculator), factory => new LightInjectInterceptionLogger());
         }
 
         private void RegisterDummies()
@@ -87,6 +104,7 @@ namespace IocPerformance.Adapters
             this.container.Register<ISingleton, Singleton>(new PerContainerLifetime());
             this.container.Register<ITransient, Transient>();
             this.container.Register<ICombined, Combined>();
+            this.container.Register<ICalculator, Calculator>();
         }
 
         private void RegisterComplex()
