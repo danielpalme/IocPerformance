@@ -21,11 +21,11 @@ Results
 <tr><th>Funq 1.0.0.0 (http://funq.codeplex.com)</th><td>127</td><td>131</td><td>289</td><td>952</td></tr>
 <tr><th>Grace 1.0 (http://grace.codeplex.com)</th><td>471</td><td>444</td><td>686</td><td>1707</td></tr>
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td>207</td><td>262</td><td>552</td><td>1475</td></tr>
-<tr><th>HaveBox 1.6.1 (https://bitbucket.org/Have/havebox)</th><td>102</td><th>99</th><th>113</th><td>158</td></tr>
+<tr><th>HaveBox 1.6.1 (https://bitbucket.org/Have/havebox)</th><td>102</td><td>99</td><th>113</th><td>158</td></tr>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>130</td><td>123</td><td>183</td><td>191</td></tr>
 <tr><th>IfInjector 0.8.1 (https://github.com/iamahern/IfInjector)</th><td>109</td><td>127</td><td>135</td><td>176</td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>451</td><td>2871</td><td>19797</td><td>102595</td></tr>
-<tr><th>LightInject 3.0.1.2 (https://github.com/seesharper/LightInject)</th><td>104</td><td>123</td><td>123</td><th>146</th></tr>
+<tr><th>LightInject 3.0.1.2 (https://github.com/seesharper/LightInject)</th><td>115</td><th>97</th><td>117</td><th>141</th></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td>6384</td><td>28237</td><td>70343</td><td>189899</td></tr>
 <tr><th>Maestro 1.3.1 (https://github.com/JonasSamuelsson/Maestro)</th><td>532</td><td>456</td><td>1249</td><td>3542</td></tr>
 <tr><th>Mef 4.0.0.0 (http://mef.codeplex.com)</th><td>36949</td><td>40471</td><td>67467</td><td>131693</td></tr>
@@ -58,7 +58,7 @@ Advanced Features
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>1880</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>IfInjector 0.8.1 (https://github.com/iamahern/IfInjector)</th><td>295</td><td>125</td><td></td><td></td><td></td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>2111</td><td>12611</td><td>30342</td><td></td><td></td></tr>
-<tr><th>LightInject 3.0.1.2 (https://github.com/seesharper/LightInject)</th><th>166</th><td>118</td><th>155</th><th>202</th><td></td></tr>
+<tr><th>LightInject 3.0.1.2 (https://github.com/seesharper/LightInject)</th><th>146</th><th>110</th><th>148</th><th>175</th><td>1060</td></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Maestro 1.3.1 (https://github.com/JonasSamuelsson/Maestro)</th><td>6238</td><td>878</td><td>6153</td><td>2250</td><td>7305</td></tr>
 <tr><th>Mef 4.0.0.0 (http://mef.codeplex.com)</th><td>139083</td><td>156400</td><td>103587</td><td></td><td></td></tr>
@@ -67,7 +67,7 @@ Advanced Features
 <tr><th>Munq 3.1.6 (http://munq.codeplex.com)</th><td>1160</td><td></td><td></td><td></td><td></td></tr>
 <tr><th>Ninject 3.0.1.10 (http://ninject.org)</th><td>131647</td><td>57254</td><td>113691</td><td>79990</td><td>26303</td></tr>
 <tr><th>Petite 0.3.2 (https://github.com/andlju/Petite)</th><td>9532</td><td></td><td></td><td></td><td></td></tr>
-<tr><th>SimpleInjector 2.4.0 (http://simpleinjector.codeplex.com)</th><td>205</td><th>111</th><td>260</td><td>395</td><td>9627</td></tr>
+<tr><th>SimpleInjector 2.4.0 (http://simpleinjector.codeplex.com)</th><td>205</td><td>111</td><td>260</td><td>395</td><td>9627</td></tr>
 <tr><th>Spring.NET 1.3.2 (http://www.springframework.net/)</th><td>96779</td><td></td><td></td><td></td><td>61985</td></tr>
 <tr><th>StructureMap 2.6.4.1 (http://structuremap.net/structuremap)</th><td>19103</td><td>4577</td><td>19800</td><td></td><td>11168</td></tr>
 <tr><th>StyleMVVM 3.1.4 (http://stylemvvm.codeplex.com)</th><td>1316</td><td>1042</td><td>2604</td><td>1992</td><td></td></tr>
