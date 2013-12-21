@@ -44,7 +44,7 @@ Results
 </table>
 Advanced Features
 <table>
-<tr><th>Container</th><th>Property</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th><th>Child Container</th><th>Interception</th></tr>
+<tr><th>Container</th><th>Property</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th></tr>
 <tr><th>No</th><td>123</td><td>90</td><td>221</td><td>164</td>
 <tr><th>Autofac 3.1.5 (http://code.google.com/p/autofac)</th><td>5714</td><td>4514</td><td>5905</td><td></td>
 <tr><th>Caliburn.Micro 1.5.2 (http://caliburnmicro.codeplex.com)</th><td>7395</td><td></td><td>6304</td><td></td>
