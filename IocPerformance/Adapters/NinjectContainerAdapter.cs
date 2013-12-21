@@ -1,4 +1,5 @@
 ﻿using System;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -8,6 +9,7 @@ using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using Ninject;
+using Ninject.Extensions.ChildKernel;
 using Ninject.Extensions.Interception.Infrastructure.Language;
 
 namespace IocPerformance.Adapters
@@ -51,7 +53,17 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
-        public override object Resolve(Type type)
+	    public override bool SupportsChildContainer
+	    {
+		    get { return true; }
+	    }
+
+	    public override IChildContainerAdapter CreateChildContainerAdapter()
+	    {
+		    return new NInjectChildContainerAdapter(new ChildKernel(container));
+	    }
+
+	    public override object Resolve(Type type)
         {
             return this.container.Get(type);
         }
@@ -59,6 +71,7 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
+			   this.container.Dispose();
             this.container = null;
         }
 
@@ -155,4 +168,30 @@ namespace IocPerformance.Adapters
                  .Intercept().With(new NinjectInterceptionLogger());
         }
     }
+
+	public class NInjectChildContainerAdapter : IChildContainerAdapter
+	{
+		private ChildKernel childKernel;
+
+		public NInjectChildContainerAdapter(ChildKernel childKernel)
+		{
+			this.childKernel = childKernel;
+		}
+
+		public void Dispose()
+		{
+			childKernel.Dispose();
+		}
+
+		public void Prepare()
+		{
+			childKernel.Bind<ITransient>().To<ScopedTransient>();
+			childKernel.Bind<ICombined>().To<ScopedCombined>();
+		}
+
+		public object Resolve(Type resolveType)
+		{
+			return childKernel.Get(resolveType);
+		}
+	}
 }

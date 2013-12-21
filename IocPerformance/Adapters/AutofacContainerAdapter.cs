@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Autofac;
 using Autofac.Extras.DynamicProxy2;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
@@ -46,7 +47,17 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
-        public override object Resolve(Type type)
+	    public override bool SupportsChildContainer
+	    {
+		    get { return true; }
+	    }
+
+	    public override IChildContainerAdapter CreateChildContainerAdapter()
+	    {
+		    return new AutofacChildContainerAdapter(container.BeginLifetimeScope());
+	    }
+
+	    public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
         }
@@ -54,6 +65,7 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
+			   this.container.Dispose();
             this.container = null;
         }
 
@@ -157,4 +169,35 @@ namespace IocPerformance.Adapters
                                           .EnableInterfaceInterceptors();
         }
     }
+
+	public class AutofacChildContainerAdapter : IChildContainerAdapter
+	{
+		private ILifetimeScope lifetimeScope;
+
+		public AutofacChildContainerAdapter(ILifetimeScope lifetimeScope)
+		{
+			this.lifetimeScope = lifetimeScope;
+		}
+
+		public void Dispose()
+		{
+			lifetimeScope.Dispose();
+		}
+
+		public void Prepare()
+		{
+			var autofacContainerBuilder = new ContainerBuilder();
+
+			autofacContainerBuilder.Register(c => new ScopedTransient()).As<ITransient>();
+			autofacContainerBuilder.Register(c => new ScopedCombined(c.Resolve<ITransient>(), c.Resolve<ISingleton>()))
+				.As<ICombined>();
+
+			autofacContainerBuilder.Update(lifetimeScope.ComponentRegistry);
+		}
+
+		public object Resolve(Type resolveType)
+		{
+			return lifetimeScope.Resolve(resolveType);
+		}
+	}
 }

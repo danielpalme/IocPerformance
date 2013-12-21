@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Multiple;
@@ -39,7 +40,12 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
-        public override object Resolve(Type type)
+	    public override bool SupportsChildContainer
+	    {
+		    get { return true; }
+	    }
+
+	    public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
         }
@@ -47,10 +53,16 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
+			   this.container.Dispose();
             this.container = null;
         }
 
-        public override void Prepare()
+	    public override IChildContainerAdapter CreateChildContainerAdapter()
+	    {
+		    return new UnityChildContainerAdapter(container.CreateChildContainer());
+	    }
+
+	    public override void Prepare()
         {
             this.container = new UnityContainer();
             this.container.AddNewExtension<Microsoft.Practices.Unity.InterceptionExtension.Interception>();
@@ -126,4 +138,30 @@ namespace IocPerformance.Adapters
                  .SetInterceptorFor<ICalculator>(new InterfaceInterceptor());
         }
     }
+
+	public class UnityChildContainerAdapter : IChildContainerAdapter
+	{
+		private IUnityContainer childContainer;
+
+		public UnityChildContainerAdapter(IUnityContainer childContainer)
+		{
+			this.childContainer = childContainer;
+		}
+
+		public void Dispose()
+		{
+			childContainer.Dispose();
+		}
+
+		public void Prepare()
+		{
+			childContainer.RegisterType(typeof(ICombined), typeof(ScopedCombined));
+			childContainer.RegisterType(typeof(ITransient), typeof(ScopedTransient));
+		}
+
+		public object Resolve(Type resolveType)
+		{
+			return childContainer.Resolve(resolveType);
+		}
+	}
 }

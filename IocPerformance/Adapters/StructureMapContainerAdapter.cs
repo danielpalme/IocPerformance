@@ -1,5 +1,6 @@
 ﻿using System;
 using Castle.DynamicProxy;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
@@ -50,7 +51,12 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
-        public override object Resolve(Type type)
+	    public override bool SupportsChildContainer
+	    {
+		    get { return true; }
+	    }
+
+	    public override object Resolve(Type type)
         {
             return this.container.GetInstance(type);
         }
@@ -58,10 +64,16 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
+			   this.container.Dispose();
             this.container = null;
         }
 
-        public override void Prepare()
+	    public override IChildContainerAdapter CreateChildContainerAdapter()
+	    {
+			 return new StructureMapChildContainerAdapter(container.GetNestedContainer());
+	    }
+
+	    public override void Prepare()
         {
             var pg = new Castle.DynamicProxy.ProxyGenerator();
 
@@ -155,4 +167,33 @@ namespace IocPerformance.Adapters
              .EnrichWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator>(c, new StructureMapInterceptionLogger()));
         }
     }
+
+	public class StructureMapChildContainerAdapter : IChildContainerAdapter
+	{
+		private readonly IContainer container;
+
+		public StructureMapChildContainerAdapter(IContainer container)
+		{
+			this.container = container;
+		}
+
+		public void Dispose()
+		{
+			container.Dispose();
+		}
+
+		public void Prepare()
+		{
+			container.Configure(c =>
+			                    {
+				                    c.For<ICombined>().Use<ScopedCombined>();
+				                    c.For<ITransient>().Use<ScopedTransient>();
+			                    });
+		}
+
+		public object Resolve(Type resolveType)
+		{
+			return container.GetInstance(resolveType);
+		}
+	}
 }

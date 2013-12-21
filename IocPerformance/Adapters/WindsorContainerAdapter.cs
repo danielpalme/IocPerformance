@@ -2,6 +2,7 @@
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
@@ -51,7 +52,12 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
-        public override object Resolve(Type type)
+	    public override bool SupportsChildContainer
+	    {
+		    get { return true; }
+	    }
+
+	    public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
         }
@@ -59,10 +65,20 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
+			   this.container.Dispose();
             this.container = null;
         }
 
-        public override void Prepare()
+	    public override IChildContainerAdapter CreateChildContainerAdapter()
+	    {
+			 WindsorContainer childContainer = new WindsorContainer();
+
+			 container.AddChildContainer(childContainer);
+
+		    return new WindsorChildContainerAdapter(childContainer);
+	    }
+
+	     public override void Prepare()
         {
             this.container = new WindsorContainer();
 
@@ -147,4 +163,30 @@ namespace IocPerformance.Adapters
                  Component.For<ICalculator>().ImplementedBy<Calculator>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
         }
     }
+
+	public class WindsorChildContainerAdapter : IChildContainerAdapter
+	{
+		private IWindsorContainer container;
+
+		public WindsorChildContainerAdapter(IWindsorContainer container)
+		{
+			this.container = container;
+		}
+
+		public void Dispose()
+		{
+			this.container.Dispose();
+		}
+
+		public void Prepare()
+		{
+			container.Register(Component.For<ITransient>().ImplementedBy<ScopedTransient>());
+			container.Register(Component.For<ICombined>().ImplementedBy<ScopedCombined>());
+		}
+
+		public object Resolve(Type resolveType)
+		{
+			return container.Resolve(resolveType);
+		}
+	}
 }

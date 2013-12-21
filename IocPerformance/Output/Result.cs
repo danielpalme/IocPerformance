@@ -24,6 +24,8 @@
 
         public long? MultipleImport { get; set; }
 
+		  public long? ChildContainerTime { get; set; }
+
         public long? InterceptionTime { get; set; }
     }
 }

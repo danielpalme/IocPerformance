@@ -56,8 +56,9 @@ namespace IocPerformance.Output
             result.PropertyInjectionTime = parts[6] == "0" ? (long?)null : long.Parse(parts[6]);
             result.GenericTime = parts[7] == "0" ? (long?)null : long.Parse(parts[7]);
             result.MultipleImport = parts[8] == "0" ? (long?)null : long.Parse(parts[8]);
-            result.ConditionalTime = parts[9] == "0" ? (long?)null : long.Parse(parts[9]);
-            result.InterceptionTime = parts[10] == "0" ? (long?)null : long.Parse(parts[10]);
+				result.ConditionalTime = parts[9] == "0" ? (long?)null : long.Parse(parts[9]);
+				result.ChildContainerTime = parts[10] == "0" ? (long?)null : long.Parse(parts[9]);
+            result.InterceptionTime = parts[11] == "0" ? (long?)null : long.Parse(parts[10]);
 
             return result;
         }
