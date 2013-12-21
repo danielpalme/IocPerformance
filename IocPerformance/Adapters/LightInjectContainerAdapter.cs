@@ -77,7 +77,7 @@ namespace IocPerformance.Adapters
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
-            this.RegisterInterceptor();            
+            this.RegisterInterceptor();
         }
 
         private void RegisterInterceptor()

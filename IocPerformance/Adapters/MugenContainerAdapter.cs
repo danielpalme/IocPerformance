@@ -69,7 +69,7 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             this.container = new MugenInjector();
-
+			  
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();

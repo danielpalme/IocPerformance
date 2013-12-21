@@ -62,7 +62,7 @@ namespace IocPerformance.Output
                     foreach (var result in this.results)
                     {
                         writer.WriteLine(
-												 "<tr><th>{0}</th><t{1}>{2}</t{1}><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}><t{9}>{10}</t{9}><t{11}>{12}</t{11}></tr>",
+												 "<tr><th>{0}</th><t{1}>{2}</t{1}><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}>",
                             GetName(result),
                             result.PropertyInjectionTime == this.results.Skip(1).Min(r => r.PropertyInjectionTime) ? "h" : "d",
                             result.PropertyInjectionTime,
@@ -79,6 +79,22 @@ namespace IocPerformance.Output
                     }
 
                     writer.WriteLine("</table>");
+						  writer.WriteLine("Additional Advanced Features");
+						  writer.WriteLine("<table>");
+						  writer.WriteLine("<tr><th>Container</th><th>Child Container</th><th>Interception</th></tr>");
+
+						  foreach (var result in this.results)
+						  {
+							  writer.WriteLine(
+												"<tr><th>{0}</th><t{1}>{2}</t{1}><t{3}>{4}</t{3}>",
+									GetName(result),
+									result.ChildContainerTime == this.results.Skip(1).Min(r => r.ChildContainerTime) ? "h" : "d",
+									result.ChildContainerTime,
+									result.InterceptionTime == this.results.Skip(1).Min(r => r.InterceptionTime) ? "h" : "d",
+									result.InterceptionTime);
+						  }
+
+						  writer.WriteLine("</table>");
                 }
             }
         }
