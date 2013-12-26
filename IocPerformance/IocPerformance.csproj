@@ -214,6 +214,7 @@
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
     <Compile Include="Adapters\ContainerAdapterBase.cs" />
+    <Compile Include="Adapters\DryIocAdapter.cs" />
     <Compile Include="Adapters\GraceContainerAdapter.cs" />
     <Compile Include="Adapters\IfInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\HaveBoxContainerAdapter.cs" />
@@ -293,6 +294,9 @@
     <Compile Include="Classes\Standard\Transient.cs" />
     <Compile Include="Conditional\SimpleInjectorContextDependentExtensions.cs" />
     <Compile Include="ContainerAdapterFactory.cs" />
+    <Compile Include="DryIoc\Container.cs" />
+    <Compile Include="DryIoc\FactoryCompiler.cs" />
+    <Compile Include="DryIoc\InternalsVisibleToFactoryCompilerDynamicAssembly.cs" />
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
     <Compile Include="Interception\HaveBoxInterceptionLogger.cs" />
     <Compile Include="Interception\LightInjectInterceptionLogger.cs" />
