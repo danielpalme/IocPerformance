@@ -37,5 +37,6 @@
 /packages/Caliburn.Micro.Container*
 /packages/Stiletto*
 /packages/Fody*
+/packages/DryIoc*
 *.Cache
 _ReSharper*
