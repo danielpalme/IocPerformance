@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using System.Reflection;
+using DryIoc;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -8,7 +9,6 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
-using DryIoc;
 
 namespace IocPerformance.Adapters
 {
@@ -24,7 +24,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "dryioc"; }
+            get { return "https://bitbucket.org/dadhi/dryioc"; }
         }
 
         public override bool SupportsConditional
@@ -114,7 +114,7 @@ namespace IocPerformance.Adapters
         {
             container.ResolutionRules.PropertiesAndFields =
                 container.ResolutionRules.PropertiesAndFields.Append(ResolvePropertyWithImportAttribute);
-            
+
             this.container.Register<IServiceA, ServiceA>(Reuse.Singleton);
             this.container.Register<IServiceB, ServiceB>(Reuse.Singleton);
             this.container.Register<IServiceC, ServiceC>(Reuse.Singleton);
@@ -141,7 +141,7 @@ namespace IocPerformance.Adapters
                 new FactoryProvider((request, _) =>
                 {
                     var parent = request.GetNonWrapperParentOrDefault();
-                    var implType = parent != null && 
+                    var implType = parent != null &&
                         parent.ImplementationType == typeof(ImportConditionObject)
                         ? typeof(ExportConditionalObject)
                         : typeof(ExportConditionalObject2);
@@ -164,7 +164,9 @@ namespace IocPerformance.Adapters
             key = null;
             var attributes = member.GetCustomAttributes(typeof(ImportAttribute), false);
             if (attributes.Length == 0)
+            {
                 return false;
+            }
 
             key = ((ImportAttribute)attributes[0]).ContractName;
             return true;
