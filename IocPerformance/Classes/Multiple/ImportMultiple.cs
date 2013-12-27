@@ -19,7 +19,10 @@ namespace IocPerformance.Classes.Multiple
             foreach (var adapter in adapters)
             {
                 if (adapter == null)
+                {
                     throw new ArgumentException("adapters item should be not null");
+                }
+
                 ++adapterCount;
             }
 
