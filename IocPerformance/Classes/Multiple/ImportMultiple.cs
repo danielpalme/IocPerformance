@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Linq;
 
 namespace IocPerformance.Classes.Multiple
 {
@@ -16,7 +15,13 @@ namespace IocPerformance.Classes.Multiple
                 throw new ArgumentNullException("adapters");
             }
 
-            int adapterCount = adapters.Count();
+            int adapterCount = 0;
+            foreach (var adapter in adapters)
+            {
+                if (adapter == null)
+                    throw new ArgumentException("adapters item should be not null");
+                ++adapterCount;
+            }
 
             if (adapterCount != 5)
             {
