@@ -1,4 +1,5 @@
 ﻿using System;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
@@ -44,6 +45,11 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsChildContainer
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
@@ -53,6 +59,11 @@ namespace IocPerformance.Adapters
         {
             // Allow the container and everything it references to be disposed.
             this.container = null;
+        }
+
+        public override IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            return new TinyIoCChildContainerAdapter(this.container.GetChildContainer());
         }
 
         public override void Prepare()
@@ -126,6 +137,32 @@ namespace IocPerformance.Adapters
         {
             this.container.Register(typeof(IGenericInterface<>), typeof(GenericExport<>));
             this.container.Register(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
+        }
+    }
+
+    public class TinyIoCChildContainerAdapter : IChildContainerAdapter
+    {
+        private TinyIoCContainer childContainer;
+
+        public TinyIoCChildContainerAdapter(TinyIoCContainer childContainer)
+        {
+            this.childContainer = childContainer;
+        }
+
+        public void Dispose()
+        {
+            this.childContainer.Dispose();
+        }
+
+        public void Prepare()
+        {
+            this.childContainer.Register(typeof(ICombined), typeof(ScopedCombined));
+            this.childContainer.Register(typeof(ITransient), typeof(ScopedTransient));
+        }
+
+        public object Resolve(Type resolveType)
+        {
+            return this.childContainer.Resolve(resolveType);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -8,6 +9,7 @@ using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using MugenInjection;
+using MugenInjection.Interface;
 
 namespace IocPerformance.Adapters
 {
@@ -53,6 +55,18 @@ namespace IocPerformance.Adapters
         public override bool SupportsInterception
         {
             get { return true; }
+        }
+
+        public override bool SupportsChildContainer
+        {
+            get { return true; }
+        }
+
+        public override IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            IInjector injector = this.container.CreateChild();
+
+            return new MugenChildContainerAdapter(injector);
         }
 
         public override object Resolve(Type type)
@@ -159,6 +173,32 @@ namespace IocPerformance.Adapters
         private void RegisterInterceptor()
         {
             this.container.Bind<ICalculator>().To<Calculator>().InTransientScope().InterceptAsTarget(new MugenInjectionInterceptionLogger());
+        }
+    }
+
+    public class MugenChildContainerAdapter : IChildContainerAdapter
+    {
+        private readonly IInjector injector;
+
+        public MugenChildContainerAdapter(IInjector injector)
+        {
+            this.injector = injector;
+        }
+
+        public void Dispose()
+        {
+            this.injector.Dispose();
+        }
+
+        public void Prepare()
+        {
+            this.injector.Bind<ITransient>().To<ScopedTransient>().InTransientScope();
+            this.injector.Bind<ICombined>().To<ScopedCombined>().InSingletonScope();
+        }
+
+        public object Resolve(Type resolveType)
+        {
+            return this.injector.Get(resolveType);
         }
     }
 }

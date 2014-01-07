@@ -2,6 +2,7 @@
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
@@ -51,6 +52,11 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsChildContainer
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
@@ -59,7 +65,17 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
+            this.container.Dispose();
             this.container = null;
+        }
+
+        public override IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            WindsorContainer childContainer = new WindsorContainer();
+
+            this.container.AddChildContainer(childContainer);
+
+            return new WindsorChildContainerAdapter(childContainer);
         }
 
         public override void Prepare()
@@ -145,6 +161,32 @@ namespace IocPerformance.Adapters
             this.container.Register(Component.For<WindsorInterceptionLogger>());
             this.container.Register(
                  Component.For<ICalculator>().ImplementedBy<Calculator>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
+        }
+    }
+
+    public class WindsorChildContainerAdapter : IChildContainerAdapter
+    {
+        private IWindsorContainer container;
+
+        public WindsorChildContainerAdapter(IWindsorContainer container)
+        {
+            this.container = container;
+        }
+
+        public void Dispose()
+        {
+            this.container.Dispose();
+        }
+
+        public void Prepare()
+        {
+            this.container.Register(Component.For<ITransient>().ImplementedBy<ScopedTransient>());
+            this.container.Register(Component.For<ICombined>().ImplementedBy<ScopedCombined>());
+        }
+
+        public object Resolve(Type resolveType)
+        {
+            return this.container.Resolve(resolveType);
         }
     }
 }

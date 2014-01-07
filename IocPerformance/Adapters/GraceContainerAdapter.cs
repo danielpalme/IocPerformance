@@ -1,5 +1,6 @@
 ﻿using System;
 using Grace.DependencyInjection;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -25,14 +26,6 @@ namespace IocPerformance.Adapters
             get { return "http://grace.codeplex.com"; }
         }
 
-        public override string Version
-        {
-            get
-            {
-                return "1.0";
-            }
-        }
-
         public override bool SupportsPropertyInjection
         {
             get { return true; }
@@ -56,6 +49,16 @@ namespace IocPerformance.Adapters
         public override bool SupportsInterception
         {
             get { return true; }
+        }
+
+        public override bool SupportsChildContainer
+        {
+            get { return true; }
+        }
+
+        public override IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            return new GraceChildContainerAdapter(this.container.CreateChildScope());
         }
 
         public override object Resolve(Type type)
@@ -192,6 +195,38 @@ namespace IocPerformance.Adapters
 
                     c.Export<ComplexPropertyObject>().As<IComplexPropertyObject>().AutoWireProperties();
                 });
+        }
+    }
+
+    public class GraceChildContainerAdapter : IChildContainerAdapter
+    {
+        private IInjectionScope injectionScope;
+
+        public GraceChildContainerAdapter(IInjectionScope injectionScope)
+        {
+            this.injectionScope = injectionScope;
+        }
+
+        public void Dispose()
+        {
+            this.injectionScope.Dispose();
+        }
+
+        public void Prepare()
+        {
+            this.injectionScope.Configure(c =>
+            {
+                // SimpleExport was written specifically to register a class very quickly
+                // it doesn't support Property injection or method injection
+                // but you can do those with an Enrichment delegate
+                c.SimpleExport<ScopedCombined>().As<ICombined>();
+                c.SimpleExport<ScopedTransient>().As<ITransient>();
+            });
+        }
+
+        public object Resolve(Type resolveType)
+        {
+            return this.injectionScope.Locate(resolveType);
         }
     }
 }

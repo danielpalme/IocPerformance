@@ -22,10 +22,14 @@ namespace IocPerformance.Adapters
 
         bool SupportsPropertyInjection { get; }
 
+        bool SupportsChildContainer { get; }
+
         void Prepare();
 
         object Resolve(Type type);
 
         object ResolveProxy(Type type);
+
+        IChildContainerAdapter CreateChildContainerAdapter();
     }
 }

@@ -6,16 +6,12 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using IocPerformance.Interception;
 using LightInject;
+using LightInject.Interception;
 
 namespace IocPerformance.Adapters
 {
-    using System.Runtime.Remoting.Messaging;
-
-    using IocPerformance.Interception;
-
-    using LightInject.Interception;
-
     public sealed class LightInjectContainerAdapter : ContainerAdapterBase
     {
         private IServiceContainer container;
@@ -77,7 +73,7 @@ namespace IocPerformance.Adapters
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
-            this.RegisterInterceptor();            
+            this.RegisterInterceptor();
         }
 
         private void RegisterInterceptor()

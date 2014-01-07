@@ -126,7 +126,7 @@ namespace IocPerformance.Adapters
                     SubObjectA = x.Resolve<ISubObjectA>(),
                     SubObjectB = x.Resolve<ISubObjectB>(),
                     SubObjectC = x.Resolve<ISubObjectC>()
-                }, 
+                },
                 Lifetime.Transient);
         }
     }

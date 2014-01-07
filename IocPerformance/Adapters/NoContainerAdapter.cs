@@ -69,6 +69,15 @@ namespace IocPerformance.Adapters
             this.RegisterMultiple();
         }
 
+        private static IEnumerable<ISimpleAdapter> GetAllSimpleAdapters()
+        {
+            yield return new SimpleAdapterOne();
+            yield return new SimpleAdapterTwo();
+            yield return new SimpleAdapterThree();
+            yield return new SimpleAdapterFour();
+            yield return new SimpleAdapterFive();
+        }
+
         private void RegisterDummies()
         {
             this.container[typeof(IDummyOne)] = () => new DummyOne();
@@ -148,15 +157,6 @@ namespace IocPerformance.Adapters
             var adapters = GetAllSimpleAdapters();
 
             this.container[typeof(ImportMultiple)] = () => new ImportMultiple(adapters);
-        }
-
-        private static IEnumerable<ISimpleAdapter> GetAllSimpleAdapters()
-        {
-            yield return new SimpleAdapterOne();
-            yield return new SimpleAdapterTwo();
-            yield return new SimpleAdapterThree();
-            yield return new SimpleAdapterFour();
-            yield return new SimpleAdapterFive();
         }
     }
 }

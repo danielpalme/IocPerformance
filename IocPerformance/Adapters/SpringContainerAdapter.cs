@@ -19,8 +19,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsInterception
         {
-            get
-            { return true; }
+            get { return true; }
         }
 
         public override string Url

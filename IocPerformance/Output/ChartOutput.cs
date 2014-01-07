@@ -84,7 +84,14 @@ namespace IocPerformance.Output
                 .OrderByDescending(r => r.ConditionalTime.Value)
                 .Select(r => new Tuple<string, double>(r.Name, r.ConditionalTime.Value)));
             this.CreateChart(
-                "output\\09-Interception.png",
+                "output\\09-Child.png",
+                this.results.AsEnumerable()
+                .Skip(1)
+                .Where(r => r.ChildContainerTime.HasValue)
+                .OrderByDescending(r => r.ChildContainerTime.Value)
+                .Select(r => new Tuple<string, double>(r.Name, r.ChildContainerTime.Value)));
+            this.CreateChart(
+                "output\\10-Interception.png",
                 this.results.AsEnumerable()
                 .Skip(1)
                 .Where(r => r.InterceptionTime.HasValue)

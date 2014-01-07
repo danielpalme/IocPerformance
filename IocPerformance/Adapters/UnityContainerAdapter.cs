@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Multiple;
@@ -39,6 +40,11 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsChildContainer
+        {
+            get { return true; }
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
@@ -47,7 +53,13 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
+            this.container.Dispose();
             this.container = null;
+        }
+
+        public override IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            return new UnityChildContainerAdapter(this.container.CreateChildContainer());
         }
 
         public override void Prepare()
@@ -124,6 +136,32 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ICalculator, Calculator>(new TransientLifetimeManager())
                  .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
                  .SetInterceptorFor<ICalculator>(new InterfaceInterceptor());
+        }
+    }
+
+    public class UnityChildContainerAdapter : IChildContainerAdapter
+    {
+        private IUnityContainer childContainer;
+
+        public UnityChildContainerAdapter(IUnityContainer childContainer)
+        {
+            this.childContainer = childContainer;
+        }
+
+        public void Dispose()
+        {
+            this.childContainer.Dispose();
+        }
+
+        public void Prepare()
+        {
+            this.childContainer.RegisterType(typeof(ICombined), typeof(ScopedCombined));
+            this.childContainer.RegisterType(typeof(ITransient), typeof(ScopedTransient));
+        }
+
+        public object Resolve(Type resolveType)
+        {
+            return this.childContainer.Resolve(resolveType);
         }
     }
 }

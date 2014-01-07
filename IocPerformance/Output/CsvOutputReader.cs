@@ -38,7 +38,7 @@ namespace IocPerformance.Output
         {
             string[] parts = line.Split(new[] { ',' }, StringSplitOptions.None);
 
-            if (parts.Length != 11)
+            if (parts.Length != 12)
             {
                 throw new InvalidOperationException("CSV file has invalid format. Please delete CSV first.");
             }
@@ -57,7 +57,8 @@ namespace IocPerformance.Output
             result.GenericTime = parts[7] == "0" ? (long?)null : long.Parse(parts[7]);
             result.MultipleImport = parts[8] == "0" ? (long?)null : long.Parse(parts[8]);
             result.ConditionalTime = parts[9] == "0" ? (long?)null : long.Parse(parts[9]);
-            result.InterceptionTime = parts[10] == "0" ? (long?)null : long.Parse(parts[10]);
+            result.ChildContainerTime = parts[10] == "0" ? (long?)null : long.Parse(parts[10]);
+            result.InterceptionTime = parts[11] == "0" ? (long?)null : long.Parse(parts[11]);
 
             return result;
         }

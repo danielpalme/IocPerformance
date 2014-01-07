@@ -39,7 +39,7 @@
   <ItemGroup>
     <Reference Include="Autofac, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Autofac.3.2.0\lib\net40\Autofac.dll</HintPath>
+      <HintPath>..\packages\Autofac.3.3.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Autofac.Extras.DynamicProxy2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -71,9 +71,9 @@
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
-    <Reference Include="Grace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Grace, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Grace.1.0.0\lib\portable-windows8+net45\Grace.dll</HintPath>
+      <HintPath>..\packages\Grace.2.0.0\lib\portable-windows8+net45\Grace.dll</HintPath>
     </Reference>
     <Reference Include="Griffin.Container">
       <HintPath>..\packages\Griffin.Container.1.1.0\lib\net40\Griffin.Container.dll</HintPath>
@@ -165,6 +165,9 @@
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject.Extensions.ChildKernel">
+      <HintPath>..\packages\Ninject.Extensions.ChildKernel.3.0.0.5\lib\net45-full\Ninject.Extensions.ChildKernel.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject.Extensions.Interception">
       <HintPath>..\packages\Ninject.Extensions.Interception.3.0.0.8\lib\net45-full\Ninject.Extensions.Interception.dll</HintPath>
     </Reference>
@@ -217,6 +220,7 @@
     <Compile Include="Adapters\ContainerAdapterBase.cs" />
     <Compile Include="Adapters\DryIocAdapter.cs" />
     <Compile Include="Adapters\GraceContainerAdapter.cs" />
+    <Compile Include="Adapters\IChildContainerAdapter.cs" />
     <Compile Include="Adapters\IfInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\HaveBoxContainerAdapter.cs" />
     <Compile Include="Adapters\FFastInjectorContainerAdapter.cs" />
@@ -250,6 +254,8 @@
     <Compile Include="Caliburn.Micro\ContainerExtensions.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
     <Compile Include="Caliburn.Micro\SimpleContainer.cs" />
+    <Compile Include="Classes\Child\ScopedCombined.cs" />
+    <Compile Include="Classes\Child\ScopedTransient.cs" />
     <Compile Include="Classes\Complex\Complex.cs" />
     <Compile Include="Classes\Complex\FirstService.cs" />
     <Compile Include="Classes\Complex\SecondService.cs" />

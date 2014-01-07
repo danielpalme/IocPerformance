@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Autofac;
 using Autofac.Extras.DynamicProxy2;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
@@ -46,6 +47,16 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsChildContainer
+        {
+            get { return true; }
+        }
+
+        public override IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            return new AutofacChildContainerAdapter(this.container.BeginLifetimeScope());
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
@@ -54,6 +65,7 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
+            this.container.Dispose();
             this.container = null;
         }
 
@@ -155,6 +167,37 @@ namespace IocPerformance.Adapters
             autofacContainerBuilder.Register(c => new Calculator())
                                           .As<ICalculator>()
                                           .EnableInterfaceInterceptors();
+        }
+    }
+
+    public class AutofacChildContainerAdapter : IChildContainerAdapter
+    {
+        private ILifetimeScope lifetimeScope;
+
+        public AutofacChildContainerAdapter(ILifetimeScope lifetimeScope)
+        {
+            this.lifetimeScope = lifetimeScope;
+        }
+
+        public void Dispose()
+        {
+            this.lifetimeScope.Dispose();
+        }
+
+        public void Prepare()
+        {
+            var autofacContainerBuilder = new ContainerBuilder();
+
+            autofacContainerBuilder.Register(c => new ScopedTransient()).As<ITransient>();
+            autofacContainerBuilder.Register(c => new ScopedCombined(c.Resolve<ITransient>(), c.Resolve<ISingleton>()))
+                .As<ICombined>();
+
+            autofacContainerBuilder.Update(this.lifetimeScope.ComponentRegistry);
+        }
+
+        public object Resolve(Type resolveType)
+        {
+            return this.lifetimeScope.Resolve(resolveType);
         }
     }
 }

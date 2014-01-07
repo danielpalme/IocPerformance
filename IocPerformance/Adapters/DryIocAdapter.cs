@@ -12,7 +12,6 @@ using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {
-    //[Fast]
     public sealed class DryIocAdapter : ContainerAdapterBase
     {
         private Container container;
@@ -77,6 +76,19 @@ namespace IocPerformance.Adapters
             this.RegisterMultiple();
         }
 
+        private static bool ResolvePropertyWithImportAttribute(out object key, MemberInfo member, Request request, IRegistry registry)
+        {
+            key = null;
+            var attributes = member.GetCustomAttributes(typeof(ImportAttribute), false);
+            if (attributes.Length == 0)
+            {
+                return false;
+            }
+
+            key = ((ImportAttribute)attributes[0]).ContractName;
+            return true;
+        }
+
         private void RegisterDummies()
         {
             this.container.Register<IDummyOne, DummyOne>();
@@ -112,8 +124,8 @@ namespace IocPerformance.Adapters
 
         private void RegisterPropertyInjection()
         {
-            container.ResolutionRules.PropertiesAndFields =
-                container.ResolutionRules.PropertiesAndFields.Append(ResolvePropertyWithImportAttribute);
+            this.container.ResolutionRules.PropertiesAndFields =
+                this.container.ResolutionRules.PropertiesAndFields.Append(ResolvePropertyWithImportAttribute);
 
             this.container.Register<IServiceA, ServiceA>(Reuse.Singleton);
             this.container.Register<IServiceB, ServiceB>(Reuse.Singleton);
@@ -157,19 +169,6 @@ namespace IocPerformance.Adapters
             this.container.Register<ISimpleAdapter, SimpleAdapterThree>();
             this.container.Register<ISimpleAdapter, SimpleAdapterFour>();
             this.container.Register<ISimpleAdapter, SimpleAdapterFive>();
-        }
-
-        private static bool ResolvePropertyWithImportAttribute(out object key, MemberInfo member, Request _, IRegistry registry)
-        {
-            key = null;
-            var attributes = member.GetCustomAttributes(typeof(ImportAttribute), false);
-            if (attributes.Length == 0)
-            {
-                return false;
-            }
-
-            key = ((ImportAttribute)attributes[0]).ContractName;
-            return true;
         }
     }
 }

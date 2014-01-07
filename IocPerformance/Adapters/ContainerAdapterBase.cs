@@ -44,6 +44,11 @@ namespace IocPerformance.Adapters
             get { return false; }
         }
 
+        public virtual bool SupportsChildContainer
+        {
+            get { return false; }
+        }
+
         public virtual bool SupportsConditional
         {
             get { return false; }
@@ -66,6 +71,11 @@ namespace IocPerformance.Adapters
         public virtual object ResolveProxy(Type type)
         {
             return this.Resolve(type);
+        }
+
+        public virtual IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            throw new NotImplementedException();
         }
 
         public abstract void Dispose();
