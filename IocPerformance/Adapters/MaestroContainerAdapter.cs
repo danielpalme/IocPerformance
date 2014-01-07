@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -49,6 +51,18 @@ namespace IocPerformance.Adapters
         public override bool SupportsMultiple
         {
             get { return true; }
+        }
+
+        public override bool SupportsChildContainer
+        {
+            get { return true; }
+        }
+
+        public override IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            IContainer child = container.GetChildContainer();
+
+            return new MaestroChildContainerAdapter(child);
         }
 
         public override void Prepare()
@@ -164,6 +178,35 @@ namespace IocPerformance.Adapters
         {
             expr.For<ICalculator>().Use<Calculator>()
                  .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator>(x.Instance, new MaestroInterceptionLogger()));
+        }
+    }
+
+    public class MaestroChildContainerAdapter : IChildContainerAdapter
+    {
+        private IContainer container;
+
+        public MaestroChildContainerAdapter(IContainer child)
+        {
+            this.container = child;
+        }
+
+        public void Dispose()
+        {
+            container.Dispose();
+        }
+
+        public void Prepare()
+        {
+            container.Configure(c =>
+                                {
+                                    c.For<ITransient>().Use<ScopedTransient>();
+                                    c.For<ICombined>().Use<ScopedCombined>().AsSingleton();
+                                });
+        }
+
+        public object Resolve(Type resolveType)
+        {
+            return container.Get(resolveType);
         }
     }
 }

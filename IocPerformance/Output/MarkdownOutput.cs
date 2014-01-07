@@ -71,11 +71,7 @@ namespace IocPerformance.Output
                             result.MultipleImport == this.results.Skip(1).Min(r => r.MultipleImport) ? "h" : "d",
                             result.MultipleImport,
                             result.ConditionalTime == this.results.Skip(1).Min(r => r.ConditionalTime) ? "h" : "d",
-                            result.ConditionalTime,
-									 result.ChildContainerTime == this.results.Skip(1).Min(r => r.ChildContainerTime) ? "h" : "d",
-									 result.ChildContainerTime,
-                            result.InterceptionTime == this.results.Skip(1).Min(r => r.InterceptionTime) ? "h" : "d",
-                            result.InterceptionTime);
+                            result.ConditionalTime);
                     }
 
                     writer.WriteLine("</table>");

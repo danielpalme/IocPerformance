@@ -71,7 +71,7 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be disposed.
-			   this.container.Dispose();
+			this.container.Dispose();
             this.container = null;
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -8,6 +9,7 @@ using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using MugenInjection;
+using MugenInjection.Interface;
 
 namespace IocPerformance.Adapters
 {
@@ -55,6 +57,18 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsChildContainer
+        {
+            get { return true; }
+        }
+
+        public override IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            IInjector injector = container.CreateChild();
+
+            return new MugenChildContainerAdapter(injector);
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.Get(type);
@@ -69,7 +83,7 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             this.container = new MugenInjector();
-			  
+
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
@@ -159,6 +173,32 @@ namespace IocPerformance.Adapters
         private void RegisterInterceptor()
         {
             this.container.Bind<ICalculator>().To<Calculator>().InTransientScope().InterceptAsTarget(new MugenInjectionInterceptionLogger());
+        }
+    }
+
+    public class MugenChildContainerAdapter : IChildContainerAdapter
+    {
+        private readonly IInjector injector;
+
+        public MugenChildContainerAdapter(IInjector injector)
+        {
+            this.injector = injector;
+        }
+
+        public void Dispose()
+        {
+            injector.Dispose();
+        }
+
+        public void Prepare()
+        {
+            injector.Bind<ITransient>().To<ScopedTransient>().InTransientScope();
+            injector.Bind<ICombined>().To<ScopedCombined>().InSingletonScope();
+        }
+
+        public object Resolve(Type resolveType)
+        {
+            return injector.Get(resolveType);
         }
     }
 }

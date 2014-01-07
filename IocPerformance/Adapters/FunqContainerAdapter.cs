@@ -152,6 +152,7 @@ namespace IocPerformance.Adapters
                                SubObjectB = ioc.Resolve<ISubObjectB>(),
                                SubObjectC = ioc.Resolve<ISubObjectC>()
                            }).ReusedWithin(ReuseScope.None);
+
         }
     }
 }
