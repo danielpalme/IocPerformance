@@ -35,7 +35,7 @@ Results
 <tr><th>Munq 3.1.6 (http://munq.codeplex.com)</th><td>92</td><td>127</td><td>411</td><td>1355</td></tr>
 <tr><th>Ninject 3.0.1.10 (http://ninject.org)</th><td>8997</td><td>18530</td><td>50983</td><td>138221</td></tr>
 <tr><th>Petite 0.3.2 (https://github.com/andlju/Petite)</th><td>5715</td><td>5375</td><td>5651</td><td>7121</td></tr>
-<tr><th>SimpleInjector 2.4.0 (http://simpleinjector.codeplex.com)</th><td>109</td><td>116</td><td>126</td><td>153</td></tr>
+<tr><th>SimpleInjector 2.4.1 (http://simpleinjector.codeplex.com)</th><td>86</td><td>92</td><td>104</td><td>132</td></tr>
 <tr><th>Spring.NET 1.3.2 (http://www.springframework.net/)</th><td>1936</td><td>16471</td><td>40787</td><td>104762</td></tr>
 <tr><th>StructureMap 2.6.4.1 (http://structuremap.net/structuremap)</th><td>2178</td><td>2009</td><td>5984</td><td>15834</td></tr>
 <tr><th>StyleMVVM 3.1.4 (http://stylemvvm.codeplex.com)</th><td>463</td><td>436</td><td>619</td><td>1274</td></tr>
@@ -69,7 +69,7 @@ Advanced Features
 <tr><th>Munq 3.1.6 (http://munq.codeplex.com)</th><td>1160</td><td></td><td></td><td></td>
 <tr><th>Ninject 3.0.1.10 (http://ninject.org)</th><td>131647</td><td>57254</td><td>113691</td><td>79990</td>
 <tr><th>Petite 0.3.2 (https://github.com/andlju/Petite)</th><td>9532</td><td></td><td></td><td></td>
-<tr><th>SimpleInjector 2.4.0 (http://simpleinjector.codeplex.com)</th><td>205</td><td>111</td><td>260</td><td>395</td>
+<tr><th>SimpleInjector 2.4.1 (http://simpleinjector.codeplex.com)</th><td>181</td><td>93</td><td>628</td><td>339</td>
 <tr><th>Spring.NET 1.3.2 (http://www.springframework.net/)</th><td>96779</td><td></td><td></td><td></td>
 <tr><th>StructureMap 2.6.4.1 (http://structuremap.net/structuremap)</th><td>19103</td><td>4577</td><td>19800</td><td></td>
 <tr><th>StyleMVVM 3.1.4 (http://stylemvvm.codeplex.com)</th><td>1316</td><td>1042</td><td>2604</td><td>1992</td>
@@ -103,7 +103,7 @@ Additional Advanced Features
 <tr><th>Munq 3.1.6 (http://munq.codeplex.com)</th><td></td><td></td>
 <tr><th>Ninject 3.0.1.10 (http://ninject.org)</th><td>23995200</td><td>26303</td>
 <tr><th>Petite 0.3.2 (https://github.com/andlju/Petite)</th><td></td><td></td>
-<tr><th>SimpleInjector 2.4.0 (http://simpleinjector.codeplex.com)</th><td></td><td>9627</td>
+<tr><th>SimpleInjector 2.4.1 (http://simpleinjector.codeplex.com)</th><td></td><td>6266</td>
 <tr><th>Spring.NET 1.3.2 (http://www.springframework.net/)</th><td></td><td>61985</td>
 <tr><th>StructureMap 2.6.4.1 (http://structuremap.net/structuremap)</th><td>416600</td><td>11168</td>
 <tr><th>StyleMVVM 3.1.4 (http://stylemvvm.codeplex.com)</th><td></td><td></td>
