@@ -70,11 +70,6 @@ namespace IocPerformance
 
             MeasureResolvePerformance(container, result);
 
-            if (container.SupportsInterception)
-            {
-                result.InterceptionTime = MeasureProxy(container);
-            }
-
             CheckInstanceProperties(container);
 
             container.Dispose();
@@ -145,6 +140,7 @@ namespace IocPerformance
             var multipleWatch = new Stopwatch();
             var propertyWatch = new Stopwatch();
             var childContainerWatch = new Stopwatch();
+            var interceptionTimeWatch = new Stopwatch();
 
             for (int i = 0; i < LoopCount; i++)
             {
@@ -208,6 +204,16 @@ namespace IocPerformance
 
                     childContainerWatch.Stop();
                 }
+
+                if(container.SupportsInterception)
+                {
+                    interceptionTimeWatch.Start();
+                    var result = (ICalculator)container.ResolveProxy(typeof(ICalculator));
+
+                    // Call method because part of the time spent with a proxy is how long does it take to execute a proxied method
+                    result.Add(5, 10);
+                    interceptionTimeWatch.Stop();
+                }
             }
 
             outputResult.SingletonTime = singletonWatch.ElapsedMilliseconds;
@@ -239,21 +245,11 @@ namespace IocPerformance
             {
                 outputResult.ChildContainerTime = childContainerWatch.ElapsedMilliseconds * (LoopCount / ChildContainerLoopCount);
             }
-        }
 
-        private static long MeasureProxy(IContainerAdapter container)
-        {
-            var watch = Stopwatch.StartNew();
-
-            for (int i = 0; i < LoopCount; i++)
+            if (container.SupportsInterception)
             {
-                var result = (ICalculator)container.ResolveProxy(typeof(ICalculator));
-
-                // Call method because part of the time spent with a proxy is how long does it take to execute a proxied method
-                result.Add(5, 10);
+                outputResult.InterceptionTime = interceptionTimeWatch.ElapsedMilliseconds;
             }
-
-            return watch.ElapsedMilliseconds;
         }
 
         private static void CollectMemory()
