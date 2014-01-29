@@ -15,14 +15,17 @@ namespace IocPerformance
 {
     internal class Program
     {
-        private const int LoopCount = 1000000;
+        private const int LoopCount = 1000*1000;
 
         // I put it at 10000 because some containers take a while
-        private const int ChildContainerLoopCount = 10000;
+        private const int ChildContainerLoopCount = 10*1000;
 
         public static void Main(string[] args)
         {
-            IOutput output = new MultiOutput(new IOutput[] { new HtmlOutput(), new MarkdownOutput(), new ChartOutput(), new CsvOutput(), new ConsoleOutput() });
+            if(LoopCount < ChildContainerLoopCount)
+                throw new InvalidOperationException("LoopCount is less than ChildContainerLoopCount");
+
+            IOutput output = new MultiOutput(new IOutput[] { new HtmlOutput(), new MarkdownOutput(), new ChartOutput(), new CsvOutput(), new ConsoleOutput(), new CsvRateOutput() });
             output.Start();
 
             var containers = ContainerAdapterFactory.CreateAdapters();
@@ -115,7 +118,8 @@ namespace IocPerformance
                 if (ScopedCombined.Instances != ChildContainerLoopCount + 1
                     && ScopedCombined.Instances != ChildContainerLoopCount + 2)
                 {
-                    throw new Exception(string.Format("ScopedCombined count must be {0} or {1} was {2}", ChildContainerLoopCount + 1, ChildContainerLoopCount + 2));
+                    throw new Exception(string.Format("ScopedCombined count must be {0} or {1} was {2}"
+                        , ChildContainerLoopCount + 1, ChildContainerLoopCount + 2, ScopedCombined.Instances));
                 }
             }
         }

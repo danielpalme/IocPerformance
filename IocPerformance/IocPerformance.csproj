@@ -325,6 +325,7 @@
     <Compile Include="Output\ChartOutput.cs" />
     <Compile Include="Output\CsvOutput.cs" />
     <Compile Include="Output\CsvOutputReader.cs" />
+    <Compile Include="Output\CsvRateOutput.cs" />
     <Compile Include="Output\MarkdownOutput.cs" />
     <Compile Include="Output\HtmlOutput.cs" />
     <Compile Include="Output\IOutput.cs" />
