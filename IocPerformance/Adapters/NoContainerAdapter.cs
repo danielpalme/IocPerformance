@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -13,10 +14,11 @@ namespace IocPerformance.Adapters
     public sealed class NoContainerAdapter : ContainerAdapterBase
     {
         private readonly Dictionary<Type, Func<object>> container = new Dictionary<Type, Func<object>>();
+        public static readonly string PACKAGENAME="No";
 
         public override string PackageName
         {
-            get { return "No"; }
+            get { return PACKAGENAME; }
         }
 
         public override string Url
@@ -54,6 +56,16 @@ namespace IocPerformance.Adapters
             return this.container[type]();
         }
 
+        public override bool SupportsInterception
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsChildContainer
+        {
+            get{return true;}
+        }
+
         public override void Dispose()
         {
         }
@@ -67,6 +79,7 @@ namespace IocPerformance.Adapters
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
+            this.RegisterInterceptor();
         }
 
         private static IEnumerable<ISimpleAdapter> GetAllSimpleAdapters()
@@ -158,5 +171,42 @@ namespace IocPerformance.Adapters
 
             this.container[typeof(ImportMultiple)] = () => new ImportMultiple(adapters);
         }
+
+        private void RegisterInterceptor()
+        {
+            this.container[typeof(ICalculator)]= () => new Calculator();
+        }
+
+        public override IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            return new NoContainerChildContainerAdapter(this);
+        }
     }
+
+    public class NoContainerChildContainerAdapter : IChildContainerAdapter
+    {
+        private readonly Dictionary<Type, Func<object>> container = new Dictionary<Type, Func<object>>();
+        private NoContainerAdapter parentAdapter = null;
+        public NoContainerChildContainerAdapter(NoContainerAdapter adapter)
+        {
+            this.parentAdapter = adapter;
+        }
+ 
+        public void Dispose()
+        {
+        }
+
+        public void Prepare()
+        {
+            this.container[typeof(ITransient)] = () => new ScopedTransient();
+            ISingleton singleton = (ISingleton)parentAdapter.Resolve(typeof(ISingleton));
+            this.container[typeof(ICombined)] = () => new ScopedCombined(new ScopedTransient(), singleton);
+        }
+
+        public object Resolve(Type resolveType)
+        {
+            return this.container[resolveType]();
+        }
+    }
+
 }
