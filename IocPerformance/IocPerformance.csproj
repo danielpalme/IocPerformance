@@ -71,9 +71,9 @@
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
-    <Reference Include="Grace, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Grace, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Grace.2.0.0\lib\portable-windows8+net45\Grace.dll</HintPath>
+      <HintPath>..\packages\Grace.2.0.3\lib\portable-windows8+net45\Grace.dll</HintPath>
     </Reference>
     <Reference Include="Griffin.Container">
       <HintPath>..\packages\Griffin.Container.1.1.0\lib\net40\Griffin.Container.dll</HintPath>
@@ -199,9 +199,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
-    <Reference Include="StyleMVVM.DotNet, Version=3.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="StyleMVVM.DotNet, Version=3.1.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\StyleMVVM.3.1.4\lib\net45\StyleMVVM.DotNet.dll</HintPath>
+      <HintPath>..\packages\StyleMVVM.3.1.5\lib\net45\StyleMVVM.DotNet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -209,7 +209,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\StyleMVVM.3.1.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\StyleMVVM.3.1.5\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -325,6 +325,7 @@
     <Compile Include="Output\ChartOutput.cs" />
     <Compile Include="Output\CsvOutput.cs" />
     <Compile Include="Output\CsvOutputReader.cs" />
+    <Compile Include="Output\CsvRateOutput.cs" />
     <Compile Include="Output\MarkdownOutput.cs" />
     <Compile Include="Output\HtmlOutput.cs" />
     <Compile Include="Output\IOutput.cs" />
