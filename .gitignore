@@ -7,7 +7,7 @@
 /packages/Autofac*
 /packages/Castle.Core*
 /packages/Castle.Windsor*
-/packages/Catel.Core*
+/packages/Catel*
 /packages/Common.Logging*
 /packages/CommonServiceLocator*
 /packages/Dynamo.Ioc*

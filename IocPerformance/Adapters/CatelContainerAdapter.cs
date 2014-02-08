@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using Catel;
 using Catel.IoC;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
@@ -29,12 +32,17 @@ namespace IocPerformance.Adapters
 
         public override bool SupportGeneric
         {
-            get { return false; }
+            get { return true; }
         }
 
         public override bool SupportsMultiple
         {
             get { return false; }
+        }
+
+        public override bool SupportsInterception
+        {
+            get { return true; }
         }
 
         public override object Resolve(Type type)
@@ -50,13 +58,13 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.container = new ServiceLocator();
-
+            this.container = IoCFactory.CreateServiceLocator();
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
             this.RegisterOpenGeneric();
             this.RegisterMultiple();
+            this.RegisterInterceptor();
         }
 
         private void RegisterDummies()
@@ -93,7 +101,6 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<IComplex, Complex>(RegistrationType.Transient);
         }
 
-        // TODO: This doesn't seem to work or I've configured it incorrectly. Either way it's turned off
         private void RegisterOpenGeneric()
         {
             this.container.RegisterType(typeof(IGenericInterface<>), typeof(GenericExport<>), registrationType: RegistrationType.Transient);
@@ -110,6 +117,18 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ISimpleAdapter, SimpleAdapterFive>(RegistrationType.Transient);
 
             this.container.RegisterType<ImportMultiple, ImportMultiple>(RegistrationType.Transient);
+        }
+
+        private void RegisterInterceptor()
+        {
+            this.container.RegisterType<ICalculator, Calculator>(RegistrationType.Transient);
+            this.container.ConfigureInterceptionForType<ICalculator, Calculator>()
+                .InterceptAll()
+                .OnBefore(i =>
+                    {
+                        var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
+                        Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
+                    });
         }
     }
 }
