@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using MEF2Attr = System.Composition;
 
 namespace IocPerformance.Classes.Complex
 {
@@ -9,9 +10,11 @@ namespace IocPerformance.Classes.Complex
     }
 
     [Export(typeof(IComplex)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [MEF2Attr.Export(typeof(IComplex))]
     public class Complex : IComplex
     {
         [ImportingConstructor]
+        [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
         [IfInjector.Inject]
         public Complex(

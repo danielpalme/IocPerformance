@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using MEF2Attr = System.Composition;
 
 namespace IocPerformance.Classes.Standard
 {
@@ -10,6 +11,7 @@ namespace IocPerformance.Classes.Standard
     }
 
     [Export(typeof(ISingleton)), PartCreationPolicy(CreationPolicy.Shared)]
+    [MEF2Attr.Export(typeof(ISingleton)), MEF2Attr.Shared]
     [Stiletto.Singleton]
     [IfInjector.Singleton]
     public class Singleton : ISingleton

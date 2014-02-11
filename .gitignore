@@ -38,5 +38,6 @@
 /packages/Stiletto*
 /packages/Fody*
 /packages/DryIoc*
+/packages/Microsoft.Composition*
 *.Cache
 _ReSharper*

@@ -5,10 +5,15 @@ using System.ComponentModel.Composition;
 namespace IocPerformance.Classes.Multiple
 {
     [Export(typeof(ImportMultiple)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [System.Composition.Export(typeof(ImportMultiple))]
     public class ImportMultiple
     {
         [ImportingConstructor]
-        public ImportMultiple([ImportMany]IEnumerable<ISimpleAdapter> adapters)
+        [System.Composition.ImportingConstructor]
+        public ImportMultiple(
+            [ImportMany]
+            [System.Composition.ImportMany]
+            IEnumerable<ISimpleAdapter> adapters)
         {
             if (adapters == null)
             {
