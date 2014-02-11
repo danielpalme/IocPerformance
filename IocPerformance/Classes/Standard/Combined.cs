@@ -10,9 +10,11 @@ namespace IocPerformance.Classes.Standard
     }
 
     [Export(typeof(ICombined)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [System.Composition.Export(typeof(ICombined))]
     public class Combined : ICombined
     {
         [ImportingConstructor]
+        [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
         public Combined(ISingleton first, ITransient second)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using LinFuAttr = LinFu.IoC.Configuration;
+using MEF2Attr = System.Composition;
 using MEFAttr = System.ComponentModel.Composition;
 using MugenAttr = MugenInjection.Attributes;
 using NinjectAttr = Ninject;
@@ -16,9 +17,11 @@ namespace IocPerformance.Classes.Properties
     [LinFuAttr.Implements(typeof(IComplexPropertyObject))]
     [MEFAttr.ExportAttribute(typeof(IComplexPropertyObject))]
     [MEFAttr.PartCreationPolicy(MEFAttr.CreationPolicy.NonShared)]
+    [MEF2Attr.Export(typeof(IComplexPropertyObject))]
     public class ComplexPropertyObject : IComplexPropertyObject
     {
         [MEFAttr.Import]
+        [MEF2Attr.Import]
         [LinFuAttr.Inject]
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
@@ -28,6 +31,7 @@ namespace IocPerformance.Classes.Properties
         public IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
+        [MEF2Attr.Import]
         [LinFuAttr.Inject]
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
@@ -37,6 +41,7 @@ namespace IocPerformance.Classes.Properties
         public IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
+        [MEF2Attr.Import]
         [LinFuAttr.Inject]
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
@@ -46,6 +51,7 @@ namespace IocPerformance.Classes.Properties
         public IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
+        [MEF2Attr.Import]
         [LinFuAttr.Inject]
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
@@ -55,6 +61,7 @@ namespace IocPerformance.Classes.Properties
         public ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
+        [MEF2Attr.Import]
         [LinFuAttr.Inject]
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
@@ -64,6 +71,7 @@ namespace IocPerformance.Classes.Properties
         public ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
+        [MEF2Attr.Import]
         [LinFuAttr.Inject]
         [MugenAttr.Inject]
         [NinjectAttr.Inject]

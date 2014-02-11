@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Composition;
+using MEF2Attr = System.Composition;
 
 namespace IocPerformance.Classes.Complex
 {
@@ -8,6 +9,7 @@ namespace IocPerformance.Classes.Complex
     }
 
     [Export(typeof(IFirstService)), PartCreationPolicy(CreationPolicy.Shared)]
+    [MEF2Attr.Export(typeof(IFirstService))]
     [IfInjector.Singleton]
     public class FirstService : IFirstService
     {

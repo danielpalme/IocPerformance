@@ -30,6 +30,7 @@ Results
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td>6384</td><td>28237</td><td>70343</td><td>189899</td></tr>
 <tr><th>Maestro 1.3.1 (https://github.com/JonasSamuelsson/Maestro)</th><td>532</td><td>456</td><td>1249</td><td>3542</td></tr>
 <tr><th>Mef 4.0.0.0 (http://mef.codeplex.com)</th><td>36949</td><td>40471</td><td>67467</td><td>131693</td></tr>
+<tr><th>Mef2 1.0.20.0 (http://blogs.msdn.com/b/bclteam/p/composition.aspx)</th><td>237</td><td>228</td><td>279</td><td>447</td></tr>
 <tr><th>MicroSliver 2.1.6.0 (http://microsliver.codeplex.com)</th><td>335</td><td>956</td><td>3057</td><td>8282</td></tr>
 <tr><th>Mugen 3.5.1 (http://mugeninjection.codeplex.com)</th><td>808</td><td>877</td><td>2169</td><td>7957</td></tr>
 <tr><th>Munq 3.1.6 (http://munq.codeplex.com)</th><td>92</td><td>127</td><td>411</td><td>1355</td></tr>
@@ -64,6 +65,7 @@ Advanced Features
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td></td><td></td><td></td><td></td>
 <tr><th>Maestro 1.3.1 (https://github.com/JonasSamuelsson/Maestro)</th><td>6238</td><td>878</td><td>6153</td><td>2250</td>
 <tr><th>Mef 4.0.0.0 (http://mef.codeplex.com)</th><td>139083</td><td>156400</td><td>103587</td><td></td>
+<tr><th>Mef2 1.0.20.0 (http://blogs.msdn.com/b/bclteam/p/composition.aspx)</th><td>1023</td><td>263</td><td>1403</td><td></td>
 <tr><th>MicroSliver 2.1.6.0 (http://microsliver.codeplex.com)</th><td></td><td></td><td></td><td></td>
 <tr><th>Mugen 3.5.1 (http://mugeninjection.codeplex.com)</th><td>9774</td><td>7483</td><td>6901</td><td>3562</td>
 <tr><th>Munq 3.1.6 (http://munq.codeplex.com)</th><td>1160</td><td></td><td></td><td></td>
@@ -98,6 +100,7 @@ Additional Advanced Features
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td></td><td></td>
 <tr><th>Maestro 1.3.1 (https://github.com/JonasSamuelsson/Maestro)</th><td>2189000</td><td>7305</td>
 <tr><th>Mef 4.0.0.0 (http://mef.codeplex.com)</th><td></td><td></td>
+<tr><th>Mef2 1.0.20.0 (http://blogs.msdn.com/b/bclteam/p/composition.aspx)</th><td></td><td></td>
 <tr><th>MicroSliver 2.1.6.0 (http://microsliver.codeplex.com)</th><td></td><td></td>
 <tr><th>Mugen 3.5.1 (http://mugeninjection.codeplex.com)</th><td>425500</td><td>21569</td>
 <tr><th>Munq 3.1.6 (http://munq.codeplex.com)</th><td></td><td></td>
