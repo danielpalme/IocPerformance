@@ -1,6 +1,7 @@
 ﻿using System;
 using LinFuAttr = LinFu.IoC.Configuration;
 using MEFAttr = System.ComponentModel.Composition;
+using MEF2Attr = System.Composition;
 using MugenAttr = MugenInjection.Attributes;
 using NinjectAttr = Ninject;
 using UnityAttr = Microsoft.Practices.Unity;
@@ -16,9 +17,11 @@ namespace IocPerformance.Classes.Properties
     [LinFuAttr.Implements(typeof(ISubObjectB))]
     [MEFAttr.ExportAttribute(typeof(ISubObjectB))]
     [MEFAttr.PartCreationPolicy(MEFAttr.CreationPolicy.NonShared)]
+    [MEF2Attr.ExportAttribute(typeof(ISubObjectB))]
     public class SubObjectB : ISubObjectB
     {
         [MEFAttr.Import]
+        [MEF2Attr.Import]
         [LinFuAttr.Inject]
         [MugenAttr.Inject]
         [NinjectAttr.Inject]
