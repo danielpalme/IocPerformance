@@ -57,7 +57,7 @@ namespace IocPerformance.Output
                     writer.WriteLine("</table>");
                     writer.WriteLine("Advanced Features");
                     writer.WriteLine("<table>");
-                    writer.WriteLine("<tr><th>Container</th><th>Property</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th><th>Child Container</th><th>Interception</th></tr>");
+                    writer.WriteLine("<tr><th>Container</th><th>Property</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th></tr>");
 
                     foreach (var result in this.results)
                     {
