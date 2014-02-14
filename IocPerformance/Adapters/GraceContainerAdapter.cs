@@ -23,7 +23,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://grace.codeplex.com"; }
+            get { return "https://github.com/ipjohnson/Grace"; }
         }
 
         public override bool SupportsPropertyInjection

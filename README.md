@@ -20,7 +20,7 @@ Results
 <tr><th>Dynamo 3.0.2.0 (http://www.dynamoioc.com)</th><td>98</td><td>105</td><td>164</td><td>444</td></tr>
 <tr><th>fFastInjector 0.8.1 (http://ffastinjector.codeplex.com)</th><td>86</td><td>113</td><td>140</td><td>216</td></tr>
 <tr><th>Funq 1.0.0.0 (http://funq.codeplex.com)</th><td>127</td><td>131</td><td>289</td><td>952</td></tr>
-<tr><th>Grace 2.0.4 (http://grace.codeplex.com)</th><td>592</td><td>401</td><td>571</td><td>1688</td></tr>
+<tr><th>Grace 2.1.0 (https://github.com/ipjohnson/Grace)</th><td>291</td><td>256</td><td>507</td><td>1606</td></tr>
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td>207</td><td>262</td><td>552</td><td>1475</td></tr>
 <tr><th>HaveBox 1.6.1 (https://bitbucket.org/Have/havebox)</th><td>102</td><td>99</td><td>113</td><td>158</td></tr>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>130</td><td>123</td><td>183</td><td>191</td></tr>
@@ -46,7 +46,7 @@ Results
 </table>
 Advanced Features
 <table>
-<tr><th>Container</th><th>Property</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th><th>Child Container</th><th>Interception</th></tr>
+<tr><th>Container</th><th>Property</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th></tr>
 <tr><th>No</th><th>111</th><td>85</td><td>209</td><td>155</td>
 <tr><th>Autofac 3.3.0 (http://code.google.com/p/autofac)</th><td>5229</td><td>4161</td><td>5501</td><td></td>
 <tr><th>Caliburn.Micro 1.5.2 (http://caliburnmicro.codeplex.com)</th><td>5810</td><td></td><td>5222</td><td></td>
@@ -55,7 +55,7 @@ Advanced Features
 <tr><th>Dynamo 3.0.2.0 (http://www.dynamoioc.com)</th><td>584</td><td></td><td></td><td></td>
 <tr><th>fFastInjector 0.8.1 (http://ffastinjector.codeplex.com)</th><td></td><td></td><td></td><td></td>
 <tr><th>Funq 1.0.0.0 (http://funq.codeplex.com)</th><td>962</td><td></td><td></td><td></td>
-<tr><th>Grace 2.0.4 (http://grace.codeplex.com)</th><td>1876</td><td>935</td><td>2750</td><td>1554</td>
+<tr><th>Grace 2.1.0 (https://github.com/ipjohnson/Grace)</th><td>1747</td><td>500</td><td>2767</td><td>1319</td>
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td></td><td></td><td></td><td></td>
 <tr><th>HaveBox 1.6.1 (https://bitbucket.org/Have/havebox)</th><td>888</td><td></td><td>481</td><td></td>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>1880</td><td></td><td></td><td></td>
@@ -90,7 +90,7 @@ Additional Advanced Features
 <tr><th>Dynamo 3.0.2.0 (http://www.dynamoioc.com)</th><td></td><td></td>
 <tr><th>fFastInjector 0.8.1 (http://ffastinjector.codeplex.com)</th><td></td><td></td>
 <tr><th>Funq 1.0.0.0 (http://funq.codeplex.com)</th><td></td><td></td>
-<tr><th>Grace 2.0.4 (http://grace.codeplex.com)</th><th>10200</th><td>7601</td>
+<tr><th>Grace 2.1.0 (https://github.com/ipjohnson/Grace)</th><td>11200</td><td>7350</td>
 <tr><th>Griffin 1.1.0 (https://github.com/jgauffin/griffin.container)</th><td></td><td></td>
 <tr><th>HaveBox 1.6.1 (https://bitbucket.org/Have/havebox)</th><td></td><th>577</th>
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td></td><td></td>
@@ -110,7 +110,7 @@ Additional Advanced Features
 <tr><th>Spring.NET 1.3.2 (http://www.springframework.net/)</th><td></td><td>61985</td>
 <tr><th>StructureMap 2.6.4.1 (http://structuremap.net/structuremap)</th><td>416600</td><td>11168</td>
 <tr><th>StyleMVVM 3.1.5 (http://stylemvvm.codeplex.com)</th><td></td><td></td>
-<tr><th>TinyIoC 1.2 (https://github.com/grumpydev/TinyIoC)</th><td>10900</td><td></td>
+<tr><th>TinyIoC 1.2 (https://github.com/grumpydev/TinyIoC)</th><th>10900</th><td></td>
 <tr><th>Unity 3.0.1304.1 (http://msdn.microsoft.com/unity)</th><td>26700</td><td>110279</td>
 <tr><th>Windsor 3.2.1 (http://castleproject.org)</th><td>126100</td><td>18511</td>
 </table>
