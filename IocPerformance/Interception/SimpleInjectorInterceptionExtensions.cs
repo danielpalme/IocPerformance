@@ -166,7 +166,7 @@ namespace SimpleInjector.Extensions.Interception
                 var proxyExpression =
                     Expression.Convert(
                         Expression.Call(NonGenericInterceptorCreateProxyMethod,
-                            Expression.Constant(e.RegisteredServiceType),
+                            Expression.Constant(e.RegisteredServiceType, typeof(Type)),
                             interceptor,
                             e.Expression),
                         e.RegisteredServiceType);

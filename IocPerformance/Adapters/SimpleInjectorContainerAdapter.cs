@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Reflection;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -15,12 +17,14 @@ using SimpleInjector;
 using SimpleInjector.Advanced;
 using SimpleInjector.Extensions;
 using SimpleInjector.Extensions.Interception;
+using SimpleInjector.Extensions.LifetimeScoping;
 
 namespace IocPerformance.Adapters
 {
     public sealed class SimpleInjectorContainerAdapter : ContainerAdapterBase
     {
         private Container container;
+        private Dictionary<Type, InstanceProducer> scopedRegistrations = new Dictionary<Type, InstanceProducer>();
 
         public override string PackageName
         {
@@ -57,6 +61,16 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsChildContainer
+        {
+            get { return true; }
+        }
+
+        public override IChildContainerAdapter CreateChildContainerAdapter()
+        {
+            return new SimpleInjectorChildContainerAdapter(this.container, this.scopedRegistrations);
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.GetInstance(type);
@@ -82,8 +96,7 @@ namespace IocPerformance.Adapters
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterIntercepter();
-
-            this.container.Verify();
+            this.RegisterChild();
         }
 
         private void RegisterDummies()
@@ -166,12 +179,58 @@ namespace IocPerformance.Adapters
             this.container.InterceptWith<SimpleInjectorInterceptionLogger>(type => type == typeof(ICalculator));
         }
 
+        private void RegisterChild()
+        {
+            var scopedLifestyle = new LifetimeScopeLifestyle();
+
+            this.scopedRegistrations[typeof(ICombined)] = Lifestyle.Transient.CreateProducer<ICombined>(
+                () => new ScopedCombined(new ScopedTransient(), this.container.GetInstance<ISingleton>()),
+                container);
+        }
+
         private sealed class InjectPropertiesMarkedWith<TAttribute> : IPropertySelectionBehavior
             where TAttribute : Attribute
         {
             public bool SelectProperty(Type serviceType, PropertyInfo propertyInfo)
             {
                 return propertyInfo.GetCustomAttributes<TAttribute>().Any();
+            }
+        }
+        
+        private sealed class SimpleInjectorChildContainerAdapter : IChildContainerAdapter
+        {
+            private readonly Container container;
+            private readonly Dictionary<Type, InstanceProducer> scopedRegistrations;
+
+            private LifetimeScope lifetimeScope;
+
+            internal SimpleInjectorChildContainerAdapter(Container container,
+                Dictionary<Type, InstanceProducer> scopedRegistrations)
+            {
+                this.container = container;
+                this.scopedRegistrations = scopedRegistrations;
+            }
+
+            public void Prepare()
+            {
+                this.lifetimeScope = this.container.BeginLifetimeScope();
+            }
+
+            public void Dispose()
+            {
+                this.lifetimeScope.Dispose();
+            }
+
+            public object Resolve(Type resolveType)
+            {
+                InstanceProducer producer;
+
+                if (this.scopedRegistrations.TryGetValue(resolveType, out producer))
+                {
+                    return producer.GetInstance();
+                }
+
+                return this.container.GetInstance(resolveType);
             }
         }
     }
