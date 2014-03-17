@@ -114,12 +114,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LightCore.1.5.1\lib\net40\LightCore.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="LightInject, Version=3.0.1.5, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\LightInject.3.0.1.5\lib\net45\LightInject.dll</HintPath>
+    <Reference Include="LightInject">
+      <HintPath>..\packages\LightInject.3.0.1.6\lib\net45\LightInject.dll</HintPath>
     </Reference>
     <Reference Include="LightInject.Interception">
-      <HintPath>..\packages\LightInject.Interception.1.0.0.2\lib\net45\LightInject.Interception.dll</HintPath>
+      <HintPath>..\packages\LightInject.Interception.1.0.0.3\lib\net45\LightInject.Interception.dll</HintPath>
     </Reference>
     <Reference Include="LinFu.Core, Version=2.3.0.41559, Culture=neutral, PublicKeyToken=a4c63a184389506f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
