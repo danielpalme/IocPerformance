@@ -8,13 +8,12 @@ using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using LightInject;
-using LightInject.Interception;
 
 namespace IocPerformance.Adapters
 {
     public sealed class LightInjectContainerAdapter : ContainerAdapterBase
     {
-        private IServiceContainer container;
+        private ServiceContainer container;
 
         public override string PackageName
         {

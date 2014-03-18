@@ -16,7 +16,7 @@ Results
 <tr><th>Autofac 3.3.0 (http://code.google.com/p/autofac)</th><td>1022</td><td>723</td><td>1717</td><td>5169</td></tr>
 <tr><th>Caliburn.Micro 1.5.2 (http://caliburnmicro.codeplex.com)</th><td>435</td><td>409</td><td>1132</td><td>4488</td></tr>
 <tr><th>Catel 3.9.0 (http://www.catelproject.com)</th><td>378</td><td>3756</td><td>9759</td><td>24901</td></tr>
-<tr><th>DryIoc 1.2.0 (https://bitbucket.org/dadhi/dryioc)</th><th>67</th><th>66</th><th>83</th><th>107</th></tr>
+<tr><th>DryIoc 1.2.0 (https://bitbucket.org/dadhi/dryioc)</th><th>67</th><td>66</td><th>83</th><th>107</th></tr>
 <tr><th>Dynamo 3.0.2.0 (http://www.dynamoioc.com)</th><td>98</td><td>105</td><td>164</td><td>444</td></tr>
 <tr><th>fFastInjector 0.8.1 (http://ffastinjector.codeplex.com)</th><td>86</td><td>113</td><td>140</td><td>216</td></tr>
 <tr><th>Funq 1.0.0.0 (http://funq.codeplex.com)</th><td>127</td><td>131</td><td>289</td><td>952</td></tr>
@@ -26,7 +26,7 @@ Results
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>130</td><td>123</td><td>183</td><td>191</td></tr>
 <tr><th>IfInjector 0.8.1 (https://github.com/iamahern/IfInjector)</th><td>109</td><td>127</td><td>135</td><td>176</td></tr>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>451</td><td>2871</td><td>19797</td><td>102595</td></tr>
-<tr><th>LightInject 3.0.1.5 (https://github.com/seesharper/LightInject)</th><td>83</td><td>106</td><td>123</td><td>131</td></tr>
+<tr><th>LightInject 3.0.1.6 (https://github.com/seesharper/LightInject)</th><td>76</td><th>56</th><td>88</td><td>110</td></tr>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td>6384</td><td>28237</td><td>70343</td><td>189899</td></tr>
 <tr><th>Maestro 1.3.1 (https://github.com/JonasSamuelsson/Maestro)</th><td>532</td><td>456</td><td>1249</td><td>3542</td></tr>
 <tr><th>Mef 4.0.0.0 (http://mef.codeplex.com)</th><td>36949</td><td>40471</td><td>67467</td><td>131693</td></tr>
@@ -47,11 +47,11 @@ Results
 Advanced Features
 <table>
 <tr><th>Container</th><th>Property</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th></tr>
-<tr><th>No</th><th>111</th><td>85</td><td>209</td><td>155</td>
+<tr><th>No</th><td>111</td><td>85</td><td>209</td><td>155</td>
 <tr><th>Autofac 3.3.0 (http://code.google.com/p/autofac)</th><td>5229</td><td>4161</td><td>5501</td><td></td>
 <tr><th>Caliburn.Micro 1.5.2 (http://caliburnmicro.codeplex.com)</th><td>5810</td><td></td><td>5222</td><td></td>
 <tr><th>Catel 3.9.0 (http://www.catelproject.com)</th><td></td><td>9831</td><td></td><td></td>
-<tr><th>DryIoc 1.2.0 (https://bitbucket.org/dadhi/dryioc)</th><th>111</th><th>75</th><th>284</th><th>130</th>
+<tr><th>DryIoc 1.2.0 (https://bitbucket.org/dadhi/dryioc)</th><td>111</td><th>75</th><td>284</td><th>130</th>
 <tr><th>Dynamo 3.0.2.0 (http://www.dynamoioc.com)</th><td>584</td><td></td><td></td><td></td>
 <tr><th>fFastInjector 0.8.1 (http://ffastinjector.codeplex.com)</th><td></td><td></td><td></td><td></td>
 <tr><th>Funq 1.0.0.0 (http://funq.codeplex.com)</th><td>962</td><td></td><td></td><td></td>
@@ -61,7 +61,7 @@ Advanced Features
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td>1880</td><td></td><td></td><td></td>
 <tr><th>IfInjector 0.8.1 (https://github.com/iamahern/IfInjector)</th><td>295</td><td>125</td><td></td><td></td>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td>2111</td><td>12611</td><td>30342</td><td></td>
-<tr><th>LightInject 3.0.1.5 (https://github.com/seesharper/LightInject)</th><td>140</td><td>85</td><td>365</td><td>158</td>
+<tr><th>LightInject 3.0.1.6 (https://github.com/seesharper/LightInject)</th><th>106</th><td>82</td><th>282</th><td>135</td>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td></td><td></td><td></td><td></td>
 <tr><th>Maestro 1.3.1 (https://github.com/JonasSamuelsson/Maestro)</th><td>6238</td><td>878</td><td>6153</td><td>2250</td>
 <tr><th>Mef 4.0.0.0 (http://mef.codeplex.com)</th><td>139083</td><td>156400</td><td>103587</td><td></td>
@@ -96,7 +96,7 @@ Additional Advanced Features
 <tr><th>Hiro 1.0.3 (https://github.com/philiplaureano/Hiro)</th><td></td><td></td>
 <tr><th>IfInjector 0.8.1 (https://github.com/iamahern/IfInjector)</th><td></td><td></td>
 <tr><th>LightCore 1.5.1 (http://www.lightcore.ch)</th><td></td><td></td>
-<tr><th>LightInject 3.0.1.5 (https://github.com/seesharper/LightInject)</th><td></td><td>1449</td>
+<tr><th>LightInject 3.0.1.6 (https://github.com/seesharper/LightInject)</th><td></td><td>1265</td>
 <tr><th>LinFu 2.3.0.41559 (https://github.com/philiplaureano/LinFu)</th><td></td><td></td>
 <tr><th>Maestro 1.3.1 (https://github.com/JonasSamuelsson/Maestro)</th><td>2189000</td><td>7305</td>
 <tr><th>Mef 4.0.0.0 (http://mef.codeplex.com)</th><td></td><td></td>
