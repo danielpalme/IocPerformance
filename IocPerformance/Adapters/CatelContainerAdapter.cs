@@ -52,7 +52,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -83,11 +83,17 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.RegisterType<ISingleton, Singleton>(RegistrationType.Singleton);
+            this.container.RegisterType<ISingleton1, Singleton1>(RegistrationType.Singleton);
+            this.container.RegisterType<ISingleton2, Singleton2>(RegistrationType.Singleton);
+            this.container.RegisterType<ISingleton3, Singleton3>(RegistrationType.Singleton);
 
-            this.container.RegisterType<ITransient, Transient>(RegistrationType.Transient);
+            this.container.RegisterType<ITransient1, Transient1>(RegistrationType.Transient);
+            this.container.RegisterType<ITransient2, Transient2>(RegistrationType.Transient);
+            this.container.RegisterType<ITransient3, Transient3>(RegistrationType.Transient);
 
-            this.container.RegisterType<ICombined, Combined>(RegistrationType.Transient);
+            this.container.RegisterType<ICombined1, Combined1>(RegistrationType.Transient);
+            this.container.RegisterType<ICombined2, Combined2>(RegistrationType.Transient);
+            this.container.RegisterType<ICombined3, Combined3>(RegistrationType.Transient);
         }
 
         private void RegisterComplex()
@@ -98,7 +104,9 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ISubObjectOne, SubObjectOne>(RegistrationType.Transient);
             this.container.RegisterType<ISubObjectTwo, SubObjectTwo>(RegistrationType.Transient);
             this.container.RegisterType<ISubObjectThree, SubObjectThree>(RegistrationType.Transient);
-            this.container.RegisterType<IComplex, Complex>(RegistrationType.Transient);
+            this.container.RegisterType<IComplex1, Complex1>(RegistrationType.Transient);
+            this.container.RegisterType<IComplex2, Complex2>(RegistrationType.Transient);
+            this.container.RegisterType<IComplex3, Complex3>(RegistrationType.Transient);
         }
 
         private void RegisterOpenGeneric()
@@ -116,19 +124,37 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ISimpleAdapter, SimpleAdapterFour>(RegistrationType.Transient);
             this.container.RegisterType<ISimpleAdapter, SimpleAdapterFive>(RegistrationType.Transient);
 
-            this.container.RegisterType<ImportMultiple, ImportMultiple>(RegistrationType.Transient);
+            this.container.RegisterType<ImportMultiple1, ImportMultiple1>(RegistrationType.Transient);
+            this.container.RegisterType<ImportMultiple2, ImportMultiple2>(RegistrationType.Transient);
+            this.container.RegisterType<ImportMultiple3, ImportMultiple3>(RegistrationType.Transient);
         }
 
         private void RegisterInterceptor()
         {
-            this.container.RegisterType<ICalculator, Calculator>(RegistrationType.Transient);
-            this.container.ConfigureInterceptionForType<ICalculator, Calculator>()
+            this.container.RegisterType<ICalculator1, Calculator1>(RegistrationType.Transient);
+            this.container.RegisterType<ICalculator2, Calculator2>(RegistrationType.Transient);
+            this.container.RegisterType<ICalculator3, Calculator3>(RegistrationType.Transient);
+            this.container.ConfigureInterceptionForType<ICalculator1, Calculator1>()
                 .InterceptAll()
                 .OnBefore(i =>
                     {
                         var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
                         Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
                     });
+            this.container.ConfigureInterceptionForType<ICalculator2, Calculator2>()
+                .InterceptAll()
+                .OnBefore(i =>
+                {
+                    var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
+                    Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
+                });
+            this.container.ConfigureInterceptionForType<ICalculator3, Calculator3>()
+                .InterceptAll()
+                .OnBefore(i =>
+                {
+                    var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
+                    Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
+                });
         }
     }
 }

@@ -34,7 +34,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -66,9 +66,15 @@ namespace IocPerformance.Adapters
 
         private static void RegisterStandard(DependencyMap map)
         {
-            map.AddSingletonService<ISingleton, Singleton>();
-            map.AddService<ITransient, Transient>();
-            map.AddService<ICombined, Combined>();
+            map.AddSingletonService<ISingleton1, Singleton1>();
+            map.AddSingletonService<ISingleton2, Singleton2>();
+            map.AddSingletonService<ISingleton3, Singleton3>();
+            map.AddService<ITransient1, Transient1>();
+            map.AddService<ITransient2, Transient2>();
+            map.AddService<ITransient3, Transient3>();
+            map.AddService<ICombined1, Combined1>();
+            map.AddService<ICombined2, Combined2>();
+            map.AddService<ICombined3, Combined3>();
         }
 
         private static void RegisterComplex(DependencyMap map)
@@ -79,7 +85,9 @@ namespace IocPerformance.Adapters
             map.AddService<ISubObjectOne, SubObjectOne>();
             map.AddService<ISubObjectTwo, SubObjectTwo>();
             map.AddService<ISubObjectThree, SubObjectThree>();
-            map.AddService<IComplex, Complex>();
+            map.AddService<IComplex1, Complex1>();
+            map.AddService<IComplex2, Complex2>();
+            map.AddService<IComplex3, Complex3>();
         }
 
         private static void RegisterPropertyInjection(DependencyMap map)
@@ -93,16 +101,40 @@ namespace IocPerformance.Adapters
                 microContainer => new SubObjectB { ServiceB = microContainer.GetInstance<IServiceB>() }));
             map.AddService(new Func<IMicroContainer, ISubObjectC>(
                 microContainer => new SubObjectC { ServiceC = microContainer.GetInstance<IServiceC>() }));
-            map.AddService(new Func<IMicroContainer, IComplexPropertyObject>(
-                microContainer => new ComplexPropertyObject
-                                      {
-                                          ServiceA = microContainer.GetInstance<IServiceA>(),
-                                          ServiceB = microContainer.GetInstance<IServiceB>(),
-                                          ServiceC = microContainer.GetInstance<IServiceC>(),
-                                          SubObjectA = microContainer.GetInstance<ISubObjectA>(),
-                                          SubObjectB = microContainer.GetInstance<ISubObjectB>(),
-                                          SubObjectC = microContainer.GetInstance<ISubObjectC>()
-                                      }));
+            
+            // HACK: We must wrap the delegate explicitly in a Func<T, TResult> or else resolving will fail.
+            map.AddService(new Func<IMicroContainer, IComplexPropertyObject1>(
+                microContainer => new ComplexPropertyObject1
+                {
+                    ServiceA = microContainer.GetInstance<IServiceA>(),
+                    ServiceB = microContainer.GetInstance<IServiceB>(),
+                    ServiceC = microContainer.GetInstance<IServiceC>(),
+                    SubObjectA = microContainer.GetInstance<ISubObjectA>(),
+                    SubObjectB = microContainer.GetInstance<ISubObjectB>(),
+                    SubObjectC = microContainer.GetInstance<ISubObjectC>()
+                }));
+
+            map.AddService(new Func<IMicroContainer, IComplexPropertyObject2>(
+                microContainer => new ComplexPropertyObject2
+                {
+                    ServiceA = microContainer.GetInstance<IServiceA>(),
+                    ServiceB = microContainer.GetInstance<IServiceB>(),
+                    ServiceC = microContainer.GetInstance<IServiceC>(),
+                    SubObjectA = microContainer.GetInstance<ISubObjectA>(),
+                    SubObjectB = microContainer.GetInstance<ISubObjectB>(),
+                    SubObjectC = microContainer.GetInstance<ISubObjectC>()
+                }));
+
+            map.AddService(new Func<IMicroContainer, IComplexPropertyObject3>(
+                microContainer => new ComplexPropertyObject3
+                {
+                    ServiceA = microContainer.GetInstance<IServiceA>(),
+                    ServiceB = microContainer.GetInstance<IServiceB>(),
+                    ServiceC = microContainer.GetInstance<IServiceC>(),
+                    SubObjectA = microContainer.GetInstance<ISubObjectA>(),
+                    SubObjectB = microContainer.GetInstance<ISubObjectB>(),
+                    SubObjectC = microContainer.GetInstance<ISubObjectC>()
+                }));
         }
     }
 }

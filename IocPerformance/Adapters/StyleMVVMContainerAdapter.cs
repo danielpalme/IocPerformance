@@ -22,7 +22,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://stylemvvm.codeplex.com"; }
+            get { return "https://stylemvvm.codeplex.com"; }
         }
 
         public override bool SupportsConditional
@@ -96,9 +96,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.Register<Singleton>().As<ISingleton>().AndSharedPermenantly();
-            this.container.Register<Transient>().As<ITransient>();
-            this.container.Register<Combined>().As<ICombined>().ImportConstructor(() => new Combined(null, null));
+            this.container.Register<Singleton1>().As<ISingleton1>().AndSharedPermenantly();
+            this.container.Register<Singleton2>().As<ISingleton2>().AndSharedPermenantly();
+            this.container.Register<Singleton3>().As<ISingleton3>().AndSharedPermenantly();
+            this.container.Register<Transient1>().As<ITransient1>();
+            this.container.Register<Transient2>().As<ITransient2>();
+            this.container.Register<Transient3>().As<ITransient3>();
+            this.container.Register<Combined1>().As<ICombined1>().ImportConstructor(() => new Combined1(null, null));
+            this.container.Register<Combined2>().As<ICombined2>().ImportConstructor(() => new Combined2(null, null));
+            this.container.Register<Combined3>().As<ICombined3>().ImportConstructor(() => new Combined3(null, null));
         }
 
         private void RegisterComplex()
@@ -109,7 +115,9 @@ namespace IocPerformance.Adapters
             this.container.Register<SubObjectOne>().As<ISubObjectOne>().ImportDefaultConstructor();
             this.container.Register<SubObjectTwo>().As<ISubObjectTwo>().ImportDefaultConstructor();
             this.container.Register<SubObjectThree>().As<ISubObjectThree>().ImportDefaultConstructor();
-            this.container.Register<Complex>().As<IComplex>().ImportDefaultConstructor();
+            this.container.Register<Complex1>().As<IComplex1>().ImportDefaultConstructor();
+            this.container.Register<Complex2>().As<IComplex2>().ImportDefaultConstructor();
+            this.container.Register<Complex3>().As<IComplex3>().ImportDefaultConstructor();
         }
 
         private void RegisterPropertyInjection()
@@ -122,7 +130,23 @@ namespace IocPerformance.Adapters
             this.container.Register<SubObjectB>().As<ISubObjectB>().ImportProperty(x => x.ServiceB);
             this.container.Register<SubObjectC>().As<ISubObjectC>().ImportProperty(x => x.ServiceC);
 
-            this.container.Register<ComplexPropertyObject>().As<IComplexPropertyObject>()
+            this.container.Register<ComplexPropertyObject1>().As<IComplexPropertyObject1>()
+                .ImportProperty(x => x.ServiceA)
+                .ImportProperty(x => x.ServiceB)
+                .ImportProperty(x => x.ServiceC)
+                .ImportProperty(x => x.SubObjectA)
+                .ImportProperty(x => x.SubObjectB)
+                .ImportProperty(x => x.SubObjectC);
+
+            this.container.Register<ComplexPropertyObject2>().As<IComplexPropertyObject2>()
+                .ImportProperty(x => x.ServiceA)
+                .ImportProperty(x => x.ServiceB)
+                .ImportProperty(x => x.ServiceC)
+                .ImportProperty(x => x.SubObjectA)
+                .ImportProperty(x => x.SubObjectB)
+                .ImportProperty(x => x.SubObjectC);
+
+            this.container.Register<ComplexPropertyObject3>().As<IComplexPropertyObject3>()
                 .ImportProperty(x => x.ServiceA)
                 .ImportProperty(x => x.ServiceB)
                 .ImportProperty(x => x.ServiceC)
@@ -139,23 +163,27 @@ namespace IocPerformance.Adapters
 
         private void RegisterConditional()
         {
-            this.container.Register<ImportConditionObject>()
-                            .As<ImportConditionObject>().ImportDefaultConstructor();
-            this.container.Register<ImportConditionObject2>()
-                            .As<ImportConditionObject2>().ImportDefaultConstructor();
+            this.container.Register<ImportConditionObject1>().As<ImportConditionObject1>().ImportDefaultConstructor();
+            this.container.Register<ImportConditionObject2>().As<ImportConditionObject2>().ImportDefaultConstructor();
+            this.container.Register<ImportConditionObject3>().As<ImportConditionObject3>().ImportDefaultConstructor();
 
             this.container.Register<ExportConditionalObject>()
                             .As<IExportConditionInterface>()
-                            .WhenInjectedInto<ImportConditionObject>();
+                            .WhenInjectedInto<ImportConditionObject1>();
             this.container.Register<ExportConditionalObject2>()
                             .As<IExportConditionInterface>()
                             .WhenInjectedInto<ImportConditionObject2>();
+            this.container.Register<ExportConditionalObject3>()
+                            .As<IExportConditionInterface>()
+                            .WhenInjectedInto<ImportConditionObject3>();
         }
 
         private void RegisterMultiple()
         {
             this.container.RegisterAssembly(GetType().Assembly).ExportInterface<ISimpleAdapter>();
-            this.container.Register<ImportMultiple>().As<ImportMultiple>().ImportDefaultConstructor();
+            this.container.Register<ImportMultiple1>().As<ImportMultiple1>().ImportDefaultConstructor();
+            this.container.Register<ImportMultiple2>().As<ImportMultiple2>().ImportDefaultConstructor();
+            this.container.Register<ImportMultiple3>().As<ImportMultiple3>().ImportDefaultConstructor();
         }
     }
 }

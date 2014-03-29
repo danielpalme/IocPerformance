@@ -3,7 +3,7 @@ using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Classes.Child
 {
-    public class ScopedTransient : ITransient
+    public class ScopedTransient : ITransient1
     {
         public void DoSomething()
         {

@@ -39,7 +39,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -69,9 +69,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.Register<ISingleton, Singleton>().WithLifetimeManager(new ContainerLifetime());
-            this.container.Register<ITransient, Transient>().WithLifetimeManager(new AlwaysNewLifetime());
-            this.container.Register<ICombined, Combined>().WithLifetimeManager(new AlwaysNewLifetime());
+            this.container.Register<ISingleton1, Singleton1>().WithLifetimeManager(new ContainerLifetime());
+            this.container.Register<ISingleton2, Singleton2>().WithLifetimeManager(new ContainerLifetime());
+            this.container.Register<ISingleton3, Singleton3>().WithLifetimeManager(new ContainerLifetime());
+            this.container.Register<ITransient1, Transient1>().WithLifetimeManager(new AlwaysNewLifetime());
+            this.container.Register<ITransient2, Transient2>().WithLifetimeManager(new AlwaysNewLifetime());
+            this.container.Register<ITransient3, Transient3>().WithLifetimeManager(new AlwaysNewLifetime());
+            this.container.Register<ICombined1, Combined1>().WithLifetimeManager(new AlwaysNewLifetime());
+            this.container.Register<ICombined2, Combined2>().WithLifetimeManager(new AlwaysNewLifetime());
+            this.container.Register<ICombined3, Combined3>().WithLifetimeManager(new AlwaysNewLifetime());
         }
 
         private void RegisterComplex()
@@ -82,7 +88,9 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectOne, SubObjectOne>().WithLifetimeManager(new AlwaysNewLifetime());
             this.container.Register<ISubObjectTwo, SubObjectTwo>().WithLifetimeManager(new AlwaysNewLifetime());
             this.container.Register<ISubObjectThree, SubObjectThree>().WithLifetimeManager(new AlwaysNewLifetime());
-            this.container.Register<IComplex, Complex>().WithLifetimeManager(new AlwaysNewLifetime());
+            this.container.Register<IComplex1, Complex1>().WithLifetimeManager(new AlwaysNewLifetime());
+            this.container.Register<IComplex2, Complex2>().WithLifetimeManager(new AlwaysNewLifetime());
+            this.container.Register<IComplex3, Complex3>().WithLifetimeManager(new AlwaysNewLifetime());
         }
 
         private void RegisterPropertyInjection()
@@ -100,7 +108,27 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectC>(x => new SubObjectC { ServiceC = x.Resolve<IServiceC>() })
                 .WithLifetimeManager(new AlwaysNewLifetime());
 
-            this.container.Register<IComplexPropertyObject>(x => new ComplexPropertyObject
+            this.container.Register<IComplexPropertyObject1>(x => new ComplexPropertyObject1
+            {
+                ServiceA = x.Resolve<IServiceA>(),
+                ServiceB = x.Resolve<IServiceB>(),
+                ServiceC = x.Resolve<IServiceC>(),
+                SubObjectA = x.Resolve<ISubObjectA>(),
+                SubObjectB = x.Resolve<ISubObjectB>(),
+                SubObjectC = x.Resolve<ISubObjectC>()
+            }).WithLifetimeManager(new AlwaysNewLifetime());
+
+            this.container.Register<IComplexPropertyObject2>(x => new ComplexPropertyObject2
+            {
+                ServiceA = x.Resolve<IServiceA>(),
+                ServiceB = x.Resolve<IServiceB>(),
+                ServiceC = x.Resolve<IServiceC>(),
+                SubObjectA = x.Resolve<ISubObjectA>(),
+                SubObjectB = x.Resolve<ISubObjectB>(),
+                SubObjectC = x.Resolve<ISubObjectC>()
+            }).WithLifetimeManager(new AlwaysNewLifetime());
+
+            this.container.Register<IComplexPropertyObject3>(x => new ComplexPropertyObject3
             {
                 ServiceA = x.Resolve<IServiceA>(),
                 ServiceB = x.Resolve<IServiceB>(),

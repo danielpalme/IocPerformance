@@ -63,7 +63,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container.Dispose();
             this.container = null;
         }
@@ -105,9 +105,15 @@ namespace IocPerformance.Adapters
 
         private static void RegisterStandard(ConfigurationExpression r)
         {
-            r.For<ISingleton>().Singleton().Use<Singleton>();
-            r.For<ITransient>().Transient().Use<Transient>();
-            r.For<ICombined>().Transient().Use<Combined>();
+            r.For<ISingleton1>().Singleton().Use<Singleton1>();
+            r.For<ISingleton2>().Singleton().Use<Singleton2>();
+            r.For<ISingleton3>().Singleton().Use<Singleton3>();
+            r.For<ITransient1>().Transient().Use<Transient1>();
+            r.For<ITransient2>().Transient().Use<Transient2>();
+            r.For<ITransient3>().Transient().Use<Transient3>();
+            r.For<ICombined1>().Transient().Use<Combined1>();
+            r.For<ICombined2>().Transient().Use<Combined2>();
+            r.For<ICombined3>().Transient().Use<Combined3>();
         }
 
         private static void RegisterComplex(ConfigurationExpression r)
@@ -118,7 +124,9 @@ namespace IocPerformance.Adapters
             r.For<ISubObjectOne>().Transient().Use<SubObjectOne>();
             r.For<ISubObjectTwo>().Transient().Use<SubObjectTwo>();
             r.For<ISubObjectThree>().Transient().Use<SubObjectThree>();
-            r.For<IComplex>().Transient().Use<Complex>();
+            r.For<IComplex1>().Transient().Use<Complex1>();
+            r.For<IComplex2>().Transient().Use<Complex2>();
+            r.For<IComplex3>().Transient().Use<Complex3>();
         }
 
         private static void RegisterPropertyInjection(ConfigurationExpression r)
@@ -136,7 +144,23 @@ namespace IocPerformance.Adapters
             r.For<ISubObjectC>().Transient().Use<SubObjectC>()
                 .Setter(x => x.ServiceC).IsTheDefault();
 
-            r.For<IComplexPropertyObject>().Transient().Use<ComplexPropertyObject>()
+            r.For<IComplexPropertyObject1>().Transient().Use<ComplexPropertyObject1>()
+                .Setter(x => x.ServiceA).IsTheDefault()
+                .Setter(x => x.ServiceB).IsTheDefault()
+                .Setter(x => x.ServiceC).IsTheDefault()
+                .Setter(x => x.SubObjectA).IsTheDefault()
+                .Setter(x => x.SubObjectB).IsTheDefault()
+                .Setter(x => x.SubObjectC).IsTheDefault();
+
+            r.For<IComplexPropertyObject2>().Transient().Use<ComplexPropertyObject2>()
+                .Setter(x => x.ServiceA).IsTheDefault()
+                .Setter(x => x.ServiceB).IsTheDefault()
+                .Setter(x => x.ServiceC).IsTheDefault()
+                .Setter(x => x.SubObjectA).IsTheDefault()
+                .Setter(x => x.SubObjectB).IsTheDefault()
+                .Setter(x => x.SubObjectC).IsTheDefault();
+
+            r.For<IComplexPropertyObject3>().Transient().Use<ComplexPropertyObject3>()
                 .Setter(x => x.ServiceA).IsTheDefault()
                 .Setter(x => x.ServiceB).IsTheDefault()
                 .Setter(x => x.ServiceC).IsTheDefault()
@@ -158,13 +182,19 @@ namespace IocPerformance.Adapters
             r.For<ISimpleAdapter>().Transient().Use<SimpleAdapterThree>();
             r.For<ISimpleAdapter>().Transient().Use<SimpleAdapterFour>();
             r.For<ISimpleAdapter>().Transient().Use<SimpleAdapterFive>();
-            r.For<ImportMultiple>().Transient().Use<ImportMultiple>();
+            r.For<ImportMultiple1>().Transient().Use<ImportMultiple1>();
+            r.For<ImportMultiple2>().Transient().Use<ImportMultiple2>();
+            r.For<ImportMultiple3>().Transient().Use<ImportMultiple3>();
         }
 
         private static void RegisterInterceptor(ConfigurationExpression r, ProxyGenerator pg)
         {
-            r.For<ICalculator>().Transient().Use<Calculator>()
-             .EnrichWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator>(c, new StructureMapInterceptionLogger()));
+            r.For<ICalculator1>().Transient().Use<Calculator1>()
+             .EnrichWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator1>(c, new StructureMapInterceptionLogger()));
+            r.For<ICalculator2>().Transient().Use<Calculator2>()
+             .EnrichWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator2>(c, new StructureMapInterceptionLogger()));
+            r.For<ICalculator3>().Transient().Use<Calculator3>()
+             .EnrichWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator3>(c, new StructureMapInterceptionLogger()));
         }
     }
 
@@ -185,10 +215,12 @@ namespace IocPerformance.Adapters
         public void Prepare()
         {
             this.container.Configure(c =>
-                                {
-                                    c.For<ICombined>().Use<ScopedCombined>();
-                                    c.For<ITransient>().Use<ScopedTransient>();
-                                });
+            {
+                c.For<ICombined1>().Use<ScopedCombined1>();
+                c.For<ICombined2>().Use<ScopedCombined2>();
+                c.For<ICombined3>().Use<ScopedCombined3>();
+                c.For<ITransient1>().Use<ScopedTransient>();
+            });
         }
 
         public object Resolve(Type resolveType)

@@ -323,9 +323,11 @@
     <Compile Include="Classes\Complex\ThirdService.cs" />
     <Compile Include="Classes\Conditional\ExportConditionalObject.cs" />
     <Compile Include="Classes\Conditional\ExportConditionalObject2.cs" />
+    <Compile Include="Classes\Conditional\ExportConditionalObject3.cs" />
     <Compile Include="Classes\Conditional\IExportConditionInterface.cs" />
-    <Compile Include="Classes\Conditional\ImportConditionObject.cs" />
+    <Compile Include="Classes\Conditional\ImportConditionObject1.cs" />
     <Compile Include="Classes\Conditional\ImportConditionObject2.cs" />
+    <Compile Include="Classes\Conditional\ImportConditionObject3.cs" />
     <Compile Include="Classes\Dummy\DummyEight.cs" />
     <Compile Include="Classes\Dummy\DummyFive.cs" />
     <Compile Include="Classes\Dummy\DummyFour.cs" />

@@ -58,7 +58,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container.Dispose();
             this.container = null;
         }
@@ -105,10 +105,18 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.Register<ISingleton, Singleton>(Reuse.Singleton);
-            this.container.Register<ITransient, Transient>();
-            this.container.Register<ICombined, Combined>();
-            this.container.Register<ICalculator, Calculator>();
+            this.container.Register<ISingleton1, Singleton1>(Reuse.Singleton);
+            this.container.Register<ISingleton2, Singleton2>(Reuse.Singleton);
+            this.container.Register<ISingleton3, Singleton3>(Reuse.Singleton);
+            this.container.Register<ITransient1, Transient1>();
+            this.container.Register<ITransient2, Transient2>();
+            this.container.Register<ITransient3, Transient3>();
+            this.container.Register<ICombined1, Combined1>();
+            this.container.Register<ICombined2, Combined2>();
+            this.container.Register<ICombined3, Combined3>();
+            this.container.Register<ICalculator1, Calculator1>();
+            this.container.Register<ICalculator2, Calculator2>();
+            this.container.Register<ICalculator3, Calculator3>();
         }
 
         private void RegisterComplex()
@@ -119,7 +127,9 @@ namespace IocPerformance.Adapters
             this.container.Register<IFirstService, FirstService>(Reuse.Singleton);
             this.container.Register<ISecondService, SecondService>(Reuse.Singleton);
             this.container.Register<IThirdService, ThirdService>(Reuse.Singleton);
-            this.container.Register<IComplex, Complex>();
+            this.container.Register<IComplex1, Complex1>();
+            this.container.Register<IComplex2, Complex2>();
+            this.container.Register<IComplex3, Complex3>();
         }
 
         private void RegisterPropertyInjection()
@@ -135,7 +145,9 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectB, SubObjectB>();
             this.container.Register<ISubObjectC, SubObjectC>();
 
-            this.container.Register<IComplexPropertyObject, ComplexPropertyObject>();
+            this.container.Register<IComplexPropertyObject1, ComplexPropertyObject1>();
+            this.container.Register<IComplexPropertyObject2, ComplexPropertyObject2>();
+            this.container.Register<IComplexPropertyObject3, ComplexPropertyObject3>();
         }
 
         private void RegisterOpenGeneric()
@@ -146,24 +158,29 @@ namespace IocPerformance.Adapters
 
         private void RegisterConditional()
         {
-            this.container.Register<ImportConditionObject>();
+            this.container.Register<ImportConditionObject1>();
             this.container.Register<ImportConditionObject2>();
+            this.container.Register<ImportConditionObject3>();
 
             this.container.Register<IExportConditionInterface>(
                 new FactoryProvider((request, _) =>
                 {
                     var parent = request.GetNonWrapperParentOrDefault();
                     var implType = parent != null &&
-                        parent.ImplementationType == typeof(ImportConditionObject)
+                        parent.ImplementationType == typeof(ImportConditionObject1)
                         ? typeof(ExportConditionalObject)
-                        : typeof(ExportConditionalObject2);
+                        : (parent.ImplementationType == typeof(ImportConditionObject2)
+                            ? typeof(ExportConditionalObject2)
+                            : typeof(ExportConditionalObject3));
                     return new ReflectionFactory(implType);
                 }));
         }
 
         private void RegisterMultiple()
         {
-            this.container.Register<ImportMultiple>();
+            this.container.Register<ImportMultiple1>();
+            this.container.Register<ImportMultiple2>();
+            this.container.Register<ImportMultiple3>();
             this.container.Register<ISimpleAdapter, SimpleAdapterOne>();
             this.container.Register<ISimpleAdapter, SimpleAdapterTwo>();
             this.container.Register<ISimpleAdapter, SimpleAdapterThree>();

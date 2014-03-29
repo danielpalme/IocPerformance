@@ -18,7 +18,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://funq.codeplex.com"; }
+            get { return "https://funq.codeplex.com"; }
         }
 
         public override string Version
@@ -33,29 +33,79 @@ namespace IocPerformance.Adapters
 
         public override object Resolve(Type type)
         {
-            if (type == typeof(ITransient))
+            if (type == typeof(ITransient1))
             {
-                return this.container.Resolve<ITransient>();
+                return this.container.Resolve<ITransient1>();
             }
 
-            if (type == typeof(ISingleton))
+            if (type == typeof(ITransient2))
             {
-                return this.container.Resolve<ISingleton>();
+                return this.container.Resolve<ITransient2>();
             }
 
-            if (type == typeof(ICombined))
+            if (type == typeof(ITransient3))
             {
-                return this.container.Resolve<ICombined>();
+                return this.container.Resolve<ITransient3>();
             }
 
-            if (type == typeof(IComplex))
+            if (type == typeof(ISingleton1))
             {
-                return this.container.Resolve<IComplex>();
+                return this.container.Resolve<ISingleton1>();
             }
 
-            if (type == typeof(IComplexPropertyObject))
+            if (type == typeof(ISingleton2))
             {
-                return this.container.Resolve<IComplexPropertyObject>();
+                return this.container.Resolve<ISingleton2>();
+            }
+
+            if (type == typeof(ISingleton3))
+            {
+                return this.container.Resolve<ISingleton3>();
+            }
+
+            if (type == typeof(ICombined1))
+            {
+                return this.container.Resolve<ICombined1>();
+            }
+
+            if (type == typeof(ICombined2))
+            {
+                return this.container.Resolve<ICombined2>();
+            }
+
+            if (type == typeof(ICombined3))
+            {
+                return this.container.Resolve<ICombined3>();
+            }
+
+            if (type == typeof(IComplex1))
+            {
+                return this.container.Resolve<IComplex1>();
+            }
+
+            if (type == typeof(IComplex2))
+            {
+                return this.container.Resolve<IComplex2>();
+            }
+
+            if (type == typeof(IComplex3))
+            {
+                return this.container.Resolve<IComplex3>();
+            }
+
+            if (type == typeof(IComplexPropertyObject1))
+            {
+                return this.container.Resolve<IComplexPropertyObject1>();
+            }
+
+            if (type == typeof(IComplexPropertyObject2))
+            {
+                return this.container.Resolve<IComplexPropertyObject2>();
+            }
+
+            if (type == typeof(IComplexPropertyObject3))
+            {
+                return this.container.Resolve<IComplexPropertyObject3>();
             }
 
             throw new ArgumentException("Non-injectable type requested: " + type.FullName, "type");
@@ -63,7 +113,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -93,16 +143,32 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.Register<ISingleton>(ioc => new Singleton())
+            this.container.Register<ISingleton1>(ioc => new Singleton1())
+                 .ReusedWithin(Funq.ReuseScope.Container);
+            this.container.Register<ISingleton2>(ioc => new Singleton2())
+                 .ReusedWithin(Funq.ReuseScope.Container);
+            this.container.Register<ISingleton3>(ioc => new Singleton3())
                  .ReusedWithin(Funq.ReuseScope.Container);
 
-            this.container.Register<ITransient>(ioc => new Transient())
+            this.container.Register<ITransient1>(ioc => new Transient1())
+                 .ReusedWithin(Funq.ReuseScope.None);
+            this.container.Register<ITransient2>(ioc => new Transient2())
+                 .ReusedWithin(Funq.ReuseScope.None);
+            this.container.Register<ITransient3>(ioc => new Transient3())
                  .ReusedWithin(Funq.ReuseScope.None);
 
-            this.container.Register<ICombined>(ioc => new Combined(
-                                                                         ioc.Resolve<ISingleton>(),
-                                                                         ioc.Resolve<ITransient>()))
-                 .ReusedWithin(Funq.ReuseScope.None);
+            this.container.Register<ICombined1>(ioc => new Combined1(
+                ioc.Resolve<ISingleton1>(),
+                ioc.Resolve<ITransient1>()))
+                .ReusedWithin(Funq.ReuseScope.None);
+            this.container.Register<ICombined2>(ioc => new Combined2(
+                ioc.Resolve<ISingleton2>(),
+                ioc.Resolve<ITransient2>()))
+                .ReusedWithin(Funq.ReuseScope.None);
+            this.container.Register<ICombined3>(ioc => new Combined3(
+                ioc.Resolve<ISingleton3>(),
+                ioc.Resolve<ITransient3>()))
+                .ReusedWithin(Funq.ReuseScope.None);
         }
 
         private void RegisterComplex()
@@ -118,8 +184,26 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectThree>(ioc => new SubObjectThree(ioc.Resolve<IThirdService>()))
                         .ReusedWithin(ReuseScope.None);
 
-            this.container.Register<IComplex>(
-                 ioc => new Complex(
+            this.container.Register<IComplex1>(
+                 ioc => new Complex1(
+                      ioc.Resolve<IFirstService>(),
+                      ioc.Resolve<ISecondService>(),
+                      ioc.Resolve<IThirdService>(),
+                      ioc.Resolve<ISubObjectOne>(),
+                      ioc.Resolve<ISubObjectTwo>(),
+                      ioc.Resolve<ISubObjectThree>()))
+                 .ReusedWithin(ReuseScope.None);
+            this.container.Register<IComplex2>(
+                 ioc => new Complex2(
+                      ioc.Resolve<IFirstService>(),
+                      ioc.Resolve<ISecondService>(),
+                      ioc.Resolve<IThirdService>(),
+                      ioc.Resolve<ISubObjectOne>(),
+                      ioc.Resolve<ISubObjectTwo>(),
+                      ioc.Resolve<ISubObjectThree>()))
+                 .ReusedWithin(ReuseScope.None);
+            this.container.Register<IComplex3>(
+                 ioc => new Complex3(
                       ioc.Resolve<IFirstService>(),
                       ioc.Resolve<ISecondService>(),
                       ioc.Resolve<IThirdService>(),
@@ -142,8 +226,8 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectC>(ioc => new SubObjectC { ServiceC = ioc.Resolve<IServiceC>() })
                  .ReusedWithin(ReuseScope.None);
 
-            this.container.Register<IComplexPropertyObject>(
-                ioc => new ComplexPropertyObject
+            this.container.Register<IComplexPropertyObject1>(
+                ioc => new ComplexPropertyObject1
                            {
                                ServiceA = ioc.Resolve<IServiceA>(),
                                ServiceB = ioc.Resolve<IServiceB>(),
@@ -152,6 +236,28 @@ namespace IocPerformance.Adapters
                                SubObjectB = ioc.Resolve<ISubObjectB>(),
                                SubObjectC = ioc.Resolve<ISubObjectC>()
                            }).ReusedWithin(ReuseScope.None);
+
+            this.container.Register<IComplexPropertyObject2>(
+                ioc => new ComplexPropertyObject2
+                {
+                    ServiceA = ioc.Resolve<IServiceA>(),
+                    ServiceB = ioc.Resolve<IServiceB>(),
+                    ServiceC = ioc.Resolve<IServiceC>(),
+                    SubObjectA = ioc.Resolve<ISubObjectA>(),
+                    SubObjectB = ioc.Resolve<ISubObjectB>(),
+                    SubObjectC = ioc.Resolve<ISubObjectC>()
+                }).ReusedWithin(ReuseScope.None);
+
+            this.container.Register<IComplexPropertyObject3>(
+                ioc => new ComplexPropertyObject3
+                {
+                    ServiceA = ioc.Resolve<IServiceA>(),
+                    ServiceB = ioc.Resolve<IServiceB>(),
+                    ServiceC = ioc.Resolve<IServiceC>(),
+                    SubObjectA = ioc.Resolve<ISubObjectA>(),
+                    SubObjectB = ioc.Resolve<ISubObjectB>(),
+                    SubObjectC = ioc.Resolve<ISubObjectC>()
+                }).ReusedWithin(ReuseScope.None);
         }
     }
 }

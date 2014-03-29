@@ -17,7 +17,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://microsliver.codeplex.com"; }
+            get { return "https://microsliver.codeplex.com"; }
         }
 
         public override object Resolve(Type type)
@@ -27,7 +27,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -56,9 +56,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.Map<ISingleton, Singleton>().ToSingletonScope();
-            this.container.Map<ITransient, Transient>();
-            this.container.Map<ICombined, Combined>();
+            this.container.Map<ISingleton1, Singleton1>().ToSingletonScope();
+            this.container.Map<ISingleton2, Singleton2>().ToSingletonScope();
+            this.container.Map<ISingleton3, Singleton3>().ToSingletonScope();
+            this.container.Map<ITransient1, Transient1>();
+            this.container.Map<ITransient2, Transient2>();
+            this.container.Map<ITransient3, Transient3>();
+            this.container.Map<ICombined1, Combined1>();
+            this.container.Map<ICombined2, Combined2>();
+            this.container.Map<ICombined3, Combined3>();
         }
 
         private void RegisterComplex()
@@ -69,7 +75,9 @@ namespace IocPerformance.Adapters
             this.container.Map<ISubObjectOne, SubObjectOne>();
             this.container.Map<ISubObjectTwo, SubObjectTwo>();
             this.container.Map<ISubObjectThree, SubObjectThree>();
-            this.container.Map<IComplex, Complex>();
+            this.container.Map<IComplex1, Complex1>();
+            this.container.Map<IComplex2, Complex2>();
+            this.container.Map<IComplex3, Complex3>();
         }
     }
 }
