@@ -52,7 +52,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
             this.containerWithLoggingInterception = null;
         }
@@ -69,7 +69,9 @@ namespace IocPerformance.Adapters
             this.container = registrar.Build();
 
             registrar = new ContainerRegistrar();
-            registrar.RegisterType<ICalculator, Calculator>(Lifetime.Transient);
+            registrar.RegisterType<ICalculator1, Calculator1>(Lifetime.Transient);
+            registrar.RegisterType<ICalculator2, Calculator2>(Lifetime.Transient);
+            registrar.RegisterType<ICalculator3, Calculator3>(Lifetime.Transient);
 
             var containerWithLoggingInterception = registrar.Build();
             containerWithLoggingInterception.AddDecorator(new GriffinLoggingDecorator());
@@ -92,9 +94,15 @@ namespace IocPerformance.Adapters
 
         private static void RegisterStandard(ContainerRegistrar registrar)
         {
-            registrar.RegisterType<ISingleton, Singleton>(Lifetime.Singleton);
-            registrar.RegisterType<ITransient, Transient>(Lifetime.Transient);
-            registrar.RegisterType<ICombined, Combined>(Lifetime.Transient);
+            registrar.RegisterType<ISingleton1, Singleton1>(Lifetime.Singleton);
+            registrar.RegisterType<ISingleton2, Singleton2>(Lifetime.Singleton);
+            registrar.RegisterType<ISingleton3, Singleton3>(Lifetime.Singleton);
+            registrar.RegisterType<ITransient1, Transient1>(Lifetime.Transient);
+            registrar.RegisterType<ITransient2, Transient2>(Lifetime.Transient);
+            registrar.RegisterType<ITransient3, Transient3>(Lifetime.Transient);
+            registrar.RegisterType<ICombined1, Combined1>(Lifetime.Transient);
+            registrar.RegisterType<ICombined2, Combined2>(Lifetime.Transient);
+            registrar.RegisterType<ICombined3, Combined3>(Lifetime.Transient);
         }
 
         private static void RegisterComplex(ContainerRegistrar registrar)
@@ -106,7 +114,9 @@ namespace IocPerformance.Adapters
             registrar.RegisterType<ISubObjectTwo, SubObjectTwo>(Lifetime.Transient);
             registrar.RegisterType<ISubObjectThree, SubObjectThree>(Lifetime.Transient);
 
-            registrar.RegisterType<IComplex, Complex>(Lifetime.Transient);
+            registrar.RegisterType<IComplex1, Complex1>(Lifetime.Transient);
+            registrar.RegisterType<IComplex2, Complex2>(Lifetime.Transient);
+            registrar.RegisterType<IComplex3, Complex3>(Lifetime.Transient);
         }
 
         private static void RegisterPropertyInjection(ContainerRegistrar registrar)
@@ -117,8 +127,30 @@ namespace IocPerformance.Adapters
             registrar.RegisterService<ISubObjectA>(x => new SubObjectA { ServiceA = x.Resolve<IServiceA>() }, Lifetime.Transient);
             registrar.RegisterService<ISubObjectB>(x => new SubObjectB { ServiceB = x.Resolve<IServiceB>() }, Lifetime.Transient);
             registrar.RegisterService<ISubObjectC>(x => new SubObjectC { ServiceC = x.Resolve<IServiceC>() }, Lifetime.Transient);
-            registrar.RegisterService<IComplexPropertyObject>(
-                x => new ComplexPropertyObject
+            registrar.RegisterService<IComplexPropertyObject1>(
+                x => new ComplexPropertyObject1
+                {
+                    ServiceA = x.Resolve<IServiceA>(),
+                    ServiceB = x.Resolve<IServiceB>(),
+                    ServiceC = x.Resolve<IServiceC>(),
+                    SubObjectA = x.Resolve<ISubObjectA>(),
+                    SubObjectB = x.Resolve<ISubObjectB>(),
+                    SubObjectC = x.Resolve<ISubObjectC>()
+                },
+                Lifetime.Transient);
+            registrar.RegisterService<IComplexPropertyObject2>(
+                x => new ComplexPropertyObject2
+                {
+                    ServiceA = x.Resolve<IServiceA>(),
+                    ServiceB = x.Resolve<IServiceB>(),
+                    ServiceC = x.Resolve<IServiceC>(),
+                    SubObjectA = x.Resolve<ISubObjectA>(),
+                    SubObjectB = x.Resolve<ISubObjectB>(),
+                    SubObjectC = x.Resolve<ISubObjectC>()
+                },
+                Lifetime.Transient);
+            registrar.RegisterService<IComplexPropertyObject3>(
+                x => new ComplexPropertyObject3
                 {
                     ServiceA = x.Resolve<IServiceA>(),
                     ServiceB = x.Resolve<IServiceB>(),

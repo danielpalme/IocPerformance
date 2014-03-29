@@ -29,7 +29,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -44,12 +44,12 @@ namespace IocPerformance.Adapters
             RegisterStandard(registry);
             RegisterComplex(registry);
 
-            registry.Register<Singleton>().As<ISingleton>().WithLifetime(Lifetime.Container).PreCreateInstance();
-            registry.Register<Transient>().As<ITransient>().WithLifetime(Lifetime.Transient);
-            registry.Register<Combined>().As<ICombined>().WithLifetime(Lifetime.Transient)
+            registry.Register<Singleton1>().As<ISingleton1>().WithLifetime(Lifetime.Container).PreCreateInstance();
+            registry.Register<Transient1>().As<ITransient1>().WithLifetime(Lifetime.Transient);
+            registry.Register<Combined1>().As<ICombined1>().WithLifetime(Lifetime.Transient)
                 .UsingConstructor()
-                .WithResolvedParameter<ISingleton>()
-                .WithResolvedParameter<ITransient>()
+                .WithResolvedParameter<ISingleton1>()
+                .WithResolvedParameter<ITransient1>()
                 .AsLastParameter();
 
             IContainerBuilder containerBuilder = DefaultContainerBuilderFactory.GetInstance(settings, registry);
@@ -72,12 +72,12 @@ namespace IocPerformance.Adapters
 
         private static void RegisterStandard(IRegistry registry)
         {
-            registry.Register<Singleton>().As<ISingleton>().WithLifetime(Lifetime.Container).PreCreateInstance();
-            registry.Register<Transient>().As<ITransient>().WithLifetime(Lifetime.Transient);
-            registry.Register<Combined>().As<ICombined>().WithLifetime(Lifetime.Transient)
+            registry.Register<Singleton1>().As<ISingleton1>().WithLifetime(Lifetime.Container).PreCreateInstance();
+            registry.Register<Transient1>().As<ITransient1>().WithLifetime(Lifetime.Transient);
+            registry.Register<Combined1>().As<ICombined1>().WithLifetime(Lifetime.Transient)
                 .UsingConstructor()
-                .WithResolvedParameter<ISingleton>()
-                .WithResolvedParameter<ITransient>()
+                .WithResolvedParameter<ISingleton1>()
+                .WithResolvedParameter<ITransient1>()
                 .AsLastParameter();
         }
 
@@ -89,7 +89,7 @@ namespace IocPerformance.Adapters
             registry.Register<FirstService>().As<IFirstService>().WithLifetime(Lifetime.Container).PreCreateInstance();
             registry.Register<SecondService>().As<ISecondService>().WithLifetime(Lifetime.Container).PreCreateInstance();
             registry.Register<ThirdService>().As<IThirdService>().WithLifetime(Lifetime.Container).PreCreateInstance();
-            registry.Register<Complex>().As<IComplex>().WithLifetime(Lifetime.Transient);
+            registry.Register<Complex1>().As<IComplex1>().WithLifetime(Lifetime.Transient);
         }
     }
 }

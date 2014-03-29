@@ -20,7 +20,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://blogs.msdn.com/b/bclteam/p/composition.aspx"; }
+            get { return "https://blogs.msdn.com/b/bclteam/p/composition.aspx"; }
         }
 
         public override bool SupportsPropertyInjection
@@ -50,7 +50,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container.Dispose();
             this.container = null;
         }
@@ -82,13 +82,17 @@ namespace IocPerformance.Adapters
                 typeof(SimpleAdapterThree),
                 typeof(SimpleAdapterFour),
                 typeof(SimpleAdapterFive),
-                typeof(ImportMultiple));
+                typeof(ImportMultiple1),
+                typeof(ImportMultiple2),
+                typeof(ImportMultiple3));
         }
 
         private static void RegisterPropertyInjection(ContainerConfiguration config)
         {
             config.WithParts(
-                typeof(ComplexPropertyObject),
+                typeof(ComplexPropertyObject1),
+                typeof(ComplexPropertyObject2),
+                typeof(ComplexPropertyObject3),
                 typeof(ServiceA),
                 typeof(ServiceB),
                 typeof(ServiceC),
@@ -106,12 +110,23 @@ namespace IocPerformance.Adapters
                 typeof(SubObjectOne),
                 typeof(SubObjectTwo),
                 typeof(SubObjectThree),
-                typeof(Complex));
+                typeof(Complex1),
+                typeof(Complex2),
+                typeof(Complex3));
         }
 
         private static void RegisterStandard(ContainerConfiguration config)
         {
-            config.WithParts(typeof(Singleton), typeof(Transient), typeof(Combined));
+            config.WithParts(
+                typeof(Singleton1), 
+                typeof(Singleton2),
+                typeof(Singleton3),
+                typeof(Transient1),
+                typeof(Transient2),
+                typeof(Transient3),
+                typeof(Combined1),
+                typeof(Combined2),
+                typeof(Combined3));
         }
 
         private static void RegisterDummies(ContainerConfiguration config)

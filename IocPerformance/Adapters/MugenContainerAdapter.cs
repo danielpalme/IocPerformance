@@ -76,7 +76,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -110,9 +110,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.Bind<ISingleton>().To<Singleton>().InSingletonScope();
-            this.container.Bind<ITransient>().To<Transient>().InTransientScope();
-            this.container.Bind<ICombined>().To<Combined>().InTransientScope();
+            this.container.Bind<ISingleton1>().To<Singleton1>().InSingletonScope();
+            this.container.Bind<ISingleton2>().To<Singleton2>().InSingletonScope();
+            this.container.Bind<ISingleton3>().To<Singleton3>().InSingletonScope();
+            this.container.Bind<ITransient1>().To<Transient1>().InTransientScope();
+            this.container.Bind<ITransient2>().To<Transient2>().InTransientScope();
+            this.container.Bind<ITransient3>().To<Transient3>().InTransientScope();
+            this.container.Bind<ICombined1>().To<Combined1>().InTransientScope();
+            this.container.Bind<ICombined2>().To<Combined2>().InTransientScope();
+            this.container.Bind<ICombined3>().To<Combined3>().InTransientScope();
         }
 
         private void RegisterComplex()
@@ -123,12 +129,16 @@ namespace IocPerformance.Adapters
             this.container.Bind<ISubObjectOne>().To<SubObjectOne>().InTransientScope();
             this.container.Bind<ISubObjectTwo>().To<SubObjectTwo>().InTransientScope();
             this.container.Bind<ISubObjectThree>().To<SubObjectThree>().InTransientScope();
-            this.container.Bind<IComplex>().To<Complex>().InTransientScope();
+            this.container.Bind<IComplex1>().To<Complex1>().InTransientScope();
+            this.container.Bind<IComplex2>().To<Complex2>().InTransientScope();
+            this.container.Bind<IComplex3>().To<Complex3>().InTransientScope();
         }
 
         private void RegisterPropertyInjection()
         {
-            this.container.Bind<IComplexPropertyObject>().To<ComplexPropertyObject>().InTransientScope();
+            this.container.Bind<IComplexPropertyObject1>().To<ComplexPropertyObject1>().InTransientScope();
+            this.container.Bind<IComplexPropertyObject2>().To<ComplexPropertyObject2>().InTransientScope();
+            this.container.Bind<IComplexPropertyObject3>().To<ComplexPropertyObject3>().InTransientScope();
             this.container.Bind<IServiceA>().To<ServiceA>().InSingletonScope();
             this.container.Bind<IServiceB>().To<ServiceB>().InSingletonScope();
             this.container.Bind<IServiceC>().To<ServiceC>().InSingletonScope();
@@ -140,15 +150,20 @@ namespace IocPerformance.Adapters
         private void RegisterConditional()
         {
             // conditional export
-            this.container.Bind<ImportConditionObject>().To<ImportConditionObject>().InTransientScope();
+            this.container.Bind<ImportConditionObject1>().To<ImportConditionObject1>().InTransientScope();
             this.container.Bind<ImportConditionObject2>().To<ImportConditionObject2>().InTransientScope();
+            this.container.Bind<ImportConditionObject3>().To<ImportConditionObject3>().InTransientScope();
             this.container.Bind<IExportConditionInterface>()
                         .To<ExportConditionalObject>()
-                        .WhenIntoIsAssignable<ImportConditionObject>()
+                        .WhenIntoIsAssignable<ImportConditionObject1>()
                         .InTransientScope();
             this.container.Bind<IExportConditionInterface>()
                         .To<ExportConditionalObject2>()
                         .WhenIntoIsAssignable<ImportConditionObject2>()
+                        .InTransientScope();
+            this.container.Bind<IExportConditionInterface>()
+                        .To<ExportConditionalObject3>()
+                        .WhenIntoIsAssignable<ImportConditionObject3>()
                         .InTransientScope();
         }
 
@@ -167,12 +182,16 @@ namespace IocPerformance.Adapters
             this.container.Bind<ISimpleAdapter>().To<SimpleAdapterThree>().InTransientScope();
             this.container.Bind<ISimpleAdapter>().To<SimpleAdapterFour>().InTransientScope();
             this.container.Bind<ISimpleAdapter>().To<SimpleAdapterFive>().InTransientScope();
-            this.container.Bind<ImportMultiple>().To<ImportMultiple>().InTransientScope();
+            this.container.Bind<ImportMultiple1>().To<ImportMultiple1>().InTransientScope();
+            this.container.Bind<ImportMultiple2>().To<ImportMultiple2>().InTransientScope();
+            this.container.Bind<ImportMultiple3>().To<ImportMultiple3>().InTransientScope();
         }
 
         private void RegisterInterceptor()
         {
-            this.container.Bind<ICalculator>().To<Calculator>().InTransientScope().InterceptAsTarget(new MugenInjectionInterceptionLogger());
+            this.container.Bind<ICalculator1>().To<Calculator1>().InTransientScope().InterceptAsTarget(new MugenInjectionInterceptionLogger());
+            this.container.Bind<ICalculator2>().To<Calculator2>().InTransientScope().InterceptAsTarget(new MugenInjectionInterceptionLogger());
+            this.container.Bind<ICalculator3>().To<Calculator3>().InTransientScope().InterceptAsTarget(new MugenInjectionInterceptionLogger());
         }
     }
 
@@ -192,8 +211,10 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            this.injector.Bind<ITransient>().To<ScopedTransient>().InTransientScope();
-            this.injector.Bind<ICombined>().To<ScopedCombined>().InSingletonScope();
+            this.injector.Bind<ITransient1>().To<ScopedTransient>().InTransientScope();
+            this.injector.Bind<ICombined1>().To<ScopedCombined1>().InSingletonScope();
+            this.injector.Bind<ICombined2>().To<ScopedCombined2>().InSingletonScope();
+            this.injector.Bind<ICombined3>().To<ScopedCombined3>().InSingletonScope();
         }
 
         public object Resolve(Type resolveType)

@@ -46,7 +46,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -80,9 +80,15 @@ namespace IocPerformance.Adapters
 
         private static void RegisterStandard(ContainerBuilder builder)
         {
-            builder.Register<ISingleton, Singleton>().ControlledBy<SingletonLifecycle>();
-            builder.Register<ITransient, Transient>().ControlledBy<TransientLifecycle>();
-            builder.Register<ICombined, Combined>().ControlledBy<TransientLifecycle>();
+            builder.Register<ISingleton1, Singleton1>().ControlledBy<SingletonLifecycle>();
+            builder.Register<ISingleton2, Singleton2>().ControlledBy<SingletonLifecycle>();
+            builder.Register<ISingleton3, Singleton3>().ControlledBy<SingletonLifecycle>();
+            builder.Register<ITransient1, Transient1>().ControlledBy<TransientLifecycle>();
+            builder.Register<ITransient2, Transient2>().ControlledBy<TransientLifecycle>();
+            builder.Register<ITransient3, Transient3>().ControlledBy<TransientLifecycle>();
+            builder.Register<ICombined1, Combined1>().ControlledBy<TransientLifecycle>();
+            builder.Register<ICombined2, Combined2>().ControlledBy<TransientLifecycle>();
+            builder.Register<ICombined3, Combined3>().ControlledBy<TransientLifecycle>();
         }
 
         private static void RegisterComplex(ContainerBuilder builder)
@@ -93,7 +99,9 @@ namespace IocPerformance.Adapters
             builder.Register<ISubObjectOne, SubObjectOne>().ControlledBy<TransientLifecycle>();
             builder.Register<ISubObjectTwo, SubObjectTwo>().ControlledBy<TransientLifecycle>();
             builder.Register<ISubObjectThree, SubObjectThree>().ControlledBy<TransientLifecycle>();
-            builder.Register<IComplex, Complex>().ControlledBy<TransientLifecycle>();
+            builder.Register<IComplex1, Complex1>().ControlledBy<TransientLifecycle>();
+            builder.Register<IComplex2, Complex2>().ControlledBy<TransientLifecycle>();
+            builder.Register<IComplex3, Complex3>().ControlledBy<TransientLifecycle>();
         }
 
         private static void RegisterPropertyInjection(ContainerBuilder builder)
@@ -109,15 +117,35 @@ namespace IocPerformance.Adapters
             builder.Register<ISubObjectC>(x => new SubObjectC { ServiceC = x.Resolve<IServiceC>() })
                      .ControlledBy<TransientLifecycle>();
 
-            builder.Register<IComplexPropertyObject>(x => new ComplexPropertyObject
-                                                              {
-                                                                  ServiceA = x.Resolve<IServiceA>(),
-                                                                  ServiceB = x.Resolve<IServiceB>(),
-                                                                  ServiceC = x.Resolve<IServiceC>(),
-                                                                  SubObjectA = x.Resolve<ISubObjectA>(),
-                                                                  SubObjectB = x.Resolve<ISubObjectB>(),
-                                                                  SubObjectC = x.Resolve<ISubObjectC>()
-                                                              }).ControlledBy<TransientLifecycle>();
+            builder.Register<IComplexPropertyObject1>(x => new ComplexPropertyObject1
+            {
+                ServiceA = x.Resolve<IServiceA>(),
+                ServiceB = x.Resolve<IServiceB>(),
+                ServiceC = x.Resolve<IServiceC>(),
+                SubObjectA = x.Resolve<ISubObjectA>(),
+                SubObjectB = x.Resolve<ISubObjectB>(),
+                SubObjectC = x.Resolve<ISubObjectC>()
+            }).ControlledBy<TransientLifecycle>();
+
+            builder.Register<IComplexPropertyObject2>(x => new ComplexPropertyObject2
+            {
+                ServiceA = x.Resolve<IServiceA>(),
+                ServiceB = x.Resolve<IServiceB>(),
+                ServiceC = x.Resolve<IServiceC>(),
+                SubObjectA = x.Resolve<ISubObjectA>(),
+                SubObjectB = x.Resolve<ISubObjectB>(),
+                SubObjectC = x.Resolve<ISubObjectC>()
+            }).ControlledBy<TransientLifecycle>();
+
+            builder.Register<IComplexPropertyObject3>(x => new ComplexPropertyObject3
+            {
+                ServiceA = x.Resolve<IServiceA>(),
+                ServiceB = x.Resolve<IServiceB>(),
+                ServiceC = x.Resolve<IServiceC>(),
+                SubObjectA = x.Resolve<ISubObjectA>(),
+                SubObjectB = x.Resolve<ISubObjectB>(),
+                SubObjectC = x.Resolve<ISubObjectC>()
+            }).ControlledBy<TransientLifecycle>();
         }
 
         private static void RegisterOpenGeneric(ContainerBuilder builder)
@@ -134,7 +162,9 @@ namespace IocPerformance.Adapters
             builder.Register<ISimpleAdapter, SimpleAdapterFour>().ControlledBy<TransientLifecycle>();
             builder.Register<ISimpleAdapter, SimpleAdapterFive>().ControlledBy<TransientLifecycle>();
 
-            builder.Register<ImportMultiple, ImportMultiple>().ControlledBy<TransientLifecycle>();
+            builder.Register<ImportMultiple1, ImportMultiple1>().ControlledBy<TransientLifecycle>();
+            builder.Register<ImportMultiple2, ImportMultiple2>().ControlledBy<TransientLifecycle>();
+            builder.Register<ImportMultiple3, ImportMultiple3>().ControlledBy<TransientLifecycle>();
         }
     }
 }

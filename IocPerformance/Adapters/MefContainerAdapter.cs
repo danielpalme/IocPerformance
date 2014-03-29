@@ -21,7 +21,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://mef.codeplex.com"; }
+            get { return "https://mef.codeplex.com"; }
         }
 
         public override bool SupportsPropertyInjection
@@ -51,7 +51,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -69,7 +69,16 @@ namespace IocPerformance.Adapters
                  typeof(DummyNine),
                  typeof(DummyTen));
 
-            var standardCatalog = new TypeCatalog(typeof(Singleton), typeof(Transient), typeof(Combined));
+            var standardCatalog = new TypeCatalog(
+                typeof(Singleton1), 
+                typeof(Singleton2), 
+                typeof(Singleton3), 
+                typeof(Transient1), 
+                typeof(Transient2), 
+                typeof(Transient3), 
+                typeof(Combined1),
+                typeof(Combined2),
+                typeof(Combined3));
 
             var complexCatalog = new TypeCatalog(
                  typeof(FirstService),
@@ -78,10 +87,14 @@ namespace IocPerformance.Adapters
                  typeof(SubObjectOne),
                  typeof(SubObjectTwo),
                  typeof(SubObjectThree),
-                 typeof(Complex));
+                 typeof(Complex1),
+                 typeof(Complex2),
+                 typeof(Complex3));
 
             var propertyInjectionCatalog = new TypeCatalog(
-                typeof(ComplexPropertyObject),
+                typeof(ComplexPropertyObject1),
+                typeof(ComplexPropertyObject2),
+                typeof(ComplexPropertyObject3),
                 typeof(ServiceA),
                 typeof(ServiceB),
                 typeof(ServiceC),
@@ -95,7 +108,9 @@ namespace IocPerformance.Adapters
                  typeof(SimpleAdapterThree),
                  typeof(SimpleAdapterFour),
                  typeof(SimpleAdapterFive),
-                 typeof(ImportMultiple));
+                 typeof(ImportMultiple1),
+                 typeof(ImportMultiple2),
+                 typeof(ImportMultiple3));
 
             var openGenericCatalog = new TypeCatalog(typeof(ImportGeneric<>), typeof(GenericExport<>));
 

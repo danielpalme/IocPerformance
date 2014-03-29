@@ -15,10 +15,10 @@ namespace IocPerformance
 {
     internal class Program
     {
-        private const int LoopCount = 1000 * 1000;
+        private const int LoopCount = 1000 * 500;
 
-        // I put it at 10000 because some containers take a while
-        private const int ChildContainerLoopCount = 10 * 1000;
+        // This is a decreased value, because some containers take a while
+        private const int ChildContainerLoopCount = LoopCount / 10;
 
         public static void Main(string[] args)
         {
@@ -46,7 +46,14 @@ namespace IocPerformance
 
                 if (!onlyUpdateChangedContainers || result == null || result.Version != container.Version)
                 {
-                    result = MeasurePerformance(container);
+                    try
+                    {
+                        result = MeasurePerformance(container);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(container.Name + " failed: " + ex.Message);
+                    }
                 }
 
                 output.Result(result);
@@ -81,180 +88,188 @@ namespace IocPerformance
 
         private static void CheckInstanceProperties(IContainerAdapter container)
         {
-            if (Singleton.Instances != 1)
+            if (Singleton1.Instances != 1)
             {
                 throw new Exception("Singleton instance count must be one container: " + container.PackageName);
             }
 
-            if (Transient.Instances < (LoopCount * 2) + 1 || Transient.Instances > (LoopCount * 2) + 4)
+            if (Transient1.Instances < (LoopCount * 2) + 1 || Transient1.Instances > (LoopCount * 2) + 4)
             {
                 throw new Exception(
-                      string.Format("Transient count must be between {0} and {1} was {2}", (LoopCount * 2) + 1, (LoopCount * 2) + 4, Transient.Instances));
+                      string.Format("Transient count must be between {0} and {1} was {2}", (LoopCount * 2) + 1, (LoopCount * 2) + 4, Transient1.Instances));
             }
 
-            if (Combined.Instances != LoopCount + 1 && Combined.Instances != LoopCount + 2)
+            if (Combined1.Instances != LoopCount + 1 && Combined1.Instances != LoopCount + 2)
             {
-                throw new Exception(string.Format("Combined count must be {0} or {1} was {2}", LoopCount + 1, LoopCount + 2, Combined.Instances));
+                throw new Exception(string.Format("Combined count must be {0} or {1} was {2}", LoopCount + 1, LoopCount + 2, Combined1.Instances));
             }
 
-            if (Complex.Instances != LoopCount + 1 && Complex.Instances != LoopCount + 2)
+            if (Complex1.Instances != LoopCount + 1 && Complex1.Instances != LoopCount + 2)
             {
-                throw new Exception(string.Format("Complex count must be {0} or {1} was {2}", LoopCount + 1, LoopCount + 2, Complex.Instances));
+                throw new Exception(string.Format("Complex count must be {0} or {1} was {2}", LoopCount + 1, LoopCount + 2, Complex1.Instances));
             }
 
             if (container.SupportsInterception)
             {
-                if (Calculator.Instances != LoopCount + 1 && Calculator.Instances != LoopCount + 2)
+                if (Calculator1.Instances != LoopCount + 1 && Calculator1.Instances != LoopCount + 2)
                 {
-                    throw new Exception(string.Format("Calculator count must be {0} or {1} was {2}", LoopCount + 1, LoopCount + 2, Calculator.Instances));
+                    throw new Exception(string.Format("Calculator count must be {0} or {1} was {2}", LoopCount + 1, LoopCount + 2, Calculator1.Instances));
                 }
             }
 
             if (container.SupportsChildContainer)
             {
-                if (ScopedCombined.Instances != ChildContainerLoopCount + 1
-                    && ScopedCombined.Instances != ChildContainerLoopCount + 2)
+                if (ScopedCombined1.Instances != ChildContainerLoopCount + 1
+                    && ScopedCombined1.Instances != ChildContainerLoopCount + 2)
                 {
                     throw new Exception(string.Format(
-                        "ScopedCombined count must be {0} or {1} was {2}", 
-                        ChildContainerLoopCount + 1, 
-                        ChildContainerLoopCount + 2, 
-                        ScopedCombined.Instances));
+                        "ScopedCombined count must be {0} or {1} was {2}",
+                        ChildContainerLoopCount + 1,
+                        ChildContainerLoopCount + 2,
+                        ScopedCombined1.Instances));
                 }
             }
         }
 
         private static void ClearInstanceProperties()
         {
-            Singleton.Instances = 0;
-            Transient.Instances = 0;
-            Combined.Instances = 0;
-            Complex.Instances = 0;
-            Calculator.Instances = 0;
-            ScopedCombined.Instances = 0;
+            Singleton1.Instances = 0;
+            Transient1.Instances = 0;
+            Combined1.Instances = 0;
+            Complex1.Instances = 0;
+            Calculator1.Instances = 0;
+            ScopedCombined1.Instances = 0;
         }
 
         private static void MeasureResolvePerformance(IContainerAdapter container, Result outputResult)
         {
-            var singletonWatch = new Stopwatch();
-            var transientWatch = new Stopwatch();
-            var combinedWatch = new Stopwatch();
-            var conditionsWatch = new Stopwatch();
-            var genericWatch = new Stopwatch();
-            var complexWatch = new Stopwatch();
-            var multipleWatch = new Stopwatch();
-            var propertyWatch = new Stopwatch();
-            var childContainerWatch = new Stopwatch();
             var interceptionTimeWatch = new Stopwatch();
+
+            outputResult.SingletonTime = Measure<ISingleton1, ISingleton2, ISingleton3>(container);
+            outputResult.TransientTime = Measure<ITransient1, ITransient2, ITransient3>(container);
+            outputResult.CombinedTime = Measure<ICombined1, ICombined2, ICombined3>(container);
+            outputResult.ComplexTime = Measure<IComplex1, IComplex2, IComplex3>(container);
+            
+            outputResult.PropertyInjectionTime = 
+                Measure<IComplexPropertyObject1, IComplexPropertyObject2, IComplexPropertyObject3>(container, 
+                    container.SupportsPropertyInjection);
+            
+            outputResult.ConditionalTime =
+                Measure<ImportConditionObject1, ImportConditionObject2, ImportConditionObject3>(container, 
+                    container.SupportsConditional);
+            
+            outputResult.GenericTime =
+                Measure<ImportGeneric<int>, ImportGeneric<float>, ImportGeneric<object>>(container, 
+                    container.SupportGeneric);
+            
+            outputResult.MultipleImport =
+                Measure<ImportMultiple1, ImportMultiple2, ImportMultiple3>(container, 
+                    container.SupportsMultiple);
+
+            outputResult.ChildContainerTime = MeasureChildContainer(container, container.SupportsChildContainer);
+
+            outputResult.InterceptionTime = MeasureProxy(container, container.SupportsInterception);
+        }
+
+        private static long Measure<T1, T2, T3>(IContainerAdapter container)
+        {
+            return (long)Measure<T1, T2, T3>(container, true);
+        }
+
+        private static long? Measure<T1, T2, T3>(IContainerAdapter container, bool measure)
+        {
+            if (!measure)
+            {
+                return null;
+            }
+
+            CollectMemory();
+
+            var watch = new Stopwatch();
+
+            watch.Start();
 
             for (int i = 0; i < LoopCount; i++)
             {
-                singletonWatch.Start();
-                var result1 = (ISingleton)container.Resolve(typeof(ISingleton));
-                singletonWatch.Stop();
+                var result1 = (T1)container.Resolve(typeof(T1));
+                var result2 = (T2)container.Resolve(typeof(T2));
+                var result3 = (T3)container.Resolve(typeof(T3));
+            }
 
-                transientWatch.Start();
-                var result2 = (ITransient)container.Resolve(typeof(ITransient));
-                transientWatch.Stop();
+            watch.Stop();
 
-                combinedWatch.Start();
-                var result3 = (ICombined)container.Resolve(typeof(ICombined));
-                combinedWatch.Stop();
+            return watch.ElapsedMilliseconds;
+        }
 
-                complexWatch.Start();
-                var complexResult = (IComplex)container.Resolve(typeof(IComplex));
-                complexWatch.Stop();
+        private static long? MeasureChildContainer(IContainerAdapter container, bool measure)
+        {
+            if (!measure)
+            {
+                return null;
+            }
 
-                if (container.SupportsPropertyInjection)
+            CollectMemory();
+
+            var watch = new Stopwatch();
+
+            watch.Start();
+
+            for (int i = 0; i < ChildContainerLoopCount; i++)
+            {
+                using (var childContainer = container.CreateChildContainerAdapter())
                 {
-                    propertyWatch.Start();
-                    var propertyInjectionResult = (IComplexPropertyObject)container.Resolve(typeof(IComplexPropertyObject));
-                    propertyWatch.Stop();
+                    childContainer.Prepare();
+
+                    var scopedCombined = (ICombined1)childContainer.Resolve(typeof(ICombined1));
                 }
 
-                if (container.SupportsConditional)
+                using (var childContainer = container.CreateChildContainerAdapter())
                 {
-                    conditionsWatch.Start();
-                    var result4 = (ImportConditionObject)container.Resolve(typeof(ImportConditionObject));
-                    var result5 = (ImportConditionObject2)container.Resolve(typeof(ImportConditionObject2));
-                    conditionsWatch.Stop();
+                    childContainer.Prepare();
+
+                    var scopedCombined = (ICombined2)childContainer.Resolve(typeof(ICombined2));
                 }
 
-                if (container.SupportGeneric)
+                using (var childContainer = container.CreateChildContainerAdapter())
                 {
-                    genericWatch.Start();
-                    var genericResult = (ImportGeneric<int>)container.Resolve(typeof(ImportGeneric<int>));
-                    genericWatch.Stop();
-                }
+                    childContainer.Prepare();
 
-                if (container.SupportsMultiple)
-                {
-                    multipleWatch.Start();
-                    var importMultiple = (ImportMultiple)container.Resolve(typeof(ImportMultiple));
-                    multipleWatch.Stop();
-                }
-
-                if (container.SupportsChildContainer && i < ChildContainerLoopCount)
-                {
-                    // Note I'm writing the test this way specifically because it matches the Per Request bootstrapper for Nance
-                    // It's also a very common pattern used in MVC applications where a scope is created per request
-                    childContainerWatch.Start();
-
-                    using (var childContainer = container.CreateChildContainerAdapter())
-                    {
-                        childContainer.Prepare();
-
-                        var scopedCombined = childContainer.Resolve(typeof(ICombined));
-                    }
-
-                    childContainerWatch.Stop();
-                }
-
-                if (container.SupportsInterception)
-                {
-                    interceptionTimeWatch.Start();
-                    var result = (ICalculator)container.ResolveProxy(typeof(ICalculator));
-
-                    // Call method because part of the time spent with a proxy is how long does it take to execute a proxied method
-                    result.Add(5, 10);
-                    interceptionTimeWatch.Stop();
+                    var scopedCombined = (ICombined3)childContainer.Resolve(typeof(ICombined3));
                 }
             }
 
-            outputResult.SingletonTime = singletonWatch.ElapsedMilliseconds;
-            outputResult.TransientTime = transientWatch.ElapsedMilliseconds;
-            outputResult.CombinedTime = combinedWatch.ElapsedMilliseconds;
-            outputResult.ComplexTime = complexWatch.ElapsedMilliseconds;
+            watch.Stop();
 
-            if (container.SupportsPropertyInjection)
+            return watch.ElapsedMilliseconds * 10;
+        }
+
+        private static long? MeasureProxy(IContainerAdapter container, bool measure)
+        {
+            if (!measure)
             {
-                outputResult.PropertyInjectionTime = propertyWatch.ElapsedMilliseconds;
+                return null;
             }
 
-            if (container.SupportGeneric)
+            CollectMemory();
+
+            var watch = new Stopwatch();
+
+            watch.Start();
+
+            for (int i = 0; i < LoopCount; i++)
             {
-                outputResult.GenericTime = genericWatch.ElapsedMilliseconds;
+                var result1 = (ICalculator1)container.ResolveProxy(typeof(ICalculator1));
+                var result2 = (ICalculator2)container.ResolveProxy(typeof(ICalculator2));
+                var result3 = (ICalculator3)container.ResolveProxy(typeof(ICalculator3));
+
+                result1.Add(5, 10);
+                result2.Add(5, 10);
+                result3.Add(5, 10);
             }
 
-            if (container.SupportsMultiple)
-            {
-                outputResult.MultipleImport = multipleWatch.ElapsedMilliseconds;
-            }
+            watch.Stop();
 
-            if (container.SupportsConditional)
-            {
-                outputResult.ConditionalTime = conditionsWatch.ElapsedMilliseconds;
-            }
-
-            if (container.SupportsChildContainer)
-            {
-                outputResult.ChildContainerTime = childContainerWatch.ElapsedMilliseconds * (LoopCount / ChildContainerLoopCount);
-            }
-
-            if (container.SupportsInterception)
-            {
-                outputResult.InterceptionTime = interceptionTimeWatch.ElapsedMilliseconds;
-            }
+            return watch.ElapsedMilliseconds;
         }
 
         private static void CollectMemory()
@@ -270,46 +285,56 @@ namespace IocPerformance
 
         private static void WarmUp(IContainerAdapter container)
         {
-            var interface1 = (ISingleton)container.Resolve(typeof(ISingleton));
+            var singleton1 = (ISingleton1)container.Resolve(typeof(ISingleton1));
+            var singleton2 = (ISingleton2)container.Resolve(typeof(ISingleton2));
+            var singleton3 = (ISingleton3)container.Resolve(typeof(ISingleton3));
 
-            if (interface1 == null)
+            if (singleton1 == null || singleton2 == null || singleton3 == null)
             {
-                throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ISingleton)));
+                throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ISingleton1)));
             }
 
-            var interface2 = (ITransient)container.Resolve(typeof(ITransient));
+            var transient1 = (ITransient1)container.Resolve(typeof(ITransient1));
+            var transient2 = (ITransient2)container.Resolve(typeof(ITransient2));
+            var transient3 = (ITransient3)container.Resolve(typeof(ITransient3));
 
-            if (interface2 == null)
+            if (transient1 == null || transient2 == null || transient3 == null)
             {
-                throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ITransient)));
+                throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ITransient1)));
             }
 
-            var combined = (ICombined)container.Resolve(typeof(ICombined));
+            var combined1 = (ICombined1)container.Resolve(typeof(ICombined1));
+            var combined2 = (ICombined2)container.Resolve(typeof(ICombined2));
+            var combined3 = (ICombined3)container.Resolve(typeof(ICombined3));
 
-            if (combined == null)
+            if (combined1 == null || combined2 == null || combined3 == null)
             {
-                throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ICombined)));
+                throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ICombined1)));
             }
 
-            var complex = (IComplex)container.Resolve(typeof(IComplex));
+            var complex1 = (IComplex1)container.Resolve(typeof(IComplex1));
+            var complex2 = (IComplex2)container.Resolve(typeof(IComplex2));
+            var complex3 = (IComplex3)container.Resolve(typeof(IComplex3));
 
-            if (complex == null)
+            if (complex1 == null || complex2 == null || complex3 == null)
             {
-                throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(IComplex)));
+                throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(IComplex1)));
             }
 
             if (container.SupportsPropertyInjection)
             {
-                var propertyInjectionObject = (ComplexPropertyObject)container.Resolve(typeof(IComplexPropertyObject));
-                var propertyInjectionObject2 = (ComplexPropertyObject)container.Resolve(typeof(IComplexPropertyObject));
+                var propertyInjectionObject = (ComplexPropertyObject1)container.Resolve(typeof(IComplexPropertyObject1));
+                var propertyInjectionObject2 = (ComplexPropertyObject2)container.Resolve(typeof(IComplexPropertyObject2));
+                var propertyInjectionObject3 = (ComplexPropertyObject3)container.Resolve(typeof(IComplexPropertyObject3));
 
-                if (propertyInjectionObject == null || propertyInjectionObject2 == null)
+                if (propertyInjectionObject == null || propertyInjectionObject2 == null || 
+                    propertyInjectionObject3 == null)
                 {
                     throw new Exception(
                          string.Format(
                          "Container {0} could not create type {1}",
                          container.PackageName,
-                         typeof(IComplexPropertyObject)));
+                         typeof(IComplexPropertyObject1)));
                 }
 
                 if (object.ReferenceEquals(propertyInjectionObject, propertyInjectionObject2) ||
@@ -324,7 +349,7 @@ namespace IocPerformance
                          string.Format(
                          "Container {0} could not correctly create type {1}",
                          container.PackageName,
-                         typeof(IComplexPropertyObject)));
+                         typeof(IComplexPropertyObject1)));
                 }
 
                 propertyInjectionObject.Verify(container.PackageName);
@@ -332,9 +357,11 @@ namespace IocPerformance
 
             if (container.SupportGeneric)
             {
-                var generic = (ImportGeneric<int>)container.Resolve(typeof(ImportGeneric<int>));
+                var generic1 = (ImportGeneric<int>)container.Resolve(typeof(ImportGeneric<int>));
+                var generic2 = (ImportGeneric<float>)container.Resolve(typeof(ImportGeneric<float>));
+                var generic3 = (ImportGeneric<object>)container.Resolve(typeof(ImportGeneric<object>));
 
-                if (generic == null)
+                if (generic1 == null || generic2 == null || generic3 == null)
                 {
                     throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ImportGeneric<int>)));
                 }
@@ -342,35 +369,34 @@ namespace IocPerformance
 
             if (container.SupportsMultiple)
             {
-                var importMultiple = (ImportMultiple)container.Resolve(typeof(ImportMultiple));
+                var importMultiple1 = (ImportMultiple1)container.Resolve(typeof(ImportMultiple1));
+                var importMultiple2 = (ImportMultiple2)container.Resolve(typeof(ImportMultiple2));
+                var importMultiple3 = (ImportMultiple3)container.Resolve(typeof(ImportMultiple3));
 
-                if (importMultiple == null)
+                if (importMultiple1 == null || importMultiple2 == null || importMultiple3 == null)
                 {
-                    throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ImportMultiple)));
+                    throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ImportMultiple1)));
                 }
             }
 
             if (container.SupportsConditional)
             {
-                var importObject = (ImportConditionObject)container.Resolve(typeof(ImportConditionObject));
-
-                if (importObject == null)
-                {
-                    throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ImportConditionObject)));
-                }
-
+                var importObject1 = (ImportConditionObject1)container.Resolve(typeof(ImportConditionObject1));
                 var importObject2 = (ImportConditionObject2)container.Resolve(typeof(ImportConditionObject2));
+                var importObject3 = (ImportConditionObject3)container.Resolve(typeof(ImportConditionObject3));
 
-                if (importObject2 == null)
+                if (importObject1 == null || importObject2 == null || importObject3 == null)
                 {
-                    throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ImportConditionObject2)));
+                    throw new Exception(string.Format("Container {0} could not create type {1}", container.PackageName, typeof(ImportConditionObject1)));
                 }
             }
 
             if (container.SupportsInterception)
             {
-                var calculator = (ICalculator)container.ResolveProxy(typeof(ICalculator));
-                calculator.Add(1, 2);
+                var calculator1 = (ICalculator1)container.ResolveProxy(typeof(ICalculator1));
+                calculator1.Add(1, 2);
+                var calculator2 = (ICalculator2)container.ResolveProxy(typeof(ICalculator2));
+                calculator2.Add(1, 2);
             }
 
             if (container.SupportsChildContainer)
@@ -379,16 +405,20 @@ namespace IocPerformance
                 {
                     childContainer.Prepare();
 
-                    ICombined scopedCombined = (ICombined)childContainer.Resolve(typeof(ICombined));
+                    ICombined1 scopedCombined1 = (ICombined1)childContainer.Resolve(typeof(ICombined1));
+                    ICombined2 scopedCombined2 = (ICombined2)childContainer.Resolve(typeof(ICombined2));
+                    ICombined3 scopedCombined3 = (ICombined3)childContainer.Resolve(typeof(ICombined3));
 
-                    if (scopedCombined == null)
+                    if (scopedCombined1 == null || scopedCombined2 == null || scopedCombined3 == null)
                     {
-                        throw new Exception(string.Format("Child Container {0} could not create type {1}", container.PackageName, typeof(ICombined)));
+                        throw new Exception(string.Format("Child Container {0} could not create type {1}", container.PackageName, typeof(ICombined1)));
                     }
 
-                    if (!(scopedCombined is ScopedCombined))
+                    if (!(scopedCombined1 is ScopedCombined1) || !(scopedCombined2 is ScopedCombined2) || 
+                        !(scopedCombined3 is ScopedCombined3))
                     {
-                        throw new Exception(string.Format("Child Container {0} resolved type incorrectly should have been {1} but was {2}", container.PackageName, typeof(ICombined), scopedCombined.GetType()));
+                        throw new Exception(string.Format("Child Container {0} resolved type incorrectly should have been {1} but was {2}", 
+                            container.PackageName, typeof(ICombined1), scopedCombined1.GetType()));
                     }
                 }
             }

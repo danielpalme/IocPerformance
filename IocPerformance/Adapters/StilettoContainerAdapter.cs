@@ -35,29 +35,29 @@ namespace IocPerformance.Adapters
             // Because Resolve(Type) is non-generic, we can't rely on efficient dispatch from the
             // container.  Resolvable types are hard-coded in the [Module] attribute anyways, so
             // there's minimal harm in reproducing that here.
-            if (type == typeof(ITransient))
+            if (type == typeof(ITransient1))
             {
-                return this.container.Get<ITransient>();
+                return this.container.Get<ITransient1>();
             }
 
-            if (type == typeof(ISingleton))
+            if (type == typeof(ISingleton1))
             {
-                return this.container.Get<ISingleton>();
+                return this.container.Get<ISingleton1>();
             }
 
-            if (type == typeof(ICombined))
+            if (type == typeof(ICombined1))
             {
-                return this.container.Get<ICombined>();
+                return this.container.Get<ICombined1>();
             }
 
-            if (type == typeof(IComplex))
+            if (type == typeof(IComplex1))
             {
-                return this.container.Get<IComplex>();
+                return this.container.Get<IComplex1>();
             }
 
-            if (type == typeof(IComplexPropertyObject))
+            if (type == typeof(IComplexPropertyObject1))
             {
-                return this.container.Get<IComplexPropertyObject>();
+                return this.container.Get<IComplexPropertyObject1>();
             }
 
             // This is an unexpected type, and should have been configured.
@@ -71,11 +71,11 @@ namespace IocPerformance.Adapters
 
         [Module(
             Injects = new[] {
-                typeof(ITransient),
-                typeof(ISingleton),
-                typeof(ICombined),
-                typeof(IComplex),
-                typeof(IComplexPropertyObject),
+                typeof(ITransient1),
+                typeof(ISingleton1),
+                typeof(ICombined1),
+                typeof(IComplex1),
+                typeof(IComplexPropertyObject1),
             },
 
             IncludedModules = new[] { typeof(ProvideComplexDependencies) },
@@ -86,31 +86,31 @@ namespace IocPerformance.Adapters
         public class StilettoModule
         {
             [Provides]
-            public ITransient ProvideTransient(Transient transient)
+            public ITransient1 ProvideTransient(Transient1 transient)
             {
                 return transient;
             }
 
             [Provides]
-            public ISingleton ProvideSingleton(Singleton singleton)
+            public ISingleton1 ProvideSingleton(Singleton1 singleton)
             {
                 return singleton;
             }
 
             [Provides]
-            public ICombined ProvideCombined(Combined combined)
+            public ICombined1 ProvideCombined(Combined1 combined)
             {
                 return combined;
             }
 
             [Provides]
-            public IComplex ProvideComplex(Complex complex)
+            public IComplex1 ProvideComplex(Complex1 complex)
             {
                 return complex;
             }
 
             [Provides]
-            public IComplexPropertyObject ProvideComplexPropertyObject(ComplexPropertyObject complex)
+            public IComplexPropertyObject1 ProvideComplexPropertyObject(ComplexPropertyObject1 complex)
             {
                 return complex;
             }

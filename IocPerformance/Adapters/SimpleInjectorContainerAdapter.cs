@@ -33,7 +33,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://simpleinjector.codeplex.com"; }
+            get { return "https://simpleinjector.org"; }
         }
 
         public override bool SupportsConditional
@@ -78,7 +78,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -115,10 +115,18 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.RegisterSingle<ISingleton, Singleton>();
-            this.container.Register<ITransient, Transient>();
-            this.container.Register<ICombined, Combined>();
-            this.container.Register<ICalculator, Calculator>();
+            this.container.RegisterSingle<ISingleton1, Singleton1>();
+            this.container.RegisterSingle<ISingleton2, Singleton2>();
+            this.container.RegisterSingle<ISingleton3, Singleton3>();
+            this.container.Register<ITransient1, Transient1>();
+            this.container.Register<ITransient2, Transient2>();
+            this.container.Register<ITransient3, Transient3>();
+            this.container.Register<ICombined1, Combined1>();
+            this.container.Register<ICombined2, Combined2>();
+            this.container.Register<ICombined3, Combined3>();
+            this.container.Register<ICalculator1, Calculator1>();
+            this.container.Register<ICalculator2, Calculator2>();
+            this.container.Register<ICalculator3, Calculator3>();
         }
 
         private void RegisterComplex()
@@ -129,7 +137,9 @@ namespace IocPerformance.Adapters
             this.container.RegisterSingle<IFirstService, FirstService>();
             this.container.RegisterSingle<ISecondService, SecondService>();
             this.container.RegisterSingle<IThirdService, ThirdService>();
-            this.container.Register<IComplex, Complex>();
+            this.container.Register<IComplex1, Complex1>();
+            this.container.Register<IComplex2, Complex2>();
+            this.container.Register<IComplex3, Complex3>();
         }
 
         private void RegisterPropertyInjection()
@@ -142,7 +152,9 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectB, SubObjectB>();
             this.container.Register<ISubObjectC, SubObjectC>();
 
-            this.container.Register<IComplexPropertyObject, ComplexPropertyObject>();
+            this.container.Register<IComplexPropertyObject1, ComplexPropertyObject1>();
+            this.container.Register<IComplexPropertyObject2, ComplexPropertyObject2>();
+            this.container.Register<IComplexPropertyObject3, ComplexPropertyObject3>();
         }
 
         private void RegisterOpenGeneric()
@@ -155,13 +167,17 @@ namespace IocPerformance.Adapters
         {
             var container = this.container;
 
-            container.Register<ImportConditionObject>();
+            container.Register<ImportConditionObject1>();
             container.Register<ImportConditionObject2>();
+            container.Register<ImportConditionObject3>();
 
             container.RegisterWithContext<IExportConditionInterface>(context =>
-                 context.ImplementationType == typeof(ImportConditionObject)
-                      ? (IExportConditionInterface)container.GetInstance<ExportConditionalObject>()
-                      : (IExportConditionInterface)container.GetInstance<ExportConditionalObject2>());
+                context.ImplementationType == typeof(ImportConditionObject1)
+                    ? container.GetInstance<ExportConditionalObject>()
+                    : context.ImplementationType == typeof(ImportConditionObject2)
+                        ? container.GetInstance<ExportConditionalObject2>()
+                        : container.GetInstance<ExportConditionalObject3>()
+                    as IExportConditionInterface);
         }
 
         private void RegisterMultiple()
@@ -176,15 +192,23 @@ namespace IocPerformance.Adapters
 
         private void RegisterIntercepter()
         {
-            this.container.InterceptWith<SimpleInjectorInterceptionLogger>(type => type == typeof(ICalculator));
+            this.container.InterceptWith<SimpleInjectorInterceptionLogger>(type => type.Name.StartsWith("ICalculator"));
         }
 
         private void RegisterChild()
         {
             var scopedLifestyle = new LifetimeScopeLifestyle();
 
-            this.scopedRegistrations[typeof(ICombined)] = Lifestyle.Transient.CreateProducer<ICombined>(
-                () => new ScopedCombined(new ScopedTransient(), this.container.GetInstance<ISingleton>()),
+            this.scopedRegistrations[typeof(ICombined1)] = Lifestyle.Transient.CreateProducer<ICombined1>(
+                () => new ScopedCombined1(new ScopedTransient(), this.container.GetInstance<ISingleton1>()),
+                this.container);
+
+            this.scopedRegistrations[typeof(ICombined2)] = Lifestyle.Transient.CreateProducer<ICombined2>(
+                () => new ScopedCombined2(new ScopedTransient(), this.container.GetInstance<ISingleton1>()),
+                this.container);
+
+            this.scopedRegistrations[typeof(ICombined3)] = Lifestyle.Transient.CreateProducer<ICombined3>(
+                () => new ScopedCombined3(new ScopedTransient(), this.container.GetInstance<ISingleton1>()),
                 this.container);
         }
 
