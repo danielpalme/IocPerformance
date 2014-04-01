@@ -38,7 +38,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -68,11 +68,21 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.RegisterSingleton<ISingleton>(c => new Singleton());
-            this.container.Register<ITransient>(c => new Transient());
-            this.container.Register<ICombined>(c => new Combined(
-                 c.Resolve<ISingleton>(),
-                 c.Resolve<ITransient>()));
+            this.container.RegisterSingleton<ISingleton1>(c => new Singleton1());
+            this.container.RegisterSingleton<ISingleton2>(c => new Singleton2());
+            this.container.RegisterSingleton<ISingleton3>(c => new Singleton3());
+            this.container.Register<ITransient1>(c => new Transient1());
+            this.container.Register<ITransient2>(c => new Transient2());
+            this.container.Register<ITransient3>(c => new Transient3());
+            this.container.Register<ICombined1>(c => new Combined1(
+                 c.Resolve<ISingleton1>(),
+                 c.Resolve<ITransient1>()));
+            this.container.Register<ICombined2>(c => new Combined2(
+                 c.Resolve<ISingleton2>(),
+                 c.Resolve<ITransient2>()));
+            this.container.Register<ICombined3>(c => new Combined3(
+                 c.Resolve<ISingleton3>(),
+                 c.Resolve<ITransient3>()));
         }
 
         private void RegisterComplex()
@@ -83,7 +93,21 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectOne>(c => new SubObjectOne(c.Resolve<IFirstService>()));
             this.container.Register<ISubObjectTwo>(c => new SubObjectTwo(c.Resolve<ISecondService>()));
             this.container.Register<ISubObjectThree>(c => new SubObjectThree(c.Resolve<IThirdService>()));
-            this.container.Register<IComplex>(c => new Complex(
+            this.container.Register<IComplex1>(c => new Complex1(
+                 c.Resolve<IFirstService>(),
+                 c.Resolve<ISecondService>(),
+                 c.Resolve<IThirdService>(),
+                 c.Resolve<ISubObjectOne>(),
+                 c.Resolve<ISubObjectTwo>(),
+                 c.Resolve<ISubObjectThree>()));
+            this.container.Register<IComplex2>(c => new Complex2(
+                 c.Resolve<IFirstService>(),
+                 c.Resolve<ISecondService>(),
+                 c.Resolve<IThirdService>(),
+                 c.Resolve<ISubObjectOne>(),
+                 c.Resolve<ISubObjectTwo>(),
+                 c.Resolve<ISubObjectThree>()));
+            this.container.Register<IComplex3>(c => new Complex3(
                  c.Resolve<IFirstService>(),
                  c.Resolve<ISecondService>(),
                  c.Resolve<IThirdService>(),
@@ -100,15 +124,35 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectA>(c => new SubObjectA { ServiceA = c.Resolve<IServiceA>() });
             this.container.Register<ISubObjectB>(c => new SubObjectB { ServiceB = c.Resolve<IServiceB>() });
             this.container.Register<ISubObjectC>(c => new SubObjectC { ServiceC = c.Resolve<IServiceC>() });
-            this.container.Register<IComplexPropertyObject>(c => new ComplexPropertyObject
-                                                                     {
-                                                                         ServiceA = c.Resolve<IServiceA>(),
-                                                                         ServiceB = c.Resolve<IServiceB>(),
-                                                                         ServiceC = c.Resolve<IServiceC>(),
-                                                                         SubObjectA = c.Resolve<ISubObjectA>(),
-                                                                         SubObjectB = c.Resolve<ISubObjectB>(),
-                                                                         SubObjectC = c.Resolve<ISubObjectC>()
-                                                                     });
+            this.container.Register<IComplexPropertyObject1>(c => new ComplexPropertyObject1
+            {
+                ServiceA = c.Resolve<IServiceA>(),
+                ServiceB = c.Resolve<IServiceB>(),
+                ServiceC = c.Resolve<IServiceC>(),
+                SubObjectA = c.Resolve<ISubObjectA>(),
+                SubObjectB = c.Resolve<ISubObjectB>(),
+                SubObjectC = c.Resolve<ISubObjectC>()
+            });
+
+            this.container.Register<IComplexPropertyObject2>(c => new ComplexPropertyObject2
+            {
+                ServiceA = c.Resolve<IServiceA>(),
+                ServiceB = c.Resolve<IServiceB>(),
+                ServiceC = c.Resolve<IServiceC>(),
+                SubObjectA = c.Resolve<ISubObjectA>(),
+                SubObjectB = c.Resolve<ISubObjectB>(),
+                SubObjectC = c.Resolve<ISubObjectC>()
+            });
+
+            this.container.Register<IComplexPropertyObject3>(c => new ComplexPropertyObject3
+            {
+                ServiceA = c.Resolve<IServiceA>(),
+                ServiceB = c.Resolve<IServiceB>(),
+                ServiceC = c.Resolve<IServiceC>(),
+                SubObjectA = c.Resolve<ISubObjectA>(),
+                SubObjectB = c.Resolve<ISubObjectB>(),
+                SubObjectC = c.Resolve<ISubObjectC>()
+            });
         }
     }
 }

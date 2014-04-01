@@ -45,7 +45,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -77,9 +77,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.Configure(config => config.For<ISingleton>().Use<Singleton>().AsSingleton());
-            this.container.Configure(config => config.For<ITransient>().Use<Transient>());
-            this.container.Configure(config => config.For<ICombined>().Use<Combined>());
+            this.container.Configure(config => config.For<ISingleton1>().Use<Singleton1>().AsSingleton());
+            this.container.Configure(config => config.For<ISingleton2>().Use<Singleton2>().AsSingleton());
+            this.container.Configure(config => config.For<ISingleton3>().Use<Singleton3>().AsSingleton());
+            this.container.Configure(config => config.For<ITransient1>().Use<Transient1>());
+            this.container.Configure(config => config.For<ITransient2>().Use<Transient2>());
+            this.container.Configure(config => config.For<ITransient3>().Use<Transient3>());
+            this.container.Configure(config => config.For<ICombined1>().Use<Combined1>());
+            this.container.Configure(config => config.For<ICombined2>().Use<Combined2>());
+            this.container.Configure(config => config.For<ICombined3>().Use<Combined3>());
         }
 
         private void RegisterComplex()
@@ -90,7 +96,9 @@ namespace IocPerformance.Adapters
             this.container.Configure(config => config.For<ISubObjectOne>().Use<SubObjectOne>());
             this.container.Configure(config => config.For<ISubObjectTwo>().Use<SubObjectTwo>());
             this.container.Configure(config => config.For<ISubObjectThree>().Use<SubObjectThree>());
-            this.container.Configure(config => config.For<IComplex>().Use<Complex>());
+            this.container.Configure(config => config.For<IComplex1>().Use<Complex1>());
+            this.container.Configure(config => config.For<IComplex2>().Use<Complex2>());
+            this.container.Configure(config => config.For<IComplex3>().Use<Complex3>());
         }
 
         private void RegisterPropertyInjection()
@@ -102,8 +110,8 @@ namespace IocPerformance.Adapters
             this.container.Configure(config => config.For<ISubObjectB>().Use(() => new SubObjectB { ServiceB = this.container.GetInstance<IServiceB>() }));
             this.container.Configure(config => config.For<ISubObjectC>().Use(() => new SubObjectC { ServiceC = this.container.GetInstance<IServiceC>() }));
             this.container.Configure(
-                config => config.For<IComplexPropertyObject>().Use(
-                    () => new ComplexPropertyObject
+                config => config.For<IComplexPropertyObject1>().Use(
+                    () => new ComplexPropertyObject1
                         {
                             ServiceA = this.container.GetInstance<IServiceA>(),
                             ServiceB = this.container.GetInstance<IServiceB>(),
@@ -112,18 +120,44 @@ namespace IocPerformance.Adapters
                             SubObjectB = this.container.GetInstance<ISubObjectB>(),
                             SubObjectC = this.container.GetInstance<ISubObjectC>()
                         }));
+            this.container.Configure(
+                config => config.For<IComplexPropertyObject2>().Use(
+                    () => new ComplexPropertyObject2
+                    {
+                        ServiceA = this.container.GetInstance<IServiceA>(),
+                        ServiceB = this.container.GetInstance<IServiceB>(),
+                        ServiceC = this.container.GetInstance<IServiceC>(),
+                        SubObjectA = this.container.GetInstance<ISubObjectA>(),
+                        SubObjectB = this.container.GetInstance<ISubObjectB>(),
+                        SubObjectC = this.container.GetInstance<ISubObjectC>()
+                    }));
+            this.container.Configure(
+                config => config.For<IComplexPropertyObject3>().Use(
+                    () => new ComplexPropertyObject3
+                    {
+                        ServiceA = this.container.GetInstance<IServiceA>(),
+                        ServiceB = this.container.GetInstance<IServiceB>(),
+                        ServiceC = this.container.GetInstance<IServiceC>(),
+                        SubObjectA = this.container.GetInstance<ISubObjectA>(),
+                        SubObjectB = this.container.GetInstance<ISubObjectB>(),
+                        SubObjectC = this.container.GetInstance<ISubObjectC>()
+                    }));
         }
 
         private void RegisterInterceptor()
         {
-            this.container.Configure(config => config.For<ICalculator>().Use<Calculator>().AndInterceptMethodsWith<HaveBoxInterceptionLogger>());
+            this.container.Configure(config => config.For<ICalculator1>().Use<Calculator1>().AndInterceptMethodsWith<HaveBoxInterceptionLogger>());
+            this.container.Configure(config => config.For<ICalculator2>().Use<Calculator2>().AndInterceptMethodsWith<HaveBoxInterceptionLogger>());
+            this.container.Configure(config => config.For<ICalculator3>().Use<Calculator3>().AndInterceptMethodsWith<HaveBoxInterceptionLogger>());
         }
 
         private void RegisterMultiple()
         {
             this.container.Configure(config =>
             {
-                config.For<ImportMultiple>().Use<ImportMultiple>();
+                config.For<ImportMultiple1>().Use<ImportMultiple1>();
+                config.For<ImportMultiple2>().Use<ImportMultiple2>();
+                config.For<ImportMultiple3>().Use<ImportMultiple3>();
                 config.For<ISimpleAdapter>().Use<SimpleAdapterOne>();
                 config.For<ISimpleAdapter>().Use<SimpleAdapterTwo>();
                 config.For<ISimpleAdapter>().Use<SimpleAdapterThree>();

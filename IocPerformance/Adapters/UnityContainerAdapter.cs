@@ -52,7 +52,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container.Dispose();
             this.container = null;
         }
@@ -91,9 +91,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.RegisterType<ISingleton, Singleton>(new ContainerControlledLifetimeManager());
-            this.container.RegisterType<ITransient, Transient>(new TransientLifetimeManager());
-            this.container.RegisterType<ICombined, Combined>(new TransientLifetimeManager());
+            this.container.RegisterType<ISingleton1, Singleton1>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<ISingleton2, Singleton2>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<ISingleton3, Singleton3>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<ITransient1, Transient1>(new TransientLifetimeManager());
+            this.container.RegisterType<ITransient2, Transient2>(new TransientLifetimeManager());
+            this.container.RegisterType<ITransient3, Transient3>(new TransientLifetimeManager());
+            this.container.RegisterType<ICombined1, Combined1>(new TransientLifetimeManager());
+            this.container.RegisterType<ICombined2, Combined2>(new TransientLifetimeManager());
+            this.container.RegisterType<ICombined3, Combined3>(new TransientLifetimeManager());
         }
 
         private void RegisterComplex()
@@ -104,7 +110,9 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ISubObjectOne, SubObjectOne>(new TransientLifetimeManager());
             this.container.RegisterType<ISubObjectTwo, SubObjectTwo>(new TransientLifetimeManager());
             this.container.RegisterType<ISubObjectThree, SubObjectThree>(new TransientLifetimeManager());
-            this.container.RegisterType<IComplex, Complex>(new TransientLifetimeManager());
+            this.container.RegisterType<IComplex1, Complex1>(new TransientLifetimeManager());
+            this.container.RegisterType<IComplex2, Complex2>(new TransientLifetimeManager());
+            this.container.RegisterType<IComplex3, Complex3>(new TransientLifetimeManager());
         }
 
         private void RegisterPropertyInjection()
@@ -115,7 +123,9 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ISubObjectA, SubObjectA>(new TransientLifetimeManager());
             this.container.RegisterType<ISubObjectB, SubObjectB>(new TransientLifetimeManager());
             this.container.RegisterType<ISubObjectC, SubObjectC>(new TransientLifetimeManager());
-            this.container.RegisterType<IComplexPropertyObject, ComplexPropertyObject>(new TransientLifetimeManager());
+            this.container.RegisterType<IComplexPropertyObject1, ComplexPropertyObject1>(new TransientLifetimeManager());
+            this.container.RegisterType<IComplexPropertyObject2, ComplexPropertyObject2>(new TransientLifetimeManager());
+            this.container.RegisterType<IComplexPropertyObject3, ComplexPropertyObject3>(new TransientLifetimeManager());
         }
 
         private void RegisterMultiple()
@@ -128,14 +138,22 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ISimpleAdapter, SimpleAdapterFour>("four", new TransientLifetimeManager());
             this.container.RegisterType<ISimpleAdapter, SimpleAdapterFive>("five", new TransientLifetimeManager());
 
-            this.container.RegisterType<ImportMultiple, ImportMultiple>(new TransientLifetimeManager());
+            this.container.RegisterType<ImportMultiple1, ImportMultiple1>(new TransientLifetimeManager());
+            this.container.RegisterType<ImportMultiple2, ImportMultiple2>(new TransientLifetimeManager());
+            this.container.RegisterType<ImportMultiple3, ImportMultiple3>(new TransientLifetimeManager());
         }
 
         private void RegisterInterceptor()
         {
-            this.container.RegisterType<ICalculator, Calculator>(new TransientLifetimeManager())
+            this.container.RegisterType<ICalculator1, Calculator1>(new TransientLifetimeManager())
                  .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
-                 .SetInterceptorFor<ICalculator>(new InterfaceInterceptor());
+                 .SetInterceptorFor<ICalculator1>(new InterfaceInterceptor());
+            this.container.RegisterType<ICalculator2, Calculator2>(new TransientLifetimeManager())
+                 .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
+                 .SetInterceptorFor<ICalculator2>(new InterfaceInterceptor());
+            this.container.RegisterType<ICalculator3, Calculator3>(new TransientLifetimeManager())
+                 .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
+                 .SetInterceptorFor<ICalculator3>(new InterfaceInterceptor());
         }
     }
 
@@ -155,8 +173,10 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            this.childContainer.RegisterType(typeof(ICombined), typeof(ScopedCombined));
-            this.childContainer.RegisterType(typeof(ITransient), typeof(ScopedTransient));
+            this.childContainer.RegisterType(typeof(ICombined1), typeof(ScopedCombined1));
+            this.childContainer.RegisterType(typeof(ICombined2), typeof(ScopedCombined2));
+            this.childContainer.RegisterType(typeof(ICombined3), typeof(ScopedCombined3));
+            this.childContainer.RegisterType(typeof(ITransient1), typeof(ScopedTransient));
         }
 
         public object Resolve(Type resolveType)

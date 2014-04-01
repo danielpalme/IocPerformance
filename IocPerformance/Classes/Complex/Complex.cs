@@ -4,20 +4,135 @@ using MEF2Attr = System.Composition;
 
 namespace IocPerformance.Classes.Complex
 {
-    [IfInjector.ImplementedBy(typeof(Complex))]
-    public interface IComplex
+    [IfInjector.ImplementedBy(typeof(Complex1))]
+    public interface IComplex1
     {
     }
 
-    [Export(typeof(IComplex)), PartCreationPolicy(CreationPolicy.NonShared)]
-    [MEF2Attr.Export(typeof(IComplex))]
-    public class Complex : IComplex
+    [Export(typeof(IComplex1)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [MEF2Attr.Export(typeof(IComplex1))]
+    public class Complex1 : IComplex1
     {
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
         [IfInjector.Inject]
-        public Complex(
+        public Complex1(
+            IFirstService firstService,
+            ISecondService secondService,
+            IThirdService thirdService,
+            ISubObjectOne subObjectOne,
+            ISubObjectTwo subObjectTwo,
+            ISubObjectThree subObjectThree)
+        {
+            if (firstService == null)
+            {
+                throw new ArgumentNullException("firstService");
+            }
+
+            if (secondService == null)
+            {
+                throw new ArgumentNullException("secondService");
+            }
+
+            if (thirdService == null)
+            {
+                throw new ArgumentNullException("thirdService");
+            }
+
+            if (subObjectOne == null)
+            {
+                throw new ArgumentNullException("subObjectOne");
+            }
+
+            if (subObjectTwo == null)
+            {
+                throw new ArgumentNullException("subObjectTwo");
+            }
+
+            if (subObjectThree == null)
+            {
+                throw new ArgumentNullException("subObjectThree");
+            }
+
+            Instances++;
+        }
+
+        public static int Instances { get; set; }
+    }
+
+    [IfInjector.ImplementedBy(typeof(Complex2))]
+    public interface IComplex2
+    {
+    }
+
+    [Export(typeof(IComplex2)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [MEF2Attr.Export(typeof(IComplex2))]
+    public class Complex2 : IComplex2
+    {
+        [ImportingConstructor]
+        [System.Composition.ImportingConstructor]
+        [Stiletto.Inject]
+        [IfInjector.Inject]
+        public Complex2(
+            IFirstService firstService,
+            ISecondService secondService,
+            IThirdService thirdService,
+            ISubObjectOne subObjectOne,
+            ISubObjectTwo subObjectTwo,
+            ISubObjectThree subObjectThree)
+        {
+            if (firstService == null)
+            {
+                throw new ArgumentNullException("firstService");
+            }
+
+            if (secondService == null)
+            {
+                throw new ArgumentNullException("secondService");
+            }
+
+            if (thirdService == null)
+            {
+                throw new ArgumentNullException("thirdService");
+            }
+
+            if (subObjectOne == null)
+            {
+                throw new ArgumentNullException("subObjectOne");
+            }
+
+            if (subObjectTwo == null)
+            {
+                throw new ArgumentNullException("subObjectTwo");
+            }
+
+            if (subObjectThree == null)
+            {
+                throw new ArgumentNullException("subObjectThree");
+            }
+
+            Instances++;
+        }
+
+        public static int Instances { get; set; }
+    }
+
+
+    [IfInjector.ImplementedBy(typeof(Complex3))]
+    public interface IComplex3
+    {
+    }
+
+    [Export(typeof(IComplex3)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [MEF2Attr.Export(typeof(IComplex3))]
+    public class Complex3 : IComplex3
+    {
+        [ImportingConstructor]
+        [System.Composition.ImportingConstructor]
+        [Stiletto.Inject]
+        [IfInjector.Inject]
+        public Complex3(
             IFirstService firstService,
             ISecondService secondService,
             IThirdService thirdService,

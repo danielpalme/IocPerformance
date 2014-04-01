@@ -24,7 +24,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://code.google.com/p/autofac"; }
+            get { return "https://github.com/autofac/Autofac"; }
         }
 
         public override bool SupportsInterception
@@ -64,7 +64,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container.Dispose();
             this.container = null;
         }
@@ -102,47 +102,47 @@ namespace IocPerformance.Adapters
 
         private static void RegisterStandard(ContainerBuilder autofacContainerBuilder)
         {
-            autofacContainerBuilder.Register(c => new Singleton())
-                                          .As<ISingleton>()
-                                          .SingleInstance();
+            autofacContainerBuilder.RegisterType<Singleton1>().As<ISingleton1>().SingleInstance();
+            autofacContainerBuilder.RegisterType<Singleton2>().As<ISingleton2>().SingleInstance();
+            autofacContainerBuilder.RegisterType<Singleton3>().As<ISingleton3>().SingleInstance();
 
-            autofacContainerBuilder.Register(c => new Transient())
-                                          .As<ITransient>();
+            autofacContainerBuilder.RegisterType<Transient1>().As<ITransient1>();
+            autofacContainerBuilder.RegisterType<Transient2>().As<ITransient2>();
+            autofacContainerBuilder.RegisterType<Transient3>().As<ITransient3>();
 
-            autofacContainerBuilder.Register(c => new Combined(c.Resolve<ISingleton>(), c.Resolve<ITransient>()))
-                                          .As<ICombined>();
+            autofacContainerBuilder.RegisterType<Combined1>().As<ICombined1>();
+            autofacContainerBuilder.RegisterType<Combined2>().As<ICombined2>();
+            autofacContainerBuilder.RegisterType<Combined3>().As<ICombined3>();
         }
 
         private static void RegisterComplexObject(ContainerBuilder autofacContainerBuilder)
         {
-            autofacContainerBuilder.Register(c => new FirstService()).As<IFirstService>().SingleInstance();
-            autofacContainerBuilder.Register(c => new SecondService()).As<ISecondService>().SingleInstance();
-            autofacContainerBuilder.Register(c => new ThirdService()).As<IThirdService>().SingleInstance();
-            autofacContainerBuilder.Register(c => new SubObjectOne(c.Resolve<IFirstService>())).As<ISubObjectOne>();
-            autofacContainerBuilder.Register(c => new SubObjectTwo(c.Resolve<ISecondService>())).As<ISubObjectTwo>();
-            autofacContainerBuilder.Register(c => new SubObjectThree(c.Resolve<IThirdService>())).As<ISubObjectThree>();
-            autofacContainerBuilder.Register(c => new Complex(c.Resolve<IFirstService>(), c.Resolve<ISecondService>(), c.Resolve<IThirdService>(), c.Resolve<ISubObjectOne>(), c.Resolve<ISubObjectTwo>(), c.Resolve<ISubObjectThree>())).As<IComplex>();
+            autofacContainerBuilder.RegisterType<FirstService>().As<IFirstService>().SingleInstance();
+            autofacContainerBuilder.RegisterType<SecondService>().As<ISecondService>().SingleInstance();
+            autofacContainerBuilder.RegisterType<ThirdService>().As<IThirdService>().SingleInstance();
+            autofacContainerBuilder.RegisterType<SubObjectOne>().As<ISubObjectOne>();
+            autofacContainerBuilder.RegisterType<SubObjectTwo>().As<ISubObjectTwo>();
+            autofacContainerBuilder.RegisterType<SubObjectThree>().As<ISubObjectThree>();
+            autofacContainerBuilder.RegisterType<Complex1>().As<IComplex1>();
+            autofacContainerBuilder.RegisterType<Complex2>().As<IComplex2>();
+            autofacContainerBuilder.RegisterType<Complex3>().As<IComplex3>();
         }
 
         private static void RegisterPropertyInjection(ContainerBuilder autofacContainerBuilder)
         {
-            autofacContainerBuilder.Register(c => new ServiceA()).As<IServiceA>().SingleInstance();
-            autofacContainerBuilder.Register(c => new ServiceB()).As<IServiceB>().SingleInstance();
-            autofacContainerBuilder.Register(c => new ServiceC()).As<IServiceC>().SingleInstance();
+            autofacContainerBuilder.RegisterType<ServiceA>().As<IServiceA>().SingleInstance();
+            autofacContainerBuilder.RegisterType<ServiceB>().As<IServiceB>().SingleInstance();
+            autofacContainerBuilder.RegisterType<ServiceC>().As<IServiceC>().SingleInstance();
+            autofacContainerBuilder.RegisterType<SubObjectA>().As<ISubObjectA>().PropertiesAutowired();
+            autofacContainerBuilder.RegisterType<SubObjectB>().As<ISubObjectB>().PropertiesAutowired();
+            autofacContainerBuilder.RegisterType<SubObjectC>().As<ISubObjectC>().PropertiesAutowired();
 
-            autofacContainerBuilder.Register(c => new SubObjectA { ServiceA = c.Resolve<IServiceA>() }).As<ISubObjectA>();
-            autofacContainerBuilder.Register(c => new SubObjectB { ServiceB = c.Resolve<IServiceB>() }).As<ISubObjectB>();
-            autofacContainerBuilder.Register(c => new SubObjectC { ServiceC = c.Resolve<IServiceC>() }).As<ISubObjectC>();
-
-            autofacContainerBuilder.Register(c => new ComplexPropertyObject
-            {
-                ServiceA = c.Resolve<IServiceA>(),
-                ServiceB = c.Resolve<IServiceB>(),
-                ServiceC = c.Resolve<IServiceC>(),
-                SubObjectA = c.Resolve<ISubObjectA>(),
-                SubObjectB = c.Resolve<ISubObjectB>(),
-                SubObjectC = c.Resolve<ISubObjectC>()
-            }).As<IComplexPropertyObject>();
+            autofacContainerBuilder.RegisterType<ComplexPropertyObject1>().As<IComplexPropertyObject1>()
+                .PropertiesAutowired();
+            autofacContainerBuilder.RegisterType<ComplexPropertyObject2>().As<IComplexPropertyObject2>()
+                .PropertiesAutowired();
+            autofacContainerBuilder.RegisterType<ComplexPropertyObject3>().As<IComplexPropertyObject3>()
+                .PropertiesAutowired();
         }
 
         private static void RegisterOpenGeneric(ContainerBuilder autofacContainerBuilder)
@@ -153,20 +153,22 @@ namespace IocPerformance.Adapters
 
         private static void RegisterMultiple(ContainerBuilder autofacContainerBuilder)
         {
-            autofacContainerBuilder.Register(c => new SimpleAdapterOne()).As<ISimpleAdapter>();
-            autofacContainerBuilder.Register(c => new SimpleAdapterTwo()).As<ISimpleAdapter>();
-            autofacContainerBuilder.Register(c => new SimpleAdapterThree()).As<ISimpleAdapter>();
-            autofacContainerBuilder.Register(c => new SimpleAdapterFour()).As<ISimpleAdapter>();
-            autofacContainerBuilder.Register(c => new SimpleAdapterFive()).As<ISimpleAdapter>();
+            autofacContainerBuilder.RegisterType<SimpleAdapterOne>().As<ISimpleAdapter>();
+            autofacContainerBuilder.RegisterType<SimpleAdapterTwo>().As<ISimpleAdapter>();
+            autofacContainerBuilder.RegisterType<SimpleAdapterThree>().As<ISimpleAdapter>();
+            autofacContainerBuilder.RegisterType<SimpleAdapterFour>().As<ISimpleAdapter>();
+            autofacContainerBuilder.RegisterType<SimpleAdapterFive>().As<ISimpleAdapter>();
 
-            autofacContainerBuilder.Register(c => new ImportMultiple(c.Resolve<IEnumerable<ISimpleAdapter>>())).As<ImportMultiple>();
+            autofacContainerBuilder.RegisterType<ImportMultiple1>().As<ImportMultiple1>();
+            autofacContainerBuilder.RegisterType<ImportMultiple2>().As<ImportMultiple2>();
+            autofacContainerBuilder.RegisterType<ImportMultiple3>().As<ImportMultiple3>();
         }
 
         private static void RegisterInterceptor(ContainerBuilder autofacContainerBuilder)
         {
-            autofacContainerBuilder.Register(c => new Calculator())
-                                          .As<ICalculator>()
-                                          .EnableInterfaceInterceptors();
+            autofacContainerBuilder.RegisterType<Calculator1>().As<ICalculator1>().EnableInterfaceInterceptors();
+            autofacContainerBuilder.RegisterType<Calculator2>().As<ICalculator2>().EnableInterfaceInterceptors();
+            autofacContainerBuilder.RegisterType<Calculator3>().As<ICalculator3>().EnableInterfaceInterceptors();
         }
     }
 
@@ -188,9 +190,11 @@ namespace IocPerformance.Adapters
         {
             var autofacContainerBuilder = new ContainerBuilder();
 
-            autofacContainerBuilder.Register(c => new ScopedTransient()).As<ITransient>();
-            autofacContainerBuilder.Register(c => new ScopedCombined(c.Resolve<ITransient>(), c.Resolve<ISingleton>()))
-                .As<ICombined>();
+            autofacContainerBuilder.RegisterType<ScopedTransient>().As<ITransient1>();
+
+            autofacContainerBuilder.RegisterType<ScopedCombined1>().As<ICombined1>();
+            autofacContainerBuilder.RegisterType<ScopedCombined2>().As<ICombined2>();
+            autofacContainerBuilder.RegisterType<ScopedCombined3>().As<ICombined3>();
 
             autofacContainerBuilder.Update(this.lifetimeScope.ComponentRegistry);
         }

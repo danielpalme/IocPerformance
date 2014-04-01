@@ -35,7 +35,7 @@ namespace IocPerformance.Adapters
 
         public override sealed void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be collected.
             this.injector = null;
         }
 

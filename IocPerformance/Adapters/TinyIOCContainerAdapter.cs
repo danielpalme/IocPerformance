@@ -23,9 +23,12 @@ namespace IocPerformance.Adapters
             get { return "https://github.com/grumpydev/TinyIoC"; }
         }
 
+        /// <summary>
+        /// I'm marking this as false because there's a bug in TinyIOC that makes the tests fail.
+        /// </summary>
         public override bool SupportGeneric
         {
-            get { return true; }
+            get { return false; }
         }
 
         /// <summary>
@@ -34,10 +37,7 @@ namespace IocPerformance.Adapters
         /// </summary>
         public override bool SupportsMultiple
         {
-            get
-            {
-                return false;
-            }
+            get { return false; }
         }
 
         public override bool SupportsPropertyInjection
@@ -57,7 +57,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -93,9 +93,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.Register<ISingleton, Singleton>().AsSingleton();
-            this.container.Register<ITransient, Transient>().AsMultiInstance();
-            this.container.Register<ICombined, Combined>().AsMultiInstance();
+            this.container.Register<ISingleton1, Singleton1>().AsSingleton();
+            this.container.Register<ISingleton2, Singleton2>().AsSingleton();
+            this.container.Register<ISingleton3, Singleton3>().AsSingleton();
+            this.container.Register<ITransient1, Transient1>().AsMultiInstance();
+            this.container.Register<ITransient2, Transient2>().AsMultiInstance();
+            this.container.Register<ITransient3, Transient3>().AsMultiInstance();
+            this.container.Register<ICombined1, Combined1>().AsMultiInstance();
+            this.container.Register<ICombined2, Combined2>().AsMultiInstance();
+            this.container.Register<ICombined3, Combined3>().AsMultiInstance();
         }
 
         private void RegisterComplex()
@@ -106,7 +112,9 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectOne, SubObjectOne>().AsMultiInstance();
             this.container.Register<ISubObjectTwo, SubObjectTwo>().AsMultiInstance();
             this.container.Register<ISubObjectThree, SubObjectThree>().AsMultiInstance();
-            this.container.Register<IComplex, Complex>().AsMultiInstance();
+            this.container.Register<IComplex1, Complex1>().AsMultiInstance();
+            this.container.Register<IComplex2, Complex2>().AsMultiInstance();
+            this.container.Register<IComplex3, Complex3>().AsMultiInstance();
         }
 
         private void RegisterPropertyInjection()
@@ -121,16 +129,38 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectC>(
                 (ioc, names) => new SubObjectC { ServiceC = ioc.Resolve<IServiceC>() });
 
-            this.container.Register<IComplexPropertyObject>(
-                (ioc, names) => new ComplexPropertyObject
-                                    {
-                                        ServiceA = ioc.Resolve<IServiceA>(),
-                                        ServiceB = ioc.Resolve<IServiceB>(),
-                                        ServiceC = ioc.Resolve<IServiceC>(),
-                                        SubObjectA = ioc.Resolve<ISubObjectA>(),
-                                        SubObjectB = ioc.Resolve<ISubObjectB>(),
-                                        SubObjectC = ioc.Resolve<ISubObjectC>()
-                                    });
+            this.container.Register<IComplexPropertyObject1>(
+                (ioc, names) => new ComplexPropertyObject1
+                {
+                    ServiceA = ioc.Resolve<IServiceA>(),
+                    ServiceB = ioc.Resolve<IServiceB>(),
+                    ServiceC = ioc.Resolve<IServiceC>(),
+                    SubObjectA = ioc.Resolve<ISubObjectA>(),
+                    SubObjectB = ioc.Resolve<ISubObjectB>(),
+                    SubObjectC = ioc.Resolve<ISubObjectC>()
+                });
+
+            this.container.Register<IComplexPropertyObject2>(
+                (ioc, names) => new ComplexPropertyObject2
+                {
+                    ServiceA = ioc.Resolve<IServiceA>(),
+                    ServiceB = ioc.Resolve<IServiceB>(),
+                    ServiceC = ioc.Resolve<IServiceC>(),
+                    SubObjectA = ioc.Resolve<ISubObjectA>(),
+                    SubObjectB = ioc.Resolve<ISubObjectB>(),
+                    SubObjectC = ioc.Resolve<ISubObjectC>()
+                });
+
+            this.container.Register<IComplexPropertyObject3>(
+                (ioc, names) => new ComplexPropertyObject3
+                {
+                    ServiceA = ioc.Resolve<IServiceA>(),
+                    ServiceB = ioc.Resolve<IServiceB>(),
+                    ServiceC = ioc.Resolve<IServiceC>(),
+                    SubObjectA = ioc.Resolve<ISubObjectA>(),
+                    SubObjectB = ioc.Resolve<ISubObjectB>(),
+                    SubObjectC = ioc.Resolve<ISubObjectC>()
+                });
         }
 
         private void RegisterOpenGeneric()
@@ -156,8 +186,10 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            this.childContainer.Register(typeof(ICombined), typeof(ScopedCombined));
-            this.childContainer.Register(typeof(ITransient), typeof(ScopedTransient));
+            this.childContainer.Register(typeof(ICombined1), typeof(ScopedCombined1));
+            this.childContainer.Register(typeof(ICombined2), typeof(ScopedCombined2));
+            this.childContainer.Register(typeof(ICombined3), typeof(ScopedCombined3));
+            this.childContainer.Register(typeof(ITransient1), typeof(ScopedTransient));
         }
 
         public object Resolve(Type resolveType)

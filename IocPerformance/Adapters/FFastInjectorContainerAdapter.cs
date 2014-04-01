@@ -15,7 +15,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://ffastinjector.codeplex.com"; }
+            get { return "https://ffastinjector.codeplex.com"; }
         }
 
         public override object Resolve(Type type)
@@ -25,7 +25,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
         }
 
         public override void Prepare()
@@ -51,11 +51,19 @@ namespace IocPerformance.Adapters
 
         private static void RegisterStandard()
         {
-            var singleton = new Singleton();
+            var singleton1 = new Singleton1();
+            var singleton2 = new Singleton2();
+            var singleton3 = new Singleton3();
 
-            Injector.SetResolver<ISingleton>(() => singleton);
-            Injector.SetResolver<ITransient, Transient>();
-            Injector.SetResolver<ICombined, Combined>();
+            Injector.SetResolver<ISingleton1>(() => singleton1);
+            Injector.SetResolver<ISingleton2>(() => singleton2);
+            Injector.SetResolver<ISingleton3>(() => singleton3);
+            Injector.SetResolver<ITransient1, Transient1>();
+            Injector.SetResolver<ITransient2, Transient2>();
+            Injector.SetResolver<ITransient3, Transient3>();
+            Injector.SetResolver<ICombined1, Combined1>();
+            Injector.SetResolver<ICombined2, Combined2>();
+            Injector.SetResolver<ICombined3, Combined3>();
         }
 
         private static void RegisterComplex()
@@ -71,7 +79,9 @@ namespace IocPerformance.Adapters
             Injector.SetResolver<ISubObjectTwo, SubObjectTwo>();
             Injector.SetResolver<ISubObjectThree, SubObjectThree>();
 
-            Injector.SetResolver<IComplex, Complex>();
+            Injector.SetResolver<IComplex1, Complex1>();
+            Injector.SetResolver<IComplex2, Complex2>();
+            Injector.SetResolver<IComplex3, Complex3>();
         }
     }
 }

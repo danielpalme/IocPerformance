@@ -91,9 +91,19 @@ namespace IocPerformance.Adapters
             var pg = new Castle.DynamicProxy.ProxyGenerator();
 
             this.container.Configure(
-                ioc => ioc.Export<Calculator>()
-                    .As<ICalculator>()
-                    .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator, new StructureMapInterceptionLogger())));
+                ioc => ioc.Export<Calculator1>()
+                    .As<ICalculator1>()
+                    .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator1, new StructureMapInterceptionLogger())));
+
+            this.container.Configure(
+                ioc => ioc.Export<Calculator2>()
+                    .As<ICalculator2>()
+                    .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator2, new StructureMapInterceptionLogger())));
+
+            this.container.Configure(
+                ioc => ioc.Export<Calculator3>()
+                    .As<ICalculator3>()
+                    .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator3, new StructureMapInterceptionLogger())));
         }
 
         private void RegisterConditional()
@@ -101,16 +111,21 @@ namespace IocPerformance.Adapters
             this.container.Configure(
                 ioc =>
                 {
-                    ioc.Export<ImportConditionObject>();
+                    ioc.Export<ImportConditionObject1>();
                     ioc.Export<ImportConditionObject2>();
+                    ioc.Export<ImportConditionObject3>();
 
                     ioc.Export<ExportConditionalObject>()
                         .As<IExportConditionInterface>()
-                        .WhenInjectedInto<ImportConditionObject>();
+                        .WhenInjectedInto<ImportConditionObject1>();
 
                     ioc.Export<ExportConditionalObject2>()
                         .As<IExportConditionInterface>()
                         .WhenInjectedInto<ImportConditionObject2>();
+
+                    ioc.Export<ExportConditionalObject3>()
+                        .As<IExportConditionInterface>()
+                        .WhenInjectedInto<ImportConditionObject3>();
                 });
         }
 
@@ -124,7 +139,9 @@ namespace IocPerformance.Adapters
                     ioc.Export<SimpleAdapterThree>().As<ISimpleAdapter>();
                     ioc.Export<SimpleAdapterFour>().As<ISimpleAdapter>();
                     ioc.Export<SimpleAdapterFive>().As<ISimpleAdapter>();
-                    ioc.Export<ImportMultiple>();
+                    ioc.Export<ImportMultiple1>();
+                    ioc.Export<ImportMultiple2>();
+                    ioc.Export<ImportMultiple3>();
                 });
         }
 
@@ -142,9 +159,15 @@ namespace IocPerformance.Adapters
             this.container.Configure(
                 ioc =>
                 {
-                    ioc.Export<Singleton>().As<ISingleton>().AndSingleton();
-                    ioc.Export<Transient>().As<ITransient>();
-                    ioc.Export<Combined>().As<ICombined>();
+                    ioc.Export<Singleton1>().As<ISingleton1>().AndSingleton();
+                    ioc.Export<Singleton2>().As<ISingleton2>().AndSingleton();
+                    ioc.Export<Singleton3>().As<ISingleton3>().AndSingleton();
+                    ioc.Export<Transient1>().As<ITransient1>();
+                    ioc.Export<Transient2>().As<ITransient2>();
+                    ioc.Export<Transient3>().As<ITransient3>();
+                    ioc.Export<Combined1>().As<ICombined1>();
+                    ioc.Export<Combined2>().As<ICombined2>();
+                    ioc.Export<Combined3>().As<ICombined3>();
                 });
         }
 
@@ -159,7 +182,9 @@ namespace IocPerformance.Adapters
                     ioc.Export<SubObjectOne>().As<ISubObjectOne>();
                     ioc.Export<SubObjectTwo>().As<ISubObjectTwo>();
                     ioc.Export<SubObjectThree>().As<ISubObjectThree>();
-                    ioc.Export<Complex>().As<IComplex>();
+                    ioc.Export<Complex1>().As<IComplex1>();
+                    ioc.Export<Complex2>().As<IComplex2>();
+                    ioc.Export<Complex3>().As<IComplex3>();
                 });
         }
 
@@ -193,7 +218,9 @@ namespace IocPerformance.Adapters
                     c.Export<SubObjectB>().As<ISubObjectB>().ImportProperty(x => x.ServiceB);
                     c.Export<SubObjectC>().As<ISubObjectC>().ImportProperty(x => x.ServiceC);
 
-                    c.Export<ComplexPropertyObject>().As<IComplexPropertyObject>().AutoWireProperties();
+                    c.Export<ComplexPropertyObject1>().As<IComplexPropertyObject1>().AutoWireProperties();
+                    c.Export<ComplexPropertyObject2>().As<IComplexPropertyObject2>().AutoWireProperties();
+                    c.Export<ComplexPropertyObject3>().As<IComplexPropertyObject3>().AutoWireProperties();
                 });
         }
     }
@@ -219,8 +246,10 @@ namespace IocPerformance.Adapters
                 // SimpleExport was written specifically to register a class very quickly
                 // it doesn't support Property injection or method injection
                 // but you can do those with an Enrichment delegate
-                c.SimpleExport<ScopedCombined>().As<ICombined>();
-                c.SimpleExport<ScopedTransient>().As<ITransient>();
+                c.SimpleExport<ScopedCombined1>().As<ICombined1>();
+                c.SimpleExport<ScopedCombined2>().As<ICombined2>();
+                c.SimpleExport<ScopedCombined3>().As<ICombined3>();
+                c.SimpleExport<ScopedTransient>().As<ITransient1>();
             });
         }
 

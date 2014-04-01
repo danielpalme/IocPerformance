@@ -108,9 +108,15 @@ namespace IocPerformance.Adapters
 
         private static void RegisterStandard(IContainerExpression expr)
         {
-            expr.For<ISingleton>().Use<Singleton>().AsSingleton();
-            expr.For<ITransient>().Use<Transient>();
-            expr.For<ICombined>().Use<Combined>();
+            expr.For<ISingleton1>().Use<Singleton1>().AsSingleton();
+            expr.For<ISingleton2>().Use<Singleton2>().AsSingleton();
+            expr.For<ISingleton3>().Use<Singleton3>().AsSingleton();
+            expr.For<ITransient1>().Use<Transient1>();
+            expr.For<ITransient2>().Use<Transient2>();
+            expr.For<ITransient3>().Use<Transient3>();
+            expr.For<ICombined1>().Use<Combined1>();
+            expr.For<ICombined2>().Use<Combined2>();
+            expr.For<ICombined3>().Use<Combined3>();
         }
 
         private static void RegisterComplex(IContainerExpression expr)
@@ -121,7 +127,9 @@ namespace IocPerformance.Adapters
             expr.For<ISubObjectOne>().Use<SubObjectOne>();
             expr.For<ISubObjectTwo>().Use<SubObjectTwo>();
             expr.For<ISubObjectThree>().Use<SubObjectThree>();
-            expr.For<IComplex>().Use<Complex>();
+            expr.For<IComplex1>().Use<Complex1>();
+            expr.For<IComplex2>().Use<Complex2>();
+            expr.For<IComplex3>().Use<Complex3>();
         }
 
         private static void RegisterPropertyInjection(IContainerExpression expr)
@@ -134,7 +142,21 @@ namespace IocPerformance.Adapters
             expr.For<ISubObjectB>().Use<SubObjectB>().Set(x => x.ServiceB);
             expr.For<ISubObjectC>().Use<SubObjectC>().Set(x => x.ServiceC);
 
-            expr.For<IComplexPropertyObject>().Use<ComplexPropertyObject>()
+            expr.For<IComplexPropertyObject1>().Use<ComplexPropertyObject1>()
+                 .Set(x => x.ServiceA)
+                 .Set(x => x.ServiceB)
+                 .Set(x => x.ServiceC)
+                 .Set(x => x.SubObjectA)
+                 .Set(x => x.SubObjectB)
+                 .Set(x => x.SubObjectC);
+            expr.For<IComplexPropertyObject2>().Use<ComplexPropertyObject2>()
+                 .Set(x => x.ServiceA)
+                 .Set(x => x.ServiceB)
+                 .Set(x => x.ServiceC)
+                 .Set(x => x.SubObjectA)
+                 .Set(x => x.SubObjectB)
+                 .Set(x => x.SubObjectC);
+            expr.For<IComplexPropertyObject3>().Use<ComplexPropertyObject3>()
                  .Set(x => x.ServiceA)
                  .Set(x => x.ServiceB)
                  .Set(x => x.ServiceC)
@@ -151,15 +173,18 @@ namespace IocPerformance.Adapters
 
         private static void RegisterConditional(IContainerExpression expr)
         {
-            expr.For<ImportConditionObject>().Use<ImportConditionObject>();
+            expr.For<ImportConditionObject1>().Use<ImportConditionObject1>();
             expr.For<ImportConditionObject2>().Use<ImportConditionObject2>();
+            expr.For<ImportConditionObject3>().Use<ImportConditionObject3>();
             expr.For<IExportConditionInterface>()
                  .UseConditional(x =>
                                       {
-                                          x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject))
+                                          x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject1))
                                             .Use<ExportConditionalObject>();
                                           x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject2))
                                             .Use<ExportConditionalObject2>();
+                                          x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject3))
+                                            .Use<ExportConditionalObject3>();
                                       });
         }
 
@@ -170,13 +195,19 @@ namespace IocPerformance.Adapters
             expr.Add<ISimpleAdapter>().Use<SimpleAdapterThree>();
             expr.Add<ISimpleAdapter>().Use<SimpleAdapterFour>();
             expr.Add<ISimpleAdapter>().Use<SimpleAdapterFive>();
-            expr.For<ImportMultiple>().Use<ImportMultiple>();
+            expr.For<ImportMultiple1>().Use<ImportMultiple1>();
+            expr.For<ImportMultiple2>().Use<ImportMultiple2>();
+            expr.For<ImportMultiple3>().Use<ImportMultiple3>();
         }
 
         private static void RegisterInterceptor(IContainerExpression expr)
         {
-            expr.For<ICalculator>().Use<Calculator>()
-                 .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator>(x.Instance, new MaestroInterceptionLogger()));
+            expr.For<ICalculator1>().Use<Calculator1>()
+                 .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator1>(x.Instance, new MaestroInterceptionLogger()));
+            expr.For<ICalculator2>().Use<Calculator2>()
+                 .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator2>(x.Instance, new MaestroInterceptionLogger()));
+            expr.For<ICalculator3>().Use<Calculator3>()
+                 .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator3>(x.Instance, new MaestroInterceptionLogger()));
         }
     }
 
@@ -198,8 +229,10 @@ namespace IocPerformance.Adapters
         {
             this.container.Configure(c =>
                                 {
-                                    c.For<ITransient>().Use<ScopedTransient>();
-                                    c.For<ICombined>().Use<ScopedCombined>().AsSingleton();
+                                    c.For<ITransient1>().Use<ScopedTransient>();
+                                    c.For<ICombined1>().Use<ScopedCombined1>().AsSingleton();
+                                    c.For<ICombined2>().Use<ScopedCombined2>().AsSingleton();
+                                    c.For<ICombined3>().Use<ScopedCombined3>().AsSingleton();
                                 });
         }
 

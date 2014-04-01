@@ -46,7 +46,7 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be disposed.
+            // Allow the container and everything it references to be garbage collected.
             this.container = null;
         }
 
@@ -77,9 +77,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.Inject<ISingleton>().Using<Singleton>().AsSingleton();
-            this.container.Inject<ITransient>().Using<Transient>().OncePerRequest();
-            this.container.Inject<ICombined>().Using<Combined>().OncePerRequest();
+            this.container.Inject<ISingleton1>().Using<Singleton1>().AsSingleton();
+            this.container.Inject<ISingleton2>().Using<Singleton2>().AsSingleton();
+            this.container.Inject<ISingleton3>().Using<Singleton3>().AsSingleton();
+            this.container.Inject<ITransient1>().Using<Transient1>().OncePerRequest();
+            this.container.Inject<ITransient2>().Using<Transient2>().OncePerRequest();
+            this.container.Inject<ITransient3>().Using<Transient3>().OncePerRequest();
+            this.container.Inject<ICombined1>().Using<Combined1>().OncePerRequest();
+            this.container.Inject<ICombined2>().Using<Combined2>().OncePerRequest();
+            this.container.Inject<ICombined3>().Using<Combined3>().OncePerRequest();
         }
 
         private void RegisterComplex()
@@ -91,7 +97,9 @@ namespace IocPerformance.Adapters
             this.container.Inject<ISubObjectTwo>().Using<SubObjectTwo>().OncePerRequest();
             this.container.Inject<ISubObjectThree>().Using<SubObjectThree>().OncePerRequest();
 
-            this.container.Inject<IComplex>().Using<Complex>().OncePerRequest();
+            this.container.Inject<IComplex1>().Using<Complex1>().OncePerRequest();
+            this.container.Inject<IComplex2>().Using<Complex2>().OncePerRequest();
+            this.container.Inject<IComplex3>().Using<Complex3>().OncePerRequest();
         }
 
         private void RegisterPropertyInjection()
@@ -134,7 +142,9 @@ namespace IocPerformance.Adapters
             this.container.Inject<ISimpleAdapter>().Using<SimpleAdapterFour>().OncePerRequest();
             this.container.Inject<ISimpleAdapter>().Using<SimpleAdapterFive>().OncePerRequest();
 
-            this.container.Inject<ImportMultiple>().Using<ImportMultiple>().OncePerRequest();
+            this.container.Inject<ImportMultiple1>().Using<ImportMultiple1>().OncePerRequest();
+            this.container.Inject<ImportMultiple2>().Using<ImportMultiple2>().OncePerRequest();
+            this.container.Inject<ImportMultiple3>().Using<ImportMultiple3>().OncePerRequest();
         }
     }
 }
