@@ -171,7 +171,7 @@ namespace IocPerformance.Adapters
 
         private static void RegisterGeneric(ConfigurationExpression r)
         {
-            r.For(typeof(IGenericInterface<>)).LifecycleIs(InstanceScope.Transient).Use(typeof(GenericExport<>));
+            r.For(typeof(IGenericInterface<>)).Use(typeof(GenericExport<>));
             r.For(typeof(ImportGeneric<>)).Use(typeof(ImportGeneric<>));
         }
 
@@ -190,11 +190,11 @@ namespace IocPerformance.Adapters
         private static void RegisterInterceptor(ConfigurationExpression r, ProxyGenerator pg)
         {
             r.For<ICalculator1>().Transient().Use<Calculator1>()
-             .EnrichWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator1>(c, new StructureMapInterceptionLogger()));
+                .DecorateWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator1>(c, new StructureMapInterceptionLogger()));
             r.For<ICalculator2>().Transient().Use<Calculator2>()
-             .EnrichWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator2>(c, new StructureMapInterceptionLogger()));
+                .DecorateWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator2>(c, new StructureMapInterceptionLogger()));
             r.For<ICalculator3>().Transient().Use<Calculator3>()
-             .EnrichWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator3>(c, new StructureMapInterceptionLogger()));
+                .DecorateWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator3>(c, new StructureMapInterceptionLogger()));
         }
     }
 

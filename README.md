@@ -20,7 +20,7 @@ Results
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|108|140|216|791|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|98|129|164|271|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|158|186|423|1271|
-|**[Grace 2.2.1](https://github.com/ipjohnson/Grace)**|181|223|578|1778|
+|**[Grace 2.2.3](https://github.com/ipjohnson/Grace)**|589|451|1541|4022|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|269|261|709|2026|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|78|86|95|151|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|196|195|208|263|
@@ -38,7 +38,7 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|5584|4980|5612|6129|
 |**[SimpleInjector 2.5.0](https://simpleinjector.org)**|85|109|123|169|
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|1063|16794|44736|114565|
-|**[StructureMap 2.6.4.1](http://structuremap.net/structuremap)**|1694|2010|5970|20531|
+|**[StructureMap 3.0.2.115](http://structuremap.net/structuremap)**|3306|2781|8063|19988|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|535|574|854|1696|
 |**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|400|2555|10215|45779|
 |**[Unity 3.0.1304.1](http://msdn.microsoft.com/unity)**|3321|5171|21068|53036|
@@ -56,7 +56,7 @@ Advanced Features
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|913||||||
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|||||||
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1211||||||
-|**[Grace 2.2.1](https://github.com/ipjohnson/Grace)**|1863|503|2790|670|12960|8102|
+|**[Grace 2.2.3](https://github.com/ipjohnson/Grace)**|3365|503|2443|1101|13100|8243|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|||||||
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|1025||2177|||**883**|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|3013||||||
@@ -74,7 +74,7 @@ Advanced Features
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6995||||||
 |**[SimpleInjector 2.5.0](https://simpleinjector.org)**|227|109|853|228|**630**|13380|
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|104652|||||75437|
-|**[StructureMap 2.6.4.1](http://structuremap.net/structuremap)**|21215|6881|21949||775100|11402|
+|**[StructureMap 3.0.2.115](http://structuremap.net/structuremap)**|21075|5713|16743||3374090|13518|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1792|2914|3828|2830|||
 |**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|4346||||16900||
 |**[Unity 3.0.1304.1](http://msdn.microsoft.com/unity)**|53142||74087||46320|133957|
