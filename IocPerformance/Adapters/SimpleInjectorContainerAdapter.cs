@@ -63,7 +63,9 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsChildContainer
         {
-            get { return true; }
+            // SimpleInjector does not support child containers directly
+            // You can enable it with some custom code, but here it is considered as not supported
+            get { return false; }
         }
 
         public override IChildContainerAdapter CreateChildContainerAdapter()
@@ -220,7 +222,7 @@ namespace IocPerformance.Adapters
                 return propertyInfo.GetCustomAttributes<TAttribute>().Any();
             }
         }
-        
+
         private sealed class SimpleInjectorChildContainerAdapter : IChildContainerAdapter
         {
             private readonly Container container;

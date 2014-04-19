@@ -248,6 +248,27 @@ namespace IocPerformance
 
                     var scopedCombined = (ICombined3)childContainer.Resolve(typeof(ICombined3));
                 }
+
+                // If measurement takes more than three minutes, stop and interpolate result
+                if (i % 500 == 0 && watch.ElapsedMilliseconds > 3 * 60 * 1000)
+                {
+                    watch.Stop();
+
+                    ScopedCombined1.Instances = ChildContainerLoopCount + 1;
+                    ScopedCombined2.Instances = ChildContainerLoopCount + 1;
+                    ScopedCombined3.Instances = ChildContainerLoopCount + 1;
+
+                    long interpolatedResult = watch.ElapsedMilliseconds * ChildContainerLoopCount / i;
+
+                    Console.WriteLine(
+                        "Child container benchmark for '{0}' was stopped after {1:f1} minutes. {2} of {3} instances have been resolved. Total execution would haven taken: {4:f1} minutes",
+                        container.Name,
+                        (double)watch.ElapsedMilliseconds / (1000 * 60),
+                        i + 1,
+                        ChildContainerLoopCount,
+                        (double)interpolatedResult / (1000 * 60));
+                    return interpolatedResult * 10;
+                }
             }
 
             watch.Stop();

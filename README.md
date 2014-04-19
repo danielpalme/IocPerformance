@@ -20,7 +20,7 @@ Results
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|108|140|216|791|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|98|129|164|271|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|158|186|423|1271|
-|**[Grace 2.2.3](https://github.com/ipjohnson/Grace)**|589|451|1541|4022|
+|**[Grace 2.2.3](https://github.com/ipjohnson/Grace)**|164|216|567|1635|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|269|261|709|2026|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|78|86|95|151|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|196|195|208|263|
@@ -34,7 +34,7 @@ Results
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|252|787|2781|7985|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|482|836|2283|8461|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|108|143|502|1862|
-|**[Ninject 3.2.0.0](http://ninject.org)**|8970|20314|47355|130156|
+|**[Ninject 3.2.2.0](http://ninject.org)**|6492|24272|62890|175626|
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|5584|4980|5612|6129|
 |**[SimpleInjector 2.5.0](https://simpleinjector.org)**|85|109|123|169|
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|1063|16794|44736|114565|
@@ -56,7 +56,7 @@ Advanced Features
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|913||||||
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|||||||
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1211||||||
-|**[Grace 2.2.3](https://github.com/ipjohnson/Grace)**|3365|503|2443|1101|13100|8243|
+|**[Grace 2.2.3](https://github.com/ipjohnson/Grace)**|1860|499|2294|652|**12750**|7670|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|||||||
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|1025||2177|||**883**|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|3013||||||
@@ -70,9 +70,9 @@ Advanced Features
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|||||||
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|14046|70232|6643|1805|676980|17034|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1648||||||
-|**[Ninject 3.2.0.0](http://ninject.org)**|114510|51063|102846|73357|19831100|31037|
+|**[Ninject 3.2.2.0](http://ninject.org)**|168957|72105|161954|54132|42893400||
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6995||||||
-|**[SimpleInjector 2.5.0](https://simpleinjector.org)**|227|109|853|228|**630**|13380|
+|**[SimpleInjector 2.5.0](https://simpleinjector.org)**|227|109|853|228||13380|
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|104652|||||75437|
 |**[StructureMap 3.0.2.115](http://structuremap.net/structuremap)**|21075|5713|16743||3374090|13518|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1792|2914|3828|2830|||
