@@ -10,6 +10,9 @@ Twitter: [@danielpalme](http://twitter.com/danielpalme)
 
 Results
 -------
+
+Basic Features
+
 |**Container**|**Singleton**|**Transient**|**Combined**|**Complex**|
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|115|94|102|127|
@@ -41,13 +44,13 @@ Results
 |**[StructureMap 3.0.2.115](http://structuremap.net/structuremap)**|3306|2781|8063|19988|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|535|574|854|1696|
 |**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|400|2555|10215|45779|
-|**[Unity 3.0.1304.1](http://msdn.microsoft.com/unity)**|3321|5171|21068|53036|
+|**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|2895|4361|11498|33770|
 |**[Windsor 3.2.1](http://castleproject.org)**|508|2603|8161|23208|
 
 Advanced Features
 
-|**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Interception**|
-|:------------|-----------:|-----------:|--------------:|--------------:|------------------:|---------------:|
+|**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**ChildContainer**|**InterceptionWithProxy**|
+|:------------|-----------:|-----------:|--------------:|--------------:|-----------------:|------------------------:|
 |**No**|124|98|266|86|690|79|
 |**[Autofac 3.3.1](https://github.com/autofac/Autofac)**|34668|4882|17360||110250|45333|
 |**[Caliburn.Micro 1.5.2](https://caliburnmicro.codeplex.com)**|9670||7156||||
@@ -77,5 +80,5 @@ Advanced Features
 |**[StructureMap 3.0.2.115](http://structuremap.net/structuremap)**|21075|5713|16743||3374090|13518|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1792|2914|3828|2830|||
 |**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|4346||||16900||
-|**[Unity 3.0.1304.1](http://msdn.microsoft.com/unity)**|53142||74087||46320|133957|
+|**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|36882||62250||50091|129511|
 |**[Windsor 3.2.1](http://castleproject.org)**|47378|4330|22863||317550|22180|
