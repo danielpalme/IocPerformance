@@ -1,11 +1,10 @@
-﻿namespace IocPerformance.Output
+﻿using System.Collections.Generic;
+using IocPerformance.Benchmarks;
+
+namespace IocPerformance.Output
 {
     public interface IOutput
     {
-        void Start();
-
-        void Result(Result result);
-
-        void Finish();
+        void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults);
     }
 }

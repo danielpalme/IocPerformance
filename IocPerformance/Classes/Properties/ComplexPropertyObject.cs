@@ -118,6 +118,13 @@ namespace IocPerformance.Classes.Properties
 
             this.SubObjectC.Verify(containerName);
         }
+
+        public ComplexPropertyObject1()
+        {
+            //Instances++;
+        }
+
+        //public static int Instances { get; set; }
     }
 
     [IfInjector.ImplementedBy(typeof(ComplexPropertyObject2))]
@@ -230,6 +237,13 @@ namespace IocPerformance.Classes.Properties
 
             this.SubObjectC.Verify(containerName);
         }
+
+        public ComplexPropertyObject2()
+        {
+            //Instances++;
+        }
+
+        //public static int Instances { get; set; }
     }
 
 
@@ -343,5 +357,12 @@ namespace IocPerformance.Classes.Properties
 
             this.SubObjectC.Verify(containerName);
         }
+
+        public ComplexPropertyObject3()
+        {
+            //Instances++;
+        }
+
+        //public static int Instances { get; set; }
     }
 }

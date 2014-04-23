@@ -13,13 +13,11 @@ namespace IocPerformance.Adapters
 {
     public sealed class NoContainerAdapter : ContainerAdapterBase
     {
-        public const string PACKAGENAME = "No";
-
         private readonly Dictionary<Type, Func<object>> container = new Dictionary<Type, Func<object>>();
 
         public override string PackageName
         {
-            get { return PACKAGENAME; }
+            get { return "No"; }
         }
 
         public override string Url

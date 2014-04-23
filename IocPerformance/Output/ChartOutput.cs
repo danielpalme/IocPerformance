@@ -4,99 +4,36 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms.DataVisualization.Charting;
+using IocPerformance.Adapters;
+using IocPerformance.Benchmarks;
 
 namespace IocPerformance.Output
 {
     public class ChartOutput : IOutput
     {
-        private readonly List<Result> results = new List<Result>();
-
-        public void Start()
-        {
-        }
-
-        public void Result(Result result)
-        {
-            this.results.Add(result);
-        }
-
-        public void Finish()
+        public void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             if (!Directory.Exists("output"))
             {
                 Directory.CreateDirectory("output");
             }
 
-            this.CreateChart(
-                "output\\01-Singleton.png",
-                this.results.AsEnumerable()
-                .Skip(1)
-                .OrderByDescending(r => r.SingletonTime)
-                .Concat(this.results.Take(1))
-                .Select(r => new Tuple<string, double>(r.Name, r.SingletonTime)));
-            this.CreateChart(
-                "output\\02-Transient.png",
-                this.results.AsEnumerable()
-                .Skip(1)
-                .OrderByDescending(r => r.TransientTime)
-                .Concat(this.results.Take(1))
-                .Select(r => new Tuple<string, double>(r.Name, r.TransientTime)));
-            this.CreateChart(
-                "output\\03-Combined.png",
-                this.results.AsEnumerable()
-                .Skip(1)
-                .OrderByDescending(r => r.CombinedTime)
-                .Concat(this.results.Take(1))
-                .Select(r => new Tuple<string, double>(r.Name, r.CombinedTime)));
-            this.CreateChart(
-                "output\\04-Complex.png",
-                this.results.AsEnumerable()
-                .Skip(1)
-                .OrderByDescending(r => r.ComplexTime)
-                .Concat(this.results.Take(1))
-                .Select(r => new Tuple<string, double>(r.Name, r.ComplexTime)));
-            this.CreateChart(
-                 "output\\05-Property.png",
-                 this.results.AsEnumerable()
-                 .Skip(1)
-                 .Where(r => r.PropertyInjectionTime.HasValue)
-                 .OrderByDescending(r => r.PropertyInjectionTime.Value)
-                 .Select(r => new Tuple<string, double>(r.Name, r.PropertyInjectionTime.Value)));
-            this.CreateChart(
-                "output\\06-Generic.png",
-                this.results.AsEnumerable()
-                .Skip(1)
-                .Where(r => r.GenericTime.HasValue)
-                .OrderByDescending(r => r.GenericTime.Value)
-                .Select(r => new Tuple<string, double>(r.Name, r.GenericTime.Value)));
-            this.CreateChart(
-                "output\\07-IEnumerable.png",
-                this.results.AsEnumerable()
-                .Skip(1)
-                .Where(r => r.MultipleImport.HasValue)
-                .OrderByDescending(r => r.MultipleImport.Value)
-                .Select(r => new Tuple<string, double>(r.Name, r.MultipleImport.Value)));
-            this.CreateChart(
-                "output\\08-Conditional.png",
-                this.results.AsEnumerable()
-                .Skip(1)
-                .Where(r => r.ConditionalTime.HasValue)
-                .OrderByDescending(r => r.ConditionalTime.Value)
-                .Select(r => new Tuple<string, double>(r.Name, r.ConditionalTime.Value)));
-            this.CreateChart(
-                "output\\09-Child.png",
-                this.results.AsEnumerable()
-                .Skip(1)
-                .Where(r => r.ChildContainerTime.HasValue)
-                .OrderByDescending(r => r.ChildContainerTime.Value)
-                .Select(r => new Tuple<string, double>(r.Name, r.ChildContainerTime.Value)));
-            this.CreateChart(
-                "output\\10-Interception.png",
-                this.results.AsEnumerable()
-                .Skip(1)
-                .Where(r => r.InterceptionTime.HasValue)
-                .OrderByDescending(r => r.InterceptionTime.Value)
-                .Select(r => new Tuple<string, double>(r.Name, r.InterceptionTime.Value)));
+            int counter = 0;
+
+            foreach (var benchmark in benchmarks)
+            {
+                var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
+
+                this.CreateChart(
+                    string.Format("output\\{0:00}-{1}.png", ++counter, benchmark.Name),
+                    resultsOfBenchmark
+                        .Where(r => r.Time.HasValue)
+                        .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
+                        .Skip(1)
+                        .OrderByDescending(r => r.Time.Value)
+                        .Concat(resultsOfBenchmark.Where(r => r.Container.GetType().Equals(typeof(NoContainerAdapter))))
+                        .Select(r => new Tuple<string, double>(r.Container.Name, r.Time.Value)));
+            }
 
             // Blog images
             File.Copy("output\\01-Singleton.png", "output\\41fb475d-167c-43e0-83bf-42a051d5ec72.png", true);

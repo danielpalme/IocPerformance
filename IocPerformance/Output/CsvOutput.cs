@@ -1,22 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using IocPerformance.Benchmarks;
 
 namespace IocPerformance.Output
 {
     public class CsvOutput : IOutput
     {
-        private readonly List<Result> results = new List<Result>();
-
-        public void Start()
-        {
-        }
-
-        public void Result(Result result)
-        {
-            this.results.Add(result);
-        }
-
-        public void Finish()
+        public void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             if (!Directory.Exists("output"))
             {
@@ -27,25 +18,30 @@ namespace IocPerformance.Output
             {
                 using (var writer = new StreamWriter(fileStream))
                 {
-                    writer.WriteLine("Container,Version,Singleton,Transient,Combined,Complex,Property,Generics,IEnumerable,Conditional,Child,Interception");
+                    writer.Write("Container,Version");
 
-                    foreach (Result result in this.results)
+                    foreach (var benchmark in benchmarks)
                     {
-                        // write container name and resolve times
-                        writer.WriteLine(
-                            "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}",
-                            result.Name,
-                            result.Version,
-                            result.SingletonTime,
-                            result.TransientTime,
-                            result.CombinedTime,
-                            result.ComplexTime,
-                            result.PropertyInjectionTime.GetValueOrDefault(0),
-                            result.GenericTime.GetValueOrDefault(0),
-                            result.MultipleImport.GetValueOrDefault(0),
-                            result.ConditionalTime.GetValueOrDefault(0),
-                            result.ChildContainerTime.GetValueOrDefault(0),
-                            result.InterceptionTime.GetValueOrDefault(0));
+                        writer.Write(",{0}", benchmark.Name);
+                    }
+
+                    writer.WriteLine();
+
+                    foreach (var container in benchmarkResults.Select(r => r.Container).Distinct())
+                    {
+                        writer.Write("{0},{1}", container.Name, container.Version);
+
+                        foreach (var benchmark in benchmarks)
+                        {
+                            var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
+                            var time = resultsOfBenchmark.First(r => r.Container == container).Time;
+
+                            writer.Write(
+                                ",{0}",
+                                time.GetValueOrDefault(0));
+                        }
+
+                        writer.WriteLine();
                     }
                 }
             }

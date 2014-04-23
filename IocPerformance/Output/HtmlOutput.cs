@@ -1,23 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using IocPerformance.Adapters;
+using IocPerformance.Benchmarks;
 
 namespace IocPerformance.Output
 {
     public class HtmlOutput : IOutput
     {
-        private readonly List<Result> results = new List<Result>();
-
-        public void Start()
-        {
-        }
-
-        public void Result(Result result)
-        {
-            this.results.Add(result);
-        }
-
-        public void Finish()
+        public void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             if (!Directory.Exists("output"))
             {
@@ -28,53 +19,53 @@ namespace IocPerformance.Output
             {
                 using (var writer = new StreamWriter(fileStream))
                 {
-                    writer.Write("<tr><th>Container</th><th>Singleton</th><th>Transient</th><th>Combined</th>");
-                    writer.WriteLine("<th>Complex</th><th>Property</th><th>Generics</th><th>IEnumerable</th><th>Conditional</th><th>Child Container</th><th>Interception</th></tr>");
+                    writer.Write("<tr>");
 
-                    foreach (var result in this.results)
+                    foreach (var benchmark in benchmarks)
                     {
-                        writer.Write(
-                            "<tr><th>{0}</th><t{1}>{2}</t{1}><t{3}>{4}</t{3}><t{5}>{6}</t{5}><t{7}>{8}</t{7}>",
-                            GetName(result),
-                            result.SingletonTime == this.results.Skip(1).Min(r => r.SingletonTime) ? "h" : "d",
-                            result.SingletonTime,
-                            result.TransientTime == this.results.Skip(1).Min(r => r.TransientTime) ? "h" : "d",
-                            result.TransientTime,
-                            result.CombinedTime == this.results.Skip(1).Min(r => r.CombinedTime) ? "h" : "d",
-                            result.CombinedTime,
-                            result.ComplexTime == this.results.Skip(1).Min(r => r.ComplexTime) ? "h" : "d",
-                            result.ComplexTime);
+                        writer.Write("<th>{0}</th>", benchmark.Name);
+                    }
 
-                        writer.WriteLine(
-                            "<t{0}>{1}</t{0}><t{2}>{3}</t{2}><t{4}>{5}</t{4}><t{6}>{7}</t{6}><t{8}>{9}</t{8}><t{10}>{11}</t{10}></tr>",
-                            result.PropertyInjectionTime == this.results.Skip(1).Min(r => r.PropertyInjectionTime) ? "h" : "d",
-                            result.PropertyInjectionTime,
-                            result.GenericTime == this.results.Skip(1).Min(r => r.GenericTime) ? "h" : "d",
-                            result.GenericTime,
-                            result.MultipleImport == this.results.Skip(1).Min(r => r.MultipleImport) ? "h" : "d",
-                            result.MultipleImport,
-                            result.ConditionalTime == this.results.Skip(1).Min(r => r.ConditionalTime) ? "h" : "d",
-                            result.ConditionalTime,
-                            result.ChildContainerTime == this.results.Skip(1).Min(r => r.ChildContainerTime) ? "h" : "d",
-                            result.ChildContainerTime,
-                            result.InterceptionTime == this.results.Skip(1).Min(r => r.InterceptionTime) ? "h" : "d",
-                            result.InterceptionTime);
+                    writer.WriteLine("</tr>");
+
+                    foreach (var container in benchmarkResults.Select(r => r.Container).Distinct())
+                    {
+                        writer.Write("<tr>");
+                        writer.Write("<th>{0}</th>", GetName(container));
+
+                        foreach (var benchmark in benchmarks)
+                        {
+                            var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
+                            var time = resultsOfBenchmark.First(r => r.Container == container).Time;
+
+                            string emphasis = time.HasValue
+                                && resultsOfBenchmark
+                                    .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
+                                    .Min(r => r.Time) == time ? "h" : "d";
+
+                            writer.Write(
+                                "<t{0}>{1}</t{0}>",
+                                emphasis,
+                                time);
+                        }
+
+                        writer.WriteLine("</tr>");
                     }
                 }
             }
         }
 
-        private static string GetName(Result result)
+        private static string GetName(IContainerAdapter container)
         {
             string name = string.Format(
                 "{0}{1}{2}",
-                result.Name,
-                string.IsNullOrEmpty(result.Version) ? string.Empty : " ",
-                result.Version);
+                container.Name,
+                string.IsNullOrEmpty(container.Version) ? string.Empty : " ",
+                container.Version);
 
-            if (!string.IsNullOrEmpty(result.Url))
+            if (!string.IsNullOrEmpty(container.Url))
             {
-                name = string.Format("<a href=\"{0}\">{1}</a>", result.Url, name);
+                name = string.Format("<a href=\"{0}\">{1}</a>", container.Url, name);
             }
 
             return name;

@@ -148,9 +148,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterOpenGeneric()
         {
-            this.container.Register(Component.For(typeof(IGenericInterface<>)).ImplementedBy(typeof(GenericExport<>)));
+            this.container.Register(Component.For(typeof(IGenericInterface<>)).ImplementedBy(typeof(GenericExport<>)).LifeStyle.Transient);
 
-            this.container.Register(Component.For(typeof(ImportGeneric<>)).ImplementedBy(typeof(ImportGeneric<>)));
+            this.container.Register(Component.For(typeof(ImportGeneric<>)).ImplementedBy(typeof(ImportGeneric<>)).LifeStyle.Transient);
         }
 
         private void RegisterMultiple()
