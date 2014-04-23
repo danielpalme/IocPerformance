@@ -121,10 +121,10 @@ namespace IocPerformance.Classes.Properties
 
         public ComplexPropertyObject1()
         {
-            //Instances++;
+            Instances++;
         }
 
-        //public static int Instances { get; set; }
+        public static int Instances { get; set; }
     }
 
     [IfInjector.ImplementedBy(typeof(ComplexPropertyObject2))]
@@ -240,10 +240,10 @@ namespace IocPerformance.Classes.Properties
 
         public ComplexPropertyObject2()
         {
-            //Instances++;
+            Instances++;
         }
 
-        //public static int Instances { get; set; }
+        public static int Instances { get; set; }
     }
 
 
@@ -360,9 +360,9 @@ namespace IocPerformance.Classes.Properties
 
         public ComplexPropertyObject3()
         {
-            //Instances++;
+            Instances++;
         }
 
-        //public static int Instances { get; set; }
+        public static int Instances { get; set; }
     }
 }

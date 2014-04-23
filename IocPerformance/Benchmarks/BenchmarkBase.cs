@@ -14,7 +14,7 @@ namespace IocPerformance.Benchmarks
             get
             {
                 string name = this.GetType().Name.ToString().Split('_')[0];
-                return Regex.Replace(name, "[A-Z]", m => " " + m.Value).TrimStart();
+                return Regex.Replace(name, "[A-Z]+", m => " " + m.Value).TrimStart();
             }
         }
 

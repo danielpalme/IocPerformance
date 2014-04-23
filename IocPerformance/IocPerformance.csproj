@@ -77,9 +77,9 @@
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
-    <Reference Include="Grace, Version=2.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Grace, Version=2.2.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Grace.2.2.3\lib\portable-windows8+net45\Grace.dll</HintPath>
+      <HintPath>..\packages\Grace.2.2.4\lib\portable-net45+wp80+win\Grace.dll</HintPath>
     </Reference>
     <Reference Include="Griffin.Container, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -142,14 +142,16 @@
     <Reference Include="LinFu.Finders">
       <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\LinFu.Finders.dll</HintPath>
     </Reference>
-    <Reference Include="Maestro.Core">
-      <HintPath>..\packages\Maestro.1.3.1\lib\net40\Maestro.Core.dll</HintPath>
+    <Reference Include="Maestro.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5345f138383d19ed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Maestro.1.4.0\lib\net40\Maestro.Core.dll</HintPath>
     </Reference>
     <Reference Include="Maestro.Interception.DynamicProxy">
       <HintPath>..\packages\Maestro.Interception.DynamicProxy.1.0.2\lib\net40\Maestro.Interception.DynamicProxy.dll</HintPath>
     </Reference>
-    <Reference Include="Maestro.net40-client">
-      <HintPath>..\packages\Maestro.1.3.1\lib\net40\Maestro.net40-client.dll</HintPath>
+    <Reference Include="Maestro.net40-client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5345f138383d19ed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Maestro.1.4.0\lib\net40\Maestro.net40-client.dll</HintPath>
     </Reference>
     <Reference Include="MicroSliver">
       <HintPath>..\packages\MicroSliver.2.1.6.0\lib\net40\MicroSliver.dll</HintPath>

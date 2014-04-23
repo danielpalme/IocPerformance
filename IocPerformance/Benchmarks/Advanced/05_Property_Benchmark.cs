@@ -25,10 +25,9 @@ namespace IocPerformance.Benchmarks.Advanced
             complex1.Verify(container.Name);
             complex1.Verify(container.Name);
 
-            // TODO: Add again as soon as Grace fixed issue
-            // ComplexPropertyObject1.Instances = 0;
-            // ComplexPropertyObject2.Instances = 0;
-            // ComplexPropertyObject3.Instances = 0;
+            ComplexPropertyObject1.Instances = 0;
+            ComplexPropertyObject2.Instances = 0;
+            ComplexPropertyObject3.Instances = 0;
         }
 
         public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
@@ -50,13 +49,12 @@ namespace IocPerformance.Benchmarks.Advanced
                 return;
             }
 
-            // TODO: Add again as soon as Grace fixed issue
-            // if (ComplexPropertyObject1.Instances != BenchmarkBase.LoopCount
-            //     || ComplexPropertyObject2.Instances != BenchmarkBase.LoopCount
-            //     || ComplexPropertyObject3.Instances != BenchmarkBase.LoopCount)
-            // {
-            //     throw new Exception(string.Format("ComplexPropertyObject count must be {0}", BenchmarkBase.LoopCount));
-            // }
+            if (ComplexPropertyObject1.Instances != BenchmarkBase.LoopCount
+                || ComplexPropertyObject2.Instances != BenchmarkBase.LoopCount
+                || ComplexPropertyObject3.Instances != BenchmarkBase.LoopCount)
+            {
+                throw new Exception(string.Format("ComplexPropertyObject count must be {0}", BenchmarkBase.LoopCount));
+            }
         }
     }
 }

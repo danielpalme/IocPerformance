@@ -23,7 +23,7 @@ Basic Features
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|108|140|216|791|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|98|129|164|271|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|158|186|423|1271|
-|**[Grace 2.2.3](https://github.com/ipjohnson/Grace)**|164|216|567|1635|
+|**[Grace 2.2.4](https://github.com/ipjohnson/Grace)**|203|358|770|2027|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|269|261|709|2026|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|78|86|95|151|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|196|195|208|263|
@@ -31,7 +31,7 @@ Basic Features
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|190|3000|36503|215898|
 |**[LightInject 3.0.1.6](https://github.com/seesharper/LightInject)**|**51**|**71**|**74**|121|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|4067|26467|66663|184134|
-|**[Maestro 1.3.1](https://github.com/JonasSamuelsson/Maestro)**|427|519|1459|5887|
+|**[Maestro 1.4.0](https://github.com/JonasSamuelsson/Maestro)**|298|400|1115|3413|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|33062|50433|80331|156652|
 |**[Mef2 1.0.20.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|322|301|364|596|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|252|787|2781|7985|
@@ -49,8 +49,8 @@ Basic Features
 
 Advanced Features
 
-|**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**ChildContainer**|**InterceptionWithProxy**|
-|:------------|-----------:|-----------:|--------------:|--------------:|-----------------:|------------------------:|
+|**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Interception With Proxy**|
+|:------------|-----------:|-----------:|--------------:|--------------:|------------------:|--------------------------:|
 |**No**|124|98|266|86|690|79|
 |**[Autofac 3.3.1](https://github.com/autofac/Autofac)**|34668|4882|17360||110250|45333|
 |**[Caliburn.Micro 1.5.2](https://caliburnmicro.codeplex.com)**|9670||7156||||
@@ -59,7 +59,7 @@ Advanced Features
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|913||||||
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|||||||
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1211||||||
-|**[Grace 2.2.3](https://github.com/ipjohnson/Grace)**|1860|499|2294|652|**12750**|7670|
+|**[Grace 2.2.4](https://github.com/ipjohnson/Grace)**|2365|618|2945|847|20343|11979|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|||||||
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|1025||2177|||**883**|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|3013||||||
@@ -67,7 +67,7 @@ Advanced Features
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2474|25055|52115||||
 |**[LightInject 3.0.1.6](https://github.com/seesharper/LightInject)**|**115**|87|355|**65**||1568|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|||||||
-|**[Maestro 1.3.1](https://github.com/JonasSamuelsson/Maestro)**|9301|2779|8024|2355|28248100|9538|
+|**[Maestro 1.4.0](https://github.com/JonasSamuelsson/Maestro)**|4259|729|4201|1009||9621|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|165820|186915|117780||||
 |**[Mef2 1.0.20.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1474|312|1657||||
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|||||||
@@ -79,6 +79,6 @@ Advanced Features
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|104652|||||75437|
 |**[StructureMap 3.0.2.115](http://structuremap.net/structuremap)**|21075|5713|16743||3374090|13518|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1792|2914|3828|2830|||
-|**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|4346||||16900||
+|**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|4346||||**16900**||
 |**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|36882||62250||50091|129511|
 |**[Windsor 3.2.1](http://castleproject.org)**|47378|4330|22863||317550|22180|
