@@ -97,15 +97,14 @@ namespace IocPerformance.Benchmarks.Advanced
                             BenchmarkBase.LoopCount,
                             (double)interpolatedResult / (1000 * 60));
                         result.Time = interpolatedResult;
+
+                        return result;
                     }
                 }
 
                 watch.Stop();
 
-                if (!result.Time.HasValue)
-                {
-                    result.Time = watch.ElapsedMilliseconds;
-                }
+                result.Time = watch.ElapsedMilliseconds;
             }
 
             return result;

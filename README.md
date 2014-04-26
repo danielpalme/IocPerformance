@@ -41,7 +41,7 @@ Basic Features
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|5584|4980|5612|6129|
 |**[SimpleInjector 2.5.0](https://simpleinjector.org)**|85|109|123|169|
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|1063|16794|44736|114565|
-|**[StructureMap 3.0.2.115](http://structuremap.net/structuremap)**|3306|2781|8063|19988|
+|**[StructureMap 3.0.3.116](http://structuremap.net/structuremap)**|2723|2600|8337|21074|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|535|574|854|1696|
 |**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|400|2555|10215|45779|
 |**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|2895|4361|11498|33770|
@@ -77,7 +77,7 @@ Advanced Features
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6995||||||
 |**[SimpleInjector 2.5.0](https://simpleinjector.org)**|227|109|853|228||13380|
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|104652|||||75437|
-|**[StructureMap 3.0.2.115](http://structuremap.net/structuremap)**|21075|5713|16743||3374090|13518|
+|**[StructureMap 3.0.3.116](http://structuremap.net/structuremap)**|20704|5681|16323||3426075|13094|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1792|2914|3828|2830|||
 |**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|4346||||**16900**||
 |**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|36882||62250||50091|129511|
