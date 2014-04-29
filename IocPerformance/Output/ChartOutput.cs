@@ -25,6 +25,7 @@ namespace IocPerformance.Output
                 var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
 
                 CreateChart(
+                    benchmark.Name,
                     string.Format("output\\{0:00}-{1}.png", ++counter, benchmark.Name),
                     resultsOfBenchmark
                         .Where(r => r.Time.HasValue)
@@ -34,36 +35,42 @@ namespace IocPerformance.Output
                         .Select(r => new Tuple<string, double>(r.Container.Name, r.Time.Value)));
             }
 
-            // Blog images
-            File.Copy("output\\01-Singleton.png", "output\\41fb475d-167c-43e0-83bf-42a051d5ec72.png", true);
-            File.Copy("output\\02-Transient.png", "output\\fb72e35e-db43-443a-89c2-f977799241b8.png", true);
-            File.Copy("output\\03-Combined.png", "output\\b837914c-8bec-4f15-b8d1-493affd7ebb8.png", true);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Basic", 6000);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Advanced", 25000);
 
-            CreateOverviewChart(benchmarks, benchmarkResults, "Basic");
-            CreateOverviewChart(benchmarks, benchmarkResults, "Advanced");
+            // Blog images
+            File.Copy("output\\Overview_Basic.png", "output\\5225c515-2f25-498f-84fe-6c6e931d2042.png", true);
+            File.Copy("output\\Overview_Advanced.png", "output\\e0401485-20c6-462e-b5d4-c9cf854e6bee.png", true);
         }
 
-        private static void CreateOverviewChart(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string type)
+        private static void CreateOverviewChart(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string type, long maxTime)
         {
+            benchmarkResults = benchmarkResults.Where(b => b.Benchmark.GetType().FullName.Contains(type));
+            benchmarks = benchmarks.Where(b => b.GetType().FullName.Contains(type));
+
             Chart chart = new Chart()
             {
                 Size = new Size(800, 600),
                 Palette = ChartColorPalette.Pastel,
+                BorderlineColor = Color.Black,
+                BorderlineWidth = 1,
+                BorderColor = Color.Black,
+                BorderDashStyle = ChartDashStyle.Solid,
             };
 
+            chart.Titles.Add("Overview '" + type + "' (Maximum total time: " + maxTime + "ms)");
             chart.ChartAreas.Add("Default");
             chart.ChartAreas[0].AxisX.IsMarginVisible = false;
             chart.ChartAreas[0].AxisX.Interval = 1;
-            chart.ChartAreas[0].AxisY.IsLogarithmic = true;
             chart.Legends.Add(new Legend("Default")
-            { 
+            {
                 Docking = Docking.Bottom,
                 Alignment = System.Drawing.StringAlignment.Center,
                 BorderWidth = 1,
                 BorderColor = Color.Black
             });
 
-            foreach (var benchmark in benchmarks.Where(b => b.GetType().FullName.Contains(type)))
+            foreach (var benchmark in benchmarks)
             {
                 chart.Series.Add(benchmark.Name);
                 chart.Series[benchmark.Name].ChartType = SeriesChartType.StackedBar;
@@ -73,15 +80,21 @@ namespace IocPerformance.Output
                 .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
                 .Select(r => r.Container)
                 .Distinct()
-                .OrderByDescending(c => c.Name)
+                .Select(c => new
+                    {
+                        Container = c,
+                        TotalTime = benchmarkResults.Where(b => b.Container == c).Sum(b => b.Time)
+                    })
+                .Where(r => r.TotalTime.HasValue && r.TotalTime.Value < maxTime && r.TotalTime.Value > 0)
+                .OrderByDescending(r => r.TotalTime.Value)
+                .Select(r => r.Container)
                 .Concat(benchmarkResults.Where(r => r.Container.GetType().Equals(typeof(NoContainerAdapter))).Select(r => r.Container).Distinct());
 
             foreach (var container in containers)
             {
-                foreach (var benchmark in benchmarks.Where(b => b.GetType().FullName.Contains(type)))
+                foreach (var benchmark in benchmarks)
                 {
-                    var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
-                    var time = resultsOfBenchmark.First(r => r.Container == container).Time;
+                    var time = benchmarkResults.First(r => r.Benchmark == benchmark && r.Container == container).Time;
 
                     chart.Series[benchmark.Name].Points.AddXY(container.Name, time.GetValueOrDefault());
                 }
@@ -90,7 +103,7 @@ namespace IocPerformance.Output
             chart.SaveImage("output\\Overview_" + type + ".png", ChartImageFormat.Png);
         }
 
-        private static void CreateChart(string filename, IEnumerable<Tuple<string, double>> values)
+        private static void CreateChart(string name, string filename, IEnumerable<Tuple<string, double>> values)
         {
             if (!values.Any())
             {
@@ -101,8 +114,13 @@ namespace IocPerformance.Output
             {
                 Size = new Size(800, 600),
                 Palette = ChartColorPalette.Pastel,
+                BorderlineColor = Color.Black,
+                BorderlineWidth = 1,
+                BorderColor = Color.Black,
+                BorderDashStyle = ChartDashStyle.Solid,
             };
 
+            chart.Titles.Add(name);
             chart.ChartAreas.Add("Default");
 
             chart.Series.Add("Series1");

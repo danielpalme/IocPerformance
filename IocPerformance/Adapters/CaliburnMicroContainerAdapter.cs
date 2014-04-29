@@ -25,7 +25,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "https://caliburnmicro.codeplex.com"; }
+            get { return "https://github.com/Caliburn-Micro/Caliburn.Micro"; }
         }
 
         public override bool SupportsMultiple

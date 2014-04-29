@@ -17,7 +17,7 @@ Basic Features
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|115|94|102|127|
 |**[Autofac 3.3.1](https://github.com/autofac/Autofac)**|826|2132|5659|16112|
-|**[Caliburn.Micro 1.5.2](https://caliburnmicro.codeplex.com)**|474|566|1664|7402|
+|**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|474|566|1664|7402|
 |**[Catel 3.9.0](http://www.catelproject.com)**|372|4498|13350|33606|
 |**[DryIoc 1.2.0](https://bitbucket.org/dadhi/dryioc)**|53|77|82|**101**|
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|108|140|216|791|
@@ -45,7 +45,7 @@ Basic Features
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|535|574|854|1696|
 |**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|400|2555|10215|45779|
 |**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|2895|4361|11498|33770|
-|**[Windsor 3.2.1](http://castleproject.org)**|508|2603|8161|23208|
+|**[Windsor 3.2.1](http://castleproject.org)**|497|2775|8664|24363|
 
 Advanced Features
 
@@ -53,7 +53,7 @@ Advanced Features
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|--------------------------:|
 |**No**|124|98|266|86|690|79|
 |**[Autofac 3.3.1](https://github.com/autofac/Autofac)**|34668|4882|17360||110250|45333|
-|**[Caliburn.Micro 1.5.2](https://caliburnmicro.codeplex.com)**|9670||7156||||
+|**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9670||7156||||
 |**[Catel 3.9.0](http://www.catelproject.com)**||12697||||4384|
 |**[DryIoc 1.2.0](https://bitbucket.org/dadhi/dryioc)**|131|**69**|**354**|66|||
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|913||||||
@@ -81,4 +81,9 @@ Advanced Features
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1792|2914|3828|2830|||
 |**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|4346||||**16900**||
 |**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|36882||62250||50091|129511|
-|**[Windsor 3.2.1](http://castleproject.org)**|47378|4330|22863||317550|22180|
+|**[Windsor 3.2.1](http://castleproject.org)**|52963|24487|24169||376329|32812|
+
+Charts
+
+![Basic features](http://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)
+![Advanced features](http://www.palmmedia.de/content/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)

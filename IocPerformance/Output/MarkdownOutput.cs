@@ -38,6 +38,12 @@ namespace IocPerformance.Output
                     writer.WriteLine(string.Empty);
 
                     this.WriteBenchmarks(writer, benchmarks.Where(b => b.GetType().FullName.Contains("Advanced")), benchmarkResults);
+
+                    writer.WriteLine(string.Empty);
+                    writer.WriteLine("Charts");
+                    writer.WriteLine(string.Empty);
+                    writer.WriteLine("![Basic features](http://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)");
+                    writer.WriteLine("![Advanced features](http://www.palmmedia.de/content/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)");
                 }
             }
         }

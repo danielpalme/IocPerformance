@@ -75,7 +75,6 @@ namespace IocPerformance
             output.Create(benchmarks, benchmarkResults);
 
             Console.WriteLine("Done");
-            Console.ReadKey();
         }
     }
 }

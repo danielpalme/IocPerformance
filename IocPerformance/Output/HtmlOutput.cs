@@ -19,7 +19,7 @@ namespace IocPerformance.Output
             {
                 using (var writer = new StreamWriter(fileStream))
                 {
-                    writer.Write("<tr>");
+                    writer.Write("<tr><th>Container</th>");
 
                     foreach (var benchmark in benchmarks)
                     {
@@ -44,7 +44,7 @@ namespace IocPerformance.Output
                                     .Min(r => r.Time) == time ? "h" : "d";
 
                             writer.Write(
-                                "<t{0}>{1}</t{0}>",
+                                "<t{0} style=\"text-align:right;\">{1}</t{0}>",
                                 emphasis,
                                 time);
                         }
