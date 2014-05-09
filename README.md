@@ -16,7 +16,7 @@ Basic Features
 |**Container**|**Singleton**|**Transient**|**Combined**|**Complex**|
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|115|94|102|127|
-|**[Autofac 3.3.1](https://github.com/autofac/Autofac)**|826|2132|5659|16112|
+|**[Autofac 3.4.0](https://github.com/autofac/Autofac)**|965|2263|6142|17959|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|474|566|1664|7402|
 |**[Catel 3.9.0](http://www.catelproject.com)**|372|4498|13350|33606|
 |**[DryIoc 1.2.0](https://bitbucket.org/dadhi/dryioc)**|53|77|82|**101**|
@@ -33,7 +33,7 @@ Basic Features
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|4067|26467|66663|184134|
 |**[Maestro 1.4.0](https://github.com/JonasSamuelsson/Maestro)**|298|400|1115|3413|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|33062|50433|80331|156652|
-|**[Mef2 1.0.20.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|322|301|364|596|
+|**[Mef2 1.0.27.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|265|265|347|626|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|252|787|2781|7985|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|482|836|2283|8461|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|108|143|502|1862|
@@ -52,7 +52,7 @@ Advanced Features
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Interception With Proxy**|
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|--------------------------:|
 |**No**|124|98|266|86|690|79|
-|**[Autofac 3.3.1](https://github.com/autofac/Autofac)**|34668|4882|17360||110250|45333|
+|**[Autofac 3.4.0](https://github.com/autofac/Autofac)**|33868|4870|15871||123491|58076|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9670||7156||||
 |**[Catel 3.9.0](http://www.catelproject.com)**||12697||||4384|
 |**[DryIoc 1.2.0](https://bitbucket.org/dadhi/dryioc)**|131|**69**|**354**|66|||
@@ -69,7 +69,7 @@ Advanced Features
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|||||||
 |**[Maestro 1.4.0](https://github.com/JonasSamuelsson/Maestro)**|4259|729|4201|1009||9621|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|165820|186915|117780||||
-|**[Mef2 1.0.20.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1474|312|1657||||
+|**[Mef2 1.0.27.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1551|317|3218||||
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|||||||
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|14046|70232|6643|1805|676980|17034|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1648||||||
