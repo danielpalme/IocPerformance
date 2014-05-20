@@ -23,7 +23,7 @@ Basic Features
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|108|140|216|791|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|98|129|164|271|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|158|186|423|1271|
-|**[Grace 2.2.4](https://github.com/ipjohnson/Grace)**|203|358|770|2027|
+|**[Grace 2.2.5](https://github.com/ipjohnson/Grace)**|211|287|670|1875|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|269|261|709|2026|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|78|86|95|151|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|196|195|208|263|
@@ -45,7 +45,7 @@ Basic Features
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|535|574|854|1696|
 |**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|400|2555|10215|45779|
 |**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|2895|4361|11498|33770|
-|**[Windsor 3.2.1](http://castleproject.org)**|497|2775|8664|24363|
+|**[Windsor 3.3.0](http://castleproject.org)**|477|2451|7822|22630|
 
 Advanced Features
 
@@ -59,7 +59,7 @@ Advanced Features
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|913||||||
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|||||||
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1211||||||
-|**[Grace 2.2.4](https://github.com/ipjohnson/Grace)**|2365|618|2945|847|20343|11979|
+|**[Grace 2.2.5](https://github.com/ipjohnson/Grace)**|2255|621|2799|814|**14139**|8744|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|||||||
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|1025||2177|||**883**|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|3013||||||
@@ -79,9 +79,9 @@ Advanced Features
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|104652|||||75437|
 |**[StructureMap 3.0.3.116](http://structuremap.net/structuremap)**|20704|5681|16323||3426075|13094|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1792|2914|3828|2830|||
-|**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|4346||||**16900**||
+|**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|4346||||16900||
 |**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|36882||62250||50091|129511|
-|**[Windsor 3.2.1](http://castleproject.org)**|52963|24487|24169||376329|32812|
+|**[Windsor 3.3.0](http://castleproject.org)**|51852|26842|25315||350025|22108|
 
 Charts
 

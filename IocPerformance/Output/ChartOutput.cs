@@ -35,18 +35,20 @@ namespace IocPerformance.Output
                         .Select(r => new Tuple<string, double>(r.Container.Name, r.Time.Value)));
             }
 
-            CreateOverviewChart(benchmarks, benchmarkResults, "Basic", 6000);
-            CreateOverviewChart(benchmarks, benchmarkResults, "Advanced", 25000);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Basic", 0, 6000);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Basic", 6000, long.MaxValue);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Advanced", 0, 25000);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Advanced", 25000, long.MaxValue);
 
             // Blog images
-            File.Copy("output\\Overview_Basic.png", "output\\5225c515-2f25-498f-84fe-6c6e931d2042.png", true);
-            File.Copy("output\\Overview_Advanced.png", "output\\e0401485-20c6-462e-b5d4-c9cf854e6bee.png", true);
+            File.Copy("output\\Overview_Basic_Fast.png", "output\\5225c515-2f25-498f-84fe-6c6e931d2042.png", true);
+            File.Copy("output\\Overview_Advanced_Fast.png", "output\\e0401485-20c6-462e-b5d4-c9cf854e6bee.png", true);
         }
 
-        private static void CreateOverviewChart(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string type, long maxTime)
+        private static void CreateOverviewChart(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string type, long minTime, long maxTime)
         {
-            benchmarkResults = benchmarkResults.Where(b => b.Benchmark.GetType().FullName.Contains(type));
-            benchmarks = benchmarks.Where(b => b.GetType().FullName.Contains(type));
+            benchmarkResults = benchmarkResults.Where(b => b.Benchmark.GetType().FullName.Contains(type)).ToArray();
+            benchmarks = benchmarks.Where(b => b.GetType().FullName.Contains(type)).ToArray();
 
             Chart chart = new Chart()
             {
@@ -58,7 +60,17 @@ namespace IocPerformance.Output
                 BorderDashStyle = ChartDashStyle.Solid,
             };
 
-            chart.Titles.Add("Overview '" + type + "' (Maximum total time: " + maxTime + "ms)");
+            if (minTime == 0)
+            {
+                chart.Titles.Add("Overview '" + type + "' (Maximum total time: " + maxTime + "ms)");
+                type += "_Fast";
+            }
+            else
+            {
+                chart.Titles.Add("Overview '" + type + "' (Minimum total time: " + minTime + "ms)");
+                type += "_Slow";
+            }
+
             chart.ChartAreas.Add("Default");
             chart.ChartAreas[0].AxisX.IsMarginVisible = false;
             chart.ChartAreas[0].AxisX.Interval = 1;
@@ -85,7 +97,7 @@ namespace IocPerformance.Output
                         Container = c,
                         TotalTime = benchmarkResults.Where(b => b.Container == c).Sum(b => b.Time)
                     })
-                .Where(r => r.TotalTime.HasValue && r.TotalTime.Value < maxTime && r.TotalTime.Value > 0)
+                .Where(r => r.TotalTime.HasValue && r.TotalTime.Value <= maxTime && r.TotalTime.Value > minTime)
                 .OrderByDescending(r => r.TotalTime.Value)
                 .Select(r => r.Container)
                 .Concat(benchmarkResults.Where(r => r.Container.GetType().Equals(typeof(NoContainerAdapter))).Select(r => r.Container).Distinct());
