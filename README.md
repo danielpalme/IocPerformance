@@ -23,7 +23,7 @@ Basic Features
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|108|140|216|791|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|98|129|164|271|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|158|186|423|1271|
-|**[Grace 2.2.5](https://github.com/ipjohnson/Grace)**|211|287|670|1875|
+|**[Grace 2.3.0](https://github.com/ipjohnson/Grace)**|204|307|718|1950|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|269|261|709|2026|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|78|86|95|151|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|196|195|208|263|
@@ -59,7 +59,7 @@ Advanced Features
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|913||||||
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|||||||
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1211||||||
-|**[Grace 2.2.5](https://github.com/ipjohnson/Grace)**|2255|621|2799|814|**14139**|8744|
+|**[Grace 2.3.0](https://github.com/ipjohnson/Grace)**|2226|665|2890|814|**13562**|9455|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|||||||
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|1025||2177|||**883**|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|3013||||||
