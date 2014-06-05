@@ -16,14 +16,14 @@ Basic Features
 |**Container**|**Singleton**|**Transient**|**Combined**|**Complex**|
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|115|94|102|127|
-|**[Autofac 3.4.0](https://github.com/autofac/Autofac)**|965|2263|6142|17959|
+|**[Autofac 3.4.1](https://github.com/autofac/Autofac)**|820|2164|5771|16334|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|474|566|1664|7402|
 |**[Catel 3.9.0](http://www.catelproject.com)**|372|4498|13350|33606|
 |**[DryIoc 1.2.0](https://bitbucket.org/dadhi/dryioc)**|53|77|82|**101**|
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|108|140|216|791|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|98|129|164|271|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|158|186|423|1271|
-|**[Grace 2.3.0](https://github.com/ipjohnson/Grace)**|204|307|718|1950|
+|**[Grace 2.3.1](https://github.com/ipjohnson/Grace)**|207|335|760|2203|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|269|261|709|2026|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|78|86|95|151|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|196|195|208|263|
@@ -52,14 +52,14 @@ Advanced Features
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Interception With Proxy**|
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|--------------------------:|
 |**No**|124|98|266|86|690|79|
-|**[Autofac 3.4.0](https://github.com/autofac/Autofac)**|33868|4870|15871||123491|58076|
+|**[Autofac 3.4.1](https://github.com/autofac/Autofac)**|33325|4733|15839||105516|45464|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9670||7156||||
 |**[Catel 3.9.0](http://www.catelproject.com)**||12697||||4384|
 |**[DryIoc 1.2.0](https://bitbucket.org/dadhi/dryioc)**|131|**69**|**354**|66|||
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|913||||||
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|||||||
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1211||||||
-|**[Grace 2.3.0](https://github.com/ipjohnson/Grace)**|2226|665|2890|814|**13562**|9455|
+|**[Grace 2.3.1](https://github.com/ipjohnson/Grace)**|2528|868|3081|854|**14643**|9080|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|||||||
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|1025||2177|||**883**|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|3013||||||
