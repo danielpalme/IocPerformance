@@ -16,20 +16,20 @@ Basic Features
 |**Container**|**Singleton**|**Transient**|**Combined**|**Complex**|
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|115|94|102|127|
-|**[Autofac 3.4.1](https://github.com/autofac/Autofac)**|820|2164|5771|16334|
+|**[Autofac 3.5.0](https://github.com/autofac/Autofac)**|916|2831|6586|17013|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|474|566|1664|7402|
 |**[Catel 3.9.0](http://www.catelproject.com)**|372|4498|13350|33606|
 |**[DryIoc 1.2.0](https://bitbucket.org/dadhi/dryioc)**|53|77|82|**101**|
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|108|140|216|791|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|98|129|164|271|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|158|186|423|1271|
-|**[Grace 2.3.1](https://github.com/ipjohnson/Grace)**|207|335|760|2203|
+|**[Grace 2.3.5](https://github.com/ipjohnson/Grace)**|246|340|767|2434|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|269|261|709|2026|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|78|86|95|151|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|196|195|208|263|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|99|152|175|231|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|190|3000|36503|215898|
-|**[LightInject 3.0.1.6](https://github.com/seesharper/LightInject)**|**51**|**71**|**74**|121|
+|**[LightInject 3.0.1.7](https://github.com/seesharper/LightInject)**|**50**|**60**|**72**|113|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|4067|26467|66663|184134|
 |**[Maestro 1.4.0](https://github.com/JonasSamuelsson/Maestro)**|298|400|1115|3413|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|33062|50433|80331|156652|
@@ -52,20 +52,20 @@ Advanced Features
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Interception With Proxy**|
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|--------------------------:|
 |**No**|124|98|266|86|690|79|
-|**[Autofac 3.4.1](https://github.com/autofac/Autofac)**|33325|4733|15839||105516|45464|
+|**[Autofac 3.5.0](https://github.com/autofac/Autofac)**|34075|4946|16120||110724|46957|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9670||7156||||
 |**[Catel 3.9.0](http://www.catelproject.com)**||12697||||4384|
 |**[DryIoc 1.2.0](https://bitbucket.org/dadhi/dryioc)**|131|**69**|**354**|66|||
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|913||||||
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|||||||
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1211||||||
-|**[Grace 2.3.1](https://github.com/ipjohnson/Grace)**|2528|868|3081|854|**14643**|9080|
+|**[Grace 2.3.5](https://github.com/ipjohnson/Grace)**|3680|975|3369|951|**16836**|8877|
 |**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|||||||
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|1025||2177|||**883**|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|3013||||||
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|422|167|||||
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2474|25055|52115||||
-|**[LightInject 3.0.1.6](https://github.com/seesharper/LightInject)**|**115**|87|355|**65**||1568|
+|**[LightInject 3.0.1.7](https://github.com/seesharper/LightInject)**|**112**|88|359|**63**||1637|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|||||||
 |**[Maestro 1.4.0](https://github.com/JonasSamuelsson/Maestro)**|4259|729|4201|1009||9621|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|165820|186915|117780||||
