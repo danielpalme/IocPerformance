@@ -5,7 +5,12 @@ namespace IocPerformance.Benchmarks.Basic
 {
     public class Complex_04_Benchmark : BenchmarkBase
     {
-        public override void Warmup(Adapters.IContainerAdapter container)
+        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
+        {
+            return base.Measure<IComplex1, IComplex2, IComplex3>(container);
+        }
+
+        protected override void Warmup(Adapters.IContainerAdapter container)
         {
             var complex1 = (IComplex1)container.Resolve(typeof(IComplex1));
             var complex2 = (IComplex2)container.Resolve(typeof(IComplex2));
@@ -21,15 +26,7 @@ namespace IocPerformance.Benchmarks.Basic
             Complex3.Instances = 0;
         }
 
-        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
-        {
-            return new BenchmarkResult(this, container)
-            {
-                Time = base.Measure<IComplex1, IComplex2, IComplex3>(container)
-            };
-        }
-
-        public override void Verify(Adapters.IContainerAdapter container)
+        protected override void Verify(Adapters.IContainerAdapter container)
         {
             if (Complex1.Instances != BenchmarkBase.LoopCount
                 || Complex2.Instances != BenchmarkBase.LoopCount

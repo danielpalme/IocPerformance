@@ -27,8 +27,21 @@ namespace IocPerformance.Output
                 foreach (var benchmark in benchmarks)
                 {
                     var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
-                    var time = resultsOfBenchmark.First(r => r.Container == container).Time;
-                    containerElement.Add(new XElement("Benchmark", new XAttribute("type", benchmark.GetType().FullName), time));
+                    var containerResult = resultsOfBenchmark.First(r => r.Container == container);
+
+                    containerElement.Add(new XElement(
+                        "Benchmark",
+                        new XAttribute("type", benchmark.GetType().FullName),
+                        new XElement(
+                            "SingleThreadedResult",
+                            new XAttribute("time", containerResult.SingleThreadedResult.Time.HasValue ? containerResult.SingleThreadedResult.Time.ToString() : string.Empty),
+                            new XAttribute("error", containerResult.SingleThreadedResult.Error ?? string.Empty),
+                            new XAttribute("extrapolated", containerResult.SingleThreadedResult.ExtraPolated)),
+                        new XElement(
+                            "MultiThreadedResult",
+                            new XAttribute("time", containerResult.MultiThreadedResult.Time.HasValue ? containerResult.MultiThreadedResult.Time.ToString() : string.Empty),
+                            new XAttribute("error", containerResult.MultiThreadedResult.Error ?? string.Empty),
+                            new XAttribute("extrapolated", containerResult.MultiThreadedResult.ExtraPolated))));
                 }
 
                 doc.Root.Add(containerElement);

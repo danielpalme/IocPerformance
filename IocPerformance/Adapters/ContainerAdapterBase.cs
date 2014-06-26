@@ -68,11 +68,6 @@ namespace IocPerformance.Adapters
 
         public abstract object Resolve(Type type);
 
-        public virtual object ResolveProxy(Type type)
-        {
-            return this.Resolve(type);
-        }
-
         public virtual IChildContainerAdapter CreateChildContainerAdapter()
         {
             throw new NotImplementedException();

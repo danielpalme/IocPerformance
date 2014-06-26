@@ -5,7 +5,19 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class Conditional_08_Benchmark : BenchmarkBase
     {
-        public override void Warmup(Adapters.IContainerAdapter container)
+        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
+        {
+            if (container.SupportsConditional)
+            {
+                return base.Measure<ImportConditionObject1, ImportConditionObject2, ImportConditionObject3>(container);
+            }
+            else
+            {
+                return new BenchmarkResult(this, container);
+            }
+        }
+
+        protected override void Warmup(Adapters.IContainerAdapter container)
         {
             if (!container.SupportsConditional)
             {
@@ -26,19 +38,7 @@ namespace IocPerformance.Benchmarks.Advanced
             ImportConditionObject3.Instances = 0;
         }
 
-        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
-        {
-            var result = new BenchmarkResult(this, container);
-
-            if (container.SupportsConditional)
-            {
-                result.Time = base.Measure<ImportConditionObject1, ImportConditionObject2, ImportConditionObject3>(container);
-            }
-
-            return result;
-        }
-
-        public override void Verify(Adapters.IContainerAdapter container)
+        protected override void Verify(Adapters.IContainerAdapter container)
         {
             if (!container.SupportsConditional)
             {

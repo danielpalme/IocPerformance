@@ -7,6 +7,8 @@ namespace IocPerformance.Classes.Generics
     [System.Composition.Export(typeof(ImportGeneric<>))]
     public class ImportGeneric<T>
     {
+        private static int counter;
+
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         public ImportGeneric(IGenericInterface<T> importGenericInterface)
@@ -16,9 +18,9 @@ namespace IocPerformance.Classes.Generics
                 throw new ArgumentNullException("importGenericInterface");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 }

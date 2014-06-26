@@ -4,6 +4,8 @@ namespace IocPerformance.Classes.Conditions
 {
     public class ImportConditionObject3
     {
+        private static int counter;
+
         public ImportConditionObject3(IExportConditionInterface exportConditionInterface)
         {
             if (exportConditionInterface == null)
@@ -18,9 +20,9 @@ namespace IocPerformance.Classes.Conditions
                     "exportConditionInterface");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 }

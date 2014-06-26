@@ -14,6 +14,8 @@ namespace IocPerformance.Benchmarks
 
         public IContainerAdapter Container { get; private set; }
 
-        public long? Time { get; set; }
+        public Measurement SingleThreadedResult { get; set; }
+
+        public Measurement MultiThreadedResult { get; set; }
     }
 }

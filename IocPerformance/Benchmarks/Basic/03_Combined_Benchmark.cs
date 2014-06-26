@@ -5,7 +5,12 @@ namespace IocPerformance.Benchmarks.Basic
 {
     public class Combined_03_Benchmark : BenchmarkBase
     {
-        public override void Warmup(Adapters.IContainerAdapter container)
+        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
+        {
+            return base.Measure<ICombined1, ICombined2, ICombined3>(container);
+        }
+
+        protected override void Warmup(Adapters.IContainerAdapter container)
         {
             var combined1 = (ICombined1)container.Resolve(typeof(ICombined1));
             var combined2 = (ICombined2)container.Resolve(typeof(ICombined2));
@@ -25,15 +30,7 @@ namespace IocPerformance.Benchmarks.Basic
             Transient3.Instances = 0;
         }
 
-        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
-        {
-            return new BenchmarkResult(this, container)
-            {
-                Time = base.Measure<ICombined1, ICombined2, ICombined3>(container)
-            };
-        }
-
-        public override void Verify(Adapters.IContainerAdapter container)
+        protected override void Verify(Adapters.IContainerAdapter container)
         {
             if (Combined1.Instances != BenchmarkBase.LoopCount
                 || Combined2.Instances != BenchmarkBase.LoopCount

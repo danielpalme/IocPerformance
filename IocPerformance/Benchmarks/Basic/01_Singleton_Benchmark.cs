@@ -5,7 +5,12 @@ namespace IocPerformance.Benchmarks.Basic
 {
     public class Singleton_01_Benchmark : BenchmarkBase
     {
-        public override void Warmup(Adapters.IContainerAdapter container)
+        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
+        {
+            return base.Measure<ISingleton1, ISingleton2, ISingleton3>(container);
+        }
+
+        protected override void Warmup(Adapters.IContainerAdapter container)
         {
             Singleton1.Instances = 0;
             Singleton2.Instances = 0;
@@ -21,15 +26,7 @@ namespace IocPerformance.Benchmarks.Basic
             }
         }
 
-        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
-        {
-            return new BenchmarkResult(this, container)
-            {
-                Time = base.Measure<ISingleton1, ISingleton2, ISingleton3>(container)
-            };
-        }
-
-        public override void Verify(Adapters.IContainerAdapter container)
+        protected override void Verify(Adapters.IContainerAdapter container)
         {
             if (Singleton1.Instances > 1 || Singleton2.Instances > 1 || Singleton2.Instances > 1)
             {

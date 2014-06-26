@@ -5,7 +5,12 @@ namespace IocPerformance.Benchmarks.Basic
 {
     public class Transient_02_Benchmark : BenchmarkBase
     {
-        public override void Warmup(Adapters.IContainerAdapter container)
+        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
+        {
+            return base.Measure<ITransient1, ITransient2, ITransient3>(container);
+        }
+
+        protected override void Warmup(Adapters.IContainerAdapter container)
         {
             var transient1 = (ITransient1)container.Resolve(typeof(ITransient1));
             var transient2 = (ITransient2)container.Resolve(typeof(ITransient2));
@@ -21,15 +26,7 @@ namespace IocPerformance.Benchmarks.Basic
             Transient3.Instances = 0;
         }
 
-        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
-        {
-            return new BenchmarkResult(this, container)
-            {
-                Time = base.Measure<ITransient1, ITransient2, ITransient3>(container)
-            };
-        }
-
-        public override void Verify(Adapters.IContainerAdapter container)
+        protected override void Verify(Adapters.IContainerAdapter container)
         {
             if (Transient1.Instances != BenchmarkBase.LoopCount
                 || Transient2.Instances != BenchmarkBase.LoopCount

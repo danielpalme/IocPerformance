@@ -13,6 +13,8 @@ namespace IocPerformance.Classes.Standard
     [System.Composition.Export(typeof(ICombined1))]
     public class Combined1 : ICombined1
     {
+        private static int counter;
+
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
@@ -28,10 +30,10 @@ namespace IocPerformance.Classes.Standard
                 throw new ArgumentNullException("second");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public void DoSomething()
         {
@@ -49,6 +51,8 @@ namespace IocPerformance.Classes.Standard
     [System.Composition.Export(typeof(ICombined2))]
     public class Combined2 : ICombined2
     {
+        private static int counter;
+
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
@@ -64,10 +68,10 @@ namespace IocPerformance.Classes.Standard
                 throw new ArgumentNullException("second");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public void DoSomething()
         {
@@ -85,6 +89,8 @@ namespace IocPerformance.Classes.Standard
     [System.Composition.Export(typeof(ICombined3))]
     public class Combined3 : ICombined3
     {
+        private static int counter;
+
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
@@ -100,10 +106,10 @@ namespace IocPerformance.Classes.Standard
                 throw new ArgumentNullException("second");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public void DoSomething()
         {

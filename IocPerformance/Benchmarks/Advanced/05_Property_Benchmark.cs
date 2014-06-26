@@ -5,7 +5,19 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class Property_05_Benchmark : BenchmarkBase
     {
-        public override void Warmup(Adapters.IContainerAdapter container)
+        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
+        {
+            if (container.SupportsPropertyInjection)
+            {
+                return base.Measure<IComplexPropertyObject1, IComplexPropertyObject2, IComplexPropertyObject3>(container);
+            }
+            else
+            {
+                return new BenchmarkResult(this, container);
+            }
+        }
+
+        protected override void Warmup(Adapters.IContainerAdapter container)
         {
             if (!container.SupportsPropertyInjection)
             {
@@ -30,19 +42,7 @@ namespace IocPerformance.Benchmarks.Advanced
             ComplexPropertyObject3.Instances = 0;
         }
 
-        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
-        {
-            var result = new BenchmarkResult(this, container);
-
-            if (container.SupportsPropertyInjection)
-            {
-                result.Time = base.Measure<IComplexPropertyObject1, IComplexPropertyObject2, IComplexPropertyObject3>(container);
-            }
-
-            return result;
-        }
-
-        public override void Verify(Adapters.IContainerAdapter container)
+        protected override void Verify(Adapters.IContainerAdapter container)
         {
             if (!container.SupportsPropertyInjection)
             {

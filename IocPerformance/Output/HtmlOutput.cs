@@ -10,12 +10,12 @@ namespace IocPerformance.Output
     {
         public void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
-            if (!Directory.Exists("output"))
+            if (!Directory.Exists("output\\blog"))
             {
-                Directory.CreateDirectory("output");
+                Directory.CreateDirectory("output\\blog");
             }
 
-            using (var fileStream = new FileStream("output\\result.txt", FileMode.Create))
+            using (var fileStream = new FileStream("output\\blog\\result.txt", FileMode.Create))
             {
                 using (var writer = new StreamWriter(fileStream))
                 {
@@ -36,17 +36,24 @@ namespace IocPerformance.Output
                         foreach (var benchmark in benchmarks)
                         {
                             var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
-                            var time = resultsOfBenchmark.First(r => r.Container == container).Time;
+                            var containerResult = resultsOfBenchmark.First(r => r.Container == container);
 
-                            string emphasis = time.HasValue
+                            string emphasisTime = containerResult.SingleThreadedResult.Time.HasValue
                                 && resultsOfBenchmark
                                     .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
-                                    .Min(r => r.Time) == time ? "h" : "d";
+                                    .Min(r => r.SingleThreadedResult.Time) == containerResult.SingleThreadedResult.Time ? " style=\"font-weight:bold;\"" : string.Empty;
+
+                            string emphasisMultithreadedTime = containerResult.MultiThreadedResult.Time.HasValue
+                                && resultsOfBenchmark
+                                    .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
+                                    .Min(r => r.MultiThreadedResult.Time) == containerResult.MultiThreadedResult.Time ? " style=\"font-weight:bold;\"" : string.Empty;
 
                             writer.Write(
-                                "<t{0} style=\"text-align:right;\">{1}</t{0}>",
-                                emphasis,
-                                time);
+                                "<td style=\"text-align:right;\"><span title=\"Single thread\"{0}>{1}</span><br /><span title=\"Multiple threads\"{2}>{3}</span></td>",
+                                emphasisTime,
+                                containerResult.SingleThreadedResult,
+                                emphasisMultithreadedTime,
+                                containerResult.MultiThreadedResult);
                         }
 
                         writer.WriteLine("</tr>");

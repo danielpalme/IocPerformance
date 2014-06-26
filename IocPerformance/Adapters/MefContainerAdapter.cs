@@ -115,7 +115,7 @@ namespace IocPerformance.Adapters
             var openGenericCatalog = new TypeCatalog(typeof(ImportGeneric<>), typeof(GenericExport<>));
 
             this.container = new CompositionContainer(
-                 new AggregateCatalog(dummyCatalog, standardCatalog, complexCatalog, propertyInjectionCatalog, multipleCatalog, openGenericCatalog));
+                 new AggregateCatalog(dummyCatalog, standardCatalog, complexCatalog, propertyInjectionCatalog, multipleCatalog, openGenericCatalog), true);
         }
     }
 }

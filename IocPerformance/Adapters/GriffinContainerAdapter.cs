@@ -42,12 +42,16 @@ namespace IocPerformance.Adapters
 
         public override object Resolve(Type type)
         {
-            return this.container.Resolve(type);
-        }
-
-        public override object ResolveProxy(Type type)
-        {
-            return this.containerWithLoggingInterception.Resolve(type);
+            if (type.Equals(typeof(ICalculator1))
+                || type.Equals(typeof(ICalculator2))
+                || type.Equals(typeof(ICalculator3)))
+            {
+                return this.containerWithLoggingInterception.Resolve(type);
+            }
+            else
+            {
+                return this.container.Resolve(type);
+            }
         }
 
         public override void Dispose()

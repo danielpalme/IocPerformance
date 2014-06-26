@@ -5,7 +5,19 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class Generics_06_Benchmark : BenchmarkBase
     {
-        public override void Warmup(Adapters.IContainerAdapter container)
+        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
+        {
+            if (container.SupportGeneric)
+            {
+                return base.Measure<ImportGeneric<int>, ImportGeneric<float>, ImportGeneric<object>>(container);
+            }
+            else
+            {
+                return new BenchmarkResult(this, container);
+            }
+        }
+
+        protected override void Warmup(Adapters.IContainerAdapter container)
         {
             if (!container.SupportGeneric)
             {
@@ -26,19 +38,7 @@ namespace IocPerformance.Benchmarks.Advanced
             ImportGeneric<object>.Instances = 0;
         }
 
-        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
-        {
-            var result = new BenchmarkResult(this, container);
-
-            if (container.SupportGeneric)
-            {
-                result.Time = base.Measure<ImportGeneric<int>, ImportGeneric<float>, ImportGeneric<object>>(container);
-            }
-
-            return result;
-        }
-
-        public override void Verify(Adapters.IContainerAdapter container)
+        protected override void Verify(Adapters.IContainerAdapter container)
         {
             if (!container.SupportGeneric)
             {

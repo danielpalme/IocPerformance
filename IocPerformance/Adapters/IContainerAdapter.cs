@@ -28,8 +28,6 @@ namespace IocPerformance.Adapters
 
         object Resolve(Type type);
 
-        object ResolveProxy(Type type);
-
         IChildContainerAdapter CreateChildContainerAdapter();
     }
 }
