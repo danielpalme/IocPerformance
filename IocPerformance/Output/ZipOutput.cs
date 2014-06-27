@@ -7,7 +7,7 @@ namespace IocPerformance.Output
 {
     public class ZipOutput : IOutput
     {
-        public void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
+        public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             if (!Directory.Exists("output\\blog"))
             {

@@ -41,7 +41,7 @@ namespace IocPerformance
 
                     if (benchmarkResult == null)
                     {
-                        benchmarkResult = benchmark.Measure(container);
+                        benchmarkResult = new BenchmarkRunner(container, benchmark).Run();
                     }
 
                     containerBenchmarkResults.Add(benchmarkResult);

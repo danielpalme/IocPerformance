@@ -7,18 +7,13 @@ namespace IocPerformance
 {
     internal static class BenchmarkFactory
     {
-        public static IEnumerable<BenchmarkBase> CreateBenchmarks()
+        public static IEnumerable<IBenchmark> CreateBenchmarks()
         {
-            var benchmarks = typeof(BenchmarkFactory).Assembly.GetTypes()
-                 .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(BenchmarkBase)))
+            return typeof(BenchmarkFactory).Assembly.GetTypes()
+                 .Where(t => t.IsClass && !t.IsAbstract && typeof(IBenchmark).IsAssignableFrom(t))
                  .Select(t => Activator.CreateInstance(t))
-                 .Cast<BenchmarkBase>()
+                 .Cast<IBenchmark>()
                  .OrderBy(b => b.Order);
-
-            foreach (var benchmark in benchmarks)
-            {
-                yield return benchmark;
-            }
         }
     }
 }

@@ -8,7 +8,7 @@ namespace IocPerformance.Output
 {
     public class MarkdownOutput : IOutput
     {
-        public void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
+        public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             using (var fileStream = new FileStream("../../../README.md", FileMode.Create))
             {
@@ -59,7 +59,7 @@ namespace IocPerformance.Output
             }
         }
 
-        private void WriteBenchmarks(StreamWriter writer, IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
+        private void WriteBenchmarks(StreamWriter writer, IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             writer.Write("|**Container**|");
             foreach (var benchmark in benchmarks)
