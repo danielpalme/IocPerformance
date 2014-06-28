@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9108A7
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IocPerformance.Tests", "IocPerformance.Tests\IocPerformance.Tests.csproj", "{EC35F981-C892-4687-A78E-A11655B00142}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{F73089D4-651F-4008-9EEA-CDFCACE60EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F73089D4-651F-4008-9EEA-CDFCACE60EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F73089D4-651F-4008-9EEA-CDFCACE60EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC35F981-C892-4687-A78E-A11655B00142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC35F981-C892-4687-A78E-A11655B00142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC35F981-C892-4687-A78E-A11655B00142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC35F981-C892-4687-A78E-A11655B00142}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
