@@ -1,4 +1,15 @@
 
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
+
+# NuGet Packages Directory
+packages/
+
 *.suo
 *proj.user
 /IocPerformance.userprefs
