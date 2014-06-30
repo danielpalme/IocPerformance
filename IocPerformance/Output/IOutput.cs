@@ -5,6 +5,6 @@ namespace IocPerformance.Output
 {
     public interface IOutput
     {
-        void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults);
+        void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults);
     }
 }

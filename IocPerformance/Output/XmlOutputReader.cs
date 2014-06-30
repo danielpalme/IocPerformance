@@ -10,7 +10,7 @@ namespace IocPerformance.Output
     public static class XmlOutputReader
     {
         public static IEnumerable<BenchmarkResult> GetExistingBenchmarkResults(
-            IEnumerable<BenchmarkBase> currentBenchmarks,
+            IEnumerable<IBenchmark> currentBenchmarks,
             IEnumerable<IContainerAdapter> currentContainers)
         {
             if (!File.Exists("output\\result.xml"))

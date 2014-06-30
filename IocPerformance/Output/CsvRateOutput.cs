@@ -12,7 +12,7 @@ namespace IocPerformance.Output
     /// </summary>
     public class CsvRateOutput : IOutput
     {
-        public void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
+        public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             if (!Directory.Exists("output"))
             {

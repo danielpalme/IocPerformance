@@ -15,7 +15,7 @@ namespace IocPerformance.Output
         /// </summary>
         /// <param name="benchmarks">The benchmarks.</param>
         /// <param name="benchmarkResults">The benchmark results.</param>
-        public void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
+        public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             if (!Directory.Exists("output"))
             {
@@ -54,7 +54,7 @@ namespace IocPerformance.Output
             File.Copy("output\\Overview_Advanced_Fast.png", "output\\blog\\e0401485-20c6-462e-b5d4-c9cf854e6bee.png", true);
         }
 
-        private static void CreateOverviewChart(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string type, long minTime, long maxTime)
+        private static void CreateOverviewChart(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string type, long minTime, long maxTime)
         {
             benchmarkResults = benchmarkResults.Where(b => b.Benchmark.GetType().FullName.Contains(type)).ToArray();
             benchmarks = benchmarks.Where(b => b.GetType().FullName.Contains(type)).ToArray();

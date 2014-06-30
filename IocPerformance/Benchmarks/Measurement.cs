@@ -1,5 +1,4 @@
-﻿
-namespace IocPerformance.Benchmarks
+﻿namespace IocPerformance.Benchmarks
 {
     public struct Measurement
     {

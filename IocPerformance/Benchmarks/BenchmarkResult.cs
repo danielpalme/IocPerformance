@@ -4,13 +4,13 @@ namespace IocPerformance.Benchmarks
 {
     public class BenchmarkResult
     {
-        public BenchmarkResult(BenchmarkBase benchmark, IContainerAdapter container)
+        public BenchmarkResult(IBenchmark benchmark, IContainerAdapter container)
         {
             this.Benchmark = benchmark;
             this.Container = container;
         }
 
-        public BenchmarkBase Benchmark { get; private set; }
+        public IBenchmark Benchmark { get; private set; }
 
         public IContainerAdapter Container { get; private set; }
 
