@@ -16,13 +16,15 @@ namespace IocPerformance.Classes.Standard
     [IfInjector.Singleton]
     public class Singleton1 : ISingleton1
     {
+        private static int counter;
+
         [Stiletto.Inject]
         public Singleton1()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public void DoSomething()
         {
@@ -42,13 +44,15 @@ namespace IocPerformance.Classes.Standard
     [IfInjector.Singleton]
     public class Singleton2 : ISingleton2
     {
+        private static int counter;
+
         [Stiletto.Inject]
         public Singleton2()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public void DoSomething()
         {
@@ -68,13 +72,15 @@ namespace IocPerformance.Classes.Standard
     [IfInjector.Singleton]
     public class Singleton3 : ISingleton3
     {
+        private static int counter;
+
         [Stiletto.Inject]
         public Singleton3()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public void DoSomething()
         {

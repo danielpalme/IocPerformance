@@ -10,12 +10,14 @@ namespace IocPerformance.Classes.Standard
     [UnityInterceptionLogger]
     public class Calculator1 : ICalculator1
     {
+        private static int counter;
+
         public Calculator1()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public virtual int Add(int first, int second)
         {
@@ -31,12 +33,14 @@ namespace IocPerformance.Classes.Standard
     [UnityInterceptionLogger]
     public class Calculator2 : ICalculator2
     {
+        private static int counter;
+
         public Calculator2()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public virtual int Add(int first, int second)
         {
@@ -52,12 +56,14 @@ namespace IocPerformance.Classes.Standard
     [UnityInterceptionLogger]
     public class Calculator3 : ICalculator3
     {
+        private static int counter;
+
         public Calculator3()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public virtual int Add(int first, int second)
         {

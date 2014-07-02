@@ -13,13 +13,15 @@ namespace IocPerformance.Classes.Standard
     [System.Composition.Export(typeof(ITransient1))]
     public class Transient1 : ITransient1
     {
+        private static int counter;
+
         [Stiletto.Inject]
         public Transient1()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public void DoSomething()
         {
@@ -37,13 +39,15 @@ namespace IocPerformance.Classes.Standard
     [System.Composition.Export(typeof(ITransient2))]
     public class Transient2 : ITransient2
     {
+        private static int counter;
+
         [Stiletto.Inject]
         public Transient2()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public void DoSomething()
         {
@@ -61,13 +65,15 @@ namespace IocPerformance.Classes.Standard
     [System.Composition.Export(typeof(ITransient3))]
     public class Transient3 : ITransient3
     {
+        private static int counter;
+
         [Stiletto.Inject]
         public Transient3()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
 
         public void DoSomething()
         {

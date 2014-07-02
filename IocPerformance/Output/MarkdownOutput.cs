@@ -8,7 +8,7 @@ namespace IocPerformance.Output
 {
     public class MarkdownOutput : IOutput
     {
-        public void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
+        public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             using (var fileStream = new FileStream("../../../README.md", FileMode.Create))
             {
@@ -27,28 +27,39 @@ namespace IocPerformance.Output
                     writer.WriteLine("Results");
                     writer.WriteLine("-------");
 
-                    writer.WriteLine(string.Empty);
-                    writer.WriteLine("Basic Features");
-                    writer.WriteLine(string.Empty);
+                    writer.WriteLine("### Explantions");
+                    writer.WriteLine("**First value**: Time of single-threaded execution in [ms]  ");
+                    writer.WriteLine("**Second value**: Time of multi-threaded execution in [ms]  ");
 
+                    if (benchmarkResults.Any(b => b.SingleThreadedResult.ExtraPolated || b.MultiThreadedResult.ExtraPolated))
+                    {
+                        writer.WriteLine("**_*_**: Benchmark was stopped after 3 minutes and result is extrapolated.  ");
+                    }
+
+                    if (benchmarkResults.Any(b => b.SingleThreadedResult.Error == "OoM" || b.MultiThreadedResult.Error == "OoM"))
+                    {
+                        writer.WriteLine("**OoM**: Benchmark was stopped after an *OutOfMemoryException* was thrown.  ");
+                    }
+
+                    if (benchmarkResults.Any(b => b.SingleThreadedResult.Error == "OoM" || b.MultiThreadedResult.Error == "OoM"))
+                    {
+                        writer.WriteLine("**Error**: Benchmark was stopped after an *Exception* was thrown.  ");
+                    }
+
+                    writer.WriteLine("### Basic Features");
                     this.WriteBenchmarks(writer, benchmarks.Where(b => b.GetType().FullName.Contains("Basic")), benchmarkResults);
 
-                    writer.WriteLine(string.Empty);
-                    writer.WriteLine("Advanced Features");
-                    writer.WriteLine(string.Empty);
-
+                    writer.WriteLine("### Advanced Features");
                     this.WriteBenchmarks(writer, benchmarks.Where(b => b.GetType().FullName.Contains("Advanced")), benchmarkResults);
 
-                    writer.WriteLine(string.Empty);
-                    writer.WriteLine("Charts");
-                    writer.WriteLine(string.Empty);
+                    writer.WriteLine("### Charts");
                     writer.WriteLine("![Basic features](http://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)");
                     writer.WriteLine("![Advanced features](http://www.palmmedia.de/content/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)");
                 }
             }
         }
 
-        private void WriteBenchmarks(StreamWriter writer, IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
+        private void WriteBenchmarks(StreamWriter writer, IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             writer.Write("|**Container**|");
             foreach (var benchmark in benchmarks)
@@ -73,17 +84,24 @@ namespace IocPerformance.Output
                 foreach (var benchmark in benchmarks)
                 {
                     var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
-                    var time = resultsOfBenchmark.First(r => r.Container == container).Time;
+                    var containerResult = resultsOfBenchmark.First(r => r.Container == container);
 
-                    string emphasis = time.HasValue
+                    string emphasisTime = containerResult.SingleThreadedResult.Time.HasValue
                         && resultsOfBenchmark
                             .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
-                            .Min(r => r.Time) == time ? "**" : string.Empty;
+                            .Min(r => r.SingleThreadedResult.Time) == containerResult.SingleThreadedResult.Time ? "**" : string.Empty;
+
+                    string emphasisMultithreadedTime = containerResult.MultiThreadedResult.Time.HasValue
+                        && resultsOfBenchmark
+                            .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
+                            .Min(r => r.MultiThreadedResult.Time) == containerResult.MultiThreadedResult.Time ? "**" : string.Empty;
 
                     writer.Write(
-                        "{0}{1}{0}|",
-                        emphasis,
-                        time);
+                        "{0}{1}{0}<br/>{2}{3}{2}|",
+                        emphasisTime,
+                        containerResult.SingleThreadedResult,
+                        emphasisMultithreadedTime,
+                        containerResult.MultiThreadedResult);
                 }
 
                 writer.WriteLine();

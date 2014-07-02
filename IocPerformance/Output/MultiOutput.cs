@@ -12,7 +12,7 @@ namespace IocPerformance.Output
             this.outputs = outputs;
         }
 
-        public void Create(IEnumerable<BenchmarkBase> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
+        public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             foreach (var output in this.outputs)
             {

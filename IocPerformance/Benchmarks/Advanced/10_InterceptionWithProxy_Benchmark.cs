@@ -1,59 +1,25 @@
 ﻿using System;
-using System.Diagnostics;
+using IocPerformance.Adapters;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Benchmarks.Advanced
 {
-    public class InterceptionWithProxy_10_Benchmark : BenchmarkBase
+    public class InterceptionWithProxy_10_Benchmark : Benchmark
     {
-        public override void Warmup(Adapters.IContainerAdapter container)
+        public override bool IsSupportedBy(IContainerAdapter container)
         {
-            if (!container.SupportsInterception)
-            {
-                return;
-            }
-
-            var calculator1 = (ICalculator1)container.ResolveProxy(typeof(ICalculator1));
-            calculator1.Add(1, 2);
-            var calculator2 = (ICalculator2)container.ResolveProxy(typeof(ICalculator2));
-            calculator2.Add(1, 2);
-            var calculator3 = (ICalculator3)container.ResolveProxy(typeof(ICalculator3));
-            calculator3.Add(1, 2);
-
-            Calculator1.Instances = 0;
-            Calculator2.Instances = 0;
-            Calculator3.Instances = 0;
+            return container.SupportsInterception;
         }
 
-        public override BenchmarkResult Measure(Adapters.IContainerAdapter container)
+        public override void MethodToBenchmark(IContainerAdapter container)
         {
-            var result = new BenchmarkResult(this, container);
+            var result1 = (ICalculator1)container.Resolve(typeof(ICalculator1));
+            var result2 = (ICalculator2)container.Resolve(typeof(ICalculator2));
+            var result3 = (ICalculator3)container.Resolve(typeof(ICalculator3));
 
-            if (container.SupportsInterception)
-            {
-                BenchmarkBase.CollectMemory();
-
-                var watch = new Stopwatch();
-
-                watch.Start();
-
-                for (int i = 0; i < BenchmarkBase.LoopCount; i++)
-                {
-                    var result1 = (ICalculator1)container.ResolveProxy(typeof(ICalculator1));
-                    var result2 = (ICalculator2)container.ResolveProxy(typeof(ICalculator2));
-                    var result3 = (ICalculator3)container.ResolveProxy(typeof(ICalculator3));
-
-                    result1.Add(5, 10);
-                    result2.Add(5, 10);
-                    result3.Add(5, 10);
-                }
-
-                watch.Stop();
-
-                result.Time = watch.ElapsedMilliseconds;
-            }
-
-            return result;
+            result1.Add(5, 10);
+            result2.Add(5, 10);
+            result3.Add(5, 10);
         }
 
         public override void Verify(Adapters.IContainerAdapter container)
@@ -63,11 +29,11 @@ namespace IocPerformance.Benchmarks.Advanced
                 return;
             }
 
-            if (Calculator1.Instances != BenchmarkBase.LoopCount
-                || Calculator2.Instances != BenchmarkBase.LoopCount
-                || Calculator3.Instances != BenchmarkBase.LoopCount)
+            if (Calculator1.Instances != Benchmark.LoopCount
+                || Calculator2.Instances != Benchmark.LoopCount
+                || Calculator3.Instances != Benchmark.LoopCount)
             {
-                throw new Exception(string.Format("Calculator count must be {0}", BenchmarkBase.LoopCount));
+                throw new Exception(string.Format("Calculator count must be {0}", Benchmark.LoopCount));
             }
         }
     }

@@ -77,9 +77,9 @@
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
-    <Reference Include="Grace, Version=2.3.5.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Grace, Version=2.3.6.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Grace.2.3.5\lib\portable-net45+win+wp80\Grace.dll</HintPath>
+      <HintPath>..\packages\Grace.2.3.6\lib\portable-net45+win+wp80\Grace.dll</HintPath>
     </Reference>
     <Reference Include="Griffin.Container, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -278,6 +278,8 @@
       <HintPath>..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -331,12 +333,20 @@
     <Compile Include="Benchmarks\Advanced\07_IEnumerable_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\06_Generics_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\05_Property_Benchmark.cs" />
-    <Compile Include="Benchmarks\BenchmarkBase.cs" />
+    <Compile Include="Benchmarks\Benchmark.cs" />
+    <Compile Include="Benchmarks\BenchmarkMeasurer.cs" />
+    <Compile Include="Benchmarks\SinglethreadedBenchmarkMeasurer.cs" />
     <Compile Include="Benchmarks\BenchmarkResult.cs" />
     <Compile Include="Benchmarks\Basic\04_Complex_Benchmark.cs" />
     <Compile Include="Benchmarks\Basic\03_Combined_Benchmark.cs" />
     <Compile Include="Benchmarks\Basic\02_Transient_Benchmark.cs" />
     <Compile Include="Benchmarks\Basic\01_Singleton_Benchmark.cs" />
+    <Compile Include="Benchmarks\BenchmarkRunner.cs" />
+    <Compile Include="Benchmarks\IBenchmark.cs" />
+    <Compile Include="Benchmarks\IBenchmarkMeasurer.cs" />
+    <Compile Include="Benchmarks\IBenchmarkRunner.cs" />
+    <Compile Include="Benchmarks\Measurement.cs" />
+    <Compile Include="Benchmarks\MultithreadedBenchmarkMeasurer.cs" />
     <Compile Include="Caliburn.Micro\ContainerExtensions.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
     <Compile Include="Caliburn.Micro\SimpleContainer.cs" />
@@ -412,6 +422,7 @@
     <Compile Include="Output\ChartOutput.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Output\ZipOutput.cs" />
     <Compile Include="Output\XmlOutputReader.cs">
       <SubType>Code</SubType>
     </Compile>

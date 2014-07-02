@@ -118,7 +118,7 @@ namespace IocPerformance.Adapters
         private static void RegisterStandard(ContainerConfiguration config)
         {
             config.WithParts(
-                typeof(Singleton1), 
+                typeof(Singleton1),
                 typeof(Singleton2),
                 typeof(Singleton3),
                 typeof(Transient1),

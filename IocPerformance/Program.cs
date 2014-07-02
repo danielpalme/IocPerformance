@@ -25,52 +25,51 @@ namespace IocPerformance
             {
                 var containerBenchmarkResults = new List<BenchmarkResult>();
 
-                Console.WriteLine("{0} {1}", container.Name, container.Version);
+                Console.WriteLine(
+                    "{0} {1}{2} {3,10} {4,10}",
+                    container.Name,
+                    container.Version,
+                    new string(' ', benchmarks.Select(b => b.Name.Length).OrderByDescending(n => n).First() - container.Name.Length - container.Version.Length),
+                    "Single",
+                    "Multi");
 
-                try
+                container.Prepare();
+
+                foreach (var benchmark in benchmarks)
                 {
-                    container.Prepare();
+                    var benchmarkResult = existingBenchmarkResults.SingleOrDefault(b => b.Container == container && b.Benchmark == benchmark);
 
-                    foreach (var benchmark in benchmarks)
+                    if (benchmarkResult == null)
                     {
-                        var benchmarkResult = existingBenchmarkResults.SingleOrDefault(b => b.Container == container && b.Benchmark == benchmark);
-
-                        if (benchmarkResult == null)
-                        {
-                            benchmark.Warmup(container);
-                            benchmarkResult = benchmark.Measure(container);
-                            benchmark.Verify(container);
-                        }
-
-                        containerBenchmarkResults.Add(benchmarkResult);
-
-                        Console.WriteLine(
-                            " {0}{1} {2,10}",
-                            benchmarkResult.Benchmark.Name,
-                            new string(' ', benchmarks.Select(b => b.Name.Length).OrderByDescending(n => n).First() - benchmarkResult.Benchmark.Name.Length),
-                            benchmarkResult.Time);
+                        benchmarkResult = new BenchmarkRunner(container, benchmark).Run();
                     }
 
-                    container.Dispose();
+                    containerBenchmarkResults.Add(benchmarkResult);
 
-                    // All benchmarks of container have completed, now 'commit' results
-                    benchmarkResults.AddRange(containerBenchmarkResults);
+                    Console.WriteLine(
+                        " {0}{1} {2,10} {3,10}",
+                        benchmarkResult.Benchmark.Name,
+                        new string(' ', benchmarks.Select(b => b.Name.Length).OrderByDescending(n => n).First() - benchmarkResult.Benchmark.Name.Length),
+                        benchmarkResult.SingleThreadedResult,
+                        benchmarkResult.MultiThreadedResult);
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(" " + container.Name + " failed: " + ex.Message);
-                }
+
+                container.Dispose();
+
+                // All benchmarks of container have completed, now 'commit' results
+                benchmarkResults.AddRange(containerBenchmarkResults);
 
                 Console.WriteLine();
             }
 
             IOutput output = new MultiOutput(
+                new XmlOutput(),
                 new HtmlOutput(),
                 new MarkdownOutput(),
-                new XmlOutput(),
                 new CsvOutput(),
                 new CsvRateOutput(),
-                new ChartOutput());
+                new ChartOutput(),
+                new ZipOutput());
 
             output.Create(benchmarks, benchmarkResults);
 

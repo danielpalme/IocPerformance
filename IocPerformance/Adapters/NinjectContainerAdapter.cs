@@ -28,11 +28,10 @@ namespace IocPerformance.Adapters
             get { return "http://ninject.org"; }
         }
 
-        // Throws OutOfMemoryException
-        //public override bool SupportsInterception
-        //{
-        //    get { return true; }
-        //}
+        public override bool SupportsInterception
+        {
+            get { return true; }
+        }
 
         public override bool SupportsPropertyInjection
         {

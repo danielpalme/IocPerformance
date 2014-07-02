@@ -8,6 +8,8 @@ namespace IocPerformance.Classes.Multiple
     [System.Composition.Export(typeof(ImportMultiple1))]
     public class ImportMultiple1
     {
+        private static int counter;
+
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         public ImportMultiple1(
@@ -36,16 +38,18 @@ namespace IocPerformance.Classes.Multiple
                 throw new ArgumentException("there should be 5 adapters and there where: " + adapterCount, "adapters");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 
     [Export(typeof(ImportMultiple2)), PartCreationPolicy(CreationPolicy.NonShared)]
     [System.Composition.Export(typeof(ImportMultiple2))]
     public class ImportMultiple2
     {
+        private static int counter;
+
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         public ImportMultiple2(
@@ -74,10 +78,10 @@ namespace IocPerformance.Classes.Multiple
                 throw new ArgumentException("there should be 5 adapters and there where: " + adapterCount, "adapters");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 
 
@@ -85,6 +89,8 @@ namespace IocPerformance.Classes.Multiple
     [System.Composition.Export(typeof(ImportMultiple3))]
     public class ImportMultiple3
     {
+        private static int counter;
+
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         public ImportMultiple3(
@@ -113,9 +119,9 @@ namespace IocPerformance.Classes.Multiple
                 throw new ArgumentException("there should be 5 adapters and there where: " + adapterCount, "adapters");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 }

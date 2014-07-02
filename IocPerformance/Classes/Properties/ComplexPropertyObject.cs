@@ -20,6 +20,8 @@ namespace IocPerformance.Classes.Properties
     [MEF2Attr.Export(typeof(IComplexPropertyObject1))]
     public class ComplexPropertyObject1 : IComplexPropertyObject1
     {
+        private static int counter;
+
         [MEFAttr.Import]
         [MEF2Attr.Import]
         [LinFuAttr.Inject]
@@ -121,10 +123,10 @@ namespace IocPerformance.Classes.Properties
 
         public ComplexPropertyObject1()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 
     [IfInjector.ImplementedBy(typeof(ComplexPropertyObject2))]
@@ -139,6 +141,8 @@ namespace IocPerformance.Classes.Properties
     [MEF2Attr.Export(typeof(IComplexPropertyObject2))]
     public class ComplexPropertyObject2 : IComplexPropertyObject2
     {
+        private static int counter;
+
         [MEFAttr.Import]
         [MEF2Attr.Import]
         [LinFuAttr.Inject]
@@ -240,10 +244,10 @@ namespace IocPerformance.Classes.Properties
 
         public ComplexPropertyObject2()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 
 
@@ -259,6 +263,8 @@ namespace IocPerformance.Classes.Properties
     [MEF2Attr.Export(typeof(IComplexPropertyObject3))]
     public class ComplexPropertyObject3 : IComplexPropertyObject3
     {
+        private static int counter;
+
         [MEFAttr.Import]
         [MEF2Attr.Import]
         [LinFuAttr.Inject]
@@ -360,9 +366,9 @@ namespace IocPerformance.Classes.Properties
 
         public ComplexPropertyObject3()
         {
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 }

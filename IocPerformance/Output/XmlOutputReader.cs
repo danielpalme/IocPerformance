@@ -10,7 +10,7 @@ namespace IocPerformance.Output
     public static class XmlOutputReader
     {
         public static IEnumerable<BenchmarkResult> GetExistingBenchmarkResults(
-            IEnumerable<BenchmarkBase> currentBenchmarks,
+            IEnumerable<IBenchmark> currentBenchmarks,
             IEnumerable<IContainerAdapter> currentContainers)
         {
             if (!File.Exists("output\\result.xml"))
@@ -24,7 +24,7 @@ namespace IocPerformance.Output
             {
                 var containerElement = doc.Root
                     .Elements("Container")
-                    .FirstOrDefault(c => c.Attribute("name").Value.Equals(container.Name) 
+                    .FirstOrDefault(c => c.Attribute("name").Value.Equals(container.Name)
                         && c.Attribute("version").Value.Equals(container.Version));
 
                 if (containerElement == null)
@@ -44,7 +44,21 @@ namespace IocPerformance.Output
 
                     var result = new BenchmarkResult(benchmark, container);
 
-                    result.Time = string.IsNullOrEmpty(benchmarkElement.Value) ? (long?)null : long.Parse(benchmarkElement.Value);
+                    XElement singleThreadedResultElement = benchmarkElement.Element("SingleThreadedResult");
+                    result.SingleThreadedResult = new Measurement()
+                        {
+                            Time = string.IsNullOrEmpty(singleThreadedResultElement.Attribute("time").Value) ? (long?)null : long.Parse(singleThreadedResultElement.Attribute("time").Value),
+                            Error = singleThreadedResultElement.Attribute("error").Value,
+                            ExtraPolated = bool.Parse(singleThreadedResultElement.Attribute("extrapolated").Value)
+                        };
+
+                    XElement multiThreadedResultElement = benchmarkElement.Element("MultiThreadedResult");
+                    result.MultiThreadedResult = new Measurement()
+                        {
+                            Time = string.IsNullOrEmpty(multiThreadedResultElement.Attribute("time").Value) ? (long?)null : long.Parse(multiThreadedResultElement.Attribute("time").Value),
+                            Error = multiThreadedResultElement.Attribute("error").Value,
+                            ExtraPolated = bool.Parse(multiThreadedResultElement.Attribute("extrapolated").Value)
+                        };
 
                     yield return result;
                 }

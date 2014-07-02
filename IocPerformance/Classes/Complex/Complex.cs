@@ -13,6 +13,8 @@ namespace IocPerformance.Classes.Complex
     [MEF2Attr.Export(typeof(IComplex1))]
     public class Complex1 : IComplex1
     {
+        private static int counter;
+
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
@@ -55,10 +57,10 @@ namespace IocPerformance.Classes.Complex
                 throw new ArgumentNullException("subObjectThree");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 
     [IfInjector.ImplementedBy(typeof(Complex2))]
@@ -70,6 +72,8 @@ namespace IocPerformance.Classes.Complex
     [MEF2Attr.Export(typeof(IComplex2))]
     public class Complex2 : IComplex2
     {
+        private static int counter;
+
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
@@ -112,10 +116,10 @@ namespace IocPerformance.Classes.Complex
                 throw new ArgumentNullException("subObjectThree");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 
 
@@ -128,6 +132,8 @@ namespace IocPerformance.Classes.Complex
     [MEF2Attr.Export(typeof(IComplex3))]
     public class Complex3 : IComplex3
     {
+        private static int counter;
+
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
@@ -170,9 +176,9 @@ namespace IocPerformance.Classes.Complex
                 throw new ArgumentNullException("subObjectThree");
             }
 
-            Instances++;
+            System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get; set; }
+        public static int Instances { get { return counter; } set { counter = value; } }
     }
 }
