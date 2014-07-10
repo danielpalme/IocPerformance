@@ -27,8 +27,8 @@ Results
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|105<br/>80|134<br/>103|234<br/>162|823<br/>493|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|105<br/>81|143<br/>120|194<br/>143|295<br/>203|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|149<br/>111|181<br/>132|451<br/>338|1327<br/>852|
-|**[Grace 2.3.7](https://github.com/ipjohnson/Grace)**|185<br/>131|327<br/>225|737<br/>492|2067<br/>1262|
-|**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|302<br/>200|314<br/>220|749<br/>499|2174<br/>1344|
+|**[Grace 2.3.8](https://github.com/ipjohnson/Grace)**|312<br/>421|994<br/>784|2379<br/>1843|2713<br/>1695|
+|**[Griffin 1.1.2](https://github.com/jgauffin/griffin.container)**|374<br/>231|377<br/>243|971<br/>573|2813<br/>1548|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|91<br/>76|110<br/>95|122<br/>87|222<br/>194|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|207<br/>140|209<br/>146|219<br/>154|290<br/>199|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|108<br/>86|144<br/>115|180<br/>142|233<br/>166|
@@ -61,8 +61,8 @@ Results
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|855<br/>519|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1299<br/>789|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[Grace 2.3.7](https://github.com/ipjohnson/Grace)**|2303<br/>1430|712<br/>465|2922<br/>1775|811<br/>526|**14081**<br/>**8438**|8343<br/>5000|
-|**[Griffin 1.1.1](https://github.com/jgauffin/griffin.container)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
+|**[Grace 2.3.8](https://github.com/ipjohnson/Grace)**|2419<br/>3759|1937<br/>1181|3035<br/>2003|805<br/>546|21836<br/>**10386**|11810<br/>7189|
+|**[Griffin 1.1.2](https://github.com/jgauffin/griffin.container)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|1119<br/>697|<br/>|2252<br/>1373|<br/>|<br/>|**868**<br/>**538**|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|3104<br/>1931|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|385<br/>269|170<br/>131|<br/>|<br/>|<br/>|<br/>|
@@ -81,7 +81,7 @@ Results
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|103584<br/>66296|<br/>|<br/>|<br/>|<br/>|77502<br/>43561|
 |**[StructureMap 3.0.4.125](http://structuremap.net/structuremap)**|22400<br/>22162|5688<br/>5178|19596<br/>18455|<br/>|3949717*<br/>2638271*|21499<br/>8775|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|2391<br/>1093|1407<br/>881|3703<br/>4850|1598<br/>965|<br/>|<br/>|
-|**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|5275<br/>5538|<br/>|<br/>|<br/>|17576<br/>11517|<br/>|
+|**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|5275<br/>5538|<br/>|<br/>|<br/>|**17576**<br/>11517|<br/>|
 |**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|40234<br/>21537|<br/>|65395<br/>41530|<br/>|53041<br/>31885|128682<br/>82599|
 |**[Windsor 3.3.0](http://castleproject.org)**|52083<br/>32659|27157<br/>17004|26641<br/>13537|<br/>|340330*<br/>Error|21772<br/>13042|
 ### Charts
