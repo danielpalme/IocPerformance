@@ -20,14 +20,14 @@ Results
 |**Container**|**Singleton**|**Transient**|**Combined**|**Complex**|
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|108<br/>78|126<br/>116|147<br/>168|222<br/>206|
-|**[Autofac 3.5.0](https://github.com/autofac/Autofac)**|1736<br/>849|4237<br/>2104|12271<br/>3745|29208<br/>10678|
+|**[Autofac 3.5.2](https://github.com/autofac/Autofac)**|893<br/>723|2568<br/>2571|6407<br/>4071|18191<br/>11244|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|538<br/>353|670<br/>405|1867<br/>1085|7969<br/>4632|
 |**[Catel 3.9.0](http://www.catelproject.com)**|351<br/>431|4361<br/>4901|13210<br/>14088|32621<br/>36346|
-|**[DryIoc 1.3.0](https://bitbucket.org/dadhi/dryioc)**|**31**<br/>**49**|**43**<br/>**59**|**56**<br/>**71**|**89**<br/>**80**|
+|**[DryIoc 1.3.1](https://bitbucket.org/dadhi/dryioc)**|**37**<br/>**52**|**48**<br/>**60**|**64**<br/>**73**|**98**<br/>**97**|
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|105<br/>80|134<br/>103|234<br/>162|823<br/>493|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|105<br/>81|143<br/>120|194<br/>143|295<br/>203|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|149<br/>111|181<br/>132|451<br/>338|1327<br/>852|
-|**[Grace 2.3.9](https://github.com/ipjohnson/Grace)**|176<br/>126|292<br/>211|710<br/>469|2021<br/>1206|
+|**[Grace 2.3.10](https://github.com/ipjohnson/Grace)**|174<br/>134|311<br/>225|787<br/>527|2002<br/>2244|
 |**[Griffin 1.1.2](https://github.com/jgauffin/griffin.container)**|374<br/>231|377<br/>243|971<br/>573|2813<br/>1548|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|91<br/>76|110<br/>95|122<br/>87|222<br/>194|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|207<br/>140|209<br/>146|219<br/>154|290<br/>199|
@@ -45,7 +45,7 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6626<br/>4071|5546<br/>3373|6971<br/>4657|8246<br/>6118|
 |**[SimpleInjector 2.5.2](https://simpleinjector.org)**|64<br/>64|92<br/>79|116<br/>95|149<br/>121|
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|1046<br/>808|16566<br/>10128|45510<br/>29798|117230<br/>75645|
-|**[StructureMap 3.0.5.130](http://structuremap.net/structuremap)**|2623<br/>2894|2551<br/>2735|8094<br/>8652|19083<br/>19515|
+|**[StructureMap 3.1.0.133](http://structuremap.net/structuremap)**|2835<br/>2938|2748<br/>6505|11154<br/>10107|29225<br/>27277|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|656<br/>454|543<br/>383|833<br/>527|2170<br/>2363|
 |**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|421<br/>323|2705<br/>1698|13719<br/>6623|44567<br/>28659|
 |**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|2873<br/>3812|7182<br/>3038|15294<br/>8012|39116<br/>21296|
@@ -54,14 +54,14 @@ Results
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Interception With Proxy**|
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|--------------------------:|
 |**No**|348<br/>176|107<br/>106|275<br/>177|214<br/>180|1899<br/>524|88<br/>106|
-|**[Autofac 3.5.0](https://github.com/autofac/Autofac)**|44784<br/>19079|4636<br/>2944|15984<br/>9163|<br/>|107702<br/>61266|43999<br/>23837|
+|**[Autofac 3.5.2](https://github.com/autofac/Autofac)**|32706<br/>20892|5158<br/>3346|17288<br/>12199|<br/>|108964<br/>86101|51505<br/>37712|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|10427<br/>6064|<br/>|7758<br/>4514|<br/>|<br/>|<br/>|
 |**[Catel 3.9.0](http://www.catelproject.com)**|<br/>|12293<br/>13237|<br/>|<br/>|<br/>|4411<br/>4783|
-|**[DryIoc 1.3.0](https://bitbucket.org/dadhi/dryioc)**|**87**<br/>**82**|**61**<br/>**66**|**300**<br/>**210**|**69**<br/>**66**|<br/>|<br/>|
+|**[DryIoc 1.3.1](https://bitbucket.org/dadhi/dryioc)**|**96**<br/>**94**|**61**<br/>**67**|**310**<br/>**227**|**76**<br/>**71**|<br/>|<br/>|
 |**[Dynamo 3.0.2.0](http://www.dynamoioc.com)**|855<br/>519|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[fFastInjector 0.8.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1299<br/>789|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[Grace 2.3.9](https://github.com/ipjohnson/Grace)**|2267<br/>1363|758<br/>451|2705<br/>1671|815<br/>532|**13425**<br/>**8140**|8368<br/>5180|
+|**[Grace 2.3.10](https://github.com/ipjohnson/Grace)**|5426<br/>1946|981<br/>588|4315<br/>2458|1145<br/>667|20489<br/>12160|11619<br/>5261|
 |**[Griffin 1.1.2](https://github.com/jgauffin/griffin.container)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|1119<br/>697|<br/>|2252<br/>1373|<br/>|<br/>|**868**<br/>**538**|
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|3104<br/>1931|<br/>|<br/>|<br/>|<br/>|<br/>|
@@ -79,9 +79,9 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6297<br/>3789|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[SimpleInjector 2.5.2](https://simpleinjector.org)**|248<br/>177|99<br/>85|905<br/>559|221<br/>157|<br/>|10422<br/>6055|
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|103584<br/>66296|<br/>|<br/>|<br/>|<br/>|77502<br/>43561|
-|**[StructureMap 3.0.5.130](http://structuremap.net/structuremap)**|19410<br/>19378|5482<br/>5772|16002<br/>15697|<br/>|3372925*<br/>2327450*|14384<br/>8424|
+|**[StructureMap 3.1.0.133](http://structuremap.net/structuremap)**|24841<br/>34278|8163<br/>8027|25240<br/>21399|<br/>|4670179*<br/>2961095*|21209<br/>17507|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|2391<br/>1093|1407<br/>881|3703<br/>4850|1598<br/>965|<br/>|<br/>|
-|**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|5275<br/>5538|<br/>|<br/>|<br/>|17576<br/>11517|<br/>|
+|**[TinyIoC 1.2](https://github.com/grumpydev/TinyIoC)**|5275<br/>5538|<br/>|<br/>|<br/>|**17576**<br/>**11517**|<br/>|
 |**[Unity 3.5.1404.0](http://msdn.microsoft.com/unity)**|40234<br/>21537|<br/>|65395<br/>41530|<br/>|53041<br/>31885|128682<br/>82599|
 |**[Windsor 3.3.0](http://castleproject.org)**|52083<br/>32659|27157<br/>17004|26641<br/>13537|<br/>|340330*<br/>Error|21772<br/>13042|
 ### Charts
