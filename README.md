@@ -43,7 +43,7 @@ Results
 |**[Munq 3.1.6](http://munq.codeplex.com)**|111<br/>79|283<br/>192|751<br/>454|2389<br/>1482|
 |**[Ninject 3.2.2.0](http://ninject.org)**|7259<br/>4486|24276<br/>15296|69214<br/>39610|191033*<br/>117563|
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6626<br/>4071|5546<br/>3373|6971<br/>4657|8246<br/>6118|
-|**[SimpleInjector 2.5.2](https://simpleinjector.org)**|64<br/>64|92<br/>79|116<br/>95|149<br/>121|
+|**[SimpleInjector 2.6.0](https://simpleinjector.org)**|60<br/>65|90<br/>80|116<br/>104|157<br/>130|
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|1046<br/>808|16566<br/>10128|45510<br/>29798|117230<br/>75645|
 |**[StructureMap 3.1.4.143](http://structuremap.net/structuremap)**|2531<br/>2831|2787<br/>2845|8181<br/>8274|19198<br/>20205|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|656<br/>454|543<br/>383|833<br/>527|2170<br/>2363|
@@ -77,7 +77,7 @@ Results
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1899<br/>1169|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Ninject 3.2.2.0](http://ninject.org)**|165177<br/>106569|67347<br/>42019|151450<br/>96672|53576<br/>31926|45724250*<br/>37677615*|36162<br/>22413|
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6297<br/>3789|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[SimpleInjector 2.5.2](https://simpleinjector.org)**|248<br/>177|99<br/>85|905<br/>559|221<br/>157|<br/>|7929<br/>4926|
+|**[SimpleInjector 2.6.0](https://simpleinjector.org)**|252<br/>182|99<br/>92|853<br/>543|212<br/>164|<br/>|8629<br/>5282|
 |**[Spring.NET 1.3.2](http://www.springframework.net/)**|103584<br/>66296|<br/>|<br/>|<br/>|<br/>|77502<br/>43561|
 |**[StructureMap 3.1.4.143](http://structuremap.net/structuremap)**|18987<br/>19486|5485<br/>8342|17175<br/>18164|<br/>|3921913*<br/>2703535*|18162<br/>12085|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|2391<br/>1093|1407<br/>881|3703<br/>4850|1598<br/>965|<br/>|<br/>|
