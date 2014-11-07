@@ -35,7 +35,7 @@ Results
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|203<br/>171|3364<br/>1998|34315<br/>34496|193101*<br/>205435*|
 |**[LightInject 3.0.2.0](https://github.com/seesharper/LightInject)**|34<br/>**44**|46<br/>61|69<br/>**76**|**88**<br/>84|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|4163<br/>2443|24399<br/>16041|64412<br/>41898|170694<br/>104578|
-|**[Maestro 1.4.0](https://github.com/JonasSamuelsson/Maestro)**|306<br/>243|461<br/>325|1199<br/>766|3443<br/>2124|
+|**[Maestro 1.4.1](https://github.com/JonasSamuelsson/Maestro)**|376<br/>248|437<br/>305|1349<br/>1074|4123<br/>2269|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|34967<br/>19746|53521<br/>31946|87598<br/>65396|175864<br/>169289|
 |**[Mef2 1.0.27.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|295<br/>201|290<br/>204|379<br/>439|633<br/>403|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|566<br/>303|818<br/>543|2901<br/>1802|8322<br/>8170|
@@ -69,7 +69,7 @@ Results
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2487<br/>1843|23120<br/>15653|52456<br/>31250|<br/>|<br/>|<br/>|
 |**[LightInject 3.0.2.0](https://github.com/seesharper/LightInject)**|**92**<br/>**84**|**63**<br/>72|360<br/>249|69<br/>71|<br/>|1825<br/>1345|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[Maestro 1.4.0](https://github.com/JonasSamuelsson/Maestro)**|6693<br/>2348|718<br/>500|3933<br/>2431|1007<br/>644|<br/>|9134<br/>5777|
+|**[Maestro 1.4.1](https://github.com/JonasSamuelsson/Maestro)**|4699<br/>2623|924<br/>559|5146<br/>2828|1178<br/>695|<br/>|11053<br/>6279|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|180329*<br/>178984|198621*<br/>151746|137126<br/>140873|<br/>|<br/>|<br/>|
 |**[Mef2 1.0.27.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1383<br/>887|313<br/>228|2587<br/>2518|<br/>|<br/>|<br/>|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
