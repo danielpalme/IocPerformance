@@ -215,6 +215,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Ninject.Extensions.Interception.Linfu.3.2.0.0\lib\net45-full\Ninject.Extensions.Interception.LinFu.dll</HintPath>
     </Reference>
+    <Reference Include="QuickInject">
+      <HintPath>..\packages\QuickInject.1.0.0.7\lib\portable-net45+win\QuickInject.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleInjector, Version=2.6.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SimpleInjector.2.6.1\lib\net45\SimpleInjector.dll</HintPath>
@@ -290,6 +293,7 @@
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
     <Compile Include="Adapters\ContainerAdapterBase.cs" />
+    <Compile Include="Adapters\QuickInjectContainerAdapter.cs" />
     <Compile Include="Adapters\DryIocAdapter.cs" />
     <Compile Include="Adapters\GraceContainerAdapter.cs" />
     <Compile Include="Adapters\IChildContainerAdapter.cs" />

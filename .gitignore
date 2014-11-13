@@ -26,6 +26,7 @@
 /packages/Munq.IocContainer*
 /packages/Ninject*
 /packages/Petite.Container*
+/packages/QuickInject*
 /packages/SimpleInjector*
 /packages/Speedioc*
 /packages/Spring.Aop*
