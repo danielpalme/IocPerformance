@@ -53,12 +53,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Catel.Core, Version=3.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Catel.Core, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Catel.Core.3.9.0\lib\net45\Catel.Core.dll</HintPath>
+      <HintPath>..\packages\Catel.Core.4.0.0\lib\net45\Catel.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Catel.Extensions.Interception">
-      <HintPath>..\packages\Catel.Extensions.Interception.3.9.0\lib\net45\Catel.Extensions.Interception.dll</HintPath>
+    <Reference Include="Catel.Extensions.Interception, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Catel.Extensions.Interception.4.0.0\lib\net45\Catel.Extensions.Interception.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging, Version=2.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -143,14 +144,14 @@
     </Reference>
     <Reference Include="Maestro.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5345f138383d19ed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Maestro.1.4.1\lib\net40\Maestro.Core.dll</HintPath>
+      <HintPath>..\packages\Maestro.1.5.0\lib\net40\Maestro.Core.dll</HintPath>
     </Reference>
     <Reference Include="Maestro.Interception.DynamicProxy">
       <HintPath>..\packages\Maestro.Interception.DynamicProxy.1.0.2\lib\net40\Maestro.Interception.DynamicProxy.dll</HintPath>
     </Reference>
     <Reference Include="Maestro.net40-client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5345f138383d19ed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Maestro.1.4.1\lib\net40\Maestro.net40-client.dll</HintPath>
+      <HintPath>..\packages\Maestro.1.5.0\lib\net40\Maestro.net40-client.dll</HintPath>
     </Reference>
     <Reference Include="MicroSliver">
       <HintPath>..\packages\MicroSliver.2.1.6.0\lib\net40\MicroSliver.dll</HintPath>
@@ -215,8 +216,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Ninject.Extensions.Interception.Linfu.3.2.0.0\lib\net45-full\Ninject.Extensions.Interception.LinFu.dll</HintPath>
     </Reference>
-    <Reference Include="QuickInject">
-      <HintPath>..\packages\QuickInject.1.0.0.7\lib\portable-net45+win\QuickInject.dll</HintPath>
+    <Reference Include="QuickInject, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\QuickInject.1.0.0.11\lib\portable-net45+win\QuickInject.dll</HintPath>
     </Reference>
     <Reference Include="SimpleInjector, Version=2.6.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
