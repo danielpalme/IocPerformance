@@ -127,9 +127,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LightInject.3.0.2.0\lib\net45\LightInject.dll</HintPath>
     </Reference>
-    <Reference Include="LightInject.Interception, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="LightInject.Interception, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\LightInject.Interception.1.0.0.6\lib\net45\LightInject.Interception.dll</HintPath>
+      <HintPath>..\packages\LightInject.Interception.1.0.0.7\lib\net45\LightInject.Interception.dll</HintPath>
     </Reference>
     <Reference Include="LinFu.Core, Version=2.3.0.41559, Culture=neutral, PublicKeyToken=a4c63a184389506f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -218,7 +218,7 @@
     </Reference>
     <Reference Include="QuickInject, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\QuickInject.1.0.0.11\lib\portable-net45+win\QuickInject.dll</HintPath>
+      <HintPath>..\packages\QuickInject.1.0.0.12\lib\portable-net45+win\QuickInject.dll</HintPath>
     </Reference>
     <Reference Include="SimpleInjector, Version=2.6.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
