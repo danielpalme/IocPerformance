@@ -63,7 +63,17 @@ namespace IocPerformance.Adapters
         {
             get { return false; }
         }
-
+        
+        public virtual bool SupportsBasic
+        {
+            get { return false; }
+        }
+        
+        public virtual void PrepareBasic()
+        {
+            throw new NotImplementedException();
+        }
+        
         public abstract void Prepare();
 
         public abstract object Resolve(Type type);
@@ -74,5 +84,7 @@ namespace IocPerformance.Adapters
         }
 
         public abstract void Dispose();
+        
+    
     }
 }

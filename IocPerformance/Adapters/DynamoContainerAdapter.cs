@@ -49,6 +49,7 @@ namespace IocPerformance.Adapters
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
+            
             this.RegisterPropertyInjection();
             this.container.Compile();
         }

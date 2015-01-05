@@ -49,6 +49,12 @@ namespace IocPerformance.Adapters
         {
             get { return true; }
         }
+        
+        public override bool SupportsBasic
+        {
+            get { return true; }
+        }
+
 
         public override object Resolve(Type type)
         {
@@ -65,14 +71,26 @@ namespace IocPerformance.Adapters
         {
             this.container = new ServiceContainer();
 
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            RegisterBasic();
+            
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterInterceptor();
+        }        
+        
+        public override void PrepareBasic()
+        {
+            this.container = new ServiceContainer();
+            RegisterBasic();
+        }
+        
+        private void RegisterBasic()
+        {
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterInterceptor()

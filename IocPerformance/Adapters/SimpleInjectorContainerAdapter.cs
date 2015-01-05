@@ -60,6 +60,11 @@ namespace IocPerformance.Adapters
         {
             get { return true; }
         }
+        
+        public override bool SupportsBasic
+        {
+          get { return true; }
+        }
 
         public override bool SupportsChildContainer
         {
@@ -89,16 +94,29 @@ namespace IocPerformance.Adapters
             this.container = new SimpleInjector.Container();
 
             this.container.Options.PropertySelectionBehavior = new InjectPropertiesMarkedWith<ImportAttribute>();
-
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            
+            RegisterBasic();
+            
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterIntercepter();
             this.RegisterChild();
+        }
+        
+        public override void PrepareBasic()
+        {
+            this.container = new SimpleInjector.Container();
+        
+            RegisterBasic();
+        }
+
+        private void RegisterBasic()
+        {
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterDummies()
@@ -174,22 +192,22 @@ namespace IocPerformance.Adapters
             container.Register<ImportConditionObject3>();
 
             container.RegisterWithContext<IExportConditionInterface>(context =>
-                context.ImplementationType == typeof(ImportConditionObject1)
-                    ? container.GetInstance<ExportConditionalObject>()
-                    : context.ImplementationType == typeof(ImportConditionObject2)
-                        ? container.GetInstance<ExportConditionalObject2>()
-                        : container.GetInstance<ExportConditionalObject3>()
-                    as IExportConditionInterface);
+                                                                     context.ImplementationType == typeof(ImportConditionObject1)
+                                                                     ? container.GetInstance<ExportConditionalObject>()
+                                                                     : context.ImplementationType == typeof(ImportConditionObject2)
+                                                                     ? container.GetInstance<ExportConditionalObject2>()
+                                                                     : container.GetInstance<ExportConditionalObject3>()
+                                                                     as IExportConditionInterface);
         }
 
         private void RegisterMultiple()
         {
             this.container.RegisterAll<ISimpleAdapter>(
-                 typeof(SimpleAdapterOne),
-                 typeof(SimpleAdapterTwo),
-                 typeof(SimpleAdapterThree),
-                 typeof(SimpleAdapterFour),
-                 typeof(SimpleAdapterFive));
+                typeof(SimpleAdapterOne),
+                typeof(SimpleAdapterTwo),
+                typeof(SimpleAdapterThree),
+                typeof(SimpleAdapterFour),
+                typeof(SimpleAdapterFive));
         }
 
         private void RegisterIntercepter()

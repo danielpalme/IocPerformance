@@ -42,6 +42,8 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be garbage collected.
+            if (this.container == null)
+                return;
             this.container.Dispose();
             this.container = null;
         }

@@ -68,6 +68,8 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
+            if (this.container == null)
+                return;
             this.container.Dispose();
             this.container = null;
         }

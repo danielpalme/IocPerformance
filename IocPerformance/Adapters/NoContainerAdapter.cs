@@ -59,6 +59,11 @@ namespace IocPerformance.Adapters
         {
             get { return true; }
         }
+        
+        public override bool SupportsBasic
+        {
+            get { return true; }
+        }
 
         public override object Resolve(Type type)
         {
@@ -71,19 +76,29 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            this.RegisterBasic();
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterInterceptor();
         }
+        
+        public override void PrepareBasic()
+        {
+            this.RegisterBasic();
+        }        
 
         public override IChildContainerAdapter CreateChildContainerAdapter()
         {
             return new NoContainerChildContainerAdapter(this);
+        }     
+        
+        private void RegisterBasic()
+        {
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private static IEnumerable<ISimpleAdapter> GetAllSimpleAdapters()
@@ -140,26 +155,26 @@ namespace IocPerformance.Adapters
             this.container[typeof(ISecondService)] = () => secondService;
             this.container[typeof(IThirdService)] = () => thirdService;
             this.container[typeof(IComplex1)] = () => new Complex1(
-                 firstService,
-                 secondService,
-                 thirdService,
-                 new SubObjectOne(firstService),
-                 new SubObjectTwo(secondService),
-                 new SubObjectThree(thirdService));
+                firstService,
+                secondService,
+                thirdService,
+                new SubObjectOne(firstService),
+                new SubObjectTwo(secondService),
+                new SubObjectThree(thirdService));
             this.container[typeof(IComplex2)] = () => new Complex2(
-                 firstService,
-                 secondService,
-                 thirdService,
-                 new SubObjectOne(firstService),
-                 new SubObjectTwo(secondService),
-                 new SubObjectThree(thirdService));
+                firstService,
+                secondService,
+                thirdService,
+                new SubObjectOne(firstService),
+                new SubObjectTwo(secondService),
+                new SubObjectThree(thirdService));
             this.container[typeof(IComplex3)] = () => new Complex3(
-                 firstService,
-                 secondService,
-                 thirdService,
-                 new SubObjectOne(firstService),
-                 new SubObjectTwo(secondService),
-                 new SubObjectThree(thirdService));
+                firstService,
+                secondService,
+                thirdService,
+                new SubObjectOne(firstService),
+                new SubObjectTwo(secondService),
+                new SubObjectThree(thirdService));
         }
 
         private void RegisterPropertyInjection()
@@ -170,36 +185,36 @@ namespace IocPerformance.Adapters
 
             this.container[typeof(IComplexPropertyObject1)] = () =>
                 new ComplexPropertyObject1
-                {
-                    ServiceA = serviceA,
-                    ServiceB = serviceB,
-                    ServiceC = serviceC,
-                    SubObjectA = new SubObjectA { ServiceA = serviceA },
-                    SubObjectB = new SubObjectB { ServiceB = serviceB },
-                    SubObjectC = new SubObjectC { ServiceC = serviceC }
-                };
+            {
+                ServiceA = serviceA,
+                ServiceB = serviceB,
+                ServiceC = serviceC,
+                SubObjectA = new SubObjectA { ServiceA = serviceA },
+                SubObjectB = new SubObjectB { ServiceB = serviceB },
+                SubObjectC = new SubObjectC { ServiceC = serviceC }
+            };
 
             this.container[typeof(IComplexPropertyObject2)] = () =>
                 new ComplexPropertyObject2
-                {
-                    ServiceA = serviceA,
-                    ServiceB = serviceB,
-                    ServiceC = serviceC,
-                    SubObjectA = new SubObjectA { ServiceA = serviceA },
-                    SubObjectB = new SubObjectB { ServiceB = serviceB },
-                    SubObjectC = new SubObjectC { ServiceC = serviceC }
-                };
+            {
+                ServiceA = serviceA,
+                ServiceB = serviceB,
+                ServiceC = serviceC,
+                SubObjectA = new SubObjectA { ServiceA = serviceA },
+                SubObjectB = new SubObjectB { ServiceB = serviceB },
+                SubObjectC = new SubObjectC { ServiceC = serviceC }
+            };
 
             this.container[typeof(IComplexPropertyObject3)] = () =>
                 new ComplexPropertyObject3
-                {
-                    ServiceA = serviceA,
-                    ServiceB = serviceB,
-                    ServiceC = serviceC,
-                    SubObjectA = new SubObjectA { ServiceA = serviceA },
-                    SubObjectB = new SubObjectB { ServiceB = serviceB },
-                    SubObjectC = new SubObjectC { ServiceC = serviceC }
-                };
+            {
+                ServiceA = serviceA,
+                ServiceB = serviceB,
+                ServiceC = serviceC,
+                SubObjectA = new SubObjectA { ServiceA = serviceA },
+                SubObjectB = new SubObjectB { ServiceB = serviceB },
+                SubObjectC = new SubObjectC { ServiceC = serviceC }
+            };
         }
 
         private void RegisterOpenGeneric()

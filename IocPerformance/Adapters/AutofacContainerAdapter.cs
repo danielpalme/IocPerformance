@@ -51,6 +51,11 @@ namespace IocPerformance.Adapters
         {
             get { return true; }
         }
+        
+        public override bool SupportsBasic
+        {
+          get { return true; }
+        }
 
         public override IChildContainerAdapter CreateChildContainerAdapter()
         {
@@ -65,6 +70,8 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be garbage collected.
+            if (this.container == null)
+                return;
             this.container.Dispose();
             this.container = null;
         }
@@ -75,16 +82,32 @@ namespace IocPerformance.Adapters
 
             autofacContainerBuilder.Register(c => new AutofacInterceptionLogger());
 
-            RegisterDummies(autofacContainerBuilder);
-            RegisterStandard(autofacContainerBuilder);
-            RegisterComplexObject(autofacContainerBuilder);
+            RegisterBasic(autofacContainerBuilder);
+           
             RegisterPropertyInjection(autofacContainerBuilder);
             RegisterOpenGeneric(autofacContainerBuilder);
             RegisterMultiple(autofacContainerBuilder);
             RegisterInterceptor(autofacContainerBuilder);
+            
+            this.container = autofacContainerBuilder.Build();
+        }
+        
+        public override void PrepareBasic()
+        {
+            var autofacContainerBuilder = new ContainerBuilder();
+
+            RegisterBasic(autofacContainerBuilder);
 
             this.container = autofacContainerBuilder.Build();
         }
+        
+        private static void RegisterBasic(ContainerBuilder autofacContainerBuilder)
+        {
+            RegisterDummies(autofacContainerBuilder);
+            RegisterStandard(autofacContainerBuilder);
+            RegisterComplexObject(autofacContainerBuilder);
+        }
+        
 
         private static void RegisterDummies(ContainerBuilder autofacContainerBuilder)
         {

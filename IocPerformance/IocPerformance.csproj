@@ -336,6 +336,7 @@
     <Compile Include="Benchmarks\Advanced\07_IEnumerable_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\06_Generics_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\05_Property_Benchmark.cs" />
+    <Compile Include="Benchmarks\Advanced\11_PrepareAndRegisterTime_Benchmark.cs" />
     <Compile Include="Benchmarks\Benchmark.cs" />
     <Compile Include="Benchmarks\BenchmarkMeasurer.cs" />
     <Compile Include="Benchmarks\SinglethreadedBenchmarkMeasurer.cs" />

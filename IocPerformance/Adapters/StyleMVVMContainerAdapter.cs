@@ -52,7 +52,9 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Shutdown the container
+        	if (this.container == null)
+            	return;
+
             this.container.Shutdown();
 
             // Release container from memory
