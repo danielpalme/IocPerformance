@@ -62,9 +62,21 @@ namespace IocPerformance.Adapters
         public virtual bool SupportsMultiple
         {
             get { return false; }
+        }      
+        
+        
+        public virtual bool SupportsBasic
+        {
+            get { return true; }
         }
-
-        public abstract void Prepare();
+        
+        ///<inheritdoc/>
+        public abstract void PrepareBasic();
+        
+        public virtual void Prepare()
+        {
+            this.PrepareBasic();//by default any prepare should at least support basic one
+        }
 
         public abstract object Resolve(Type type);
 
@@ -74,5 +86,7 @@ namespace IocPerformance.Adapters
         }
 
         public abstract void Dispose();
+        
+    
     }
 }

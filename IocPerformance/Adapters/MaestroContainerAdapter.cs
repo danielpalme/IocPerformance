@@ -57,20 +57,39 @@ namespace IocPerformance.Adapters
             this.container = new Container();
 
             this.container.Configure(x =>
-                                      {
-                                          RegisterDummies(x);
-                                          RegisterStandard(x);
-                                          RegisterComplex(x);
-                                          RegisterPropertyInjection(x);
-                                          RegisterGeneric(x);
-                                          RegisterConditional(x);
-                                          RegisterMultiple(x);
-                                          RegisterInterceptor(x);
-                                      });
+                                     {
+                                         RegisterBasic(x);
+                                         RegisterPropertyInjection(x);
+                                         RegisterGeneric(x);
+                                         RegisterConditional(x);
+                                         RegisterMultiple(x);
+                                         RegisterInterceptor(x);
+                                     });
+        }
+        
+        
+        
+        public override void PrepareBasic()
+        {
+            this.container = new Container();
+
+            this.container.Configure(x =>
+                                     {
+                                         RegisterBasic(x);
+                                     });
+        }
+
+        private void RegisterBasic(IContainerExpression x)
+        {
+            RegisterDummies(x);
+            RegisterStandard(x);
+            RegisterComplex(x);
         }
 
         public override void Dispose()
         {
+            if (this.container == null)
+                return;
             this.container.Dispose();
             this.container = null;
         }
@@ -168,11 +187,11 @@ namespace IocPerformance.Adapters
                 .Use(x =>
                      {
                          x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject1))
-                          .Use<ExportConditionalObject>();
+                             .Use<ExportConditionalObject>();
                          x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject2))
-                          .Use<ExportConditionalObject2>();
+                             .Use<ExportConditionalObject2>();
                          x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject3))
-                          .Use<ExportConditionalObject3>();
+                             .Use<ExportConditionalObject3>();
                      });
         }
 
@@ -191,11 +210,11 @@ namespace IocPerformance.Adapters
         private static void RegisterInterceptor(IContainerExpression expr)
         {
             expr.For<ICalculator1>().Use<Calculator1>()
-                 .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator1>(x.Instance, new MaestroInterceptionLogger()));
+                .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator1>(x.Instance, new MaestroInterceptionLogger()));
             expr.For<ICalculator2>().Use<Calculator2>()
-                 .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator2>(x.Instance, new MaestroInterceptionLogger()));
+                .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator2>(x.Instance, new MaestroInterceptionLogger()));
             expr.For<ICalculator3>().Use<Calculator3>()
-                 .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator3>(x.Instance, new MaestroInterceptionLogger()));
+                .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator3>(x.Instance, new MaestroInterceptionLogger()));
         }
     }
 }

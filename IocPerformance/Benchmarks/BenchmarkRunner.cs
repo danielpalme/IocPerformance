@@ -37,16 +37,17 @@ namespace IocPerformance.Benchmarks
             {
                 this.benchmark.Verify(this.container);
             }
-
-            this.benchmark.Warmup(this.container);
-
-            result.MultiThreadedResult = this.multithreadedMeasurer.Measure();
-
-            if (result.MultiThreadedResult.Successful)
+            if ((this.benchmark.Threading | ThreadingCases.Multi) == this.benchmark.Threading)
             {
-                this.benchmark.Verify(this.container);
-            }
+                this.benchmark.Warmup(this.container);
+                
+                result.MultiThreadedResult = this.multithreadedMeasurer.Measure();
 
+                if (result.MultiThreadedResult.Successful)
+                {
+                    this.benchmark.Verify(this.container);
+                }
+            }
             return result;
         }
     }

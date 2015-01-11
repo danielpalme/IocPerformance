@@ -164,8 +164,12 @@ namespace IocPerformance.Output
 
             foreach (var result in results)
             {
-                chart.Series["Single thread"].Points.AddXY(result.Container.Name, result.SingleThreadedResult.Time.GetValueOrDefault(1));
-                chart.Series["Multiple threads"].Points.AddXY(result.Container.Name, result.MultiThreadedResult.Time.GetValueOrDefault(1));
+                // sometimes during development loop is made very short to run fast check
+                // logarithmic unplotted 0 is produced and replaced with 1 
+                var singleThreadedValue = result.SingleThreadedResult.Time.GetValueOrDefault(1);
+                chart.Series["Single thread"].Points.AddXY(result.Container.Name, singleThreadedValue == 0 ? 1 : singleThreadedValue);
+                var multiThreadedValue = result.MultiThreadedResult.Time.GetValueOrDefault(1);
+                chart.Series["Multiple threads"].Points.AddXY(result.Container.Name,multiThreadedValue == 0 ? 1 : multiThreadedValue );
             }
 
             chart.SaveImage(filename, ChartImageFormat.Png);

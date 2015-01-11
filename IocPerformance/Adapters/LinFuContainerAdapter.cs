@@ -51,14 +51,19 @@ namespace IocPerformance.Adapters
         }
 
         public override void Prepare()
+        {            
+            this.PrepareBasic();            
+            this.RegisterMultiple();
+            this.RegisterPropertyInjection();
+        }
+
+        public override void PrepareBasic()
         {
             this.container = new LinFu.IoC.ServiceContainer();
 
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
-            this.RegisterMultiple();
-            this.RegisterPropertyInjection();
         }
 
         private void RegisterDummies()

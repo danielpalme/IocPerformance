@@ -23,6 +23,14 @@ namespace IocPerformance.Adapters
         bool SupportsPropertyInjection { get; }
 
         bool SupportsChildContainer { get; }
+   
+       
+        /// <summary>
+        /// Prepares basic registration. All containers support basic features to be named containers.
+        /// Allows fair comparison of feature poor vs rich containers, so additional registrations do not degrade richer containers.
+        /// </summary>
+        void PrepareBasic();
+        
 
         void Prepare();
 

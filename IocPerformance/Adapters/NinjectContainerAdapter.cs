@@ -71,22 +71,29 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be garbage collected.
+            if (this.container == null)
+                return;
             this.container.Dispose();
             this.container = null;
         }
 
         public override void Prepare()
         {
-            this.container = new StandardKernel();
-
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplexObject();
+            this.PrepareBasic();            
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterInterceptor();
+        }
+
+        public override void PrepareBasic()
+        {
+            this.container = new StandardKernel();
+
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplexObject();
         }
 
         private void RegisterDummies()
@@ -154,17 +161,17 @@ namespace IocPerformance.Adapters
             this.container.Bind<ImportConditionObject2>().To<ImportConditionObject2>().InTransientScope();
             this.container.Bind<ImportConditionObject3>().To<ImportConditionObject3>().InTransientScope();
             this.container.Bind<IExportConditionInterface>()
-                        .To<ExportConditionalObject>()
-                        .WhenInjectedInto<ImportConditionObject1>()
-                        .InTransientScope();
+                .To<ExportConditionalObject>()
+                .WhenInjectedInto<ImportConditionObject1>()
+                .InTransientScope();
             this.container.Bind<IExportConditionInterface>()
-                        .To<ExportConditionalObject2>()
-                        .WhenInjectedInto<ImportConditionObject2>()
-                        .InTransientScope();
+                .To<ExportConditionalObject2>()
+                .WhenInjectedInto<ImportConditionObject2>()
+                .InTransientScope();
             this.container.Bind<IExportConditionInterface>()
-                        .To<ExportConditionalObject3>()
-                        .WhenInjectedInto<ImportConditionObject3>()
-                        .InTransientScope();
+                .To<ExportConditionalObject3>()
+                .WhenInjectedInto<ImportConditionObject3>()
+                .InTransientScope();
         }
 
         private void RegisterMultiple()
@@ -182,11 +189,11 @@ namespace IocPerformance.Adapters
         private void RegisterInterceptor()
         {
             this.container.Bind<ICalculator1>().To<Calculator1>().InTransientScope()
-                 .Intercept().With(new NinjectInterceptionLogger());
+                .Intercept().With(new NinjectInterceptionLogger());
             this.container.Bind<ICalculator2>().To<Calculator2>().InTransientScope()
-                 .Intercept().With(new NinjectInterceptionLogger());
+                .Intercept().With(new NinjectInterceptionLogger());
             this.container.Bind<ICalculator3>().To<Calculator3>().InTransientScope()
-                 .Intercept().With(new NinjectInterceptionLogger());
+                .Intercept().With(new NinjectInterceptionLogger());
         }
     }
 

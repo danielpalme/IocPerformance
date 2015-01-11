@@ -6,7 +6,10 @@ namespace IocPerformance.Benchmarks
 {
     public abstract class BenchmarkMeasurer : IBenchmarkMeasurer
     {
-        protected const int TimeLimit = 3 * 60 * 1000;
+        //TODO: change text for prepare/register benchmark
+        protected const string TOO_SLOW_MESSAGE_FORMAT = " Benchmark '{0}' ({1}) was stopped after {2:f1} minutes. {3} of {4} instances have been resolved. Total execution would have taken: {5:f1} minutes.";
+    
+        protected const int TimeLimit = 1 * 6 * 1000;
 
         protected readonly IBenchmark Benchmark;
 
