@@ -29,7 +29,11 @@ namespace IocPerformance.Adapters
         {
             this.container = Container.Create(typeof(StilettoModule));
         }
-
+        
+        public override void PrepareBasic()
+        {
+            this.container = Container.Create(typeof(StilettoBasicModule));
+        }
         public override object Resolve(Type type)
         {
             // Because Resolve(Type) is non-generic, we can't rely on efficient dispatch from the
@@ -68,6 +72,90 @@ namespace IocPerformance.Adapters
         {
             this.container = null;
         }
+
+
+
+        [Module(
+            Injects = new[] {
+                typeof(ITransient1),
+                typeof(ISingleton1),
+                typeof(ICombined1),
+                typeof(IComplex1),
+            },
+
+            IncludedModules = new[] { typeof(ProvideComplexDependenciesBasic) },
+
+            // Because no concrete objects have ICombined, IComplex, and IComplexPropertyObject
+            // injected, the compiler will complain about dead code unless we set IsLibrary to true.
+            IsLibrary = true)]
+        public class StilettoBasicModule
+        {
+            [Provides]
+            public ITransient1 ProvideTransient(Transient1 transient)
+            {
+                return transient;
+            }
+
+            [Provides]
+            public ISingleton1 ProvideSingleton(Singleton1 singleton)
+            {
+                return singleton;
+            }
+
+            [Provides]
+            public ICombined1 ProvideCombined(Combined1 combined)
+            {
+                return combined;
+            }
+
+            [Provides]
+            public IComplex1 ProvideComplex(Complex1 complex)
+            {
+                return complex;
+            }
+        }
+
+        [Module(IsComplete = false)]
+        public class ProvideComplexDependenciesBasic
+        {
+            [Provides]
+            public IFirstService ProvideFirstService(FirstService service)
+            {
+                return service;
+            }
+
+            [Provides]
+            public ISecondService ProvideSecondService(SecondService service)
+            {
+                return service;
+            }
+
+            [Provides]
+            public IThirdService ProvideThirdService(ThirdService service)
+            {
+                return service;
+            }
+
+            [Provides]
+            public ISubObjectOne ProvideSubObjectOne(SubObjectOne obj)
+            {
+                return obj;
+            }
+
+            [Provides]
+            public ISubObjectTwo ProvideSubObjectTwo(SubObjectTwo obj)
+            {
+                return obj;
+            }
+
+            [Provides]
+            public ISubObjectThree ProvidSubObjectThree(SubObjectThree obj)
+            {
+                return obj;
+            }
+
+        }
+
 
         [Module(
             Injects = new[] {

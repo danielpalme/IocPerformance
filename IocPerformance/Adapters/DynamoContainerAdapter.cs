@@ -46,12 +46,26 @@ namespace IocPerformance.Adapters
         {
             this.container = new IocContainer(defaultCompileMode: CompileMode.Dynamic);
 
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            RegisterBasic();
             
             this.RegisterPropertyInjection();
             this.container.Compile();
+        }
+        
+        public override void PrepareBasic()
+        {
+            this.container = new IocContainer(defaultCompileMode: CompileMode.Dynamic);
+
+            RegisterBasic();
+            
+            this.container.Compile();
+        }
+
+        private void RegisterBasic()
+        {
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterDummies()
@@ -106,34 +120,34 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectC>(x => new SubObjectC { ServiceC = x.Resolve<IServiceC>() }).WithTransientLifetime();
 
             this.container.Register<IComplexPropertyObject1>(x => new ComplexPropertyObject1
-                                                                     {
-                                                                         ServiceA = x.Resolve<IServiceA>(),
-                                                                         ServiceB = x.Resolve<IServiceB>(),
-                                                                         ServiceC = x.Resolve<IServiceC>(),
-                                                                         SubObjectA = x.Resolve<ISubObjectA>(),
-                                                                         SubObjectB = x.Resolve<ISubObjectB>(),
-                                                                         SubObjectC = x.Resolve<ISubObjectC>()
-                                                                     }).WithTransientLifetime();
+                                                             {
+                                                                 ServiceA = x.Resolve<IServiceA>(),
+                                                                 ServiceB = x.Resolve<IServiceB>(),
+                                                                 ServiceC = x.Resolve<IServiceC>(),
+                                                                 SubObjectA = x.Resolve<ISubObjectA>(),
+                                                                 SubObjectB = x.Resolve<ISubObjectB>(),
+                                                                 SubObjectC = x.Resolve<ISubObjectC>()
+                                                             }).WithTransientLifetime();
 
             this.container.Register<IComplexPropertyObject2>(x => new ComplexPropertyObject2
-                                                                    {
-                                                                        ServiceA = x.Resolve<IServiceA>(),
-                                                                        ServiceB = x.Resolve<IServiceB>(),
-                                                                        ServiceC = x.Resolve<IServiceC>(),
-                                                                        SubObjectA = x.Resolve<ISubObjectA>(),
-                                                                        SubObjectB = x.Resolve<ISubObjectB>(),
-                                                                        SubObjectC = x.Resolve<ISubObjectC>()
-                                                                    }).WithTransientLifetime();
+                                                             {
+                                                                 ServiceA = x.Resolve<IServiceA>(),
+                                                                 ServiceB = x.Resolve<IServiceB>(),
+                                                                 ServiceC = x.Resolve<IServiceC>(),
+                                                                 SubObjectA = x.Resolve<ISubObjectA>(),
+                                                                 SubObjectB = x.Resolve<ISubObjectB>(),
+                                                                 SubObjectC = x.Resolve<ISubObjectC>()
+                                                             }).WithTransientLifetime();
 
             this.container.Register<IComplexPropertyObject3>(x => new ComplexPropertyObject3
-                                                                    {
-                                                                        ServiceA = x.Resolve<IServiceA>(),
-                                                                        ServiceB = x.Resolve<IServiceB>(),
-                                                                        ServiceC = x.Resolve<IServiceC>(),
-                                                                        SubObjectA = x.Resolve<ISubObjectA>(),
-                                                                        SubObjectB = x.Resolve<ISubObjectB>(),
-                                                                        SubObjectC = x.Resolve<ISubObjectC>()
-                                                                    }).WithTransientLifetime();
+                                                             {
+                                                                 ServiceA = x.Resolve<IServiceA>(),
+                                                                 ServiceB = x.Resolve<IServiceB>(),
+                                                                 ServiceC = x.Resolve<IServiceC>(),
+                                                                 SubObjectA = x.Resolve<ISubObjectA>(),
+                                                                 SubObjectB = x.Resolve<ISubObjectB>(),
+                                                                 SubObjectC = x.Resolve<ISubObjectC>()
+                                                             }).WithTransientLifetime();
         }
     }
 }

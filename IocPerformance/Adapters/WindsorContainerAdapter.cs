@@ -82,15 +82,20 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
+            this.PrepareBasic();            
+            this.RegisterPropertyInjection();
+            this.RegisterOpenGeneric();
+            this.RegisterMultiple();
+            this.RegisterInterceptor();
+        }
+
+        public override void PrepareBasic()
+        {
             this.container = new WindsorContainer();
 
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplexType();
-            this.RegisterPropertyInjection();
-            this.RegisterOpenGeneric();
-            this.RegisterMultiple();
-            this.RegisterInterceptor();
         }
 
         private void RegisterDummies()
@@ -174,11 +179,11 @@ namespace IocPerformance.Adapters
         {
             this.container.Register(Component.For<WindsorInterceptionLogger>());
             this.container.Register(
-                 Component.For<ICalculator1>().ImplementedBy<Calculator1>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
+                Component.For<ICalculator1>().ImplementedBy<Calculator1>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
             this.container.Register(
-                 Component.For<ICalculator2>().ImplementedBy<Calculator2>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
+                Component.For<ICalculator2>().ImplementedBy<Calculator2>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
             this.container.Register(
-                 Component.For<ICalculator3>().ImplementedBy<Calculator3>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
+                Component.For<ICalculator3>().ImplementedBy<Calculator3>().Interceptors<WindsorInterceptionLogger>().LifeStyle.Transient);
         }
     }
 

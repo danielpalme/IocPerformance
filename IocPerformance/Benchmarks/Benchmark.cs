@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using IocPerformance.Adapters;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
@@ -12,8 +13,11 @@ namespace IocPerformance.Benchmarks
 {
     public abstract class Benchmark : IBenchmark
     {
-        public const int LoopCount = 500 * 1000;
-
+  
+        public virtual int LoopCount { get {return  500 * 100;}}
+        
+        public virtual ThreadingCases Threading {get {return ThreadingCases.Single | ThreadingCases.Multi;}}
+        
         public string Name
         {
             get
@@ -47,8 +51,12 @@ namespace IocPerformance.Benchmarks
 
         public virtual void Warmup(IContainerAdapter container)
         {
-            this.MethodToBenchmark(container);
+            this.MethodToBenchmark(container);            
+            ZeroCounters();
+        }
 
+        protected void ZeroCounters()
+        {
             ScopedCombined1.Instances = 0;
             ScopedCombined2.Instances = 0;
             ScopedCombined3.Instances = 0;

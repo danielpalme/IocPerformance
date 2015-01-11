@@ -59,12 +59,7 @@ namespace IocPerformance.Adapters
         public override bool SupportsPropertyInjection
         {
             get { return true; }
-        }
-        
-        public override bool SupportsBasic
-        {
-          get { return true; }
-        }
+        }        
 
         public override bool SupportsChildContainer
         {
@@ -107,8 +102,7 @@ namespace IocPerformance.Adapters
         
         public override void PrepareBasic()
         {
-            this.container = new SimpleInjector.Container();
-        
+            this.container = new SimpleInjector.Container();        
             RegisterBasic();
         }
 

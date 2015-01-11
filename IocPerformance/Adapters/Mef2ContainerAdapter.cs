@@ -37,12 +37,7 @@ namespace IocPerformance.Adapters
         {
             get { return true; }
         }
-
-        public override bool SupportsBasic
-        {
-          get { return true; }
-        }        
-        
+       
         public override string Version
         {
             get { return typeof(CompositionHost).Assembly.GetName().Version.ToString(); }
@@ -65,7 +60,6 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             var config = new ContainerConfiguration();
-
             
             RegisterBasic(config);
             
@@ -78,11 +72,8 @@ namespace IocPerformance.Adapters
 
         public override void PrepareBasic()
         {
-            var config = new ContainerConfiguration();
-            
+            var config = new ContainerConfiguration();            
             RegisterBasic(config);        
-
-
             this.container = config.CreateContainer();
         }
         

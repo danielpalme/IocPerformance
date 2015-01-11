@@ -76,7 +76,7 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.RegisterBasic();
+            this.PrepareBasic();
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
@@ -86,20 +86,16 @@ namespace IocPerformance.Adapters
         
         public override void PrepareBasic()
         {
-            this.RegisterBasic();
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }        
 
         public override IChildContainerAdapter CreateChildContainerAdapter()
         {
             return new NoContainerChildContainerAdapter(this);
-        }     
-        
-        private void RegisterBasic()
-        {
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
-        }
+        }             
+
 
         private static IEnumerable<ISimpleAdapter> GetAllSimpleAdapters()
         {

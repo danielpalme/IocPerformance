@@ -48,14 +48,8 @@ namespace IocPerformance.Adapters
         public override bool SupportsPropertyInjection
         {
             get { return true; }
-        }
-        
-        public override bool SupportsBasic
-        {
-            get { return true; }
-        }
-
-
+        }        
+ 
         public override object Resolve(Type type)
         {
             return this.container.GetInstance(type);
@@ -69,9 +63,7 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.container = new ServiceContainer();
-
-            RegisterBasic();
+            this.PrepareBasic();
             
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();

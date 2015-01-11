@@ -21,7 +21,7 @@ namespace IocPerformance.Benchmarks
             var watch = new Stopwatch();
             var result = new Measurement();
 
-            const int Loopcount = Benchmarks.Benchmark.LoopCount / NumberOfThreads;
+            var loopcount = this.Benchmark.LoopCount / NumberOfThreads;
             var counter = 0;
             Exception exception = null;
 
@@ -30,7 +30,7 @@ namespace IocPerformance.Benchmarks
                 {
                     try
                     {
-                        for (var j = 0; j < Loopcount; j++)
+                        for (var j = 0; j < loopcount; j++)
                         {
                             Interlocked.Increment(ref counter);
                             Benchmark.MethodToBenchmark(Container);
@@ -83,15 +83,16 @@ namespace IocPerformance.Benchmarks
             }
             else if (result.ExtraPolated)
             {
-                result.Time = watch.ElapsedMilliseconds * Benchmarks.Benchmark.LoopCount / counter;
+                result.Time = watch.ElapsedMilliseconds * this.Benchmark.LoopCount / counter;
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(
-                    " Benchmark '{0}' (multiple threads) was stopped after {1:f1} minutes. About {2} of {3} instances have been resolved. Total execution would have taken: {4:f1} minutes.",
+                 BenchmarkMeasurer.TOO_SLOW_MESSAGE_FORMAT, 
                     Benchmark.Name,
+                    "multiple threads",
                     (double)watch.ElapsedMilliseconds / (1000 * 60),
                     counter,
-                    Benchmarks.Benchmark.LoopCount,
+                    this.Benchmark.LoopCount,
                     (double)result.Time / (1000 * 60));
                 Console.ResetColor();
 

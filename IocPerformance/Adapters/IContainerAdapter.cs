@@ -24,14 +24,10 @@ namespace IocPerformance.Adapters
 
         bool SupportsChildContainer { get; }
    
-        
+       
         /// <summary>
-        /// Returns true container supports common features which are must for any container to allow fair comparison of feature poor vs rich containers.
-        /// </summary>
-        bool SupportsBasic{get;}
-        
-        /// <summary>
-        /// Prepares basic registration if <see cref="SupportsBasic"/> is true.
+        /// Prepares basic registration. All containers support basic features to be named containers.
+        /// Allows fair comparison of feature poor vs rich containers, so additional registrations do not degrade richer containers.
         /// </summary>
         void PrepareBasic();
         

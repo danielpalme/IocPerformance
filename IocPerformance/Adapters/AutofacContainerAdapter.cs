@@ -52,11 +52,6 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
         
-        public override bool SupportsBasic
-        {
-          get { return true; }
-        }
-
         public override IChildContainerAdapter CreateChildContainerAdapter()
         {
             return new AutofacChildContainerAdapter(this.container.BeginLifetimeScope());

@@ -1,12 +1,24 @@
+using System;
 using IocPerformance.Adapters;
 
 namespace IocPerformance.Benchmarks
 {
+    [Flags]
+    public enum ThreadingCases{
+        Single = 1,
+        Multi = 2
+    }
+
     public interface IBenchmark
     {
+    
         string Name { get; }
 
         int Order { get; }
+        
+        int LoopCount {get;}
+
+        ThreadingCases Threading {get;}
 
         /// <summary>
         /// If false returned none methods are invoked.
@@ -28,7 +40,7 @@ namespace IocPerformance.Benchmarks
         /// </summary>
         /// <param name="container"></param>
         /// <exception cref="Exception>Any exception indicat4es verification failure</exception>
-        void Verify(IContainerAdapter container);       
+        void Verify(IContainerAdapter container);
 
     }
 }

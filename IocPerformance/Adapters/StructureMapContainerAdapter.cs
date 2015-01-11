@@ -61,10 +61,6 @@ namespace IocPerformance.Adapters
             return this.container.GetInstance(type);
         }
         
-        public override bool SupportsBasic
-        {
-          get { return true; }
-        }
 
         public override void Dispose()
         {

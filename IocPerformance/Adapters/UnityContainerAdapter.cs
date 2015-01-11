@@ -45,11 +45,7 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
-        public override bool SupportsBasic
-        {
-          get { return true; }
-        }
-        
+
         public override object Resolve(Type type)
         {
             return this.container.Resolve(type);
