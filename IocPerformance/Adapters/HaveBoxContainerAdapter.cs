@@ -51,14 +51,23 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.container = new Container();
-
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            this.PrepareBasic();            
             this.RegisterPropertyInjection();
             this.RegisterInterceptor();
             this.RegisterMultiple();
+        }
+        
+        public override void PrepareBasic()
+        {
+            this.container = new Container();
+            this.RegisterBasic(); 
+        }
+
+        private void RegisterBasic()
+        {
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterDummies()
@@ -112,14 +121,14 @@ namespace IocPerformance.Adapters
             this.container.Configure(
                 config => config.For<IComplexPropertyObject1>().Use(
                     () => new ComplexPropertyObject1
-                        {
-                            ServiceA = this.container.GetInstance<IServiceA>(),
-                            ServiceB = this.container.GetInstance<IServiceB>(),
-                            ServiceC = this.container.GetInstance<IServiceC>(),
-                            SubObjectA = this.container.GetInstance<ISubObjectA>(),
-                            SubObjectB = this.container.GetInstance<ISubObjectB>(),
-                            SubObjectC = this.container.GetInstance<ISubObjectC>()
-                        }));
+                    {
+                        ServiceA = this.container.GetInstance<IServiceA>(),
+                        ServiceB = this.container.GetInstance<IServiceB>(),
+                        ServiceC = this.container.GetInstance<IServiceC>(),
+                        SubObjectA = this.container.GetInstance<ISubObjectA>(),
+                        SubObjectB = this.container.GetInstance<ISubObjectB>(),
+                        SubObjectC = this.container.GetInstance<ISubObjectC>()
+                    }));
             this.container.Configure(
                 config => config.For<IComplexPropertyObject2>().Use(
                     () => new ComplexPropertyObject2
@@ -154,16 +163,16 @@ namespace IocPerformance.Adapters
         private void RegisterMultiple()
         {
             this.container.Configure(config =>
-            {
-                config.For<ImportMultiple1>().Use<ImportMultiple1>();
-                config.For<ImportMultiple2>().Use<ImportMultiple2>();
-                config.For<ImportMultiple3>().Use<ImportMultiple3>();
-                config.For<ISimpleAdapter>().Use<SimpleAdapterOne>();
-                config.For<ISimpleAdapter>().Use<SimpleAdapterTwo>();
-                config.For<ISimpleAdapter>().Use<SimpleAdapterThree>();
-                config.For<ISimpleAdapter>().Use<SimpleAdapterFour>();
-                config.For<ISimpleAdapter>().Use<SimpleAdapterFive>();
-            });
+                                     {
+                                         config.For<ImportMultiple1>().Use<ImportMultiple1>();
+                                         config.For<ImportMultiple2>().Use<ImportMultiple2>();
+                                         config.For<ImportMultiple3>().Use<ImportMultiple3>();
+                                         config.For<ISimpleAdapter>().Use<SimpleAdapterOne>();
+                                         config.For<ISimpleAdapter>().Use<SimpleAdapterTwo>();
+                                         config.For<ISimpleAdapter>().Use<SimpleAdapterThree>();
+                                         config.For<ISimpleAdapter>().Use<SimpleAdapterFour>();
+                                         config.For<ISimpleAdapter>().Use<SimpleAdapterFive>();
+                                     });
         }
     }
 }

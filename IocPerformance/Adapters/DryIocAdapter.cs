@@ -49,7 +49,7 @@ namespace IocPerformance.Adapters
         public override bool SupportsPropertyInjection
         {
             get { return true; }
-        }
+        }       
 
         public override object Resolve(Type type)
         {
@@ -59,23 +59,31 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be garbage collected.
+            if (this.container == null)
+            {
+                return;
+            }
+
             this.container.Dispose();
             this.container = null;
         }
 
         public override void Prepare()
         {
-            this.container = new Container();
-
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            this.PrepareBasic();
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
         }
 
+        public override void PrepareBasic()
+        {
+            this.container = new Container();
+
+            this.RegisterBasic();
+        }
+        
         private static bool ResolvePropertyWithImportAttribute(out object key, MemberInfo member, Request request, IRegistry registry)
         {
             key = null;
@@ -87,6 +95,13 @@ namespace IocPerformance.Adapters
 
             key = ((ImportAttribute)attributes[0]).ContractName;
             return true;
+        }
+
+        private void RegisterBasic()
+        {
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterDummies()
@@ -164,16 +179,16 @@ namespace IocPerformance.Adapters
 
             this.container.Register<IExportConditionInterface>(
                 new FactoryProvider((request, _) =>
-                {
-                    var parent = request.GetNonWrapperParentOrDefault();
-                    var implType = parent != null &&
-                        parent.ImplementationType == typeof(ImportConditionObject1)
-                        ? typeof(ExportConditionalObject)
-                        : (parent.ImplementationType == typeof(ImportConditionObject2)
-                            ? typeof(ExportConditionalObject2)
-                            : typeof(ExportConditionalObject3));
-                    return new ReflectionFactory(implType);
-                }));
+                                    {
+                                        var parent = request.GetNonWrapperParentOrDefault();
+                                        var implType = parent != null &&
+                                            parent.ImplementationType == typeof(ImportConditionObject1)
+                                            ? typeof(ExportConditionalObject)
+                                            : (parent.ImplementationType == typeof(ImportConditionObject2)
+                                               ? typeof(ExportConditionalObject2)
+                                               : typeof(ExportConditionalObject3));
+                                        return new ReflectionFactory(implType);
+                                    }));
         }
 
         private void RegisterMultiple()

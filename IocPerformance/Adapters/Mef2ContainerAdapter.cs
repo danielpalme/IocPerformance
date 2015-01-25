@@ -37,7 +37,7 @@ namespace IocPerformance.Adapters
         {
             get { return true; }
         }
-
+       
         public override string Version
         {
             get { return typeof(CompositionHost).Assembly.GetName().Version.ToString(); }
@@ -51,6 +51,11 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be garbage collected.
+            if (this.container == null)
+            {
+                return;
+            }
+
             this.container.Dispose();
             this.container = null;
         }
@@ -59,14 +64,27 @@ namespace IocPerformance.Adapters
         {
             var config = new ContainerConfiguration();
 
-            RegisterDummies(config);
-            RegisterStandard(config);
-            RegisterComplexObject(config);
+            RegisterBasic(config);
+            
             RegisterPropertyInjection(config);
             RegisterMultiple(config);
             RegisterOpenGeneric(config);
 
             this.container = config.CreateContainer();
+        }
+
+        public override void PrepareBasic()
+        {
+            var config = new ContainerConfiguration();
+            RegisterBasic(config);        
+            this.container = config.CreateContainer();
+        }
+        
+        private static void RegisterBasic(ContainerConfiguration config)
+        {
+            RegisterDummies(config);
+            RegisterStandard(config);
+            RegisterComplexObject(config);
         }
 
         private static void RegisterOpenGeneric(ContainerConfiguration config)

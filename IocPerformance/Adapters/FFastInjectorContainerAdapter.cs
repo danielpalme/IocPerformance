@@ -3,6 +3,7 @@ using fFastInjector;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Standard;
+using Container = fFastInjector.Injector;
 
 namespace IocPerformance.Adapters
 {
@@ -20,15 +21,15 @@ namespace IocPerformance.Adapters
 
         public override object Resolve(Type type)
         {
-            return Injector.Resolve(type);
+            return Container.Resolve(type);
         }
 
         public override void Dispose()
         {
-            // Allow the container and everything it references to be garbage collected.
+            // does not support cleanup
         }
 
-        public override void Prepare()
+        public override void PrepareBasic()
         {
             RegisterDummies();
             RegisterStandard();
@@ -37,16 +38,16 @@ namespace IocPerformance.Adapters
 
         private static void RegisterDummies()
         {
-            Injector.SetResolver<IDummyOne, DummyOne>();
-            Injector.SetResolver<IDummyTwo, DummyTwo>();
-            Injector.SetResolver<IDummyThree, DummyThree>();
-            Injector.SetResolver<IDummyFour, DummyFour>();
-            Injector.SetResolver<IDummyFive, DummyFive>();
-            Injector.SetResolver<IDummySix, DummySix>();
-            Injector.SetResolver<IDummySeven, DummySeven>();
-            Injector.SetResolver<IDummyEight, DummyEight>();
-            Injector.SetResolver<IDummyNine, DummyNine>();
-            Injector.SetResolver<IDummyTen, DummyTen>();
+            Container.SetResolver<IDummyOne, DummyOne>();
+            Container.SetResolver<IDummyTwo, DummyTwo>();
+            Container.SetResolver<IDummyThree, DummyThree>();
+            Container.SetResolver<IDummyFour, DummyFour>();
+            Container.SetResolver<IDummyFive, DummyFive>();
+            Container.SetResolver<IDummySix, DummySix>();
+            Container.SetResolver<IDummySeven, DummySeven>();
+            Container.SetResolver<IDummyEight, DummyEight>();
+            Container.SetResolver<IDummyNine, DummyNine>();
+            Container.SetResolver<IDummyTen, DummyTen>();
         }
 
         private static void RegisterStandard()
@@ -55,15 +56,15 @@ namespace IocPerformance.Adapters
             var singleton2 = new Singleton2();
             var singleton3 = new Singleton3();
 
-            Injector.SetResolver<ISingleton1>(() => singleton1);
-            Injector.SetResolver<ISingleton2>(() => singleton2);
-            Injector.SetResolver<ISingleton3>(() => singleton3);
-            Injector.SetResolver<ITransient1, Transient1>();
-            Injector.SetResolver<ITransient2, Transient2>();
-            Injector.SetResolver<ITransient3, Transient3>();
-            Injector.SetResolver<ICombined1, Combined1>();
-            Injector.SetResolver<ICombined2, Combined2>();
-            Injector.SetResolver<ICombined3, Combined3>();
+            Container.SetResolver<ISingleton1>(() => singleton1);
+            Container.SetResolver<ISingleton2>(() => singleton2);
+            Container.SetResolver<ISingleton3>(() => singleton3);
+            Container.SetResolver<ITransient1, Transient1>();
+            Container.SetResolver<ITransient2, Transient2>();
+            Container.SetResolver<ITransient3, Transient3>();
+            Container.SetResolver<ICombined1, Combined1>();
+            Container.SetResolver<ICombined2, Combined2>();
+            Container.SetResolver<ICombined3, Combined3>();
         }
 
         private static void RegisterComplex()
@@ -72,16 +73,16 @@ namespace IocPerformance.Adapters
             var secondService = new SecondService();
             var thirdService = new ThirdService();
 
-            Injector.SetResolver<IFirstService>(() => firstService);
-            Injector.SetResolver<ISecondService>(() => secondService);
-            Injector.SetResolver<IThirdService>(() => thirdService);
-            Injector.SetResolver<ISubObjectOne, SubObjectOne>();
-            Injector.SetResolver<ISubObjectTwo, SubObjectTwo>();
-            Injector.SetResolver<ISubObjectThree, SubObjectThree>();
+            Container.SetResolver<IFirstService>(() => firstService);
+            Container.SetResolver<ISecondService>(() => secondService);
+            Container.SetResolver<IThirdService>(() => thirdService);
+            Container.SetResolver<ISubObjectOne, SubObjectOne>();
+            Container.SetResolver<ISubObjectTwo, SubObjectTwo>();
+            Container.SetResolver<ISubObjectThree, SubObjectThree>();
 
-            Injector.SetResolver<IComplex1, Complex1>();
-            Injector.SetResolver<IComplex2, Complex2>();
-            Injector.SetResolver<IComplex3, Complex3>();
+            Container.SetResolver<IComplex1, Complex1>();
+            Container.SetResolver<IComplex2, Complex2>();
+            Container.SetResolver<IComplex3, Complex3>();
         }
     }
 }

@@ -31,7 +31,7 @@ namespace IocPerformance.Adapters
             this.container = null;
         }
 
-        public override void Prepare()
+        public override void PrepareBasic()
         {
             this.container = new IoC();
 

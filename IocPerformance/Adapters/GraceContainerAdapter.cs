@@ -68,22 +68,37 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
+            // Allow the container and everything it references to be garbage collected.
+            if (this.container == null)
+            {
+                return;
+            }
+
             this.container.Dispose();
             this.container = null;
         }
 
         public override void Prepare()
         {
-            this.container = new DependencyInjectionContainer();
-
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            this.PrepareBasic();            
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterMultiple();
             this.RegisterConditional();
             this.RegisterInterceptor();
+        }
+
+        public override void PrepareBasic()
+        {
+            this.container = new DependencyInjectionContainer();
+            this.RegisterBasic();
+        }
+
+        private void RegisterBasic()
+        {
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterInterceptor()
@@ -92,18 +107,18 @@ namespace IocPerformance.Adapters
 
             this.container.Configure(
                 ioc => ioc.Export<Calculator1>()
-                    .As<ICalculator1>()
-                    .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator1, new StructureMapInterceptionLogger())));
+                .As<ICalculator1>()
+                .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator1, new StructureMapInterceptionLogger())));
 
             this.container.Configure(
                 ioc => ioc.Export<Calculator2>()
-                    .As<ICalculator2>()
-                    .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator2, new StructureMapInterceptionLogger())));
+                .As<ICalculator2>()
+                .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator2, new StructureMapInterceptionLogger())));
 
             this.container.Configure(
                 ioc => ioc.Export<Calculator3>()
-                    .As<ICalculator3>()
-                    .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator3, new StructureMapInterceptionLogger())));
+                .As<ICalculator3>()
+                .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator3, new StructureMapInterceptionLogger())));
         }
 
         private void RegisterConditional()
@@ -148,10 +163,10 @@ namespace IocPerformance.Adapters
         private void RegisterOpenGeneric()
         {
             this.container.Configure(c =>
-                   {
-                       c.Export(typeof(ImportGeneric<>));
-                       c.Export(typeof(GenericExport<>)).As(typeof(IGenericInterface<>));
-                   });
+                                     {
+                                         c.Export(typeof(ImportGeneric<>));
+                                         c.Export(typeof(GenericExport<>)).As(typeof(IGenericInterface<>));
+                                     });
         }
 
         private void RegisterStandard()
@@ -214,14 +229,14 @@ namespace IocPerformance.Adapters
                     c.Export<ServiceB>().As<IServiceB>().Lifestyle.Singleton();
                     c.Export<ServiceC>().As<IServiceC>().Lifestyle.Singleton();
 
-                    c.Export<SubObjectA>().As<ISubObjectA>().ImportProperty(x => x.ServiceA);
-                    c.Export<SubObjectB>().As<ISubObjectB>().ImportProperty(x => x.ServiceB);
-                    c.Export<SubObjectC>().As<ISubObjectC>().ImportProperty(x => x.ServiceC);
+                                         c.Export<SubObjectA>().As<ISubObjectA>().ImportProperty(x => x.ServiceA);
+                                         c.Export<SubObjectB>().As<ISubObjectB>().ImportProperty(x => x.ServiceB);
+                                         c.Export<SubObjectC>().As<ISubObjectC>().ImportProperty(x => x.ServiceC);
 
-                    c.Export<ComplexPropertyObject1>().As<IComplexPropertyObject1>().AutoWireProperties();
-                    c.Export<ComplexPropertyObject2>().As<IComplexPropertyObject2>().AutoWireProperties();
-                    c.Export<ComplexPropertyObject3>().As<IComplexPropertyObject3>().AutoWireProperties();
-                });
+                                         c.Export<ComplexPropertyObject1>().As<IComplexPropertyObject1>().AutoWireProperties();
+                                         c.Export<ComplexPropertyObject2>().As<IComplexPropertyObject2>().AutoWireProperties();
+                                         c.Export<ComplexPropertyObject3>().As<IComplexPropertyObject3>().AutoWireProperties();
+                                     });
         }
     }
 
@@ -242,15 +257,15 @@ namespace IocPerformance.Adapters
         public void Prepare()
         {
             this.injectionScope.Configure(c =>
-            {
-                // SimpleExport was written specifically to register a class very quickly
-                // it doesn't support Property injection or method injection
-                // but you can do those with an Enrichment delegate
-                c.SimpleExport<ScopedCombined1>().As<ICombined1>();
-                c.SimpleExport<ScopedCombined2>().As<ICombined2>();
-                c.SimpleExport<ScopedCombined3>().As<ICombined3>();
-                c.SimpleExport<ScopedTransient>().As<ITransient1>();
-            });
+                                          {
+                                              // SimpleExport was written specifically to register a class very quickly
+                                              // it doesn't support Property injection or method injection
+                                              // but you can do those with an Enrichment delegate
+                                              c.SimpleExport<ScopedCombined1>().As<ICombined1>();
+                                              c.SimpleExport<ScopedCombined2>().As<ICombined2>();
+                                              c.SimpleExport<ScopedCombined3>().As<ICombined3>();
+                                              c.SimpleExport<ScopedTransient>().As<ITransient1>();
+                                          });
         }
 
         public object Resolve(Type resolveType)

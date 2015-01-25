@@ -53,6 +53,11 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be garbage collected.
+            if (this.container == null)
+            {
+                return;
+            }
+
             this.container.Dispose();
             this.container = null;
         }
@@ -67,12 +72,24 @@ namespace IocPerformance.Adapters
             this.container = new UnityContainer();
             this.container.AddNewExtension<Microsoft.Practices.Unity.InterceptionExtension.Interception>();
 
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            this.RegisterBasic();
+
             this.RegisterPropertyInjection();
             this.RegisterMultiple();
             this.RegisterInterceptor();
+        }
+
+        public override void PrepareBasic()
+        {
+            this.container = new UnityContainer();
+            this.RegisterBasic();
+        }
+
+        private void RegisterBasic()
+        {
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterDummies()
@@ -146,14 +163,14 @@ namespace IocPerformance.Adapters
         private void RegisterInterceptor()
         {
             this.container.RegisterType<ICalculator1, Calculator1>(new TransientLifetimeManager())
-                 .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
-                 .SetInterceptorFor<ICalculator1>(new InterfaceInterceptor());
+                .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
+                .SetInterceptorFor<ICalculator1>(new InterfaceInterceptor());
             this.container.RegisterType<ICalculator2, Calculator2>(new TransientLifetimeManager())
-                 .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
-                 .SetInterceptorFor<ICalculator2>(new InterfaceInterceptor());
+                .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
+                .SetInterceptorFor<ICalculator2>(new InterfaceInterceptor());
             this.container.RegisterType<ICalculator3, Calculator3>(new TransientLifetimeManager())
-                 .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
-                 .SetInterceptorFor<ICalculator3>(new InterfaceInterceptor());
+                .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
+                .SetInterceptorFor<ICalculator3>(new InterfaceInterceptor());
         }
     }
 

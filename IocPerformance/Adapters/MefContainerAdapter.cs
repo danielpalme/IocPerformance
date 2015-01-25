@@ -57,6 +57,45 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
+            var basic = this.CreateBasic();
+
+            var propertyInjectionCatalog = new TypeCatalog(
+                typeof(ComplexPropertyObject1),
+                typeof(ComplexPropertyObject2),
+                typeof(ComplexPropertyObject3),
+                typeof(ServiceA),
+                typeof(ServiceB),
+                typeof(ServiceC),
+                typeof(SubObjectA),
+                typeof(SubObjectB),
+                typeof(SubObjectC));
+
+            var multipleCatalog = new TypeCatalog(
+                typeof(SimpleAdapterOne),
+                typeof(SimpleAdapterTwo),
+                typeof(SimpleAdapterThree),
+                typeof(SimpleAdapterFour),
+                typeof(SimpleAdapterFive),
+                typeof(ImportMultiple1),
+                typeof(ImportMultiple2),
+                typeof(ImportMultiple3));
+
+            var openGenericCatalog = new TypeCatalog(typeof(ImportGeneric<>), typeof(GenericExport<>));
+
+            this.container = new CompositionContainer(
+                new AggregateCatalog(basic.Item1, basic.Item2, basic.Item3, propertyInjectionCatalog, multipleCatalog, openGenericCatalog), true);
+        }
+        
+        public override void PrepareBasic()
+        {
+            var basic = this.CreateBasic();
+
+            this.container = new CompositionContainer(
+                new AggregateCatalog(basic.Item1, basic.Item2, basic.Item3), true);
+        }
+
+        private Tuple<TypeCatalog, TypeCatalog, TypeCatalog> CreateBasic()
+        {
             var dummyCatalog = new TypeCatalog(
                  typeof(DummyOne),
                  typeof(DummyTwo),
@@ -91,31 +130,7 @@ namespace IocPerformance.Adapters
                  typeof(Complex2),
                  typeof(Complex3));
 
-            var propertyInjectionCatalog = new TypeCatalog(
-                typeof(ComplexPropertyObject1),
-                typeof(ComplexPropertyObject2),
-                typeof(ComplexPropertyObject3),
-                typeof(ServiceA),
-                typeof(ServiceB),
-                typeof(ServiceC),
-                typeof(SubObjectA),
-                typeof(SubObjectB),
-                typeof(SubObjectC));
-
-            var multipleCatalog = new TypeCatalog(
-                 typeof(SimpleAdapterOne),
-                 typeof(SimpleAdapterTwo),
-                 typeof(SimpleAdapterThree),
-                 typeof(SimpleAdapterFour),
-                 typeof(SimpleAdapterFive),
-                 typeof(ImportMultiple1),
-                 typeof(ImportMultiple2),
-                 typeof(ImportMultiple3));
-
-            var openGenericCatalog = new TypeCatalog(typeof(ImportGeneric<>), typeof(GenericExport<>));
-
-            this.container = new CompositionContainer(
-                 new AggregateCatalog(dummyCatalog, standardCatalog, complexCatalog, propertyInjectionCatalog, multipleCatalog, openGenericCatalog), true);
+            return new Tuple<TypeCatalog, TypeCatalog, TypeCatalog>(dummyCatalog, standardCatalog, complexCatalog);
         }
     }
 }

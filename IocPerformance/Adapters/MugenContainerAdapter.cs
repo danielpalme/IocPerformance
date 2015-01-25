@@ -82,16 +82,21 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.container = new MugenInjector();
-
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            this.PrepareBasic();
             this.RegisterPropertyInjection();
             this.RegisterMultiple();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterInterceptor();
+        }
+
+         public override void PrepareBasic()
+        {
+            this.container = new MugenInjector();
+
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterDummies()
@@ -154,17 +159,17 @@ namespace IocPerformance.Adapters
             this.container.Bind<ImportConditionObject2>().To<ImportConditionObject2>().InTransientScope();
             this.container.Bind<ImportConditionObject3>().To<ImportConditionObject3>().InTransientScope();
             this.container.Bind<IExportConditionInterface>()
-                        .To<ExportConditionalObject>()
-                        .WhenIntoIsAssignable<ImportConditionObject1>()
-                        .InTransientScope();
+                .To<ExportConditionalObject>()
+                .WhenIntoIsAssignable<ImportConditionObject1>()
+                .InTransientScope();
             this.container.Bind<IExportConditionInterface>()
-                        .To<ExportConditionalObject2>()
-                        .WhenIntoIsAssignable<ImportConditionObject2>()
-                        .InTransientScope();
+                .To<ExportConditionalObject2>()
+                .WhenIntoIsAssignable<ImportConditionObject2>()
+                .InTransientScope();
             this.container.Bind<IExportConditionInterface>()
-                        .To<ExportConditionalObject3>()
-                        .WhenIntoIsAssignable<ImportConditionObject3>()
-                        .InTransientScope();
+                .To<ExportConditionalObject3>()
+                .WhenIntoIsAssignable<ImportConditionObject3>()
+                .InTransientScope();
         }
 
         private void RegisterOpenGeneric()
