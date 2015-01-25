@@ -41,7 +41,11 @@ namespace IocPerformance.Classes.Multiple
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
     }
 
     [Export(typeof(ImportMultiple2)), PartCreationPolicy(CreationPolicy.NonShared)]
@@ -81,9 +85,12 @@ namespace IocPerformance.Classes.Multiple
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
     }
-
 
     [Export(typeof(ImportMultiple3)), PartCreationPolicy(CreationPolicy.NonShared)]
     [System.Composition.Export(typeof(ImportMultiple3))]
@@ -122,6 +129,10 @@ namespace IocPerformance.Classes.Multiple
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
     }
 }

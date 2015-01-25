@@ -7,6 +7,16 @@ namespace IocPerformance.Classes.Standard
         int Add(int first, int second);
     }
 
+    public interface ICalculator2
+    {
+        int Add(int first, int second);
+    }
+
+    public interface ICalculator3
+    {
+        int Add(int first, int second);
+    }
+
     [UnityInterceptionLogger]
     public class Calculator1 : ICalculator1
     {
@@ -17,17 +27,16 @@ namespace IocPerformance.Classes.Standard
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
 
         public virtual int Add(int first, int second)
         {
             return first + second;
         }
-    }
-
-    public interface ICalculator2
-    {
-        int Add(int first, int second);
     }
 
     [UnityInterceptionLogger]
@@ -40,17 +49,16 @@ namespace IocPerformance.Classes.Standard
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
 
         public virtual int Add(int first, int second)
         {
             return first + second;
         }
-    }
-
-    public interface ICalculator3
-    {
-        int Add(int first, int second);
     }
 
     [UnityInterceptionLogger]
@@ -63,7 +71,11 @@ namespace IocPerformance.Classes.Standard
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
 
         public virtual int Add(int first, int second)
         {

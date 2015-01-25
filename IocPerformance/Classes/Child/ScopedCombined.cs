@@ -27,7 +27,11 @@ namespace IocPerformance.Classes.Child
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
 
         public void DoSomething()
         {
@@ -59,14 +63,17 @@ namespace IocPerformance.Classes.Child
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
 
         public void DoSomething()
         {
             Console.WriteLine("Combined");
         }
     }
-
 
     public class ScopedCombined3 : ICombined3
     {
@@ -92,7 +99,11 @@ namespace IocPerformance.Classes.Child
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
 
         public void DoSomething()
         {

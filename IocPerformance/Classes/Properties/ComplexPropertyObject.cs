@@ -14,6 +14,18 @@ namespace IocPerformance.Classes.Properties
         void Verify(string containerName);
     }
 
+    [IfInjector.ImplementedBy(typeof(ComplexPropertyObject2))]
+    public interface IComplexPropertyObject2
+    {
+        void Verify(string containerName);
+    }
+
+    [IfInjector.ImplementedBy(typeof(ComplexPropertyObject3))]
+    public interface IComplexPropertyObject3
+    {
+        void Verify(string containerName);
+    }
+
     [LinFuAttr.Implements(typeof(IComplexPropertyObject1))]
     [MEFAttr.ExportAttribute(typeof(IComplexPropertyObject1))]
     [MEFAttr.PartCreationPolicy(MEFAttr.CreationPolicy.NonShared)]
@@ -21,6 +33,17 @@ namespace IocPerformance.Classes.Properties
     public class ComplexPropertyObject1 : IComplexPropertyObject1
     {
         private static int counter;
+
+        public ComplexPropertyObject1()
+        {
+            System.Threading.Interlocked.Increment(ref counter);
+        }
+
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -120,19 +143,6 @@ namespace IocPerformance.Classes.Properties
 
             this.SubObjectC.Verify(containerName);
         }
-
-        public ComplexPropertyObject1()
-        {
-            System.Threading.Interlocked.Increment(ref counter);
-        }
-
-        public static int Instances { get { return counter; } set { counter = value; } }
-    }
-
-    [IfInjector.ImplementedBy(typeof(ComplexPropertyObject2))]
-    public interface IComplexPropertyObject2
-    {
-        void Verify(string containerName);
     }
 
     [LinFuAttr.Implements(typeof(IComplexPropertyObject2))]
@@ -143,6 +153,17 @@ namespace IocPerformance.Classes.Properties
     {
         private static int counter;
 
+        public ComplexPropertyObject2()
+        {
+            System.Threading.Interlocked.Increment(ref counter);
+        }
+
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
+
         [MEFAttr.Import]
         [MEF2Attr.Import]
         [LinFuAttr.Inject]
@@ -241,20 +262,6 @@ namespace IocPerformance.Classes.Properties
 
             this.SubObjectC.Verify(containerName);
         }
-
-        public ComplexPropertyObject2()
-        {
-            System.Threading.Interlocked.Increment(ref counter);
-        }
-
-        public static int Instances { get { return counter; } set { counter = value; } }
-    }
-
-
-    [IfInjector.ImplementedBy(typeof(ComplexPropertyObject3))]
-    public interface IComplexPropertyObject3
-    {
-        void Verify(string containerName);
     }
 
     [LinFuAttr.Implements(typeof(IComplexPropertyObject3))]
@@ -265,6 +272,17 @@ namespace IocPerformance.Classes.Properties
     {
         private static int counter;
 
+        public ComplexPropertyObject3()
+        {
+            System.Threading.Interlocked.Increment(ref counter);
+        }
+
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
+
         [MEFAttr.Import]
         [MEF2Attr.Import]
         [LinFuAttr.Inject]
@@ -363,12 +381,5 @@ namespace IocPerformance.Classes.Properties
 
             this.SubObjectC.Verify(containerName);
         }
-
-        public ComplexPropertyObject3()
-        {
-            System.Threading.Interlocked.Increment(ref counter);
-        }
-
-        public static int Instances { get { return counter; } set { counter = value; } }
     }
 }

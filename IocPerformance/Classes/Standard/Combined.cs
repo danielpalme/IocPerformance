@@ -9,6 +9,18 @@ namespace IocPerformance.Classes.Standard
         void DoSomething();
     }
 
+    [IfInjector.ImplementedBy(typeof(Combined2))]
+    public interface ICombined2
+    {
+        void DoSomething();
+    }
+
+    [IfInjector.ImplementedBy(typeof(Combined3))]
+    public interface ICombined3
+    {
+        void DoSomething();
+    }
+
     [Export(typeof(ICombined1)), PartCreationPolicy(CreationPolicy.NonShared)]
     [System.Composition.Export(typeof(ICombined1))]
     public class Combined1 : ICombined1
@@ -33,18 +45,16 @@ namespace IocPerformance.Classes.Standard
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
 
         public void DoSomething()
         {
             Console.WriteLine("Combined");
         }
-    }
-
-    [IfInjector.ImplementedBy(typeof(Combined2))]
-    public interface ICombined2
-    {
-        void DoSomething();
     }
 
     [Export(typeof(ICombined2)), PartCreationPolicy(CreationPolicy.NonShared)]
@@ -71,18 +81,16 @@ namespace IocPerformance.Classes.Standard
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
 
         public void DoSomething()
         {
             Console.WriteLine("Combined");
         }
-    }
-
-    [IfInjector.ImplementedBy(typeof(Combined3))]
-    public interface ICombined3
-    {
-        void DoSomething();
     }
 
     [Export(typeof(ICombined3)), PartCreationPolicy(CreationPolicy.NonShared)]
@@ -109,7 +117,11 @@ namespace IocPerformance.Classes.Standard
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
 
         public void DoSomething()
         {

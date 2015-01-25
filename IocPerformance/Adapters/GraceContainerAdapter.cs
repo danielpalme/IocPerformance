@@ -159,9 +159,9 @@ namespace IocPerformance.Adapters
             this.container.Configure(
                 ioc =>
                 {
-                    ioc.Export<Singleton1>().As<ISingleton1>().AndSingleton();
-                    ioc.Export<Singleton2>().As<ISingleton2>().AndSingleton();
-                    ioc.Export<Singleton3>().As<ISingleton3>().AndSingleton();
+                    ioc.Export<Singleton1>().As<ISingleton1>().Lifestyle.Singleton();
+                    ioc.Export<Singleton2>().As<ISingleton2>().Lifestyle.Singleton();
+                    ioc.Export<Singleton3>().As<ISingleton3>().Lifestyle.Singleton();
                     ioc.Export<Transient1>().As<ITransient1>();
                     ioc.Export<Transient2>().As<ITransient2>();
                     ioc.Export<Transient3>().As<ITransient3>();
@@ -176,9 +176,9 @@ namespace IocPerformance.Adapters
             this.container.Configure(
                 ioc =>
                 {
-                    ioc.Export<FirstService>().As<IFirstService>().AndSingleton();
-                    ioc.Export<SecondService>().As<ISecondService>().AndSingleton();
-                    ioc.Export<ThirdService>().As<IThirdService>().AndSingleton();
+                    ioc.Export<FirstService>().As<IFirstService>().Lifestyle.Singleton();
+                    ioc.Export<SecondService>().As<ISecondService>().Lifestyle.Singleton();
+                    ioc.Export<ThirdService>().As<IThirdService>().Lifestyle.Singleton();
                     ioc.Export<SubObjectOne>().As<ISubObjectOne>();
                     ioc.Export<SubObjectTwo>().As<ISubObjectTwo>();
                     ioc.Export<SubObjectThree>().As<ISubObjectThree>();
@@ -210,9 +210,9 @@ namespace IocPerformance.Adapters
         {
             this.container.Configure(c =>
                 {
-                    c.Export<ServiceA>().As<IServiceA>().AndSingleton();
-                    c.Export<ServiceB>().As<IServiceB>().AndSingleton();
-                    c.Export<ServiceC>().As<IServiceC>().AndSingleton();
+                    c.Export<ServiceA>().As<IServiceA>().Lifestyle.Singleton();
+                    c.Export<ServiceB>().As<IServiceB>().Lifestyle.Singleton();
+                    c.Export<ServiceC>().As<IServiceC>().Lifestyle.Singleton();
 
                     c.Export<SubObjectA>().As<ISubObjectA>().ImportProperty(x => x.ServiceA);
                     c.Export<SubObjectB>().As<ISubObjectB>().ImportProperty(x => x.ServiceB);

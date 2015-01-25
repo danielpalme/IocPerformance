@@ -7,6 +7,7 @@ namespace IocPerformance.Classes.Dummy
     }
 
     [Export(typeof(IDummyEight)), PartCreationPolicy(CreationPolicy.NonShared)]
+    [System.Composition.Export(typeof(IDummyEight))]
     public class DummyEight : IDummyEight
     {
     }

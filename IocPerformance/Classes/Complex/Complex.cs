@@ -9,6 +9,16 @@ namespace IocPerformance.Classes.Complex
     {
     }
 
+    [IfInjector.ImplementedBy(typeof(Complex2))]
+    public interface IComplex2
+    {
+    }
+
+    [IfInjector.ImplementedBy(typeof(Complex2))]
+    public interface IComplex3
+    {
+    }
+
     [Export(typeof(IComplex1)), PartCreationPolicy(CreationPolicy.NonShared)]
     [MEF2Attr.Export(typeof(IComplex1))]
     public class Complex1 : IComplex1
@@ -60,12 +70,11 @@ namespace IocPerformance.Classes.Complex
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
-    }
-
-    [IfInjector.ImplementedBy(typeof(Complex2))]
-    public interface IComplex2
-    {
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
     }
 
     [Export(typeof(IComplex2)), PartCreationPolicy(CreationPolicy.NonShared)]
@@ -119,13 +128,11 @@ namespace IocPerformance.Classes.Complex
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
-    }
-
-
-    [IfInjector.ImplementedBy(typeof(Complex3))]
-    public interface IComplex3
-    {
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
     }
 
     [Export(typeof(IComplex3)), PartCreationPolicy(CreationPolicy.NonShared)]
@@ -179,6 +186,10 @@ namespace IocPerformance.Classes.Complex
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
     }
 }

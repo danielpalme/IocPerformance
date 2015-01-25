@@ -21,6 +21,10 @@ namespace IocPerformance.Classes.Generics
             System.Threading.Interlocked.Increment(ref counter);
         }
 
-        public static int Instances { get { return counter; } set { counter = value; } }
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
     }
 }
