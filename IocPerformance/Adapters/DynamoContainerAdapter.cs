@@ -23,7 +23,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://www.dynamoioc.com"; }
+            get { return "http://martinf.github.io/Dynamo.IoC"; }
         }
 
         public override bool SupportsPropertyInjection
