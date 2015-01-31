@@ -325,10 +325,14 @@
     <Compile Include="Benchmarks\Advanced\07_IEnumerable_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\06_Generics_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\05_Property_Benchmark.cs" />
+    <Compile Include="Benchmarks\Advanced\11_PrepareAndRegister_Benchmark.cs" />
+    <Compile Include="Benchmarks\Advanced\12_PrepareAndRegisterAndSimpleResolve_Benchmark.cs" />
     <Compile Include="Benchmarks\Benchmark.cs" />
+    <Compile Include="Benchmarks\Result\BenchmarkInfo.cs" />
     <Compile Include="Benchmarks\BenchmarkMeasurer.cs" />
+    <Compile Include="Benchmarks\Result\ContainerAdapterInfo.cs" />
     <Compile Include="Benchmarks\SinglethreadedBenchmarkMeasurer.cs" />
-    <Compile Include="Benchmarks\BenchmarkResult.cs" />
+    <Compile Include="Benchmarks\Result\BenchmarkResult.cs" />
     <Compile Include="Benchmarks\Basic\04_Complex_Benchmark.cs" />
     <Compile Include="Benchmarks\Basic\03_Combined_Benchmark.cs" />
     <Compile Include="Benchmarks\Basic\02_Transient_Benchmark.cs" />
@@ -337,7 +341,7 @@
     <Compile Include="Benchmarks\IBenchmark.cs" />
     <Compile Include="Benchmarks\IBenchmarkMeasurer.cs" />
     <Compile Include="Benchmarks\IBenchmarkRunner.cs" />
-    <Compile Include="Benchmarks\Measurement.cs" />
+    <Compile Include="Benchmarks\Result\Measurement.cs" />
     <Compile Include="Benchmarks\MultithreadedBenchmarkMeasurer.cs" />
     <Compile Include="Caliburn.Micro\ContainerExtensions.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
@@ -392,6 +396,7 @@
     <Compile Include="Conditional\SimpleInjectorContextDependentExtensions.cs" />
     <Compile Include="ContainerAdapterFactory.cs" />
     <Compile Include="BenchmarkFactory.cs" />
+    <Compile Include="ContainerAdapterRuntime.cs" />
     <Compile Include="DryIoc\Container.cs" />
     <Compile Include="DryIoc\FactoryCompiler.cs" />
     <Compile Include="DryIoc\InternalsVisibleToDryIocFactoryCompilerDynamicAssembly.cs" />

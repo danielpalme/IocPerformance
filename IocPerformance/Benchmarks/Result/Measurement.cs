@@ -1,5 +1,7 @@
-﻿namespace IocPerformance.Benchmarks
+﻿using System;
+namespace IocPerformance.Benchmarks
 {
+    [Serializable]
     public struct Measurement
     {
         public long? Time { get; set; }

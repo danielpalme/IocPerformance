@@ -52,7 +52,12 @@ namespace IocPerformance.Adapters
 
         public override void Dispose()
         {
-            // Shutdown the container
+            // Allow the container and everything it references to be garbage collected.
+            if (this.container == null)
+            {
+                return;
+            }
+
             this.container.Shutdown();
 
             // Release container from memory
@@ -69,15 +74,36 @@ namespace IocPerformance.Adapters
             // Remove extra XAML based exports that aren't needed (MVVM classes and what not)
             this.container.RemoveXAMLExports();
 
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            this.RegisterBasic();
+
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
 
             this.container.Start();
+        }
+
+        public override void PrepareBasic()
+        {
+            this.container = new DependencyInjectionContainer();
+
+            // Register all needed types out of StyleMVVM.DotNet
+            this.container.RegisterAssembly(typeof(DependencyInjectionContainer).Assembly);
+
+            // Remove extra XAML based exports that aren't needed (MVVM classes and what not)
+            this.container.RemoveXAMLExports();
+
+            this.RegisterBasic();
+
+            this.container.Start();
+        }
+
+        private void RegisterBasic()
+        {
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterDummies()
@@ -168,14 +194,14 @@ namespace IocPerformance.Adapters
             this.container.Register<ImportConditionObject3>().As<ImportConditionObject3>().ImportDefaultConstructor();
 
             this.container.Register<ExportConditionalObject>()
-                            .As<IExportConditionInterface>()
-                            .WhenInjectedInto<ImportConditionObject1>();
+                .As<IExportConditionInterface>()
+                .WhenInjectedInto<ImportConditionObject1>();
             this.container.Register<ExportConditionalObject2>()
-                            .As<IExportConditionInterface>()
-                            .WhenInjectedInto<ImportConditionObject2>();
+                .As<IExportConditionInterface>()
+                .WhenInjectedInto<ImportConditionObject2>();
             this.container.Register<ExportConditionalObject3>()
-                            .As<IExportConditionInterface>()
-                            .WhenInjectedInto<ImportConditionObject3>();
+                .As<IExportConditionInterface>()
+                .WhenInjectedInto<ImportConditionObject3>();
         }
 
         private void RegisterMultiple()

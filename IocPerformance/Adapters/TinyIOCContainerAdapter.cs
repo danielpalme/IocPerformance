@@ -68,13 +68,18 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
+            this.PrepareBasic();            
+            this.RegisterPropertyInjection();
+            this.RegisterOpenGeneric();
+        }
+
+         public override void PrepareBasic()
+        {
             this.container = new TinyIoC.TinyIoCContainer();
 
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
-            this.RegisterPropertyInjection();
-            this.RegisterOpenGeneric();
         }
 
         private void RegisterDummies()

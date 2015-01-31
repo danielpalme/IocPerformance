@@ -22,7 +22,7 @@ namespace IocPerformance.Benchmarks
             watch.Start();
             try
             {
-                for (var i = 0; i < Benchmarks.Benchmark.LoopCount; i++)
+                for (var i = 0; i < this.Benchmark.LoopCount; i++)
                 {
                     Benchmark.MethodToBenchmark(this.Container);
 
@@ -31,15 +31,16 @@ namespace IocPerformance.Benchmarks
                     {
                         watch.Stop();
 
-                        result.Time = watch.ElapsedMilliseconds * Benchmarks.Benchmark.LoopCount / i;
+                        result.Time = watch.ElapsedMilliseconds * this.Benchmark.LoopCount / i;
 
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine(
-                            " Benchmark '{0}' (single thread) was stopped after {1:f1} minutes. {2} of {3} instances have been resolved. Total execution would have taken: {4:f1} minutes.", 
+                            BenchmarkMeasurer.TooSlowMessageFormat, 
                             Benchmark.Name, 
+                            "single thread",
                             (double)watch.ElapsedMilliseconds / (1000 * 60), 
                             i,
-                            Benchmarks.Benchmark.LoopCount, 
+                            this.Benchmark.LoopCount, 
                             (double)result.Time / (1000 * 60));
                         Console.ResetColor();
 

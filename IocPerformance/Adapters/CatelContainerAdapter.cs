@@ -58,13 +58,24 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.container = IoCFactory.CreateServiceLocator();
-            this.RegisterDummies();
-            this.RegisterStandard();
-            this.RegisterComplex();
+            this.PrepareBasic();
             this.RegisterOpenGeneric();
             this.RegisterMultiple();
             this.RegisterInterceptor();
+        }
+        
+        public override void PrepareBasic()
+        {
+            this.container = IoCFactory.CreateServiceLocator();
+
+            this.RegisterBasic();            
+        }
+
+        private void RegisterBasic()
+        {
+            this.RegisterDummies();
+            this.RegisterStandard();
+            this.RegisterComplex();
         }
 
         private void RegisterDummies()
@@ -137,24 +148,24 @@ namespace IocPerformance.Adapters
             this.container.ConfigureInterceptionForType<ICalculator1, Calculator1>()
                 .InterceptAll()
                 .OnBefore(i =>
-                    {
-                        var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
-                        Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
-                    });
+                          {
+                              var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
+                              Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
+                          });
             this.container.ConfigureInterceptionForType<ICalculator2, Calculator2>()
                 .InterceptAll()
                 .OnBefore(i =>
-                {
-                    var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
-                    Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
-                });
+                          {
+                              var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
+                              Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
+                          });
             this.container.ConfigureInterceptionForType<ICalculator3, Calculator3>()
                 .InterceptAll()
                 .OnBefore(i =>
-                {
-                    var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
-                    Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
-                });
+                          {
+                              var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
+                              Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
+                          });
         }
     }
 }

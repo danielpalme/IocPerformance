@@ -64,6 +64,11 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be garbage collected.
+            if (this.container == null)
+            {
+                return;
+            }
+
             this.container.Dispose();
             this.container = null;
         }
@@ -78,15 +83,29 @@ namespace IocPerformance.Adapters
             var pg = new Castle.DynamicProxy.ProxyGenerator();
 
             this.container = new Container(r =>
-            {
-                RegisterDummies(r);
-                RegisterStandard(r);
-                RegisterComplex(r);
-                RegisterPropertyInjection(r);
-                RegisterGeneric(r);
-                RegisterMultiple(r);
-                RegisterInterceptor(r, pg);
-            });
+                                           {
+                                               RegisterBasic(r);
+
+                                               RegisterPropertyInjection(r);
+                                               RegisterGeneric(r);
+                                               RegisterMultiple(r);
+                                               RegisterInterceptor(r, pg);
+                                           });
+        }
+
+        public override void PrepareBasic()
+        {
+            this.container = new Container(r =>
+                                           {
+                                               RegisterBasic(r);
+                                           });
+        }
+
+        private static void RegisterBasic(ConfigurationExpression r)
+        {
+            RegisterDummies(r);
+            RegisterStandard(r);
+            RegisterComplex(r);
         }
 
         private static void RegisterDummies(ConfigurationExpression r)
@@ -215,12 +234,12 @@ namespace IocPerformance.Adapters
         public void Prepare()
         {
             this.container.Configure(c =>
-            {
-                c.For<ICombined1>().Use<ScopedCombined1>();
-                c.For<ICombined2>().Use<ScopedCombined2>();
-                c.For<ICombined3>().Use<ScopedCombined3>();
-                c.For<ITransient1>().Use<ScopedTransient>();
-            });
+                                     {
+                                         c.For<ICombined1>().Use<ScopedCombined1>();
+                                         c.For<ICombined2>().Use<ScopedCombined2>();
+                                         c.For<ICombined3>().Use<ScopedCombined3>();
+                                         c.For<ITransient1>().Use<ScopedTransient>();
+                                     });
         }
 
         public object Resolve(Type resolveType)

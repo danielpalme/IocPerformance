@@ -45,12 +45,17 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
+            this.PrepareBasic();            
+            this.RegisterPropertyInjection();
+        }
+
+        public override void PrepareBasic()
+        {
             this.container = new IocContainer();
 
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
-            this.RegisterPropertyInjection();
         }
 
         private void RegisterDummies()
@@ -103,40 +108,40 @@ namespace IocPerformance.Adapters
                 .WithLifetimeManager(new AlwaysNewLifetime());
 
             this.container.Register<ISubObjectB>(x => new SubObjectB { ServiceB = x.Resolve<IServiceB>() })
-                 .WithLifetimeManager(new AlwaysNewLifetime());
+                .WithLifetimeManager(new AlwaysNewLifetime());
 
             this.container.Register<ISubObjectC>(x => new SubObjectC { ServiceC = x.Resolve<IServiceC>() })
                 .WithLifetimeManager(new AlwaysNewLifetime());
 
             this.container.Register<IComplexPropertyObject1>(x => new ComplexPropertyObject1
-            {
-                ServiceA = x.Resolve<IServiceA>(),
-                ServiceB = x.Resolve<IServiceB>(),
-                ServiceC = x.Resolve<IServiceC>(),
-                SubObjectA = x.Resolve<ISubObjectA>(),
-                SubObjectB = x.Resolve<ISubObjectB>(),
-                SubObjectC = x.Resolve<ISubObjectC>()
-            }).WithLifetimeManager(new AlwaysNewLifetime());
+                                                             {
+                                                                 ServiceA = x.Resolve<IServiceA>(),
+                                                                 ServiceB = x.Resolve<IServiceB>(),
+                                                                 ServiceC = x.Resolve<IServiceC>(),
+                                                                 SubObjectA = x.Resolve<ISubObjectA>(),
+                                                                 SubObjectB = x.Resolve<ISubObjectB>(),
+                                                                 SubObjectC = x.Resolve<ISubObjectC>()
+                                                             }).WithLifetimeManager(new AlwaysNewLifetime());
 
             this.container.Register<IComplexPropertyObject2>(x => new ComplexPropertyObject2
-            {
-                ServiceA = x.Resolve<IServiceA>(),
-                ServiceB = x.Resolve<IServiceB>(),
-                ServiceC = x.Resolve<IServiceC>(),
-                SubObjectA = x.Resolve<ISubObjectA>(),
-                SubObjectB = x.Resolve<ISubObjectB>(),
-                SubObjectC = x.Resolve<ISubObjectC>()
-            }).WithLifetimeManager(new AlwaysNewLifetime());
+                                                             {
+                                                                 ServiceA = x.Resolve<IServiceA>(),
+                                                                 ServiceB = x.Resolve<IServiceB>(),
+                                                                 ServiceC = x.Resolve<IServiceC>(),
+                                                                 SubObjectA = x.Resolve<ISubObjectA>(),
+                                                                 SubObjectB = x.Resolve<ISubObjectB>(),
+                                                                 SubObjectC = x.Resolve<ISubObjectC>()
+                                                             }).WithLifetimeManager(new AlwaysNewLifetime());
 
             this.container.Register<IComplexPropertyObject3>(x => new ComplexPropertyObject3
-            {
-                ServiceA = x.Resolve<IServiceA>(),
-                ServiceB = x.Resolve<IServiceB>(),
-                ServiceC = x.Resolve<IServiceC>(),
-                SubObjectA = x.Resolve<ISubObjectA>(),
-                SubObjectB = x.Resolve<ISubObjectB>(),
-                SubObjectC = x.Resolve<ISubObjectC>()
-            }).WithLifetimeManager(new AlwaysNewLifetime());
+                                                             {
+                                                                 ServiceA = x.Resolve<IServiceA>(),
+                                                                 ServiceB = x.Resolve<IServiceB>(),
+                                                                 ServiceC = x.Resolve<IServiceC>(),
+                                                                 SubObjectA = x.Resolve<ISubObjectA>(),
+                                                                 SubObjectB = x.Resolve<ISubObjectB>(),
+                                                                 SubObjectC = x.Resolve<ISubObjectC>()
+                                                             }).WithLifetimeManager(new AlwaysNewLifetime());
         }
     }
 }

@@ -34,15 +34,15 @@ namespace IocPerformance.Output
 
                     writer.WriteLine();
 
-                    foreach (var container in benchmarkResults.Select(r => r.Container).Distinct())
+                    foreach (var container in benchmarkResults.Select(r => r.ContainerInfo).Distinct())
                     {
                         writer.Write("{0},{1}", container.Name, container.Version);
 
                         foreach (var benchmark in benchmarks)
                         {
-                            var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
-                            var time = resultsOfBenchmark.First(r => r.Container == container).SingleThreadedResult.Time;
-                            var basetime = resultsOfBenchmark.First(r => r.Container.GetType().Equals(typeof(NoContainerAdapter))).SingleThreadedResult.Time;
+                            var resultsOfBenchmark = benchmarkResults.Where(r => r.BenchmarkInfo.Name == benchmark.Name);
+                            var time = resultsOfBenchmark.First(r => r.ContainerInfo.Name == container.Name).SingleThreadedResult.Time;
+                            var basetime = resultsOfBenchmark.First(r => r.ContainerInfo.Name == "No").SingleThreadedResult.Time;
 
                             writer.Write(
                                 ",{0}",
@@ -64,15 +64,15 @@ namespace IocPerformance.Output
 
                     writer.WriteLine();
 
-                    foreach (var container in benchmarkResults.Select(r => r.Container).Distinct())
+                    foreach (var container in benchmarkResults.Select(r => r.ContainerInfo).Distinct())
                     {
                         writer.Write("{0},{1}", container.Name, container.Version);
 
                         foreach (var benchmark in benchmarks)
                         {
-                            var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
-                            var multithreadedTime = resultsOfBenchmark.First(r => r.Container == container).MultiThreadedResult.Time;
-                            var basetime = resultsOfBenchmark.First(r => r.Container.GetType().Equals(typeof(NoContainerAdapter))).MultiThreadedResult.Time;
+                            var resultsOfBenchmark = benchmarkResults.Where(r => r.BenchmarkInfo.Name == benchmark.Name);
+                            var multithreadedTime = resultsOfBenchmark.First(r => r.ContainerInfo.Name == container.Name).MultiThreadedResult.Time;
+                            var basetime = resultsOfBenchmark.First(r => r.ContainerInfo.Name == "No").MultiThreadedResult.Time;
 
                             writer.Write(
                                 ",{0}",

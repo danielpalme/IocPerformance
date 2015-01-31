@@ -41,13 +41,25 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             var map = new DependencyMap();
-
-            RegisterDummies(map);
-            RegisterStandard(map);
-            RegisterComplex(map);
+            RegisterBasic(map);
+            
             RegisterPropertyInjection(map);
 
             this.container = map.CreateContainer();
+        }
+        
+        public override void PrepareBasic()
+        {
+            var map = new DependencyMap();
+            RegisterBasic(map);  
+            this.container = map.CreateContainer();
+        }
+
+        private static void RegisterBasic(DependencyMap map)
+        {
+            RegisterDummies(map);
+            RegisterStandard(map);
+            RegisterComplex(map);
         }
 
         private static void RegisterDummies(DependencyMap map)

@@ -17,7 +17,7 @@ namespace IocPerformance.Output
 
             var doc = new XDocument(new XElement("Containers"));
 
-            foreach (var container in benchmarkResults.Select(r => r.Container).Distinct())
+            foreach (var container in benchmarkResults.Select(r => r.ContainerInfo).Distinct())
             {
                 XElement containerElement = new XElement(
                     "Container",
@@ -26,8 +26,8 @@ namespace IocPerformance.Output
 
                 foreach (var benchmark in benchmarks)
                 {
-                    var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
-                    var containerResult = resultsOfBenchmark.First(r => r.Container == container);
+                    var resultsOfBenchmark = benchmarkResults.Where(r => r.BenchmarkInfo.Name == benchmark.Name);
+                    var containerResult = resultsOfBenchmark.First(r => r.ContainerInfo.Name == container.Name);
 
                     containerElement.Add(new XElement(
                         "Benchmark",

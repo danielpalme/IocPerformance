@@ -54,14 +54,29 @@ namespace IocPerformance.Adapters
         {
             var builder = new ContainerBuilder();
 
-            RegisterDummies(builder);
-            RegisterStandard(builder);
-            RegisterComplex(builder);
+            RegisterBasic(builder);
+            
             RegisterPropertyInjection(builder);
             RegisterOpenGeneric(builder);
             RegisterMultiple(builder);
 
             this.container = builder.Build();
+        }
+
+        public override void PrepareBasic()
+        {
+            var builder = new ContainerBuilder();
+
+            RegisterBasic(builder);
+
+            this.container = builder.Build();
+        }
+
+        private static void RegisterBasic(ContainerBuilder builder)
+        {
+            RegisterDummies(builder);
+            RegisterStandard(builder);
+            RegisterComplex(builder);
         }
 
         private static void RegisterDummies(ContainerBuilder builder)
@@ -111,41 +126,41 @@ namespace IocPerformance.Adapters
             builder.Register<IServiceC, ServiceC>().ControlledBy<SingletonLifecycle>();
 
             builder.Register<ISubObjectA>(x => new SubObjectA { ServiceA = x.Resolve<IServiceA>() })
-                   .ControlledBy<TransientLifecycle>();
+                .ControlledBy<TransientLifecycle>();
             builder.Register<ISubObjectB>(x => new SubObjectB { ServiceB = x.Resolve<IServiceB>() })
-                     .ControlledBy<TransientLifecycle>();
+                .ControlledBy<TransientLifecycle>();
             builder.Register<ISubObjectC>(x => new SubObjectC { ServiceC = x.Resolve<IServiceC>() })
-                     .ControlledBy<TransientLifecycle>();
+                .ControlledBy<TransientLifecycle>();
 
             builder.Register<IComplexPropertyObject1>(x => new ComplexPropertyObject1
-            {
-                ServiceA = x.Resolve<IServiceA>(),
-                ServiceB = x.Resolve<IServiceB>(),
-                ServiceC = x.Resolve<IServiceC>(),
-                SubObjectA = x.Resolve<ISubObjectA>(),
-                SubObjectB = x.Resolve<ISubObjectB>(),
-                SubObjectC = x.Resolve<ISubObjectC>()
-            }).ControlledBy<TransientLifecycle>();
+                                                      {
+                                                          ServiceA = x.Resolve<IServiceA>(),
+                                                          ServiceB = x.Resolve<IServiceB>(),
+                                                          ServiceC = x.Resolve<IServiceC>(),
+                                                          SubObjectA = x.Resolve<ISubObjectA>(),
+                                                          SubObjectB = x.Resolve<ISubObjectB>(),
+                                                          SubObjectC = x.Resolve<ISubObjectC>()
+                                                      }).ControlledBy<TransientLifecycle>();
 
             builder.Register<IComplexPropertyObject2>(x => new ComplexPropertyObject2
-            {
-                ServiceA = x.Resolve<IServiceA>(),
-                ServiceB = x.Resolve<IServiceB>(),
-                ServiceC = x.Resolve<IServiceC>(),
-                SubObjectA = x.Resolve<ISubObjectA>(),
-                SubObjectB = x.Resolve<ISubObjectB>(),
-                SubObjectC = x.Resolve<ISubObjectC>()
-            }).ControlledBy<TransientLifecycle>();
+                                                      {
+                                                          ServiceA = x.Resolve<IServiceA>(),
+                                                          ServiceB = x.Resolve<IServiceB>(),
+                                                          ServiceC = x.Resolve<IServiceC>(),
+                                                          SubObjectA = x.Resolve<ISubObjectA>(),
+                                                          SubObjectB = x.Resolve<ISubObjectB>(),
+                                                          SubObjectC = x.Resolve<ISubObjectC>()
+                                                      }).ControlledBy<TransientLifecycle>();
 
             builder.Register<IComplexPropertyObject3>(x => new ComplexPropertyObject3
-            {
-                ServiceA = x.Resolve<IServiceA>(),
-                ServiceB = x.Resolve<IServiceB>(),
-                ServiceC = x.Resolve<IServiceC>(),
-                SubObjectA = x.Resolve<ISubObjectA>(),
-                SubObjectB = x.Resolve<ISubObjectB>(),
-                SubObjectC = x.Resolve<ISubObjectC>()
-            }).ControlledBy<TransientLifecycle>();
+                                                      {
+                                                          ServiceA = x.Resolve<IServiceA>(),
+                                                          ServiceB = x.Resolve<IServiceB>(),
+                                                          ServiceC = x.Resolve<IServiceC>(),
+                                                          SubObjectA = x.Resolve<ISubObjectA>(),
+                                                          SubObjectB = x.Resolve<ISubObjectB>(),
+                                                          SubObjectC = x.Resolve<ISubObjectC>()
+                                                      }).ControlledBy<TransientLifecycle>();
         }
 
         private static void RegisterOpenGeneric(ContainerBuilder builder)

@@ -12,7 +12,15 @@ namespace IocPerformance.Benchmarks
 {
     public abstract class Benchmark : IBenchmark
     {
-        public const int LoopCount = 500 * 1000;
+        public virtual int LoopCount
+        {
+            get { return 500 * 1000; }
+        }
+
+        public virtual ThreadingCases Threading
+        {
+            get { return ThreadingCases.Single | ThreadingCases.Multi; }
+        }
 
         public string Name
         {
@@ -48,7 +56,11 @@ namespace IocPerformance.Benchmarks
         public virtual void Warmup(IContainerAdapter container)
         {
             this.MethodToBenchmark(container);
+            this.ZeroCounters();
+        }
 
+        protected void ZeroCounters()
+        {
             ScopedCombined1.Instances = 0;
             ScopedCombined2.Instances = 0;
             ScopedCombined3.Instances = 0;

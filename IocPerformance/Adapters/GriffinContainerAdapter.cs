@@ -65,9 +65,8 @@ namespace IocPerformance.Adapters
         {
             var registrar = new ContainerRegistrar();
 
-            RegisterDummies(registrar);
-            RegisterStandard(registrar);
-            RegisterComplex(registrar);
+            RegisterBasic(registrar);
+            
             RegisterPropertyInjection(registrar);
 
             this.container = registrar.Build();
@@ -80,6 +79,22 @@ namespace IocPerformance.Adapters
             var containerWithLoggingInterception = registrar.Build();
             containerWithLoggingInterception.AddDecorator(new GriffinLoggingDecorator());
             this.containerWithLoggingInterception = containerWithLoggingInterception;
+        }
+        
+        public override void PrepareBasic()
+        {
+            var registrar = new ContainerRegistrar();
+
+            RegisterBasic(registrar);
+
+            this.container = registrar.Build();
+        }
+
+        private static void RegisterBasic(ContainerRegistrar registrar)
+        {
+            RegisterDummies(registrar);
+            RegisterStandard(registrar);
+            RegisterComplex(registrar);
         }
 
         private static void RegisterDummies(ContainerRegistrar registrar)

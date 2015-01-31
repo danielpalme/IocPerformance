@@ -29,11 +29,11 @@ namespace IocPerformance.Benchmarks.Advanced
                 return;
             }
 
-            if (Calculator1.Instances != Benchmark.LoopCount
-                || Calculator2.Instances != Benchmark.LoopCount
-                || Calculator3.Instances != Benchmark.LoopCount)
+            if (Calculator1.Instances != this.LoopCount
+                || Calculator2.Instances != this.LoopCount
+                || Calculator3.Instances != this.LoopCount)
             {
-                throw new Exception(string.Format("Calculator count must be {0}", Benchmark.LoopCount));
+                throw new Exception(string.Format("Calculator count must be {0}", this.LoopCount));
             }
         }
     }
