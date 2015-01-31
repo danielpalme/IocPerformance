@@ -26,16 +26,16 @@ namespace IocPerformance.Output
 
             foreach (var benchmark in benchmarks)
             {
-                var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
+                var resultsOfBenchmark = benchmarkResults.Where(r => r.BenchmarkInfo.Name == benchmark.Name);
 
                 CreateBenchmarkChart(
                     benchmark.Name,
                     string.Format("output\\{0:00}-{1}.png", ++counter, benchmark.Name),
                     resultsOfBenchmark
                         .Where(r => r.SingleThreadedResult.Time.HasValue)
-                        .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
+                        .Where(r => r.ContainerInfo.Name != "No")
                         .OrderByDescending(r => r.SingleThreadedResult.Time.Value)
-                        .Concat(resultsOfBenchmark.Where(r => r.Container.GetType().Equals(typeof(NoContainerAdapter))))
+                        .Concat(resultsOfBenchmark.Where(r => r.ContainerInfo.Name == "No"))
                         .Select(r => r));
             }
 
@@ -56,7 +56,7 @@ namespace IocPerformance.Output
 
         private static void CreateOverviewChart(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string type, long minTime, long maxTime)
         {
-            benchmarkResults = benchmarkResults.Where(b => b.Benchmark.GetType().FullName.Contains(type)).ToArray();
+            benchmarkResults = benchmarkResults.Where(b => b.BenchmarkInfo.FullName.Contains(type)).ToArray();
             benchmarks = benchmarks.Where(b => b.GetType().FullName.Contains(type)).ToArray();
 
             Chart chart = new Chart()
@@ -98,24 +98,24 @@ namespace IocPerformance.Output
             }
 
             var containers = benchmarkResults
-                .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
-                .Select(r => r.Container)
+                .Where(r => r.ContainerInfo.Name != "No")
+                .Select(r => r.ContainerInfo)
                 .Distinct()
                 .Select(c => new
                     {
                         Container = c,
-                        TotalTime = benchmarkResults.Where(b => b.Container == c).Sum(b => b.SingleThreadedResult.Time)
+                        TotalTime = benchmarkResults.Where(b => b.ContainerInfo.Name == c.Name).Sum(b => b.SingleThreadedResult.Time)
                     })
                 .Where(r => r.TotalTime.HasValue && r.TotalTime.Value <= maxTime && r.TotalTime.Value > minTime)
                 .OrderByDescending(r => r.TotalTime.Value)
                 .Select(r => r.Container)
-                .Concat(benchmarkResults.Where(r => r.Container.GetType().Equals(typeof(NoContainerAdapter))).Select(r => r.Container).Distinct());
+                .Concat(benchmarkResults.Where(r => r.ContainerInfo.Name == "No").Select(r => r.ContainerInfo).Distinct());
 
             foreach (var container in containers)
             {
                 foreach (var benchmark in benchmarks)
                 {
-                    var time = benchmarkResults.First(r => r.Benchmark == benchmark && r.Container == container).SingleThreadedResult.Time;
+                    var time = benchmarkResults.First(r => r.BenchmarkInfo.Name == benchmark.Name && r.ContainerInfo.Name == container.Name).SingleThreadedResult.Time;
 
                     chart.Series[benchmark.Name].Points.AddXY(container.Name, time.GetValueOrDefault());
                 }
@@ -167,9 +167,9 @@ namespace IocPerformance.Output
                 // sometimes during development loop is made very short to run fast check
                 // logarithmic unplotted 0 is produced and replaced with 1 
                 var singleThreadedValue = result.SingleThreadedResult.Time.GetValueOrDefault(1);
-                chart.Series["Single thread"].Points.AddXY(result.Container.Name, singleThreadedValue == 0 ? 1 : singleThreadedValue);
+                chart.Series["Single thread"].Points.AddXY(result.ContainerInfo.Name, singleThreadedValue == 0 ? 1 : singleThreadedValue);
                 var multiThreadedValue = result.MultiThreadedResult.Time.GetValueOrDefault(1);
-                chart.Series["Multiple threads"].Points.AddXY(result.Container.Name, multiThreadedValue == 0 ? 1 : multiThreadedValue);
+                chart.Series["Multiple threads"].Points.AddXY(result.ContainerInfo.Name, multiThreadedValue == 0 ? 1 : multiThreadedValue);
             }
 
             chart.SaveImage(filename, ChartImageFormat.Png);

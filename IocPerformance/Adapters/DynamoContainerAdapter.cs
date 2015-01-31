@@ -23,7 +23,7 @@ namespace IocPerformance.Adapters
 
         public override string Url
         {
-            get { return "http://www.dynamoioc.com"; }
+            get { return "http://martinf.github.io/Dynamo.IoC"; }
         }
 
         public override bool SupportsPropertyInjection
@@ -47,17 +47,18 @@ namespace IocPerformance.Adapters
             this.container = new IocContainer(defaultCompileMode: CompileMode.Dynamic);
 
             this.RegisterBasic();
-            
+
             this.RegisterPropertyInjection();
             this.container.Compile();
         }
-        
+
         public override void PrepareBasic()
         {
-            this.container = new IocContainer(defaultCompileMode: CompileMode.Dynamic);
+            // Use CompileMode.Delegate here, otherwise OutOfMemoryException will get thrown
+            this.container = new IocContainer(defaultCompileMode: CompileMode.Delegate);
 
             this.RegisterBasic();
-            
+
             this.container.Compile();
         }
 

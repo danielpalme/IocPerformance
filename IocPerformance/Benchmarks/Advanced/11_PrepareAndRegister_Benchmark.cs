@@ -8,7 +8,6 @@ namespace IocPerformance.Benchmarks.Advanced
     /// Does not tests first resolution time, so lazy containers will win here.
     /// Some containers are not thread safe or do not allow several instances of same type for registration and throw error in multi threaded case, some just silent about this.
     /// </summary>
-    // TODO: isolate this task with AppDomain cause most containers compile code and lead memery to bloat with each tests
     public class PrepareAndRegister_11_Benchmark : Benchmark
     {
         public override ThreadingCases Threading

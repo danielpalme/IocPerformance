@@ -59,7 +59,7 @@ namespace IocPerformance.Adapters
         {
             get { return true; }
         }
-        
+
         public override bool SupportsBasic
         {
             get { return true; }
@@ -83,13 +83,13 @@ namespace IocPerformance.Adapters
             this.RegisterMultiple();
             this.RegisterInterceptor();
         }
-        
+
         public override void PrepareBasic()
         {
             this.RegisterDummies();
             this.RegisterStandard();
             this.RegisterComplex();
-        }        
+        }
 
         public override IChildContainerAdapter CreateChildContainerAdapter()
         {
