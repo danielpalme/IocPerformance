@@ -19,7 +19,7 @@ namespace IocPerformance.Benchmarks
 
         public virtual ThreadingCases Threading
         {
-            get { return ThreadingCases.Single | ThreadingCases.Multi; } 
+            get { return ThreadingCases.Single | ThreadingCases.Multi; }
         }
 
         public string Name

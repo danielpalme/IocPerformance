@@ -28,24 +28,24 @@ namespace IocPerformance.Output
 
                     writer.WriteLine("</tr>");
 
-                    foreach (var container in benchmarkResults.Select(r => r.Container).Distinct())
+                    foreach (var container in benchmarkResults.Select(r => r.ContainerInfo).Distinct())
                     {
                         writer.Write("<tr>");
                         writer.Write("<th>{0}</th>", GetName(container));
 
                         foreach (var benchmark in benchmarks)
                         {
-                            var resultsOfBenchmark = benchmarkResults.Where(r => r.Benchmark == benchmark);
-                            var containerResult = resultsOfBenchmark.First(r => r.Container == container);
+                            var resultsOfBenchmark = benchmarkResults.Where(r => r.BenchmarkInfo.Name == benchmark.Name);
+                            var containerResult = resultsOfBenchmark.First(r => r.ContainerInfo.Name == container.Name);
 
                             string emphasisTime = containerResult.SingleThreadedResult.Time.HasValue
                                 && resultsOfBenchmark
-                                    .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
+                                    .Where(r => r.ContainerInfo.Name != "No")
                                     .Min(r => r.SingleThreadedResult.Time) == containerResult.SingleThreadedResult.Time ? " style=\"font-weight:bold;\"" : string.Empty;
 
                             string emphasisMultithreadedTime = containerResult.MultiThreadedResult.Time.HasValue
                                 && resultsOfBenchmark
-                                    .Where(r => !r.Container.GetType().Equals(typeof(NoContainerAdapter)))
+                                    .Where(r =>  r.ContainerInfo.Name != "No")
                                     .Min(r => r.MultiThreadedResult.Time) == containerResult.MultiThreadedResult.Time ? " style=\"font-weight:bold;\"" : string.Empty;
 
                             writer.Write(
@@ -62,7 +62,7 @@ namespace IocPerformance.Output
             }
         }
 
-        private static string GetName(IContainerAdapter container)
+        private static string GetName(ContainerAdapterInfo container)
         {
             string name = string.Format(
                 "{0}{1}{2}",

@@ -23,41 +23,47 @@ namespace IocPerformance
 
             foreach (var container in containers)
             {
-                var containerBenchmarkResults = new List<BenchmarkResult>();
+                AppDomain childDomain = null;
 
-                Console.WriteLine(
-                    "{0} {1}{2} {3,10} {4,10}",
-                    container.Name,
-                    container.Version,
-                    new string(' ', benchmarks.Select(b => b.Name.Length).OrderByDescending(n => n).First() - container.Name.Length - container.Version.Length),
-                    "Single",
-                    "Multi");
-
-                container.Prepare();
-
-                foreach (var benchmark in benchmarks)
+                try
                 {
-                    var benchmarkResult = existingBenchmarkResults.SingleOrDefault(b => b.Container == container && b.Benchmark == benchmark);
-
-                    if (benchmarkResult == null)
+                    AppDomainSetup domainSetup = new AppDomainSetup()
                     {
-                        benchmarkResult = new BenchmarkRunner(container, benchmark).Run();
+                        ApplicationBase = AppDomain.CurrentDomain.SetupInformation.ApplicationBase,
+                        ConfigurationFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile,
+                        ApplicationName = AppDomain.CurrentDomain.SetupInformation.ApplicationName,
+                        LoaderOptimization = LoaderOptimization.MultiDomainHost
+                    };
+
+                    childDomain = AppDomain.CreateDomain("AppDomain for " + container.Name, null, domainSetup);
+
+                    ContainerAdapterRuntime runtime = (ContainerAdapterRuntime)childDomain.CreateInstanceAndUnwrap(
+                        typeof(ContainerAdapterRuntime).Assembly.FullName,
+                        typeof(ContainerAdapterRuntime).FullName);
+
+                    var containerBenchmarkResults = runtime.Run(container.GetType(), existingBenchmarkResults);
+                    benchmarkResults.AddRange(containerBenchmarkResults);
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(
+                        " Container '{0}' failed: {1}",
+                        container.Name,
+                        ex.Message);
+                    Console.ResetColor();
+                }
+                finally
+                {
+                    if (childDomain != null)
+                    {
+                        AppDomain.Unload(childDomain);
                     }
 
-                    containerBenchmarkResults.Add(benchmarkResult);
-
-                    Console.WriteLine(
-                        " {0}{1} {2,10} {3,10}",
-                        benchmarkResult.Benchmark.Name,
-                        new string(' ', benchmarks.Select(b => b.Name.Length).OrderByDescending(n => n).First() - benchmarkResult.Benchmark.Name.Length),
-                        benchmarkResult.SingleThreadedResult,
-                        benchmarkResult.MultiThreadedResult);
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    GC.Collect();
                 }
-
-                container.Dispose();
-
-                // All benchmarks of container have completed, now 'commit' results
-                benchmarkResults.AddRange(containerBenchmarkResults);
 
                 Console.WriteLine();
             }
