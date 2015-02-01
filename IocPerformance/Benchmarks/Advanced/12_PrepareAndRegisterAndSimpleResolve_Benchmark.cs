@@ -1,4 +1,5 @@
-﻿using IocPerformance.Adapters;
+﻿using System;
+using IocPerformance.Adapters;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Standard;
 
@@ -24,6 +25,15 @@ namespace IocPerformance.Benchmarks.Advanced
             base.MethodToBenchmark(container);
             container.Resolve(typeof(IDummyOne));
             container.Resolve(typeof(ISingleton1));
+            container.Dispose();
+        }
+
+        public override void Verify(Adapters.IContainerAdapter container)
+        {
+            if (Singleton1.Instances != this.LoopCount)
+            {
+                throw new Exception(string.Format("Singleton1 count must be {0}", this.LoopCount));
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
@@ -13,6 +15,11 @@ namespace IocPerformance.Output
             if (!Directory.Exists("output"))
             {
                 Directory.CreateDirectory("output");
+            }
+
+            if (File.Exists("output\\result.xml"))
+            {
+                File.Copy("output\\result.xml", "result_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss", CultureInfo.InvariantCulture) + "xml");
             }
 
             var doc = new XDocument(new XElement("Containers"));
