@@ -39,6 +39,7 @@ namespace IocPerformance.Benchmarks.Advanced
         public override void MethodToBenchmark(IContainerAdapter container)
         {
             container.PrepareBasic();
+            container.Dispose();
         }
 
         public override void Verify(IContainerAdapter container)
