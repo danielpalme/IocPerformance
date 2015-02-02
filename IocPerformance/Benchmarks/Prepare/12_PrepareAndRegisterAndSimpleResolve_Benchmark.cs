@@ -3,7 +3,7 @@ using IocPerformance.Adapters;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Standard;
 
-namespace IocPerformance.Benchmarks.Advanced
+namespace IocPerformance.Benchmarks.Prepare
 {
     /// <summary>
     /// Does same as base class, but does 2 simplest resolutions to ensure lazy containers workout.

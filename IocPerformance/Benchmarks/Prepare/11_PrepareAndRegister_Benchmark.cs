@@ -1,6 +1,6 @@
 ﻿using IocPerformance.Adapters;
 
-namespace IocPerformance.Benchmarks.Advanced
+namespace IocPerformance.Benchmarks.Prepare
 {
     /// <summary>
     /// Tests time needed to prepare container to allow resolve methods to be called.
