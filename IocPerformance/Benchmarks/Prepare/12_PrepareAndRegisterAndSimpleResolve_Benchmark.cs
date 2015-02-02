@@ -22,7 +22,7 @@ namespace IocPerformance.Benchmarks.Prepare
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {
-            base.MethodToBenchmark(container);
+            container.PrepareBasic();
             container.Resolve(typeof(IDummyOne));
             container.Resolve(typeof(ISingleton1));
             container.Dispose();
