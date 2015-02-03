@@ -1,6 +1,8 @@
 ﻿using System;
 using IfInjector;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 
 namespace IocPerformance.Adapters
 {
@@ -57,6 +59,11 @@ namespace IocPerformance.Adapters
             this.injector.Register(Binding.For<IDummyEight>().To<DummyEight>());
             this.injector.Register(Binding.For<IDummyNine>().To<DummyNine>());
             this.injector.Register(Binding.For<IDummyTen>().To<DummyTen>());
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            throw new NotImplementedException();
         }
     }
 }

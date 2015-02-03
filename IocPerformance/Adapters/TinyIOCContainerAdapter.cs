@@ -1,7 +1,9 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
@@ -167,6 +169,16 @@ namespace IocPerformance.Adapters
         {
             this.container.Register(typeof(IGenericInterface<>), typeof(GenericExport<>));
             this.container.Register(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new TinyIoCContainer();
+            foreach (var service in services)
+            {
+                tmpContainer.Register(service.Interface, service.Implementation);
+            }
+            tmpContainer.Resolve(services[0].Interface);
         }
     }
 

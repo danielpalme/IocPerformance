@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using Autofac;
 using Autofac.Extras.DynamicProxy2;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -67,6 +69,19 @@ namespace IocPerformance.Adapters
             // Allow the container and everything it references to be garbage collected.
             this.container.Dispose();
             this.container = null;
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var autofacContainerBuilder = new ContainerBuilder();
+
+            foreach (var service in services)
+            {
+                autofacContainerBuilder.RegisterType(service.Implementation).As(service.Interface);
+            }
+
+            var tmpContainer = autofacContainerBuilder.Build();
+            tmpContainer.Resolve(services[0].Interface);
         }
 
         public override void Prepare()

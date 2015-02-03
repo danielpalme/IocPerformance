@@ -1,6 +1,8 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using Munq;
@@ -137,6 +139,16 @@ namespace IocPerformance.Adapters
                 SubObjectB = x.Resolve<ISubObjectB>(),
                 SubObjectC = x.Resolve<ISubObjectC>()
             }).WithLifetimeManager(new AlwaysNewLifetime());
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new IocContainer();
+            foreach (var service in services)
+            {
+                tmpContainer.Register(service.Interface, service.Implementation);
+            }
+            tmpContainer.Resolve(services[0].Interface);
         }
     }
 }

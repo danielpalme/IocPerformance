@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Composition.Hosting;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -142,6 +144,19 @@ namespace IocPerformance.Adapters
                 typeof(DummyEight),
                 typeof(DummyNine),
                 typeof(DummyTen));
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var config = new ContainerConfiguration();
+
+            foreach (var service in services)
+            {
+                config.WithPart(service.Implementation);
+            }
+
+            var tmpContainer = config.CreateContainer();
+            tmpContainer.GetExport(services[0].Interface);
         }
     }
 }

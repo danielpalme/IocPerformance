@@ -1,7 +1,9 @@
 ﻿using System;
 using Griffin.Container;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
@@ -164,6 +166,19 @@ namespace IocPerformance.Adapters
                     SubObjectC = x.Resolve<ISubObjectC>()
                 },
                 Lifetime.Transient);
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var registrar = new ContainerRegistrar();
+
+            foreach (var service in services)
+            {
+                registrar.RegisterType(service.Interface, service.Implementation);
+            }
+
+            var tmpContainer = registrar.Build();
+            tmpContainer.Resolve(services[0].Interface);
         }
     }
 }

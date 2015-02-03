@@ -25,11 +25,11 @@ namespace IocPerformance.Benchmarks.Advanced
                 return;
             }
 
-            if (ImportConditionObject1.Instances != Benchmark.LoopCount
-                || ImportConditionObject2.Instances != Benchmark.LoopCount
-                || ImportConditionObject3.Instances != Benchmark.LoopCount)
+            if (ImportConditionObject1.Instances != LoopCount
+                || ImportConditionObject2.Instances != LoopCount
+                || ImportConditionObject3.Instances != LoopCount)
             {
-                throw new Exception(string.Format("ImportConditionObject count must be {0}", Benchmark.LoopCount));
+                throw new Exception(string.Format("ImportConditionObject count must be {0}", LoopCount));
             }
         }
     }

@@ -15,18 +15,18 @@ namespace IocPerformance.Benchmarks.Basic
 
         public override void Verify(Adapters.IContainerAdapter container)
         {
-            if (Combined1.Instances != Benchmark.LoopCount
-                || Combined2.Instances != Benchmark.LoopCount
-                || Combined3.Instances != Benchmark.LoopCount)
+            if (Combined1.Instances != LoopCount
+                || Combined2.Instances != LoopCount
+                || Combined3.Instances != LoopCount)
             {
-                throw new Exception(string.Format("Combined count must be {0}", Benchmark.LoopCount));
+                throw new Exception(string.Format("Combined count must be {0}", LoopCount));
             }
 
-            if (Transient1.Instances != Benchmark.LoopCount
-                || Transient2.Instances != Benchmark.LoopCount
-                || Transient3.Instances != Benchmark.LoopCount)
+            if (Transient1.Instances != LoopCount
+                || Transient2.Instances != LoopCount
+                || Transient3.Instances != LoopCount)
             {
-                throw new Exception(string.Format("Transient count must be {0}", Benchmark.LoopCount));
+                throw new Exception(string.Format("Transient count must be {0}", LoopCount));
             }
 
             if (Singleton1.Instances > 1 || Singleton2.Instances > 1 || Singleton2.Instances > 1)

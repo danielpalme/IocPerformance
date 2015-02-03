@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Castle.MicroKernel;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -77,6 +82,42 @@ namespace IocPerformance.Adapters
 
             return new WindsorChildContainerAdapter(childContainer);
         }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new WindsorContainer();
+            var registrations = new List<IRegistration>();
+
+            registrations.AddRange(services.Select(s => (IRegistration)Component.For(s.Interface).ImplementedBy(s.Implementation)));
+
+            tmpContainer.Register(registrations.ToArray()); // Install at once due to performance!
+
+            //test
+            var o = tmpContainer.Resolve(services[0].Interface);
+        }
+
+        public override void RegisterMultiTenant(InterfaceAndImplemtation[] services, int numberOfTenants)
+        {
+            var tmpContainer = new WindsorContainer();
+
+
+            var registrations = new List<IRegistration>();
+
+            for (int i = 0; i < numberOfTenants; i++)
+            {
+                registrations.AddRange(services.Select(s =>
+                {
+                    var name = string.Format("t{0:000}.{1}", i, s.Implementation.Name);
+                    return (IRegistration) Component.For(s.Interface).ImplementedBy(s.Implementation).Named(name);
+                }));
+            }
+
+            tmpContainer.Register(registrations.ToArray()); // Install at once due to performance!
+
+            //test
+            var o = tmpContainer.Resolve(services[0].Interface);
+        }
+
 
         public override void Prepare()
         {

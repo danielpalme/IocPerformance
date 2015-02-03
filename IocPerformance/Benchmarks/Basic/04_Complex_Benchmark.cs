@@ -15,11 +15,11 @@ namespace IocPerformance.Benchmarks.Basic
 
         public override void Verify(Adapters.IContainerAdapter container)
         {
-            if (Complex1.Instances != Benchmark.LoopCount
-                || Complex2.Instances != Benchmark.LoopCount
-                || Complex3.Instances != Benchmark.LoopCount)
+            if (Complex1.Instances != LoopCount
+                || Complex2.Instances != LoopCount
+                || Complex3.Instances != LoopCount)
             {
-                throw new Exception(string.Format("Complex count must be {0}", Benchmark.LoopCount));
+                throw new Exception(string.Format("Complex count must be {0}", LoopCount));
             }
         }
     }

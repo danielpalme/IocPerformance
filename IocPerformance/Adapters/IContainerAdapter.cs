@@ -1,4 +1,6 @@
 ﻿using System;
+using IocPerformance.Classes;
+using IocPerformance.Classes.Generated;
 
 namespace IocPerformance.Adapters
 {
@@ -27,6 +29,10 @@ namespace IocPerformance.Adapters
         void Prepare();
 
         object Resolve(Type type);
+
+        void Register(InterfaceAndImplemtation[] services);
+
+        void RegisterMultiTenant(InterfaceAndImplemtation[] services, int numberOfTenants);
 
         IChildContainerAdapter CreateChildContainerAdapter();
     }

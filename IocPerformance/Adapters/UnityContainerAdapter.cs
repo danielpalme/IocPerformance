@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
@@ -154,6 +156,16 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ICalculator3, Calculator3>(new TransientLifetimeManager())
                  .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
                  .SetInterceptorFor<ICalculator3>(new InterfaceInterceptor());
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new UnityContainer();
+            foreach (var service in services)
+            {
+                tmpContainer.RegisterType(service.Interface, service.Implementation);
+            }
+            tmpContainer.Resolve(services[0].Interface);
         }
     }
 

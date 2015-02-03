@@ -8,6 +8,8 @@ namespace IocPerformance.Benchmarks
 
         int Order { get; }
 
+        int LoopCount { get; }
+
         bool IsSupportedBy(IContainerAdapter container);
 
         void MethodToBenchmark(IContainerAdapter container);

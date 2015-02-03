@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Xml.Linq;
+using IocPerformance.Classes;
+using IocPerformance.Classes.Generated;
 
 namespace IocPerformance.Adapters
 {
@@ -67,6 +69,16 @@ namespace IocPerformance.Adapters
         public abstract void Prepare();
 
         public abstract object Resolve(Type type);
+
+        public virtual void Register(InterfaceAndImplemtation[] services)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void RegisterMultiTenant(InterfaceAndImplemtation[] services, int numberOfTenants)
+        {
+            throw new NotImplementedException();
+        }
 
         public virtual IChildContainerAdapter CreateChildContainerAdapter()
         {

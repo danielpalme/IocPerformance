@@ -1,9 +1,11 @@
 ﻿using System;
 using Grace.DependencyInjection;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -222,6 +224,18 @@ namespace IocPerformance.Adapters
                     c.Export<ComplexPropertyObject2>().As<IComplexPropertyObject2>().AutoWireProperties();
                     c.Export<ComplexPropertyObject3>().As<IComplexPropertyObject3>().AutoWireProperties();
                 });
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new DependencyInjectionContainer();
+            foreach (var service in services)
+            {
+                Type implType = service.Implementation;
+                Type interfaceType = service.Interface;
+                tmpContainer.Configure(c => c.Export(implType).As(interfaceType));
+            }
+            tmpContainer.Locate(services[0].Interface);
         }
     }
 

@@ -25,11 +25,11 @@ namespace IocPerformance.Benchmarks.Advanced
                 return;
             }
 
-            if (ComplexPropertyObject1.Instances != Benchmark.LoopCount
-                || ComplexPropertyObject2.Instances != Benchmark.LoopCount
-                || ComplexPropertyObject3.Instances != Benchmark.LoopCount)
+            if (ComplexPropertyObject1.Instances != LoopCount
+                || ComplexPropertyObject2.Instances != LoopCount
+                || ComplexPropertyObject3.Instances != LoopCount)
             {
-                throw new Exception(string.Format("ComplexPropertyObject count must be {0}", Benchmark.LoopCount));
+                throw new Exception(string.Format("ComplexPropertyObject count must be {0}", LoopCount));
             }
         }
     }

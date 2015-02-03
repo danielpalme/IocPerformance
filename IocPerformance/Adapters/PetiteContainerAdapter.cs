@@ -1,6 +1,8 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using Petite;
@@ -153,6 +155,11 @@ namespace IocPerformance.Adapters
                 SubObjectB = c.Resolve<ISubObjectB>(),
                 SubObjectC = c.Resolve<ISubObjectC>()
             });
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            throw new NotImplementedException();
         }
     }
 }

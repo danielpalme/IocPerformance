@@ -43,11 +43,11 @@ namespace IocPerformance.Benchmarks.Advanced
                 return;
             }
 
-            if (ScopedCombined1.Instances != Benchmark.LoopCount
-                || ScopedCombined2.Instances != Benchmark.LoopCount
-                || ScopedCombined3.Instances != Benchmark.LoopCount)
+            if (ScopedCombined1.Instances != LoopCount
+                || ScopedCombined2.Instances != LoopCount
+                || ScopedCombined3.Instances != LoopCount)
             {
-                throw new Exception(string.Format("ScopedCombined count must be {0}", Benchmark.LoopCount));
+                throw new Exception(string.Format("ScopedCombined count must be {0}", LoopCount));
             }
         }
     }

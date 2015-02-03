@@ -1,7 +1,9 @@
 ﻿using System;
 using HaveBox;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
@@ -164,6 +166,18 @@ namespace IocPerformance.Adapters
                 config.For<ISimpleAdapter>().Use<SimpleAdapterFour>();
                 config.For<ISimpleAdapter>().Use<SimpleAdapterFive>();
             });
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new Container();
+            foreach (var service in services)
+            {
+                Type implType = service.Implementation;
+                Type interfaceType = service.Interface;
+                tmpContainer.Configure(config => config.For(interfaceType).Use(implType));
+            }
+            tmpContainer.GetInstance(services[0].Interface);
         }
     }
 }

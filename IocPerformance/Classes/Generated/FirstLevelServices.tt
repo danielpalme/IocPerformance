@@ -1,0 +1,63 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ include file="Settings.ttinclude" #>
+namespace IocPerformance.Classes.Generated
+{
+<# 
+	var rnd = new Random(Environment.TickCount);
+
+	for (int i = 0; i < firstLevelServicesCount; i++)
+	{
+		string className = String.Format("FirstLevelService{0:0000}", i);
+		var dependentClasses = new string[firstLevelServiceDependcesOnSecond];
+
+		for (int j = 0; j < firstLevelServiceDependcesOnSecond; j++)
+		{
+			dependentClasses[j] = String.Format("SecondLevelService{0:0000}", rnd.Next(0, secondLevelServicesCount));
+		}
+#>
+	public interface I<#=className#>
+	{}
+
+	public class <#=className#> : I<#=className#>
+	{
+<#
+		for (int j = 0; j < firstLevelServiceDependcesOnSecond; j++)
+		{
+#>
+		private I<#=dependentClasses[j]#> _dep<#=j#>;
+<#
+		}
+#>
+
+		public <#=className#>(
+<#
+		for (int j = 0; j < firstLevelServiceDependcesOnSecond; j++)
+		{
+#>
+			I<#=dependentClasses[j]#> dep<#=j#><#=((j < firstLevelServiceDependcesOnSecond - 1) ? "," : "")#>
+<#
+		}
+#>
+		)
+		{
+<#
+		for (int j = 0; j < firstLevelServiceDependcesOnSecond; j++)
+		{
+#>
+			_dep<#=j#> = dep<#=j#>;
+<#
+		}
+#>
+		}
+	}
+
+
+<#
+	}
+#>
+}

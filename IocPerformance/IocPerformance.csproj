@@ -69,8 +69,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Dynamo.Ioc.3.0.2.0\lib\net45\Dynamo.Ioc.dll</HintPath>
     </Reference>
-    <Reference Include="fFastInjector">
-      <HintPath>..\packages\fFastInjector.0.8.1\lib\portable-net4+sl4+wp8+win8\fFastInjector.dll</HintPath>
+    <Reference Include="fFastInjector, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\fFastInjector.1.0.1\lib\portable-net4+sl4+wp8+win8\fFastInjector.dll</HintPath>
     </Reference>
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
@@ -90,22 +91,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\HaveBox.2.0.0\lib\net45\HaveBox.dll</HintPath>
     </Reference>
-    <Reference Include="Hiro, Version=1.0.4.41795, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hiro, Version=1.0.5.17956, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\Hiro.dll</HintPath>
+      <HintPath>..\packages\Hiro.1.0.5.17956\lib\net45\Hiro.dll</HintPath>
     </Reference>
-    <Reference Include="Hiro.Containers, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f0efb83db47c0105, processorArchitecture=MSIL">
+    <Reference Include="Hiro.Containers, Version=1.0.2.29326, Culture=neutral, PublicKeyToken=f0efb83db47c0105, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hiro.Containers.1.0.1.0\lib\net20\Hiro.Containers.dll</HintPath>
+      <HintPath>..\packages\Hiro.Containers.1.0.2.29326\lib\net20\Hiro.Containers.dll</HintPath>
     </Reference>
-    <Reference Include="Hiro.MSBuild.Tasks">
-      <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\Hiro.MSBuild.Tasks.dll</HintPath>
-    </Reference>
-    <Reference Include="Iesi.Collections">
-      <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="Iesi.Collections.Generic">
-      <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\Iesi.Collections.Generic.dll</HintPath>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="IfInjector, Version=0.8.1.42024, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -123,9 +119,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LightCore.1.5.1\lib\net40\LightCore.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="LightInject, Version=3.0.2.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="LightInject, Version=3.0.2.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\LightInject.3.0.2.1\lib\net45\LightInject.dll</HintPath>
+      <HintPath>..\packages\LightInject.3.0.2.2\lib\net45\LightInject.dll</HintPath>
     </Reference>
     <Reference Include="LightInject.Interception, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -139,19 +135,23 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LinFu.DynamicProxy.OfficialRelease.1.0.5\lib\net\LinFu.DynamicProxy.dll</HintPath>
     </Reference>
-    <Reference Include="LinFu.Finders">
-      <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\LinFu.Finders.dll</HintPath>
+    <Reference Include="LinFu.Finders, Version=0.0.0.0, Culture=neutral, PublicKeyToken=3addbe3eede3dde9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LinFu.Finders.1.0.1\lib\LinFu.Finders.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.Loaders">
+      <HintPath>..\packages\LinFu.Loaders.3.0.0.30408\lib\net45\LinFu.Loaders.dll</HintPath>
     </Reference>
     <Reference Include="Maestro.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5345f138383d19ed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Maestro.1.5.1\lib\net40\Maestro.Core.dll</HintPath>
+      <HintPath>..\packages\Maestro.1.5.2\lib\net40\Maestro.Core.dll</HintPath>
     </Reference>
     <Reference Include="Maestro.Interception.DynamicProxy">
       <HintPath>..\packages\Maestro.Interception.DynamicProxy.1.0.2\lib\net40\Maestro.Interception.DynamicProxy.dll</HintPath>
     </Reference>
     <Reference Include="Maestro.net40-client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5345f138383d19ed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Maestro.1.5.1\lib\net40\Maestro.net40-client.dll</HintPath>
+      <HintPath>..\packages\Maestro.1.5.2\lib\net40\Maestro.net40-client.dll</HintPath>
     </Reference>
     <Reference Include="MicroSliver">
       <HintPath>..\packages\MicroSliver.2.1.6.0\lib\net40\MicroSliver.dll</HintPath>
@@ -175,17 +175,21 @@
     <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
       <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\Mono.Cecil.dll</HintPath>
+    <Reference Include="Mono.Cecil, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Cecil.Mdb">
-      <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\Mono.Cecil.Mdb.dll</HintPath>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\Mono.Cecil.Pdb.dll</HintPath>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Cecil.Rocks">
-      <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\Mono.Cecil.Rocks.dll</HintPath>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="MugenInjection.Core">
       <HintPath>..\packages\MugenInjection.3.5.1\lib\net45-full\MugenInjection.Core.dll</HintPath>
@@ -197,8 +201,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Munq.IocContainer.3.1.6\Lib\Munq.IocContainer.dll</HintPath>
     </Reference>
-    <Reference Include="NGenerics">
-      <HintPath>..\packages\Hiro.1.0.4.41795\lib\net45\NGenerics.dll</HintPath>
+    <Reference Include="NGenerics, Version=1.4.1.0, Culture=neutral, PublicKeyToken=e4b41be133ea7faf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NGenerics.1.4.1.0\lib\net35\NGenerics.dll</HintPath>
     </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -220,17 +225,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\QuickInject.1.0.0.12\lib\portable-net45+win\QuickInject.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector, Version=2.6.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+    <Reference Include="SimpleInjector, Version=2.7.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SimpleInjector.2.6.1\lib\net45\SimpleInjector.dll</HintPath>
+      <HintPath>..\packages\SimpleInjector.2.7.0\lib\net45\SimpleInjector.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector.Diagnostics, Version=2.6.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+    <Reference Include="SimpleInjector.Diagnostics, Version=2.7.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SimpleInjector.2.6.1\lib\net45\SimpleInjector.Diagnostics.dll</HintPath>
+      <HintPath>..\packages\SimpleInjector.2.7.0\lib\net45\SimpleInjector.Diagnostics.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=2.6.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+    <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=2.7.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.2.6.1\lib\net40-client\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
+      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.2.7.0\lib\net40-client\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
     </Reference>
     <Reference Include="Speedioc">
       <HintPath>..\packages\Speedioc.0.1.33\lib\net40\Speedioc.dll</HintPath>
@@ -338,6 +343,8 @@
     <Compile Include="Benchmarks\Advanced\05_Property_Benchmark.cs" />
     <Compile Include="Benchmarks\Benchmark.cs" />
     <Compile Include="Benchmarks\BenchmarkMeasurer.cs" />
+    <Compile Include="Benchmarks\Registration\00a_Registration_Benchmark.cs" />
+    <Compile Include="Benchmarks\Registration\00b_RegistrationMultiTenant_Benchmark.cs" />
     <Compile Include="Benchmarks\SinglethreadedBenchmarkMeasurer.cs" />
     <Compile Include="Benchmarks\BenchmarkResult.cs" />
     <Compile Include="Benchmarks\Basic\04_Complex_Benchmark.cs" />
@@ -379,9 +386,30 @@
     <Compile Include="Classes\Dummy\DummyTen.cs" />
     <Compile Include="Classes\Dummy\DummyThree.cs" />
     <Compile Include="Classes\Dummy\DummyTwo.cs" />
+    <Compile Include="Classes\Generated\FirstLevelServices.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FirstLevelServices.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Generated\Registrations.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Registrations.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Generated\SecondLevelServices.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SecondLevelServices.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Generated\ThirdLevelServices.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThirdLevelServices.tt</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Generics\GenericExport.cs" />
     <Compile Include="Classes\Generics\IGenericInterface.cs" />
     <Compile Include="Classes\Generics\ImportGeneric.cs" />
+    <Compile Include="Classes\InterfaceAndImplemtation.cs" />
     <Compile Include="Classes\Multiple\ImportMultiple.cs" />
     <Compile Include="Classes\Multiple\ISimpleAdapter.cs" />
     <Compile Include="Classes\Multiple\SimpleAdapterFive.cs" />
@@ -451,12 +479,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Classes\Generated\FirstLevelServices.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FirstLevelServices.cs</LastGenOutput>
+    </None>
+    <None Include="Classes\Generated\Registrations.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Registrations.cs</LastGenOutput>
+    </None>
+    <None Include="Classes\Generated\SecondLevelServices.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SecondLevelServices.cs</LastGenOutput>
+    </None>
+    <None Include="Classes\Generated\Settings.ttinclude" />
+    <None Include="Classes\Generated\ThirdLevelServices.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ThirdLevelServices.cs</LastGenOutput>
+    </None>
     <None Include="LightCore.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

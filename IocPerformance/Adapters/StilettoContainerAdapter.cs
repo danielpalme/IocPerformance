@@ -1,5 +1,7 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using Stiletto;
@@ -190,6 +192,11 @@ namespace IocPerformance.Adapters
             {
                 return obj;
             }
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            throw new NotImplementedException();
         }
     }
 }

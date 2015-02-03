@@ -25,11 +25,11 @@ namespace IocPerformance.Benchmarks.Advanced
                 return;
             }
 
-            if (ImportGeneric<int>.Instances != Benchmark.LoopCount
-                || ImportGeneric<float>.Instances != Benchmark.LoopCount
-                || ImportGeneric<object>.Instances != Benchmark.LoopCount)
+            if (ImportGeneric<int>.Instances != LoopCount
+                || ImportGeneric<float>.Instances != LoopCount
+                || ImportGeneric<object>.Instances != LoopCount)
             {
-                throw new Exception(string.Format("ImportGeneric count must be {0}", Benchmark.LoopCount));
+                throw new Exception(string.Format("ImportGeneric count must be {0}", LoopCount));
             }
         }
     }

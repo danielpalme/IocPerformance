@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using IocPerformance.Adapters;
+using IocPerformance.Benchmarks.Basic;
+using IocPerformance.Benchmarks.Registration;
 
 namespace IocPerformance.Benchmarks
 {
@@ -16,12 +18,23 @@ namespace IocPerformance.Benchmarks
 
         public override Measurement Measure()
         {
+            if (Benchmark is Registration_00_Benchmark || Benchmark is RegistrationMultiTenant_00_Benchmark)
+            {
+                //already tested in Single threaded
+                //multithreaded test does not make sense in this case
+                return new Measurement();
+            }
+
             this.CollectMemory();
 
             var watch = new Stopwatch();
             var result = new Measurement();
 
-            const int Loopcount = Benchmarks.Benchmark.LoopCount / NumberOfThreads;
+            int loopcount = Benchmark.LoopCount / NumberOfThreads;
+            if (loopcount < 1)
+            {
+                loopcount = 1;
+            }
             var counter = 0;
             Exception exception = null;
 
@@ -30,7 +43,7 @@ namespace IocPerformance.Benchmarks
                 {
                     try
                     {
-                        for (var j = 0; j < Loopcount; j++)
+                        for (var j = 0; j < loopcount; j++)
                         {
                             Interlocked.Increment(ref counter);
                             Benchmark.MethodToBenchmark(Container);
@@ -83,7 +96,7 @@ namespace IocPerformance.Benchmarks
             }
             else if (result.ExtraPolated)
             {
-                result.Time = watch.ElapsedMilliseconds * Benchmarks.Benchmark.LoopCount / counter;
+                result.Time = watch.ElapsedMilliseconds * Benchmark.LoopCount / counter;
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(
@@ -91,7 +104,7 @@ namespace IocPerformance.Benchmarks
                     Benchmark.Name,
                     (double)watch.ElapsedMilliseconds / (1000 * 60),
                     counter,
-                    Benchmarks.Benchmark.LoopCount,
+                    Benchmark.LoopCount,
                     (double)result.Time / (1000 * 60));
                 Console.ResetColor();
 

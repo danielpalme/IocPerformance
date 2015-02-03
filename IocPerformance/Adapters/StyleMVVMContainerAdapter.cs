@@ -1,7 +1,9 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -184,6 +186,16 @@ namespace IocPerformance.Adapters
             this.container.Register<ImportMultiple1>().As<ImportMultiple1>().ImportDefaultConstructor();
             this.container.Register<ImportMultiple2>().As<ImportMultiple2>().ImportDefaultConstructor();
             this.container.Register<ImportMultiple3>().As<ImportMultiple3>().ImportDefaultConstructor();
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new DependencyInjectionContainer();
+            foreach (var service in services)
+            {
+                tmpContainer.Register(service.Interface).As(service.Implementation);
+            }
+            tmpContainer.GetService(services[0].Interface);
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using Funq;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
@@ -258,6 +260,11 @@ namespace IocPerformance.Adapters
                     SubObjectB = ioc.Resolve<ISubObjectB>(),
                     SubObjectC = ioc.Resolve<ISubObjectC>()
                 }).ReusedWithin(ReuseScope.None);
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            throw new NotImplementedException();
         }
     }
 }

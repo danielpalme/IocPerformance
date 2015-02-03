@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Castle.MicroKernel.Registration;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -59,6 +64,37 @@ namespace IocPerformance.Adapters
         {
             // Allow the container and everything it references to be garbage collected.
             this.container = null;
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new ServiceContainer();
+
+            foreach (var s in services)
+            {
+                tmpContainer.Register(s.Interface, s.Implementation);
+            }
+
+            //test
+            var o = tmpContainer.GetInstance(services[0].Interface);
+        }
+
+        public override void RegisterMultiTenant(InterfaceAndImplemtation[] services, int numberOfTenants)
+        {
+            var tmpContainer = new ServiceContainer();
+
+            for (int i = 0; i < numberOfTenants; i++)
+            {
+                foreach (var s in services)
+                {
+                    var name = string.Format("t{0:000}.{1}", i, s.Implementation.Name);
+                    tmpContainer.Register(s.Interface, s.Implementation, name);
+                }
+            }
+
+            //test
+            var testName = string.Format("t{0:000}.{1}", 0, services[0].Implementation.Name);
+            //var o = tmpContainer.GetInstance(services[0].Interface, testName);
         }
 
         public override void Prepare()

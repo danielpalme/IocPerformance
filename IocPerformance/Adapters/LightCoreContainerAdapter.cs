@@ -1,6 +1,8 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -165,6 +167,19 @@ namespace IocPerformance.Adapters
             builder.Register<ImportMultiple1, ImportMultiple1>().ControlledBy<TransientLifecycle>();
             builder.Register<ImportMultiple2, ImportMultiple2>().ControlledBy<TransientLifecycle>();
             builder.Register<ImportMultiple3, ImportMultiple3>().ControlledBy<TransientLifecycle>();
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var builder = new ContainerBuilder();
+
+            foreach (var service in services)
+            {
+                builder.Register(service.Interface, service.Implementation);
+            }
+            
+            var tmpContainer = builder.Build();
+            tmpContainer.Resolve(services[0].Interface);
         }
     }
 }

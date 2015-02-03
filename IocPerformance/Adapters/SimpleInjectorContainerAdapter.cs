@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Reflection;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -82,6 +84,41 @@ namespace IocPerformance.Adapters
         {
             // Allow the container and everything it references to be garbage collected.
             this.container = null;
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new SimpleInjector.Container();
+
+            foreach (var service in services)
+            {
+                tmpContainer.Register(service.Interface, service.Implementation);
+            }
+
+            //test
+            var o = tmpContainer.GetInstance(services[0].Interface);
+        }
+
+        public override void RegisterMultiTenant(InterfaceAndImplemtation[] services, int numberOfTenants)
+        {
+            var tmpContainer = new SimpleInjector.Container();
+            var factory = new TenantServiceFactory(tmpContainer);
+
+            for (int i = 0; i < numberOfTenants; i++)
+            {
+                foreach (var s in services)
+                {
+                    var name = string.Format("t{0:000}.{1}", i, s.Implementation.Name);
+                    factory.Register(name, s.Interface, s.Implementation);
+                }
+            }
+
+            tmpContainer.RegisterSingle<ITenantServiceFactory>(factory);
+
+            //test
+            var testName = string.Format("t{0:000}.{1}", 0, services[0].Implementation.Name);
+            var tmpFactory = tmpContainer.GetInstance<ITenantServiceFactory>();
+            //var o = tmpFactory.CreateNew(testName); //tmpContainer.GetInstance(services[0].Interface, testName);
         }
 
         public override void Prepare()
@@ -259,6 +296,42 @@ namespace IocPerformance.Adapters
 
                 return this.container.GetInstance(resolveType);
             }
+        }
+    }
+
+    //multi tenancy support
+    public interface ITenantServiceFactory
+    {
+        object CreateNew(string name);
+    }
+    public class TenantServiceFactory : ITenantServiceFactory
+    {
+        private readonly Dictionary<string, InstanceProducer> _producers =
+            new Dictionary<string, InstanceProducer>(
+                StringComparer.OrdinalIgnoreCase);
+
+        private readonly Container _container;
+
+        public TenantServiceFactory(Container container)
+        {
+            _container = container;
+        }
+
+        object ITenantServiceFactory.CreateNew(string name)
+        {
+            var handler = _producers[name].GetInstance();
+            return handler;
+        }
+
+        public void Register(string name, Type interfaceType, Type implementationType, Lifestyle lifestyle = null)
+        {
+            lifestyle = lifestyle ?? Lifestyle.Transient;
+
+            var registration = lifestyle.CreateRegistration(interfaceType, implementationType, _container);
+
+            var producer = new InstanceProducer(interfaceType, registration);
+
+            this._producers.Add(name, producer);
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using fFastInjector;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
@@ -82,6 +84,11 @@ namespace IocPerformance.Adapters
             Injector.SetResolver<IComplex1, Complex1>();
             Injector.SetResolver<IComplex2, Complex2>();
             Injector.SetResolver<IComplex3, Complex3>();
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            throw new NotImplementedException();
         }
     }
 }

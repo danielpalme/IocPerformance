@@ -25,11 +25,11 @@ namespace IocPerformance.Benchmarks.Advanced
                 return;
             }
 
-            if (ImportMultiple1.Instances != Benchmark.LoopCount
-                || ImportMultiple2.Instances != Benchmark.LoopCount
-                || ImportMultiple3.Instances != Benchmark.LoopCount)
+            if (ImportMultiple1.Instances != LoopCount
+                || ImportMultiple2.Instances != LoopCount
+                || ImportMultiple3.Instances != LoopCount)
             {
-                throw new Exception(string.Format("ImportMultiple count must be {0}", Benchmark.LoopCount));
+                throw new Exception(string.Format("ImportMultiple count must be {0}", LoopCount));
             }
         }
     }

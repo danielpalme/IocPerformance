@@ -1,6 +1,8 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Standard;
 using MicroSliver;
 
@@ -78,6 +80,11 @@ namespace IocPerformance.Adapters
             this.container.Map<IComplex1, Complex1>();
             this.container.Map<IComplex2, Complex2>();
             this.container.Map<IComplex3, Complex3>();
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            throw new NotImplementedException();
         }
     }
 }

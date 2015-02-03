@@ -15,11 +15,11 @@ namespace IocPerformance.Benchmarks.Basic
 
         public override void Verify(Adapters.IContainerAdapter container)
         {
-            if (Transient1.Instances != Benchmark.LoopCount
-                || Transient2.Instances != Benchmark.LoopCount
-                || Transient3.Instances != Benchmark.LoopCount)
+            if (Transient1.Instances != LoopCount
+                || Transient2.Instances != LoopCount
+                || Transient3.Instances != LoopCount)
             {
-                throw new Exception(string.Format("Transient count must be {0}", Benchmark.LoopCount));
+                throw new Exception(string.Format("Transient count must be {0}", LoopCount));
             }
         }
     }

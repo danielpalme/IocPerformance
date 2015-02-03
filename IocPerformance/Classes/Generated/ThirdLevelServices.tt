@@ -1,0 +1,25 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#@ include file="Settings.ttinclude" #>
+namespace IocPerformance.Classes.Generated
+{
+<# 
+	for (int i = 0; i < thirdLevelServicesCount; i++)
+	{
+		string className = String.Format("ThirdLevelService{0:0000}", i);
+#>
+	public interface I<#=className#>
+	{}
+
+	public class <#=className#> : I<#=className#>
+	{}
+
+
+<#
+	}
+#>
+}

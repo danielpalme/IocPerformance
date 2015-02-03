@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -116,6 +118,11 @@ namespace IocPerformance.Adapters
 
             this.container = new CompositionContainer(
                  new AggregateCatalog(dummyCatalog, standardCatalog, complexCatalog, propertyInjectionCatalog, multipleCatalog, openGenericCatalog), true);
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpcontainer = new CompositionContainer(new TypeCatalog(services.Select(s => s.Implementation)));
         }
     }
 }

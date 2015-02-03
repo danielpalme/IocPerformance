@@ -1,8 +1,10 @@
 ﻿using System;
 using Hiro;
 using Hiro.Containers;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 
@@ -135,6 +137,19 @@ namespace IocPerformance.Adapters
                     SubObjectB = microContainer.GetInstance<ISubObjectB>(),
                     SubObjectC = microContainer.GetInstance<ISubObjectC>()
                 }));
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var map = new DependencyMap();
+
+            foreach (var service in services)
+            {
+                map.AddService(service.Interface, service.Implementation);
+            }
+
+            var tmpContainer = map.CreateContainer();
+            tmpContainer.GetInstance(services[0].Interface, null);
         }
     }
 }

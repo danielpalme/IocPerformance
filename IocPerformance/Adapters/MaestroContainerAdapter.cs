@@ -1,8 +1,10 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -196,6 +198,21 @@ namespace IocPerformance.Adapters
                  .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator2>(x.Instance, new MaestroInterceptionLogger()));
             expr.For<ICalculator3>().Use<Calculator3>()
                  .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator3>(x.Instance, new MaestroInterceptionLogger()));
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new Container();
+
+            tmpContainer.Configure(expr =>
+            {
+                foreach (var service in services)
+                {
+                    expr.For(service.Interface).Add(service.Implementation);
+                }
+            });
+
+            tmpContainer.Get(services[0].Interface);
         }
     }
 }

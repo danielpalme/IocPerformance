@@ -1,0 +1,10 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<# 
+	const int firstLevelServicesCount = 300;
+	const int secondLevelServicesCount = 100;
+	const int thirdLevelServicesCount = 100;
+
+	const int firstLevelServiceDependcesOnSecond = 30;
+	const int secondLevelServiceDependcesOnThird = 30;
+#>

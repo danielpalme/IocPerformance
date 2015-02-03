@@ -3,8 +3,10 @@ using System.Diagnostics;
 using System.Linq;
 using Catel;
 using Catel.IoC;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Standard;
@@ -155,6 +157,16 @@ namespace IocPerformance.Adapters
                     var args = string.Join(", ", i.Arguments.Select(x => (x ?? string.Empty).ToString()));
                     Debug.WriteLine(string.Format("Catel: {0}({1})", i.Method.Name, args));
                 });
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = IoCFactory.CreateServiceLocator();
+            foreach (var service in services)
+            {
+                tmpContainer.RegisterType(service.Interface, service.Implementation);
+            }
+            tmpContainer.ResolveType(services[0].Interface);
         }
     }
 }

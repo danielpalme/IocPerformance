@@ -1,8 +1,10 @@
 ﻿using System;
 using Castle.DynamicProxy;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -195,6 +197,18 @@ namespace IocPerformance.Adapters
                 .DecorateWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator2>(c, new StructureMapInterceptionLogger()));
             r.For<ICalculator3>().Transient().Use<Calculator3>()
                 .DecorateWith(c => pg.CreateInterfaceProxyWithTarget<ICalculator3>(c, new StructureMapInterceptionLogger()));
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new Container(r =>
+            {
+                foreach (var service in services)
+                {
+                    r.For(service.Interface).Use(service.Implementation);
+                }
+            });
+            tmpContainer.GetInstance(services[0].Interface);
         }
     }
 

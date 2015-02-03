@@ -1,6 +1,8 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Standard;
 using Speedioc;
 using Speedioc.Core;
@@ -90,6 +92,25 @@ namespace IocPerformance.Adapters
             registry.Register<SecondService>().As<ISecondService>().WithLifetime(Lifetime.Container).PreCreateInstance();
             registry.Register<ThirdService>().As<IThirdService>().WithLifetime(Lifetime.Container).PreCreateInstance();
             registry.Register<Complex1>().As<IComplex1>().WithLifetime(Lifetime.Transient);
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            ContainerSettings settings = new DefaultContainerSettings("Speedioc");
+            settings.ForceCompile = true;
+
+            IRegistry registry = new Registry();
+
+            foreach (var service in services)
+            {
+                registry.Register(service.Interface).As(service.Implementation);
+            }
+
+            IContainerBuilder containerBuilder = DefaultContainerBuilderFactory.GetInstance(settings, registry);
+            var tmpContainer = containerBuilder.Build();
+
+            tmpContainer.GetInstance(services[0].Interface);
+            
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using IocPerformance.Classes;
+using IocPerformance.Classes.Generated;
 using Spring.Context;
 
 namespace IocPerformance.Adapters
@@ -46,6 +48,11 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             this.container = Spring.Context.Support.ContextRegistry.GetContext();
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            throw new NotImplementedException();
         }
     }
 }

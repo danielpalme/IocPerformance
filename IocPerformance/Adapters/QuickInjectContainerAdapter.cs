@@ -1,7 +1,9 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using Microsoft.Practices.Unity;
@@ -49,6 +51,16 @@ namespace IocPerformance.Adapters
         public override IChildContainerAdapter CreateChildContainerAdapter()
         {
             return new QuickInjectChildContainerAdapter(this.container.CreateChildContainer());
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new QuickInjectContainer();
+            foreach (var service in services)
+            {
+                tmpContainer.RegisterType(service.Interface, service.Implementation);
+            }
+            tmpContainer.Resolve(services[0].Interface);
         }
 
         public override void Prepare()

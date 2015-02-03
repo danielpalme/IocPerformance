@@ -25,11 +25,12 @@ namespace IocPerformance
             {
                 var containerBenchmarkResults = new List<BenchmarkResult>();
 
+                var longestName = Math.Max(benchmarks.Select(b => b.Name.Length).Max(), container.Name.Length + container.Version.Length);
                 Console.WriteLine(
                     "{0} {1}{2} {3,10} {4,10}",
                     container.Name,
                     container.Version,
-                    new string(' ', benchmarks.Select(b => b.Name.Length).OrderByDescending(n => n).First() - container.Name.Length - container.Version.Length),
+                    new string(' ', longestName - container.Name.Length - container.Version.Length),
                     "Single",
                     "Multi");
 
@@ -49,7 +50,7 @@ namespace IocPerformance
                     Console.WriteLine(
                         " {0}{1} {2,10} {3,10}",
                         benchmarkResult.Benchmark.Name,
-                        new string(' ', benchmarks.Select(b => b.Name.Length).OrderByDescending(n => n).First() - benchmarkResult.Benchmark.Name.Length),
+                        new string(' ', longestName - benchmarkResult.Benchmark.Name.Length),
                         benchmarkResult.SingleThreadedResult,
                         benchmarkResult.MultiThreadedResult);
                 }

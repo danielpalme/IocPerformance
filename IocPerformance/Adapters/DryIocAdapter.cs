@@ -2,9 +2,11 @@
 using System.ComponentModel.Composition;
 using System.Reflection;
 using DryIoc;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -186,6 +188,16 @@ namespace IocPerformance.Adapters
             this.container.Register<ISimpleAdapter, SimpleAdapterThree>();
             this.container.Register<ISimpleAdapter, SimpleAdapterFour>();
             this.container.Register<ISimpleAdapter, SimpleAdapterFive>();
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new Container();
+            foreach (var service in services)
+            {
+                tmpContainer.Register(service.Interface, service.Implementation);
+            }
+            tmpContainer.Resolve(services[0].Interface);
         }
     }
 }

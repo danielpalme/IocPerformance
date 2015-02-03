@@ -12,7 +12,12 @@ namespace IocPerformance.Benchmarks
 {
     public abstract class Benchmark : IBenchmark
     {
-        public const int LoopCount = 500 * 1000;
+        public const int DefaultLoopCount = 500 * 1000;
+
+        public virtual int LoopCount
+        {
+            get { return DefaultLoopCount; }
+        }
 
         public string Name
         {
@@ -23,7 +28,7 @@ namespace IocPerformance.Benchmarks
             }
         }
 
-        public int Order
+        public virtual int Order
         {
             get
             {

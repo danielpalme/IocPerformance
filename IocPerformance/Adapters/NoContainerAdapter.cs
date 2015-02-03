@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -239,6 +241,12 @@ namespace IocPerformance.Adapters
             this.container[typeof(ICalculator2)] = () => new Calculator2();
             this.container[typeof(ICalculator3)] = () => new Calculator3();
         }
+
+        public override void Register(InterfaceAndImplemtation[] services) 
+        {}
+
+        public override void RegisterMultiTenant(InterfaceAndImplemtation[] services, int numberOfTenants)
+        {}
     }
 
     public class NoContainerChildContainerAdapter : IChildContainerAdapter

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Caliburn.Micro;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
@@ -232,6 +234,16 @@ namespace IocPerformance.Adapters
                  typeof(ImportMultiple3),
                  null,
                  ioc => new ImportMultiple3((IEnumerable<ISimpleAdapter>)ioc.GetInstance(typeof(IEnumerable<ISimpleAdapter>), null)));
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new SimpleContainer();
+            foreach (var service in services)
+            {
+                tmpContainer.RegisterSingleton(service.Interface, null, service.Implementation);
+            }
+            tmpContainer.GetInstance(services[0].Interface, null);
         }
     }
 }

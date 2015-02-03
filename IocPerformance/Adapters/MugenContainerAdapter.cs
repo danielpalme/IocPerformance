@@ -1,8 +1,10 @@
 ﻿using System;
+using IocPerformance.Classes;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Generated;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
@@ -192,6 +194,16 @@ namespace IocPerformance.Adapters
             this.container.Bind<ICalculator1>().To<Calculator1>().InTransientScope().InterceptAsTarget(new MugenInjectionInterceptionLogger());
             this.container.Bind<ICalculator2>().To<Calculator2>().InTransientScope().InterceptAsTarget(new MugenInjectionInterceptionLogger());
             this.container.Bind<ICalculator3>().To<Calculator3>().InTransientScope().InterceptAsTarget(new MugenInjectionInterceptionLogger());
+        }
+
+        public override void Register(InterfaceAndImplemtation[] services)
+        {
+            var tmpContainer = new MugenInjector();
+            foreach (var service in services)
+            {
+                tmpContainer.Bind(service.Interface).To(service.Implementation);
+            }
+            tmpContainer.Get(services[0].Interface);
         }
     }
 
