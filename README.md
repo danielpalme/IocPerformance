@@ -45,7 +45,7 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6626<br/>4071|5546<br/>3373|6971<br/>4657|8246<br/>6118|
 |**[QuickInject 1.0.0.12](https://github.com/isabgol/QuickInject)**|180<br/>173|198<br/>169|295<br/>259|671<br/>637|
 |**[SimpleInjector 2.7.3](https://simpleinjector.org)**|58<br/>62|113<br/>85|121<br/>103|168<br/>137|
-|**[Spring.NET 1.3.2](http://www.springframework.net/)**|1046<br/>808|16566<br/>10128|45510<br/>29798|117230<br/>75645|
+|**[Spring.NET 2.0.0](http://www.springframework.net/)**|1021<br/>771|14345<br/>9180|41037<br/>29650|112401<br/>67202|
 |**[StructureMap 3.1.4.143](http://structuremap.net/structuremap)**|2531<br/>2831|2787<br/>2845|8181<br/>8274|19198<br/>20205|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|656<br/>454|543<br/>383|833<br/>527|2170<br/>2363|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|454<br/>468|2123<br/>1548|8825<br/>6132|35707<br/>26670|
@@ -80,7 +80,7 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6297<br/>3789|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[QuickInject 1.0.0.12](https://github.com/isabgol/QuickInject)**|204<br/>182|<br/>|<br/>|<br/>|1280234*<br/>919692*|<br/>|
 |**[SimpleInjector 2.7.3](https://simpleinjector.org)**|235<br/>177|100<br/>95|865<br/>609|229<br/>177|<br/>|9012<br/>6893|
-|**[Spring.NET 1.3.2](http://www.springframework.net/)**|103584<br/>66296|<br/>|<br/>|<br/>|<br/>|77502<br/>43561|
+|**[Spring.NET 2.0.0](http://www.springframework.net/)**|79643<br/>54637|<br/>|<br/>|<br/>|<br/>|71209<br/>71870|
 |**[StructureMap 3.1.4.143](http://structuremap.net/structuremap)**|18987<br/>19486|5485<br/>8342|17175<br/>18164|<br/>|3921913*<br/>2703535*|18162<br/>12085|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|2391<br/>1093|1407<br/>881|3703<br/>4850|1598<br/>965|<br/>|<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|5062<br/>4660|<br/>|<br/>|<br/>|**15411**<br/>**9844**|<br/>|
@@ -115,7 +115,7 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|25<br/>|49<br/>|
 |**[QuickInject 1.0.0.12](https://github.com/isabgol/QuickInject)**|55<br/>|1721<br/>|
 |**[SimpleInjector 2.7.3](https://simpleinjector.org)**|273<br/>|1329<br/>|
-|**[Spring.NET 1.3.2](http://www.springframework.net/)**|36901<br/>|35698<br/>|
+|**[Spring.NET 2.0.0](http://www.springframework.net/)**|37513<br/>|41122<br/>|
 |**[StructureMap 3.1.4.143](http://structuremap.net/structuremap)**|1071<br/>|10211<br/>|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|91820<br/>|85792<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|185<br/>|224<br/>|
