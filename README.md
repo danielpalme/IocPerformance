@@ -23,7 +23,7 @@ Results
 |**[Autofac 3.5.2](https://github.com/autofac/Autofac)**|893<br/>723|2568<br/>2571|6407<br/>4071|18191<br/>11244|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|538<br/>353|670<br/>405|1867<br/>1085|7969<br/>4632|
 |**[Catel 4.1.0](http://www.catelproject.com)**|456<br/>460|5448<br/>6074|14069<br/>15657|32753<br/>36704|
-|**[DryIoc 1.4.1](https://bitbucket.org/dadhi/dryioc)**|**31**<br/>48|**42**<br/>**57**|**56**<br/>83|**92**<br/>**81**|
+|**[DryIoc 1.4.1](https://bitbucket.org/dadhi/dryioc)**|**31**<br/>**48**|**42**<br/>**57**|**56**<br/>**83**|**92**<br/>**81**|
 |**[Dynamo 3.0.2.0](http://martinf.github.io/Dynamo.IoC)**|105<br/>80|134<br/>103|234<br/>162|823<br/>493|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|75<br/>68|134<br/>112|280<br/>204|680<br/>428|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|149<br/>111|181<br/>132|451<br/>338|1327<br/>852|
@@ -33,7 +33,7 @@ Results
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|207<br/>140|209<br/>146|219<br/>154|290<br/>199|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|108<br/>86|144<br/>115|180<br/>142|233<br/>166|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|203<br/>171|3364<br/>1998|34315<br/>34496|193101*<br/>205435*|
-|**[LightInject 3.0.2.6](https://github.com/seesharper/LightInject)**|34<br/>**44**|49<br/>63|70<br/>**74**|107<br/>95|
+|**[LightInject 3.0.2.7](https://github.com/seesharper/LightInject)**|66<br/>51|53<br/>72|93<br/>92|147<br/>130|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|4163<br/>2443|24399<br/>16041|64412<br/>41898|170694<br/>104578|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|333<br/>259|397<br/>306|1115<br/>728|3512<br/>2556|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|34967<br/>19746|53521<br/>31946|87598<br/>65396|175864<br/>169289|
@@ -58,7 +58,7 @@ Results
 |**[Autofac 3.5.2](https://github.com/autofac/Autofac)**|32706<br/>20892|5158<br/>3346|17288<br/>12199|<br/>|108964<br/>86101|51505<br/>37712|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|10427<br/>6064|<br/>|7758<br/>4514|<br/>|<br/>|<br/>|
 |**[Catel 4.1.0](http://www.catelproject.com)**|<br/>|13698<br/>15615|<br/>|<br/>|<br/>|5884<br/>5804|
-|**[DryIoc 1.4.1](https://bitbucket.org/dadhi/dryioc)**|**97**<br/>**87**|**64**<br/>**70**|**318**<br/>**225**|**68**<br/>69|<br/>|<br/>|
+|**[DryIoc 1.4.1](https://bitbucket.org/dadhi/dryioc)**|**97**<br/>**87**|**64**<br/>**70**|**318**<br/>**225**|**68**<br/>**69**|<br/>|<br/>|
 |**[Dynamo 3.0.2.0](http://martinf.github.io/Dynamo.IoC)**|855<br/>519|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1299<br/>789|<br/>|<br/>|<br/>|<br/>|<br/>|
@@ -68,7 +68,7 @@ Results
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|3104<br/>1931|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|385<br/>269|170<br/>131|<br/>|<br/>|<br/>|<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2487<br/>1843|23120<br/>15653|52456<br/>31250|<br/>|<br/>|<br/>|
-|**[LightInject 3.0.2.6](https://github.com/seesharper/LightInject)**|**97**<br/>94|74<br/>82|349<br/>246|73<br/>**67**|<br/>|1660<br/>1093|
+|**[LightInject 3.0.2.7](https://github.com/seesharper/LightInject)**|139<br/>123|92<br/>79|358<br/>333|85<br/>70|<br/>|1470<br/>944|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|3866<br/>2367|783<br/>534|3901<br/>2707|1070<br/>693|<br/>|8955<br/>5331|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|180329*<br/>178984|198621*<br/>151746|137126<br/>140873|<br/>|<br/>|<br/>|
@@ -103,7 +103,7 @@ Results
 |**[Hiro 1.0.4.41795](https://github.com/philiplaureano/Hiro)**|310074*<br/>|362562*<br/>|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|2101<br/>|2795<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|233<br/>|247<br/>|
-|**[LightInject 3.0.2.6](https://github.com/seesharper/LightInject)**|316<br/>|1079<br/>|
+|**[LightInject 3.0.2.7](https://github.com/seesharper/LightInject)**|242<br/>|900<br/>|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|140<br/>|538<br/>|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|232<br/>|952<br/>|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|23<br/>|3054<br/>|
