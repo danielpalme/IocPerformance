@@ -224,12 +224,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\QuickInject.1.0.0.12\lib\portable-net45+win\QuickInject.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector, Version=2.8.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.2.8.0\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=3.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.0.0\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=2.8.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.2.8.0\lib\net40-client\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
+    <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=3.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.3.0.0\lib\net40-client\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Speedioc">
@@ -452,7 +452,9 @@
     <Compile Include="TinyIoC.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="LightCore.xsd">
       <SubType>Designer</SubType>
     </None>

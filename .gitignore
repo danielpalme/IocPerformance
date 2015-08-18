@@ -42,3 +42,4 @@
 /packages/Microsoft.Composition*
 *.Cache
 _ReSharper*
+*.boltdata/

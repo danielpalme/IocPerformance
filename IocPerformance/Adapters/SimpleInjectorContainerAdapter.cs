@@ -11,11 +11,9 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
-using IocPerformance.Conditional;
 using IocPerformance.Interception;
 using SimpleInjector;
 using SimpleInjector.Advanced;
-using SimpleInjector.Extensions;
 using SimpleInjector.Extensions.Interception;
 using SimpleInjector.Extensions.LifetimeScoping;
 
@@ -81,7 +79,7 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be garbage collected.
-            this.container = null;
+            this.container.Dispose();
         }
 
         public override void Prepare()
@@ -129,9 +127,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.RegisterSingle<ISingleton1, Singleton1>();
-            this.container.RegisterSingle<ISingleton2, Singleton2>();
-            this.container.RegisterSingle<ISingleton3, Singleton3>();
+            this.container.RegisterSingleton<ISingleton1, Singleton1>();
+            this.container.RegisterSingleton<ISingleton2, Singleton2>();
+            this.container.RegisterSingleton<ISingleton3, Singleton3>();
             this.container.Register<ITransient1, Transient1>();
             this.container.Register<ITransient2, Transient2>();
             this.container.Register<ITransient3, Transient3>();
@@ -148,9 +146,9 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectOne, SubObjectOne>();
             this.container.Register<ISubObjectTwo, SubObjectTwo>();
             this.container.Register<ISubObjectThree, SubObjectThree>();
-            this.container.RegisterSingle<IFirstService, FirstService>();
-            this.container.RegisterSingle<ISecondService, SecondService>();
-            this.container.RegisterSingle<IThirdService, ThirdService>();
+            this.container.RegisterSingleton<IFirstService, FirstService>();
+            this.container.RegisterSingleton<ISecondService, SecondService>();
+            this.container.RegisterSingleton<IThirdService, ThirdService>();
             this.container.Register<IComplex1, Complex1>();
             this.container.Register<IComplex2, Complex2>();
             this.container.Register<IComplex3, Complex3>();
@@ -158,9 +156,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterPropertyInjection()
         {
-            this.container.RegisterSingle<IServiceA, ServiceA>();
-            this.container.RegisterSingle<IServiceB, ServiceB>();
-            this.container.RegisterSingle<IServiceC, ServiceC>();
+            this.container.RegisterSingleton<IServiceA, ServiceA>();
+            this.container.RegisterSingleton<IServiceB, ServiceB>();
+            this.container.RegisterSingleton<IServiceC, ServiceC>();
 
             this.container.Register<ISubObjectA, SubObjectA>();
             this.container.Register<ISubObjectB, SubObjectB>();
@@ -173,8 +171,8 @@ namespace IocPerformance.Adapters
 
         private void RegisterOpenGeneric()
         {
-            this.container.RegisterOpenGeneric(typeof(IGenericInterface<>), typeof(GenericExport<>));
-            this.container.RegisterOpenGeneric(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
+            this.container.Register(typeof(IGenericInterface<>), typeof(GenericExport<>));
+            this.container.Register(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
         }
 
         private void RegisterConditional()
@@ -185,23 +183,26 @@ namespace IocPerformance.Adapters
             container.Register<ImportConditionObject2>();
             container.Register<ImportConditionObject3>();
 
-            container.RegisterWithContext<IExportConditionInterface>(context =>
-                                                                     context.ImplementationType == typeof(ImportConditionObject1)
-                                                                     ? container.GetInstance<ExportConditionalObject>()
-                                                                     : context.ImplementationType == typeof(ImportConditionObject2)
-                                                                     ? container.GetInstance<ExportConditionalObject2>()
-                                                                     : container.GetInstance<ExportConditionalObject3>()
-                                                                     as IExportConditionInterface);
+            container.RegisterConditional<IExportConditionInterface, ExportConditionalObject>(WhenInjectedInto<ImportConditionObject1>);
+            container.RegisterConditional<IExportConditionInterface, ExportConditionalObject2>(WhenInjectedInto<ImportConditionObject2>);
+            container.RegisterConditional<IExportConditionInterface, ExportConditionalObject3>(WhenInjectedInto<ImportConditionObject3>);
+        }
+
+        private bool WhenInjectedInto<T>(PredicateContext context)
+        {
+            return context.Consumer.ImplementationType == typeof(T);
         }
 
         private void RegisterMultiple()
         {
-            this.container.RegisterAll<ISimpleAdapter>(
+            this.container.RegisterCollection<ISimpleAdapter>(new[]
+            {
                 typeof(SimpleAdapterOne),
                 typeof(SimpleAdapterTwo),
                 typeof(SimpleAdapterThree),
                 typeof(SimpleAdapterFour),
-                typeof(SimpleAdapterFive));
+                typeof(SimpleAdapterFive)
+            });
         }
 
         private void RegisterIntercepter()
@@ -240,7 +241,7 @@ namespace IocPerformance.Adapters
             private readonly Container container;
             private readonly Dictionary<Type, InstanceProducer> scopedRegistrations;
 
-            private LifetimeScope lifetimeScope;
+            private Scope lifetimeScope;
 
             internal SimpleInjectorChildContainerAdapter(
                 Container container,
