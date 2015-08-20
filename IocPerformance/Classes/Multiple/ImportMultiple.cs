@@ -19,7 +19,7 @@ namespace IocPerformance.Classes.Multiple
         {
             if (adapters == null)
             {
-                throw new ArgumentNullException("adapters");
+                throw new ArgumentNullException(nameof(adapters));
             }
 
             int adapterCount = 0;
@@ -35,7 +35,7 @@ namespace IocPerformance.Classes.Multiple
 
             if (adapterCount != 5)
             {
-                throw new ArgumentException("there should be 5 adapters and there where: " + adapterCount, "adapters");
+                throw new ArgumentException("there should be 5 adapters and there where: " + adapterCount, nameof(adapters));
             }
 
             System.Threading.Interlocked.Increment(ref counter);
@@ -63,7 +63,7 @@ namespace IocPerformance.Classes.Multiple
         {
             if (adapters == null)
             {
-                throw new ArgumentNullException("adapters");
+                throw new ArgumentNullException(nameof(adapters));
             }
 
             int adapterCount = 0;
@@ -79,7 +79,7 @@ namespace IocPerformance.Classes.Multiple
 
             if (adapterCount != 5)
             {
-                throw new ArgumentException("there should be 5 adapters and there where: " + adapterCount, "adapters");
+                throw new ArgumentException("there should be 5 adapters and there where: " + adapterCount, nameof(adapters));
             }
 
             System.Threading.Interlocked.Increment(ref counter);
@@ -107,7 +107,7 @@ namespace IocPerformance.Classes.Multiple
         {
             if (adapters == null)
             {
-                throw new ArgumentNullException("adapters");
+                throw new ArgumentNullException(nameof(adapters));
             }
 
             int adapterCount = 0;
@@ -123,7 +123,7 @@ namespace IocPerformance.Classes.Multiple
 
             if (adapterCount != 5)
             {
-                throw new ArgumentException("there should be 5 adapters and there where: " + adapterCount, "adapters");
+                throw new ArgumentException("there should be 5 adapters and there where: " + adapterCount, nameof(adapters));
             }
 
             System.Threading.Interlocked.Increment(ref counter);

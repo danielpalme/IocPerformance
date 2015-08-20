@@ -10,14 +10,14 @@ namespace IocPerformance.Classes.Conditions
         {
             if (exportConditionInterface == null)
             {
-                throw new ArgumentNullException("exportConditionInterface");
+                throw new ArgumentNullException(nameof(exportConditionInterface));
             }
 
             if (exportConditionInterface.GetType() != typeof(ExportConditionalObject2))
             {
                 throw new ArgumentException(
-                    "Should have imported ExportConditionalObject2 got: " + exportConditionInterface.GetType().FullName, 
-                    "exportConditionInterface");
+                    "Should have imported ExportConditionalObject2 got: " + exportConditionInterface.GetType().FullName,
+nameof(exportConditionInterface));
             }
 
             System.Threading.Interlocked.Increment(ref counter);

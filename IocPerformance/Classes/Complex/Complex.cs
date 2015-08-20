@@ -39,32 +39,32 @@ namespace IocPerformance.Classes.Complex
         {
             if (firstService == null)
             {
-                throw new ArgumentNullException("firstService");
+                throw new ArgumentNullException(nameof(firstService));
             }
 
             if (secondService == null)
             {
-                throw new ArgumentNullException("secondService");
+                throw new ArgumentNullException(nameof(secondService));
             }
 
             if (thirdService == null)
             {
-                throw new ArgumentNullException("thirdService");
+                throw new ArgumentNullException(nameof(thirdService));
             }
 
             if (subObjectOne == null)
             {
-                throw new ArgumentNullException("subObjectOne");
+                throw new ArgumentNullException(nameof(subObjectOne));
             }
 
             if (subObjectTwo == null)
             {
-                throw new ArgumentNullException("subObjectTwo");
+                throw new ArgumentNullException(nameof(subObjectTwo));
             }
 
             if (subObjectThree == null)
             {
-                throw new ArgumentNullException("subObjectThree");
+                throw new ArgumentNullException(nameof(subObjectThree));
             }
 
             System.Threading.Interlocked.Increment(ref counter);
@@ -97,32 +97,32 @@ namespace IocPerformance.Classes.Complex
         {
             if (firstService == null)
             {
-                throw new ArgumentNullException("firstService");
+                throw new ArgumentNullException(nameof(firstService));
             }
 
             if (secondService == null)
             {
-                throw new ArgumentNullException("secondService");
+                throw new ArgumentNullException(nameof(secondService));
             }
 
             if (thirdService == null)
             {
-                throw new ArgumentNullException("thirdService");
+                throw new ArgumentNullException(nameof(thirdService));
             }
 
             if (subObjectOne == null)
             {
-                throw new ArgumentNullException("subObjectOne");
+                throw new ArgumentNullException(nameof(subObjectOne));
             }
 
             if (subObjectTwo == null)
             {
-                throw new ArgumentNullException("subObjectTwo");
+                throw new ArgumentNullException(nameof(subObjectTwo));
             }
 
             if (subObjectThree == null)
             {
-                throw new ArgumentNullException("subObjectThree");
+                throw new ArgumentNullException(nameof(subObjectThree));
             }
 
             System.Threading.Interlocked.Increment(ref counter);
@@ -155,32 +155,32 @@ namespace IocPerformance.Classes.Complex
         {
             if (firstService == null)
             {
-                throw new ArgumentNullException("firstService");
+                throw new ArgumentNullException(nameof(firstService));
             }
 
             if (secondService == null)
             {
-                throw new ArgumentNullException("secondService");
+                throw new ArgumentNullException(nameof(secondService));
             }
 
             if (thirdService == null)
             {
-                throw new ArgumentNullException("thirdService");
+                throw new ArgumentNullException(nameof(thirdService));
             }
 
             if (subObjectOne == null)
             {
-                throw new ArgumentNullException("subObjectOne");
+                throw new ArgumentNullException(nameof(subObjectOne));
             }
 
             if (subObjectTwo == null)
             {
-                throw new ArgumentNullException("subObjectTwo");
+                throw new ArgumentNullException(nameof(subObjectTwo));
             }
 
             if (subObjectThree == null)
             {
-                throw new ArgumentNullException("subObjectThree");
+                throw new ArgumentNullException(nameof(subObjectThree));
             }
 
             System.Threading.Interlocked.Increment(ref counter);

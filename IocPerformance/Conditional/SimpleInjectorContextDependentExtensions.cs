@@ -30,7 +30,7 @@ namespace IocPerformance.Conditional
         public static void RegisterWithContext<TService>(this Container container,
             Func<DependencyContext, TService> contextBasedFactory) where TService : class
         {
-            if (contextBasedFactory == null) throw new ArgumentNullException("contextBasedFactory");
+            if (contextBasedFactory == null) throw new ArgumentNullException(nameof(contextBasedFactory));
 
             Func<TService> rootFactory = () => contextBasedFactory(DependencyContext.Root);
 
