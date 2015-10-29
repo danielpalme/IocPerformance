@@ -69,6 +69,10 @@
       <HintPath>..\packages\Common.Logging.Core.3.3.0\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DryIoc, Version=2.0.0.349, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.2.0.0-rc4build349\lib\net45\DryIoc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Dynamo.Ioc, Version=3.0.2.0, Culture=neutral, PublicKeyToken=584702d813863cbd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Dynamo.Ioc.3.0.2.0\lib\net45\Dynamo.Ioc.dll</HintPath>
@@ -424,10 +428,8 @@
     <Compile Include="ContainerAdapterFactory.cs" />
     <Compile Include="BenchmarkFactory.cs" />
     <Compile Include="ContainerAdapterRuntime.cs" />
-    <Compile Include="DryIoc\Container.cs" />
-    <Compile Include="DryIoc\FactoryCompiler.cs" />
-    <Compile Include="DryIoc\InternalsVisibleToDryIocFactoryCompilerDynamicAssembly.cs" />
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
+    <Compile Include="Interception\DryIocInterceptionTools.cs" />
     <Compile Include="Interception\HaveBoxInterceptionLogger.cs" />
     <Compile Include="Interception\LightInjectInterceptionLogger.cs" />
     <Compile Include="Interception\MaestroInterceptionLogger.cs" />
