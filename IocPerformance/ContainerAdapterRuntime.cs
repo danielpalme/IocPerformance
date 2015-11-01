@@ -23,7 +23,7 @@ namespace IocPerformance
                 "{0} {1}{2} {3,10} {4,10}",
                 container.Name,
                 container.Version,
-                new string(' ', benchmarks.Select(b => b.Name.Length).OrderByDescending(n => n).First() - container.Name.Length - container.Version.Length),
+                new string(' ', Math.Max(0, benchmarks.Select(b => b.Name.Length).OrderByDescending(n => n).First() - container.Name.Length - container.Version.Length)),
                 "Single",
                 "Multi");
 

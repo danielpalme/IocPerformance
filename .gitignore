@@ -40,5 +40,9 @@
 /packages/Fody*
 /packages/DryIoc*
 /packages/Microsoft.Composition*
+/packages/Microsoft.Framework.DependencyInjection*
+/packages/Iesi.Collections*
+/packages/Mono.Cecil*
+/packages/NGenerics*
 *.Cache
 _ReSharper*
