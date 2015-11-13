@@ -1,0 +1,37 @@
+﻿<#
+//===========================================
+// The code is provided by YOU:
+// You may configure container,
+// Register your services,
+// And return container ready for generation.
+//
+// GetContainerWithRegistrations  
+// implementation below is just an EXAMPLE!
+//===========================================
+#>
+<#@ assembly Name="$(SolutionDir)packages\DryIocAttributes.dll.2.0.0\lib\net45\DryIocAttributes.dll" #>
+<#@ assembly Name="$(SolutionDir)packages\DryIoc.MefAttributedModel.dll.2.0.0\lib\net45\DryIoc.MefAttributedModel.dll" #>
+<#@ import Namespace="DryIoc.MefAttributedModel" #>
+
+<#/* EXAMPLE: I am referencing assembly and namespace with my services to register. Replace it with yours */#>
+<#@ assembly Name="$(SolutionDir)packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll" #>
+<#@ assembly Name="$(SolutionDir)IocPerformance\bin\Release\IocPerformance.exe" #>
+
+<#+
+// Specify your container and registrations
+IContainer GetContainerWithRegistrations()
+{
+    var container = new Container().WithMefAttributedModel();
+
+    var types = typeof(IocPerformance.Classes.Standard.Transient1).Assembly.GetLoadedTypes();
+
+    container.RegisterExports(types);
+    return container;
+}
+
+// Specify what resolution roots should be generated
+bool IsResolutionRoot(ServiceRegistrationInfo info) 
+{
+	return IocPerformance.Adapters.DryIocZeroAdapter.Roots.Contains(info.ServiceType);
+}
+#>

@@ -15,7 +15,6 @@ using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {
-    [Fast]
     public sealed class DryIocAdapter : ContainerAdapterBase
     {
         private IContainer container;
