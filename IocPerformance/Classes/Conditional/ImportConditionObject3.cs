@@ -1,7 +1,10 @@
 ﻿using System;
+using System.ComponentModel.Composition;
 
 namespace IocPerformance.Classes.Conditions
 {
+    [Export, PartCreationPolicy(CreationPolicy.NonShared)]
+
     public class ImportConditionObject3
     {
         private static int counter;

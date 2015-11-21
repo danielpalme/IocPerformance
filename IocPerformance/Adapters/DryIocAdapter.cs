@@ -1,7 +1,10 @@
 ﻿using System;
-using System.ComponentModel.Composition;
-using System.Reflection;
+using System.Diagnostics;
+using System.Linq;
+using Castle.DynamicProxy;
 using DryIoc;
+using DryIoc.Interception;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -14,9 +17,14 @@ namespace IocPerformance.Adapters
 {
     public sealed class DryIocAdapter : ContainerAdapterBase
     {
-        private Container container;
+        private IContainer container;
 
         public override string PackageName
+        {
+            get { return "DryIoc.dll"; }
+        }
+
+        public override string Name
         {
             get { return "DryIoc"; }
         }
@@ -41,15 +49,32 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
+        public override bool SupportsPropertyInjection
+        {
+            get { return true; }
+        }
+
         public override bool SupportsInterception
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsChildContainer
         {
             get { return false; }
         }
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }       
+        //private static readonly string ChildContainerScopeName = "ChildContainerScopeName";
+        //public override IChildContainerAdapter CreateChildContainerAdapter()
+        //{
+        //    var scope = container.OpenScope(ChildContainerScopeName, PreferServiceWithChildContainerScopeName);
+        //    return new DryIocChildContainerAdapter(scope, ChildContainerScopeName);
+        //}
+
+        //private static Rules PreferServiceWithChildContainerScopeName(Rules rules)
+        //{
+        //    return rules.WithFactorySelector(Rules.PreferKeyOverDefault(ChildContainerScopeName));
+        //}
 
         public override object Resolve(Type type)
         {
@@ -59,13 +84,10 @@ namespace IocPerformance.Adapters
         public override void Dispose()
         {
             // Allow the container and everything it references to be garbage collected.
-            if (this.container == null)
+            if (this.container != null)
             {
-                return;
+                this.container.Dispose();
             }
-
-            this.container.Dispose();
-            this.container = null;
         }
 
         public override void Prepare()
@@ -75,28 +97,15 @@ namespace IocPerformance.Adapters
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
+            this.RegisterInterceptor();
         }
 
         public override void PrepareBasic()
         {
             this.container = new Container();
-
             this.RegisterBasic();
         }
         
-        private static bool ResolvePropertyWithImportAttribute(out object key, MemberInfo member, Request request, IRegistry registry)
-        {
-            key = null;
-            var attributes = member.GetCustomAttributes(typeof(ImportAttribute), false);
-            if (attributes.Length == 0)
-            {
-                return false;
-            }
-
-            key = ((ImportAttribute)attributes[0]).ContractName;
-            return true;
-        }
-
         private void RegisterBasic()
         {
             this.RegisterDummies();
@@ -149,20 +158,17 @@ namespace IocPerformance.Adapters
 
         private void RegisterPropertyInjection()
         {
-            this.container.ResolutionRules.PropertiesAndFields =
-                this.container.ResolutionRules.PropertiesAndFields.Append(ResolvePropertyWithImportAttribute);
-
             this.container.Register<IServiceA, ServiceA>(Reuse.Singleton);
             this.container.Register<IServiceB, ServiceB>(Reuse.Singleton);
             this.container.Register<IServiceC, ServiceC>(Reuse.Singleton);
 
-            this.container.Register<ISubObjectA, SubObjectA>();
-            this.container.Register<ISubObjectB, SubObjectB>();
-            this.container.Register<ISubObjectC, SubObjectC>();
+            this.container.Register<ISubObjectA, SubObjectA>(made: PropertiesAndFields.Auto);
+            this.container.Register<ISubObjectB, SubObjectB>(made: PropertiesAndFields.Auto);
+            this.container.Register<ISubObjectC, SubObjectC>(made: PropertiesAndFields.Auto);
 
-            this.container.Register<IComplexPropertyObject1, ComplexPropertyObject1>();
-            this.container.Register<IComplexPropertyObject2, ComplexPropertyObject2>();
-            this.container.Register<IComplexPropertyObject3, ComplexPropertyObject3>();
+            this.container.Register<IComplexPropertyObject1, ComplexPropertyObject1>(made: PropertiesAndFields.Auto);
+            this.container.Register<IComplexPropertyObject2, ComplexPropertyObject2>(made: PropertiesAndFields.Auto);
+            this.container.Register<IComplexPropertyObject3, ComplexPropertyObject3>(made: PropertiesAndFields.Auto);
         }
 
         private void RegisterOpenGeneric()
@@ -177,18 +183,14 @@ namespace IocPerformance.Adapters
             this.container.Register<ImportConditionObject2>();
             this.container.Register<ImportConditionObject3>();
 
-            this.container.Register<IExportConditionInterface>(
-                new FactoryProvider((request, _) =>
-                                    {
-                                        var parent = request.GetNonWrapperParentOrDefault();
-                                        var implType = parent != null &&
-                                            parent.ImplementationType == typeof(ImportConditionObject1)
-                                            ? typeof(ExportConditionalObject)
-                                            : (parent.ImplementationType == typeof(ImportConditionObject2)
-                                               ? typeof(ExportConditionalObject2)
-                                               : typeof(ExportConditionalObject3));
-                                        return new ReflectionFactory(implType);
-                                    }));
+            this.container.Register<IExportConditionInterface, ExportConditionalObject>(
+                setup: Setup.With(condition: r => r.Parent.ImplementationType == typeof(ImportConditionObject1)));
+
+            this.container.Register<IExportConditionInterface, ExportConditionalObject2>(
+                setup: Setup.With(condition: r => r.Parent.ImplementationType == typeof(ImportConditionObject2)));
+
+            this.container.Register<IExportConditionInterface, ExportConditionalObject3>(
+                setup: Setup.With(condition: r => r.Parent.ImplementationType == typeof(ImportConditionObject3)));
         }
 
         private void RegisterMultiple()
@@ -201,6 +203,53 @@ namespace IocPerformance.Adapters
             this.container.Register<ISimpleAdapter, SimpleAdapterThree>();
             this.container.Register<ISimpleAdapter, SimpleAdapterFour>();
             this.container.Register<ISimpleAdapter, SimpleAdapterFive>();
+        }
+
+        private void RegisterInterceptor()
+        {
+            this.container.Register<CalculatorLogger>();
+            this.container.RegisterInterfaceInterceptor<ICalculator1, CalculatorLogger>();
+            this.container.RegisterInterfaceInterceptor<ICalculator2, CalculatorLogger>();
+            this.container.RegisterInterfaceInterceptor<ICalculator3, CalculatorLogger>();
+        }
+
+        public sealed class CalculatorLogger : IInterceptor
+        {
+            public void Intercept(IInvocation invocation)
+            {
+                // Perform logging here, e.g.:
+                var args = string.Join(", ", invocation.Arguments.Select(x => x + string.Empty));
+                Debug.WriteLine("DryIocInterceptor: {0}({1})", invocation.GetConcreteMethod().Name, args);
+                invocation.Proceed();
+            }
+        }
+
+        public class DryIocChildContainerAdapter : IChildContainerAdapter
+        {
+            private readonly IContainer child;
+
+            public DryIocChildContainerAdapter(IContainer child)
+            {
+                this.child = child;
+            }
+
+            public void Dispose()
+            {
+                this.child.Dispose();
+            }
+
+            public void Prepare()
+            {
+                this.child.Register<ICombined1, ScopedCombined1>();
+                this.child.Register<ICombined2, ScopedCombined2>();
+                this.child.Register<ICombined3, ScopedCombined3>();
+                this.child.Register<ITransient1, ScopedTransient>();
+            }
+
+            public object Resolve(Type resolveType)
+            {
+                return this.child.Resolve(resolveType, false);
+            }
         }
     }
 }

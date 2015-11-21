@@ -69,6 +69,14 @@
       <HintPath>..\packages\Common.Logging.Core.3.3.0\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DryIoc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.2.0.0\lib\net45\DryIoc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DryIocAttributes, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIocAttributes.dll.2.0.0\lib\net45\DryIocAttributes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Dynamo.Ioc, Version=3.0.2.0, Culture=neutral, PublicKeyToken=584702d813863cbd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Dynamo.Ioc.3.0.2.0\lib\net45\Dynamo.Ioc.dll</HintPath>
@@ -312,6 +320,7 @@
     <Compile Include="Adapters\CaliburnMicroContainerAdapter.cs" />
     <Compile Include="Adapters\ContainerAdapterBase.cs" />
     <Compile Include="Adapters\DryIocAdapter.cs" />
+    <Compile Include="Adapters\DryIocZeroAdapter.cs" />
     <Compile Include="Adapters\GraceContainerAdapter.cs" />
     <Compile Include="Adapters\IChildContainerAdapter.cs" />
     <Compile Include="Adapters\IfInjectorContainerAdapter.cs" />
@@ -385,6 +394,7 @@
     <Compile Include="Classes\Conditional\ExportConditionalObject.cs" />
     <Compile Include="Classes\Conditional\ExportConditionalObject2.cs" />
     <Compile Include="Classes\Conditional\ExportConditionalObject3.cs" />
+    <Compile Include="Classes\Conditional\ForParentImplementationAttribute.cs" />
     <Compile Include="Classes\Conditional\IExportConditionInterface.cs" />
     <Compile Include="Classes\Conditional\ImportConditionObject1.cs" />
     <Compile Include="Classes\Conditional\ImportConditionObject2.cs" />
@@ -424,10 +434,15 @@
     <Compile Include="ContainerAdapterFactory.cs" />
     <Compile Include="BenchmarkFactory.cs" />
     <Compile Include="ContainerAdapterRuntime.cs" />
-    <Compile Include="DryIoc\Container.cs" />
-    <Compile Include="DryIoc\FactoryCompiler.cs" />
-    <Compile Include="DryIoc\InternalsVisibleToDryIocFactoryCompilerDynamicAssembly.cs" />
+    <Compile Include="DryIocZero\AsyncExecutionFlowScopeContext.cs" />
+    <Compile Include="DryIocZero\Container.cs" />
+    <Compile Include="DryIocZero\Container.Generated.cs">
+      <DependentUpon>Container.Generated.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
+    <Compile Include="Interception\DryIocInterceptionTools.cs" />
     <Compile Include="Interception\HaveBoxInterceptionLogger.cs" />
     <Compile Include="Interception\LightInjectInterceptionLogger.cs" />
     <Compile Include="Interception\MaestroInterceptionLogger.cs" />
@@ -474,12 +489,22 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="DryIocZero\YourServiceRegistrations.tt.include" />
     <None Include="LightCore.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DryIocZero\Container.Generated.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Container.Generated.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
