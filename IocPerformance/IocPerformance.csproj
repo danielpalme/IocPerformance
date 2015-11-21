@@ -69,13 +69,11 @@
       <HintPath>..\packages\Common.Logging.Core.3.3.0\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DryIoc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DryIoc">
       <HintPath>..\packages\DryIoc.dll.2.0.0\lib\net45\DryIoc.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="DryIocAttributes, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DryIocAttributes">
       <HintPath>..\packages\DryIocAttributes.dll.2.0.0\lib\net45\DryIocAttributes.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Dynamo.Ioc, Version=3.0.2.0, Culture=neutral, PublicKeyToken=584702d813863cbd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
