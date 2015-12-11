@@ -27,7 +27,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsInterception
         {
-            get { return true; }
+            get { return false; }
         }
 
         public override bool SupportsConditional
@@ -48,8 +48,8 @@ namespace IocPerformance.Adapters
         public override bool SupportsPropertyInjection
         {
             get { return true; }
-        }        
- 
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.GetInstance(type);
@@ -64,20 +64,20 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             this.PrepareBasic();
-            
+
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterInterceptor();
-        }        
-        
+        }
+
         public override void PrepareBasic()
         {
             this.container = new ServiceContainer();
             this.RegisterBasic();
         }
-        
+
         private void RegisterBasic()
         {
             this.RegisterDummies();
