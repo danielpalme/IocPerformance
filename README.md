@@ -33,7 +33,7 @@ Results
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|91<br/>76|110<br/>95|122<br/>87|222<br/>194|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|108<br/>86|144<br/>115|180<br/>142|233<br/>166|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|203<br/>171|3364<br/>1998|34315<br/>34496|193101*<br/>205435*|
-|**[LightInject 4.0.2](https://github.com/seesharper/LightInject)**|54<br/>50|62<br/>68|**79**<br/>79|398<br/>282|
+|**[LightInject 4.0.2](https://github.com/seesharper/LightInject)**|59<br/>51|59<br/>67|**80**<br/>80|436<br/>294|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|4163<br/>2443|24399<br/>16041|64412<br/>41898|170694<br/>104578|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|333<br/>259|397<br/>306|1115<br/>728|3512<br/>2556|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|34967<br/>19746|53521<br/>31946|87598<br/>65396|175864<br/>169289|
@@ -44,9 +44,9 @@ Results
 |**[Munq 3.1.6](http://munq.codeplex.com)**|111<br/>79|283<br/>192|751<br/>454|2389<br/>1482|
 |**[Ninject 3.2.2.0](http://ninject.org)**|7259<br/>4486|24276<br/>15296|69214<br/>39610|191033*<br/>117563|
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6626<br/>4071|5546<br/>3373|6971<br/>4657|8246<br/>6118|
-|**[SimpleInjector 3.1.1](https://simpleinjector.org)**|59<br/>67|89<br/>77|118<br/>99|158<br/>127|
+|**[SimpleInjector 3.1.2](https://simpleinjector.org)**|70<br/>71|91<br/>87|112<br/>105|162<br/>127|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|997<br/>752|13890<br/>9012|39235<br/>33605|119975<br/>82439|
-|**[StructureMap 4.0.0.315](http://structuremap.net/structuremap)**|1263<br/>1021|1413<br/>1253|4524<br/>2562|13170<br/>6272|
+|**[StructureMap 4.0.1.318](http://structuremap.net/structuremap)**|1362<br/>1108|1481<br/>993|4111<br/>2966|10179<br/>6587|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|656<br/>454|543<br/>383|833<br/>527|2170<br/>2363|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|454<br/>468|2123<br/>1548|8825<br/>6132|35707<br/>26670|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|2846<br/>1872|4571<br/>2754|11527<br/>7661|35292<br/>23766|
@@ -68,7 +68,7 @@ Results
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|1119<br/>697|<br/>|2252<br/>1373|<br/>|<br/>|**868**<br/>**538**|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|385<br/>269|170<br/>131|<br/>|<br/>|<br/>|<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2487<br/>1843|23120<br/>15653|52456<br/>31250|<br/>|<br/>|<br/>|
-|**[LightInject 4.0.2](https://github.com/seesharper/LightInject)**|957<br/>609|**78**<br/>**81**|340<br/>**241**|594<br/>376|<br/>|<br/>|
+|**[LightInject 4.0.2](https://github.com/seesharper/LightInject)**|1024<br/>682|**76**<br/>**79**|354<br/>248|608<br/>401|<br/>|1545<br/>997|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|3866<br/>2367|783<br/>534|3901<br/>2707|1070<br/>693|<br/>|8955<br/>5331|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|180329*<br/>178984|198621*<br/>151746|137126<br/>140873|<br/>|<br/>|<br/>|
@@ -79,9 +79,9 @@ Results
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1899<br/>1169|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Ninject 3.2.2.0](http://ninject.org)**|165177<br/>106569|67347<br/>42019|151450<br/>96672|53576<br/>31926|45724250*<br/>37677615*|36162<br/>22413|
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6297<br/>3789|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[SimpleInjector 3.1.1](https://simpleinjector.org)**|228<br/>175|107<br/>98|933<br/>536|106<br/>88|<br/>|7346<br/>4373|
+|**[SimpleInjector 3.1.2](https://simpleinjector.org)**|229<br/>179|105<br/>96|887<br/>574|106<br/>89|<br/>|7324<br/>4790|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|91587<br/>63045|<br/>|<br/>|<br/>|<br/>|72303<br/>69545|
-|**[StructureMap 4.0.0.315](http://structuremap.net/structuremap)**|13099<br/>6205|2778<br/>1677|11284<br/>5196|<br/>|3931478*<br/>2819030*|15137<br/>6499|
+|**[StructureMap 4.0.1.318](http://structuremap.net/structuremap)**|11749<br/>8869|4424<br/>3278|9464<br/>6072|<br/>|4830447*<br/>3255723*|20939<br/>6987|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|2391<br/>1093|1407<br/>881|3703<br/>4850|1598<br/>965|<br/>|<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|5062<br/>4660|<br/>|<br/>|<br/>|**15411**<br/>**9844**|<br/>|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|42874<br/>29680|<br/>|72235<br/>50134|<br/>|60679<br/>38214|157119<br/>110328|
@@ -103,7 +103,7 @@ Results
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|81766<br/>|83181<br/>|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|2101<br/>|2795<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|233<br/>|247<br/>|
-|**[LightInject 4.0.2](https://github.com/seesharper/LightInject)**|162<br/>|866<br/>|
+|**[LightInject 4.0.2](https://github.com/seesharper/LightInject)**|174<br/>|851<br/>|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|140<br/>|538<br/>|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|232<br/>|952<br/>|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|23<br/>|3054<br/>|
@@ -114,9 +114,9 @@ Results
 |**[Munq 3.1.6](http://munq.codeplex.com)**|12084<br/>|12117<br/>|
 |**[Ninject 3.2.2.0](http://ninject.org)**|115051<br/>|157982<br/>|
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|25<br/>|49<br/>|
-|**[SimpleInjector 3.1.1](https://simpleinjector.org)**|504<br/>|1660<br/>|
+|**[SimpleInjector 3.1.2](https://simpleinjector.org)**|515<br/>|1636<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|40443<br/>|34294<br/>|
-|**[StructureMap 4.0.0.315](http://structuremap.net/structuremap)**|2592<br/>|11095<br/>|
+|**[StructureMap 4.0.1.318](http://structuremap.net/structuremap)**|4188<br/>|10939<br/>|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|91820<br/>|85792<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|185<br/>|224<br/>|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|957<br/>|3174<br/>|

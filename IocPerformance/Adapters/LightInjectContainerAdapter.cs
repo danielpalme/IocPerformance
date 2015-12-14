@@ -27,7 +27,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsInterception
         {
-            get { return false; }
+            get { return true; }
         }
 
         public override bool SupportsConditional
