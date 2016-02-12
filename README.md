@@ -46,6 +46,7 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6626<br/>4071|5546<br/>3373|6971<br/>4657|8246<br/>6118|
 |**[SimpleInjector 3.1.2](https://simpleinjector.org)**|70<br/>71|91<br/>87|112<br/>105|162<br/>127|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|997<br/>752|13890<br/>9012|39235<br/>33605|119975<br/>82439|
+|**[Stashbox 1.0.98.0](https://github.com/z4kn4fein/stashbox)**|101<br/>86|187<br/>151|219<br/>173|298<br/>202|
 |**[StructureMap 4.0.1.318](http://structuremap.net/structuremap)**|1362<br/>1108|1481<br/>993|4111<br/>2966|10179<br/>6587|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|656<br/>454|543<br/>383|833<br/>527|2170<br/>2363|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|454<br/>468|2123<br/>1548|8825<br/>6132|35707<br/>26670|
@@ -81,9 +82,10 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6297<br/>3789|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[SimpleInjector 3.1.2](https://simpleinjector.org)**|229<br/>179|105<br/>96|887<br/>574|106<br/>89|<br/>|7324<br/>4790|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|91587<br/>63045|<br/>|<br/>|<br/>|<br/>|72303<br/>69545|
+|**[Stashbox 1.0.98.0](https://github.com/z4kn4fein/stashbox)**|464<br/>304|218<br/>166|576<br/>373|224<br/>163|**9908**<br/>**7024**|<br/>|
 |**[StructureMap 4.0.1.318](http://structuremap.net/structuremap)**|11749<br/>8869|4424<br/>3278|9464<br/>6072|<br/>|4830447*<br/>3255723*|20939<br/>6987|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|2391<br/>1093|1407<br/>881|3703<br/>4850|1598<br/>965|<br/>|<br/>|
-|**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|5062<br/>4660|<br/>|<br/>|<br/>|**15411**<br/>**9844**|<br/>|
+|**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|5062<br/>4660|<br/>|<br/>|<br/>|15411<br/>9844|<br/>|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|42874<br/>29680|<br/>|72235<br/>50134|<br/>|60679<br/>38214|157119<br/>110328|
 |**[Windsor 3.3.0](http://castleproject.org)**|52083<br/>32659|27157<br/>17004|26641<br/>13537|<br/>|340330*<br/>Error|21772<br/>13042|
 ### Prepare
@@ -116,6 +118,7 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|25<br/>|49<br/>|
 |**[SimpleInjector 3.1.2](https://simpleinjector.org)**|515<br/>|1636<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|40443<br/>|34294<br/>|
+|**[Stashbox 1.0.98.0](https://github.com/z4kn4fein/stashbox)**|1351<br/>|2015<br/>|
 |**[StructureMap 4.0.1.318](http://structuremap.net/structuremap)**|4188<br/>|10939<br/>|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|91820<br/>|85792<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|185<br/>|224<br/>|
