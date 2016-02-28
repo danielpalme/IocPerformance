@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Management;
 using IocPerformance.Benchmarks;
 
 namespace IocPerformance.Output
@@ -58,6 +59,20 @@ namespace IocPerformance.Output
                     writer.WriteLine("![Basic features](http://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)");
                     writer.WriteLine("![Advanced features](http://www.palmmedia.de/content/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)");
                     writer.WriteLine("![Prepare](http://www.palmmedia.de/content/blogimages/67b056a5-9da8-40b4-9ae6-0c838cdac180.png)");
+
+                    writer.WriteLine("### Machine");
+                    writer.WriteLine("The benchmark was executed on the following machine:  ");
+                    using (ManagementObjectSearcher win32Proc = new ManagementObjectSearcher("select * from Win32_Processor"),
+                        win32CompSys = new ManagementObjectSearcher("select * from Win32_ComputerSystem"),
+                            win32Memory = new ManagementObjectSearcher("select * from Win32_PhysicalMemory"))
+                    {
+                        foreach (ManagementObject obj in win32Proc.Get())
+                        {
+                            writer.WriteLine("**CPU**: " + obj["Name"] + "  ");
+                        }
+                    }
+
+                    writer.WriteLine("**Memory**: " + ((double)new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / (1024 * 1024 * 1024)).ToString("f2") + "GB");
                 }
             }
         }
