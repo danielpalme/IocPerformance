@@ -1,7 +1,10 @@
 ﻿using System;
+using System.ComponentModel.Composition;
 
 namespace IocPerformance.Classes.Conditions
 {
+    [Export, PartCreationPolicy(CreationPolicy.NonShared)]
+
     public class ImportConditionObject3
     {
         private static int counter;
@@ -10,14 +13,14 @@ namespace IocPerformance.Classes.Conditions
         {
             if (exportConditionInterface == null)
             {
-                throw new ArgumentNullException("exportConditionInterface");
+                throw new ArgumentNullException(nameof(exportConditionInterface));
             }
 
             if (exportConditionInterface.GetType() != typeof(ExportConditionalObject3))
             {
                 throw new ArgumentException(
                     "Should have imported ExportConditionalObject3 got: " + exportConditionInterface.GetType().FullName,
-                    "exportConditionInterface");
+nameof(exportConditionInterface));
             }
 
             System.Threading.Interlocked.Increment(ref counter);

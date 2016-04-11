@@ -15,7 +15,7 @@ namespace IocPerformance.Classes.Generics
         {
             if (importGenericInterface == null)
             {
-                throw new ArgumentNullException("importGenericInterface");
+                throw new ArgumentNullException(nameof(importGenericInterface));
             }
 
             System.Threading.Interlocked.Increment(ref counter);

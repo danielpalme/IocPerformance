@@ -63,12 +63,12 @@ namespace IocPerformance.Adapters
             this.RegisterMultiple();
             this.RegisterInterceptor();
         }
-        
+
         public override void PrepareBasic()
         {
             this.container = IoCFactory.CreateServiceLocator();
 
-            this.RegisterBasic();            
+            this.RegisterBasic();
         }
 
         private void RegisterBasic()

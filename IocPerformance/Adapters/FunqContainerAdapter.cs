@@ -113,7 +113,7 @@ namespace IocPerformance.Adapters
                 return this.container.Resolve<IDummyOne>();
             }
 
-            throw new ArgumentException("Non-injectable type requested: " + type.FullName, "type");
+            throw new ArgumentException("Non-injectable type requested: " + type.FullName, nameof(type));
         }
 
         public override void Dispose()

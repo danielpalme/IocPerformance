@@ -20,7 +20,7 @@ namespace IocPerformance.Classes.Complex
         {
             if (secondService == null)
             {
-                throw new ArgumentNullException("secondService");
+                throw new ArgumentNullException(nameof(secondService));
             }
         }
     }

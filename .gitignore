@@ -32,6 +32,7 @@
 /packages/Spring.Aop*
 /packages/Spring.Core*
 /packages/structuremap*
+/packages/Stashbox*
 /packages/StyleMVVM*
 /packages/TinyIoC*
 /packages/Unity*
@@ -40,6 +41,9 @@
 /packages/Fody*
 /packages/DryIoc*
 /packages/Microsoft.Composition*
+/packages/Microsoft.Framework.DependencyInjection*
+/packages/Iesi.Collections*
+/packages/Mono.Cecil*
+/packages/NGenerics*
 *.Cache
 _ReSharper*
-*.boltdata/

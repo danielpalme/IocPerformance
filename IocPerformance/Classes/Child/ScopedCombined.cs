@@ -11,12 +11,12 @@ namespace IocPerformance.Classes.Child
         {
             if (transient == null)
             {
-                throw new ArgumentNullException("transient");
+                throw new ArgumentNullException(nameof(transient));
             }
 
             if (singleton == null)
             {
-                throw new ArgumentNullException("singleton");
+                throw new ArgumentNullException(nameof(singleton));
             }
 
             if (!(transient is ScopedTransient))
@@ -47,12 +47,12 @@ namespace IocPerformance.Classes.Child
         {
             if (transient == null)
             {
-                throw new ArgumentNullException("transient");
+                throw new ArgumentNullException(nameof(transient));
             }
 
             if (singleton == null)
             {
-                throw new ArgumentNullException("singleton");
+                throw new ArgumentNullException(nameof(singleton));
             }
 
             if (!(transient is ScopedTransient))
@@ -83,12 +83,12 @@ namespace IocPerformance.Classes.Child
         {
             if (transient == null)
             {
-                throw new ArgumentNullException("transient");
+                throw new ArgumentNullException(nameof(transient));
             }
 
             if (singleton == null)
             {
-                throw new ArgumentNullException("singleton");
+                throw new ArgumentNullException(nameof(singleton));
             }
 
             if (!(transient is ScopedTransient))

@@ -34,12 +34,12 @@ namespace IocPerformance.Classes.Standard
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (second == null)
             {
-                throw new ArgumentNullException("second");
+                throw new ArgumentNullException(nameof(second));
             }
 
             System.Threading.Interlocked.Increment(ref counter);
@@ -70,12 +70,12 @@ namespace IocPerformance.Classes.Standard
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (second == null)
             {
-                throw new ArgumentNullException("second");
+                throw new ArgumentNullException(nameof(second));
             }
 
             System.Threading.Interlocked.Increment(ref counter);
@@ -106,12 +106,12 @@ namespace IocPerformance.Classes.Standard
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (second == null)
             {
-                throw new ArgumentNullException("second");
+                throw new ArgumentNullException(nameof(second));
             }
 
             System.Threading.Interlocked.Increment(ref counter);

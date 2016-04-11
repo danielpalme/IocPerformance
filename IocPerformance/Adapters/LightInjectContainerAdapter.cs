@@ -48,8 +48,8 @@ namespace IocPerformance.Adapters
         public override bool SupportsPropertyInjection
         {
             get { return true; }
-        }        
- 
+        }
+
         public override object Resolve(Type type)
         {
             return this.container.GetInstance(type);
@@ -64,20 +64,20 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             this.PrepareBasic();
-            
+
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterInterceptor();
-        }        
-        
+        }
+
         public override void PrepareBasic()
         {
             this.container = new ServiceContainer();
             this.RegisterBasic();
         }
-        
+
         private void RegisterBasic()
         {
             this.RegisterDummies();
@@ -127,10 +127,11 @@ namespace IocPerformance.Adapters
             this.container.Register<IFirstService, FirstService>(new PerContainerLifetime());
             this.container.Register<ISecondService, SecondService>(new PerContainerLifetime());
             this.container.Register<IThirdService, ThirdService>(new PerContainerLifetime());
-            this.container.Register<ISubObjectOne>(c => new SubObjectOne(c.GetInstance<IFirstService>()));
-            this.container.Register<ISubObjectTwo>(c => new SubObjectTwo(c.GetInstance<ISecondService>()));
-            this.container.Register<ISubObjectThree>(c => new SubObjectThree(c.GetInstance<IThirdService>()));
 
+            this.container.Register<ISubObjectOne, SubObjectOne>();
+            this.container.Register<ISubObjectTwo, SubObjectTwo>();
+            this.container.Register<ISubObjectThree, SubObjectThree>();
+            
             this.container.Register<IComplex1, Complex1>();
             this.container.Register<IComplex2, Complex2>();
             this.container.Register<IComplex3, Complex3>();
@@ -141,39 +142,12 @@ namespace IocPerformance.Adapters
             this.container.Register<IServiceA, ServiceA>(new PerContainerLifetime());
             this.container.Register<IServiceB, ServiceB>(new PerContainerLifetime());
             this.container.Register<IServiceC, ServiceC>(new PerContainerLifetime());
-            this.container.Register<ISubObjectA>(c => new SubObjectA { ServiceA = c.GetInstance<IServiceA>() });
-            this.container.Register<ISubObjectB>(c => new SubObjectB { ServiceB = c.GetInstance<IServiceB>() });
-            this.container.Register<ISubObjectC>(c => new SubObjectC { ServiceC = c.GetInstance<IServiceC>() });
-            this.container.Register<IComplexPropertyObject1>(
-                c => new ComplexPropertyObject1
-                {
-                    ServiceA = c.GetInstance<IServiceA>(),
-                    ServiceB = c.GetInstance<IServiceB>(),
-                    ServiceC = c.GetInstance<IServiceC>(),
-                    SubObjectA = c.GetInstance<ISubObjectA>(),
-                    SubObjectB = c.GetInstance<ISubObjectB>(),
-                    SubObjectC = c.GetInstance<ISubObjectC>()
-                });
-            this.container.Register<IComplexPropertyObject2>(
-                c => new ComplexPropertyObject2
-                {
-                    ServiceA = c.GetInstance<IServiceA>(),
-                    ServiceB = c.GetInstance<IServiceB>(),
-                    ServiceC = c.GetInstance<IServiceC>(),
-                    SubObjectA = c.GetInstance<ISubObjectA>(),
-                    SubObjectB = c.GetInstance<ISubObjectB>(),
-                    SubObjectC = c.GetInstance<ISubObjectC>()
-                });
-            this.container.Register<IComplexPropertyObject3>(
-                c => new ComplexPropertyObject3
-                {
-                    ServiceA = c.GetInstance<IServiceA>(),
-                    ServiceB = c.GetInstance<IServiceB>(),
-                    ServiceC = c.GetInstance<IServiceC>(),
-                    SubObjectA = c.GetInstance<ISubObjectA>(),
-                    SubObjectB = c.GetInstance<ISubObjectB>(),
-                    SubObjectC = c.GetInstance<ISubObjectC>()
-                });
+            this.container.Register<ISubObjectA, SubObjectA>();
+            this.container.Register<ISubObjectB, SubObjectB>();
+            this.container.Register<ISubObjectC, SubObjectC>();
+            this.container.Register<IComplexPropertyObject1, ComplexPropertyObject1>();
+            this.container.Register<IComplexPropertyObject2, ComplexPropertyObject2>();
+            this.container.Register<IComplexPropertyObject3, ComplexPropertyObject3>();                                                
         }
 
         private void RegisterOpenGeneric()

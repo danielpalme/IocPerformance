@@ -4,6 +4,7 @@ using MEF2Attr = System.Composition;
 using MEFAttr = System.ComponentModel.Composition;
 using MugenAttr = MugenInjection.Attributes;
 using NinjectAttr = Ninject;
+using StashBoxAttr = Stashbox.Attributes;
 using UnityAttr = Microsoft.Practices.Unity;
 
 namespace IocPerformance.Classes.Properties
@@ -28,6 +29,7 @@ namespace IocPerformance.Classes.Properties
         [UnityAttr.Dependency]
         [Stiletto.Inject]
         [IfInjector.Inject]
+        [StashBoxAttr.Dependency]
         public IServiceB ServiceB { get; set; }
 
         public void Verify(string containerName)
