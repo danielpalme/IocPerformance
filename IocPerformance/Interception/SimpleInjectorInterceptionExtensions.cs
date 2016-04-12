@@ -1,34 +1,35 @@
 ﻿using System;
-using System.Linq.Expressions;
 using Castle.DynamicProxy;
 
 namespace SimpleInjector.Extensions.Interception
 {
     // Extension methods for interceptor registration using Castle Dynamic Proxy.
-    public static class InterceptorExtensions
+    public static class SimpleInjectorInterceptorExtensions
     {
-        private static readonly ProxyGenerator generator = new ProxyGenerator();
-        private static readonly Func<Type, object, IInterceptor, object> createProxy = 
-            (p, t, i) => generator.CreateInterfaceProxyWithTarget(p, t, i);
+        private static readonly DefaultProxyBuilder builder = new DefaultProxyBuilder();
 
-        public static void InterceptWith<TInterceptor>(this Container container, Predicate<Type> predicate) 
+        public static void InterceptWith<TService, TInterceptor>(this Container container)
+            where TService : class
             where TInterceptor : class, IInterceptor
         {
-            container.ExpressionBuilt += (s, e) =>
-            {
-                if (predicate(e.RegisteredServiceType))
-                {
-                    var interceptorExpression = container.GetRegistration(typeof(TInterceptor), true).BuildExpression();
+            var serviceType = typeof(TService);
+            if (!serviceType.IsInterface)
+                throw new ArgumentException($"Intercepted service type {serviceType} is not an interface");
 
-                    e.Expression = Expression.Convert(
-                        Expression.Invoke(
-                            Expression.Constant(createProxy),
-                            Expression.Constant(e.RegisteredServiceType, typeof(Type)),
-                            e.Expression,
-                            interceptorExpression),
-                        e.RegisteredServiceType);
-                }
-            };
+            var decoratorType = builder.CreateInterfaceProxyTypeWithTargetInterface(
+                serviceType, Type.EmptyTypes, ProxyGenerationOptions.Default);
+
+            // Decorator with ctor params: (IInterceptor[], TService)
+            container.RegisterDecorator(serviceType, decoratorType);
+
+            // Registration that maps TInterceptor to IInterceptor[].
+            var interceptorArrayRegistration = Lifestyle.Transient.CreateRegistration(typeof(IInterceptor[]),
+                () => new IInterceptor[] { container.GetInstance<TInterceptor>() },
+                container);
+
+            // Inject TInterceptor in the decorator.
+            container.RegisterConditional(typeof(IInterceptor[]), interceptorArrayRegistration,
+                c => c.Consumer.ImplementationType == decoratorType);
         }
     }
 }

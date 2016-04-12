@@ -207,7 +207,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterIntercepter()
         {
-            this.container.InterceptWith<SimpleInjectorInterceptionLogger>(type => type.Name.StartsWith("ICalculator"));
+            this.container.InterceptWith<ICalculator1, SimpleInjectorInterceptionLogger>();
+            this.container.InterceptWith<ICalculator2, SimpleInjectorInterceptionLogger>();
+            this.container.InterceptWith<ICalculator3, SimpleInjectorInterceptionLogger>();
         }
 
         private void RegisterChild()
