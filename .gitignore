@@ -1,4 +1,4 @@
-
+/.vs/*
 *.suo
 *proj.user
 /IocPerformance.userprefs
