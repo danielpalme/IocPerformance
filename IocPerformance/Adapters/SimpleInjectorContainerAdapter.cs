@@ -34,12 +34,24 @@ namespace IocPerformance.Adapters
             get { return "https://simpleinjector.org"; }
         }
 
+        public override bool SupportsChildContainer
+        {
+            // SimpleInjector does not support child containers directly
+            // You can enable it with some custom code, but here it is considered as not supported
+            get { return false; }
+        }
+
         public override bool SupportsConditional
         {
             get { return true; }
         }
 
         public override bool SupportGeneric
+        {
+            get { return true; }
+        }
+
+        public override bool SupportsPropertyInjection
         {
             get { return true; }
         }
@@ -52,18 +64,6 @@ namespace IocPerformance.Adapters
         public override bool SupportsInterception
         {
             get { return true; }
-        }
-
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }        
-
-        public override bool SupportsChildContainer
-        {
-            // SimpleInjector does not support child containers directly
-            // You can enable it with some custom code, but here it is considered as not supported
-            get { return false; }
         }
 
         public override IChildContainerAdapter CreateChildContainerAdapter()
@@ -84,12 +84,10 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.container = new SimpleInjector.Container();
-
-            this.container.Options.PropertySelectionBehavior = new InjectPropertiesMarkedWith<ImportAttribute>();
+            this.CreateContainer();
 
             this.RegisterBasic();
-            
+
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
@@ -97,10 +95,11 @@ namespace IocPerformance.Adapters
             this.RegisterIntercepter();
             this.RegisterChild();
         }
-        
+
         public override void PrepareBasic()
         {
-            this.container = new SimpleInjector.Container();
+            this.CreateContainer();
+
             this.RegisterBasic();
         }
 
@@ -177,15 +176,13 @@ namespace IocPerformance.Adapters
 
         private void RegisterConditional()
         {
-            var container = this.container;
+            this.container.Register<ImportConditionObject1>();
+            this.container.Register<ImportConditionObject2>();
+            this.container.Register<ImportConditionObject3>();
 
-            container.Register<ImportConditionObject1>();
-            container.Register<ImportConditionObject2>();
-            container.Register<ImportConditionObject3>();
-
-            container.RegisterConditional<IExportConditionInterface, ExportConditionalObject>(WhenInjectedInto<ImportConditionObject1>);
-            container.RegisterConditional<IExportConditionInterface, ExportConditionalObject2>(WhenInjectedInto<ImportConditionObject2>);
-            container.RegisterConditional<IExportConditionInterface, ExportConditionalObject3>(WhenInjectedInto<ImportConditionObject3>);
+            this.container.RegisterConditional<IExportConditionInterface, ExportConditionalObject>(WhenInjectedInto<ImportConditionObject1>);
+            this.container.RegisterConditional<IExportConditionInterface, ExportConditionalObject2>(WhenInjectedInto<ImportConditionObject2>);
+            this.container.RegisterConditional<IExportConditionInterface, ExportConditionalObject3>(WhenInjectedInto<ImportConditionObject3>);
         }
 
         private bool WhenInjectedInto<T>(PredicateContext context)
@@ -214,8 +211,6 @@ namespace IocPerformance.Adapters
 
         private void RegisterChild()
         {
-            var scopedLifestyle = new LifetimeScopeLifestyle();
-
             this.scopedRegistrations[typeof(ICombined1)] = Lifestyle.Transient.CreateProducer<ICombined1>(
                 () => new ScopedCombined1(new ScopedTransient(), this.container.GetInstance<ISingleton1>()),
                 this.container);
@@ -229,12 +224,18 @@ namespace IocPerformance.Adapters
                 this.container);
         }
 
-        private sealed class InjectPropertiesMarkedWith<TAttribute> : IPropertySelectionBehavior
-            where TAttribute : Attribute
+        private void CreateContainer()
         {
-            public bool SelectProperty(Type serviceType, PropertyInfo propertyInfo)
+            this.container = new Container();
+            this.container.Options.EnableDynamicAssemblyCompilation = true;
+            this.container.Options.PropertySelectionBehavior = new InjectPropertiesMarkedWithImportAttribute();
+        }
+
+        private sealed class InjectPropertiesMarkedWithImportAttribute : IPropertySelectionBehavior
+        {
+            public bool SelectProperty(Type serviceType, PropertyInfo property)
             {
-                return propertyInfo.GetCustomAttributes<TAttribute>().Any();
+                return property.GetCustomAttributes<ImportAttribute>().Any();
             }
         }
 
@@ -245,9 +246,7 @@ namespace IocPerformance.Adapters
 
             private Scope lifetimeScope;
 
-            internal SimpleInjectorChildContainerAdapter(
-                Container container,
-                Dictionary<Type, InstanceProducer> scopedRegistrations)
+            internal SimpleInjectorChildContainerAdapter(Container container, Dictionary<Type, InstanceProducer> scopedRegistrations)
             {
                 this.container = container;
                 this.scopedRegistrations = scopedRegistrations;
