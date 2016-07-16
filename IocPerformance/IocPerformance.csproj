@@ -53,12 +53,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Catel.Core, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Catel.Core.4.4.0\lib\net45\Catel.Core.dll</HintPath>
+    <Reference Include="Catel.Core, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catel.Core.4.5.0\lib\net45\Catel.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Catel.Extensions.Interception, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Catel.Extensions.Interception.4.4.0\lib\net45\Catel.Extensions.Interception.dll</HintPath>
+    <Reference Include="Catel.Extensions.Interception, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catel.Extensions.Interception.4.5.0\lib\net45\Catel.Extensions.Interception.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
@@ -91,8 +91,8 @@
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
-    <Reference Include="Grace, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grace.3.1.2\lib\portable-net45+win+wpa81+wp80\Grace.dll</HintPath>
+    <Reference Include="Grace, Version=4.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.4.0.2\lib\portable45-net45+win8+wp8+wpa81\Grace.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Griffin.Container, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -134,8 +134,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LightCore.1.5.1\lib\net40\LightCore.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="LightInject, Version=4.0.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LightInject.4.0.10-rc2-2\lib\net45\LightInject.dll</HintPath>
+    <Reference Include="LightInject, Version=4.0.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.4.0.11\lib\net45\LightInject.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="LightInject.Interception, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
@@ -260,12 +260,12 @@
       <HintPath>..\packages\Ronin.Common.1.0.45.0\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Ronin.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.3.1.5\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.2.0\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.3.1.5\lib\net40-client\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
+    <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=3.2.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.3.2.0\lib\net40-client\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Speedioc">
