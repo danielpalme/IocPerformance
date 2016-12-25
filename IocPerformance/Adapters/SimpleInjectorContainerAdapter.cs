@@ -15,7 +15,6 @@ using IocPerformance.Interception;
 using SimpleInjector;
 using SimpleInjector.Advanced;
 using SimpleInjector.Extensions.Interception;
-using SimpleInjector.Extensions.LifetimeScoping;
 
 namespace IocPerformance.Adapters
 {
@@ -180,9 +179,9 @@ namespace IocPerformance.Adapters
             this.container.Register<ImportConditionObject2>();
             this.container.Register<ImportConditionObject3>();
 
-            this.container.RegisterConditional<IExportConditionInterface, ExportConditionalObject>(WhenInjectedInto<ImportConditionObject1>);
-            this.container.RegisterConditional<IExportConditionInterface, ExportConditionalObject2>(WhenInjectedInto<ImportConditionObject2>);
-            this.container.RegisterConditional<IExportConditionInterface, ExportConditionalObject3>(WhenInjectedInto<ImportConditionObject3>);
+            this.container.RegisterConditional<IExportConditionInterface, ExportConditionalObject>(this.WhenInjectedInto<ImportConditionObject1>);
+            this.container.RegisterConditional<IExportConditionInterface, ExportConditionalObject2>(this.WhenInjectedInto<ImportConditionObject2>);
+            this.container.RegisterConditional<IExportConditionInterface, ExportConditionalObject3>(this.WhenInjectedInto<ImportConditionObject3>);
         }
 
         private bool WhenInjectedInto<T>(PredicateContext context)
@@ -204,9 +203,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterIntercepter()
         {
-            this.container.InterceptWith<ICalculator1, SimpleInjectorInterceptionLogger>();
-            this.container.InterceptWith<ICalculator2, SimpleInjectorInterceptionLogger>();
-            this.container.InterceptWith<ICalculator3, SimpleInjectorInterceptionLogger>();
+            this.container.InterceptWith<SimpleInjectorInterceptionLogger>(t => t.Equals(typeof(ICalculator1))
+                || t.Equals(typeof(ICalculator2))
+                || t.Equals(typeof(ICalculator3)));
         }
 
         private void RegisterChild()
