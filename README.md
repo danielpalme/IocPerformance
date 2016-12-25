@@ -18,7 +18,7 @@ Results
 |**Container**|**Singleton**|**Transient**|**Combined**|**Complex**|
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|58<br/>54|65<br/>68|89<br/>99|96<br/>80|
-|**[Autofac 3.5.2](https://github.com/autofac/Autofac)**|713<br/>525|1650<br/>1016|4515<br/>3206|12625<br/>10193|
+|**[Autofac 4.2.1](https://github.com/autofac/Autofac)**|975<br/>697|1695<br/>1072|4516<br/>3622|13056<br/>10724|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|470<br/>281|552<br/>343|1669<br/>927|7434<br/>4084|
 |**[Catel 4.5.4](http://www.catelproject.com)**|379<br/>410|4316<br/>5117|11198<br/>11641|24795<br/>27404|
 |**[DryIoc 2.4.3](https://bitbucket.org/dadhi/dryioc)**|**31**<br/>**43**|**38**<br/>62|**56**<br/>91|**70**<br/>**71**|
@@ -45,7 +45,7 @@ Results
 |**[SimpleInjector 3.3.2](https://simpleinjector.org)**|63<br/>80|120<br/>86|150<br/>121|151<br/>132|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|976<br/>978|10185<br/>11925|27810<br/>24892|73589<br/>58129|
 |**[Stashbox 1.0.104.0](https://github.com/z4kn4fein/stashbox)**|112<br/>102|195<br/>158|228<br/>199|291<br/>243|
-|**[StructureMap 4.2.0.402](http://structuremap.net/structuremap)**|1413<br/>1207|1546<br/>1096|4181<br/>2968|10955<br/>7435|
+|**[StructureMap 4.4.2](http://structuremap.net/structuremap)**|1290<br/>950|1312<br/>833|3708<br/>2292|8881<br/>5411|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|437<br/>266|485<br/>303|721<br/>451|1513<br/>864|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|455<br/>467|1576<br/>1051|7081<br/>5117|29000<br/>20842|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|2531<br/>1406|3857<br/>2088|10225<br/>5657|28572<br/>16225|
@@ -54,7 +54,7 @@ Results
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Interception With Proxy**|
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|--------------------------:|
 |**No**|115<br/>98|71<br/>69|177<br/>135|71<br/>63|613<br/>367|70<br/>63|
-|**[Autofac 3.5.2](https://github.com/autofac/Autofac)**|25023<br/>17237|3568<br/>2282|11017<br/>7756|<br/>|67261<br/>37960|27306<br/>14319|
+|**[Autofac 4.2.1](https://github.com/autofac/Autofac)**|27090<br/>17339|3431<br/>2361|13288<br/>8282|<br/>|50111<br/>30490|24040<br/>13034|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9578<br/>5126|<br/>|6207<br/>3466|<br/>|<br/>|<br/>|
 |**[Catel 4.5.4](http://www.catelproject.com)**|<br/>|10712<br/>11508|<br/>|<br/>|<br/>|4433<br/>4715|
 |**[DryIoc 2.4.3](https://bitbucket.org/dadhi/dryioc)**|**95**<br/>**97**|**55**<br/>**75**|**264**<br/>**189**|**53**<br/>**66**|<br/>|816<br/>498|
@@ -81,7 +81,7 @@ Results
 |**[SimpleInjector 3.3.2](https://simpleinjector.org)**|295<br/>160|89<br/>88|805<br/>463|72<br/>79|<br/>|7113<br/>3998|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|56159<br/>53415|<br/>|<br/>|<br/>|<br/>|53353<br/>55179|
 |**[Stashbox 1.0.104.0](https://github.com/z4kn4fein/stashbox)**|499<br/>384|239<br/>191|565<br/>452|225<br/>186|**8751**<br/>6023|<br/>|
-|**[StructureMap 4.2.0.402](http://structuremap.net/structuremap)**|10857<br/>7345|2789<br/>1904|8721<br/>5663|<br/>|3555039*<br/>1896903*|7414<br/>4064|
+|**[StructureMap 4.4.2](http://structuremap.net/structuremap)**|9927<br/>5526|2475<br/>1489|7564<br/>4405|<br/>|3340111*<br/>1802940*|7888<br/>4710|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1713<br/>979|1269<br/>699|3082<br/>1725|1329<br/>743|<br/>|<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|4712<br/>4934|<br/>|<br/>|<br/>|12401<br/>7236|<br/>|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|29090<br/>17028|<br/>|45898<br/>23941|<br/>|34469<br/>21442|93685<br/>49400|
@@ -90,7 +90,7 @@ Results
 |**Container**|**Prepare And Register**|**Prepare And Register And Simple Resolve**|
 |:------------|-----------------------:|------------------------------------------:|
 |**No**|2<br/>|3<br/>|
-|**[Autofac 3.5.2](https://github.com/autofac/Autofac)**|322<br/>|377<br/>|
+|**[Autofac 4.2.1](https://github.com/autofac/Autofac)**|293<br/>|326<br/>|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|53<br/>|59<br/>|
 |**[Catel 4.5.4](http://www.catelproject.com)**|8804<br/>|8968<br/>|
 |**[DryIoc 2.4.3](https://bitbucket.org/dadhi/dryioc)**|79<br/>|420<br/>|
@@ -117,7 +117,7 @@ Results
 |**[SimpleInjector 3.3.2](https://simpleinjector.org)**|377<br/>|2935<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|27593<br/>|27718<br/>|
 |**[Stashbox 1.0.104.0](https://github.com/z4kn4fein/stashbox)**|1144<br/>|1728<br/>|
-|**[StructureMap 4.2.0.402](http://structuremap.net/structuremap)**|1320<br/>|7638<br/>|
+|**[StructureMap 4.4.2](http://structuremap.net/structuremap)**|1375<br/>|7375<br/>|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|71837<br/>|78801<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|58<br/>|71<br/>|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|638<br/>|2254<br/>|
