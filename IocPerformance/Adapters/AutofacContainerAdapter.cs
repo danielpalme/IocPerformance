@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Autofac;
-using Autofac.Extras.DynamicProxy2;
+using Autofac.Extras.DynamicProxy;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
@@ -51,7 +50,7 @@ namespace IocPerformance.Adapters
         {
             get { return true; }
         }
-        
+
         public override IChildContainerAdapter CreateChildContainerAdapter()
         {
             return new AutofacChildContainerAdapter(this.container.BeginLifetimeScope());
@@ -81,15 +80,15 @@ namespace IocPerformance.Adapters
             autofacContainerBuilder.Register(c => new AutofacInterceptionLogger());
 
             RegisterBasic(autofacContainerBuilder);
-           
+
             RegisterPropertyInjection(autofacContainerBuilder);
             RegisterOpenGeneric(autofacContainerBuilder);
             RegisterMultiple(autofacContainerBuilder);
             RegisterInterceptor(autofacContainerBuilder);
-            
+
             this.container = autofacContainerBuilder.Build();
         }
-        
+
         public override void PrepareBasic()
         {
             var autofacContainerBuilder = new ContainerBuilder();
@@ -98,7 +97,7 @@ namespace IocPerformance.Adapters
 
             this.container = autofacContainerBuilder.Build();
         }
-        
+
         private static void RegisterBasic(ContainerBuilder autofacContainerBuilder)
         {
             RegisterDummies(autofacContainerBuilder);

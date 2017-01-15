@@ -106,11 +106,11 @@ namespace IocPerformance.Output
                 .Select(r => r.ContainerInfo)
                 .Distinct()
                 .Select(c => new
-                    {
-                        Container = c,
-                        TotalTime = benchmarkResults.Where(b => b.ContainerInfo.Name == c.Name).Sum(b => b.SingleThreadedResult.Time)
-                    })
-                .Where(r => r.TotalTime.HasValue && r.TotalTime.Value <= maxTime && r.TotalTime.Value > minTime)
+                {
+                    Container = c,
+                    TotalTime = benchmarkResults.Where(b => b.ContainerInfo.Name == c.Name).Sum(b => b.SingleThreadedResult.Time)
+                })
+                .Where(r => r.TotalTime.HasValue && r.TotalTime.Value <= maxTime && r.TotalTime.Value >= minTime)
                 .OrderByDescending(r => r.TotalTime.Value)
                 .Select(r => r.Container)
                 .Concat(benchmarkResults.Where(r => r.ContainerInfo.Name == "No").Select(r => r.ContainerInfo).Distinct());

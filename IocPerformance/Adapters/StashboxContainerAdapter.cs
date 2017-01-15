@@ -1,4 +1,5 @@
-﻿using IocPerformance.Classes.Child;
+﻿using System;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -9,7 +10,6 @@ using IocPerformance.Classes.Standard;
 using Stashbox;
 using Stashbox.Infrastructure;
 using Stashbox.LifeTime;
-using System;
 
 namespace IocPerformance.Adapters
 {
@@ -18,6 +18,7 @@ namespace IocPerformance.Adapters
         private StashboxContainer container;
 
         public override string PackageName => "Stashbox";
+
         public override string Url => "https://github.com/z4kn4fein/stashbox";
 
         public override bool SupportsInterception => false;
