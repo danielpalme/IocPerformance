@@ -1,5 +1,4 @@
-﻿using System;
-using IocPerformance.Classes.Child;
+﻿using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -9,7 +8,7 @@ using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using Stashbox;
 using Stashbox.Infrastructure;
-using Stashbox.LifeTime;
+using System;
 
 namespace IocPerformance.Adapters
 {
@@ -18,7 +17,6 @@ namespace IocPerformance.Adapters
         private StashboxContainer container;
 
         public override string PackageName => "Stashbox";
-
         public override string Url => "https://github.com/z4kn4fein/stashbox";
 
         public override bool SupportsInterception => false;
@@ -92,9 +90,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard()
         {
-            this.container.PrepareType<ISingleton1, Singleton1>().WithLifetime(new SingletonLifetime()).Register();
-            this.container.PrepareType<ISingleton2, Singleton2>().WithLifetime(new SingletonLifetime()).Register();
-            this.container.PrepareType<ISingleton3, Singleton3>().WithLifetime(new SingletonLifetime()).Register();
+            this.container.RegisterSingleton<ISingleton1, Singleton1>();
+            this.container.RegisterSingleton<ISingleton2, Singleton2>();
+            this.container.RegisterSingleton<ISingleton3, Singleton3>();
             this.container.RegisterType<ITransient1, Transient1>();
             this.container.RegisterType<ITransient2, Transient2>();
             this.container.RegisterType<ITransient3, Transient3>();
@@ -105,9 +103,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterComplex()
         {
-            this.container.PrepareType<IFirstService, FirstService>().WithLifetime(new SingletonLifetime()).Register();
-            this.container.PrepareType<ISecondService, SecondService>().WithLifetime(new SingletonLifetime()).Register();
-            this.container.PrepareType<IThirdService, ThirdService>().WithLifetime(new SingletonLifetime()).Register();
+            this.container.RegisterSingleton<IFirstService, FirstService>();
+            this.container.RegisterSingleton<ISecondService, SecondService>();
+            this.container.RegisterSingleton<IThirdService, ThirdService>();
             this.container.RegisterType<ISubObjectOne, SubObjectOne>();
             this.container.RegisterType<ISubObjectTwo, SubObjectTwo>();
             this.container.RegisterType<ISubObjectThree, SubObjectThree>();
@@ -118,9 +116,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterPropertyInjection()
         {
-            this.container.PrepareType<IServiceA, ServiceA>().WithLifetime(new SingletonLifetime()).Register();
-            this.container.PrepareType<IServiceB, ServiceB>().WithLifetime(new SingletonLifetime()).Register();
-            this.container.PrepareType<IServiceC, ServiceC>().WithLifetime(new SingletonLifetime()).Register();
+            this.container.RegisterSingleton<IServiceA, ServiceA>();
+            this.container.RegisterSingleton<IServiceB, ServiceB>();
+            this.container.RegisterSingleton<IServiceC, ServiceC>();
             this.container.RegisterType<ISubObjectA, SubObjectA>();
             this.container.RegisterType<ISubObjectB, SubObjectB>();
             this.container.RegisterType<ISubObjectC, SubObjectC>();
