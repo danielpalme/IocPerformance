@@ -16,45 +16,21 @@ namespace IocPerformance.Adapters
     {
         private Container container;
 
-        public override string PackageName
-        {
-            get { return "StructureMap"; }
-        }
+        public override string PackageName => "StructureMap";
 
-        public override string Url
-        {
-            get { return "http://structuremap.net/structuremap"; }
-        }
+        public override string Url => "http://structuremap.net/structuremap";
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsChildContainer
-        {
-            get { return true; }
-        }
+        public override bool SupportsChildContainer => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetInstance(type);
-        }
+        public override object Resolve(Type type) => this.container.GetInstance(type);
 
         public override void Dispose()
         {
@@ -68,10 +44,7 @@ namespace IocPerformance.Adapters
             this.container = null;
         }
 
-        public override IChildContainerAdapter CreateChildContainerAdapter()
-        {
-            return new StructureMapChildContainerAdapter(this.container.GetNestedContainer());
-        }
+        public override IChildContainerAdapter CreateChildContainerAdapter() => new StructureMapChildContainerAdapter(this.container.GetNestedContainer());
 
         public override void Prepare()
         {
@@ -237,9 +210,6 @@ namespace IocPerformance.Adapters
                                      });
         }
 
-        public object Resolve(Type resolveType)
-        {
-            return this.container.GetInstance(resolveType);
-        }
+        public object Resolve(Type resolveType) => this.container.GetInstance(resolveType);
     }
 }

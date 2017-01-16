@@ -33,10 +33,7 @@ namespace IocPerformance.Classes.Standard
             set { counter = value; }
         }
 
-        public virtual int Add(int first, int second)
-        {
-            return first + second;
-        }
+        public virtual int Add(int first, int second) => first + second;
     }
 
     [UnityInterceptionLogger]
@@ -55,10 +52,7 @@ namespace IocPerformance.Classes.Standard
             set { counter = value; }
         }
 
-        public virtual int Add(int first, int second)
-        {
-            return first + second;
-        }
+        public virtual int Add(int first, int second) => first + second;
     }
 
     [UnityInterceptionLogger]
@@ -77,9 +71,6 @@ namespace IocPerformance.Classes.Standard
             set { counter = value; }
         }
 
-        public virtual int Add(int first, int second)
-        {
-            return first + second;
-        }
+        public virtual int Add(int first, int second) => first + second;
     }
 }

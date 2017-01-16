@@ -5,9 +5,6 @@ namespace IocPerformance.Interception
 {
     public class UnityInterceptionLoggerAttribute : HandlerAttribute
     {
-        public override ICallHandler CreateHandler(IUnityContainer container)
-        {
-            return new UnityInterceptionLogger();
-        }
+        public override ICallHandler CreateHandler(IUnityContainer container) => new UnityInterceptionLogger();
     }
 }

@@ -10,13 +10,7 @@ namespace IocPerformance.Benchmarks
 
         public string Error { get; set; }
 
-        public bool Successful
-        {
-            get
-            {
-                return string.IsNullOrEmpty(this.Error) && !this.ExtraPolated && this.Time.HasValue;
-            }
-        }
+        public bool Successful => string.IsNullOrEmpty(this.Error) && !this.ExtraPolated && this.Time.HasValue;
 
         public override string ToString()
         {

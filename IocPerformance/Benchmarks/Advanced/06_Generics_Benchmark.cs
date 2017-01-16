@@ -6,10 +6,7 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class Generics_06_Benchmark : Benchmark
     {
-        public override bool IsSupportedBy(IContainerAdapter container)
-        {
-            return container.SupportGeneric;
-        }
+        public override bool IsSupportedBy(IContainerAdapter container) => container.SupportGeneric;
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {

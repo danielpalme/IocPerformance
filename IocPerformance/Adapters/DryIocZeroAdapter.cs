@@ -39,40 +39,19 @@ namespace IocPerformance.Adapters
 
         private Container container;
 
-        public override string PackageName
-        {
-            get { return "DryIocZero"; }
-        }
+        public override string PackageName => "DryIocZero";
 
-        public override string Url
-        {
-            get { return "https://bitbucket.org/dadhi/dryioc"; }
-        }
+        public override string Url => "https://bitbucket.org/dadhi/dryioc";
 
-        public override bool SupportsConditional
-        {
-            get { return true; }
-        }
+        public override bool SupportsConditional => true;
 
-        public override bool SupportGeneric
-        {
-            get { return false; }
-        }
+        public override bool SupportGeneric => false;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsInterception
-        {
-            get { return false; }
-        }
+        public override bool SupportsInterception => false;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }       
+        public override bool SupportsPropertyInjection => true;
 
         public override object Resolve(Type type)
         {

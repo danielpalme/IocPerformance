@@ -11,30 +11,15 @@ namespace IocPerformance.Adapters
     {
         private Container container;
 
-        public override string Name
-        {
-            get { return "Petite"; }
-        }
+        public override string Name => "Petite";
 
-        public override string PackageName
-        {
-            get { return "Petite.Container"; }
-        }
+        public override string PackageName => "Petite.Container";
 
-        public override string Url
-        {
-            get { return "https://github.com/andlju/Petite"; }
-        }
+        public override string Url => "https://github.com/andlju/Petite";
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Dispose()
         {

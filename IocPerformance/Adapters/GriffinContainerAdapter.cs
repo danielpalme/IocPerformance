@@ -13,32 +13,17 @@ namespace IocPerformance.Adapters
         private IParentContainer container;
         private IParentContainer containerWithLoggingInterception;
 
-        public override string Name
-        {
-            get { return "Griffin"; }
-        }
+        public override string Name => "Griffin";
 
-        public override string PackageName
-        {
-            get { return "Griffin.Container"; }
-        }
+        public override string PackageName => "Griffin.Container";
 
-        public override string Url
-        {
-            get { return "https://github.com/jgauffin/griffin.container"; }
-        }
+        public override string Url => "https://github.com/jgauffin/griffin.container";
 
         // The container is extremly slow, when creating proxies, so it's currently disabled
-        public override bool SupportsInterception
-        {
-            get { return false; }
-        }
+        public override bool SupportsInterception => false;
 
         // It says it supports property injection but there is no documentation on how to turn it on and it doesn't work out of the box so ... it's turned off
-        public override bool SupportsPropertyInjection
-        {
-            get { return false; }
-        }
+        public override bool SupportsPropertyInjection => false;
 
         public override object Resolve(Type type)
         {

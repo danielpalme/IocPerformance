@@ -10,24 +10,15 @@ namespace IocPerformance.Benchmarks.Prepare
     /// </summary>
     public class PrepareAndRegister_11_Benchmark : Benchmark
     {
-        public override ThreadingCases Threading
-        {
-            get
-            {
-                // not supports multithreaded scenario
-                // 1 - first container created
-                // 2 - second created
-                // 1 - resolving out of not ready second container, error
-                // or
-                // when conainer errors if no support for multi registrations of same type 
-                return base.Threading & (~ThreadingCases.Multi);
-            }
-        }
+        // not supports multithreaded scenario
+        // 1 - first container created
+        // 2 - second created
+        // 1 - resolving out of not ready second container, error
+        // or
+        // when conainer errors if no support for multi registrations of same type 
+        public override ThreadingCases Threading => base.Threading & (~ThreadingCases.Multi);
 
-        public override int LoopCount
-        {
-            get { return 3 * 1000; }
-        }
+        public override int LoopCount => 3 * 1000;
 
         public override void Warmup(IContainerAdapter container)
         {

@@ -6,23 +6,14 @@ namespace IocPerformance.Adapters
 {
     public abstract class ContainerAdapterBase : IContainerAdapter
     {
-        public virtual string Version
-        {
-            get
-            {
-                return XDocument
-                      .Load("packages.config")
-                      .Root
-                      .Elements()
-                      .First(e => e.Attribute("id").Value == this.PackageName)
-                      .Attribute("version").Value;
-            }
-        }
+        public virtual string Version => XDocument
+      .Load("packages.config")
+      .Root
+      .Elements()
+      .First(e => e.Attribute("id").Value == this.PackageName)
+      .Attribute("version").Value;
 
-        public virtual string Name
-        {
-            get { return this.PackageName; }
-        }
+        public virtual string Name => this.PackageName;
 
         public abstract string PackageName
         {
@@ -34,36 +25,18 @@ namespace IocPerformance.Adapters
             get;
         }
 
-        public virtual bool SupportsInterception
-        {
-            get { return false; }
-        }
+        public virtual bool SupportsInterception => false;
 
-        public virtual bool SupportsPropertyInjection
-        {
-            get { return false; }
-        }
+        public virtual bool SupportsPropertyInjection => false;
 
-        public virtual bool SupportsChildContainer
-        {
-            get { return false; }
-        }
+        public virtual bool SupportsChildContainer => false;
 
-        public virtual bool SupportsConditional
-        {
-            get { return false; }
-        }
+        public virtual bool SupportsConditional => false;
 
-        public virtual bool SupportGeneric
-        {
-            get { return false; }
-        }
+        public virtual bool SupportGeneric => false;
 
-        public virtual bool SupportsMultiple
-        {
-            get { return false; }
-        }      
-        
+        public virtual bool SupportsMultiple => false;
+
         public virtual bool SupportsBasic
         {
             get { return true; }

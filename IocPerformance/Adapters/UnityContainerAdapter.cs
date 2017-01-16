@@ -15,40 +15,19 @@ namespace IocPerformance.Adapters
     {
         private UnityContainer container;
 
-        public override string PackageName
-        {
-            get { return "Unity"; }
-        }
+        public override string PackageName => "Unity";
 
-        public override string Url
-        {
-            get { return "http://msdn.microsoft.com/unity"; }
-        }
+        public override string Url => "http://msdn.microsoft.com/unity";
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsChildContainer
-        {
-            get { return true; }
-        }
+        public override bool SupportsChildContainer => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Dispose()
         {
@@ -62,10 +41,7 @@ namespace IocPerformance.Adapters
             this.container = null;
         }
 
-        public override IChildContainerAdapter CreateChildContainerAdapter()
-        {
-            return new UnityChildContainerAdapter(this.container.CreateChildContainer());
-        }
+        public override IChildContainerAdapter CreateChildContainerAdapter() => new UnityChildContainerAdapter(this.container.CreateChildContainer());
 
         public override void Prepare()
         {
@@ -196,9 +172,6 @@ namespace IocPerformance.Adapters
             this.childContainer.RegisterType(typeof(ITransient1), typeof(ScopedTransient));
         }
 
-        public object Resolve(Type resolveType)
-        {
-            return this.childContainer.Resolve(resolveType);
-        }
+        public object Resolve(Type resolveType) => this.childContainer.Resolve(resolveType);
     }
 }

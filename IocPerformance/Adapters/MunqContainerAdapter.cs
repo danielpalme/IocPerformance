@@ -12,30 +12,15 @@ namespace IocPerformance.Adapters
     {
         private IocContainer container;
 
-        public override string Name
-        {
-            get { return "Munq"; }
-        }
+        public override string Name => "Munq";
 
-        public override string PackageName
-        {
-            get { return "Munq.IocContainer"; }
-        }
+        public override string PackageName => "Munq.IocContainer";
 
-        public override string Url
-        {
-            get { return "http://munq.codeplex.com"; }
-        }
+        public override string Url => "http://munq.codeplex.com";
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Dispose()
         {

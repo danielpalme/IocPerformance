@@ -205,10 +205,7 @@ namespace SimpleInjector.Extensions.Interception
 
     public static class Interceptor
     {
-        public static T CreateProxy<T>(IInterceptor interceptor, T realInstance)
-        {
-            return (T)CreateProxy(typeof(T), interceptor, realInstance);
-        }
+        public static T CreateProxy<T>(IInterceptor interceptor, T realInstance) => (T)CreateProxy(typeof(T), interceptor, realInstance);
 
         [DebuggerStepThrough]
         public static object CreateProxy(Type serviceType, IInterceptor interceptor,
@@ -284,20 +281,14 @@ namespace SimpleInjector.Extensions.Interception
                 public IMethodCallMessage Message { get; set; }
                 public object ReturnValue { get; set; }
 
-                public object InvocationTarget
-                {
-                    get { return this.Proxy.realInstance; }
-                }
+                public object InvocationTarget => this.Proxy.realInstance;
 
                 public void Proceed()
                 {
                     this.Proceeding();
                 }
 
-                public MethodBase GetConcreteMethod()
-                {
-                    return this.Message.MethodBase;
-                }
+                public MethodBase GetConcreteMethod() => this.Message.MethodBase;
             }
         }
     }

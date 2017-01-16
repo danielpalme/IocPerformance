@@ -13,35 +13,17 @@ namespace IocPerformance.Adapters
     {
         private Container container;
 
-        public override string PackageName
-        {
-            get { return "HaveBox"; }
-        }
+        public override string PackageName => "HaveBox";
 
-        public override string Url
-        {
-            get { return "https://bitbucket.org/Have/havebox"; }
-        }
+        public override string Url => "https://bitbucket.org/Have/havebox";
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetInstance(type);
-        }
+        public override object Resolve(Type type) => this.container.GetInstance(type);
 
         public override void Dispose()
         {

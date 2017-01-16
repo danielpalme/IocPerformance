@@ -13,40 +13,22 @@ namespace IocPerformance.Adapters
     {
         private CompositionHost container;
 
-        public override string PackageName
-        {
-            get { return "Mef2"; }
-        }
+        public override string PackageName => "Mef2";
 
-        public override string Url
-        {
-            get { return "https://blogs.msdn.com/b/bclteam/p/composition.aspx"; }
-        }
+        public override string Url => "https://blogs.msdn.com/b/bclteam/p/composition.aspx";
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
-       
+        public override bool SupportGeneric => true;
+
         public override string Version
         {
             get { return typeof(CompositionHost).Assembly.GetName().Version.ToString(); }
         }
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetExport(type);
-        }
+        public override object Resolve(Type type) => this.container.GetExport(type);
 
         public override void Dispose()
         {

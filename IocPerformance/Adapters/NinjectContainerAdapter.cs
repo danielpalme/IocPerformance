@@ -18,55 +18,25 @@ namespace IocPerformance.Adapters
     {
         private StandardKernel container;
 
-        public override string PackageName
-        {
-            get { return "Ninject"; }
-        }
+        public override string PackageName => "Ninject";
 
-        public override string Url
-        {
-            get { return "http://ninject.org"; }
-        }
+        public override string Url => "http://ninject.org";
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsConditional
-        {
-            get { return true; }
-        }
+        public override bool SupportsConditional => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsChildContainer
-        {
-            get { return true; }
-        }
+        public override bool SupportsChildContainer => true;
 
-        public override IChildContainerAdapter CreateChildContainerAdapter()
-        {
-            return new NInjectChildContainerAdapter(new ChildKernel(this.container));
-        }
+        public override IChildContainerAdapter CreateChildContainerAdapter() => new NInjectChildContainerAdapter(new ChildKernel(this.container));
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Get(type);
-        }
+        public override object Resolve(Type type) => this.container.Get(type);
 
         public override void Dispose()
         {
@@ -222,9 +192,6 @@ namespace IocPerformance.Adapters
             this.childKernel.Bind<ICombined3>().To<ScopedCombined3>();
         }
 
-        public object Resolve(Type resolveType)
-        {
-            return this.childKernel.Get(resolveType);
-        }
+        public object Resolve(Type resolveType) => this.childKernel.Get(resolveType);
     }
 }

@@ -23,57 +23,25 @@ namespace IocPerformance.Adapters
         private Container container;
         private Dictionary<Type, InstanceProducer> scopedRegistrations = new Dictionary<Type, InstanceProducer>();
 
-        public override string PackageName
-        {
-            get { return "SimpleInjector"; }
-        }
+        public override string PackageName => "SimpleInjector";
 
-        public override string Url
-        {
-            get { return "https://simpleinjector.org"; }
-        }
+        public override string Url => "https://simpleinjector.org";
 
-        public override bool SupportsChildContainer
-        {
-            // SimpleInjector does not support child containers directly
-            // You can enable it with some custom code, but here it is considered as not supported
-            get { return false; }
-        }
+        public override bool SupportsChildContainer => false;
 
-        public override bool SupportsConditional
-        {
-            get { return true; }
-        }
+        public override bool SupportsConditional => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override IChildContainerAdapter CreateChildContainerAdapter()
-        {
-            return new SimpleInjectorChildContainerAdapter(this.container, this.scopedRegistrations);
-        }
+        public override IChildContainerAdapter CreateChildContainerAdapter() => new SimpleInjectorChildContainerAdapter(this.container, this.scopedRegistrations);
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetInstance(type);
-        }
+        public override object Resolve(Type type) => this.container.GetInstance(type);
 
         public override void Dispose()
         {
@@ -184,10 +152,7 @@ namespace IocPerformance.Adapters
             this.container.RegisterConditional<IExportConditionInterface, ExportConditionalObject3>(this.WhenInjectedInto<ImportConditionObject3>);
         }
 
-        private bool WhenInjectedInto<T>(PredicateContext context)
-        {
-            return context.Consumer.ImplementationType == typeof(T);
-        }
+        private bool WhenInjectedInto<T>(PredicateContext context) => context.Consumer.ImplementationType == typeof(T);
 
         private void RegisterMultiple()
         {
@@ -232,10 +197,7 @@ namespace IocPerformance.Adapters
 
         private sealed class InjectPropertiesMarkedWithImportAttribute : IPropertySelectionBehavior
         {
-            public bool SelectProperty(Type serviceType, PropertyInfo property)
-            {
-                return property.GetCustomAttributes<ImportAttribute>().Any();
-            }
+            public bool SelectProperty(Type serviceType, PropertyInfo property) => property.GetCustomAttributes<ImportAttribute>().Any();
         }
 
         private sealed class SimpleInjectorChildContainerAdapter : IChildContainerAdapter

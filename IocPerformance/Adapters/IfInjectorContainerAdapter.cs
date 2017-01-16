@@ -10,30 +10,15 @@ namespace IocPerformance.Adapters
     {
         private Injector container;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override string PackageName
-        {
-            get { return "IfInjector"; }
-        }
+        public override string PackageName => "IfInjector";
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override string Url
-        {
-            get { return "https://github.com/iamahern/IfInjector"; }
-        }
+        public override string Url => "https://github.com/iamahern/IfInjector";
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override sealed void Dispose()
         {

@@ -13,47 +13,26 @@ namespace IocPerformance.Adapters
     {
         private TinyIoCContainer container;
 
-        public override string PackageName
-        {
-            get { return "TinyIoC"; }
-        }
+        public override string PackageName => "TinyIoC";
 
-        public override string Url
-        {
-            get { return "https://github.com/grumpydev/TinyIoC"; }
-        }
+        public override string Url => "https://github.com/grumpydev/TinyIoC";
 
         /// <summary>
         /// I'm marking this as false because there's a bug in TinyIOC that makes the tests fail.
         /// </summary>
-        public override bool SupportGeneric
-        {
-            get { return false; }
-        }
+        public override bool SupportGeneric => false;
 
         /// <summary>
         /// I'm marking this as false because you have to register once using RegisterMultiple.
         /// Other containers allow you to register multiple interfaces separately and then resolves all known
         /// </summary>
-        public override bool SupportsMultiple
-        {
-            get { return false; }
-        }
+        public override bool SupportsMultiple => false;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsChildContainer
-        {
-            get { return true; }
-        }
+        public override bool SupportsChildContainer => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Dispose()
         {
@@ -61,10 +40,7 @@ namespace IocPerformance.Adapters
             this.container = null;
         }
 
-        public override IChildContainerAdapter CreateChildContainerAdapter()
-        {
-            return new TinyIoCChildContainerAdapter(this.container.GetChildContainer());
-        }
+        public override IChildContainerAdapter CreateChildContainerAdapter() => new TinyIoCChildContainerAdapter(this.container.GetChildContainer());
 
         public override void Prepare()
         {
@@ -197,9 +173,6 @@ namespace IocPerformance.Adapters
             this.childContainer.Register(typeof(ITransient1), typeof(ScopedTransient));
         }
 
-        public object Resolve(Type resolveType)
-        {
-            return this.childContainer.Resolve(resolveType);
-        }
+        public object Resolve(Type resolveType) => this.childContainer.Resolve(resolveType);
     }
 }

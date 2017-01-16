@@ -11,25 +11,13 @@ namespace IocPerformance.Adapters
     {
         private Container container;
 
-        public override string PackageName
-        {
-            get { return "Funq"; }
-        }
+        public override string PackageName => "Funq";
 
-        public override string Url
-        {
-            get { return "https://funq.codeplex.com"; }
-        }
+        public override string Url => "https://funq.codeplex.com";
 
-        public override string Version
-        {
-            get { return typeof(Container).Assembly.GetName().Version.ToString(); }
-        }
+        public override string Version => typeof(Container).Assembly.GetName().Version.ToString();
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
         public override object Resolve(Type type)
         {

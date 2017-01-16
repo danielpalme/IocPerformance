@@ -18,10 +18,7 @@ namespace IocPerformance.Benchmarks
 
         public string Version { get; private set; }
 
-        public override string ToString()
-        {
-            return this.Name;
-        }
+        public override string ToString() => this.Name;
 
         public override bool Equals(object obj)
         {
@@ -33,9 +30,6 @@ namespace IocPerformance.Benchmarks
             return this.Name.Equals(((ContainerAdapterInfo)obj).Name);
         }
 
-        public override int GetHashCode()
-        {
-            return this.Name.GetHashCode();
-        }
+        public override int GetHashCode() => this.Name.GetHashCode();
     }
 }

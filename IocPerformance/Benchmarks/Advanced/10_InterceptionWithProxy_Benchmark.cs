@@ -6,10 +6,7 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class InterceptionWithProxy_10_Benchmark : Benchmark
     {
-        public override bool IsSupportedBy(IContainerAdapter container)
-        {
-            return container.SupportsInterception;
-        }
+        public override bool IsSupportedBy(IContainerAdapter container) => container.SupportsInterception;
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {

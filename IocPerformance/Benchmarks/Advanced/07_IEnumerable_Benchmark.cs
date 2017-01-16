@@ -6,10 +6,7 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class IEnumerable_07_Benchmark : Benchmark
     {
-        public override bool IsSupportedBy(IContainerAdapter container)
-        {
-            return container.SupportsMultiple;
-        }
+        public override bool IsSupportedBy(IContainerAdapter container) => container.SupportsMultiple;
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {

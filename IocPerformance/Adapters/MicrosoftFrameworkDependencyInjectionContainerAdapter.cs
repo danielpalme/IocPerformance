@@ -17,30 +17,15 @@ namespace IocPerformance.Adapters
 
         private IServiceProvider serviceProvider;
 
-        public override string PackageName
-        {
-            get { return "Microsoft.Framework.DependencyInjection"; }
-        }
+        public override string PackageName => "Microsoft.Framework.DependencyInjection";
 
-        public override string Url
-        {
-            get { return "https://github.com/aspnet/DependencyInjection"; }
-        }
+        public override string Url => "https://github.com/aspnet/DependencyInjection";
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.serviceProvider.GetService(type);
-        }
+        public override object Resolve(Type type) => this.serviceProvider.GetService(type);
 
         public override void Dispose()
         {

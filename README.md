@@ -28,10 +28,10 @@ Results
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|122<br/>92|143<br/>111|396<br/>258|1066<br/>631|
 |**[Grace 4.0.2](https://github.com/ipjohnson/Grace)**|179<br/>134|328<br/>240|789<br/>487|2177<br/>1278|
 |**[Griffin 1.1.2](https://github.com/jgauffin/griffin.container)**|301<br/>192|305<br/>210|707<br/>435|2004<br/>1525|
-|**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|41<br/>51|47<br/>60|66<br/>97|106<br/>90|
+|**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|41<br/>51|47<br/>**60**|66<br/>97|106<br/>90|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|74<br/>81|121<br/>101|154<br/>129|206<br/>146|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|184<br/>196|2478<br/>1349|25106<br/>30593|160556<br/>207181*|
-|**[LightInject 4.1.5](https://github.com/seesharper/LightInject)**|40<br/>52|50<br/>**58**|64<br/>**83**|85<br/>82|
+|**[LightInject 5.0.0](https://github.com/seesharper/LightInject)**|41<br/>45|56<br/>**60**|75<br/>**81**|90<br/>100|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|3794<br/>2406|19975<br/>14511|51402<br/>35572|122377<br/>75771|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|337<br/>253|374<br/>278|1094<br/>643|3104<br/>1747|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|22424<br/>12124|35595<br/>25034|59216<br/>67576|118099<br/>146429|
@@ -44,7 +44,7 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|4118<br/>2690|4161<br/>2763|4477<br/>2584|4966<br/>2670|
 |**[SimpleInjector 3.3.2](https://simpleinjector.org)**|63<br/>80|120<br/>86|150<br/>121|151<br/>132|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|976<br/>978|10185<br/>11925|27810<br/>24892|73589<br/>58129|
-|**[Stashbox 1.0.104.0](https://github.com/z4kn4fein/stashbox)**|112<br/>102|195<br/>158|228<br/>199|291<br/>243|
+|**[Stashbox 1.0.132](https://github.com/z4kn4fein/stashbox)**|99<br/>84|166<br/>129|230<br/>166|246<br/>181|
 |**[StructureMap 4.4.2](http://structuremap.net/structuremap)**|1290<br/>950|1312<br/>833|3708<br/>2292|8881<br/>5411|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|437<br/>266|485<br/>303|721<br/>451|1513<br/>864|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|455<br/>467|1576<br/>1051|7081<br/>5117|29000<br/>20842|
@@ -62,12 +62,12 @@ Results
 |**[Dynamo 3.0.2.0](http://martinf.github.io/Dynamo.IoC)**|786<br/>464|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1153<br/>641|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[Grace 4.0.2](https://github.com/ipjohnson/Grace)**|2358<br/>1339|774<br/>496|2665<br/>1440|804<br/>491|10364<br/>**5939**|5928<br/>3177|
+|**[Grace 4.0.2](https://github.com/ipjohnson/Grace)**|2358<br/>1339|774<br/>496|2665<br/>1440|804<br/>491|**10364**<br/>**5939**|5928<br/>3177|
 |**[Griffin 1.1.2](https://github.com/jgauffin/griffin.container)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|815<br/>447|<br/>|1784<br/>993|<br/>|<br/>|**720**<br/>**417**|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|391<br/>252|146<br/>127|<br/>|<br/>|<br/>|<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2490<br/>2259|17591<br/>17980|40054<br/>31362|<br/>|<br/>|<br/>|
-|**[LightInject 4.1.5](https://github.com/seesharper/LightInject)**|103<br/>100|60<br/>78|275<br/>205|512<br/>308|<br/>|1591<br/>900|
+|**[LightInject 5.0.0](https://github.com/seesharper/LightInject)**|105<br/>146|88<br/>78|369<br/>329|659<br/>472|<br/>|1538<br/>871|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|3403<br/>1863|714<br/>480|3150<br/>1763|930<br/>586|<br/>|5763<br/>3138|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|124601<br/>138121|147178<br/>139065|104933<br/>130921|<br/>|<br/>|<br/>|
@@ -80,7 +80,7 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6076<br/>3382|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[SimpleInjector 3.3.2](https://simpleinjector.org)**|295<br/>160|89<br/>88|805<br/>463|72<br/>79|<br/>|7113<br/>3998|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|56159<br/>53415|<br/>|<br/>|<br/>|<br/>|53353<br/>55179|
-|**[Stashbox 1.0.104.0](https://github.com/z4kn4fein/stashbox)**|499<br/>384|239<br/>191|565<br/>452|225<br/>186|**8751**<br/>6023|<br/>|
+|**[Stashbox 1.0.132](https://github.com/z4kn4fein/stashbox)**|437<br/>284|188<br/>160|502<br/>316|189<br/>148|226897*<br/>133160|<br/>|
 |**[StructureMap 4.4.2](http://structuremap.net/structuremap)**|9927<br/>5526|2475<br/>1489|7564<br/>4405|<br/>|3340111*<br/>1802940*|7888<br/>4710|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1713<br/>979|1269<br/>699|3082<br/>1725|1329<br/>743|<br/>|<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|4712<br/>4934|<br/>|<br/>|<br/>|12401<br/>7236|<br/>|
@@ -103,7 +103,7 @@ Results
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|54181<br/>|54777<br/>|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|1509<br/>|2001<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|228<br/>|230<br/>|
-|**[LightInject 4.1.5](https://github.com/seesharper/LightInject)**|160<br/>|673<br/>|
+|**[LightInject 5.0.0](https://github.com/seesharper/LightInject)**|145<br/>|653<br/>|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|99<br/>|337<br/>|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|173<br/>|677<br/>|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|14<br/>|2320<br/>|
@@ -116,7 +116,7 @@ Results
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|37<br/>|47<br/>|
 |**[SimpleInjector 3.3.2](https://simpleinjector.org)**|377<br/>|2935<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|27593<br/>|27718<br/>|
-|**[Stashbox 1.0.104.0](https://github.com/z4kn4fein/stashbox)**|1144<br/>|1728<br/>|
+|**[Stashbox 1.0.132](https://github.com/z4kn4fein/stashbox)**|969<br/>|1476<br/>|
 |**[StructureMap 4.4.2](http://structuremap.net/structuremap)**|1375<br/>|7375<br/>|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|71837<br/>|78801<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|58<br/>|71<br/>|

@@ -10,20 +10,11 @@ namespace IocPerformance.Adapters
     {
         private Container container;
 
-        public override string PackageName
-        {
-            get { return "Stiletto"; }
-        }
+        public override string PackageName => "Stiletto";
 
-        public override string Url
-        {
-            get { return "http://stiletto.bendb.com"; }
-        }
+        public override string Url => "http://stiletto.bendb.com";
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
         public override void Prepare()
         {
@@ -90,68 +81,38 @@ namespace IocPerformance.Adapters
         public class StilettoBasicModule
         {
             [Provides]
-            public ITransient1 ProvideTransient(Transient1 transient)
-            {
-                return transient;
-            }
+            public ITransient1 ProvideTransient(Transient1 transient) => transient;
 
             [Provides]
-            public ISingleton1 ProvideSingleton(Singleton1 singleton)
-            {
-                return singleton;
-            }
+            public ISingleton1 ProvideSingleton(Singleton1 singleton) => singleton;
 
             [Provides]
-            public ICombined1 ProvideCombined(Combined1 combined)
-            {
-                return combined;
-            }
+            public ICombined1 ProvideCombined(Combined1 combined) => combined;
 
             [Provides]
-            public IComplex1 ProvideComplex(Complex1 complex)
-            {
-                return complex;
-            }
+            public IComplex1 ProvideComplex(Complex1 complex) => complex;
         }
 
         [Module(IsComplete = false)]
         public class ProvideComplexDependenciesBasic
         {
             [Provides]
-            public IFirstService ProvideFirstService(FirstService service)
-            {
-                return service;
-            }
+            public IFirstService ProvideFirstService(FirstService service) => service;
 
             [Provides]
-            public ISecondService ProvideSecondService(SecondService service)
-            {
-                return service;
-            }
+            public ISecondService ProvideSecondService(SecondService service) => service;
 
             [Provides]
-            public IThirdService ProvideThirdService(ThirdService service)
-            {
-                return service;
-            }
+            public IThirdService ProvideThirdService(ThirdService service) => service;
 
             [Provides]
-            public ISubObjectOne ProvideSubObjectOne(SubObjectOne obj)
-            {
-                return obj;
-            }
+            public ISubObjectOne ProvideSubObjectOne(SubObjectOne obj) => obj;
 
             [Provides]
-            public ISubObjectTwo ProvideSubObjectTwo(SubObjectTwo obj)
-            {
-                return obj;
-            }
+            public ISubObjectTwo ProvideSubObjectTwo(SubObjectTwo obj) => obj;
 
             [Provides]
-            public ISubObjectThree ProvidSubObjectThree(SubObjectThree obj)
-            {
-                return obj;
-            }
+            public ISubObjectThree ProvidSubObjectThree(SubObjectThree obj) => obj;
         }
 
         [Module(
@@ -171,110 +132,59 @@ namespace IocPerformance.Adapters
         public class StilettoModule
         {
             [Provides]
-            public ITransient1 ProvideTransient(Transient1 transient)
-            {
-                return transient;
-            }
+            public ITransient1 ProvideTransient(Transient1 transient) => transient;
 
             [Provides]
-            public ISingleton1 ProvideSingleton(Singleton1 singleton)
-            {
-                return singleton;
-            }
+            public ISingleton1 ProvideSingleton(Singleton1 singleton) => singleton;
 
             [Provides]
-            public ICombined1 ProvideCombined(Combined1 combined)
-            {
-                return combined;
-            }
+            public ICombined1 ProvideCombined(Combined1 combined) => combined;
 
             [Provides]
-            public IComplex1 ProvideComplex(Complex1 complex)
-            {
-                return complex;
-            }
+            public IComplex1 ProvideComplex(Complex1 complex) => complex;
 
             [Provides]
-            public IComplexPropertyObject1 ProvideComplexPropertyObject(ComplexPropertyObject1 complex)
-            {
-                return complex;
-            }
+            public IComplexPropertyObject1 ProvideComplexPropertyObject(ComplexPropertyObject1 complex) => complex;
         }
 
         [Module(IsComplete = false)]
         public class ProvideComplexDependencies
         {
             [Provides]
-            public IFirstService ProvideFirstService(FirstService service)
-            {
-                return service;
-            }
+            public IFirstService ProvideFirstService(FirstService service) => service;
 
             [Provides]
-            public ISecondService ProvideSecondService(SecondService service)
-            {
-                return service;
-            }
+            public ISecondService ProvideSecondService(SecondService service) => service;
 
             [Provides]
-            public IThirdService ProvideThirdService(ThirdService service)
-            {
-                return service;
-            }
+            public IThirdService ProvideThirdService(ThirdService service) => service;
 
             [Provides]
-            public ISubObjectOne ProvideSubObjectOne(SubObjectOne obj)
-            {
-                return obj;
-            }
+            public ISubObjectOne ProvideSubObjectOne(SubObjectOne obj) => obj;
 
             [Provides]
-            public ISubObjectTwo ProvideSubObjectTwo(SubObjectTwo obj)
-            {
-                return obj;
-            }
+            public ISubObjectTwo ProvideSubObjectTwo(SubObjectTwo obj) => obj;
 
             [Provides]
-            public ISubObjectThree ProvidSubObjectThree(SubObjectThree obj)
-            {
-                return obj;
-            }
+            public ISubObjectThree ProvidSubObjectThree(SubObjectThree obj) => obj;
 
             [Provides]
-            public IServiceA ProvideServiceA(ServiceA service)
-            {
-                return service;
-            }
+            public IServiceA ProvideServiceA(ServiceA service) => service;
 
             [Provides]
-            public IServiceB ProvideServiceB(ServiceB service)
-            {
-                return service;
-            }
+            public IServiceB ProvideServiceB(ServiceB service) => service;
 
             [Provides]
-            public IServiceC ProvideServiceC(ServiceC service)
-            {
-                return service;
-            }
+            public IServiceC ProvideServiceC(ServiceC service) => service;
 
             [Provides]
-            public ISubObjectA ProvideSubObjectA(SubObjectA obj)
-            {
-                return obj;
-            }
+            public ISubObjectA ProvideSubObjectA(SubObjectA obj) => obj;
 
             [Provides]
-            public ISubObjectB ProvideSubObjectB(SubObjectB obj)
-            {
-                return obj;
-            }
+            public ISubObjectB ProvideSubObjectB(SubObjectB obj) => obj;
 
             [Provides]
-            public ISubObjectC ProvidSubObjectC(SubObjectC obj)
-            {
-                return obj;
-            }
+            public ISubObjectC ProvidSubObjectC(SubObjectC obj) => obj;
         }
     }
 }

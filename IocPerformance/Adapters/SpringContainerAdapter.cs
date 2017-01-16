@@ -7,35 +7,17 @@ namespace IocPerformance.Adapters
     {
         private IApplicationContext container;
 
-        public override string Name
-        {
-            get { return "Spring.NET"; }
-        }
+        public override string Name => "Spring.NET";
 
-        public override string PackageName
-        {
-            get { return "Spring.Core"; }
-        }
+        public override string PackageName => "Spring.Core";
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override string Url
-        {
-            get { return "http://www.springframework.net/"; }
-        }
+        public override string Url => "http://www.springframework.net/";
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetObject(type.FullName);
-        }
+        public override object Resolve(Type type) => this.container.GetObject(type.FullName);
 
         public override void Dispose()
         {

@@ -12,15 +12,9 @@ namespace IocPerformance.Benchmarks
 {
     public abstract class Benchmark : IBenchmark
     {
-        public virtual int LoopCount
-        {
-            get { return 500 * 1000; }
-        }
+        public virtual int LoopCount => 500 * 1000;
 
-        public virtual ThreadingCases Threading
-        {
-            get { return ThreadingCases.Single | ThreadingCases.Multi; }
-        }
+        public virtual ThreadingCases Threading => ThreadingCases.Single | ThreadingCases.Multi;
 
         public string Name
         {
@@ -31,27 +25,15 @@ namespace IocPerformance.Benchmarks
             }
         }
 
-        public int Order
-        {
-            get
-            {
-                return int.Parse(this.GetType().Name.Split('_')[1]);
-            }
-        }
+        public int Order => int.Parse(this.GetType().Name.Split('_')[1]);
 
-        public virtual bool IsSupportedBy(IContainerAdapter container)
-        {
-            return true;
-        }
+        public virtual bool IsSupportedBy(IContainerAdapter container) => true;
 
         public abstract void MethodToBenchmark(IContainerAdapter container);
 
         public abstract void Verify(IContainerAdapter container);
 
-        public override string ToString()
-        {
-            return this.Name;
-        }
+        public override string ToString() => this.Name;
 
         public virtual void Warmup(IContainerAdapter container)
         {

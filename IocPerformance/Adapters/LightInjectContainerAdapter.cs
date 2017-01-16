@@ -15,45 +15,21 @@ namespace IocPerformance.Adapters
     {
         private ServiceContainer container;
 
-        public override string PackageName
-        {
-            get { return "LightInject"; }
-        }
+        public override string PackageName => "LightInject";
 
-        public override string Url
-        {
-            get { return "https://github.com/seesharper/LightInject"; }
-        }
+        public override string Url => "https://github.com/seesharper/LightInject";
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportsConditional
-        {
-            get { return true; }
-        }
+        public override bool SupportsConditional => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetInstance(type);
-        }
+        public override object Resolve(Type type) => this.container.GetInstance(type);
 
         public override void Dispose()
         {

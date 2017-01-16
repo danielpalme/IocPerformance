@@ -19,50 +19,23 @@ namespace IocPerformance.Adapters
     {
         private IContainer container;
 
-        public override string PackageName
-        {
-            get { return "DryIoc.dll"; }
-        }
+        public override string PackageName => "DryIoc.dll";
 
-        public override string Name
-        {
-            get { return "DryIoc"; }
-        }
+        public override string Name => "DryIoc";
 
-        public override string Url
-        {
-            get { return "https://bitbucket.org/dadhi/dryioc"; }
-        }
+        public override string Url => "https://bitbucket.org/dadhi/dryioc";
 
-        public override bool SupportsConditional
-        {
-            get { return true; }
-        }
+        public override bool SupportsConditional => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportsChildContainer
-        {
-            get { return false; }
-        }
+        public override bool SupportsChildContainer => false;
 
         //private static readonly string ChildContainerScopeName = "ChildContainerScopeName";
         //public override IChildContainerAdapter CreateChildContainerAdapter()
@@ -76,10 +49,7 @@ namespace IocPerformance.Adapters
         //    return rules.WithFactorySelector(Rules.PreferKeyOverDefault(ChildContainerScopeName));
         //}
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Dispose()
         {
@@ -246,10 +216,7 @@ namespace IocPerformance.Adapters
                 this.child.Register<ITransient1, ScopedTransient>();
             }
 
-            public object Resolve(Type resolveType)
-            {
-                return this.child.Resolve(resolveType, false);
-            }
+            public object Resolve(Type resolveType) => this.child.Resolve(resolveType, false);
         }
     }
 }

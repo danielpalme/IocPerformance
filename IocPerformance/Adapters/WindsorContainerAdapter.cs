@@ -17,50 +17,23 @@ namespace IocPerformance.Adapters
     {
         private WindsorContainer container;
 
-        public override string Name
-        {
-            get { return "Windsor"; }
-        }
+        public override string Name => "Windsor";
 
-        public override string PackageName
-        {
-            get { return "Castle.Windsor"; }
-        }
+        public override string PackageName => "Castle.Windsor";
 
-        public override string Url
-        {
-            get { return "http://castleproject.org"; }
-        }
+        public override string Url => "http://castleproject.org";
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportsChildContainer
-        {
-            get { return true; }
-        }
+        public override bool SupportsChildContainer => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Dispose()
         {
@@ -212,9 +185,6 @@ namespace IocPerformance.Adapters
             this.container.Register(Component.For<ICombined3>().ImplementedBy<ScopedCombined3>());
         }
 
-        public object Resolve(Type resolveType)
-        {
-            return this.container.Resolve(resolveType);
-        }
+        public object Resolve(Type resolveType) => this.container.Resolve(resolveType);
     }
 }

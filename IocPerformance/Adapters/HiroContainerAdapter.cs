@@ -12,25 +12,13 @@ namespace IocPerformance.Adapters
     {
         private IMicroContainer container;
 
-        public override string PackageName
-        {
-            get { return "Hiro"; }
-        }
+        public override string PackageName => "Hiro";
 
-        public override string Url
-        {
-            get { return "https://github.com/philiplaureano/Hiro"; }
-        }
+        public override string Url => "https://github.com/philiplaureano/Hiro";
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetInstance(type, null);
-        }
+        public override object Resolve(Type type) => this.container.GetInstance(type, null);
 
         public override void Dispose()
         {

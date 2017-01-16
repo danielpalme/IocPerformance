@@ -38,10 +38,7 @@ namespace IocPerformance.Adapters
             this.RegisterBasic();
         }
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Prepare()
         {
@@ -63,10 +60,7 @@ namespace IocPerformance.Adapters
             this.container = null;
         }
 
-        public override IChildContainerAdapter CreateChildContainerAdapter()
-        {
-            return new StashboxChildContainerAdapter(this.container);
-        }
+        public override IChildContainerAdapter CreateChildContainerAdapter() => new StashboxChildContainerAdapter(this.container);
 
         private void RegisterBasic()
         {
@@ -183,9 +177,6 @@ namespace IocPerformance.Adapters
             this.childContainer.RegisterType<ITransient1, ScopedTransient>();
         }
 
-        public object Resolve(Type resolveType)
-        {
-            return this.childContainer.Resolve(resolveType);
-        }
+        public object Resolve(Type resolveType) => this.childContainer.Resolve(resolveType);
     }
 }

@@ -16,50 +16,23 @@ namespace IocPerformance.Adapters
     {
         private IContainer container;
 
-        public override string PackageName
-        {
-            get { return "Autofac"; }
-        }
+        public override string PackageName => "Autofac";
 
-        public override string Url
-        {
-            get { return "https://github.com/autofac/Autofac"; }
-        }
+        public override string Url => "https://github.com/autofac/Autofac";
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsChildContainer
-        {
-            get { return true; }
-        }
+        public override bool SupportsChildContainer => true;
 
-        public override IChildContainerAdapter CreateChildContainerAdapter()
-        {
-            return new AutofacChildContainerAdapter(this.container.BeginLifetimeScope());
-        }
+        public override IChildContainerAdapter CreateChildContainerAdapter() => new AutofacChildContainerAdapter(this.container.BeginLifetimeScope());
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Dispose()
         {
@@ -218,9 +191,6 @@ namespace IocPerformance.Adapters
             autofacContainerBuilder.Update(this.lifetimeScope.ComponentRegistry);
         }
 
-        public object Resolve(Type resolveType)
-        {
-            return this.lifetimeScope.Resolve(resolveType);
-        }
+        public object Resolve(Type resolveType) => this.lifetimeScope.Resolve(resolveType);
     }
 }

@@ -12,37 +12,19 @@ namespace IocPerformance.Adapters
     {
         private LinFu.IoC.ServiceContainer container;
 
-        public override string Name
-        {
-            get { return "LinFu"; }
-        }
+        public override string Name => "LinFu";
 
-        public override string PackageName
-        {
-            get { return "LinFu.Core"; }
-        }
+        public override string PackageName => "LinFu.Core";
 
-        public override string Url
-        {
-            get { return "https://github.com/philiplaureano/LinFu"; }
-        }
+        public override string Url => "https://github.com/philiplaureano/LinFu";
 
         // After trying to configure it multiple way I'm not sure why this doesn't work
         // but it doesn't so I'm marking as false
-        public override bool SupportsPropertyInjection
-        {
-            get { return false; }
-        }
+        public override bool SupportsPropertyInjection => false;
 
-        public override bool SupportsMultiple
-        {
-            get { return false; }
-        }
+        public override bool SupportsMultiple => false;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetService(type);
-        }
+        public override object Resolve(Type type) => this.container.GetService(type);
 
         public override void Dispose()
         {

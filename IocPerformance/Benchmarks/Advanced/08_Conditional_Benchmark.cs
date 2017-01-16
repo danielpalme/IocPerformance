@@ -6,10 +6,7 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class Conditional_08_Benchmark : Benchmark
     {
-        public override bool IsSupportedBy(IContainerAdapter container)
-        {
-            return container.SupportsConditional;
-        }
+        public override bool IsSupportedBy(IContainerAdapter container) => container.SupportsConditional;
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {

@@ -12,9 +12,6 @@ namespace IocPerformance.Interception
         {
         }
 
-        protected override IInterceptor CreateInterceptor(DecoratorContext context)
-        {
-            return new GriffinInterceptionLogger();
-        }
+        protected override IInterceptor CreateInterceptor(DecoratorContext context) => new GriffinInterceptionLogger();
     }
 }

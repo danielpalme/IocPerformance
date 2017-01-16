@@ -14,35 +14,17 @@ namespace IocPerformance.Adapters
     {
         private IContainer container;
 
-        public override string PackageName
-        {
-            get { return "LightCore"; }
-        }
+        public override string PackageName => "LightCore";
 
-        public override string Url
-        {
-            get { return "http://www.lightcore.ch"; }
-        }
+        public override string Url => "http://www.lightcore.ch";
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Dispose()
         {

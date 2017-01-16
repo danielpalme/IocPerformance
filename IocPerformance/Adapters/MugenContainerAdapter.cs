@@ -17,50 +17,23 @@ namespace IocPerformance.Adapters
     {
         private MugenInjector container;
 
-        public override string Name
-        {
-            get { return "Mugen"; }
-        }
+        public override string Name => "Mugen";
 
-        public override string PackageName
-        {
-            get { return "MugenInjection"; }
-        }
+        public override string PackageName => "MugenInjection";
 
-        public override string Url
-        {
-            get { return "http://mugeninjection.codeplex.com"; }
-        }
+        public override string Url => "http://mugeninjection.codeplex.com";
 
-        public override bool SupportsConditional
-        {
-            get { return true; }
-        }
+        public override bool SupportsConditional => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportsChildContainer
-        {
-            get { return true; }
-        }
+        public override bool SupportsChildContainer => true;
 
         public override IChildContainerAdapter CreateChildContainerAdapter()
         {
@@ -69,10 +42,7 @@ namespace IocPerformance.Adapters
             return new MugenChildContainerAdapter(injector);
         }
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Get(type);
-        }
+        public override object Resolve(Type type) => this.container.Get(type);
 
         public override void Dispose()
         {
@@ -222,9 +192,6 @@ namespace IocPerformance.Adapters
             this.injector.Bind<ICombined3>().To<ScopedCombined3>().InSingletonScope();
         }
 
-        public object Resolve(Type resolveType)
-        {
-            return this.injector.Get(resolveType);
-        }
+        public object Resolve(Type resolveType) => this.injector.Get(resolveType);
     }
 }

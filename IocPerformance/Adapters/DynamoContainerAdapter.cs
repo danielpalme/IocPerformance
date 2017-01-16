@@ -11,30 +11,15 @@ namespace IocPerformance.Adapters
     {
         private IocContainer container;
 
-        public override string Name
-        {
-            get { return "Dynamo"; }
-        }
+        public override string Name => "Dynamo";
 
-        public override string PackageName
-        {
-            get { return "Dynamo.Ioc"; }
-        }
+        public override string PackageName => "Dynamo.Ioc";
 
-        public override string Url
-        {
-            get { return "http://martinf.github.io/Dynamo.IoC"; }
-        }
+        public override string Url => "http://martinf.github.io/Dynamo.IoC";
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Resolve(type);
-        }
+        public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Dispose()
         {

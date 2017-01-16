@@ -9,20 +9,11 @@ namespace IocPerformance.Adapters
 {
     public sealed class FFastInjectorContainerAdapter : ContainerAdapterBase
     {
-        public override string PackageName
-        {
-            get { return "fFastInjector"; }
-        }
+        public override string PackageName => "fFastInjector";
 
-        public override string Url
-        {
-            get { return "https://ffastinjector.codeplex.com"; }
-        }
+        public override string Url => "https://ffastinjector.codeplex.com";
 
-        public override object Resolve(Type type)
-        {
-            return Container.Resolve(type);
-        }
+        public override object Resolve(Type type) => Container.Resolve(type);
 
         public override void Dispose()
         {

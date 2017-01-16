@@ -10,20 +10,14 @@ namespace IocPerformance.Adapters
     {
         private IoC container;
 
-        public override string PackageName
-        {
-            get { return "MicroSliver"; }
-        }
+        public override string PackageName => "MicroSliver";
 
         public override string Url
         {
             get { return "https://microsliver.codeplex.com"; }
         }
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetByType(type);
-        }
+        public override object Resolve(Type type) => this.container.GetByType(type);
 
         public override void Dispose()
         {

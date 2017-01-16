@@ -15,60 +15,27 @@ namespace IocPerformance.Adapters
     {
         private readonly Dictionary<Type, Func<object>> container = new Dictionary<Type, Func<object>>();
 
-        public override string PackageName
-        {
-            get { return "No"; }
-        }
+        public override string PackageName => "No";
 
-        public override string Url
-        {
-            get { return string.Empty; }
-        }
+        public override string Url => string.Empty;
 
-        public override string Version
-        {
-            get { return string.Empty; }
-        }
+        public override string Version => string.Empty;
 
-        public override bool SupportsConditional
-        {
-            get { return true; }
-        }
+        public override bool SupportsConditional => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportsChildContainer
-        {
-            get { return true; }
-        }
+        public override bool SupportsChildContainer => true;
 
-        public override bool SupportsBasic
-        {
-            get { return true; }
-        }
+        public override bool SupportsBasic => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container[type]();
-        }
+        public override object Resolve(Type type) => this.container[type]();
 
         public override void Dispose()
         {
@@ -91,10 +58,7 @@ namespace IocPerformance.Adapters
             this.RegisterComplex();
         }
 
-        public override IChildContainerAdapter CreateChildContainerAdapter()
-        {
-            return new NoContainerChildContainerAdapter(this);
-        }
+        public override IChildContainerAdapter CreateChildContainerAdapter() => new NoContainerChildContainerAdapter(this);
 
         private static IEnumerable<ISimpleAdapter> GetAllSimpleAdapters()
         {
@@ -275,9 +239,6 @@ namespace IocPerformance.Adapters
             this.container[typeof(ICombined3)] = () => new ScopedCombined3(new ScopedTransient(), singleton);
         }
 
-        public object Resolve(Type resolveType)
-        {
-            return this.container[resolveType]();
-        }
+        public object Resolve(Type resolveType) => this.container[resolveType]();
     }
 }

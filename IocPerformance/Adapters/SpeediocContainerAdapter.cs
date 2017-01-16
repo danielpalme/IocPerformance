@@ -12,20 +12,11 @@ namespace IocPerformance.Adapters
     {
         private IContainer container;
 
-        public override string PackageName
-        {
-            get { return "Speedioc"; }
-        }
+        public override string PackageName => "Speedioc";
 
-        public override string Url
-        {
-            get { return "https://github.com/wade/Speedioc"; }
-        }
+        public override string Url => "https://github.com/wade/Speedioc";
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetInstance(type);
-        }
+        public override object Resolve(Type type) => this.container.GetInstance(type);
 
         public override void Dispose()
         {

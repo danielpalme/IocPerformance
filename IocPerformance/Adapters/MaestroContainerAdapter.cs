@@ -16,40 +16,19 @@ namespace IocPerformance.Adapters
     {
         private IContainer container;
 
-        public override string PackageName
-        {
-            get { return "Maestro"; }
-        }
+        public override string PackageName => "Maestro";
 
-        public override string Url
-        {
-            get { return "https://github.com/JonasSamuelsson/Maestro"; }
-        }
+        public override string Url => "https://github.com/JonasSamuelsson/Maestro";
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsConditional
-        {
-            get { return true; }
-        }
+        public override bool SupportsConditional => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
         public override void Prepare()
         {
@@ -88,10 +67,7 @@ namespace IocPerformance.Adapters
             this.container = null;
         }
 
-        public override object Resolve(Type type)
-        {
-            return this.container.Get(type);
-        }
+        public override object Resolve(Type type) => this.container.Get(type);
 
         private static void RegisterBasic(IContainerExpression x)
         {

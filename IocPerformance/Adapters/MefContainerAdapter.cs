@@ -14,40 +14,19 @@ namespace IocPerformance.Adapters
     {
         private CompositionContainer container;
 
-        public override string PackageName
-        {
-            get { return "Mef"; }
-        }
+        public override string PackageName => "Mef";
 
-        public override string Url
-        {
-            get { return "https://mef.codeplex.com"; }
-        }
+        public override string Url => "https://mef.codeplex.com";
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override string Version
-        {
-            get { return typeof(CompositionContainer).Assembly.GetName().Version.ToString(); }
-        }
+        public override string Version => typeof(CompositionContainer).Assembly.GetName().Version.ToString();
 
-        public override object Resolve(Type type)
-        {
-            return this.container.GetExports(type, null, null).First().Value;
-        }
+        public override object Resolve(Type type) => this.container.GetExports(type, null, null).First().Value;
 
         public override void Dispose()
         {

@@ -13,35 +13,20 @@ namespace IocPerformance.Adapters
     {
         private SimpleContainer container;
 
-        public override string Name
-        {
-            get { return "Caliburn.Micro"; }
-        }
+        public override string Name => "Caliburn.Micro";
 
-        public override string PackageName
-        {
-            get { return "Caliburn.Micro.Container"; }
-        }
+        public override string PackageName => "Caliburn.Micro.Container";
 
-        public override string Url
-        {
-            get { return "https://github.com/Caliburn-Micro/Caliburn.Micro"; }
-        }
+        public override string Url => "https://github.com/Caliburn-Micro/Caliburn.Micro";
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
         public override bool SupportsPropertyInjection
         {
             get { return true; }
-        } 
-
-        public override object Resolve(Type type)
-        {
-            return this.container.GetInstance(type, null);
         }
+
+        public override object Resolve(Type type) => this.container.GetInstance(type, null);
 
         public override void Dispose()
         {

@@ -15,40 +15,19 @@ namespace IocPerformance.Adapters
     {
         private IDependencyInjectionContainer container;
 
-        public override string PackageName
-        {
-            get { return "StyleMVVM"; }
-        }
+        public override string PackageName => "StyleMVVM";
 
-        public override string Url
-        {
-            get { return "https://stylemvvm.codeplex.com"; }
-        }
+        public override string Url => "https://stylemvvm.codeplex.com";
 
-        public override bool SupportsConditional
-        {
-            get { return true; }
-        }
+        public override bool SupportsConditional => true;
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return true; }
-        }
+        public override bool SupportsMultiple => true;
 
-        public override bool SupportsPropertyInjection
-        {
-            get { return true; }
-        }
+        public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.LocateByType(type);
-        }
+        public override object Resolve(Type type) => this.container.LocateByType(type);
 
         public override void Dispose()
         {

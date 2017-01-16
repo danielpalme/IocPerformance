@@ -15,10 +15,7 @@ namespace IocPerformance.Benchmarks
 
         public string FullName { get; set; }
 
-        public override string ToString()
-        {
-            return this.Name;
-        }
+        public override string ToString() => this.Name;
 
         public override bool Equals(object obj)
         {
@@ -30,9 +27,6 @@ namespace IocPerformance.Benchmarks
             return this.Name.Equals(((BenchmarkInfo)obj).Name);
         }
 
-        public override int GetHashCode()
-        {
-            return this.Name.GetHashCode();
-        }
+        public override int GetHashCode() => this.Name.GetHashCode();
     }
 }

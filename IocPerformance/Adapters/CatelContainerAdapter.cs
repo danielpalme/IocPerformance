@@ -15,40 +15,19 @@ namespace IocPerformance.Adapters
     {
         private IServiceLocator container;
 
-        public override string Name
-        {
-            get { return "Catel"; }
-        }
+        public override string Name => "Catel";
 
-        public override string PackageName
-        {
-            get { return "Catel.Core"; }
-        }
+        public override string PackageName => "Catel.Core";
 
-        public override string Url
-        {
-            get { return "http://www.catelproject.com"; }
-        }
+        public override string Url => "http://www.catelproject.com";
 
-        public override bool SupportGeneric
-        {
-            get { return true; }
-        }
+        public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple
-        {
-            get { return false; }
-        }
+        public override bool SupportsMultiple => false;
 
-        public override bool SupportsInterception
-        {
-            get { return true; }
-        }
+        public override bool SupportsInterception => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.container.ResolveType(type);
-        }
+        public override object Resolve(Type type) => this.container.ResolveType(type);
 
         public override void Dispose()
         {

@@ -6,10 +6,7 @@ namespace IocPerformance.Classes.Conditions
 {
     public abstract class ForParentImplementationAttribute : ExportConditionAttribute
     {
-        public override bool Evaluate(RequestInfo request)
-        {
-            return request.Enumerate().Any(r => r.ImplementationType == _parentImplementationType);
-        }
+        public override bool Evaluate(RequestInfo request) => request.Enumerate().Any(r => r.ImplementationType == _parentImplementationType);
 
         protected ForParentImplementationAttribute(Type parentImplementationType)
         {
