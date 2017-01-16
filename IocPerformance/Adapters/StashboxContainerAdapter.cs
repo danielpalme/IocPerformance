@@ -25,7 +25,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsChildContainer => true;
+        public override bool SupportsChildContainer => false;
 
         public override bool SupportsConditional => true;
 
@@ -166,7 +166,7 @@ namespace IocPerformance.Adapters
 
         public StashboxChildContainerAdapter(IStashboxContainer container)
         {
-            this.childContainer = container.CreateChildContainer();
+            this.childContainer = container.BeginScope();
         }
 
         public void Dispose()
