@@ -91,8 +91,12 @@
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
-    <Reference Include="Grace, Version=4.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grace.4.0.2\lib\portable45-net45+win8+wp8+wpa81\Grace.dll</HintPath>
+    <Reference Include="Grace, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.5.0.0\lib\net45\Grace.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Grace.Dynamic, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.Dynamic.5.0.0\lib\net45\Grace.Dynamic.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Griffin.Container, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -308,10 +312,13 @@
     <Reference Include="System.Composition.TypedParts">
       <HintPath>..\packages\Microsoft.Composition.1.0.30\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
