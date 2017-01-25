@@ -1,5 +1,7 @@
 ﻿using System;
 using Grace.DependencyInjection;
+using Grace.DependencyInjection.Extensions;
+using Grace.Dynamic;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
@@ -60,7 +62,7 @@ namespace IocPerformance.Adapters
 
         public override void PrepareBasic()
         {
-            this.container = new DependencyInjectionContainer();
+            this.container = new DependencyInjectionContainer(GraceDynamicMethod.Configuration());
             this.RegisterBasic();
         }
 
@@ -75,20 +77,21 @@ namespace IocPerformance.Adapters
         {
             var pg = new Castle.DynamicProxy.ProxyGenerator();
 
-            this.container.Configure(
-                ioc => ioc.Export<Calculator1>()
-                .As<ICalculator1>()
-                .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator1, new StructureMapInterceptionLogger())));
+            container.Configure(c =>
+            {
+                c.Export<Calculator1>().As<ICalculator1>();
+                c.Export<Calculator2>().As<ICalculator2>();
+                c.Export<Calculator3>().As<ICalculator3>();
 
-            this.container.Configure(
-                ioc => ioc.Export<Calculator2>()
-                .As<ICalculator2>()
-                .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator2, new StructureMapInterceptionLogger())));
+                c.ExportDecorator<ICalculator1>(
+                    calculator => pg.CreateInterfaceProxyWithTarget(calculator, new StructureMapInterceptionLogger()));
 
-            this.container.Configure(
-                ioc => ioc.Export<Calculator3>()
-                .As<ICalculator3>()
-                .EnrichWith((scope, context, o) => pg.CreateInterfaceProxyWithTarget(o as ICalculator3, new StructureMapInterceptionLogger())));
+                c.ExportDecorator<ICalculator2>(
+                    calculator => pg.CreateInterfaceProxyWithTarget(calculator, new StructureMapInterceptionLogger()));
+
+                c.ExportDecorator<ICalculator3>(
+                    calculator => pg.CreateInterfaceProxyWithTarget(calculator, new StructureMapInterceptionLogger()));
+            });
         }
 
         private void RegisterConditional()
@@ -102,15 +105,15 @@ namespace IocPerformance.Adapters
 
                     ioc.Export<ExportConditionalObject>()
                         .As<IExportConditionInterface>()
-                        .WhenInjectedInto<ImportConditionObject1>();
+                        .When.InjectedInto<ImportConditionObject1>();
 
                     ioc.Export<ExportConditionalObject2>()
                         .As<IExportConditionInterface>()
-                        .WhenInjectedInto<ImportConditionObject2>();
+                        .When.InjectedInto<ImportConditionObject2>();
 
                     ioc.Export<ExportConditionalObject3>()
                         .As<IExportConditionInterface>()
-                        .WhenInjectedInto<ImportConditionObject3>();
+                        .When.InjectedInto<ImportConditionObject3>();
                 });
         }
 
@@ -228,13 +231,16 @@ namespace IocPerformance.Adapters
         {
             this.injectionScope.Configure(c =>
                                           {
-                                              // SimpleExport was written specifically to register a class very quickly
-                                              // it doesn't support Property injection or method injection
-                                              // but you can do those with an Enrichment delegate
-                                              c.SimpleExport<ScopedCombined1>().As<ICombined1>();
-                                              c.SimpleExport<ScopedCombined2>().As<ICombined2>();
-                                              c.SimpleExport<ScopedCombined3>().As<ICombined3>();
-                                              c.SimpleExport<ScopedTransient>().As<ITransient1>();
+                                              c.ExportFunc<ICombined1>(
+                                                  scope => new ScopedCombined1(scope.Locate<ITransient1>(), scope.Locate<ISingleton1>()));
+                                              
+                                              c.ExportFunc<ICombined2>(
+                                                  scope => new ScopedCombined2(scope.Locate<ITransient1>(), scope.Locate<ISingleton1>()));
+
+                                              c.ExportFunc<ICombined3>(
+                                                  scope => new ScopedCombined3(scope.Locate<ITransient1>(), scope.Locate<ISingleton1>()));
+
+                                              c.ExportFunc<ITransient1>(scope => new ScopedTransient());
                                           });
         }
 
