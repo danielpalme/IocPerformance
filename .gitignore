@@ -41,7 +41,10 @@
 /packages/Fody*
 /packages/DryIoc*
 /packages/Microsoft.Composition*
-/packages/Microsoft.Framework.DependencyInjection*
+/packages/Microsoft.Extensions.DependencyInjection*
+/packages/Microsoft.NETCore.Platforms*
+/packages/NETStandard.Library*
+/packages/System*
 /packages/Iesi.Collections*
 /packages/Mono.Cecil*
 /packages/NGenerics*

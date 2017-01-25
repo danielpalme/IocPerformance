@@ -37,7 +37,7 @@ Results
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|22424<br/>12124|35595<br/>25034|59216<br/>67576|118099<br/>146429|
 |**[Mef2 1.0.30.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|240<br/>208|250<br/>209|345<br/>292|613<br/>443|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|215<br/>271|881<br/>776|2690<br/>2317|8213<br/>7327|
-|**[Microsoft.Framework.DependencyInjection 1.0.0-beta8](https://github.com/aspnet/DependencyInjection)**|197<br/>217|191<br/>126|387<br/>448|1044<br/>1133|
+|**[Microsoft Extensions DependencyInjection 1.1.0](https://github.com/aspnet/DependencyInjection)**|182<br/>217|168<br/>139|398<br/>446|1352<br/>1582|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|498<br/>563|822<br/>968|2255<br/>2745|7666<br/>9388|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|119<br/>98|161<br/>148|669<br/>467|1992<br/>1319|
 |**[Ninject 3.2.2.0](http://ninject.org)**|5224<br/>3437|16579<br/>11961|46445<br/>30800|136712<br/>85362|
@@ -73,7 +73,7 @@ Results
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|124601<br/>138121|147178<br/>139065|104933<br/>130921|<br/>|<br/>|<br/>|
 |**[Mef2 1.0.30.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1313<br/>1022|315<br/>248|1617<br/>1116|<br/>|<br/>|<br/>|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[Microsoft.Framework.DependencyInjection 1.0.0-beta8](https://github.com/aspnet/DependencyInjection)**|<br/>|253<br/>211|932<br/>655|<br/>|<br/>|<br/>|
+|**[Microsoft Extensions DependencyInjection 1.1.0](https://github.com/aspnet/DependencyInjection)**|<br/>|236<br/>213|942<br/>527|<br/>|<br/>|<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|10420<br/>9159|71665<br/>79952|6639<br/>8367|1841<br/>2230|580141*<br/>542910*|20313<br/>24812|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1683<br/>1155|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Ninject 3.2.2.0](http://ninject.org)**|126340<br/>94262|51421<br/>34619|116662<br/>86730|39381<br/>28760|75048000*<br/>53320497*|27366<br/>21004|
@@ -109,7 +109,7 @@ Results
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|14<br/>|2320<br/>|
 |**[Mef2 1.0.30.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|6024<br/>|7467<br/>|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|11<br/>|16<br/>|
-|**[Microsoft.Framework.DependencyInjection 1.0.0-beta8](https://github.com/aspnet/DependencyInjection)**|29<br/>|31<br/>|
+|**[Microsoft Extensions DependencyInjection 1.1.0](https://github.com/aspnet/DependencyInjection)**|25<br/>|32<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|508<br/>|2066<br/>|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|9945<br/>|9547<br/>|
 |**[Ninject 3.2.2.0](http://ninject.org)**|142265<br/>|139074<br/>|

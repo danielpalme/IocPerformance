@@ -1,23 +1,22 @@
 ﻿using System;
 using IocPerformance.Classes.Complex;
-using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
-using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
-using IocPerformance.Interception;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class MicrosoftFrameworkDependencyInjectionContainerAdapter : ContainerAdapterBase
+    public sealed class MicrosoftExtensionsDependencyInjectionContainerAdapter : ContainerAdapterBase
     {
         private IServiceCollection serviceCollection;
 
         private IServiceProvider serviceProvider;
 
-        public override string PackageName => "Microsoft.Framework.DependencyInjection";
+        public override string PackageName => "Microsoft.Extensions.DependencyInjection";
+
+        public override string Name => "Microsoft Extensions DependencyInjection";
 
         public override string Url => "https://github.com/aspnet/DependencyInjection";
 
@@ -37,7 +36,7 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             this.PrepareBasic();
-            
+
             this.RegisterOpenGeneric();
             this.RegisterMultiple();
 
@@ -59,7 +58,7 @@ namespace IocPerformance.Adapters
             this.RegisterStandard();
             this.RegisterComplex();
         }
-        
+
         private void RegisterDummies()
         {
             this.serviceCollection.AddTransient<IDummyOne, DummyOne>();
