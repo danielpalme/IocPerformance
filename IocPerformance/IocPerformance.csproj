@@ -73,14 +73,6 @@
       <HintPath>..\packages\DryIoc.dll.2.10.0\lib\net45\DryIoc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DryIoc.MefAttributedModel, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DryIoc.MefAttributedModel.dll.2.3.0\lib\net45\DryIoc.MefAttributedModel.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DryIocAttributes, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DryIocAttributes.dll.2.3.0\lib\net45\DryIocAttributes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Dynamo.Ioc, Version=3.0.2.0, Culture=neutral, PublicKeyToken=584702d813863cbd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Dynamo.Ioc.3.0.2.0\lib\net45\Dynamo.Ioc.dll</HintPath>
@@ -413,7 +405,6 @@
     <Compile Include="Classes\Conditional\ExportConditionalObject.cs" />
     <Compile Include="Classes\Conditional\ExportConditionalObject2.cs" />
     <Compile Include="Classes\Conditional\ExportConditionalObject3.cs" />
-    <Compile Include="Classes\Conditional\ForParentImplementationAttribute.cs" />
     <Compile Include="Classes\Conditional\IExportConditionInterface.cs" />
     <Compile Include="Classes\Conditional\ImportConditionObject1.cs" />
     <Compile Include="Classes\Conditional\ImportConditionObject2.cs" />
@@ -508,7 +499,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="DryIocZero\YourServiceRegistrations.tt.include" />
     <None Include="LightCore.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -525,6 +515,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Container.Generated.cs</LastGenOutput>
     </Content>
+    <None Include="DryIocZero\Registrations.tt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
