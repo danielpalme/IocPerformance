@@ -2,7 +2,7 @@
 
 namespace IocPerformance.Classes.Conditions
 {
-    [ForImportCondition3Parent, PartCreationPolicy(CreationPolicy.NonShared)]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
     public class ExportConditionalObject3 : IExportConditionInterface
     {
     }

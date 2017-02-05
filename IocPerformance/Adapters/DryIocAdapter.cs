@@ -17,7 +17,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class DryIocAdapter : ContainerAdapterBase
     {
-        private IContainer container;
+        private Container container;
 
         public override string PackageName => "DryIoc.dll";
 
@@ -178,9 +178,9 @@ namespace IocPerformance.Adapters
         private void RegisterInterceptor()
         {
             this.container.Register<CalculatorLogger>();
-            this.container.RegisterInterfaceInterceptor<ICalculator1, CalculatorLogger>();
-            this.container.RegisterInterfaceInterceptor<ICalculator2, CalculatorLogger>();
-            this.container.RegisterInterfaceInterceptor<ICalculator3, CalculatorLogger>();
+            this.container.Intercept<ICalculator1, CalculatorLogger>();
+            this.container.Intercept<ICalculator2, CalculatorLogger>();
+            this.container.Intercept<ICalculator3, CalculatorLogger>();
         }
 
         public sealed class CalculatorLogger : IInterceptor

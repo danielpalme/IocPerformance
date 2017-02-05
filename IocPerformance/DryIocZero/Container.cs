@@ -22,24 +22,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading;
-
 namespace DryIocZero
 {
-    /// <summary>Minimal container which allow to register service factory delegates and then resolve service from them.</summary>
-    [SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly", Justification = "Does not contain any unmanaged resources.")]
-    public sealed partial class Container : IFactoryDelegateRegistrator, IResolverContext, IResolver, IScopeAccess, IDisposable
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using System.Threading;
+    using ImTools;
+
+    /// <summary>Minimal container to register service factory delegates and then resolve service from them.</summary>
+    [SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly",
+         Justification = "Does not contain any unmanaged resources.")]
+    public sealed partial class Container : IFactoryDelegateRegistrator, IResolverContext, IResolver, IScopeAccess,
+        IDisposable
     {
         /// <summary>Creates container.</summary>
         /// <param name="scopeContext">(optional) Ambient scope context.</param>
         public Container(IScopeContext scopeContext = null)
-            : this(Ref.Of(ImTreeMap.Empty), Ref.Of(ImTreeMap.Empty), new SingletonScope(), scopeContext, null, 0) { }
+            : this(Ref.Of(ImTreeMap<Type, FactoryDelegate>.Empty),
+                Ref.Of(ImTreeMap<Type, ImTreeMap<object, FactoryDelegate>>.Empty),
+                new SingletonScope(), scopeContext, null, 0, null)
+        { }
 
         /// <summary>Full constructor - all state included.</summary>
         /// <param name="defaultFactories"></param>
@@ -48,9 +54,11 @@ namespace DryIocZero
         /// <param name="scopeContext">Ambient scope context.</param>
         /// <param name="openedScope">Container bound opened scope.</param>
         /// <param name="disposed"></param>
-        public Container(Ref<ImTreeMap> defaultFactories, Ref<ImTreeMap> keyedFactories, 
-            IScope singletonScope, IScopeContext scopeContext, IScope openedScope, 
-            int disposed)
+        /// <param name="rootContainer"></param>
+        public Container(Ref<ImTreeMap<Type, FactoryDelegate>> defaultFactories,
+            Ref<ImTreeMap<Type, ImTreeMap<object, FactoryDelegate>>> keyedFactories,
+            IScope singletonScope, IScopeContext scopeContext, IScope openedScope,
+            int disposed, Container rootContainer = null)
         {
             _defaultFactories = defaultFactories;
             _keyedFactories = keyedFactories;
@@ -60,13 +68,27 @@ namespace DryIocZero
             _openedScope = openedScope;
 
             _disposed = disposed;
+
+            _rootContainer = rootContainer;
         }
 
         /// <summary>Provides access to resolver.</summary>
-        public IResolver Resolver { get { return this; } }
+        public IResolver Resolver
+        {
+            get { return this; }
+        }
 
         /// <summary>Scopes access.</summary>
-        public IScopeAccess Scopes { get { return this; } }
+        public IScopeAccess Scopes
+        {
+            get { return this; }
+        }
+
+        /// <summary>Returns root for scoped container or null for root itself.</summary>
+        public Container RootContainer
+        {
+            get { return _rootContainer; }
+        }
 
         #region IResolver
 
@@ -97,7 +119,8 @@ namespace DryIocZero
             return service ?? ResolveDefaultFromRuntimeRegistrationsFirst(serviceType, ifUnresolvedReturnDefault, null);
         }
 
-        private object ResolveDefaultFromRuntimeRegistrationsFirst(Type serviceType, bool ifUnresolvedReturnDefault, IScope scope)
+        private object ResolveDefaultFromRuntimeRegistrationsFirst(Type serviceType, bool ifUnresolvedReturnDefault,
+            IScope scope)
         {
             object service = null;
             var factories = _defaultFactories.Value;
@@ -107,10 +130,11 @@ namespace DryIocZero
             else
                 service = ((FactoryDelegate)factory)(this, scope);
             return service ?? Throw.If(!ifUnresolvedReturnDefault,
-                Error.UnableToResolveDefaultService, serviceType, factories.IsEmpty ? string.Empty : "non-");
+                       Error.UnableToResolveDefaultService, serviceType, factories.IsEmpty ? string.Empty : "non-");
         }
 
-        partial void ResolveGenerated(ref object service, Type serviceType, object serviceKey, Type requiredServiceType, RequestInfo preRequestParent, IScope scope);
+        partial void ResolveGenerated(ref object service, Type serviceType, object serviceKey, Type requiredServiceType,
+            RequestInfo preRequestParent, IScope scope);
 
         /// <summary>Directly uses generated factories to resolve service. Or returns default if service does not have generated factory.</summary>
         /// <param name="serviceType">Service type to lookup generated factory.</param> <param name="serviceKey">Service key to locate factory.</param>
@@ -139,11 +163,12 @@ namespace DryIocZero
         /// </remarks>
         [SuppressMessage("ReSharper", "InvocationIsSkipped", Justification = "Per design")]
         [SuppressMessage("ReSharper", "ConstantNullCoalescingCondition", Justification = "Per design")]
-        public object Resolve(Type serviceType, object serviceKey, 
-            bool ifUnresolvedReturnDefault = false, Type requiredServiceType = null, 
+        public object Resolve(Type serviceType, object serviceKey,
+            bool ifUnresolvedReturnDefault = false, Type requiredServiceType = null,
             RequestInfo preResolveParent = null, IScope scope = null)
         {
             object service = null;
+            // no runtime registrations - fast resolve from generated delegates
             if (_keyedFactories.Value.IsEmpty)
             {
                 if (serviceKey == null && requiredServiceType == null && preResolveParent == null)
@@ -151,7 +176,11 @@ namespace DryIocZero
                 else
                     ResolveGenerated(ref service, serviceType, serviceKey, requiredServiceType, preResolveParent, scope);
             }
-            return service ?? ResolveFromRuntimeRegistrationsFirst(serviceType, serviceKey, ifUnresolvedReturnDefault, requiredServiceType, preResolveParent, scope);
+
+            // if not resolved from generated fallback to check runtime registrations first
+            return service ??
+                   ResolveFromRuntimeRegistrationsFirst(serviceType, serviceKey, ifUnresolvedReturnDefault,
+                       requiredServiceType, preResolveParent, scope);
         }
 
         [SuppressMessage("ReSharper", "InvocationIsSkipped", Justification = "Per design")]
@@ -160,35 +189,32 @@ namespace DryIocZero
             bool ifUnresolvedReturnDefault, Type requiredServiceType, RequestInfo preResolveParent, IScope scope)
         {
             serviceType = requiredServiceType ?? serviceType;
-            preResolveParent = preResolveParent ?? RequestInfo.Empty;
 
             if (serviceKey == null)
                 return ResolveDefaultFromRuntimeRegistrationsFirst(serviceType, ifUnresolvedReturnDefault, scope);
 
-            var keyedFactories = _keyedFactories.Value.GetValueOrDefault(serviceType);
-            if (keyedFactories != null)
-            {
-                var factories = (ImTreeMap)keyedFactories;
-                var factory = factories.GetValueOrDefault(serviceKey);
-                if (factory != null)
-                    return ((FactoryDelegate)factory)(this, scope);
-            }
+            FactoryDelegate factory;
+            var factories = _keyedFactories.Value.GetValueOrDefault(serviceType);
+            if (factories != null && (factory = factories.GetValueOrDefault(serviceKey)) != null)
+                return factory(this, scope);
 
             // If not resolved from runtime registration then try resolve generated
             object service = null;
-            ResolveGenerated(ref service, serviceType, serviceKey, requiredServiceType, preResolveParent, scope);
+            ResolveGenerated(ref service, serviceType, serviceKey, requiredServiceType,
+                preResolveParent ?? RequestInfo.Empty, scope);
             return service ?? Throw.If(!ifUnresolvedReturnDefault,
-                Error.UnableToResolveKeyedService, serviceType, serviceKey, keyedFactories == null ? string.Empty : "non-");
+                       Error.UnableToResolveKeyedService, serviceType, serviceKey,
+                       factories == null ? string.Empty : "non-");
         }
 
-        partial void ResolveManyGenerated(ref IEnumerable<KV> services, Type serviceType);
+        partial void ResolveManyGenerated(ref IEnumerable<KV<object, FactoryDelegate>> services, Type serviceType);
 
         /// <summary>Resolves many generated only services. Ignores runtime registrations.</summary>
         /// <param name="serviceType">Service type.</param>
         /// <returns>Collection of service key - service pairs.</returns>
-        public IEnumerable<KV> ResolveManyGeneratedOrGetEmpty(Type serviceType)
+        public IEnumerable<KV<object, FactoryDelegate>> ResolveManyGeneratedOrGetEmpty(Type serviceType)
         {
-            var manyGenerated = Enumerable.Empty<KV>();
+            var manyGenerated = Enumerable.Empty<KV<object, FactoryDelegate>>();
             ResolveManyGenerated(ref manyGenerated, serviceType);
             return manyGenerated;
         }
@@ -204,41 +230,44 @@ namespace DryIocZero
         /// <param name="preResolveParent">(optional) Dependency resolution path info prior to resolve.</param>
         /// <param name="scope">propagated resolution scope, may be null.</param>
         /// <returns>Enumerable of found services or empty. Does Not throw if no service found.</returns>
-        public IEnumerable<object> ResolveMany(Type serviceType, 
-            object serviceKey = null, Type requiredServiceType = null, object compositeParentKey = null, 
+        public IEnumerable<object> ResolveMany(Type serviceType,
+            object serviceKey = null, Type requiredServiceType = null, object compositeParentKey = null,
             Type compositeParentRequiredType = null, RequestInfo preResolveParent = null, IScope scope = null)
         {
             serviceType = requiredServiceType ?? serviceType;
 
-            var manyGeneratedFactories = Enumerable.Empty<KV>();
+            var manyGeneratedFactories = Enumerable.Empty<KV<object, FactoryDelegate>>();
             ResolveManyGenerated(ref manyGeneratedFactories, serviceType);
+            if (serviceKey != null)
+                manyGeneratedFactories = manyGeneratedFactories.Where(kv => serviceKey.Equals(kv.Key));
             if (compositeParentKey != null)
                 manyGeneratedFactories = manyGeneratedFactories.Where(kv => !compositeParentKey.Equals(kv.Key));
 
             foreach (var generated in manyGeneratedFactories)
-                yield return ((FactoryDelegate)generated.Value)(this, scope);
+                yield return generated.Value(this, scope);
 
-            var factories = _keyedFactories.Value.GetValueOrDefault(serviceType) as ImTreeMap;
-            if (factories != null)
+            if (serviceKey == null)
+            {
+                var defaultFactory = _defaultFactories.Value.GetValueOrDefault(serviceType);
+                if (defaultFactory != null)
+                    yield return defaultFactory(this, scope);
+            }
+
+            var keyedFactories = _keyedFactories.Value.GetValueOrDefault(serviceType);
+            if (keyedFactories != null)
             {
                 if (serviceKey != null)
                 {
-                    var factoryDelegate = factories.GetValueOrDefault(serviceKey) as FactoryDelegate;
+                    var factoryDelegate = keyedFactories.GetValueOrDefault(serviceKey);
                     if (factoryDelegate != null)
                         yield return factoryDelegate(this, scope);
                 }
                 else
                 {
-                    foreach (var resolution in factories.Enumerate())
+                    foreach (var resolution in keyedFactories.Enumerate())
                         if (compositeParentKey == null || !compositeParentKey.Equals(resolution.Key))
-                            yield return ((FactoryDelegate)resolution.Value)(this, scope);
+                            yield return resolution.Value(this, scope);
                 }
-            }
-            else
-            {
-                var factoryDelegate = _defaultFactories.Value.GetValueOrDefault(serviceType) as FactoryDelegate;
-                if (factoryDelegate != null)
-                    yield return factoryDelegate(this, scope);
             }
         }
 
@@ -264,15 +293,15 @@ namespace DryIocZero
                 return;
             }
             ThrowIfContainerDisposed();
-            _keyedFactories.Swap(_ =>
+            _keyedFactories.Swap(factories =>
             {
-                var entry = _.GetValueOrDefault(serviceType) as ImTreeMap ?? ImTreeMap.Empty;
-                return _.AddOrUpdate(serviceType, entry.AddOrUpdate(serviceKey, factoryDelegate));
+                var entry = factories.GetValueOrDefault(serviceType) ?? ImTreeMap<object, FactoryDelegate>.Empty;
+                return factories.AddOrUpdate(serviceType, entry.AddOrUpdate(serviceKey, factoryDelegate));
             });
         }
 
-        private Ref<ImTreeMap> _defaultFactories;  // <Type -> FactoryDelegate>
-        private Ref<ImTreeMap> _keyedFactories;    // <Type -> <Key -> FactoryDelegate>>
+        private Ref<ImTreeMap<Type, FactoryDelegate>> _defaultFactories;
+        private Ref<ImTreeMap<Type, ImTreeMap<object, FactoryDelegate>>> _keyedFactories;
 
         #endregion
 
@@ -291,12 +320,13 @@ namespace DryIocZero
         public IScopeContext ScopeContext { get; private set; }
 
         /// <summary>Creates new container with new current ambient scope.</summary>
+        /// <param name="name">(optional) Scope name.</param>
         /// <returns>New container.</returns>
-        public Container OpenScope()
+        public Container OpenScope(object name = null)
         {
             ThrowIfContainerDisposed();
 
-            var nestedOpenedScope = new Scope(_openedScope);
+            var nestedOpenedScope = new Scope(_openedScope, name);
 
             // Replacing current context scope with new nested only if current is the same as nested parent, otherwise throw.
             if (ScopeContext != null)
@@ -306,8 +336,11 @@ namespace DryIocZero
                     return nestedOpenedScope;
                 });
 
-            return new Container(_defaultFactories, _keyedFactories, SingletonScope, ScopeContext,
-                nestedOpenedScope, _disposed);
+            // Propagate root container deep down the nested scopes. null is for first scope.
+            var rootContainer = RootContainer ?? this;
+
+            return new Container(_defaultFactories, _keyedFactories,
+                SingletonScope, ScopeContext, nestedOpenedScope, _disposed, rootContainer);
         }
 
         private readonly IScope _openedScope;
@@ -345,7 +378,17 @@ namespace DryIocZero
         /// <returns>Input <paramref name="scope"/> ensuring it is not null.</returns>
         public IScope GetOrCreateResolutionScope(ref IScope scope, Type serviceType, object serviceKey)
         {
-            return scope ?? (scope = new Scope(null, new KV(serviceType, serviceKey)));
+            return scope ?? (scope = new Scope(null, new KV<Type, object>(serviceType, serviceKey)));
+        }
+
+        /// <summary>Check if scope is not null, then just returns it, otherwise will create and return it.</summary>
+        /// <param name="scope">May be null scope.</param>
+        /// <param name="serviceType">Marking scope with resolved service type.</param> 
+        /// <param name="serviceKey">Marking scope with resolved service key.</param>
+        /// <returns>Input <paramref name="scope"/> ensuring it is not null.</returns>
+        public IScope GetOrNewResolutionScope(IScope scope, Type serviceType, object serviceKey)
+        {
+            return scope ?? new Scope(null, new KV<Type, object>(serviceType, serviceKey));
         }
 
         /// <summary>If both <paramref name="assignableFromServiceType"/> and <paramref name="serviceKey"/> are null, 
@@ -361,8 +404,8 @@ namespace DryIocZero
             bool outermost, bool throwIfNotFound)
         {
             var matchingScope = GetMatchingScopeOrDefault(scope, assignableFromServiceType, serviceKey, outermost);
-            return matchingScope
-                   ?? (IScope)Throw.If(throwIfNotFound, Error.NoMatchedScopeFound,new KV(assignableFromServiceType, serviceKey));
+            return matchingScope ?? (IScope)Throw.If(throwIfNotFound,
+                       Error.NoMatchedScopeFound, new KV<Type, object>(assignableFromServiceType, serviceKey));
         }
 
         private static IScope GetMatchingScopeOrDefault(IScope scope, Type assignableFromServiceType, object serviceKey,
@@ -374,10 +417,12 @@ namespace DryIocZero
             IScope matchedScope = null;
             while (scope != null)
             {
-                var name = scope.Name as KV;
+                var name = scope.Name as KV<Type, object>;
                 if (name != null &&
                     (assignableFromServiceType == null
-                    || name.Key != null && assignableFromServiceType.GetTypeInfo().IsAssignableFrom(name.Key.GetType().GetTypeInfo())) 
+                     ||
+                     name.Key != null &&
+                     assignableFromServiceType.GetTypeInfo().IsAssignableFrom(name.Key.GetTypeInfo()))
                     && (serviceKey == null || serviceKey.Equals(name.Value)))
                 {
                     matchedScope = scope;
@@ -396,7 +441,7 @@ namespace DryIocZero
 
         /// <summary>Disposes opened scope or root container including: Singletons, ScopeContext, Make default and keyed factories empty.</summary>
         [SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly",
-            Justification = "Does not container any unmanaged resources.")]
+             Justification = "Does not container any unmanaged resources.")]
         public void Dispose()
         {
             if (_openedScope != null)
@@ -408,15 +453,18 @@ namespace DryIocZero
             else
             {
                 if (Interlocked.CompareExchange(ref _disposed, 1, 0) == 1) return;
-                _defaultFactories = Ref.Of(ImTreeMap.Empty);
-                _keyedFactories = Ref.Of(ImTreeMap.Empty);
+                _defaultFactories = Ref.Of(ImTreeMap<Type, FactoryDelegate>.Empty);
+                _keyedFactories = Ref.Of(ImTreeMap<Type, ImTreeMap<object, FactoryDelegate>>.Empty);
                 SingletonScope.Dispose();
                 if (ScopeContext != null)
                     ScopeContext.Dispose();
+                _rootContainer = null;
             }
         }
 
         private int _disposed;
+
+        private Container _rootContainer;
 
         private void ThrowIfContainerDisposed()
         {
@@ -482,7 +530,7 @@ namespace DryIocZero
         /// This method covers all possible resolution input parameters comparing to <see cref="Resolve(System.Type,bool)"/>, and
         /// by specifying the same parameters as for <see cref="Resolve(System.Type,bool)"/> should return the same result.
         /// </remarks>
-        object Resolve(Type serviceType, object serviceKey, bool ifUnresolvedReturnDefault, Type requiredServiceType, 
+        object Resolve(Type serviceType, object serviceKey, bool ifUnresolvedReturnDefault, Type requiredServiceType,
             RequestInfo preResolveParent, IScope scope);
 
         /// <summary>Resolves all services registered for specified <paramref name="serviceType"/>, or if not found returns
@@ -496,7 +544,8 @@ namespace DryIocZero
         /// <param name="preResolveParent">(optional) Dependency resolution path info prior to resolve.</param>
         /// <param name="scope">propagated resolution scope, may be null.</param>
         /// <returns>Enumerable of found services or empty. Does Not throw if no service found.</returns>
-        IEnumerable<object> ResolveMany(Type serviceType, object serviceKey, Type requiredServiceType, object compositeParentKey, Type compositeParentRequiredType, 
+        IEnumerable<object> ResolveMany(Type serviceType, object serviceKey, Type requiredServiceType,
+            object compositeParentKey, Type compositeParentRequiredType,
             RequestInfo preResolveParent, IScope scope);
     }
 
@@ -522,6 +571,13 @@ namespace DryIocZero
         /// <returns>Input <paramref name="scope"/> ensuring it is not null.</returns>
         IScope GetOrCreateResolutionScope(ref IScope scope, Type serviceType, object serviceKey);
 
+        /// <summary>Check if scope is not null, then just returns it, otherwise will create and return it.</summary>
+        /// <param name="scope">May be null scope.</param>
+        /// <param name="serviceType">Marking scope with resolved service type.</param> 
+        /// <param name="serviceKey">Marking scope with resolved service key.</param>
+        /// <returns>Input <paramref name="scope"/> ensuring it is not null.</returns>
+        IScope GetOrNewResolutionScope(IScope scope, Type serviceType, object serviceKey);
+
         /// <summary>If both <paramref name="assignableFromServiceType"/> and <paramref name="serviceKey"/> are null, 
         /// then returns input <paramref name="scope"/>.
         /// Otherwise searches scope hierarchy to find first scope with: Type assignable <paramref name="assignableFromServiceType"/> and 
@@ -530,7 +586,8 @@ namespace DryIocZero
         /// <param name="assignableFromServiceType">Type to match.</param> <param name="serviceKey">Key to match.</param>
         /// <param name="outermost">If true - commands to look for outermost match instead of nearest.</param>
         /// <param name="throwIfNotFound">Says to throw if no scope found.</param>
-        IScope GetMatchingResolutionScope(IScope scope, Type assignableFromServiceType, object serviceKey, bool outermost, bool throwIfNotFound);
+        IScope GetMatchingResolutionScope(IScope scope, Type assignableFromServiceType, object serviceKey,
+            bool outermost, bool throwIfNotFound);
     }
 
     /// <summary>Returns reference to actual resolver implementation. 
@@ -542,6 +599,37 @@ namespace DryIocZero
 
         /// <summary>Scopes access.</summary>
         IScopeAccess Scopes { get; }
+    }
+
+    /// <summary>Extends APIs used by resolution generated factory delegates.</summary>
+    public static class ResolverContext
+    {
+        /// <summary>Returns subj.</summary>
+        /// <param name="ctx"></param> <returns></returns>
+        public static IResolver RootResolver(this IResolverContext ctx)
+        {
+            return ctx.RootContainer();
+        }
+
+        /// <summary>Returns subj.</summary>
+        /// <param name="ctx"></param> <returns></returns>
+        public static IScopeAccess RootScopes(this IResolverContext ctx)
+        {
+            return ctx.RootContainer();
+        }
+
+        /// <summary>Returns subj.</summary>
+        /// <param name="ctx"></param> <returns></returns>
+        public static IScope SingletonScope(this IResolverContext ctx)
+        {
+            return ctx.RootContainer().SingletonScope;
+        }
+
+        private static Container RootContainer(this IResolverContext ctx)
+        {
+            var container = (Container)ctx;
+            return container.RootContainer ?? container;
+        }
     }
 
     /// <summary>Service factory delegate which accepts resolver and resolution scope as parameters and should return service object.
@@ -588,24 +676,6 @@ namespace DryIocZero
         IScope SetCurrent(SetCurrentScopeHandler setCurrentScope);
     }
 
-    /// <summary>Provides scope context by convention.</summary>
-    public static partial class ScopeContext
-    {
-        /// <summary>Default scope context.</summary>
-        public static IScopeContext Default
-        {
-            get
-            {
-                if (_default == null)
-                    GetDefaultScopeContext(ref _default);
-                return _default;
-            }
-        }
-        static partial void GetDefaultScopeContext(ref IScopeContext resultContext);
-
-        private static IScopeContext _default;
-    }
-    
     /// <summary>Convenience extensions for registrations on top of delegate registrator.</summary>
     public static class Registrator
     {
@@ -626,7 +696,7 @@ namespace DryIocZero
         ///  <param name="registrator">Registrator to register with.</param>
         /// <param name="factoryDelegate">Delegate to produce service instance.</param>
         /// <param name="serviceKey">(optional) Service key.</param>
-        public static void RegisterDelegate<TService>(this IFactoryDelegateRegistrator registrator, 
+        public static void RegisterDelegate<TService>(this IFactoryDelegateRegistrator registrator,
             Func<IResolver, TService> factoryDelegate, object serviceKey = null)
         {
             registrator.RegisterDelegate(typeof(TService), factoryDelegate, serviceKey);
@@ -637,7 +707,8 @@ namespace DryIocZero
         /// <param name="registrator">Registrator to register with.</param>
         /// <param name="instance">Externally managed service instance.</param>
         /// <param name="serviceKey">(optional) Service key.</param>
-        public static void RegisterInstance<TService>(this IFactoryDelegateRegistrator registrator, TService instance, object serviceKey = null)
+        public static void RegisterInstance<TService>(this IFactoryDelegateRegistrator registrator, TService instance,
+            object serviceKey = null)
         {
             registrator.Register(typeof(TService), serviceKey, (context, scope) => instance);
         }
@@ -647,360 +718,42 @@ namespace DryIocZero
     public static class Resolver
     {
         /// <summary>Resolves non-keyed service of <typeparamref name="TService"/> type.</summary>
-        /// <typeparam name="TService">Type of service to resolve.</typeparam> <param name="resolver"></param>
+        /// <typeparam name="TService">Type of service to resolve.</typeparam> 
+        /// <param name="resolver"></param>
+        /// <param name="requiredServiceType">(optional) Required service type.</param>
         /// <param name="ifUnresolvedReturnDefault">Says what to do if service is unresolved.</param>
+        /// <param name="serviceKey">(optional) Service key.</param>
         /// <returns>Service object or throws exception.</returns>
-        public static TService Resolve<TService>(this IResolver resolver, bool ifUnresolvedReturnDefault = false)
+        public static TService Resolve<TService>(this IResolver resolver,
+            Type requiredServiceType = null, bool ifUnresolvedReturnDefault = false, object serviceKey = null)
         {
-            return (TService)resolver.Resolve(typeof(TService), ifUnresolvedReturnDefault);
-        }
-    }
-
-    /// <summary>Wrapper that provides optimistic-concurrency Swap operation implemented using <see cref="Ref.Swap{T}"/>.</summary>
-    /// <typeparam name="T">Type of object to wrap.</typeparam>
-    public sealed class Ref<T> where T : class
-    {
-        /// <summary>Gets the wrapped value.</summary>
-        public T Value { get { return _value; } }
-
-        /// <summary>Creates ref to object, optionally with initial value provided.</summary>
-        /// <param name="initialValue">Initial object value.</param>
-        public Ref(T initialValue = default(T))
-        {
-            _value = initialValue;
+            return (TService)(requiredServiceType == null && serviceKey == null
+                ? resolver.Resolve(typeof(TService), ifUnresolvedReturnDefault)
+                : resolver.Resolve(typeof(TService), serviceKey, ifUnresolvedReturnDefault, requiredServiceType,
+                    RequestInfo.Empty, null));
         }
 
-        /// <summary>Exchanges currently hold object with <paramref name="getNewValue"/> result: see <see cref="Ref.Swap{T}"/> for details.</summary>
-        /// <param name="getNewValue">Delegate to produce new object value from current one passed as parameter.</param>
-        /// <returns>Returns old object value the same way as <see cref="Interlocked.Exchange(ref int,int)"/></returns>
-        /// <remarks>Important: <paramref name="getNewValue"/> May be called multiple times to retry update with value concurrently changed by other code.</remarks>
-        public T Swap(Func<T, T> getNewValue)
+        /// <summary>For given instance resolves and sets properties.</summary>
+        /// <param name="resolver">Target resolver.</param>
+        /// <param name="instance">Service instance with properties to resolve and initialize.</param>
+        /// <param name="includeBase">(optional) By default only declared properties are injected, if set will add base properties too.</param>
+        /// <returns>Instance with assigned properties.</returns>
+        public static object InjectProperties(this IResolver resolver, object instance, bool includeBase = false)
         {
-            return Ref.Swap(ref _value, getNewValue);
-        }
+            var instanceType = instance.GetType();
 
-        private T _value;
-    }
+            var properties = instanceType.Properties(includeBase);
 
-    /// <summary>Provides optimistic-concurrency consistent <see cref="Swap{T}"/> operation.</summary>
-    public static class Ref
-    {
-        /// <summary>Factory for <see cref="Ref{T}"/> with type of value inference.</summary>
-        /// <typeparam name="T">Type of value to wrap.</typeparam>
-        /// <param name="value">Initial value to wrap.</param>
-        /// <returns>New ref.</returns>
-        public static Ref<T> Of<T>(T value) where T : class
-        {
-            return new Ref<T>(value);
-        }
-
-        /// <summary>Creates new ref to original ref value.</summary> <typeparam name="T">Type of ref value.</typeparam>
-        /// <param name="original">Original ref.</param> <returns>New ref to original value.</returns>
-        public static Ref<T> NewRef<T>(this Ref<T> original) where T : class
-        {
-            return Of(original.Value);
-        }
-
-        /// <summary>First, it evaluates new value using <paramref name="getNewValue"/> function. 
-        /// Second, it checks that original value is not changed. 
-        /// If it is changed it will retry first step, otherwise it assigns new value and returns original (the one used for <paramref name="getNewValue"/>).</summary>
-        /// <typeparam name="T">Type of value to swap.</typeparam>
-        /// <param name="value">Reference to change to new value</param>
-        /// <param name="getNewValue">Delegate to get value from old one.</param>
-        /// <returns>Old/original value. By analogy with <see cref="Interlocked.Exchange(ref int,int)"/>.</returns>
-        /// <remarks>Important: <paramref name="getNewValue"/> May be called multiple times to retry update with value concurrently changed by other code.</remarks>
-        public static T Swap<T>(ref T value, Func<T, T> getNewValue) where T : class
-        {
-            var retryCount = 0;
-            while (true)
+            foreach (var propertyInfo in properties)
             {
-                var oldValue = value;
-                var newValue = getNewValue(oldValue);
-                if (Interlocked.CompareExchange(ref value, newValue, oldValue) == oldValue)
-                    return oldValue;
-                if (++retryCount > RETRY_COUNT_UNTIL_THROW)
-                    throw new InvalidOperationException(_errorRetryCountExceeded);
+                var value = resolver.Resolve(propertyInfo.PropertyType, ifUnresolvedReturnDefault: false);
+                if (value != null)
+                    propertyInfo.SetValue(instance, value, null);
             }
+
+            return instance;
         }
 
-        private const int RETRY_COUNT_UNTIL_THROW = 50;
-        private static readonly string _errorRetryCountExceeded =
-            "Ref retried to Update for " + RETRY_COUNT_UNTIL_THROW + " times But there is always someone else intervened.";
-    }
-
-    /// <summary>Simple immutable AVL tree with integer keys and object values.</summary>
-    public sealed class ImTreeMapIntToObj
-    {
-        /// <summary>Empty tree to start with. The <see cref="Height"/> of the empty tree is 0.</summary>
-        public static readonly ImTreeMapIntToObj Empty = new ImTreeMapIntToObj();
-
-        /// <summary>Key.</summary>
-        public readonly int Key;
-
-        /// <summary>Value.</summary>
-        public readonly object Value;
-
-        /// <summary>Left sub-tree/branch, or empty.</summary>
-        public readonly ImTreeMapIntToObj Left;
-
-        /// <summary>Right sub-tree/branch, or empty.</summary>
-        public readonly ImTreeMapIntToObj Right;
-
-        /// <summary>Height of longest sub-tree/branch. It is 0 for empty tree, and 1 for single node tree.</summary>
-        public readonly int Height;
-
-        /// <summary>Returns true is tree is empty.</summary>
-        public bool IsEmpty { get { return Height == 0; } }
-
-        /// <summary>Returns new tree with added or updated value for specified key.</summary>
-        /// <param name="key"></param> <param name="value"></param>
-        /// <returns>New tree.</returns>
-        public ImTreeMapIntToObj AddOrUpdate(int key, object value)
-        {
-            return AddOrUpdate(key, value, false, null);
-        }
-
-        /// <summary>Delegate to get updated value based on its old and new value.</summary>
-        /// <param name="oldValue">Old</param> <param name="newValue">New</param> <returns>Update result</returns>
-        public delegate object UpdateValue(object oldValue, object newValue);
-
-        /// <summary>Returns new tree with added or updated value for specified key.</summary>
-        /// <param name="key"></param> <param name="value"></param>
-        /// <param name="updateValue">Delegate to get updated value based on its old and new value.</param>
-        /// <returns>New tree.</returns>
-        public ImTreeMapIntToObj AddOrUpdate(int key, object value, UpdateValue updateValue)
-        {
-            return AddOrUpdate(key, value, false, updateValue);
-        }
-
-        /// <summary>Returns new tree with updated value for the key, Or the same tree if key was not found.</summary>
-        /// <param name="key"></param> <param name="value"></param>
-        /// <returns>New tree if key is found, or the same tree otherwise.</returns>
-        public ImTreeMapIntToObj Update(int key, object value)
-        {
-            return AddOrUpdate(key, value, true, null);
-        }
-
-        /// <summary>Get value for found key or null otherwise.</summary>
-        /// <param name="key"></param> <returns>Found value or null.</returns>
-        public object GetValueOrDefault(int key)
-        {
-            var tree = this;
-            while (tree.Height != 0 && tree.Key != key)
-                tree = key < tree.Key ? tree.Left : tree.Right;
-            return tree.Height != 0 ? tree.Value : null;
-        }
-
-        /// <summary>Returns all sub-trees enumerated from left to right.</summary> 
-        /// <returns>Enumerated sub-trees or empty if tree is empty.</returns>
-        public IEnumerable<ImTreeMapIntToObj> Enumerate()
-        {
-            if (Height == 0)
-                yield break;
-
-            var parents = new ImTreeMapIntToObj[Height];
-
-            var tree = this;
-            var parentCount = -1;
-            while (tree.Height != 0 || parentCount != -1)
-            {
-                if (tree.Height != 0)
-                {
-                    parents[++parentCount] = tree;
-                    tree = tree.Left;
-                }
-                else
-                {
-                    tree = parents[parentCount--];
-                    yield return tree;
-                    tree = tree.Right;
-                }
-            }
-        }
-
-        #region Implementation
-
-        private ImTreeMapIntToObj() { }
-
-        private ImTreeMapIntToObj(int key, object value, ImTreeMapIntToObj left, ImTreeMapIntToObj right)
-        {
-            Key = key;
-            Value = value;
-            Left = left;
-            Right = right;
-            Height = 1 + (left.Height > right.Height ? left.Height : right.Height);
-        }
-
-        // If keys is not found and updateOnly is true, it should return current tree without changes.
-        private ImTreeMapIntToObj AddOrUpdate(int key, object value, bool updateOnly, UpdateValue update)
-        {
-            return Height == 0 ? // tree is empty
-                    (updateOnly ? this : new ImTreeMapIntToObj(key, value, Empty, Empty))
-                : (key == Key ? // actual update
-                    new ImTreeMapIntToObj(key, update == null ? value : update(Value, value), Left, Right)
-                : (key < Key    // try update on left or right sub-tree
-                    ? With(Left.AddOrUpdate(key, value, updateOnly, update), Right)
-                    : With(Left, Right.AddOrUpdate(key, value, updateOnly, update))).KeepBalanced());
-        }
-
-        private ImTreeMapIntToObj KeepBalanced()
-        {
-            var delta = Left.Height - Right.Height;
-            return delta >= 2 ? With(Left.Right.Height - Left.Left.Height == 1 ? Left.RotateLeft() : Left, Right).RotateRight()
-                : (delta <= -2 ? With(Left, Right.Left.Height - Right.Right.Height == 1 ? Right.RotateRight() : Right).RotateLeft()
-                : this);
-        }
-
-        private ImTreeMapIntToObj RotateRight()
-        {
-            return Left.With(Left.Left, With(Left.Right, Right));
-        }
-
-        private ImTreeMapIntToObj RotateLeft()
-        {
-            return Right.With(With(Left, Right.Left), Right.Right);
-        }
-
-        private ImTreeMapIntToObj With(ImTreeMapIntToObj left, ImTreeMapIntToObj right)
-        {
-            return left == Left && right == Right ? this : new ImTreeMapIntToObj(Key, Value, left, right);
-        }
-
-        #endregion
-    }
-
-    /// <summary>Methods to work with immutable arrays, and general array sugar.</summary>
-    public static class ArrayTools
-    {
-        /// <summary>Returns true if array is null or have no items.</summary> <typeparam name="T">Type of array item.</typeparam>
-        /// <param name="source">Source array to check.</param> <returns>True if null or has no items, false otherwise.</returns>
-        public static bool IsNullOrEmpty<T>(this T[] source)
-        {
-            return source == null || source.Length == 0;
-        }
-
-        /// <summary>Returns source enumerable if it is array, otherwise converts source to array.</summary>
-        /// <typeparam name="T">Array item type.</typeparam>
-        /// <param name="source">Source enumerable.</param>
-        /// <returns>Source enumerable or its array copy.</returns>
-        public static T[] ToArrayOrSelf<T>(this IEnumerable<T> source)
-        {
-            return source is T[] ? (T[])source : source.ToArray();
-        }
-
-        /// <summary>Returns new array consisting from all items from source array then all items from added array.
-        /// If source is null or empty, then added array will be returned.
-        /// If added is null or empty, then source will be returned.</summary>
-        /// <typeparam name="T">Array item type.</typeparam>
-        /// <param name="source">Array with leading items.</param>
-        /// <param name="added">Array with following items.</param>
-        /// <returns>New array with items of source and added arrays.</returns>
-        public static T[] Append<T>(this T[] source, params T[] added)
-        {
-            if (added == null || added.Length == 0)
-                return source;
-            if (source == null || source.Length == 0)
-                return added;
-            var result = new T[source.Length + added.Length];
-            Array.Copy(source, 0, result, 0, source.Length);
-            if (added.Length == 1)
-                result[source.Length] = added[0];
-            else
-                Array.Copy(added, 0, result, source.Length, added.Length);
-            return result;
-        }
-
-        /// <summary>Returns new array with <paramref name="value"/> appended, 
-        /// or <paramref name="value"/> at <paramref name="index"/>, if specified.
-        /// If source array could be null or empty, then single value item array will be created despite any index.</summary>
-        /// <typeparam name="T">Array item type.</typeparam>
-        /// <param name="source">Array to append value to.</param>
-        /// <param name="value">Value to append.</param>
-        /// <param name="index">(optional) Index of value to update.</param>
-        /// <returns>New array with appended or updated value.</returns>
-        public static T[] AppendOrUpdate<T>(this T[] source, T value, int index = -1)
-        {
-            if (source == null || source.Length == 0)
-                return new[] { value };
-            var sourceLength = source.Length;
-            index = index < 0 ? sourceLength : index;
-            var result = new T[index < sourceLength ? sourceLength : sourceLength + 1];
-            Array.Copy(source, result, sourceLength);
-            result[index] = value;
-            return result;
-        }
-
-        /// <summary>Calls predicate on each item in <paramref name="source"/> array until predicate returns true,
-        /// then method will return this item index, or if predicate returns false for each item, method will return -1.</summary>
-        /// <typeparam name="T">Type of array items.</typeparam>
-        /// <param name="source">Source array: if null or empty, then method will return -1.</param>
-        /// <param name="predicate">Delegate to evaluate on each array item until delegate returns true.</param>
-        /// <returns>Index of item for which predicate returns true, or -1 otherwise.</returns>
-        public static int IndexOf<T>(this T[] source, Func<T, bool> predicate)
-        {
-            if (source != null && source.Length != 0)
-                for (var i = 0; i < source.Length; ++i)
-                    if (predicate(source[i]))
-                        return i;
-            return -1;
-        }
-
-        /// <summary>Looks up for item in source array equal to provided value, and returns its index, or -1 if not found.</summary>
-        /// <typeparam name="T">Type of array items.</typeparam>
-        /// <param name="source">Source array: if null or empty, then method will return -1.</param>
-        /// <param name="value">Value to look up.</param>
-        /// <returns>Index of item equal to value, or -1 item is not found.</returns>
-        public static int IndexOf<T>(this T[] source, T value)
-        {
-            if (source != null && source.Length != 0)
-                for (var i = 0; i < source.Length; ++i)
-                {
-                    var item = source[i];
-                    if (ReferenceEquals(item, value) || Equals(item, value))
-                        return i;
-                }
-            return -1;
-        }
-
-        /// <summary>Produces new array without item at specified <paramref name="index"/>. 
-        /// Will return <paramref name="source"/> array if index is out of bounds, or source is null/empty.</summary>
-        /// <typeparam name="T">Type of array item.</typeparam>
-        /// <param name="source">Input array.</param> <param name="index">Index if item to remove.</param>
-        /// <returns>New array with removed item at index, or input source array if index is not in array.</returns>
-        public static T[] RemoveAt<T>(this T[] source, int index)
-        {
-            if (source == null || source.Length == 0 || index < 0 || index >= source.Length)
-                return source;
-            if (index == 0 && source.Length == 1)
-                return new T[0];
-            var result = new T[source.Length - 1];
-            if (index != 0)
-                Array.Copy(source, 0, result, 0, index);
-            if (index != result.Length)
-                Array.Copy(source, index + 1, result, index, result.Length - index);
-            return result;
-        }
-
-        /// <summary>Looks for item in array using equality comparison, and returns new array with found item remove, or original array if not item found.</summary>
-        /// <typeparam name="T">Type of array item.</typeparam>
-        /// <param name="source">Input array.</param> <param name="value">Value to find and remove.</param>
-        /// <returns>New array with value removed or original array if value is not found.</returns>
-        public static T[] Remove<T>(this T[] source, T value)
-        {
-            return source.RemoveAt(source.IndexOf(value));
-        }
-
-        /// <summary>Returns singleton empty array of provided type.</summary> 
-        /// <typeparam name="T">Array item type.</typeparam> <returns>Empty array.</returns>
-        public static T[] Empty<T>()
-        {
-            return EmptyArray<T>.Value;
-        }
-
-        private static class EmptyArray<T>
-        {
-            public static readonly T[] Value = new T[0];
-        }
     }
 
     /// <summary>Scope implementation which will dispose stored <see cref="IDisposable"/> items on its own dispose.
@@ -1105,9 +858,9 @@ namespace DryIocZero
         public override string ToString()
         {
             return "{" +
-                (Name != null ? "Name=" + Name + ", " : string.Empty) +
-                (Parent == null ? "Parent=null" : "Parent=" + Parent)
-                + "}";
+                   (Name != null ? "Name=" + Name + ", " : string.Empty) +
+                   (Parent == null ? "Parent=null" : "Parent=" + Parent)
+                   + "}";
         }
 
         #region Implementation
@@ -1132,7 +885,10 @@ namespace DryIocZero
 
             if (disposable != null)
             {
-                try { disposable.Dispose(); }
+                try
+                {
+                    disposable.Dispose();
+                }
                 catch (Exception)
                 {
                     // NOTE Ignoring disposing exception, they not so important for program to proceed.
@@ -1141,6 +897,36 @@ namespace DryIocZero
         }
 
         #endregion
+    }
+
+    internal static class ScopedDisposableHandling
+    {
+        public static IDisposable TryUnwrapDisposable(object item)
+        {
+            var disposable = item as IDisposable;
+            if (disposable != null)
+                return disposable;
+
+            // Unwrap WeakReference if item wrapped in it.
+            var weakRefItem = item as WeakReference;
+            if (weakRefItem != null)
+                return weakRefItem.Target as IDisposable;
+
+            return null;
+        }
+
+        public static void DisposeItem(object item)
+        {
+            var disposable = TryUnwrapDisposable(item);
+            if (disposable != null)
+            {
+                try { disposable.Dispose(); }
+                catch (Exception)
+                {
+                    // NOTE: Ignoring disposing exception, they not so important for program to proceed.
+                }
+            }
+        }
     }
 
     /// <summary>Different from <see cref="Scope"/> so that uses single array of items for fast access.
@@ -1185,7 +971,8 @@ namespace DryIocZero
             Ref.Swap(ref _factoryIdToIndexMap, map =>
             {
                 index = map.GetValueOrDefault(externalId);
-                return index != null ? map
+                return index != null
+                    ? map
                     : map.AddOrUpdate(externalId, index = Interlocked.Increment(ref _lastItemIndex));
             });
 
@@ -1242,31 +1029,19 @@ namespace DryIocZero
             if (Interlocked.CompareExchange(ref _disposed, 1, 0) == 1)
                 return;
 
-            var factoryIdToIndexMap = _factoryIdToIndexMap;
-            if (!factoryIdToIndexMap.IsEmpty)
-            {
-                var ids = factoryIdToIndexMap.Enumerate().ToArray();
-                for (var i = ids.Length - 1; i >= 0; --i)
-                    Scope.DisposeItem(GetItemOrDefault((int)ids[i].Value));
-            }
+            var disposables = _disposables;
+            if (!disposables.IsEmpty)
+                foreach (var disposable in disposables.Enumerate())
+                    ScopedDisposableHandling.DisposeItem(disposable.Value);
+
+            _disposables = ImTreeMapIntToObj.Empty;
             _factoryIdToIndexMap = ImTreeMapIntToObj.Empty;
-
-            var disposableTransients = _disposableTransients;
-            if (!disposableTransients.IsNullOrEmpty())
-                for (var i = 0; i < disposableTransients.Length; i++)
-                    Scope.DisposeItem(_disposableTransients[i]);
-            _disposableTransients = null;
-
             Items = ArrayTools.Empty<object>();
         }
 
         #region Implementation
 
-        private static readonly object[] _lockers =
-        {
-            new object(), new object(), new object(), new object(),
-            new object(), new object(), new object(), new object()
-        };
+        private readonly object _syncRoot = new object();
 
         private ImTreeMapIntToObj _factoryIdToIndexMap;
         private int _lastItemIndex;
@@ -1275,15 +1050,27 @@ namespace DryIocZero
         /// <summary>value at 0 index is reserved for [][] structure to accommodate more values</summary>
         internal object[] Items;
 
-        private object[] _disposableTransients;
+        private ImTreeMapIntToObj _disposables = ImTreeMapIntToObj.Empty;
+        private int _nextDisposablelID = int.MaxValue;
+
+        private void TrackDisposable(object item)
+        {
+            if (ScopedDisposableHandling.TryUnwrapDisposable(item) != null)
+            {
+                // Decrement here is because dispose should happen in reverse resolution order
+                // By adding items with decreasing IDs we get rid off ordering on Dispose.
+                var disposableID = Interlocked.Decrement(ref _nextDisposablelID);
+                Ref.Swap(ref _disposables, d => d.AddOrUpdate(disposableID, item));
+            }
+        }
 
         private object GetOrAddItem(int index, CreateScopedValue createValue)
         {
             if (index == -1) // disposable transient
             {
-                var item = createValue();
-                Ref.Swap(ref _disposableTransients, items => items.AppendOrUpdate(item));
-                return item;
+                var transient = createValue();
+                TrackDisposable(transient);
+                return transient;
             }
 
             var bucket = GetOrAddBucket(index);
@@ -1291,38 +1078,24 @@ namespace DryIocZero
             return GetOrAddItem(bucket, index, createValue);
         }
 
-        private static object GetOrAddItem(object[] bucket, int index, CreateScopedValue createValue)
+        private object GetOrAddItem(object[] bucket, int index, CreateScopedValue createValue)
         {
             var value = bucket[index];
             if (value != null)
                 return value;
 
-            var locker = _lockers[index % _lockers.Length];
-            lock (locker)
+            lock (_syncRoot)
             {
                 value = bucket[index];
                 if (value == null)
-                    bucket[index] = value = createValue();
+                {
+                    value = createValue();
+                    TrackDisposable(value);
+                    bucket[index] = value;
+                }
             }
 
             return value;
-        }
-
-        private object GetItemOrDefault(int index)
-        {
-            if (index < BucketSize)
-                return Items[index];
-
-            var bucketIndex = index / BucketSize - 1;
-            var buckets = Items[0] as object[][];
-            if (buckets != null && buckets.Length > bucketIndex)
-            {
-                var bucket = buckets[bucketIndex];
-                if (bucket != null)
-                    return bucket[index % BucketSize];
-            }
-
-            return null;
         }
 
         // find if bucket already created starting from 0
@@ -1393,151 +1166,14 @@ namespace DryIocZero
         #endregion
     }
 
-    /// <summary>Key Value objects pair.</summary>
-    public class KV
-    {
-        /// <summary>Key object.</summary>
-        public readonly object Key;
-
-        /// <summary>Value object.</summary>
-        public readonly object Value;
-
-        /// <summary>Creates pair.</summary> <param name="key"></param> <param name="value"></param>
-        public KV(object key, object value) { Key = key; Value = value; }
-
-        /// <summary>Returns true if both key and value are equal to corresponding key-value of other object.</summary>
-        /// <param name="obj">Object to check equality with.</param> <returns>True if equal.</returns>
-        public override bool Equals(object obj)
-        {
-            var other = obj as KV;
-            return other != null
-                && (ReferenceEquals(other.Key, Key) || Equals(other.Key, Key))
-                && (ReferenceEquals(other.Value, Value) || Equals(other.Value, Value));
-        }
-
-        /// <summary>Combines key and value hash code. R# generated default implementation.</summary>
-        /// <returns>Combined hash code for key-value.</returns>
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (Key == null ? 0 : Key.GetHashCode() * 397)
-                     ^ (Value == null ? 0 : Value.GetHashCode());
-            }
-        }
-
-        /// <summary>Creates nice string view for Key and Value.</summary><returns>String representation.</returns>
-        public override string ToString()
-        {
-            return "[" + (Key ?? "null") + ", " + (Value ?? "null") + "]";
-        }
-    }
-
-    /// <summary>Simple immutable AVL tree with integer keys and object values.</summary>
-    public sealed class ImTreeMap
-    {
-        /// <summary>Represents Empty tree.</summary>
-        public static readonly ImTreeMap Empty = new ImTreeMap(ImTreeMapIntToObj.Empty);
-
-        /// <summary>Returns true if tree is empty.</summary>
-        public readonly bool IsEmpty;
-
-        private sealed class KVWithConflicts : KV
-        {
-            public readonly KV[] Conflicts;
-            public KVWithConflicts(KV kv, KV[] conflicts) : base(kv.Key, kv.Value) { Conflicts = conflicts; }
-        }
-
-        /// <summary>Creates new tree with added or updated value for corresponding key.</summary>
-        /// <param name="key">Key.</param> <param name="value">Value.</param> <returns>New tree.</returns>
-        public ImTreeMap AddOrUpdate(object key, object value)
-        {
-            return new ImTreeMap(_tree.AddOrUpdate(key.GetHashCode(), new KV(key, value), UpdateConflictingKeyValue));
-        }
-
-        private static object UpdateConflictingKeyValue(object entryOld, object entryNew)
-        {
-            var kvOld = (KV)entryOld;
-            var kvNew = (KV)entryNew;
-
-            var conflicts = kvOld is KVWithConflicts ? ((KVWithConflicts)kvOld).Conflicts : null;
-
-            // if equal just replace with keeping conflicts intact.
-            if (ReferenceEquals(kvOld.Key, kvNew.Key) || kvOld.Key.Equals(kvNew.Key))
-                return conflicts == null ? kvNew : new KVWithConflicts(kvNew, conflicts);
-
-            // if keys are not equal but hash is the same:
-            // - if no previous conflicts then add new value to conflict with old one. 
-            if (conflicts == null)
-                return new KVWithConflicts(kvOld, new[] { kvNew });
-
-            // - if some conflicts exist find key in conflict.
-            var i = conflicts.Length - 1;
-            while (i >= 0 && !Equals(conflicts[i].Key, kvNew.Key)) --i;
-
-            var newConflicts = new KV[i != -1 ? conflicts.Length : conflicts.Length + 1];
-            Array.Copy(conflicts, 0, newConflicts, 0, conflicts.Length);
-            newConflicts[i != -1 ? i : conflicts.Length] = kvNew;
-
-            return new KVWithConflicts(kvOld, newConflicts);
-        }
-
-        /// <summary>Looks for value added with key or will return null if key is not found.</summary>
-        /// <param name="key">Key</param> <returns>Found value or null if not found.</returns>
-        public object GetValueOrDefault(object key)
-        {
-            var kv = _tree.GetValueOrDefault(key.GetHashCode()) as KV;
-            return kv != null && (ReferenceEquals(key, kv.Key) || key.Equals(kv.Key))
-                ? kv.Value : GetConflictedValueOrDefault(kv, key);
-        }
-
-        private static object GetConflictedValueOrDefault(KV kv, object key)
-        {
-            var conflicts = kv is KVWithConflicts ? ((KVWithConflicts)kv).Conflicts : null;
-            if (conflicts != null)
-                for (var i = 0; i < conflicts.Length; ++i)
-                    if (Equals(conflicts[i].Key, key))
-                        return conflicts[i].Value;
-            return null;
-        }
-
-        /// <summary>Returns all sub-trees enumerated from left to right.</summary> 
-        /// <returns>Enumerated pairs.</returns>
-        public IEnumerable<KV> Enumerate()
-        {
-            if (!_tree.IsEmpty)
-                foreach (var t in _tree.Enumerate())
-                {
-                    yield return (KV)t.Value;
-                    if (t.Value is KVWithConflicts)
-                    {
-                        var conflicts = ((KVWithConflicts)t.Value).Conflicts;
-                        for (var i = 0; i < conflicts.Length; ++i)
-                            yield return conflicts[i];
-                    }
-                }
-        }
-
-        #region Implementation
-
-        private readonly ImTreeMapIntToObj _tree;
-        private ImTreeMap(ImTreeMapIntToObj tree)
-        {
-            _tree = tree;
-            IsEmpty = tree.IsEmpty;
-        }
-
-        #endregion
-    }
-
     /// <summary>List of error codes and messages.</summary>
     public static class Error
     {
         /// <summary>First error code to identify error range for other possible error code definitions.</summary>
-        public readonly static int FirstErrorCode = 0;
+        public static readonly int FirstErrorCode = 0;
 
         /// <summary>List of error messages indexed with code.</summary>
-        public readonly static List<string> Messages = new List<string>(100);
+        public static readonly List<string> Messages = new List<string>(100);
 
 #pragma warning disable 1591 // "Missing XML-comment"
         public static readonly int
@@ -1550,7 +1186,8 @@ namespace DryIocZero
             NoMatchedScopeFound = Of(
                 "Unable to find scope with matching name: {0}."),
             NotDirectScopeParent = Of(
-                "Unable to OpenScope [{0}] because parent scope [{1}] is not current context scope [{2}]." + Environment.NewLine +
+                "Unable to OpenScope [{0}] because parent scope [{1}] is not current context scope [{2}]." +
+                Environment.NewLine +
                 "It is probably other scope was opened in between OR you forgot to Dispose some other scope!"),
             ContainerIsDisposed = Of(
                 "Container is disposed and its operations are no longer available."),
@@ -1569,8 +1206,8 @@ namespace DryIocZero
 
     /// <summary>Zero container exception.</summary>
     [SuppressMessage("Microsoft.Usage",
-        "CA2237:MarkISerializableTypesWithSerializable",
-        Justification = "Not available in PCL.")]
+         "CA2237:MarkISerializableTypesWithSerializable",
+         Justification = "Not available in PCL")]
     public class ContainerException : InvalidOperationException
     {
         /// <summary>Error code.</summary>
@@ -1621,17 +1258,6 @@ namespace DryIocZero
         }
     }
 
-    /// <summary>Type of services supported by Container.</summary>
-    public enum FactoryType
-    {
-        /// <summary>(default) Defines normal service factory</summary>
-        Service,
-        /// <summary>Defines decorator factory</summary>
-        Decorator,
-        /// <summary>Defines wrapper factory.</summary>
-        Wrapper
-    }
-
     /// <summary>Reuse goal is to locate or create scope where reused objects will be stored.</summary>
     /// <remarks><see cref="IReuse"/> implementors supposed to be stateless, and provide scope location behavior only.
     /// The reused service instances should be stored in scope(s).</remarks>
@@ -1645,6 +1271,9 @@ namespace DryIocZero
     /// used when registering services into container with <see cref="Registrator"/> methods.</summary>
     public static class Reuse
     {
+        /// <summary>Synonym for absence of reuse.</summary>
+        public static readonly IReuse Transient = new TransientReuse();
+
         /// <summary>Specifies to store single service instance per <see cref="Container"/>.</summary>
         public static readonly IReuse Singleton = new SingletonReuse();
 
@@ -1669,29 +1298,65 @@ namespace DryIocZero
         /// <param name="serviceKey">(optional) Search for specified key.</param>
         /// <param name="outermost">If true - commands to look for outermost match instead of nearest.</param>
         /// <returns>New reuse with specified parameters or <see cref="InResolutionScope"/> if nothing specified.</returns>
-        public static IReuse InResolutionScopeOf(Type assignableFromServiceType = null, object serviceKey = null, bool outermost = false)
+        public static IReuse InResolutionScopeOf(Type assignableFromServiceType = null, object serviceKey = null,
+            bool outermost = false)
         {
-            return assignableFromServiceType == null && serviceKey == null ? InResolutionScope
+            return assignableFromServiceType == null && serviceKey == null
+                ? InResolutionScope
                 : new ResolutionScopeReuse(assignableFromServiceType, serviceKey, outermost);
+        }
+
+        /// <summary>Special name that by convention recognized by <see cref="InWebRequest"/>.</summary>
+        public static readonly string WebRequestScopeName = "WebRequestScopeName";
+
+        /// <summary>Web request is just convention for reuse in <see cref="InCurrentNamedScope"/> with special name <see cref="WebRequestScopeName"/>.</summary>
+        public static readonly IReuse InWebRequest = InCurrentNamedScope(WebRequestScopeName);
+    }
+
+    /// <summary>Represents lifetime of transient reuse.</summary>
+    public sealed class TransientReuse : IReuse
+    {
+        /// <summary>Value relative to other reuses lifespan value.</summary>
+        public int Lifespan
+        {
+            get { return 0; }
         }
     }
 
-    /// <summary>Returns container bound scope for storing singleton objects.</summary>
+    /// <summary>Represents lifetime of singleton reuse.</summary>
     public sealed class SingletonReuse : IReuse
     {
         /// <summary>Relative to other reuses lifespan value.</summary>
-        public int Lifespan { get { return 1000; } }
+        public int Lifespan
+        {
+            get { return 1000; }
+        }
+
+        /// <summary>Returns item from singleton scope.</summary>
+        /// <param name="singletonScope">Singleton scope.</param>
+        /// <param name="trackTransientDisposable">Indicates that item should be tracked instead of reused.</param>
+        /// <param name="factoryId">ID for lookup.</param>
+        /// <param name="createValue">Delegate for creating the item.</param>
+        /// <returns>Reused item.</returns>
+        public static object GetOrAddItem(IScope singletonScope, bool trackTransientDisposable, int factoryId,
+            CreateScopedValue createValue)
+        {
+            var scopedItemId = trackTransientDisposable ? -1 : singletonScope.GetScopedItemIdOrSelf(factoryId);
+            return singletonScope.GetOrAdd(scopedItemId, createValue);
+        }
     }
 
-    /// <summary>Returns container bound current scope created by <see cref="Container.OpenScope"/> method.</summary>
-    /// <remarks>It is the same as Singleton scope if container was not created by <see cref="Container.OpenScope"/>.</remarks>
+    /// <summary>Represent lifetime and name of Scoped reuse.</summary>
     public sealed class CurrentScopeReuse : IReuse
     {
         /// <summary>Name to find current scope or parent with equal name.</summary>
         public readonly object Name;
 
         /// <summary>Relative to other reuses lifespan value.</summary>
-        public int Lifespan { get { return 100; } }
+        public int Lifespan
+        {
+            get { return 100; }
+        }
 
         /// <summary>Creates reuse optionally specifying its name.</summary> 
         /// <param name="name">(optional) Used to find matching current scope or parent.</param>
@@ -1699,14 +1364,35 @@ namespace DryIocZero
         {
             Name = name;
         }
+
+        /// <summary>Returns item from current scope with specified name.</summary>
+        /// <param name="containerScopes">Container scopes to select from.</param>
+        /// <param name="scopeName">scope name to look up.</param>
+        /// <param name="throwIfNoScopeFound">Specifies to throw if scope with the <paramref name="scopeName"/> is not found.</param>
+        /// <param name="trackTransientDisposable"></param>
+        /// <param name="factoryId">ID for lookup.</param>
+        /// <param name="createValue">Delegate for creating the item.</param>
+        /// <returns>Reused item.</returns>
+        public static object GetOrAddItemOrDefault(
+            IScopeAccess containerScopes, object scopeName, bool throwIfNoScopeFound,
+            bool trackTransientDisposable, int factoryId, CreateScopedValue createValue)
+        {
+            var scope = containerScopes.GetCurrentNamedScope(scopeName, throwIfNoScopeFound);
+            if (scope == null)
+                return null;
+            var scopedItemId = trackTransientDisposable ? -1 : scope.GetScopedItemIdOrSelf(factoryId);
+            return scope.GetOrAdd(scopedItemId, createValue);
+        }
     }
 
-    /// <summary>Represents services created once per resolution root (when some of Resolve methods called).</summary>
-    /// <remarks>Scope is created only if accessed to not waste memory.</remarks>
+    /// <summary>Represent lifetime and compaund name of resolution Scoped reuse.</summary>
     public sealed class ResolutionScopeReuse : IReuse
     {
         /// <summary>Relative to other reuses lifespan value.</summary>
-        public int Lifespan { get { return 0; } }
+        public int Lifespan
+        {
+            get { return 0; }
+        }
 
         /// <summary>Indicates consumer with assignable service type that defines resolution scope.</summary>
         public readonly Type AssignableFromServiceType;
@@ -1721,7 +1407,8 @@ namespace DryIocZero
         /// <summary>Creates new resolution scope reuse with specified type and key.</summary>
         /// <param name="assignableFromServiceType">(optional)</param> <param name="serviceKey">(optional)</param>
         /// <param name="outermost">(optional)</param>
-        public ResolutionScopeReuse(Type assignableFromServiceType = null, object serviceKey = null, bool outermost = false)
+        public ResolutionScopeReuse(Type assignableFromServiceType = null, object serviceKey = null,
+            bool outermost = false)
         {
             AssignableFromServiceType = assignableFromServiceType;
             ServiceKey = serviceKey;
@@ -1729,17 +1416,63 @@ namespace DryIocZero
         }
     }
 
+    /// <summary>Memoized checks and conditions of two kinds: inherited down dependency chain and not.</summary>
+    [Flags]
+    public enum RequestFlags
+    {
+        /// <summary>Not inherited</summary>
+        TracksTransientDisposable = 1 << 1,
+        /// <summary>Not inherited</summary>
+        IsServiceCollection = 1 << 2,
+
+        /// <summary>Inherited</summary>
+        IsSingletonOrDependencyOfSingleton = 1 << 3,
+        /// <summary>Inherited</summary>
+        IsWrappedInFunc = 1 << 4,
+        /// <summary>Inherited</summary>
+        IsWrappedInFuncWithArgs = 1 << 5,
+    }
+
+    /// <summary>Type of services supported by Container.</summary>
+    public enum FactoryType
+    {
+        /// <summary>(default) Defines normal service factory</summary>
+        Service,
+
+        /// <summary>Defines decorator factory</summary>
+        Decorator,
+
+        /// <summary>Defines wrapper factory.</summary>
+        Wrapper
+    }
+
+    /// <summary>Policy to handle unresolved service.</summary>
+    public enum IfUnresolved
+    {
+        /// <summary>Specifies to throw exception if no service found.</summary>
+        Throw,
+
+        /// <summary>Specifies to return default value instead of throwing error.</summary>
+        ReturnDefault
+    }
+
     /// <summary>Dependency request path information.</summary>
     public sealed class RequestInfo
     {
-        /// <summary>Represents empty info (indicated by null <see cref="ServiceType"/>).</summary>
-        public static readonly RequestInfo Empty = new RequestInfo(null, null, null, -1, FactoryType.Service, null, null, null);
+        /// <summary>Represents empty info.</summary>
+        public static readonly RequestInfo Empty = new RequestInfo();
 
         /// <summary>Returns true for an empty request.</summary>
-        public bool IsEmpty { get { return ServiceType == null; } }
+        public bool IsEmpty
+        {
+            get { return ServiceType == null; }
+        }
 
         /// <summary>Returns true if request is the first in a chain.</summary>
-        public bool IsResolutionRoot { get { return !IsEmpty && ParentOrWrapper.IsEmpty; } }
+        public bool IsResolutionRoot
+        {
+            get { return !IsEmpty && ParentOrWrapper.IsEmpty; }
+        }
 
         /// <summary>Parent request or null for root resolution request.</summary>
         public readonly RequestInfo ParentOrWrapper;
@@ -1749,19 +1482,14 @@ namespace DryIocZero
         {
             get
             {
-                return IsEmpty ? Empty : ParentOrWrapper.FirstOrEmpty(p => p.FactoryType != FactoryType.Wrapper);
-            }
-        }
+                if (IsEmpty)
+                    return Empty;
 
-        /// <summary>Gets first request info starting with itself which satisfies the condition, or empty otherwise.</summary>
-        /// <param name="condition">Condition to stop on. Should not be null.</param>
-        /// <returns>Request info of found parent.</returns>
-        public RequestInfo FirstOrEmpty(Func<RequestInfo, bool> condition)
-        {
-            var r = this;
-            while (!r.IsEmpty && !condition(r))
-                r = r.ParentOrWrapper;
-            return r;
+                var p = ParentOrWrapper;
+                while (!p.IsEmpty && p.FactoryType == FactoryType.Wrapper)
+                    p = p.ParentOrWrapper;
+                return p;
+            }
         }
 
         /// <summary>Asked service type.</summary>
@@ -1773,6 +1501,15 @@ namespace DryIocZero
         /// <summary>Optional service key.</summary>
         public readonly object ServiceKey;
 
+        /// <summary>Metadata key to find in metadata dictionary in resolved service.</summary>
+        public readonly string MetadataKey;
+
+        /// <summary>Metadata value to find in resolved service.</summary>
+        public readonly object Metadata;
+
+        /// <summary>Policy to deal with unresolved request.</summary>
+        public readonly IfUnresolved IfUnresolved;
+
         /// <summary>Resolved factory ID, used to identify applied decorator.</summary>
         public readonly int FactoryID;
 
@@ -1782,49 +1519,66 @@ namespace DryIocZero
         /// <summary>Implementation type.</summary>
         public readonly Type ImplementationType;
 
-        /// <summary>Relative number representing reuse lifespan.</summary>
-        public int ReuseLifespan { get { return Reuse == null ? 0 : Reuse.Lifespan; } }
-
         /// <summary>Service reuse.</summary>
         public readonly IReuse Reuse;
+
+        /// <summary>Relative number representing reuse lifespan.</summary>
+        public int ReuseLifespan
+        {
+            get { return Reuse == null ? 0 : Reuse.Lifespan; }
+        }
+
+        /// <summary><see cref="RequestFlags"/>.</summary>
+        public readonly RequestFlags Flags;
 
         /// <summary>Simplified version of Push with most common properties.</summary>
         /// <param name="serviceType"></param> <param name="factoryID"></param> <param name="implementationType"></param>
         /// <param name="reuse"></param> <returns>Created info chain to current (parent) info.</returns>
         public RequestInfo Push(Type serviceType, int factoryID, Type implementationType, IReuse reuse)
         {
-            return Push(serviceType, null, null, factoryID, FactoryType.Service, implementationType, reuse);
+            return Push(serviceType, null, null, null, null, IfUnresolved.Throw,
+                factoryID, FactoryType.Service, implementationType, reuse, default(RequestFlags));
         }
 
         /// <summary>Creates info by supplying all the properties and chaining it with current (parent) info.</summary>
         /// <param name="serviceType"></param> <param name="requiredServiceType"></param>
         /// <param name="serviceKey"></param> <param name="factoryType"></param> <param name="factoryID"></param>
-        /// <param name="implementationType"></param> <param name="reuse"></param>
+        /// <param name="implementationType"></param> <param name="reuse"></param><param name="flags"></param>
         /// <returns>Created info chain to current (parent) info.</returns>
         public RequestInfo Push(Type serviceType, Type requiredServiceType, object serviceKey,
-            int factoryID, FactoryType factoryType, Type implementationType, IReuse reuse)
+            int factoryID, FactoryType factoryType, Type implementationType, IReuse reuse, RequestFlags flags)
         {
-            return new RequestInfo(serviceType, requiredServiceType, serviceKey,
-                factoryID, factoryType, implementationType, reuse, this);
+            return Push(serviceType, requiredServiceType, serviceKey, null, null, IfUnresolved.Throw,
+                factoryID, factoryType, implementationType, reuse, flags);
         }
 
-        private RequestInfo(
-            Type serviceType, Type requiredServiceType, object serviceKey,
-            int factoryID, FactoryType factoryType, Type implementationType, IReuse reuse,
-            RequestInfo parentOrWrapper)
+        /// <summary>Creates info by supplying all the properties and chaining it with current (parent) info.</summary>
+        /// <param name="serviceType"></param> <param name="requiredServiceType"></param>
+        /// <param name="serviceKey"></param> <param name="ifUnresolved"></param>
+        /// <param name="factoryType"></param> <param name="factoryID"></param>
+        /// <param name="implementationType"></param> <param name="reuse"></param>
+        /// <param name="flags"></param>
+        /// <returns>Created info chain to current (parent) info.</returns>
+        public RequestInfo Push(Type serviceType, Type requiredServiceType, object serviceKey, IfUnresolved ifUnresolved,
+            int factoryID, FactoryType factoryType, Type implementationType, IReuse reuse, RequestFlags flags)
         {
-            ParentOrWrapper = parentOrWrapper;
+            return Push(serviceType, requiredServiceType, serviceKey, null, null, ifUnresolved,
+                factoryID, factoryType, implementationType, reuse, flags);
+        }
 
-            // Service info:
-            ServiceType = serviceType;
-            RequiredServiceType = requiredServiceType;
-            ServiceKey = serviceKey;
-
-            // Implementation info:
-            FactoryID = factoryID;
-            FactoryType = factoryType;
-            ImplementationType = implementationType;
-            Reuse = reuse;
+        /// <summary>Creates info by supplying all the properties and chaining it with current (parent) info.</summary>
+        /// <param name="serviceType"></param> <param name="requiredServiceType"></param>
+        /// <param name="serviceKey"></param> <param name="metadataKey"></param><param name="metadata"></param>
+        /// <param name="ifUnresolved"></param>
+        /// <param name="factoryType"></param> <param name="factoryID"></param>
+        /// <param name="implementationType"></param> <param name="reuse"></param>
+        /// <param name="flags"></param>
+        /// <returns>Created info chain to current (parent) info.</returns>
+        public RequestInfo Push(Type serviceType, Type requiredServiceType, object serviceKey, string metadataKey, object metadata, IfUnresolved ifUnresolved,
+            int factoryID, FactoryType factoryType, Type implementationType, IReuse reuse, RequestFlags flags)
+        {
+            return new RequestInfo(serviceType, requiredServiceType, serviceKey, metadataKey, metadata, ifUnresolved,
+                factoryID, factoryType, implementationType, reuse, flags, this);
         }
 
         /// <summary>Returns all request until the root - parent is null.</summary>
@@ -1843,11 +1597,9 @@ namespace DryIocZero
 
             var s = new StringBuilder();
 
-            if (FactoryID != 0)
-                s.Append('#').Append(FactoryID).Append(' ');
-
             if (FactoryType != FactoryType.Service)
                 s.Append(FactoryType.ToString().ToLower()).Append(' ');
+
             if (ImplementationType != null && ImplementationType != ServiceType)
                 s.Append(ImplementationType).Append(": ");
 
@@ -1858,6 +1610,9 @@ namespace DryIocZero
 
             if (ServiceKey != null)
                 s.Append(" with ServiceKey=").Append('{').Append(ServiceKey).Append('}');
+
+            if (IfUnresolved != IfUnresolved.Throw)
+                s.Append(" if unresolved ").Append(Enum.GetName(typeof(IfUnresolved), IfUnresolved));
 
             if (ReuseLifespan != 0)
                 s.Append(" with ReuseLifespan=").Append(ReuseLifespan);
@@ -1880,21 +1635,23 @@ namespace DryIocZero
         public bool Equals(RequestInfo other)
         {
             return other != null && EqualsWithoutParent(other)
-                && (ParentOrWrapper == null && other.ParentOrWrapper == null
-                || (ParentOrWrapper != null && ParentOrWrapper.EqualsWithoutParent(other.ParentOrWrapper)));
+                   && (ParentOrWrapper == null && other.ParentOrWrapper == null
+                       || (ParentOrWrapper != null && ParentOrWrapper.EqualsWithoutParent(other.ParentOrWrapper)));
         }
 
-        /// <summary>Compares with other info taking into account the properties but not the parents and their properties.</summary>
+        /// <summary>Compares info's regarding properties but not their parents.</summary>
         /// <param name="other">Info to compare for equality.</param> <returns></returns>
+        /// <remarks>Ignores the FactoryID.</remarks>
         public bool EqualsWithoutParent(RequestInfo other)
         {
             return other.ServiceType == ServiceType
-                && other.RequiredServiceType == RequiredServiceType
-                && other.ServiceKey == ServiceKey
+                   && other.RequiredServiceType == RequiredServiceType
+                   && other.IfUnresolved == IfUnresolved
+                   && other.ServiceKey == ServiceKey
 
-                && other.FactoryType == FactoryType
-                && other.ImplementationType == ImplementationType
-                && other.ReuseLifespan == ReuseLifespan;
+                   && other.FactoryType == FactoryType
+                   && other.ImplementationType == ImplementationType
+                   && other.ReuseLifespan == ReuseLifespan;
         }
 
         /// <summary>Returns hash code combined from info fields plus its parent.</summary>
@@ -1905,11 +1662,15 @@ namespace DryIocZero
             for (var i = this; !i.IsEmpty; i = i.ParentOrWrapper)
             {
                 var currentHash = i.ServiceType.GetHashCode();
+
                 if (i.RequiredServiceType != null)
                     currentHash = CombineHashCodes(currentHash, i.RequiredServiceType.GetHashCode());
 
                 if (i.ServiceKey != null)
                     currentHash = CombineHashCodes(currentHash, i.ServiceKey.GetHashCode());
+
+                if (i.IfUnresolved != IfUnresolved.Throw)
+                    currentHash = CombineHashCodes(currentHash, i.IfUnresolved.GetHashCode());
 
                 if (i.FactoryType != FactoryType.Service)
                     currentHash = CombineHashCodes(currentHash, i.FactoryType.GetHashCode());
@@ -1923,6 +1684,37 @@ namespace DryIocZero
                 hash = hash == 0 ? currentHash : CombineHashCodes(hash, currentHash);
             }
             return hash;
+        }
+
+        private RequestInfo()
+        {
+            FactoryID = -1;
+        }
+
+        private RequestInfo(
+            Type serviceType, Type requiredServiceType, object serviceKey, 
+            string metadataKey, object metadata, IfUnresolved ifUnresolved,
+            int factoryID, FactoryType factoryType, Type implementationType, IReuse reuse,
+            RequestFlags flags,
+            RequestInfo parentOrWrapper)
+        {
+            ParentOrWrapper = parentOrWrapper;
+
+            // Service info:
+            ServiceType = serviceType;
+            RequiredServiceType = requiredServiceType;
+            ServiceKey = serviceKey;
+            MetadataKey = metadataKey;
+            Metadata = metadata;
+            IfUnresolved = ifUnresolved;
+
+            // Implementation info:
+            FactoryID = factoryID;
+            FactoryType = factoryType;
+            ImplementationType = implementationType;
+            Reuse = reuse;
+
+            Flags = flags;
         }
 
         // Inspired by System.Tuple.CombineHashCodes
@@ -2009,5 +1801,45 @@ namespace DryIocZero
         {
             Reason = reason;
         }
+    }
+
+    /// <summary>Helper and portblity extensions to Reflection.</summary>
+    public static class ReflectionTools
+    {
+        /// <summary>Returns specific type members. Does not look into base class by default.
+        /// Specific members are returned by <paramref name="getMembers"/> delegate.</summary>
+        /// <typeparam name="TMember">Details type: properties, fields, methods, etc.</typeparam>
+        /// <param name="type">Input type.</param> <param name="getMembers">Get declared type details.</param>
+        /// <param name="includeBase">(optional) If set looks into base members.</param>
+        /// <returns>Members.</returns>
+        public static IEnumerable<TMember> Members<TMember>(this Type type,
+            Func<TypeInfo, IEnumerable<TMember>> getMembers,
+            bool includeBase = false)
+        {
+            var typeInfo = type.GetTypeInfo();
+            var members = getMembers(typeInfo);
+            if (!includeBase)
+                return members;
+            var baseType = typeInfo.BaseType;
+            return baseType == null || baseType == typeof(object)
+                ? members
+                : members.Concat(baseType.Members(getMembers, true));
+        }
+
+        /// <summary>Properties only.</summary> <param name="type">Type to reflect.</param>
+        /// <param name="includeBase">(optional). False by default.</param> <returns>Properties.</returns>
+        public static IEnumerable<PropertyInfo> Properties(this Type type, bool includeBase = false)
+        {
+            return type.Members(t => t.DeclaredProperties, includeBase: true);
+        }
+    }
+}
+
+namespace DryIoc
+{
+    static partial class Portable
+    {
+        // ReSharper disable once UnusedMember.Local
+        static partial void GetCurrentManagedThreadID(ref int threadID);
     }
 }

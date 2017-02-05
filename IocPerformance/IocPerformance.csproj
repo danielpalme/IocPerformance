@@ -69,16 +69,8 @@
       <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DryIoc, Version=2.4.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DryIoc.dll.2.4.3\lib\net45\DryIoc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DryIoc.MefAttributedModel, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DryIoc.MefAttributedModel.dll.2.3.0\lib\net45\DryIoc.MefAttributedModel.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DryIocAttributes, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DryIocAttributes.dll.2.3.0\lib\net45\DryIocAttributes.dll</HintPath>
+    <Reference Include="DryIoc, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.2.10.0\lib\net45\DryIoc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Dynamo.Ioc, Version=3.0.2.0, Culture=neutral, PublicKeyToken=584702d813863cbd, processorArchitecture=MSIL">
@@ -279,8 +271,8 @@
       <HintPath>..\packages\Spring.Core.2.0.1\lib\net45\Spring.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Stashbox, Version=1.0.142.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stashbox.1.0.142\lib\portable45-net45+win8+wp8+wpa81\Stashbox.dll</HintPath>
+    <Reference Include="Stashbox, Version=1.0.160.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stashbox.1.0.160\lib\portable45-net45+win8+wp8+wpa81\Stashbox.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Stiletto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -413,7 +405,6 @@
     <Compile Include="Classes\Conditional\ExportConditionalObject.cs" />
     <Compile Include="Classes\Conditional\ExportConditionalObject2.cs" />
     <Compile Include="Classes\Conditional\ExportConditionalObject3.cs" />
-    <Compile Include="Classes\Conditional\ForParentImplementationAttribute.cs" />
     <Compile Include="Classes\Conditional\IExportConditionInterface.cs" />
     <Compile Include="Classes\Conditional\ImportConditionObject1.cs" />
     <Compile Include="Classes\Conditional\ImportConditionObject2.cs" />
@@ -508,7 +499,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="DryIocZero\YourServiceRegistrations.tt.include" />
     <None Include="LightCore.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -525,6 +515,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Container.Generated.cs</LastGenOutput>
     </Content>
+    <None Include="DryIocZero\Registrations.tt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
