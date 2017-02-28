@@ -26,7 +26,8 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsChildContainer => true;
+        // Currently not working (version 2.1.2)
+        public override bool SupportsChildContainer => false;
 
         public override bool SupportsConditional => true;
 
