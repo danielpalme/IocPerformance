@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using Castle.DynamicProxy;
 using Grace.DependencyInjection;
 using Grace.DependencyInjection.Extensions;
 using Grace.Dynamic;
@@ -72,25 +75,29 @@ namespace IocPerformance.Adapters
             this.RegisterStandard();
             this.RegisterComplex();
         }
+        
+        public sealed class CalculatorLogger : IInterceptor
+        {
+            public void Intercept(IInvocation invocation)
+            {
+                // Perform logging here, e.g.:
+                var args = string.Join(", ", invocation.Arguments.Select(x => x + string.Empty));
+                Debug.WriteLine("GraceIocInterceptor: {0}({1})", invocation.GetConcreteMethod().Name, args);
+                invocation.Proceed();
+            }
+        }
 
         private void RegisterInterceptor()
         {
-            var pg = new Castle.DynamicProxy.ProxyGenerator();
-
             container.Configure(c =>
             {
                 c.Export<Calculator1>().As<ICalculator1>();
                 c.Export<Calculator2>().As<ICalculator2>();
                 c.Export<Calculator3>().As<ICalculator3>();
 
-                c.ExportDecorator<ICalculator1>(
-                    calculator => pg.CreateInterfaceProxyWithTarget(calculator, new StructureMapInterceptionLogger()));
-
-                c.ExportDecorator<ICalculator2>(
-                    calculator => pg.CreateInterfaceProxyWithTarget(calculator, new StructureMapInterceptionLogger()));
-
-                c.ExportDecorator<ICalculator3>(
-                    calculator => pg.CreateInterfaceProxyWithTarget(calculator, new StructureMapInterceptionLogger()));
+                c.Intercept<ICalculator1, CalculatorLogger>();
+                c.Intercept<ICalculator2, CalculatorLogger>();
+                c.Intercept<ICalculator3, CalculatorLogger>();
             });
         }
 
