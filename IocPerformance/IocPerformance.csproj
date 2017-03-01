@@ -453,6 +453,8 @@
     </Compile>
     <Compile Include="Interception\AutofacInterceptionLogger.cs" />
     <Compile Include="Interception\DryIocInterceptionTools.cs" />
+    <Compile Include="Interception\GraceInterceptionLogger.cs" />
+    <Compile Include="Interception\GraceInterceptionTools.cs" />
     <Compile Include="Interception\HaveBoxInterceptionLogger.cs" />
     <Compile Include="Interception\LightInjectInterceptionLogger.cs" />
     <Compile Include="Interception\MaestroInterceptionLogger.cs" />
