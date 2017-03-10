@@ -252,6 +252,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\QuickInject.1.0.0.12\lib\portable-net45+win\QuickInject.dll</HintPath>
     </Reference>
+    <Reference Include="Rezolver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rezolver.1.1.71702.109\lib\netstandard1.1\Rezolver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SimpleInjector, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.3.3.2\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
@@ -336,6 +340,7 @@
     <Compile Include="Adapters\IfInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\HaveBoxContainerAdapter.cs" />
     <Compile Include="Adapters\FFastInjectorContainerAdapter.cs" />
+    <Compile Include="Adapters\RezolverContainerAdapter.cs" />
     <Compile Include="Adapters\MicrosoftExtensionsDependencyInjectionContainerAdapter.cs" />
     <Compile Include="Adapters\MaestroContainerAdapter.cs" />
     <Compile Include="Adapters\Mef2ContainerAdapter.cs" />

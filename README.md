@@ -42,6 +42,7 @@ Results
 |**[Munq 3.1.6](http://munq.codeplex.com)**|119<br/>98|161<br/>148|669<br/>467|1992<br/>1319|
 |**[Ninject 3.2.2.0](http://ninject.org)**|5224<br/>3437|16579<br/>11961|46445<br/>30800|136712<br/>85362|
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|4118<br/>2690|4161<br/>2763|4477<br/>2584|4966<br/>2670|
+|**[Rezolver 1.1.71702.109](http://rezolver.co.uk)**|167<br/>139|175<br/>156|261<br/>236|424<br/>355|
 |**[SimpleInjector 3.3.2](https://simpleinjector.org)**|63<br/>80|120<br/>86|150<br/>121|151<br/>132|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|976<br/>978|10185<br/>11925|27810<br/>24892|73589<br/>58129|
 |**[Stashbox 2.1.2](https://github.com/z4kn4fein/stashbox)**|103<br/>112|146<br/>126|170<br/>162|251<br/>188|
@@ -78,6 +79,7 @@ Results
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1683<br/>1155|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Ninject 3.2.2.0](http://ninject.org)**|126340<br/>94262|51421<br/>34619|116662<br/>86730|39381<br/>28760|75048000*<br/>53320497*|27366<br/>21004|
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|6076<br/>3382|<br/>|<br/>|<br/>|<br/>|<br/>|
+|**[Rezolver 1.1.71702.109](http://rezolver.co.uk)**|595<br/>562|228<br/>207|543<br/>487|<br/>|3319690*<br/>1843530*|<br/>|
 |**[SimpleInjector 3.3.2](https://simpleinjector.org)**|295<br/>160|89<br/>88|805<br/>463|72<br/>79|<br/>|7113<br/>3998|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|56159<br/>53415|<br/>|<br/>|<br/>|<br/>|53353<br/>55179|
 |**[Stashbox 2.1.2](https://github.com/z4kn4fein/stashbox)**|407<br/>261|171<br/>153|430<br/>304|156<br/>143|<br/>|<br/>|
@@ -114,6 +116,7 @@ Results
 |**[Munq 3.1.6](http://munq.codeplex.com)**|9945<br/>|9547<br/>|
 |**[Ninject 3.2.2.0](http://ninject.org)**|142265<br/>|139074<br/>|
 |**[Petite 0.3.2](https://github.com/andlju/Petite)**|37<br/>|47<br/>|
+|**[Rezolver 1.1.71702.109](http://rezolver.co.uk)**|58<br/>|3707<br/>|
 |**[SimpleInjector 3.3.2](https://simpleinjector.org)**|377<br/>|2935<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|27593<br/>|27718<br/>|
 |**[Stashbox 2.1.2](https://github.com/z4kn4fein/stashbox)**|852<br/>|1139<br/>|
