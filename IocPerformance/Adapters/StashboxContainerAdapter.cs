@@ -30,7 +30,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportsChildContainer => false;
+        public override bool SupportsChildContainer => true;
 
         public override bool SupportsConditional => true;
 
