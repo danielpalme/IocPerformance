@@ -94,38 +94,38 @@ namespace IocPerformance.Adapters
 
         private static void RegisterComplexObject(ITargetContainer targets)
         {
-            targets.Register(new SingletonTarget(ConstructorTarget.Auto<FirstService>()), typeof(IFirstService));
-            targets.Register(new SingletonTarget(ConstructorTarget.Auto<SecondService>()), typeof(ISecondService));
-            targets.Register(new SingletonTarget(ConstructorTarget.Auto<ThirdService>()), typeof(IThirdService));
-            targets.Register(ConstructorTarget.Auto<SubObjectOne>(), typeof(ISubObjectOne));
-            targets.Register(ConstructorTarget.Auto<SubObjectTwo>(), typeof(ISubObjectTwo));
-            targets.Register(ConstructorTarget.Auto<SubObjectThree>(), typeof(ISubObjectThree));
-            targets.Register(ConstructorTarget.Auto<Complex1>(), typeof(IComplex1));
-            targets.Register(ConstructorTarget.Auto<Complex2>(), typeof(IComplex2));
-            targets.Register(ConstructorTarget.Auto<Complex3>(), typeof(IComplex3));
+            targets.Register(new SingletonTarget(Target.ForType<FirstService>()), typeof(IFirstService));
+            targets.Register(new SingletonTarget(Target.ForType<SecondService>()), typeof(ISecondService));
+            targets.Register(new SingletonTarget(Target.ForType<ThirdService>()), typeof(IThirdService));
+            targets.Register(Target.ForType<SubObjectOne>(), typeof(ISubObjectOne));
+            targets.Register(Target.ForType<SubObjectTwo>(), typeof(ISubObjectTwo));
+            targets.Register(Target.ForType<SubObjectThree>(), typeof(ISubObjectThree));
+            targets.Register(Target.ForType<Complex1>(), typeof(IComplex1));
+            targets.Register(Target.ForType<Complex2>(), typeof(IComplex2));
+            targets.Register(Target.ForType<Complex3>(), typeof(IComplex3));
         }
 
         private static void RegisterPropertyInjection(ITargetContainer targets)
         {
             // this method is temporary till I add auto property injection - thinking I might do it as
             // an extension target that can be added to any other target (except another target)
-            targets.Register(new SingletonTarget(ConstructorTarget.Auto<ServiceA>()), typeof(IServiceA));
-            targets.Register(new SingletonTarget(ConstructorTarget.Auto<ServiceB>()), typeof(IServiceB));
-            targets.Register(new SingletonTarget(ConstructorTarget.Auto<ServiceC>()), typeof(IServiceC));
+            targets.Register(new SingletonTarget(Target.ForType<ServiceA>()), typeof(IServiceA));
+            targets.Register(new SingletonTarget(Target.ForType<ServiceB>()), typeof(IServiceB));
+            targets.Register(new SingletonTarget(Target.ForType<ServiceC>()), typeof(IServiceC));
 
-            targets.Register(ConstructorTarget.Auto<SubObjectA>(DefaultMemberBindingBehaviour.Instance), typeof(ISubObjectA));
-            targets.Register(ConstructorTarget.Auto<SubObjectB>(DefaultMemberBindingBehaviour.Instance), typeof(ISubObjectB));
-            targets.Register(ConstructorTarget.Auto<SubObjectC>(DefaultMemberBindingBehaviour.Instance), typeof(ISubObjectC));
+            targets.Register(Target.ForType<SubObjectA>(DefaultMemberBindingBehaviour.Instance), typeof(ISubObjectA));
+            targets.Register(Target.ForType<SubObjectB>(DefaultMemberBindingBehaviour.Instance), typeof(ISubObjectB));
+            targets.Register(Target.ForType<SubObjectC>(DefaultMemberBindingBehaviour.Instance), typeof(ISubObjectC));
 
-            targets.Register(ConstructorTarget.Auto<ComplexPropertyObject1>(DefaultMemberBindingBehaviour.Instance), typeof(IComplexPropertyObject1));
-            targets.Register(ConstructorTarget.Auto<ComplexPropertyObject2>(DefaultMemberBindingBehaviour.Instance), typeof(IComplexPropertyObject2));
-            targets.Register(ConstructorTarget.Auto<ComplexPropertyObject3>(DefaultMemberBindingBehaviour.Instance), typeof(IComplexPropertyObject3));
+            targets.Register(Target.ForType<ComplexPropertyObject1>(DefaultMemberBindingBehaviour.Instance), typeof(IComplexPropertyObject1));
+            targets.Register(Target.ForType<ComplexPropertyObject2>(DefaultMemberBindingBehaviour.Instance), typeof(IComplexPropertyObject2));
+            targets.Register(Target.ForType<ComplexPropertyObject3>(DefaultMemberBindingBehaviour.Instance), typeof(IComplexPropertyObject3));
         }
 
         private static void RegisterOpenGeneric(ITargetContainer targets)
         {
-            targets.Register(GenericConstructorTarget.Auto(typeof(GenericExport<>)), typeof(IGenericInterface<>));
-            targets.Register(GenericConstructorTarget.Auto(typeof(ImportGeneric<>)), typeof(ImportGeneric<>));
+            targets.Register(Target.ForType(typeof(GenericExport<>)), typeof(IGenericInterface<>));
+            targets.Register(Target.ForType(typeof(ImportGeneric<>)), typeof(ImportGeneric<>));
         }
 
         private static void RegisterMultiple(ITargetContainer targets)
@@ -133,16 +133,16 @@ namespace IocPerformance.Adapters
             targets.RegisterMultiple(
                 new[]
                 {
-                    ConstructorTarget.Auto<SimpleAdapterOne>(),
-                    ConstructorTarget.Auto<SimpleAdapterTwo>(),
-                    ConstructorTarget.Auto<SimpleAdapterThree>(),
-                    ConstructorTarget.Auto<SimpleAdapterFour>(),
-                    ConstructorTarget.Auto<SimpleAdapterFive>()
+                    Target.ForType<SimpleAdapterOne>(),
+                    Target.ForType<SimpleAdapterTwo>(),
+                    Target.ForType<SimpleAdapterThree>(),
+                    Target.ForType<SimpleAdapterFour>(),
+                    Target.ForType<SimpleAdapterFive>()
                 },
             typeof(ISimpleAdapter));
-            targets.Register(ConstructorTarget.Auto<ImportMultiple1>());
-            targets.Register(ConstructorTarget.Auto<ImportMultiple2>());
-            targets.Register(ConstructorTarget.Auto<ImportMultiple3>());
+            targets.Register(Target.ForType<ImportMultiple1>());
+            targets.Register(Target.ForType<ImportMultiple2>());
+            targets.Register(Target.ForType<ImportMultiple3>());
         }
 
         public override IChildContainerAdapter CreateChildContainerAdapter()

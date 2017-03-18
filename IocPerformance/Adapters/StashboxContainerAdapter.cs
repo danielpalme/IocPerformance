@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using Castle.DynamicProxy;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
@@ -8,26 +11,40 @@ using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using Stashbox;
+using Stashbox.Configuration;
 using Stashbox.Infrastructure;
 
 namespace IocPerformance.Adapters
 {
     public sealed class StashboxContainerAdapter : ContainerAdapterBase
     {
+        private readonly Type proxyType1;
+
+        private readonly Type proxyType2;
+
+        private readonly Type proxyType3;
+
         private StashboxContainer container;
+
+        public StashboxContainerAdapter()
+        {
+            var builder = new DefaultProxyBuilder();
+            this.proxyType1 = builder.CreateInterfaceProxyTypeWithTargetInterface(typeof(ICalculator1), new Type[0], ProxyGenerationOptions.Default);
+            this.proxyType2 = builder.CreateInterfaceProxyTypeWithTargetInterface(typeof(ICalculator2), new Type[0], ProxyGenerationOptions.Default);
+            this.proxyType3 = builder.CreateInterfaceProxyTypeWithTargetInterface(typeof(ICalculator3), new Type[0], ProxyGenerationOptions.Default);
+        }
 
         public override string PackageName => "Stashbox";
 
         public override string Url => "https://github.com/z4kn4fein/stashbox";
 
-        public override bool SupportsInterception => false;
+        public override bool SupportsInterception => true;
 
         public override bool SupportsMultiple => true;
 
         public override bool SupportsPropertyInjection => true;
 
-        // Currently not working (version 2.1.2)
-        public override bool SupportsChildContainer => false;
+        public override bool SupportsChildContainer => true;
 
         public override bool SupportsConditional => true;
 
@@ -48,20 +65,13 @@ namespace IocPerformance.Adapters
             this.RegisterOpenGeneric();
             this.RegisterConditional();
             this.RegisterMultiple();
+            this.RegisterInterceptor();
         }
 
-        public override void Dispose()
-        {
-            if (this.container == null)
-            {
-                return;
-            }
+        public override void Dispose() => this.container?.Dispose();
 
-            this.container.Dispose();
-            this.container = null;
-        }
-
-        public override IChildContainerAdapter CreateChildContainerAdapter() => new StashboxChildContainerAdapter(this.container);
+        public override IChildContainerAdapter CreateChildContainerAdapter() =>
+            new StashboxChildContainerAdapter(this.container);
 
         private void RegisterBasic()
         {
@@ -125,11 +135,11 @@ namespace IocPerformance.Adapters
 
         private void RegisterMultiple()
         {
-            this.container.RegisterType<ISimpleAdapter, SimpleAdapterOne>("one");
-            this.container.RegisterType<ISimpleAdapter, SimpleAdapterTwo>("two");
-            this.container.RegisterType<ISimpleAdapter, SimpleAdapterThree>("three");
-            this.container.RegisterType<ISimpleAdapter, SimpleAdapterFour>("four");
-            this.container.RegisterType<ISimpleAdapter, SimpleAdapterFive>("five");
+            this.container.RegisterType<ISimpleAdapter, SimpleAdapterOne>();
+            this.container.RegisterType<ISimpleAdapter, SimpleAdapterTwo>();
+            this.container.RegisterType<ISimpleAdapter, SimpleAdapterThree>();
+            this.container.RegisterType<ISimpleAdapter, SimpleAdapterFour>();
+            this.container.RegisterType<ISimpleAdapter, SimpleAdapterFive>();
 
             this.container.RegisterType<ImportMultiple1>();
             this.container.RegisterType<ImportMultiple2>();
@@ -154,6 +164,32 @@ namespace IocPerformance.Adapters
             this.container.PrepareType<IExportConditionInterface, ExportConditionalObject3>()
                  .WhenDependantIs<ImportConditionObject3>().Register();
         }
+
+        private void RegisterInterceptor()
+        {
+            this.container.RegisterType<IInterceptor, CalculatorLogger>();
+            this.container.RegisterType<ICalculator1, Calculator1>();
+            this.container.RegisterType<ICalculator2, Calculator2>();
+            this.container.RegisterType<ICalculator3, Calculator3>();
+
+            this.container.PrepareDecorator<ICalculator1>(this.proxyType1)
+                .WithConstructorSelectionRule(Rules.ConstructorSelection.PreferMostParameters).Register();
+            this.container.PrepareDecorator<ICalculator2>(this.proxyType2)
+                .WithConstructorSelectionRule(Rules.ConstructorSelection.PreferMostParameters).Register();
+            this.container.PrepareDecorator<ICalculator3>(this.proxyType3)
+                .WithConstructorSelectionRule(Rules.ConstructorSelection.PreferMostParameters).Register();
+        }
+
+        public sealed class CalculatorLogger : IInterceptor
+        {
+            public void Intercept(IInvocation invocation)
+            {
+                // Perform logging here, e.g.:
+                var args = string.Join(", ", invocation.Arguments.Select(x => x + string.Empty));
+                Debug.WriteLine("Stashbox: {0}({1})", invocation.GetConcreteMethod().Name, args);
+                invocation.Proceed();
+            }
+        }
     }
 
     public class StashboxChildContainerAdapter : IChildContainerAdapter
@@ -165,10 +201,7 @@ namespace IocPerformance.Adapters
             this.childContainer = container.BeginScope();
         }
 
-        public void Dispose()
-        {
-            this.childContainer.Dispose();
-        }
+        public void Dispose() => this.childContainer.Dispose();
 
         public void Prepare()
         {
