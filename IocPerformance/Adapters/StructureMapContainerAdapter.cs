@@ -30,6 +30,8 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsChildContainer => true;
 
+        public override bool SupportAspNetCore => true;
+
         public override object Resolve(Type type) => this.container.GetInstance(type);
 
         public override void Dispose()
@@ -58,7 +60,10 @@ namespace IocPerformance.Adapters
                                                RegisterGeneric(r);
                                                RegisterMultiple(r);
                                                RegisterInterceptor(r, pg);
+
+                                               r.Populate(CreateServiceCollection());
                                            });
+            
         }
 
         public override void PrepareBasic()

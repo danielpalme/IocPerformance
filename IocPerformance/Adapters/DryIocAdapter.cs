@@ -4,6 +4,7 @@ using System.Linq;
 using Castle.DynamicProxy;
 using DryIoc;
 using DryIoc.Interception;
+using DryIoc.Microsoft.DependencyInjection;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
@@ -12,6 +13,7 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
@@ -36,6 +38,8 @@ namespace IocPerformance.Adapters
         public override bool SupportsInterception => true;
 
         public override bool SupportsChildContainer => false;
+
+        public override bool SupportAspNetCore => true;
 
         //private static readonly string ChildContainerScopeName = "ChildContainerScopeName";
         //public override IChildContainerAdapter CreateChildContainerAdapter()
@@ -68,11 +72,22 @@ namespace IocPerformance.Adapters
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterInterceptor();
+            this.RegisterAspNetCore();
+        }
+
+        private void RegisterAspNetCore()
+        {
+            container.Register<IServiceProvider, DryIocServiceProvider>(Reuse.InCurrentScope, Parameters.Of.Type<Func<Type,bool>>(request => t => true));
+
+            // Scope factory should be scoped itself to enable nested scopes creation
+            container.Register<IServiceScopeFactory, DryIocServiceScopeFactory>(Reuse.InCurrentScope);
+
+            this.container.Populate(CreateServiceCollection());
         }
 
         public override void PrepareBasic()
         {
-            this.container = new Container();
+            this.container = new Container(rule => rule.WithTrackingDisposableTransients().WithImplicitRootOpenScope()); 
             this.RegisterBasic();
         }
         

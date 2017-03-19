@@ -7,6 +7,7 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using Microsoft.Extensions.DependencyInjection;
 using Stashbox;
 using Stashbox.Infrastructure;
 
@@ -14,7 +15,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class StashboxContainerAdapter : ContainerAdapterBase
     {
-        private StashboxContainer container;
+        private IStashboxContainer container;
 
         public override string PackageName => "Stashbox";
 
@@ -33,6 +34,8 @@ namespace IocPerformance.Adapters
 
         public override bool SupportGeneric => true;
 
+        public override bool SupportAspNetCore => true;
+
         public override void PrepareBasic()
         {
             this.container = new StashboxContainer();
@@ -43,7 +46,8 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.PrepareBasic();
+            this.container = CreateServiceCollection().CreateBuilder();
+            this.RegisterBasic();
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
@@ -154,6 +158,7 @@ namespace IocPerformance.Adapters
             this.container.PrepareType<IExportConditionInterface, ExportConditionalObject3>()
                  .WhenDependantIs<ImportConditionObject3>().Register();
         }
+        
     }
 
     public class StashboxChildContainerAdapter : IChildContainerAdapter

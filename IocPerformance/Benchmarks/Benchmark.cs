@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using IocPerformance.Adapters;
+using IocPerformance.Classes.AspNet;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
@@ -73,6 +74,17 @@ namespace IocPerformance.Benchmarks
             Transient1.Instances = 0;
             Transient2.Instances = 0;
             Transient3.Instances = 0;
+
+            TestController1.DisposeCount = 0;
+            TestController1.Instances = 0;
+            TestController2.DisposeCount = 0;
+            TestController2.Instances = 0;
+            TestController3.DisposeCount = 0;
+            TestController3.Instances = 0;
+            ScopedService.Instances = 0;
+            RepositoryTransient1.Instances = 0;
+            RepositoryTransient2.Instances = 0;
+            RepositoryTransient3.Instances = 0;
         }
     }
 }

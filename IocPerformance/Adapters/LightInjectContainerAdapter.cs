@@ -8,6 +8,7 @@ using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using LightInject;
+using LightInject.Microsoft.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
@@ -29,6 +30,8 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsPropertyInjection => true;
 
+        public override bool SupportAspNetCore => true;
+
         public override object Resolve(Type type) => this.container.GetInstance(type);
 
         public override void Dispose()
@@ -46,6 +49,12 @@ namespace IocPerformance.Adapters
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterInterceptor();
+            this.RegisterAspNetCore();
+        }
+
+        private void RegisterAspNetCore()
+        {
+            container.CreateServiceProvider(CreateServiceCollection());
         }
 
         public override void PrepareBasic()

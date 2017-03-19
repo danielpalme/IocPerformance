@@ -8,7 +8,7 @@ namespace IocPerformance.Benchmarks.Prepare
     /// Does not tests first resolution time, so lazy containers will win here.
     /// Some containers are not thread safe or do not allow several instances of same type for registration and throw error in multi threaded case, some just silent about this.
     /// </summary>
-    public class PrepareAndRegister_11_Benchmark : Benchmark
+    public class PrepareAndRegister_12_Benchmark : Benchmark
     {
         // not supports multithreaded scenario
         // 1 - first container created
