@@ -4,7 +4,7 @@ using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Benchmarks.Advanced
 {
-    public class InterceptionWithProxy_10_Benchmark : Benchmark
+    public class InterceptionWithProxy_11_Benchmark : Benchmark
     {
         public override bool IsSupportedBy(IContainerAdapter container) => container.SupportsInterception;
 

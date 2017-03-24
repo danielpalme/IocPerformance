@@ -34,6 +34,8 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsChildContainer => true;
 
+        public override bool SupportAspNetCore => true;
+
         public override IChildContainerAdapter CreateChildContainerAdapter() => new GraceChildContainerAdapter(this.container.CreateChildScope());
 
         public override object Resolve(Type type) => this.container.Locate(type);
@@ -58,6 +60,7 @@ namespace IocPerformance.Adapters
             this.RegisterMultiple();
             this.RegisterConditional();
             this.RegisterInterceptor();
+            this.RegisterAspNetCore();
         }
 
         public override void PrepareBasic()
@@ -85,6 +88,11 @@ namespace IocPerformance.Adapters
                 c.Intercept<ICalculator2, GraceInterceptionLogger>();
                 c.Intercept<ICalculator3, GraceInterceptionLogger>();
             });
+        }
+
+        private void RegisterAspNetCore()
+        {
+            this.container.Populate(CreateServiceCollection());
         }
 
         private void RegisterConditional()

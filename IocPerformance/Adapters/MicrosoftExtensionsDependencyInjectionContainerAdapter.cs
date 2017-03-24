@@ -24,6 +24,8 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsMultiple => true;
 
+        public override bool SupportAspNetCore => true;
+
         public override object Resolve(Type type) => this.serviceProvider.GetService(type);
 
         public override void Dispose()
@@ -35,8 +37,9 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.PrepareBasic();
+            this.serviceCollection = CreateServiceCollection();
 
+            this.RegisterBasic();
             this.RegisterOpenGeneric();
             this.RegisterMultiple();
 

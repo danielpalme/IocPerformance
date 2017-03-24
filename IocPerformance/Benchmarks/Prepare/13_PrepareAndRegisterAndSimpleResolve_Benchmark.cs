@@ -11,7 +11,7 @@ namespace IocPerformance.Benchmarks.Prepare
     /// Considering that resolving 2 items is much faster than full prepare needed for resolution.
     /// Comparing with base class may give answer how lazy container is.
     /// </summary>
-    public class PrepareAndRegisterAndSimpleResolve_12_Benchmark : PrepareAndRegister_11_Benchmark
+    public class PrepareAndRegisterAndSimpleResolve_13_Benchmark : PrepareAndRegister_12_Benchmark
     {
         public override void Warmup(IContainerAdapter container)
         {

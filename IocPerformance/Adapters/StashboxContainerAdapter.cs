@@ -6,6 +6,7 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using Microsoft.Extensions.DependencyInjection;
 using Stashbox;
 using Stashbox.Infrastructure;
 using System;
@@ -18,7 +19,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class StashboxContainerAdapter : ContainerAdapterBase
     {
-        private StashboxContainer container;
+        private IStashboxContainer container;
 
         public override string PackageName => "Stashbox";
 
@@ -36,17 +37,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportGeneric => true;
 
-        private readonly Type proxyType1;
-        private readonly Type proxyType2;
-        private readonly Type proxyType3;
-
-        public StashboxContainerAdapter()
-        {
-            var builder = new DefaultProxyBuilder();
-            this.proxyType1 = builder.CreateInterfaceProxyTypeWithTargetInterface(typeof(ICalculator1), new Type[0], ProxyGenerationOptions.Default);
-            this.proxyType2 = builder.CreateInterfaceProxyTypeWithTargetInterface(typeof(ICalculator2), new Type[0], ProxyGenerationOptions.Default);
-            this.proxyType3 = builder.CreateInterfaceProxyTypeWithTargetInterface(typeof(ICalculator3), new Type[0], ProxyGenerationOptions.Default);
-        }
+        public override bool SupportAspNetCore => true;
 
         public override void PrepareBasic()
         {
@@ -58,7 +49,8 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.PrepareBasic();
+            this.container = CreateServiceCollection().CreateBuilder();
+            this.RegisterBasic();
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterConditional();
@@ -162,32 +154,7 @@ namespace IocPerformance.Adapters
             this.container.PrepareType<IExportConditionInterface, ExportConditionalObject3>()
                  .WhenDependantIs<ImportConditionObject3>().Register();
         }
-
-        private void RegisterInterceptor()
-        {
-            this.container.RegisterType<IInterceptor, CalculatorLogger>();
-            this.container.RegisterType<ICalculator1, Calculator1>();
-            this.container.RegisterType<ICalculator2, Calculator2>();
-            this.container.RegisterType<ICalculator3, Calculator3>();
-
-            this.container.PrepareDecorator<ICalculator1>(this.proxyType1)
-                .WithConstructorSelectionRule(Rules.ConstructorSelection.PreferMostParameters).Register();
-            this.container.PrepareDecorator<ICalculator2>(this.proxyType2)
-                .WithConstructorSelectionRule(Rules.ConstructorSelection.PreferMostParameters).Register();
-            this.container.PrepareDecorator<ICalculator3>(this.proxyType3)
-                .WithConstructorSelectionRule(Rules.ConstructorSelection.PreferMostParameters).Register();
-        }
-
-        public sealed class CalculatorLogger : IInterceptor
-        {
-            public void Intercept(IInvocation invocation)
-            {
-                // Perform logging here, e.g.:
-                var args = string.Join(", ", invocation.Arguments.Select(x => x + string.Empty));
-                Debug.WriteLine("Stashbox: {0}({1})", invocation.GetConcreteMethod().Name, args);
-                invocation.Proceed();
-            }
-        }
+        
     }
 
     public class StashboxChildContainerAdapter : IChildContainerAdapter
