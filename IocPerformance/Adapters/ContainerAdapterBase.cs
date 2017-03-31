@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Xml.Linq;
+using IocPerformance.Classes.AspNet;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
@@ -31,6 +33,8 @@ namespace IocPerformance.Adapters
 
         public virtual bool SupportsChildContainer => false;
 
+        public virtual bool SupportAspNetCore => false;
+
         public virtual bool SupportsConditional => false;
 
         public virtual bool SupportGeneric => false;
@@ -57,5 +61,21 @@ namespace IocPerformance.Adapters
         }
 
         public abstract void Dispose();
+
+        protected ServiceCollection CreateServiceCollection()
+
+        {
+            var serviceCollection = new ServiceCollection();
+
+            serviceCollection.AddTransient<TestController1>();
+            serviceCollection.AddTransient<TestController2>();
+            serviceCollection.AddTransient<TestController3>();
+            serviceCollection.AddTransient<IRepositoryTransient1, RepositoryTransient1>();
+            serviceCollection.AddTransient<IRepositoryTransient2, RepositoryTransient2>();
+            serviceCollection.AddTransient<IRepositoryTransient3, RepositoryTransient3>();
+            serviceCollection.AddScoped<IScopedService, ScopedService>();
+
+            return serviceCollection;
+        }
     }
 }
