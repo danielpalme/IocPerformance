@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IocPerformance</RootNamespace>
     <AssemblyName>IocPerformance</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,17 +38,21 @@
     <StartupObject>IocPerformance.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=4.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.4.3.0\lib\net45\Autofac.dll</HintPath>
+    <Reference Include="Autofac, Version=4.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.4.0\lib\net45\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Autofac.Extras.DynamicProxy, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.Extras.DynamicProxy.4.1.0\lib\net45\Autofac.Extras.DynamicProxy.dll</HintPath>
+    <Reference Include="Autofac.Extensions.DependencyInjection, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extensions.DependencyInjection.4.0.0\lib\netstandard1.1\Autofac.Extensions.DependencyInjection.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+    <Reference Include="Autofac.Extras.DynamicProxy, Version=4.2.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy.4.2.1\lib\net45\Autofac.Extras.DynamicProxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -69,8 +74,12 @@
       <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DryIoc, Version=2.10.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DryIoc.dll.2.10.2\lib\net45\DryIoc.dll</HintPath>
+    <Reference Include="DryIoc, Version=2.10.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.2.10.4\lib\net45\DryIoc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DryIoc.Microsoft.DependencyInjection, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.Microsoft.DependencyInjection.1.1.1\lib\netstandard1.0\DryIoc.Microsoft.DependencyInjection.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Dynamo.Ioc, Version=3.0.2.0, Culture=neutral, PublicKeyToken=584702d813863cbd, processorArchitecture=MSIL">
@@ -83,12 +92,16 @@
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
-    <Reference Include="Grace, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grace.5.1.0\lib\net45\Grace.dll</HintPath>
+    <Reference Include="Grace, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b7d24c6367970497, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.6.0.1\lib\net45\Grace.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Grace.Dynamic, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grace.Dynamic.5.1.0\lib\net45\Grace.Dynamic.dll</HintPath>
+    <Reference Include="Grace.DependencyInjection.Extensions, Version=6.0.2.0, Culture=neutral, PublicKeyToken=b7d24c6367970497, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.DependencyInjection.Extensions.6.0.2\lib\netstandard1.0\Grace.DependencyInjection.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Grace.Dynamic, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b7d24c6367970497, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.Dynamic.6.0.1\lib\net45\Grace.Dynamic.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Griffin.Container, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
@@ -99,8 +112,8 @@
       <HintPath>..\packages\Griffin.Container.Interception.1.0.0\lib\net40\Griffin.Container.Interception.dll</HintPath>
     </Reference>
     <Reference Include="HaveBox, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HaveBox.2.0.0\lib\net45\HaveBox.dll</HintPath>
+      <HintPath>..\packages\HaveBox.2.0.0\lib\net451\HaveBox.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Hiro, Version=1.0.5.17956, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hiro.1.0.5.17956\lib\net45\Hiro.dll</HintPath>
@@ -136,6 +149,10 @@
     </Reference>
     <Reference Include="LightInject.Interception, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LightInject.Interception.2.0.0\lib\netstandard1.1\LightInject.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LightInject.Microsoft.DependencyInjection, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.Microsoft.DependencyInjection.2.0.1\lib\netstandard1.1\LightInject.Microsoft.DependencyInjection.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="LinFu.Core, Version=2.3.0.41559, Culture=neutral, PublicKeyToken=a4c63a184389506f, processorArchitecture=MSIL">
@@ -256,12 +273,16 @@
       <HintPath>..\packages\Rezolver.1.1.71702.500\lib\netstandard1.1\Rezolver.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.3.3.2\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="Rezolver.Microsoft.Extensions.DependencyInjection, Version=1.1.703.1800, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rezolver.Microsoft.Extensions.DependencyInjection.1.1.703.1800\lib\net451\Rezolver.Microsoft.Extensions.DependencyInjection.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=3.3.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.3.3.2\lib\net40-client\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.0.0\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.4.0.0\lib\net40\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Speedioc">
@@ -275,8 +296,13 @@
       <HintPath>..\packages\Spring.Core.2.0.1\lib\net45\Spring.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Stashbox, Version=2.3.1.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stashbox.2.3.1\lib\net45\Stashbox.dll</HintPath>
+    <Reference Include="Stashbox, Version=2.3.2.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stashbox.2.3.2\lib\net45\Stashbox.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stashbox.Extensions.Dependencyinjection, Version=2.3.1.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stashbox.Extensions.Dependencyinjection.2.3.1\lib\netstandard1.0\Stashbox.Extensions.Dependencyinjection.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Stiletto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -284,6 +310,10 @@
     </Reference>
     <Reference Include="StructureMap, Version=4.4.3.564, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\StructureMap.4.4.3\lib\net45\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Microsoft.DependencyInjection, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.Microsoft.DependencyInjection.1.3.0\lib\net451\StructureMap.Microsoft.DependencyInjection.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="StyleMVVM.DotNet, Version=3.1.5.0, Culture=neutral, processorArchitecture=MSIL">
@@ -372,12 +402,13 @@
     <Compile Include="Adapters\WindsorContainerAdapter.cs" />
     <Compile Include="Benchmarks\Advanced\08_Conditional_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\09_ChildContainer_Benchmark.cs" />
-    <Compile Include="Benchmarks\Advanced\10_InterceptionWithProxy_Benchmark.cs" />
+    <Compile Include="Benchmarks\Advanced\10_AspNetCore_Benchmark.cs" />
+    <Compile Include="Benchmarks\Advanced\11_InterceptionWithProxy_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\07_IEnumerable_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\06_Generics_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\05_Property_Benchmark.cs" />
-    <Compile Include="Benchmarks\Prepare\11_PrepareAndRegister_Benchmark.cs" />
-    <Compile Include="Benchmarks\Prepare\12_PrepareAndRegisterAndSimpleResolve_Benchmark.cs" />
+    <Compile Include="Benchmarks\Prepare\12_PrepareAndRegister_Benchmark.cs" />
+    <Compile Include="Benchmarks\Prepare\13_PrepareAndRegisterAndSimpleResolve_Benchmark.cs" />
     <Compile Include="Benchmarks\Benchmark.cs" />
     <Compile Include="Benchmarks\Result\BenchmarkInfo.cs" />
     <Compile Include="Benchmarks\BenchmarkMeasurer.cs" />
@@ -397,6 +428,9 @@
     <Compile Include="Caliburn.Micro\ContainerExtensions.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
     <Compile Include="Caliburn.Micro\SimpleContainer.cs" />
+    <Compile Include="Classes\AspNet\RepositoryTransients.cs" />
+    <Compile Include="Classes\AspNet\ScopedService.cs" />
+    <Compile Include="Classes\AspNet\TestController.cs" />
     <Compile Include="Classes\Child\ScopedCombined.cs" />
     <Compile Include="Classes\Child\ScopedTransient.cs" />
     <Compile Include="Classes\Complex\Complex.cs" />

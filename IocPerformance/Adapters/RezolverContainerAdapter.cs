@@ -29,6 +29,8 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsPropertyInjection => true;
 
+        public override bool SupportAspNetCore => true;
+
         public override object Resolve(Type type) => this.container.Resolve(type);
 
         public override void Dispose()
@@ -44,6 +46,7 @@ namespace IocPerformance.Adapters
             RegisterPropertyInjection(targets);
             RegisterOpenGeneric(targets);
             RegisterMultiple(targets);
+            targets.Populate(CreateServiceCollection());
 
             this.container = new Container(targets);
         }
