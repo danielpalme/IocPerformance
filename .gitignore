@@ -27,6 +27,7 @@
 /packages/Ninject*
 /packages/Petite.Container*
 /packages/QuickInject*
+/packages/Rezolver*
 /packages/SimpleInjector*
 /packages/Speedioc*
 /packages/Spring.Aop*

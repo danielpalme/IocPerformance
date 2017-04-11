@@ -4,6 +4,7 @@ using System.Linq;
 using Castle.DynamicProxy;
 using DryIoc;
 using DryIoc.Interception;
+using DryIoc.Microsoft.DependencyInjection;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
@@ -12,12 +13,13 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
     public sealed class DryIocAdapter : ContainerAdapterBase
     {
-        private Container container;
+        private IContainer container;
 
         public override string PackageName => "DryIoc.dll";
 
@@ -36,6 +38,8 @@ namespace IocPerformance.Adapters
         public override bool SupportsInterception => true;
 
         public override bool SupportsChildContainer => false;
+
+        public override bool SupportAspNetCore => false;
 
         //private static readonly string ChildContainerScopeName = "ChildContainerScopeName";
         //public override IChildContainerAdapter CreateChildContainerAdapter()
@@ -68,11 +72,17 @@ namespace IocPerformance.Adapters
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterInterceptor();
+            this.RegisterAspNetCore();
+        }
+
+        private void RegisterAspNetCore()
+        {
+            this.container = this.container.WithDependencyInjectionAdapter(CreateServiceCollection());
         }
 
         public override void PrepareBasic()
         {
-            this.container = new Container();
+            this.container = new Container(rule => rule.WithTrackingDisposableTransients().WithImplicitRootOpenScope()); 
             this.RegisterBasic();
         }
         

@@ -1,5 +1,6 @@
 ﻿using System;
 using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Autofac.Extras.DynamicProxy;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
@@ -30,6 +31,8 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsChildContainer => true;
 
+        public override bool SupportAspNetCore => true;
+
         public override IChildContainerAdapter CreateChildContainerAdapter() => new AutofacChildContainerAdapter(this.container.BeginLifetimeScope());
 
         public override object Resolve(Type type) => this.container.Resolve(type);
@@ -58,8 +61,14 @@ namespace IocPerformance.Adapters
             RegisterOpenGeneric(autofacContainerBuilder);
             RegisterMultiple(autofacContainerBuilder);
             RegisterInterceptor(autofacContainerBuilder);
+            RegisterAspNetCore(autofacContainerBuilder);
 
             this.container = autofacContainerBuilder.Build();
+        }
+
+        private void RegisterAspNetCore(ContainerBuilder autofacContainerBuilder)
+        {
+            autofacContainerBuilder.Populate(CreateServiceCollection());
         }
 
         public override void PrepareBasic()

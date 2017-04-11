@@ -34,6 +34,8 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsChildContainer => true;
 
+        public override bool SupportAspNetCore => true;
+
         public override IChildContainerAdapter CreateChildContainerAdapter() => new GraceChildContainerAdapter(this.container.CreateChildScope());
 
         public override object Resolve(Type type) => this.container.Locate(type);
@@ -52,12 +54,13 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.PrepareBasic();            
+            this.PrepareBasic();
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
             this.RegisterMultiple();
             this.RegisterConditional();
             this.RegisterInterceptor();
+            this.RegisterAspNetCore();
         }
 
         public override void PrepareBasic()
@@ -75,23 +78,21 @@ namespace IocPerformance.Adapters
 
         private void RegisterInterceptor()
         {
-            var pg = new Castle.DynamicProxy.ProxyGenerator();
-
-            container.Configure(c =>
+            this.container.Configure(c =>
             {
                 c.Export<Calculator1>().As<ICalculator1>();
                 c.Export<Calculator2>().As<ICalculator2>();
                 c.Export<Calculator3>().As<ICalculator3>();
 
-                c.ExportDecorator<ICalculator1>(
-                    calculator => pg.CreateInterfaceProxyWithTarget(calculator, new StructureMapInterceptionLogger()));
-
-                c.ExportDecorator<ICalculator2>(
-                    calculator => pg.CreateInterfaceProxyWithTarget(calculator, new StructureMapInterceptionLogger()));
-
-                c.ExportDecorator<ICalculator3>(
-                    calculator => pg.CreateInterfaceProxyWithTarget(calculator, new StructureMapInterceptionLogger()));
+                c.Intercept<ICalculator1, GraceInterceptionLogger>();
+                c.Intercept<ICalculator2, GraceInterceptionLogger>();
+                c.Intercept<ICalculator3, GraceInterceptionLogger>();
             });
+        }
+
+        private void RegisterAspNetCore()
+        {
+            this.container.Populate(CreateServiceCollection());
         }
 
         private void RegisterConditional()
@@ -202,14 +203,14 @@ namespace IocPerformance.Adapters
                     c.Export<ServiceB>().As<IServiceB>().Lifestyle.Singleton();
                     c.Export<ServiceC>().As<IServiceC>().Lifestyle.Singleton();
 
-                                         c.Export<SubObjectA>().As<ISubObjectA>().ImportProperty(x => x.ServiceA);
-                                         c.Export<SubObjectB>().As<ISubObjectB>().ImportProperty(x => x.ServiceB);
-                                         c.Export<SubObjectC>().As<ISubObjectC>().ImportProperty(x => x.ServiceC);
+                    c.Export<SubObjectA>().As<ISubObjectA>().ImportProperty(x => x.ServiceA);
+                    c.Export<SubObjectB>().As<ISubObjectB>().ImportProperty(x => x.ServiceB);
+                    c.Export<SubObjectC>().As<ISubObjectC>().ImportProperty(x => x.ServiceC);
 
-                                         c.Export<ComplexPropertyObject1>().As<IComplexPropertyObject1>().AutoWireProperties();
-                                         c.Export<ComplexPropertyObject2>().As<IComplexPropertyObject2>().AutoWireProperties();
-                                         c.Export<ComplexPropertyObject3>().As<IComplexPropertyObject3>().AutoWireProperties();
-                                     });
+                    c.Export<ComplexPropertyObject1>().As<IComplexPropertyObject1>().AutoWireProperties();
+                    c.Export<ComplexPropertyObject2>().As<IComplexPropertyObject2>().AutoWireProperties();
+                    c.Export<ComplexPropertyObject3>().As<IComplexPropertyObject3>().AutoWireProperties();
+                });
         }
     }
 
@@ -233,7 +234,7 @@ namespace IocPerformance.Adapters
                                           {
                                               c.ExportFunc<ICombined1>(
                                                   scope => new ScopedCombined1(scope.Locate<ITransient1>(), scope.Locate<ISingleton1>()));
-                                              
+
                                               c.ExportFunc<ICombined2>(
                                                   scope => new ScopedCombined2(scope.Locate<ITransient1>(), scope.Locate<ISingleton1>()));
 

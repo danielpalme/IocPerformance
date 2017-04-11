@@ -33,7 +33,7 @@ namespace SimpleInjector.Extensions.Interception
             RequiresIsNotNull(container, nameof(container));
             RequiresIsNotNull(predicate, nameof(predicate));
             container.Options.ConstructorResolutionBehavior.GetConstructor(
-                typeof(TInterceptor), typeof(TInterceptor));
+                typeof(TInterceptor));
 
             var interceptWith = new InterceptionHelper(container)
             {
