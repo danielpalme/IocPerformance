@@ -4,6 +4,7 @@
 /IocPerformance.userprefs
 /IocPerformance/bin
 /IocPerformance/obj
+/packages/abioc*
 /packages/Autofac*
 /packages/Castle.Core*
 /packages/Castle.Windsor*
@@ -42,6 +43,9 @@
 /packages/Fody*
 /packages/DryIoc*
 /packages/Microsoft.Composition*
+/packages/Microsoft.CodeAnalysis.Analyzers*
+/packages/Microsoft.CodeAnalysis.Common*
+/packages/Microsoft.CodeAnalysis.CSharp*
 /packages/Microsoft.Extensions.DependencyInjection*
 /packages/Microsoft.NETCore.Platforms*
 /packages/NETStandard.Library*
