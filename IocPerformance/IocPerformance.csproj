@@ -147,8 +147,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\LightCore.1.5.1\lib\net40\LightCore.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="LightInject, Version=5.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LightInject.5.0.2\lib\net46\LightInject.dll</HintPath>
+    <Reference Include="LightInject, Version=5.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.5.0.3\lib\net46\LightInject.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="LightInject.Interception, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
