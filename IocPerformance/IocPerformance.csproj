@@ -38,8 +38,8 @@
     <StartupObject>IocPerformance.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="abioc, Version=0.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\abioc.0.1.7\lib\net46\abioc.dll</HintPath>
+    <Reference Include="abioc, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\abioc.0.2.0\lib\net46\abioc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Autofac, Version=4.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
