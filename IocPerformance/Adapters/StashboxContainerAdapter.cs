@@ -13,7 +13,6 @@ using System.Diagnostics;
 using System.Linq;
 using Castle.DynamicProxy;
 using Microsoft.Extensions.DependencyInjection;
-using Stashbox.Configuration;
 
 namespace IocPerformance.Adapters
 {
@@ -159,12 +158,12 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ImportConditionObject1>();
             this.container.RegisterType<ImportConditionObject2>();
             this.container.RegisterType<ImportConditionObject3>();
-            this.container.PrepareType<IExportConditionInterface, ExportConditionalObject>()
-                .WhenDependantIs<ImportConditionObject1>().Register();
-            this.container.PrepareType<IExportConditionInterface, ExportConditionalObject2>()
-                .WhenDependantIs<ImportConditionObject2>().Register();
-            this.container.PrepareType<IExportConditionInterface, ExportConditionalObject3>()
-                 .WhenDependantIs<ImportConditionObject3>().Register();
+            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject>(context => context
+                .WhenDependantIs<ImportConditionObject1>());
+            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject2>(context => context
+                .WhenDependantIs<ImportConditionObject2>());
+            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject3>(context => context
+                .WhenDependantIs<ImportConditionObject3>());
         }
 
         private void RegisterInterceptor()
@@ -174,12 +173,9 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ICalculator2, Calculator2>();
             this.container.RegisterType<ICalculator3, Calculator3>();
 
-            this.container.PrepareDecorator<ICalculator1>(this.proxyType1)
-                .WithConstructorSelectionRule(Rules.ConstructorSelection.PreferMostParameters).Register();
-            this.container.PrepareDecorator<ICalculator2>(this.proxyType2)
-                .WithConstructorSelectionRule(Rules.ConstructorSelection.PreferMostParameters).Register();
-            this.container.PrepareDecorator<ICalculator3>(this.proxyType3)
-                .WithConstructorSelectionRule(Rules.ConstructorSelection.PreferMostParameters).Register();
+            this.container.RegisterDecorator<ICalculator1>(this.proxyType1);
+            this.container.RegisterDecorator<ICalculator2>(this.proxyType2);
+            this.container.RegisterDecorator<ICalculator3>(this.proxyType3);
         }
 
         public sealed class CalculatorLogger : IInterceptor
