@@ -19,7 +19,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class DryIocAdapter : ContainerAdapterBase
     {
-        private Container container;
+        private IContainer container;
 
         public override string PackageName => "DryIoc.dll";
 
@@ -39,7 +39,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsChildContainer => false;
 
-        public override bool SupportAspNetCore => true;
+        public override bool SupportAspNetCore => false;
 
         //private static readonly string ChildContainerScopeName = "ChildContainerScopeName";
         //public override IChildContainerAdapter CreateChildContainerAdapter()
@@ -77,12 +77,7 @@ namespace IocPerformance.Adapters
 
         private void RegisterAspNetCore()
         {
-            container.Register<IServiceProvider, DryIocServiceProvider>(Reuse.InCurrentScope, Parameters.Of.Type<Func<Type,bool>>(request => t => true));
-
-            // Scope factory should be scoped itself to enable nested scopes creation
-            container.Register<IServiceScopeFactory, DryIocServiceScopeFactory>(Reuse.InCurrentScope);
-
-            this.container.Populate(CreateServiceCollection());
+            this.container = this.container.WithDependencyInjectionAdapter(CreateServiceCollection());
         }
 
         public override void PrepareBasic()
