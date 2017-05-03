@@ -46,7 +46,7 @@ Results
 |**[Rezolver 1.1.71702.500](http://rezolver.co.uk)**|137<br/>102|146<br/>123|221<br/>182|371<br/>256|
 |**[SimpleInjector 4.0.3](https://simpleinjector.org)**|58<br/>61|66<br/>67|113<br/>107|135<br/>107|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|976<br/>978|10185<br/>11925|27810<br/>24892|73589<br/>58129|
-|**[Stashbox 2.3.2](https://github.com/z4kn4fein/stashbox)**|46<br/>52|58<br/>67|72<br/>82|94<br/>100|
+|**[Stashbox 2.4.3](https://github.com/z4kn4fein/stashbox)**|36<br/>45|47<br/>61|61<br/>83|74<br/>84|
 |**[StructureMap 4.4.5](http://structuremap.net/structuremap)**|1164<br/>882|1267<br/>828|3388<br/>2125|8197<br/>4926|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|437<br/>266|485<br/>303|721<br/>451|1513<br/>864|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|455<br/>467|1576<br/>1051|7081<br/>5117|29000<br/>20842|
@@ -83,7 +83,7 @@ Results
 |**[Rezolver 1.1.71702.500](http://rezolver.co.uk)**|532<br/>348|194<br/>167|481<br/>318|<br/>|3540294*<br/>2103281*|26678<br/>16285|<br/>|
 |**[SimpleInjector 4.0.3](https://simpleinjector.org)**|188<br/>143|74<br/>84|801<br/>523|87<br/>77|<br/>|<br/>|6792<br/>5499|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|56159<br/>53415|<br/>|<br/>|<br/>|<br/>|<br/>|50289<br/>60213|
-|**[Stashbox 2.3.2](https://github.com/z4kn4fein/stashbox)**|116<br/>118|81<br/>76|303<br/>297|62<br/>73|209969*<br/>130942|848<br/>587|832<br/>532|
+|**[Stashbox 2.4.3](https://github.com/z4kn4fein/stashbox)**|99<br/>104|58<br/>76|288<br/>205|61<br/>70|183632*<br/>101610|696<br/>531|850<br/>542|
 |**[StructureMap 4.4.5](http://structuremap.net/structuremap)**|8462<br/>5138|2321<br/>1451|10205<br/>7610|<br/>|3277400*<br/>1743124*|43792<br/>26532|8377<br/>4566|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1713<br/>979|1269<br/>699|3082<br/>1725|1329<br/>743|<br/>|<br/>|<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|4712<br/>4934|<br/>|<br/>|<br/>|**12401**<br/>**7236**|<br/>|<br/>|
@@ -120,7 +120,7 @@ Results
 |**[Rezolver 1.1.71702.500](http://rezolver.co.uk)**|57<br/>|3861<br/>|
 |**[SimpleInjector 4.0.3](https://simpleinjector.org)**|806<br/>|3076<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|27800<br/>|26678<br/>|
-|**[Stashbox 2.3.2](https://github.com/z4kn4fein/stashbox)**|104<br/>|345<br/>|
+|**[Stashbox 2.4.3](https://github.com/z4kn4fein/stashbox)**|69<br/>|441<br/>|
 |**[StructureMap 4.4.5](http://structuremap.net/structuremap)**|1434<br/>|7380<br/>|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|67610<br/>|67671<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|58<br/>|72<br/>|
