@@ -35,7 +35,7 @@ namespace IocPerformance.Benchmarks
                             Interlocked.Increment(ref counter);
                             Benchmark.MethodToBenchmark(Container);
 
-                            // If measurement takes more than three minutes, stop and interpolate result
+                            // If measurement takes more than one minute, stop and interpolate result
                             if (result.ExtraPolated || (i % 500 == 0 && watch.ElapsedMilliseconds > TimeLimit))
                             {
                                 watch.Stop();
@@ -87,7 +87,7 @@ namespace IocPerformance.Benchmarks
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine(
-                 BenchmarkMeasurer.TooSlowMessageFormat, 
+                 BenchmarkMeasurer.TooSlowMessageFormat,
                     Benchmark.Name,
                     "multiple threads",
                     (double)watch.ElapsedMilliseconds / (1000 * 60),

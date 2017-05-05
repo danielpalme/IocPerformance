@@ -26,7 +26,7 @@ namespace IocPerformance.Benchmarks
                 {
                     Benchmark.MethodToBenchmark(this.Container);
 
-                    // If measurement takes more than three minutes, stop and interpolate result
+                    // If measurement takes more than one minute, stop and interpolate result
                     if (i % 500 == 0 && watch.ElapsedMilliseconds > BenchmarkMeasurer.TimeLimit)
                     {
                         watch.Stop();
@@ -35,12 +35,12 @@ namespace IocPerformance.Benchmarks
 
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine(
-                            BenchmarkMeasurer.TooSlowMessageFormat, 
-                            Benchmark.Name, 
+                            BenchmarkMeasurer.TooSlowMessageFormat,
+                            Benchmark.Name,
                             "single thread",
-                            (double)watch.ElapsedMilliseconds / (1000 * 60), 
+                            (double)watch.ElapsedMilliseconds / (1000 * 60),
                             i,
-                            this.Benchmark.LoopCount, 
+                            this.Benchmark.LoopCount,
                             (double)result.Time / (1000 * 60));
                         Console.ResetColor();
 
@@ -55,8 +55,8 @@ namespace IocPerformance.Benchmarks
 
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(
-                    " Benchmark '{0}' (single thread) failed: {1}", 
-                    Benchmark.Name, 
+                    " Benchmark '{0}' (single thread) failed: {1}",
+                    Benchmark.Name,
                     ex.Message);
                 Console.ResetColor();
 
