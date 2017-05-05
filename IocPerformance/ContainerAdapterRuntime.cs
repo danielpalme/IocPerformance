@@ -31,6 +31,16 @@ namespace IocPerformance
             {
                 container.Prepare();
 
+                // Run each benchmark before start measuring to ensure that all root services has been resolved.
+                // Exclude the "Prepare" benchmarks as they dispose the container.
+                foreach (var benchmark in benchmarks.Where(b => !b.Name.StartsWith("Prepare")))
+                {
+                    if (benchmark.IsSupportedBy(container))
+                    {
+                        benchmark.Warmup(container);
+                    }
+                }
+
                 foreach (var benchmark in benchmarks)
                 {
                     var benchmarkResult = existingBenchmarkResults.SingleOrDefault(b => b.ContainerInfo.Name == container.Name && b.BenchmarkInfo.Name == benchmark.Name);
