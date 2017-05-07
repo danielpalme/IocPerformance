@@ -18,7 +18,7 @@ Results
 |**Container**|**Singleton**|**Transient**|**Combined**|**Complex**|
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|61<br/>53|68<br/>62|83<br/>103|90<br/>82|
-|**[abioc 0.1.7](https://github.com/JSkimming/abioc)**|80<br/>65|90<br/>80|129<br/>108|157<br/>117|
+|**[abioc 0.3.0](https://github.com/JSkimming/abioc)**|**27**<br/>41|36<br/>**51**|50<br/>**69**|**62**<br/>73|
 |**[Autofac 4.5.0](https://github.com/autofac/Autofac)**|784<br/>726|922<br/>646|2693<br/>2071|7932<br/>7439|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|465<br/>270|533<br/>322|1583<br/>906|7403<br/>3712|
 |**[Catel 4.5.4](http://www.catelproject.com)**|309<br/>356|4119<br/>4510|10048<br/>11082|24815<br/>26422|
@@ -46,7 +46,7 @@ Results
 |**[Rezolver 1.1.71702.500](http://rezolver.co.uk)**|129<br/>102|145<br/>120|232<br/>181|376<br/>256|
 |**[SimpleInjector 4.0.6](https://simpleinjector.org)**|61<br/>55|106<br/>76|106<br/>105|130<br/>241|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|950<br/>987|9711<br/>11447|26941<br/>23873|74745*<br/>57777|
-|**[Stashbox 2.4.3](https://github.com/z4kn4fein/stashbox)**|36<br/>43|48<br/>**56**|63<br/>**77**|73<br/>74|
+|**[Stashbox 2.4.3](https://github.com/z4kn4fein/stashbox)**|36<br/>43|48<br/>56|63<br/>77|73<br/>74|
 |**[StructureMap 4.4.5](http://structuremap.net/structuremap)**|1231<br/>886|1197<br/>775|3468<br/>2069|8513<br/>4896|
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|441<br/>263|480<br/>299|748<br/>437|1409<br/>795|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|420<br/>473|1683<br/>1081|7344<br/>5164|32219<br/>23617|
@@ -55,7 +55,7 @@ Results
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Asp Net Core**|**Interception With Proxy**|
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|---------------:|--------------------------:|
 |**No**|119<br/>99|73<br/>79|177<br/>139|78<br/>69|606<br/>361|<br/>|72<br/>65|
-|**[abioc 0.1.7](https://github.com/JSkimming/abioc)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
+|**[abioc 0.3.0](https://github.com/JSkimming/abioc)**|<br/>|<br/>|832<br/>667|<br/>|<br/>|<br/>|<br/>|
 |**[Autofac 4.5.0](https://github.com/autofac/Autofac)**|21297<br/>13255|1845<br/>1449|9049<br/>6071|<br/>|52099<br/>28975|13867<br/>11328|23547<br/>12112|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9157<br/>4733|<br/>|5965<br/>3393|<br/>|<br/>|<br/>|<br/>|
 |**[Catel 4.5.4](http://www.catelproject.com)**|<br/>|10636<br/>11485|<br/>|<br/>|<br/>|<br/>|4354<br/>4492|
@@ -92,7 +92,7 @@ Results
 |**Container**|**Prepare And Register**|**Prepare And Register And Simple Resolve**|
 |:------------|-----------------------:|------------------------------------------:|
 |**No**|2<br/>|3<br/>|
-|**[abioc 0.1.7](https://github.com/JSkimming/abioc)**|67972<br/>|72300*<br/>|
+|**[abioc 0.3.0](https://github.com/JSkimming/abioc)**|6346<br/>|5722<br/>|
 |**[Autofac 4.5.0](https://github.com/autofac/Autofac)**|310<br/>|337<br/>|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|55<br/>|56<br/>|
 |**[Catel 4.5.4](http://www.catelproject.com)**|7844<br/>|8192<br/>|

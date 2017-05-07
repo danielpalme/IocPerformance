@@ -1,23 +1,27 @@
 ﻿using System;
+using System.Reflection;
 using Abioc;
+using Abioc.Registration;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
+using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {
     public sealed class AbiocContainerAdapter : ContainerAdapterBase
     {
-        private readonly DefaultContructionContext _contructionContext = new DefaultContructionContext();
-        private CompilationContext<DefaultContructionContext> _compilationContext;
+        private AbiocContainer _compilationContext;
 
         public override string PackageName => "abioc";
 
         public override string Url => "https://github.com/JSkimming/abioc";
 
+        public override bool SupportsMultiple => true;
+
         public override object Resolve(Type type)
         {
-            return _compilationContext.GetService(_contructionContext, type);
+            return _compilationContext.GeneratedContainer.GetService(type);
         }
 
         public override void Dispose()
@@ -25,20 +29,32 @@ namespace IocPerformance.Adapters
             // does not support cleanup
         }
 
-        public override void PrepareBasic()
+        public override void Prepare()
         {
-            var registrationContext = new RegistrationContext<DefaultContructionContext>();
+            var setup = new RegistrationSetup();
 
-            RegisterDummies(registrationContext);
-            RegisterStandard(registrationContext);
-            RegisterComplex(registrationContext);
+            RegisterDummies(setup);
+            RegisterStandard(setup);
+            RegisterComplex(setup);
+            RegisterMultiple(setup);
 
-            _compilationContext = registrationContext.Compile(GetType().Assembly);
+            _compilationContext = setup.Construct(GetType().GetTypeInfo().Assembly);
         }
 
-        private static void RegisterDummies(RegistrationContext<DefaultContructionContext> registrationContext)
+        public override void PrepareBasic()
         {
-            registrationContext
+            var setup = new RegistrationSetup();
+
+            RegisterDummies(setup);
+            RegisterStandard(setup);
+            RegisterComplex(setup);
+
+            _compilationContext = setup.Construct(GetType().GetTypeInfo().Assembly);
+        }
+
+        private static void RegisterDummies(RegistrationSetup setup)
+        {
+            setup
                 .Register<IDummyOne, DummyOne>()
                 .Register<IDummyTwo, DummyTwo>()
                 .Register<IDummyThree, DummyThree>()
@@ -51,16 +67,12 @@ namespace IocPerformance.Adapters
                 .Register<IDummyTen, DummyTen>();
         }
 
-        private static void RegisterStandard(RegistrationContext<DefaultContructionContext> registrationContext)
+        private static void RegisterStandard(RegistrationSetup setup)
         {
-            var singleton1 = new Singleton1();
-            var singleton2 = new Singleton2();
-            var singleton3 = new Singleton3();
-
-            registrationContext
-                .Register<ISingleton1>(c => singleton1)
-                .Register<ISingleton2>(c => singleton2)
-                .Register<ISingleton3>(c => singleton3)
+            setup
+                .RegisterFixed<ISingleton1>(new Singleton1())
+                .RegisterFixed<ISingleton2>(new Singleton2())
+                .RegisterFixed<ISingleton3>(new Singleton3())
                 .Register<ITransient1, Transient1>()
                 .Register<ITransient2, Transient2>()
                 .Register<ITransient3, Transient3>()
@@ -69,22 +81,31 @@ namespace IocPerformance.Adapters
                 .Register<ICombined3, Combined3>();
         }
 
-        private static void RegisterComplex(RegistrationContext<DefaultContructionContext> registrationContext)
+        private static void RegisterComplex(RegistrationSetup setup)
         {
-            var firstService = new FirstService();
-            var secondService = new SecondService();
-            var thirdService = new ThirdService();
-
-            registrationContext
-                .Register<IFirstService>(c => firstService)
-                .Register<ISecondService>(c => secondService)
-                .Register<IThirdService>(c => thirdService)
-                .Register<ISubObjectOne, SubObjectOne>()
-                .Register<ISubObjectTwo, SubObjectTwo>()
-                .Register<ISubObjectThree, SubObjectThree>()
+            setup
+                .RegisterFixed<IFirstService>(new FirstService())
+                .RegisterFixed<ISecondService>(new SecondService())
+                .RegisterFixed<IThirdService>(new ThirdService())
+                .RegisterInternal<ISubObjectOne, SubObjectOne>()
+                .RegisterInternal<ISubObjectTwo, SubObjectTwo>()
+                .RegisterInternal<ISubObjectThree, SubObjectThree>()
                 .Register<IComplex1, Complex1>()
                 .Register<IComplex2, Complex2>()
                 .Register<IComplex3, Complex3>();
+        }
+
+        private static void RegisterMultiple(RegistrationSetup setup)
+        {
+            setup
+                .Register<ISimpleAdapter, SimpleAdapterOne>()
+                .Register<ISimpleAdapter, SimpleAdapterTwo>()
+                .Register<ISimpleAdapter, SimpleAdapterThree>()
+                .Register<ISimpleAdapter, SimpleAdapterFour>()
+                .Register<ISimpleAdapter, SimpleAdapterFive>()
+                .Register<ImportMultiple1>()
+                .Register<ImportMultiple2>()
+                .Register<ImportMultiple3>();
         }
     }
 }
