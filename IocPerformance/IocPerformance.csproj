@@ -269,9 +269,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\QuickInject.1.0.0.12\lib\portable-net45+win\QuickInject.dll</HintPath>
     </Reference>
-    <Reference Include="Rezolver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rezolver.1.1.71702.500\lib\netstandard1.1\Rezolver.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Rezolver, Version=1.2.7050.900, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rezolver.1.2.7050.900\lib\net451\Rezolver.dll</HintPath>
     </Reference>
     <Reference Include="Rezolver.Microsoft.Extensions.DependencyInjection, Version=1.1.703.1800, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Rezolver.Microsoft.Extensions.DependencyInjection.1.1.703.1800\lib\net451\Rezolver.Microsoft.Extensions.DependencyInjection.dll</HintPath>

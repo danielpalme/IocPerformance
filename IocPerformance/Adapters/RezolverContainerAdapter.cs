@@ -116,13 +116,13 @@ namespace IocPerformance.Adapters
             targets.RegisterSingleton<ServiceB, IServiceB>();
             targets.RegisterSingleton<ServiceC, IServiceC>();
 
-            targets.RegisterType<SubObjectA, ISubObjectA>(DefaultMemberBindingBehaviour.Instance);
-            targets.RegisterType<SubObjectB, ISubObjectB>(DefaultMemberBindingBehaviour.Instance);
-            targets.RegisterType<SubObjectC, ISubObjectC>(DefaultMemberBindingBehaviour.Instance);
+            targets.RegisterType<SubObjectA, ISubObjectA>(MemberBindingBehaviour.BindProperties);
+            targets.RegisterType<SubObjectB, ISubObjectB>(MemberBindingBehaviour.BindProperties);
+            targets.RegisterType<SubObjectC, ISubObjectC>(MemberBindingBehaviour.BindProperties);
 
-            targets.RegisterType<ComplexPropertyObject1, IComplexPropertyObject1>(DefaultMemberBindingBehaviour.Instance);
-            targets.RegisterType<ComplexPropertyObject2, IComplexPropertyObject2>(DefaultMemberBindingBehaviour.Instance);
-            targets.RegisterType<ComplexPropertyObject3, IComplexPropertyObject3>(DefaultMemberBindingBehaviour.Instance);
+            targets.RegisterType<ComplexPropertyObject1, IComplexPropertyObject1>(MemberBindingBehaviour.BindProperties);
+            targets.RegisterType<ComplexPropertyObject2, IComplexPropertyObject2>(MemberBindingBehaviour.BindProperties);
+            targets.RegisterType<ComplexPropertyObject3, IComplexPropertyObject3>(MemberBindingBehaviour.BindProperties);
         }
 
         private static void RegisterOpenGeneric(ITargetContainer targets)
