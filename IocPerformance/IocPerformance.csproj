@@ -190,9 +190,8 @@
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.1.1.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.1\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -272,9 +271,8 @@
     <Reference Include="Rezolver, Version=1.2.7050.900, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Rezolver.1.2.7050.900\lib\net451\Rezolver.dll</HintPath>
     </Reference>
-    <Reference Include="Rezolver.Microsoft.Extensions.DependencyInjection, Version=1.1.703.1800, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rezolver.Microsoft.Extensions.DependencyInjection.1.1.703.1800\lib\net451\Rezolver.Microsoft.Extensions.DependencyInjection.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Rezolver.Microsoft.Extensions.DependencyInjection, Version=1.2.7050.900, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rezolver.Microsoft.Extensions.DependencyInjection.1.2.7050.900\lib\netstandard1.1\Rezolver.Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="SimpleInjector, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.4.0.0\lib\net45\SimpleInjector.dll</HintPath>
