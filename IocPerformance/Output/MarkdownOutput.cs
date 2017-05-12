@@ -33,7 +33,7 @@ namespace IocPerformance.Output
 
                     if (benchmarkResults.Any(b => b.SingleThreadedResult.ExtraPolated || b.MultiThreadedResult.ExtraPolated))
                     {
-                        writer.WriteLine("**_*_**: Benchmark was stopped after 3 minutes and result is extrapolated.  ");
+                        writer.WriteLine("**_*_**: Benchmark was stopped after 1 minute and result is extrapolated.  ");
                     }
 
                     if (benchmarkResults.Any(b => b.SingleThreadedResult.Error == "OoM" || b.MultiThreadedResult.Error == "OoM"))
