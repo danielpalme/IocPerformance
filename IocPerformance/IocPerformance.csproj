@@ -38,9 +38,8 @@
     <StartupObject>IocPerformance.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="abioc, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\abioc.0.4.0\lib\net46\abioc.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="abioc, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\abioc.0.6.0\lib\net46\abioc.dll</HintPath>
     </Reference>
     <Reference Include="Autofac, Version=4.6.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.0\lib\net45\Autofac.dll</HintPath>
@@ -95,14 +94,14 @@
     <Reference Include="Funq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95c13cd3fe8e976a, processorArchitecture=MSIL">
       <HintPath>..\packages\Funq.1.0\NET40\Funq.dll</HintPath>
     </Reference>
-    <Reference Include="Grace, Version=6.2.0.0, Culture=neutral, PublicKeyToken=b7d24c6367970497, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grace.6.2.0\lib\net45\Grace.dll</HintPath>
+    <Reference Include="Grace, Version=6.2.1.0, Culture=neutral, PublicKeyToken=b7d24c6367970497, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.6.2.1\lib\net45\Grace.dll</HintPath>
     </Reference>
     <Reference Include="Grace.DependencyInjection.Extensions, Version=6.2.0.0, Culture=neutral, PublicKeyToken=b7d24c6367970497, processorArchitecture=MSIL">
       <HintPath>..\packages\Grace.DependencyInjection.Extensions.6.2.0\lib\netstandard1.0\Grace.DependencyInjection.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Grace.Dynamic, Version=6.2.0.0, Culture=neutral, PublicKeyToken=b7d24c6367970497, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grace.Dynamic.6.2.0\lib\net45\Grace.Dynamic.dll</HintPath>
+    <Reference Include="Grace.Dynamic, Version=6.2.1.0, Culture=neutral, PublicKeyToken=b7d24c6367970497, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.Dynamic.6.2.1\lib\net45\Grace.Dynamic.dll</HintPath>
     </Reference>
     <Reference Include="Griffin.Container, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Griffin.Container.1.1.4\lib\net40\Griffin.Container.dll</HintPath>
@@ -151,9 +150,8 @@
       <HintPath>..\packages\LightInject.Interception.2.0.0\lib\netstandard1.1\LightInject.Interception.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LightInject.Microsoft.DependencyInjection, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LightInject.Microsoft.DependencyInjection.2.0.1\lib\netstandard1.1\LightInject.Microsoft.DependencyInjection.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="LightInject.Microsoft.DependencyInjection, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.Microsoft.DependencyInjection.2.0.2\lib\netstandard1.1\LightInject.Microsoft.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="LinFu.Core, Version=2.3.0.41559, Culture=neutral, PublicKeyToken=a4c63a184389506f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -185,13 +183,11 @@
     <Reference Include="MicroSliver">
       <HintPath>..\packages\MicroSliver.2.1.6.0\lib\net40\MicroSliver.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeAnalysis, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.2.1.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.CodeAnalysis, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.2.2.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.2.1.0\lib\netstandard1.3\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.2.2.0\lib\netstandard1.3\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
@@ -285,8 +281,8 @@
     <Reference Include="Rezolver.Microsoft.Extensions.DependencyInjection, Version=1.2.7050.900, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Rezolver.Microsoft.Extensions.DependencyInjection.1.2.7050.900\lib\netstandard1.1\Rezolver.Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.4.0.7\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.0.8.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.0.8\lib\net45\SimpleInjector.dll</HintPath>
     </Reference>
     <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=4.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.4.0.0\lib\net40\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
@@ -303,19 +299,18 @@
       <HintPath>..\packages\Spring.Core.2.0.1\lib\net45\Spring.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Stashbox, Version=2.5.1.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stashbox.2.5.1\lib\net45\Stashbox.dll</HintPath>
+    <Reference Include="Stashbox, Version=2.5.2.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stashbox.2.5.2\lib\net45\Stashbox.dll</HintPath>
     </Reference>
-    <Reference Include="Stashbox.Extensions.Dependencyinjection, Version=2.5.1.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stashbox.Extensions.Dependencyinjection.2.5.1\lib\netstandard1.3\Stashbox.Extensions.Dependencyinjection.dll</HintPath>
+    <Reference Include="Stashbox.Extensions.Dependencyinjection, Version=2.5.2.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stashbox.Extensions.Dependencyinjection.2.5.2\lib\netstandard1.3\Stashbox.Extensions.Dependencyinjection.dll</HintPath>
     </Reference>
     <Reference Include="Stiletto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Stiletto.0.3.1.0\Lib\net40\Stiletto.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap, Version=4.4.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\StructureMap.4.4.5\lib\net45\StructureMap.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="StructureMap, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.5.0\lib\net45\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap.Microsoft.DependencyInjection, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\StructureMap.Microsoft.DependencyInjection.1.3.0\lib\net451\StructureMap.Microsoft.DependencyInjection.dll</HintPath>
