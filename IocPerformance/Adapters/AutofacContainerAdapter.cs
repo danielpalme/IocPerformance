@@ -33,7 +33,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportAspNetCore => true;
 
-        public override IChildContainerAdapter CreateChildContainerAdapter() => new AutofacChildContainerAdapter(this.container.BeginLifetimeScope());
+        public override IChildContainerAdapter CreateChildContainerAdapter() => new AutofacChildContainerAdapter(this.container);
 
         public override object Resolve(Type type) => this.container.Resolve(type);
 
@@ -175,31 +175,31 @@ namespace IocPerformance.Adapters
 
     public class AutofacChildContainerAdapter : IChildContainerAdapter
     {
-        private ILifetimeScope lifetimeScope;
+        private readonly ILifetimeScope rootLifetimeScope;
+        private ILifetimeScope childLifetimeScope;
 
-        public AutofacChildContainerAdapter(ILifetimeScope lifetimeScope)
+        public AutofacChildContainerAdapter(ILifetimeScope rootLifetimeScope)
         {
-            this.lifetimeScope = lifetimeScope;
+            this.rootLifetimeScope = rootLifetimeScope;
         }
 
         public void Dispose()
         {
-            this.lifetimeScope.Dispose();
+            this.childLifetimeScope.Dispose();
         }
 
         public void Prepare()
         {
-            var autofacContainerBuilder = new ContainerBuilder();
+            childLifetimeScope = rootLifetimeScope.BeginLifetimeScope(builder =>
+            {
+                builder.RegisterType<ScopedTransient>().As<ITransient1>();
 
-            autofacContainerBuilder.RegisterType<ScopedTransient>().As<ITransient1>();
-
-            autofacContainerBuilder.RegisterType<ScopedCombined1>().As<ICombined1>();
-            autofacContainerBuilder.RegisterType<ScopedCombined2>().As<ICombined2>();
-            autofacContainerBuilder.RegisterType<ScopedCombined3>().As<ICombined3>();
-
-            autofacContainerBuilder.Update(this.lifetimeScope.ComponentRegistry);
+                builder.RegisterType<ScopedCombined1>().As<ICombined1>();
+                builder.RegisterType<ScopedCombined2>().As<ICombined2>();
+                builder.RegisterType<ScopedCombined3>().As<ICombined3>();
+            });
         }
 
-        public object Resolve(Type resolveType) => this.lifetimeScope.Resolve(resolveType);
+        public object Resolve(Type resolveType) => this.childLifetimeScope.Resolve(resolveType);
     }
 }
