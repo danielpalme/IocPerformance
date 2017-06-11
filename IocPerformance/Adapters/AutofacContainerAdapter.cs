@@ -5,6 +5,7 @@ using Autofac.Extensions.DependencyInjection;
 using Autofac.Extras.DynamicProxy;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
+using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
@@ -29,6 +30,8 @@ namespace IocPerformance.Adapters
         public override bool SupportsMultiple => true;
 
         public override bool SupportsPropertyInjection => true;
+
+        public override bool SupportsConditional => true;
 
         public override bool SupportsChildContainer => true;
 
@@ -61,6 +64,7 @@ namespace IocPerformance.Adapters
             RegisterPropertyInjection(autofacContainerBuilder);
             RegisterOpenGeneric(autofacContainerBuilder);
             RegisterMultiple(autofacContainerBuilder);
+            RegisterConditional(autofacContainerBuilder);
             RegisterInterceptor(autofacContainerBuilder);
             RegisterAspNetCore(autofacContainerBuilder);
 
@@ -191,6 +195,16 @@ namespace IocPerformance.Adapters
             autofacContainerBuilder.Register(c => new ImportMultiple1(c.Resolve<IEnumerable<ISimpleAdapter>>())).As<ImportMultiple1>();
             autofacContainerBuilder.Register(c => new ImportMultiple2(c.Resolve<IEnumerable<ISimpleAdapter>>())).As<ImportMultiple2>();
             autofacContainerBuilder.Register(c => new ImportMultiple3(c.Resolve<IEnumerable<ISimpleAdapter>>())).As<ImportMultiple3>();
+        }
+
+        private static void RegisterConditional(ContainerBuilder autofacContainerBuilder)
+        {
+            autofacContainerBuilder.Register(c => new ExportConditionalObject()).Named<IExportConditionInterface>("ExportConditionalObject");
+            autofacContainerBuilder.Register(c => new ExportConditionalObject2()).Named<IExportConditionInterface>("ExportConditionalObject2");
+            autofacContainerBuilder.Register(c => new ExportConditionalObject3()).Named<IExportConditionInterface>("ExportConditionalObject3");
+            autofacContainerBuilder.Register(c => new ImportConditionObject1(c.ResolveNamed<IExportConditionInterface>("ExportConditionalObject")));
+            autofacContainerBuilder.Register(c => new ImportConditionObject2(c.ResolveNamed<IExportConditionInterface>("ExportConditionalObject2")));
+            autofacContainerBuilder.Register(c => new ImportConditionObject3(c.ResolveNamed<IExportConditionInterface>("ExportConditionalObject3")));
         }
 
         private static void RegisterInterceptor(ContainerBuilder autofacContainerBuilder)
