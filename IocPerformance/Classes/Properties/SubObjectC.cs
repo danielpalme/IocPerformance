@@ -30,6 +30,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public IServiceC ServiceC { get; set; }
 
         public void Verify(string containerName)

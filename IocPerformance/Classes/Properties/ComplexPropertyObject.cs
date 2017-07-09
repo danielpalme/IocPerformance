@@ -55,6 +55,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
@@ -66,6 +67,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
@@ -77,6 +79,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
@@ -88,6 +91,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
@@ -99,6 +103,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
@@ -110,6 +115,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public ISubObjectC SubObjectC { get; set; }
 
         public void Verify(string containerName)
@@ -180,6 +186,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
@@ -191,6 +198,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
@@ -202,6 +210,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
@@ -213,6 +222,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
@@ -224,6 +234,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
@@ -235,6 +246,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public ISubObjectC SubObjectC { get; set; }
 
         public void Verify(string containerName)
@@ -305,6 +317,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
@@ -316,6 +329,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
@@ -327,6 +341,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
@@ -338,6 +353,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
@@ -349,6 +365,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
@@ -360,6 +377,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MicroResolver.Inject]
         public ISubObjectC SubObjectC { get; set; }
 
         public void Verify(string containerName)
