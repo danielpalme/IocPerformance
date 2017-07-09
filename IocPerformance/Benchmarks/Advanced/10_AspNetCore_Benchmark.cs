@@ -18,21 +18,21 @@ namespace IocPerformance.Benchmarks.Advanced
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {
-            var factory = (IServiceScopeFactory)container.Resolve(typeof(IServiceScopeFactory));
+            var factory = container.Resolve<IServiceScopeFactory>();
 
             using (var scope = factory.CreateScope())
             {
                 var controller = scope.ServiceProvider.GetService(typeof(TestController1));
             }
 
-            factory = (IServiceScopeFactory)container.Resolve(typeof(IServiceScopeFactory));
+            factory = container.Resolve<IServiceScopeFactory>();
 
             using (var scope = factory.CreateScope())
             {
                 var controller = scope.ServiceProvider.GetService(typeof(TestController2));
             }
 
-            factory = (IServiceScopeFactory)container.Resolve(typeof(IServiceScopeFactory));
+            factory = container.Resolve<IServiceScopeFactory>();
 
             using (var scope = factory.CreateScope())
             {

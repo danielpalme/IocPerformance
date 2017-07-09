@@ -10,9 +10,9 @@ namespace IocPerformance.Benchmarks.Advanced
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {
-            var result1 = (ICalculator1)container.Resolve(typeof(ICalculator1));
-            var result2 = (ICalculator2)container.Resolve(typeof(ICalculator2));
-            var result3 = (ICalculator3)container.Resolve(typeof(ICalculator3));
+            var result1 = container.Resolve<ICalculator1>();
+            var result2 = container.Resolve<ICalculator2>();
+            var result3 = container.Resolve<ICalculator3>();
 
             result1.Add(5, 10);
             result2.Add(5, 10);

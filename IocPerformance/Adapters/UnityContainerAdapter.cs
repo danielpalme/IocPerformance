@@ -27,7 +27,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsChildContainer => true;
 
-        public override object Resolve(Type type) => this.container.Resolve(type);
+        public override T Resolve<T>() => this.container.Resolve<T>();
 
         public override void Dispose()
         {

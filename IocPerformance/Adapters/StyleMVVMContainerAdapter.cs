@@ -27,7 +27,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type) => this.container.LocateByType(type);
+        public override T Resolve<T>() => (T)this.container.LocateByType(typeof(T));
 
         public override void Dispose()
         {

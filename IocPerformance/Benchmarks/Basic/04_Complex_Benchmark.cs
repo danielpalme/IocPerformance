@@ -8,9 +8,9 @@ namespace IocPerformance.Benchmarks.Basic
     {
         public override void MethodToBenchmark(IContainerAdapter container)
         {
-            var complex1 = (IComplex1)container.Resolve(typeof(IComplex1));
-            var complex2 = (IComplex2)container.Resolve(typeof(IComplex2));
-            var complex3 = (IComplex3)container.Resolve(typeof(IComplex3));
+            var complex1 = container.Resolve<IComplex1>();
+            var complex2 = container.Resolve<IComplex2>();
+            var complex3 = container.Resolve<IComplex3>();
         }
 
         public override void Verify(Adapters.IContainerAdapter container)

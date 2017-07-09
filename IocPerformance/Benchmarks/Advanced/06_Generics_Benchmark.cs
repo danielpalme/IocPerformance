@@ -10,9 +10,9 @@ namespace IocPerformance.Benchmarks.Advanced
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {
-            var generic1 = (ImportGeneric<int>)container.Resolve(typeof(ImportGeneric<int>));
-            var generic2 = (ImportGeneric<float>)container.Resolve(typeof(ImportGeneric<float>));
-            var generic3 = (ImportGeneric<object>)container.Resolve(typeof(ImportGeneric<object>));
+            var generic1 = container.Resolve<ImportGeneric<int>>();
+            var generic2 = container.Resolve<ImportGeneric<float>>();
+            var generic3 = container.Resolve<ImportGeneric<object>>();
         }
 
         public override void Verify(Adapters.IContainerAdapter container)

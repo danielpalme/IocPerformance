@@ -16,7 +16,7 @@ namespace IocPerformance.Adapters
 
         public override string Url => "https://github.com/wade/Speedioc";
 
-        public override object Resolve(Type type) => this.container.GetInstance(type);
+        public override T Resolve<T>() => this.container.GetInstance<T>();
 
         public override void Dispose()
         {
