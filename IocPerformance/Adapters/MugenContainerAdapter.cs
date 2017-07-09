@@ -42,7 +42,7 @@ namespace IocPerformance.Adapters
             return new MugenChildContainerAdapter(injector);
         }
 
-        public override object Resolve(Type type) => this.container.Get(type);
+        public override T Resolve<T>() => this.container.Get<T>();
 
         public override void Dispose()
         {

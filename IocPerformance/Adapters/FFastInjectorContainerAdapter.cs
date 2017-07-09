@@ -13,7 +13,7 @@ namespace IocPerformance.Adapters
 
         public override string Url => "https://ffastinjector.codeplex.com";
 
-        public override object Resolve(Type type) => Container.Resolve(type);
+        public override T Resolve<T>() => Container.Resolve<T>();
 
         public override void Dispose()
         {

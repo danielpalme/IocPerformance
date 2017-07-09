@@ -26,39 +26,7 @@ namespace IocPerformance.Adapters
             this.container = Container.Create(typeof(StilettoBasicModule));
         }
 
-        public override object Resolve(Type type)
-        {
-            // Because Resolve(Type) is non-generic, we can't rely on efficient dispatch from the
-            // container.  Resolvable types are hard-coded in the [Module] attribute anyways, so
-            // there's minimal harm in reproducing that here.
-            if (type == typeof(ITransient1))
-            {
-                return this.container.Get<ITransient1>();
-            }
-
-            if (type == typeof(ISingleton1))
-            {
-                return this.container.Get<ISingleton1>();
-            }
-
-            if (type == typeof(ICombined1))
-            {
-                return this.container.Get<ICombined1>();
-            }
-
-            if (type == typeof(IComplex1))
-            {
-                return this.container.Get<IComplex1>();
-            }
-
-            if (type == typeof(IComplexPropertyObject1))
-            {
-                return this.container.Get<IComplexPropertyObject1>();
-            }
-
-            // This is an unexpected type, and should have been configured.
-            throw new Stiletto.Internal.BindingException("Non-injectable type requested: " + type.FullName);
-        }
+        public override T Resolve<T>() => this.container.Get<T>();
 
         public override void Dispose()
         {

@@ -41,7 +41,7 @@ namespace IocPerformance.Adapters
 
         public override IChildContainerAdapter CreateChildContainerAdapter() => new SimpleInjectorChildContainerAdapter(this.container, this.scopedRegistrations);
 
-        public override object Resolve(Type type) => this.container.GetInstance(type);
+        public override T Resolve<T>() => this.container.GetInstance<T>();
 
         public override void Dispose()
         {

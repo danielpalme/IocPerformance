@@ -34,7 +34,7 @@ namespace IocPerformance.Adapters
 
         void Prepare();
 
-        object Resolve(Type type);
+        T Resolve<T>() where T : class;
 
         IChildContainerAdapter CreateChildContainerAdapter();
     }

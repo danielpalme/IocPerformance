@@ -24,15 +24,10 @@ namespace IocPerformance.Adapters
         public override bool SupportsMultiple => true;
         public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type)
+        public override T Resolve<T>()
         {
-            return resolver.Resolve(type);
+            return resolver.Resolve<T>();
         }
-
-        //public override T Resolve<T>()
-        //{
-        //    return resolver.Resolve<T>();
-        //}
 
         public override void Dispose()
         {

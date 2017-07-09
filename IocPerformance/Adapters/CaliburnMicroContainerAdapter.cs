@@ -26,7 +26,7 @@ namespace IocPerformance.Adapters
             get { return true; }
         }
 
-        public override object Resolve(Type type) => this.container.GetInstance(type, null);
+        public override T Resolve<T>() => (T)this.container.GetInstance(typeof(T), null);
 
         public override void Dispose()
         {

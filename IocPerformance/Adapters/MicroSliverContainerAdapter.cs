@@ -17,7 +17,7 @@ namespace IocPerformance.Adapters
             get { return "https://microsliver.codeplex.com"; }
         }
 
-        public override object Resolve(Type type) => this.container.GetByType(type);
+        public override T Resolve<T>() => this.container.Get<T>();
 
         public override void Dispose()
         {

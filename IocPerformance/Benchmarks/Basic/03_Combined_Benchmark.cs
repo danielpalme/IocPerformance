@@ -8,9 +8,9 @@ namespace IocPerformance.Benchmarks.Basic
     {
         public override void MethodToBenchmark(IContainerAdapter container)
         {
-            var combined1 = (ICombined1)container.Resolve(typeof(ICombined1));
-            var combined2 = (ICombined2)container.Resolve(typeof(ICombined2));
-            var combined3 = (ICombined3)container.Resolve(typeof(ICombined3));
+            var combined1 = container.Resolve<ICombined1>();
+            var combined2 = container.Resolve<ICombined2>();
+            var combined3 = container.Resolve<ICombined3>();
         }
 
         public override void Verify(Adapters.IContainerAdapter container)

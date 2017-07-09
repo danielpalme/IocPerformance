@@ -53,7 +53,7 @@ namespace IocPerformance.Adapters
             this.PrepareBasic(); // by default any prepare should at least support basic one
         }
 
-        public abstract object Resolve(Type type);
+        public abstract T Resolve<T>() where T : class;
 
         public virtual IChildContainerAdapter CreateChildContainerAdapter()
         {
