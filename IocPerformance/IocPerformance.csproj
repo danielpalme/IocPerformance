@@ -180,8 +180,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Maestro.1.5.4\lib\net40\Maestro.net40-client.dll</HintPath>
     </Reference>
-    <Reference Include="MicroResolver, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MicroResolver.2.3.0\lib\net46\MicroResolver.dll</HintPath>
+    <Reference Include="MicroResolver, Version=2.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicroResolver.2.3.3\lib\net46\MicroResolver.dll</HintPath>
     </Reference>
     <Reference Include="MicroSliver">
       <HintPath>..\packages\MicroSliver.2.1.6.0\lib\net40\MicroSliver.dll</HintPath>
