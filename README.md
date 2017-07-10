@@ -22,7 +22,7 @@ Results
 |**[Autofac 4.6.0](https://github.com/autofac/Autofac)**|749<br/>623|707<br/>554|1950<br/>1832|6510<br/>6472|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|465<br/>270|533<br/>322|1583<br/>906|7403<br/>3712|
 |**[Catel 4.5.4](http://www.catelproject.com)**|309<br/>356|4119<br/>4510|10048<br/>11082|24815<br/>26422|
-|**[DryIoc 2.10.4](https://bitbucket.org/dadhi/dryioc)**|29<br/>42|38<br/>63|55<br/>**80**|**62**<br/>**70**|
+|**[DryIoc 2.10.4](https://bitbucket.org/dadhi/dryioc)**|29<br/>42|38<br/>63|55<br/>80|**62**<br/>**70**|
 |**[DryIocZero 2.7.0](https://bitbucket.org/dadhi/dryioc)**|91<br/>75|75<br/>74|107<br/>110|338<br/>231|
 |**[Dynamo 3.0.2.0](http://martinf.github.io/Dynamo.IoC)**|83<br/>81|92<br/>96|201<br/>153|655<br/>384|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|66<br/>66|126<br/>99|249<br/>171|602<br/>350|
@@ -37,7 +37,7 @@ Results
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|356<br/>254|1755<br/>2906|2437<br/>1743|4342<br/>2528|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|22679<br/>11820|37640<br/>25052|57462<br/>68730*|112712*<br/>131716*|
 |**[Mef2 1.0.30.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|239<br/>167|254<br/>174|332<br/>256|528<br/>317|
-|**[MicroResolver 2.1.0](https://github.com/neuecc/MicroResolver)**|51<br/>56|62<br/>67|81<br/>90|113<br/>98|
+|**[MicroResolver 2.3.3](https://github.com/neuecc/MicroResolver)**|31<br/>**37**|35<br/>59|58<br/>**77**|92<br/>86|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|193<br/>235|725<br/>611|2394<br/>1613|6829<br/>5881|
 |**[Microsoft Extensions DependencyInjection 1.1.1](https://github.com/aspnet/DependencyInjection)**|207<br/>268|167<br/>141|463<br/>452|1608<br/>1668|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|484<br/>444|711<br/>751|2285<br/>2494|8297<br/>9494|
@@ -75,7 +75,7 @@ Results
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|4502<br/>2616|2103<br/>2128|4443<br/>2483|2186<br/>1691|<br/>|<br/>|7591<br/>4418|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|124500*<br/>133833*|137086*<br/>114221*|97231*<br/>100896*|<br/>|<br/>|<br/>|<br/>|
 |**[Mef2 1.0.30.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1188<br/>680|261<br/>429|1345<br/>758|<br/>|<br/>|<br/>|<br/>|
-|**[MicroResolver 2.1.0](https://github.com/neuecc/MicroResolver)**|**73**<br/>**71**|<br/>|305<br/>208|<br/>|<br/>|<br/>|<br/>|
+|**[MicroResolver 2.3.3](https://github.com/neuecc/MicroResolver)**|**43**<br/>**66**|<br/>|285<br/>203|<br/>|<br/>|<br/>|<br/>|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Microsoft Extensions DependencyInjection 1.1.1](https://github.com/aspnet/DependencyInjection)**|<br/>|226<br/>169|876<br/>521|<br/>|<br/>|1888<br/>1812|<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|10005<br/>8348|72189*<br/>72787*|5619<br/>7027|1824<br/>1883|550418*<br/>335171*|<br/>|13742<br/>16268|
@@ -113,7 +113,7 @@ Results
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|172<br/>|747<br/>|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|17<br/>|2299<br/>|
 |**[Mef2 1.0.30.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|5585<br/>|7329<br/>|
-|**[MicroResolver 2.1.0](https://github.com/neuecc/MicroResolver)**|29915<br/>|71033<br/>|
+|**[MicroResolver 2.3.3](https://github.com/neuecc/MicroResolver)**|28601<br/>|68579<br/>|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|11<br/>|16<br/>|
 |**[Microsoft Extensions DependencyInjection 1.1.1](https://github.com/aspnet/DependencyInjection)**|26<br/>|38<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|424<br/>|1820<br/>|
