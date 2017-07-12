@@ -36,8 +36,8 @@ Results
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|3167<br/>1709|16506<br/>11878|45492<br/>29568|116514*<br/>76757*|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|356<br/>254|1755<br/>2906|2437<br/>1743|4342<br/>2528|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|22679<br/>11820|37640<br/>25052|57462<br/>68730*|112712*<br/>131716*|
-|**[Mef2 1.0.30.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|239<br/>167|254<br/>174|332<br/>256|528<br/>317|
-|**[MicroResolver 2.3.3](https://github.com/neuecc/MicroResolver)**|31<br/>**37**|35<br/>59|58<br/>**77**|92<br/>86|
+|**[Mef2 1.0.31.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|215<br/>151|241<br/>168|335<br/>236|680<br/>610|
+|**[MicroResolver 2.3.4](https://github.com/neuecc/MicroResolver)**|**27**<br/>44|36<br/>63|56<br/>**78**|97<br/>85|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|193<br/>235|725<br/>611|2394<br/>1613|6829<br/>5881|
 |**[Microsoft Extensions DependencyInjection 1.1.1](https://github.com/aspnet/DependencyInjection)**|207<br/>268|167<br/>141|463<br/>452|1608<br/>1668|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|484<br/>444|711<br/>751|2285<br/>2494|8297<br/>9494|
@@ -52,6 +52,7 @@ Results
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|441<br/>263|480<br/>299|748<br/>437|1409<br/>795|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|420<br/>473|1683<br/>1081|7344<br/>5164|32219<br/>23617|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|2517<br/>1375|3761<br/>1962|10161<br/>5372|27963<br/>16013|
+|**[Windsor 4.0.0](http://castleproject.org)**|516<br/>405|1967<br/>1164|5812<br/>3392|17496<br/>9639|
 ### Advanced Features
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Asp Net Core**|**Interception With Proxy**|
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|---------------:|--------------------------:|
@@ -74,8 +75,8 @@ Results
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|4502<br/>2616|2103<br/>2128|4443<br/>2483|2186<br/>1691|<br/>|<br/>|7591<br/>4418|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|124500*<br/>133833*|137086*<br/>114221*|97231*<br/>100896*|<br/>|<br/>|<br/>|<br/>|
-|**[Mef2 1.0.30.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1188<br/>680|261<br/>429|1345<br/>758|<br/>|<br/>|<br/>|<br/>|
-|**[MicroResolver 2.3.3](https://github.com/neuecc/MicroResolver)**|**43**<br/>**66**|<br/>|285<br/>203|<br/>|<br/>|<br/>|<br/>|
+|**[Mef2 1.0.31.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1438<br/>1236|299<br/>292|1610<br/>959|<br/>|<br/>|<br/>|<br/>|
+|**[MicroResolver 2.3.4](https://github.com/neuecc/MicroResolver)**|**38**<br/>**64**|<br/>|281<br/>204|<br/>|<br/>|<br/>|<br/>|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Microsoft Extensions DependencyInjection 1.1.1](https://github.com/aspnet/DependencyInjection)**|<br/>|226<br/>169|876<br/>521|<br/>|<br/>|1888<br/>1812|<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|10005<br/>8348|72189*<br/>72787*|5619<br/>7027|1824<br/>1883|550418*<br/>335171*|<br/>|13742<br/>16268|
@@ -90,6 +91,7 @@ Results
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1542<br/>914|1234<br/>708|3067<br/>2022|1432<br/>745|<br/>|<br/>|<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|5676<br/>5769|<br/>|<br/>|<br/>|**14183**<br/>**7663**|<br/>|<br/>|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|29064<br/>16150|<br/>|43685<br/>23347|<br/>|33727<br/>19896|<br/>|93122*<br/>49665|
+|**[Windsor 4.0.0](http://castleproject.org)**|34788<br/>19114|14730<br/>8383|16344<br/>9298|<br/>|233653*<br/>127558*|<br/>|13738<br/>7473|
 ### Prepare
 |**Container**|**Prepare And Register**|**Prepare And Register And Simple Resolve**|
 |:------------|-----------------------:|------------------------------------------:|
@@ -112,8 +114,8 @@ Results
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|107<br/>|338<br/>|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|172<br/>|747<br/>|
 |**[Mef 4.0.0.0](https://mef.codeplex.com)**|17<br/>|2299<br/>|
-|**[Mef2 1.0.30.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|5585<br/>|7329<br/>|
-|**[MicroResolver 2.3.3](https://github.com/neuecc/MicroResolver)**|28601<br/>|68579<br/>|
+|**[Mef2 1.0.31.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|5614<br/>|6830<br/>|
+|**[MicroResolver 2.3.4](https://github.com/neuecc/MicroResolver)**|27930<br/>|66854<br/>|
 |**[MicroSliver 2.1.6.0](https://microsliver.codeplex.com)**|11<br/>|16<br/>|
 |**[Microsoft Extensions DependencyInjection 1.1.1](https://github.com/aspnet/DependencyInjection)**|26<br/>|38<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|424<br/>|1820<br/>|
@@ -128,6 +130,7 @@ Results
 |**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|69968<br/>|71562<br/>|
 |**[TinyIoC 1.3](https://github.com/grumpydev/TinyIoC)**|58<br/>|67<br/>|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|588<br/>|2209<br/>|
+|**[Windsor 4.0.0](http://castleproject.org)**|2985<br/>|3137<br/>|
 ### Charts
 ![Basic features](http://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)
 ![Advanced features](http://www.palmmedia.de/content/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)
