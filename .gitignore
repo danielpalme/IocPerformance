@@ -12,12 +12,15 @@
 /packages/Common.Logging*
 /packages/CommonServiceLocator*
 /packages/Dynamo.Ioc*
+/packages/ExpressionToCodeLib*
 /packages/fFastInjector*
+/packages/FastExpressionCompiler*
 /packages/Grace*
 /packages/Griffin.Container*
 /packages/HaveBox*
 /packages/Hiro*
 /packages/IfInjector*
+/packages/JetBrains*
 /packages/LightCore*
 /packages/LightInject*
 /packages/LinFu*
