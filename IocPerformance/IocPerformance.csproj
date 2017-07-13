@@ -74,13 +74,11 @@
       <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DryIoc, Version=2.10.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DryIoc.dll.2.10.4\lib\net45\DryIoc.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DryIoc, Version=2.11.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.2.11.5\lib\net45\DryIoc.dll</HintPath>
     </Reference>
-    <Reference Include="DryIoc.Microsoft.DependencyInjection, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DryIoc.Microsoft.DependencyInjection.1.1.1\lib\netstandard1.0\DryIoc.Microsoft.DependencyInjection.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DryIoc.Microsoft.DependencyInjection, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.Microsoft.DependencyInjection.1.2.2\lib\netstandard1.0\DryIoc.Microsoft.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="Dynamo.Ioc, Version=3.0.2.0, Culture=neutral, PublicKeyToken=584702d813863cbd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -89,8 +87,8 @@
     <Reference Include="ExpressionToCodeLib, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ExpressionToCodeLib.2.4.0\lib\net452\ExpressionToCodeLib.dll</HintPath>
     </Reference>
-    <Reference Include="FastExpressionCompiler, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FastExpressionCompiler.1.0.1\lib\net452\FastExpressionCompiler.dll</HintPath>
+    <Reference Include="FastExpressionCompiler, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastExpressionCompiler.1.1.0\lib\net452\FastExpressionCompiler.dll</HintPath>
     </Reference>
     <Reference Include="fFastInjector">
       <HintPath>..\packages\fFastInjector.1.0.1\lib\portable-net4+sl4+wp8+win8\fFastInjector.dll</HintPath>
