@@ -1,8 +1,8 @@
-﻿using System;
+﻿using IocPerformance.Benchmarks;
+using IocPerformance.Output;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using IocPerformance.Benchmarks;
-using IocPerformance.Output;
 
 namespace IocPerformance
 {
@@ -75,7 +75,8 @@ namespace IocPerformance
                 new CsvOutput(),
                 new CsvRateOutput(),
                 new ChartOutput(),
-                new ZipOutput());
+                new ZipOutput(),
+                new JsonOutput());
 
             output.Create(benchmarks, benchmarkResults);
 

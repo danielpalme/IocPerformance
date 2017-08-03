@@ -19,10 +19,10 @@ Results
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|61<br/>53|68<br/>62|83<br/>103|90<br/>82|
 |**[abioc 0.6.0](https://github.com/JSkimming/abioc)**|**27**<br/>**37**|**31**<br/>**57**|**48**<br/>84|**63**<br/>**72**|
-|**[Autofac 4.6.0](https://github.com/autofac/Autofac)**|749<br/>623|707<br/>554|1950<br/>1832|6510<br/>6472|
+|**[Autofac 4.6.1](https://github.com/autofac/Autofac)**|824<br/>757|810<br/>650|2071<br/>1994|6545<br/>6885|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|465<br/>270|533<br/>322|1583<br/>906|7403<br/>3712|
-|**[Catel 4.5.4](http://www.catelproject.com)**|309<br/>356|4119<br/>4510|10048<br/>11082|24815<br/>26422|
-|**[DryIoc 2.11.5](https://bitbucket.org/dadhi/dryioc)**|33<br/>45|42<br/>63|57<br/>80|72<br/>77|
+|**[Catel 5.0.0](http://www.catelproject.com)**|315<br/>360|4623<br/>5002|10309<br/>11011|22778<br/>24871|
+|**[DryIoc 2.11.6](https://bitbucket.org/dadhi/dryioc)**|35<br/>44|41<br/>63|57<br/>86|72<br/>78|
 |**[DryIocZero 2.7.0](https://bitbucket.org/dadhi/dryioc)**|91<br/>75|75<br/>74|107<br/>110|338<br/>231|
 |**[Dynamo 3.0.2.0](http://martinf.github.io/Dynamo.IoC)**|83<br/>81|92<br/>96|201<br/>153|655<br/>384|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|66<br/>66|126<br/>99|249<br/>171|602<br/>350|
@@ -58,10 +58,10 @@ Results
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|---------------:|--------------------------:|
 |**No**|119<br/>99|73<br/>79|177<br/>139|78<br/>69|606<br/>361|<br/>|72<br/>65|
 |**[abioc 0.6.0](https://github.com/JSkimming/abioc)**|<br/>|<br/>|741<br/>506|<br/>|<br/>|<br/>|<br/>|
-|**[Autofac 4.6.0](https://github.com/autofac/Autofac)**|6527<br/>6417|1949<br/>1563|7715<br/>5635|1453<br/>1406|51226<br/>31640|14292<br/>11982|22099<br/>11690|
+|**[Autofac 4.6.1](https://github.com/autofac/Autofac)**|6380<br/>6150|2007<br/>1598|7866<br/>5997|1424<br/>1482|53614<br/>32154|14039<br/>11812|22000<br/>11841|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9157<br/>4733|<br/>|5965<br/>3393|<br/>|<br/>|<br/>|<br/>|
-|**[Catel 4.5.4](http://www.catelproject.com)**|<br/>|10636<br/>11485|<br/>|<br/>|<br/>|<br/>|4354<br/>4492|
-|**[DryIoc 2.11.5](https://bitbucket.org/dadhi/dryioc)**|93<br/>104|58<br/>**69**|294<br/>206|59<br/>77|<br/>|<br/>|1302<br/>912|
+|**[Catel 5.0.0](http://www.catelproject.com)**|<br/>|9961<br/>10518|<br/>|<br/>|<br/>|<br/>|4705<br/>5190|
+|**[DryIoc 2.11.6](https://bitbucket.org/dadhi/dryioc)**|95<br/>100|57<br/>**66**|279<br/>202|61<br/>64|<br/>|<br/>|830<br/>535|
 |**[DryIocZero 2.7.0](https://bitbucket.org/dadhi/dryioc)**|394<br/>256|<br/>|319<br/>214|58<br/>**62**|<br/>|<br/>|<br/>|
 |**[Dynamo 3.0.2.0](http://martinf.github.io/Dynamo.IoC)**|796<br/>467|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
@@ -97,10 +97,10 @@ Results
 |:------------|-----------------------:|------------------------------------------:|
 |**No**|2<br/>|3<br/>|
 |**[abioc 0.6.0](https://github.com/JSkimming/abioc)**|5739<br/>|5992<br/>|
-|**[Autofac 4.6.0](https://github.com/autofac/Autofac)**|287<br/>|310<br/>|
+|**[Autofac 4.6.1](https://github.com/autofac/Autofac)**|296<br/>|325<br/>|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|55<br/>|56<br/>|
-|**[Catel 4.5.4](http://www.catelproject.com)**|7844<br/>|8192<br/>|
-|**[DryIoc 2.11.5](https://bitbucket.org/dadhi/dryioc)**|99<br/>|320<br/>|
+|**[Catel 5.0.0](http://www.catelproject.com)**|8863<br/>|9192<br/>|
+|**[DryIoc 2.11.6](https://bitbucket.org/dadhi/dryioc)**|74<br/>|248<br/>|
 |**[DryIocZero 2.7.0](https://bitbucket.org/dadhi/dryioc)**|**0**<br/>|**1**<br/>|
 |**[Dynamo 3.0.2.0](http://martinf.github.io/Dynamo.IoC)**|15818<br/>|15809<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|6390<br/>|6336<br/>|

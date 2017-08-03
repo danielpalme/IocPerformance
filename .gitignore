@@ -1,6 +1,6 @@
 /.vs/*
 *.suo
-*proj.user
+*.user
 /IocPerformance.userprefs
 /IocPerformance/bin
 /IocPerformance/obj
@@ -28,6 +28,7 @@
 /packages/Micro*
 /packages/MugenInjection*
 /packages/Munq.IocContainer*
+/packages/Newtonsoft*
 /packages/Ninject*
 /packages/Petite.Container*
 /packages/QuickInject*
