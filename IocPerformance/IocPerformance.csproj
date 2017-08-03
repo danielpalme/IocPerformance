@@ -258,6 +258,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Munq.IocContainer.3.1.6\Lib\Munq.IocContainer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NGenerics, Version=1.4.1.0, Culture=neutral, PublicKeyToken=e4b41be133ea7faf, processorArchitecture=MSIL">
       <HintPath>..\packages\NGenerics.1.4.1.0\lib\net35\NGenerics.dll</HintPath>
       <Private>True</Private>
@@ -614,6 +617,7 @@
     <Compile Include="Output\ChartOutput.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Output\JsonOutput.cs" />
     <Compile Include="Output\ZipOutput.cs" />
     <Compile Include="Output\XmlOutputReader.cs">
       <SubType>Code</SubType>
