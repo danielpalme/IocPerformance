@@ -6,6 +6,8 @@ namespace IocPerformance.Benchmarks.Basic
 {
     public class Transient_02_Benchmark : Benchmark
     {
+        public override BenchmarkCategory Category => BenchmarkCategory.Basic;
+
         public override void MethodToBenchmark(IContainerAdapter container)
         {
             var transient1 = (ITransient1)container.Resolve(typeof(ITransient1));

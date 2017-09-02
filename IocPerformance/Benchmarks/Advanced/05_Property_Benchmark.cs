@@ -6,6 +6,8 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class Property_05_Benchmark : Benchmark
     {
+        public override BenchmarkCategory Category => BenchmarkCategory.Advanced;
+
         public override bool IsSupportedBy(IContainerAdapter container) => container.SupportsPropertyInjection;
 
         public override void MethodToBenchmark(IContainerAdapter container)

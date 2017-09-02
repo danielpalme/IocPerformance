@@ -45,7 +45,7 @@ namespace IocPerformance.Output
 
                             string emphasisMultithreadedTime = containerResult.MultiThreadedResult.Time.HasValue
                                 && resultsOfBenchmark
-                                    .Where(r =>  r.ContainerInfo.Name != "No")
+                                    .Where(r => r.ContainerInfo.Name != "No")
                                     .Min(r => r.MultiThreadedResult.Time) == containerResult.MultiThreadedResult.Time ? " style=\"font-weight:bold;\"" : string.Empty;
 
                             writer.Write(

@@ -7,9 +7,12 @@ namespace IocPerformance.Benchmarks
     {
         public BenchmarkInfo(IBenchmark benchmark)
         {
+            this.Category = benchmark.Category;
             this.Name = benchmark.Name;
             this.FullName = benchmark.GetType().FullName;
         }
+
+        public BenchmarkCategory Category { get; private set; }
 
         public string Name { get; private set; }
 

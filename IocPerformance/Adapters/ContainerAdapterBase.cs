@@ -47,7 +47,7 @@ namespace IocPerformance.Adapters
         }
 
         public abstract void PrepareBasic();
-        
+
         public virtual void Prepare()
         {
             this.PrepareBasic(); // by default any prepare should at least support basic one
@@ -63,7 +63,6 @@ namespace IocPerformance.Adapters
         public abstract void Dispose();
 
         protected ServiceCollection CreateServiceCollection()
-
         {
             var serviceCollection = new ServiceCollection();
 

@@ -12,6 +12,8 @@ namespace IocPerformance.Benchmarks
 
     public interface IBenchmark
     {
+        BenchmarkCategory Category { get; }
+
         string Name { get; }
 
         int Order { get; }

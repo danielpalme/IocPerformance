@@ -6,6 +6,8 @@ namespace IocPerformance.Benchmarks.Basic
 {
     public class Complex_04_Benchmark : Benchmark
     {
+        public override BenchmarkCategory Category => BenchmarkCategory.Basic;
+
         public override void MethodToBenchmark(IContainerAdapter container)
         {
             var complex1 = (IComplex1)container.Resolve(typeof(IComplex1));

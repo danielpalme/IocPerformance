@@ -54,8 +54,6 @@ namespace IocPerformance.Output
             File.Copy("output\\Overview_Basic_Fast.png", "output\\blog\\5225c515-2f25-498f-84fe-6c6e931d2042.png", true);
             File.Copy("output\\Overview_Advanced_Fast.png", "output\\blog\\e0401485-20c6-462e-b5d4-c9cf854e6bee.png", true);
             File.Copy("output\\Overview_Prepare_Fast.png", "output\\blog\\67b056a5-9da8-40b4-9ae6-0c838cdac180.png", true);
-
-
         }
 
         private static void CreateOverviewChart(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string type, long minTime, long maxTime)

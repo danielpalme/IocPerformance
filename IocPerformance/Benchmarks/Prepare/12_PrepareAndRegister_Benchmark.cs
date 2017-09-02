@@ -10,6 +10,8 @@ namespace IocPerformance.Benchmarks.Prepare
     /// </summary>
     public class PrepareAndRegister_12_Benchmark : Benchmark
     {
+        public override BenchmarkCategory Category => BenchmarkCategory.Prepare;
+
         // not supports multithreaded scenario
         // 1 - first container created
         // 2 - second created

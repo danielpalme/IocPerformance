@@ -6,6 +6,8 @@ namespace IocPerformance.Benchmarks.Basic
 {
     public class Combined_03_Benchmark : Benchmark
     {
+        public override BenchmarkCategory Category => BenchmarkCategory.Basic;
+
         public override void MethodToBenchmark(IContainerAdapter container)
         {
             var combined1 = (ICombined1)container.Resolve(typeof(ICombined1));

@@ -26,6 +26,8 @@ namespace IocPerformance.Benchmarks
             }
         }
 
+        public abstract BenchmarkCategory Category { get; }
+
         public int Order => int.Parse(this.GetType().Name.Split('_')[1]);
 
         public virtual bool IsSupportedBy(IContainerAdapter container) => true;

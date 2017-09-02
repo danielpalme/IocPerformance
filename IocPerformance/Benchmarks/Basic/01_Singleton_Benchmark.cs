@@ -6,6 +6,8 @@ namespace IocPerformance.Benchmarks.Basic
 {
     public class Singleton_01_Benchmark : Benchmark
     {
+        public override BenchmarkCategory Category => BenchmarkCategory.Basic;
+
         public override void MethodToBenchmark(IContainerAdapter container)
         {
             var singleton1 = (ISingleton1)container.Resolve(typeof(ISingleton1));

@@ -7,6 +7,8 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class ChildContainer_09_Benchmark : Benchmark
     {
+        public override BenchmarkCategory Category => BenchmarkCategory.Advanced;
+
         public override bool IsSupportedBy(IContainerAdapter container) => container.SupportsChildContainer;
 
         public override void MethodToBenchmark(IContainerAdapter container)

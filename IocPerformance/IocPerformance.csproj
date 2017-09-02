@@ -512,6 +512,7 @@
     <Compile Include="Benchmarks\Prepare\12_PrepareAndRegister_Benchmark.cs" />
     <Compile Include="Benchmarks\Prepare\13_PrepareAndRegisterAndSimpleResolve_Benchmark.cs" />
     <Compile Include="Benchmarks\Benchmark.cs" />
+    <Compile Include="Benchmarks\Result\BenchmarkCategory.cs" />
     <Compile Include="Benchmarks\Result\BenchmarkInfo.cs" />
     <Compile Include="Benchmarks\BenchmarkMeasurer.cs" />
     <Compile Include="Benchmarks\Result\ContainerAdapterInfo.cs" />

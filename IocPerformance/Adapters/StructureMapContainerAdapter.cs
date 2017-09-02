@@ -63,7 +63,6 @@ namespace IocPerformance.Adapters
 
                                                r.Populate(CreateServiceCollection());
                                            });
-            
         }
 
         public override void PrepareBasic()

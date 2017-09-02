@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using IocPerformance.Adapters;
 using IocPerformance.Classes.AspNet;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +7,8 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class AspNetCore_10_Benchmark : Benchmark
     {
+        public override BenchmarkCategory Category => BenchmarkCategory.Advanced;
+
         /// <summary>If false returned no methods are invoked.</summary>
         /// <param name="container">The container.</param>
         /// <returns><c>true</c> if supported otherwise <c>false</c></returns>
@@ -52,32 +50,32 @@ namespace IocPerformance.Benchmarks.Advanced
                 return;
             }
 
-            if (TestController1.Instances != LoopCount ||
-                TestController1.DisposeCount != LoopCount)
+            if (TestController1.Instances != this.LoopCount ||
+                TestController1.DisposeCount != this.LoopCount)
             {
                 throw new Exception(string.Format("TestController1 count must be {0}", this.LoopCount));
             }
 
-            if (TestController2.Instances != LoopCount ||
-                TestController2.DisposeCount != LoopCount)
+            if (TestController2.Instances != this.LoopCount ||
+                TestController2.DisposeCount != this.LoopCount)
             {
                 throw new Exception(string.Format("TestController2 count must be {0}", this.LoopCount));
             }
 
-            if (TestController3.Instances != LoopCount ||
-                TestController3.DisposeCount != LoopCount)
+            if (TestController3.Instances != this.LoopCount ||
+                TestController3.DisposeCount != this.LoopCount)
             {
                 throw new Exception(string.Format("TestController3 count must be {0}", this.LoopCount));
             }
 
-            if (RepositoryTransient1.Instances != LoopCount * 3 || 
-                RepositoryTransient2.Instances != LoopCount * 3||
-                RepositoryTransient3.Instances != LoopCount * 3)
+            if (RepositoryTransient1.Instances != this.LoopCount * 3 ||
+                RepositoryTransient2.Instances != this.LoopCount * 3 ||
+                RepositoryTransient3.Instances != this.LoopCount * 3)
             {
                 throw new Exception(string.Format("RepositoryTransient count must be {0}", this.LoopCount));
             }
 
-            if (ScopedService.Instances != LoopCount * 3)
+            if (ScopedService.Instances != this.LoopCount * 3)
             {
                 throw new Exception(string.Format("ScopedService count must be {0}", this.LoopCount));
             }

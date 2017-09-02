@@ -6,6 +6,8 @@ namespace IocPerformance.Benchmarks.Advanced
 {
     public class InterceptionWithProxy_11_Benchmark : Benchmark
     {
+        public override BenchmarkCategory Category => BenchmarkCategory.Advanced;
+
         public override bool IsSupportedBy(IContainerAdapter container) => container.SupportsInterception;
 
         public override void MethodToBenchmark(IContainerAdapter container)
