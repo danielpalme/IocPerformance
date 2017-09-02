@@ -92,7 +92,7 @@ namespace IocPerformance.Adapters
 
         private void RegisterAspNetCore()
         {
-            this.container.Populate(CreateServiceCollection());
+            this.container.Populate(this.CreateServiceCollection());
         }
 
         private void RegisterConditional()

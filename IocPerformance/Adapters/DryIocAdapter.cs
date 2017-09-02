@@ -13,7 +13,6 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
@@ -41,17 +40,17 @@ namespace IocPerformance.Adapters
 
         public override bool SupportAspNetCore => false;
 
-        //private static readonly string ChildContainerScopeName = "ChildContainerScopeName";
-        //public override IChildContainerAdapter CreateChildContainerAdapter()
-        //{
-        //    var scope = container.OpenScope(ChildContainerScopeName, PreferServiceWithChildContainerScopeName);
-        //    return new DryIocChildContainerAdapter(scope, ChildContainerScopeName);
-        //}
+        // private static readonly string ChildContainerScopeName = "ChildContainerScopeName";
+        // public override IChildContainerAdapter CreateChildContainerAdapter()
+        // {
+        //     var scope = container.OpenScope(ChildContainerScopeName, PreferServiceWithChildContainerScopeName);
+        //     return new DryIocChildContainerAdapter(scope, ChildContainerScopeName);
+        // }
 
-        //private static Rules PreferServiceWithChildContainerScopeName(Rules rules)
-        //{
-        //    return rules.WithFactorySelector(Rules.PreferKeyOverDefault(ChildContainerScopeName));
-        //}
+        // private static Rules PreferServiceWithChildContainerScopeName(Rules rules)
+        // {
+        //     return rules.WithFactorySelector(Rules.PreferKeyOverDefault(ChildContainerScopeName));
+        // }
 
         public override object Resolve(Type type) => this.container.Resolve(type);
 
@@ -77,15 +76,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterAspNetCore()
         {
-            this.container = this.container.WithDependencyInjectionAdapter(CreateServiceCollection());
+            this.container = this.container.WithDependencyInjectionAdapter(this.CreateServiceCollection());
         }
 
         public override void PrepareBasic()
         {
-            this.container = new Container(rule => rule.WithTrackingDisposableTransients().WithImplicitRootOpenScope()); 
+            this.container = new Container(rule => rule.WithTrackingDisposableTransients().WithImplicitRootOpenScope());
             this.RegisterBasic();
         }
-        
+
         private void RegisterBasic()
         {
             this.RegisterDummies();

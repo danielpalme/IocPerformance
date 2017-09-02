@@ -50,7 +50,6 @@ namespace IocPerformance.Classes.AspNet
         
         public void DoSomething()
         {
-            
         }
     }
 
@@ -81,7 +80,6 @@ namespace IocPerformance.Classes.AspNet
 
         public void DoSomething()
         {
-
         }
     }
 
@@ -112,7 +110,6 @@ namespace IocPerformance.Classes.AspNet
 
         public void DoSomething()
         {
-
         }
     }
 }

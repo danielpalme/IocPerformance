@@ -37,7 +37,7 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.serviceCollection = CreateServiceCollection();
+            this.serviceCollection = this.CreateServiceCollection();
 
             this.RegisterBasic();
             this.RegisterOpenGeneric();

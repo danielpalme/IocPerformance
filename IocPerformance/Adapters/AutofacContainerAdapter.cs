@@ -66,14 +66,14 @@ namespace IocPerformance.Adapters
             RegisterMultiple(autofacContainerBuilder);
             RegisterConditional(autofacContainerBuilder);
             RegisterInterceptor(autofacContainerBuilder);
-            RegisterAspNetCore(autofacContainerBuilder);
+            this.RegisterAspNetCore(autofacContainerBuilder);
 
             this.container = autofacContainerBuilder.Build();
         }
 
         private void RegisterAspNetCore(ContainerBuilder autofacContainerBuilder)
         {
-            autofacContainerBuilder.Populate(CreateServiceCollection());
+            autofacContainerBuilder.Populate(this.CreateServiceCollection());
         }
 
         public override void PrepareBasic()
@@ -140,9 +140,9 @@ namespace IocPerformance.Adapters
             autofacContainerBuilder.Register(c => new ServiceB()).As<IServiceB>().SingleInstance();
             autofacContainerBuilder.Register(c => new ServiceC()).As<IServiceC>().SingleInstance();
 
-            autofacContainerBuilder.Register(c => new SubObjectA {ServiceA = c.Resolve<IServiceA>()}).As<ISubObjectA>();
-            autofacContainerBuilder.Register(c => new SubObjectB {ServiceB = c.Resolve<IServiceB>()}).As<ISubObjectB>();
-            autofacContainerBuilder.Register(c => new SubObjectC {ServiceC = c.Resolve<IServiceC>()}).As<ISubObjectC>();
+            autofacContainerBuilder.Register(c => new SubObjectA { ServiceA = c.Resolve<IServiceA>() }).As<ISubObjectA>();
+            autofacContainerBuilder.Register(c => new SubObjectB { ServiceB = c.Resolve<IServiceB>() }).As<ISubObjectB>();
+            autofacContainerBuilder.Register(c => new SubObjectC { ServiceC = c.Resolve<IServiceC>() }).As<ISubObjectC>();
 
             autofacContainerBuilder.Register(c => new ComplexPropertyObject1
                 {
@@ -232,7 +232,7 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            childLifetimeScope = rootLifetimeScope.BeginLifetimeScope(builder =>
+            this.childLifetimeScope = this.rootLifetimeScope.BeginLifetimeScope(builder =>
             {
                 builder.Register(c => new ScopedTransient()).As<ITransient1>();
 

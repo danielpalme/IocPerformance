@@ -54,7 +54,7 @@ namespace IocPerformance.Adapters
 
         private void RegisterAspNetCore()
         {
-            container.CreateServiceProvider(CreateServiceCollection());
+            this.container.CreateServiceProvider(this.CreateServiceCollection());
         }
 
         public override void PrepareBasic()

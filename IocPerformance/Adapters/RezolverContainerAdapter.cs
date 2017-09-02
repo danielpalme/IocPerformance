@@ -46,7 +46,7 @@ namespace IocPerformance.Adapters
             RegisterPropertyInjection(targets);
             RegisterOpenGeneric(targets);
             RegisterMultiple(targets);
-            targets.Populate(CreateServiceCollection());
+            targets.Populate(this.CreateServiceCollection());
 
             this.container = new Container(targets);
         }

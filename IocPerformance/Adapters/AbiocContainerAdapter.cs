@@ -11,7 +11,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class AbiocContainerAdapter : ContainerAdapterBase
     {
-        private AbiocContainer _compilationContext;
+        private AbiocContainer compilationContext;
 
         public override string PackageName => "abioc";
 
@@ -21,7 +21,7 @@ namespace IocPerformance.Adapters
 
         public override object Resolve(Type type)
         {
-            return _compilationContext.GeneratedContainer.GetService(type);
+            return this.compilationContext.GeneratedContainer.GetService(type);
         }
 
         public override void Dispose()
@@ -38,7 +38,7 @@ namespace IocPerformance.Adapters
             RegisterComplex(setup);
             RegisterMultiple(setup);
 
-            _compilationContext = setup.Construct(GetType().GetTypeInfo().Assembly);
+            this.compilationContext = setup.Construct(GetType().GetTypeInfo().Assembly);
         }
 
         public override void PrepareBasic()
@@ -49,7 +49,7 @@ namespace IocPerformance.Adapters
             RegisterStandard(setup);
             RegisterComplex(setup);
 
-            _compilationContext = setup.Construct(GetType().GetTypeInfo().Assembly);
+            this.compilationContext = setup.Construct(GetType().GetTypeInfo().Assembly);
         }
 
         private static void RegisterDummies(RegistrationSetup setup)

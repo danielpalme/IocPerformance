@@ -29,7 +29,6 @@ namespace IocPerformance.Classes.AspNet
 
         public void DoSomething()
         {
-            
         }
     }
 }
