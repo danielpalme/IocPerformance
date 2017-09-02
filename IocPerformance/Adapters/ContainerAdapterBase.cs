@@ -8,12 +8,20 @@ namespace IocPerformance.Adapters
 {
     public abstract class ContainerAdapterBase : IContainerAdapter
     {
-        public virtual string Version => XDocument
-      .Load("packages.config")
-      .Root
-      .Elements()
-      .First(e => e.Attribute("id").Value == this.PackageName)
-      .Attribute("version").Value;
+        public virtual string Version
+        {
+            get
+            {
+                XNamespace ns = "http://schemas.microsoft.com/developer/msbuild/2003";
+
+                return XDocument
+                   .Load("../../IocPerformance.csproj")
+                   .Root
+                   .Descendants(ns + "PackageReference")
+                   .First(e => e.Attribute("Include").Value == this.PackageName)
+                   .Element(ns + "Version").Value;
+            }
+        }
 
         public virtual string Name => this.PackageName;
 

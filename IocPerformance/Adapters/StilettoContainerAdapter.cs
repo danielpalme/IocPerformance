@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Ignored. Reason: Uses Fody which makes build process unstable
+using System;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;

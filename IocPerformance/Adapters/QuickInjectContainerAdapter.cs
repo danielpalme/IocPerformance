@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Ignored. Reason: Not installable in VS 2017 via Nuget
+using System;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
@@ -58,7 +59,7 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.PrepareBasic();            
+            this.PrepareBasic();
             this.RegisterPropertyInjection();
         }
 

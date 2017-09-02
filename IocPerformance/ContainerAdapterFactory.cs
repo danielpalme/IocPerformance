@@ -13,9 +13,7 @@ namespace IocPerformance
 
             var containers = typeof(ContainerAdapterFactory).Assembly.GetTypes()
                  .Where(t => t.IsClass && !t.IsAbstract && t.GetInterfaces().Contains(typeof(IContainerAdapter)))
-                 .Where(t => !t.Equals(typeof(NoContainerAdapter))
-                     && !t.Equals(typeof(SpeediocContainerAdapter)) // Causes exceptions at runtime
-                     && !t.Equals(typeof(StilettoContainerAdapter))) // Uses Fody which makes build process unstable
+                 .Where(t => !t.Equals(typeof(NoContainerAdapter)))
                  .Select(t => Activator.CreateInstance(t))
                  .Cast<IContainerAdapter>()
                  .OrderBy(c => c.Name);

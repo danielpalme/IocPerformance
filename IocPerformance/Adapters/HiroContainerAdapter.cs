@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Ignored. Reason: Container fails
+using System;
 using Hiro;
 using Hiro.Containers;
 using IocPerformance.Classes.Complex;

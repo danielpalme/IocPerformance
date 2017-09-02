@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Ignored. Reason: Not installable in VS 2017 via Nuget
+using System;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Properties;

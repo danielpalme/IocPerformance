@@ -1,14 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IocPerformance", "IocPerformance\IocPerformance.csproj", "{F73089D4-651F-4008-9EEA-CDFCACE60EAD}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9108A794-5959-40EB-BE60-A64E96418B6E}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IocPerformance", "IocPerformance\IocPerformance.csproj", "{C2CB4D53-6B69-4554-9DA6-759A69C528C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F73089D4-651F-4008-9EEA-CDFCACE60EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F73089D4-651F-4008-9EEA-CDFCACE60EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F73089D4-651F-4008-9EEA-CDFCACE60EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F73089D4-651F-4008-9EEA-CDFCACE60EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2CB4D53-6B69-4554-9DA6-759A69C528C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2CB4D53-6B69-4554-9DA6-759A69C528C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2CB4D53-6B69-4554-9DA6-759A69C528C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2CB4D53-6B69-4554-9DA6-759A69C528C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.2.1.505.2\lib\NET35
+		SolutionGuid = {F083836A-E19C-4421-AE5C-547529F2377D}
 	EndGlobalSection
 EndGlobal

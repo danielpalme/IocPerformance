@@ -15,6 +15,7 @@ using IocPerformance.Interception;
 using SimpleInjector;
 using SimpleInjector.Advanced;
 using SimpleInjector.Extensions.Interception;
+using SimpleInjector.Lifestyles;
 
 namespace IocPerformance.Adapters
 {
@@ -215,7 +216,7 @@ namespace IocPerformance.Adapters
 
             public void Prepare()
             {
-                this.lifetimeScope = this.container.BeginLifetimeScope();
+                this.lifetimeScope = ThreadScopedLifestyle.BeginScope(this.container);
             }
 
             public void Dispose()

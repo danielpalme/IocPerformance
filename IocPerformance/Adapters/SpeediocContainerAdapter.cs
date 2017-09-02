@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Ignored. Reason: Causes exceptions at runtime
+using System;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Standard;
