@@ -10,6 +10,8 @@ Twitter: [@danielpalme](http://twitter.com/danielpalme)
 
 Results
 -------
+Results with charts: https://danielpalme.github.io/IocPerformance/
+
 ### Explantions
 **First value**: Time of single-threaded execution in [ms]  
 **Second value**: Time of multi-threaded execution in [ms]  
