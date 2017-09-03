@@ -83,7 +83,6 @@
     <Compile Include="Adapters\SpringContainerAdapter.cs" />
     <Compile Include="Adapters\StashboxContainerAdapter.cs" />
     <Compile Include="Adapters\StructureMapContainerAdapter.cs" />
-    <Compile Include="Adapters\StyleMVVMContainerAdapter.cs" />
     <Compile Include="Adapters\UnityContainerAdapter.cs" />
     <Compile Include="Adapters\WindsorContainerAdapter.cs" />
     <Compile Include="BenchmarkFactory.cs" />
@@ -188,6 +187,7 @@
     <Compile Include="Output\ChartOutput.cs" />
     <Compile Include="Output\CsvOutput.cs" />
     <Compile Include="Output\CsvRateOutput.cs" />
+    <Compile Include="Output\GithubPagesOutput.cs" />
     <Compile Include="Output\HtmlOutput.cs" />
     <Compile Include="Output\IOutput.cs" />
     <Compile Include="Output\JsonOutput.cs" />
@@ -349,9 +349,6 @@
     </PackageReference>
     <PackageReference Include="StructureMap.Microsoft.DependencyInjection">
       <Version>1.4.0</Version>
-    </PackageReference>
-    <PackageReference Include="StyleMVVM">
-      <Version>3.1.5</Version>
     </PackageReference>
     <PackageReference Include="System.Composition">
       <Version>1.1.0</Version>

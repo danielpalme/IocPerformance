@@ -47,7 +47,6 @@ Results
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|950<br/>987|9711<br/>11447|26941<br/>23873|74745*<br/>57777|
 |**[Stashbox 2.5.4](https://github.com/z4kn4fein/stashbox)**|35<br/>42|46<br/>58|57<br/>80|75<br/>78|
 |**[StructureMap 4.5.2](http://structuremap.net/structuremap)**|1183<br/>656|1306<br/>800|3471<br/>2036|8933<br/>5270|
-|**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|441<br/>263|480<br/>299|748<br/>437|1409<br/>795|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|2517<br/>1375|3761<br/>1962|10161<br/>5372|27963<br/>16013|
 |**[Windsor 4.0.0](http://castleproject.org)**|516<br/>405|1967<br/>1164|5812<br/>3392|17496<br/>9639|
 ### Advanced Features
@@ -83,7 +82,6 @@ Results
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|52419<br/>51992|<br/>|<br/>|<br/>|<br/>|<br/>|43647<br/>43419|
 |**[Stashbox 2.5.4](https://github.com/z4kn4fein/stashbox)**|93<br/>95|57<br/>76|289<br/>203|63<br/>72|171702*<br/>98831*|654<br/>493|857<br/>552|
 |**[StructureMap 4.5.2](http://structuremap.net/structuremap)**|8781<br/>5165|2605<br/>1520|9131<br/>4919|<br/>|3355666*<br/>1794884*|44899<br/>27751|7820<br/>4270|
-|**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|1542<br/>914|1234<br/>708|3067<br/>2022|1432<br/>745|<br/>|<br/>|<br/>|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|29064<br/>16150|<br/>|43685<br/>23347|<br/>|**33727**<br/>**19896**|<br/>|93122*<br/>49665|
 |**[Windsor 4.0.0](http://castleproject.org)**|34788<br/>19114|14730<br/>8383|16344<br/>9298|<br/>|233653*<br/>127558*|<br/>|13738<br/>7473|
 ### Prepare
@@ -119,7 +117,6 @@ Results
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|25014<br/>|24884<br/>|
 |**[Stashbox 2.5.4](https://github.com/z4kn4fein/stashbox)**|71<br/>|522<br/>|
 |**[StructureMap 4.5.2](http://structuremap.net/structuremap)**|1447<br/>|7360<br/>|
-|**[StyleMVVM 3.1.5](https://stylemvvm.codeplex.com)**|69968<br/>|71562<br/>|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|588<br/>|2209<br/>|
 |**[Windsor 4.0.0](http://castleproject.org)**|2985<br/>|3137<br/>|
 ### Charts

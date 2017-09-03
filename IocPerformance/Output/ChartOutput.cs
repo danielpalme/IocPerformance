@@ -16,34 +16,7 @@ namespace IocPerformance.Output
         /// <param name="benchmarkResults">The benchmark results.</param>
         public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
-            if (!Directory.Exists("output"))
-            {
-                Directory.CreateDirectory("output");
-            }
-
-            int counter = 0;
-
-            foreach (var benchmark in benchmarks)
-            {
-                var resultsOfBenchmark = benchmarkResults.Where(r => r.BenchmarkInfo.Name == benchmark.Name);
-
-                CreateBenchmarkChart(
-                    benchmark.Name,
-                    string.Format("output\\{0:00}-{1}.png", ++counter, benchmark.Name),
-                    resultsOfBenchmark
-                        .Where(r => r.SingleThreadedResult.Time.HasValue)
-                        .Where(r => r.ContainerInfo.Name != "No")
-                        .OrderByDescending(r => r.SingleThreadedResult.Time.Value)
-                        .Concat(resultsOfBenchmark.Where(r => r.ContainerInfo.Name == "No"))
-                        .Select(r => r));
-            }
-
-            CreateOverviewChart(benchmarks, benchmarkResults, "Basic", 0, 6000);
-            CreateOverviewChart(benchmarks, benchmarkResults, "Basic", 6000, long.MaxValue);
-            CreateOverviewChart(benchmarks, benchmarkResults, "Advanced", 0, 25000);
-            CreateOverviewChart(benchmarks, benchmarkResults, "Advanced", 25000, long.MaxValue);
-            CreateOverviewChart(benchmarks, benchmarkResults, "Prepare", 0, 25000);
-            CreateOverviewChart(benchmarks, benchmarkResults, "Prepare", 25000, long.MaxValue);
+            this.Create(benchmarks, benchmarkResults, "output");
 
             // Blog images
             if (!Directory.Exists("output\\blog"))
@@ -56,7 +29,39 @@ namespace IocPerformance.Output
             File.Copy("output\\Overview_Prepare_Fast.png", "output\\blog\\67b056a5-9da8-40b4-9ae6-0c838cdac180.png", true);
         }
 
-        private static void CreateOverviewChart(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string type, long minTime, long maxTime)
+        public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string directory)
+        {
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            int counter = 0;
+
+            foreach (var benchmark in benchmarks)
+            {
+                var resultsOfBenchmark = benchmarkResults.Where(r => r.BenchmarkInfo.Name == benchmark.Name);
+
+                CreateBenchmarkChart(
+                    benchmark.Name,
+                    Path.Combine(directory, string.Format("{0:00}-{1}.png", ++counter, benchmark.Name)),
+                    resultsOfBenchmark
+                        .Where(r => r.SingleThreadedResult.Time.HasValue)
+                        .Where(r => r.ContainerInfo.Name != "No")
+                        .OrderByDescending(r => r.SingleThreadedResult.Time.Value)
+                        .Concat(resultsOfBenchmark.Where(r => r.ContainerInfo.Name == "No"))
+                        .Select(r => r));
+            }
+
+            CreateOverviewChart(benchmarks, benchmarkResults, "Basic", 0, 6000, directory);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Basic", 6000, long.MaxValue, directory);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Advanced", 0, 25000, directory);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Advanced", 25000, long.MaxValue, directory);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Prepare", 0, 25000, directory);
+            CreateOverviewChart(benchmarks, benchmarkResults, "Prepare", 25000, long.MaxValue, directory);
+        }
+
+        private static void CreateOverviewChart(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string type, long minTime, long maxTime, string directory)
         {
             benchmarkResults = benchmarkResults.Where(b => b.BenchmarkInfo.FullName.Contains(type)).ToArray();
             benchmarks = benchmarks.Where(b => b.GetType().FullName.Contains(type)).ToArray();
@@ -123,7 +128,7 @@ namespace IocPerformance.Output
                 }
             }
 
-            chart.SaveImage("output\\Overview_" + type + ".png", ChartImageFormat.Png);
+            chart.SaveImage(Path.Combine(directory, "Overview_" + type + ".png"), ChartImageFormat.Png);
         }
 
         private static void CreateBenchmarkChart(string name, string filename, IEnumerable<BenchmarkResult> results)

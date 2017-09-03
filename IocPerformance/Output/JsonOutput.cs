@@ -9,14 +9,19 @@ namespace IocPerformance.Output
     {
         public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
-            if (!Directory.Exists("output"))
+            this.Create(benchmarks, benchmarkResults, "output");
+        }
+
+        public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults, string directory)
+        {
+            if (!Directory.Exists(directory))
             {
-                Directory.CreateDirectory("output");
+                Directory.CreateDirectory(directory);
             }
 
             var jsonResult = JsonConvert.SerializeObject(benchmarkResults, Formatting.Indented);
 
-            File.WriteAllText("output\\result.json", jsonResult);
+            File.WriteAllText(Path.Combine(directory, "result.json"), jsonResult);
         }
     }
 }
