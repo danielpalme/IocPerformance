@@ -42,7 +42,7 @@ namespace IocPerformance.Output
                     writer.Write("<h1>Ioc Performance - Results</h1>");
                     writer.Write("<h2>Overview</h2>");
                     writer.Write("<div class=\"table-responsive\">");
-                    writer.Write("<table class=\"table table-condensed table-striped\">");
+                    writer.Write("<table class=\"table table-sm table-striped\">");
 
                     writer.Write("<tr>");
                     writer.Write("<th></th>");
