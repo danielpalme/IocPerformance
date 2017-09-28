@@ -158,7 +158,7 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ImportConditionObject1>();
             this.container.RegisterType<ImportConditionObject2>();
             this.container.RegisterType<ImportConditionObject3>();
-            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject>(context => context
+            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject1>(context => context
                 .WhenDependantIs<ImportConditionObject1>());
             this.container.RegisterType<IExportConditionInterface, ExportConditionalObject2>(context => context
                 .WhenDependantIs<ImportConditionObject2>());
