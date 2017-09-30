@@ -27,7 +27,6 @@ Results
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|66<br/>66|126<br/>99|249<br/>171|602<br/>350|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|118<br/>90|137<br/>110|381<br/>251|1124<br/>616|
 |**[Grace 6.3.0](https://github.com/ipjohnson/Grace)**|27<br/>41|36<br/>63|51<br/>79|64<br/>78|
-|**[Griffin 1.1.4](https://github.com/jgauffin/griffin.container)**|280<br/>182|304<br/>203|657<br/>431|1888<br/>1114|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|40<br/>48|51<br/>62|65<br/>88|103<br/>95|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|75<br/>60|128<br/>97|145<br/>124|197<br/>135|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|184<br/>189|2191<br/>1301|26718<br/>31570|151128*<br/>188142*|
@@ -48,7 +47,7 @@ Results
 |**[Stashbox 2.5.4](https://github.com/z4kn4fein/stashbox)**|35<br/>42|46<br/>58|57<br/>80|75<br/>78|
 |**[StructureMap 4.5.2](http://structuremap.net/structuremap)**|1183<br/>656|1306<br/>800|3471<br/>2036|8933<br/>5270|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|2517<br/>1375|3761<br/>1962|10161<br/>5372|27963<br/>16013|
-|**[Windsor 4.0.0](http://castleproject.org)**|516<br/>405|1967<br/>1164|5812<br/>3392|17496<br/>9639|
+|**[Windsor 4.1.0](http://castleproject.org)**|459<br/>289|1772<br/>1050|6018<br/>3601|19319<br/>10972|
 ### Advanced Features
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Asp Net Core**|**Interception With Proxy**|
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|---------------:|--------------------------:|
@@ -62,7 +61,6 @@ Results
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1090<br/>639|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Grace 6.3.0](https://github.com/ipjohnson/Grace)**|83<br/>96|**49**<br/>**68**|269<br/>198|**54**<br/>**64**|48837<br/>29309|**511**<br/>**421**|906<br/>618|
-|**[Griffin 1.1.4](https://github.com/jgauffin/griffin.container)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|741<br/>443|<br/>|1860<br/>1198|<br/>|<br/>|<br/>|**774**<br/>**509**|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|345<br/>227|147<br/>120|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2289<br/>1755|15862<br/>14477|34754<br/>20480|<br/>|<br/>|<br/>|<br/>|
@@ -83,7 +81,7 @@ Results
 |**[Stashbox 2.5.4](https://github.com/z4kn4fein/stashbox)**|93<br/>95|57<br/>76|289<br/>203|63<br/>72|171702*<br/>98831*|654<br/>493|857<br/>552|
 |**[StructureMap 4.5.2](http://structuremap.net/structuremap)**|8781<br/>5165|2605<br/>1520|9131<br/>4919|<br/>|3355666*<br/>1794884*|44899<br/>27751|7820<br/>4270|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|29064<br/>16150|<br/>|43685<br/>23347|<br/>|**33727**<br/>**19896**|<br/>|93122*<br/>49665|
-|**[Windsor 4.0.0](http://castleproject.org)**|34788<br/>19114|14730<br/>8383|16344<br/>9298|<br/>|233653*<br/>127558*|<br/>|13738<br/>7473|
+|**[Windsor 4.1.0](http://castleproject.org)**|39708<br/>20526|15333<br/>8640|15709<br/>9482|<br/>|236090*<br/>136957*|<br/>|16538<br/>7592|
 ### Prepare
 |**Container**|**Prepare And Register**|**Prepare And Register And Simple Resolve**|
 |:------------|-----------------------:|------------------------------------------:|
@@ -97,7 +95,6 @@ Results
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|6390<br/>|6336<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|**8**<br/>|**8**<br/>|
 |**[Grace 6.3.0](https://github.com/ipjohnson/Grace)**|153<br/>|869<br/>|
-|**[Griffin 1.1.4](https://github.com/jgauffin/griffin.container)**|8442<br/>|7933<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|54925<br/>|55463<br/>|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|1397<br/>|2016<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|226<br/>|204<br/>|
@@ -118,7 +115,7 @@ Results
 |**[Stashbox 2.5.4](https://github.com/z4kn4fein/stashbox)**|71<br/>|522<br/>|
 |**[StructureMap 4.5.2](http://structuremap.net/structuremap)**|1447<br/>|7360<br/>|
 |**[Unity 4.0.1](http://msdn.microsoft.com/unity)**|588<br/>|2209<br/>|
-|**[Windsor 4.0.0](http://castleproject.org)**|2985<br/>|3137<br/>|
+|**[Windsor 4.1.0](http://castleproject.org)**|3098<br/>|3090<br/>|
 ### Charts
 ![Basic features](http://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)
 ![Advanced features](http://www.palmmedia.de/content/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)
