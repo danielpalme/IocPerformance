@@ -189,7 +189,7 @@ namespace IocPerformance.Adapters
         private void RegisterConditional()
         {
             this.container[typeof(ImportConditionObject1)] =
-                () => new ImportConditionObject1(new ExportConditionalObject());
+                () => new ImportConditionObject1(new ExportConditionalObject1());
 
             this.container[typeof(ImportConditionObject2)] =
                 () => new ImportConditionObject2(new ExportConditionalObject2());

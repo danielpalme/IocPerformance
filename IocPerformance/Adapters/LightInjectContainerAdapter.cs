@@ -143,10 +143,10 @@ namespace IocPerformance.Adapters
 
         private void RegisterConditional()
         {
-            this.container.Register<IExportConditionInterface, ExportConditionalObject>("ExportConditionalObject");
+            this.container.Register<IExportConditionInterface, ExportConditionalObject1>("ExportConditionalObject1");
             this.container.Register<IExportConditionInterface, ExportConditionalObject2>("ExportConditionalObject2");
             this.container.Register<IExportConditionInterface, ExportConditionalObject3>("ExportConditionalObject3");
-            this.container.Register(f => new ImportConditionObject1(f.GetInstance<IExportConditionInterface>("ExportConditionalObject")));
+            this.container.Register(f => new ImportConditionObject1(f.GetInstance<IExportConditionInterface>("ExportConditionalObject1")));
             this.container.Register(f => new ImportConditionObject2(f.GetInstance<IExportConditionInterface>("ExportConditionalObject2")));
             this.container.Register(f => new ImportConditionObject3(f.GetInstance<IExportConditionInterface>("ExportConditionalObject3")));
         }

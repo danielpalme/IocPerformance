@@ -15,10 +15,10 @@ namespace IocPerformance.Classes.Conditions
                 throw new ArgumentNullException(nameof(exportConditionInterface));
             }
 
-            if (exportConditionInterface.GetType() != typeof(ExportConditionalObject))
+            if (exportConditionInterface.GetType() != typeof(ExportConditionalObject1))
             {
                 throw new ArgumentException(
-                    "Should have imported ExportConditionalObject got: " + exportConditionInterface.GetType().FullName,
+                    "Should have imported ExportConditionalObject1 got: " + exportConditionInterface.GetType().FullName,
 nameof(exportConditionInterface));
             }
 

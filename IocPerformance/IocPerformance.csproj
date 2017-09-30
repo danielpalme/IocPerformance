@@ -124,7 +124,7 @@
     <Compile Include="Classes\Complex\SubObjectThree.cs" />
     <Compile Include="Classes\Complex\SubObjectTwo.cs" />
     <Compile Include="Classes\Complex\ThirdService.cs" />
-    <Compile Include="Classes\Conditional\ExportConditionalObject.cs" />
+    <Compile Include="Classes\Conditional\ExportConditionalObject1.cs" />
     <Compile Include="Classes\Conditional\ExportConditionalObject2.cs" />
     <Compile Include="Classes\Conditional\ExportConditionalObject3.cs" />
     <Compile Include="Classes\Conditional\IExportConditionInterface.cs" />

@@ -134,7 +134,7 @@ namespace IocPerformance.Adapters
             this.container.Bind<ImportConditionObject2>().To<ImportConditionObject2>().InTransientScope();
             this.container.Bind<ImportConditionObject3>().To<ImportConditionObject3>().InTransientScope();
             this.container.Bind<IExportConditionInterface>()
-                .To<ExportConditionalObject>()
+                .To<ExportConditionalObject1>()
                 .WhenInjectedInto<ImportConditionObject1>()
                 .InTransientScope();
             this.container.Bind<IExportConditionInterface>()

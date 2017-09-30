@@ -164,7 +164,7 @@ namespace IocPerformance.Adapters
                 .Use(x =>
                      {
                          x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject1))
-                             .Use<ExportConditionalObject>();
+                             .Use<ExportConditionalObject1>();
                          x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject2))
                              .Use<ExportConditionalObject2>();
                          x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject3))

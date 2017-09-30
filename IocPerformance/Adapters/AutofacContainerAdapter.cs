@@ -199,10 +199,10 @@ namespace IocPerformance.Adapters
 
         private static void RegisterConditional(ContainerBuilder autofacContainerBuilder)
         {
-            autofacContainerBuilder.Register(c => new ExportConditionalObject()).Named<IExportConditionInterface>("ExportConditionalObject");
+            autofacContainerBuilder.Register(c => new ExportConditionalObject1()).Named<IExportConditionInterface>("ExportConditionalObject1");
             autofacContainerBuilder.Register(c => new ExportConditionalObject2()).Named<IExportConditionInterface>("ExportConditionalObject2");
             autofacContainerBuilder.Register(c => new ExportConditionalObject3()).Named<IExportConditionInterface>("ExportConditionalObject3");
-            autofacContainerBuilder.Register(c => new ImportConditionObject1(c.ResolveNamed<IExportConditionInterface>("ExportConditionalObject")));
+            autofacContainerBuilder.Register(c => new ImportConditionObject1(c.ResolveNamed<IExportConditionInterface>("ExportConditionalObject1")));
             autofacContainerBuilder.Register(c => new ImportConditionObject2(c.ResolveNamed<IExportConditionInterface>("ExportConditionalObject2")));
             autofacContainerBuilder.Register(c => new ImportConditionObject3(c.ResolveNamed<IExportConditionInterface>("ExportConditionalObject3")));
         }

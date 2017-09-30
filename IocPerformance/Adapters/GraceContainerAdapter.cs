@@ -104,7 +104,7 @@ namespace IocPerformance.Adapters
                     ioc.Export<ImportConditionObject2>();
                     ioc.Export<ImportConditionObject3>();
 
-                    ioc.Export<ExportConditionalObject>()
+                    ioc.Export<ExportConditionalObject1>()
                         .As<IExportConditionInterface>()
                         .When.InjectedInto<ImportConditionObject1>();
 
