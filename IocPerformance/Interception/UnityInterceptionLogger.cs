@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Linq;
-using Microsoft.Practices.Unity.InterceptionExtension;
+using Unity.Interception.PolicyInjection.Pipeline;
 
 namespace IocPerformance.Interception
 {

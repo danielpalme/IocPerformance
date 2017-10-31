@@ -16,7 +16,7 @@ namespace IocPerformance.Adapters
 
         public override string PackageName => "Mef";
 
-        public override string Url => "https://mef.codeplex.com";
+        public override string Url => "https://github.com/MicrosoftArchive/mef";
 
         public override bool SupportsPropertyInjection => true;
 
@@ -64,7 +64,7 @@ namespace IocPerformance.Adapters
             this.container = new CompositionContainer(
                 new AggregateCatalog(basic.Item1, basic.Item2, basic.Item3, propertyInjectionCatalog, multipleCatalog, openGenericCatalog), true);
         }
-        
+
         public override void PrepareBasic()
         {
             var basic = this.CreateBasic();
@@ -88,12 +88,12 @@ namespace IocPerformance.Adapters
                  typeof(DummyTen));
 
             var standardCatalog = new TypeCatalog(
-                typeof(Singleton1), 
-                typeof(Singleton2), 
-                typeof(Singleton3), 
-                typeof(Transient1), 
-                typeof(Transient2), 
-                typeof(Transient3), 
+                typeof(Singleton1),
+                typeof(Singleton2),
+                typeof(Singleton3),
+                typeof(Transient1),
+                typeof(Transient2),
+                typeof(Transient3),
                 typeof(Combined1),
                 typeof(Combined2),
                 typeof(Combined3));

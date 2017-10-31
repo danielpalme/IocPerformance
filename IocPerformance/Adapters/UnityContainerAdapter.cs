@@ -6,8 +6,9 @@ using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
-using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.InterceptionExtension;
+using Unity;
+using Unity.Interception.Interceptors.InstanceInterceptors.InterfaceInterception;
+using Unity.Lifetime;
 
 namespace IocPerformance.Adapters
 {
@@ -17,7 +18,7 @@ namespace IocPerformance.Adapters
 
         public override string PackageName => "Unity";
 
-        public override string Url => "http://msdn.microsoft.com/unity";
+        public override string Url => "https://github.com/unitycontainer/unity";
 
         public override bool SupportsInterception => true;
 
@@ -46,7 +47,7 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             this.container = new UnityContainer();
-            this.container.AddNewExtension<Microsoft.Practices.Unity.InterceptionExtension.Interception>();
+            this.container.AddNewExtension<Unity.Interception.ContainerIntegration.Interception>();
 
             this.RegisterBasic();
 
@@ -139,13 +140,13 @@ namespace IocPerformance.Adapters
         private void RegisterInterceptor()
         {
             this.container.RegisterType<ICalculator1, Calculator1>(new TransientLifetimeManager())
-                .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
+                .Configure<Unity.Interception.ContainerIntegration.Interception>()
                 .SetInterceptorFor<ICalculator1>(new InterfaceInterceptor());
             this.container.RegisterType<ICalculator2, Calculator2>(new TransientLifetimeManager())
-                .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
+                .Configure<Unity.Interception.ContainerIntegration.Interception>()
                 .SetInterceptorFor<ICalculator2>(new InterfaceInterceptor());
             this.container.RegisterType<ICalculator3, Calculator3>(new TransientLifetimeManager())
-                .Configure<Microsoft.Practices.Unity.InterceptionExtension.Interception>()
+                .Configure<Unity.Interception.ContainerIntegration.Interception>()
                 .SetInterceptorFor<ICalculator3>(new InterfaceInterceptor());
         }
     }

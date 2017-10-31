@@ -6,7 +6,7 @@ using MugenAttr = MugenInjection.Attributes;
 using NinjectAttr = Ninject;
 using StashBoxAttr = Stashbox.Attributes;
 using StructureAttr = StructureMap.Attributes;
-using UnityAttr = Microsoft.Practices.Unity;
+using UnityAttr = Unity.Attributes;
 
 namespace IocPerformance.Classes.Properties
 {
