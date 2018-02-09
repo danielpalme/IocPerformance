@@ -33,7 +33,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsConditional => true;
 
-        public override bool SupportAspNetCore => false;
+        public override bool SupportAspNetCore => true;
 
         public override bool SupportsChildContainer => true;
 
@@ -190,7 +190,10 @@ namespace IocPerformance.Adapters
 
         private void RegisterAspCore()
         {
-
+            var factory = new ServiceProviderFactory(this.container);
+            var builder = factory.CreateBuilder(this.CreateServiceCollection());
+            this.container = (IUnityContainer)factory.CreateServiceProvider(builder)
+                                                     .GetService(typeof(IUnityContainer));
         }
 
         // This should be called when all other tests are done before Interception is tested
