@@ -33,6 +33,8 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsConditional => true;
 
+        public override bool SupportAspNetCore => false;
+
         public override bool SupportsChildContainer => true;
 
         public override object Resolve(Type type) => container.Resolve(type, null, null);
@@ -61,6 +63,7 @@ namespace IocPerformance.Adapters
             this.RegisterPropertyInjection();
             this.RegisterMultiple();
             this.RegisterConditional();
+            this.RegisterAspCore();
             // this.RegisterInterceptor();
         }
 
@@ -185,6 +188,11 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ImportConditionObject3>(new InjectionFactory(c => new ImportConditionObject3(c.Resolve<IExportConditionInterface>("ExportConditionalObject3"))));
         }
 
+        private void RegisterAspCore()
+        {
+
+        }
+
         // This should be called when all other tests are done before Interception is tested
         private void RegisterInterceptor()
         {
@@ -222,6 +230,6 @@ namespace IocPerformance.Adapters
             this.childContainer.RegisterType(typeof(ITransient1), typeof(ScopedTransient));
         }
 
-        public object Resolve(Type resolveType) => this.childContainer.Resolve(resolveType);
+        public object Resolve(Type resolveType) => this.childContainer.Resolve(type, null, null);
     }
 }
