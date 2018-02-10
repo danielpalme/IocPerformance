@@ -47,7 +47,7 @@ Results
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|950<br/>987|9711<br/>11447|26941<br/>23873|74745*<br/>57777|
 |**[Stashbox 2.5.6](https://github.com/z4kn4fein/stashbox)**|30<br/>46|37<br/>68|55<br/>87|73<br/>84|
 |**[StructureMap 4.6.1](http://structuremap.net/structuremap)**|1169<br/>739|1367<br/>922|3741<br/>2261|9203<br/>5407|
-|**[Unity 5.5.5](https://github.com/unitycontainer/unity)**|1609<br/>1135|2971<br/>1842|7808<br/>4980|21986<br/>14708|
+|**[Unity 5.5.8](https://github.com/unitycontainer/unity)**|1086<br/>777|2084<br/>1305|5666<br/>3657|16360<br/>11002|
 |**[Windsor 4.1.0](http://castleproject.org)**|459<br/>289|1772<br/>1050|6018<br/>3601|19319<br/>10972|
 ### Advanced Features
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Asp Net Core**|**Interception With Proxy**|
@@ -82,7 +82,7 @@ Results
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|52419<br/>51992|<br/>|<br/>|<br/>|<br/>|<br/>|43647<br/>43419|
 |**[Stashbox 2.5.6](https://github.com/z4kn4fein/stashbox)**|109<br/>114|53<br/>83|274<br/>209|62<br/>73|172632*<br/>102173*|655<br/>852|860<br/>574|
 |**[StructureMap 4.6.1](http://structuremap.net/structuremap)**|9409<br/>5581|2543<br/>1599|9224<br/>5432|<br/>|3389333*<br/>1980624*|48834<br/>28827|8300<br/>4778|
-|**[Unity 5.5.5](https://github.com/unitycontainer/unity)**|22223<br/>14603|13214<br/>7747|39380<br/>22556|6430<br/>3915|**36639**<br/>**22696**|<br/>|<br/>|
+|**[Unity 5.5.8](https://github.com/unitycontainer/unity)**|16965<br/>10925|11360<br/>6267|33845<br/>19406|4687<br/>2814|**33502**<br/>**21859**|58843<br/>41860|<br/>|
 |**[Windsor 4.1.0](http://castleproject.org)**|39708<br/>20526|15333<br/>8640|15709<br/>9482|<br/>|236090*<br/>136957*|<br/>|16538<br/>7592|
 ### Prepare
 |**Container**|**Prepare And Register**|**Prepare And Register And Simple Resolve**|
@@ -117,7 +117,7 @@ Results
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|25014<br/>|24884<br/>|
 |**[Stashbox 2.5.6](https://github.com/z4kn4fein/stashbox)**|71<br/>|250<br/>|
 |**[StructureMap 4.6.1](http://structuremap.net/structuremap)**|1536<br/>|7909<br/>|
-|**[Unity 5.5.5](https://github.com/unitycontainer/unity)**|146<br/>|1097<br/>|
+|**[Unity 5.5.8](https://github.com/unitycontainer/unity)**|142<br/>|951<br/>|
 |**[Windsor 4.1.0](http://castleproject.org)**|3098<br/>|3090<br/>|
 ### Charts
 ![Basic features](http://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)

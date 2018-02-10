@@ -12,6 +12,7 @@ using Unity;
 using Unity.Injection;
 using Unity.Interception.Interceptors.InstanceInterceptors.InterfaceInterception;
 using Unity.Lifetime;
+using Unity.Microsoft.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
@@ -192,7 +193,7 @@ namespace IocPerformance.Adapters
         {
             var factory = new ServiceProviderFactory(this.container);
             var builder = factory.CreateBuilder(this.CreateServiceCollection());
-            this.container = (IUnityContainer)factory.CreateServiceProvider(builder)
+            this.container = (UnityContainer)factory.CreateServiceProvider(builder)
                                                      .GetService(typeof(IUnityContainer));
         }
 
@@ -233,6 +234,6 @@ namespace IocPerformance.Adapters
             this.childContainer.RegisterType(typeof(ITransient1), typeof(ScopedTransient));
         }
 
-        public object Resolve(Type resolveType) => this.childContainer.Resolve(type, null, null);
+        public object Resolve(Type resolveType) => this.childContainer.Resolve(resolveType, null, null);
     }
 }
