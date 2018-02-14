@@ -19,9 +19,9 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsMultiple => true;
 
-        public override object Resolve(Type type)
+        public override T Resolve<T>()
         {
-            return this.compilationContext.GeneratedContainer.GetService(type);
+            return this.compilationContext.GeneratedContainer.GetService<T>();
         }
 
         public override void Dispose()

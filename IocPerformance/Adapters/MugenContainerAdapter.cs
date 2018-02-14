@@ -42,7 +42,7 @@ namespace IocPerformance.Adapters
             return new MugenChildContainerAdapter(injector);
         }
 
-        public override object Resolve(Type type) => this.container.Get(type);
+        public override T Resolve<T>() => this.container.Get<T>();
 
         public override void Dispose()
         {
@@ -192,6 +192,6 @@ namespace IocPerformance.Adapters
             this.injector.Bind<ICombined3>().To<ScopedCombined3>().InSingletonScope();
         }
 
-        public object Resolve(Type resolveType) => this.injector.Get(resolveType);
+        public T Resolve<T>() where T : class => this.injector.Get<T>();
     }
 }

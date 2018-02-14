@@ -38,7 +38,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsChildContainer => true;
 
-        public override object Resolve(Type type) => container.Resolve(type, null, null);
+        public override T Resolve<T>() => container.Resolve<T>();
 
         public override void Dispose()
         {
@@ -234,6 +234,6 @@ namespace IocPerformance.Adapters
             this.childContainer.RegisterType(typeof(ITransient1), typeof(ScopedTransient));
         }
 
-        public object Resolve(Type resolveType) => this.childContainer.Resolve(resolveType, null, null);
+        public T Resolve<T>() where T : class => this.childContainer.Resolve<T>();
     }
 }

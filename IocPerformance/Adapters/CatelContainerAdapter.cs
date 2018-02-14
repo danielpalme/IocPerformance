@@ -27,7 +27,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsInterception => true;
 
-        public override object Resolve(Type type) => this.container.ResolveType(type);
+        public override T Resolve<T>() => this.container.ResolveType<T>();
 
         public override void Dispose()
         {

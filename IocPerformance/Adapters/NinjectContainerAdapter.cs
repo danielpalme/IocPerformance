@@ -36,7 +36,7 @@ namespace IocPerformance.Adapters
 
         public override IChildContainerAdapter CreateChildContainerAdapter() => new NInjectChildContainerAdapter(new ChildKernel(this.container));
 
-        public override object Resolve(Type type) => this.container.Get(type);
+        public override T Resolve<T>() => this.container.Get<T>();
 
         public override void Dispose()
         {
@@ -192,6 +192,6 @@ namespace IocPerformance.Adapters
             this.childKernel.Bind<ICombined3>().To<ScopedCombined3>();
         }
 
-        public object Resolve(Type resolveType) => this.childKernel.Get(resolveType);
+        public T Resolve<T>() where T : class => this.childKernel.Get<T>();
     }
 }

@@ -52,7 +52,7 @@ namespace IocPerformance.Adapters
         //     return rules.WithFactorySelector(Rules.PreferKeyOverDefault(ChildContainerScopeName));
         // }
 
-        public override object Resolve(Type type) => this.container.Resolve(type);
+        public override T Resolve<T>() => this.container.Resolve<T>();
 
         public override void Dispose()
         {
@@ -225,7 +225,7 @@ namespace IocPerformance.Adapters
                 this.child.Register<ITransient1, ScopedTransient>();
             }
 
-            public object Resolve(Type resolveType) => this.child.Resolve(resolveType, false);
+            public T Resolve<T>() where T : class => this.child.Resolve<T>(false);
         }
     }
 }

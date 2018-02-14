@@ -33,7 +33,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsChildContainer => true;
 
-        public override object Resolve(Type type) => this.container.Resolve(type);
+        public override T Resolve<T>() => this.container.Resolve<T>();
 
         public override void Dispose()
         {
@@ -185,6 +185,6 @@ namespace IocPerformance.Adapters
             this.container.Register(Component.For<ICombined3>().ImplementedBy<ScopedCombined3>());
         }
 
-        public object Resolve(Type resolveType) => this.container.Resolve(resolveType);
+        public T Resolve<T>() where T : class => this.container.Resolve<T>();
     }
 }

@@ -39,7 +39,7 @@ namespace IocPerformance.Adapters
 
         public override IChildContainerAdapter CreateChildContainerAdapter() => new AutofacChildContainerAdapter(this.container);
 
-        public override object Resolve(Type type) => this.container.Resolve(type);
+        public override T Resolve<T>() => this.container.Resolve<T>();
 
         public override void Dispose()
         {
@@ -242,6 +242,6 @@ namespace IocPerformance.Adapters
             });
         }
 
-        public object Resolve(Type resolveType) => this.childLifetimeScope.Resolve(resolveType);
+        public T Resolve<T>() where T : class => this.childLifetimeScope.Resolve<T>();
     }
 }

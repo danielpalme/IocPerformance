@@ -19,6 +19,6 @@ namespace IocPerformance.Adapters
     {
         void Prepare();
 
-        object Resolve(Type resolveType);
+        T Resolve<T>() where T : class;
     }
 }

@@ -12,9 +12,9 @@ namespace IocPerformance.Benchmarks.Advanced
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {
-            var importMultiple1 = (ImportMultiple1)container.Resolve(typeof(ImportMultiple1));
-            var importMultiple2 = (ImportMultiple2)container.Resolve(typeof(ImportMultiple2));
-            var importMultiple3 = (ImportMultiple3)container.Resolve(typeof(ImportMultiple3));
+            var importMultiple1 = container.Resolve<ImportMultiple1>();
+            var importMultiple2 = container.Resolve<ImportMultiple2>();
+            var importMultiple3 = container.Resolve<ImportMultiple3>();
         }
 
         public override void Verify(Adapters.IContainerAdapter container)

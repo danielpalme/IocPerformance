@@ -22,10 +22,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type)
-        {
-            return this.resolver.Resolve(type);
-        }
+        public override T Resolve<T>() => this.resolver.Resolve<T>();
 
         public override void Dispose()
         {

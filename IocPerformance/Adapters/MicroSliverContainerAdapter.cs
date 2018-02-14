@@ -8,7 +8,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class MicroSliverContainerAdapter : ContainerAdapterBase
     {
-        private IoC container;
+        private MicroSliver.IoC container;
 
         public override string PackageName => "MicroSliver";
 
@@ -17,7 +17,7 @@ namespace IocPerformance.Adapters
             get { return "  "; }
         }
 
-        public override object Resolve(Type type) => this.container.GetByType(type);
+        public override T Resolve<T>() => this.container.Get<T>();
 
         public override void Dispose()
         {
@@ -27,7 +27,7 @@ namespace IocPerformance.Adapters
 
         public override void PrepareBasic()
         {
-            this.container = new IoC();
+            this.container = new MicroSliver.IoC();
 
             this.RegisterDummies();
             this.RegisterStandard();

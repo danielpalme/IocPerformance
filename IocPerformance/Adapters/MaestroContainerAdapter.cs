@@ -67,7 +67,7 @@ namespace IocPerformance.Adapters
             this.container = null;
         }
 
-        public override object Resolve(Type type) => this.container.Get(type);
+        public override T Resolve<T>() => this.container.Get<T>();
 
         private static void RegisterBasic(IContainerExpression x)
         {
