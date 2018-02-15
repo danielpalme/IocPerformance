@@ -32,7 +32,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportAspNetCore => true;
 
-        public override object Resolve(Type type) => this.container.GetInstance(type);
+        public override T Resolve<T>() => this.container.GetInstance<T>();
 
         public override void Dispose()
         {
@@ -214,6 +214,6 @@ namespace IocPerformance.Adapters
                                      });
         }
 
-        public object Resolve(Type resolveType) => this.container.GetInstance(resolveType);
+        public T Resolve<T>() where T : class => this.container.GetInstance<T>();
     }
 }

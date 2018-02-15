@@ -26,7 +26,7 @@ namespace IocPerformance.Adapters
 
         public override string Version => typeof(CompositionContainer).Assembly.GetName().Version.ToString();
 
-        public override object Resolve(Type type) => this.container.GetExports(type, null, null).First().Value;
+        public override T Resolve<T>() => this.container.GetExports<T>().First().Value;
 
         public override void Dispose()
         {

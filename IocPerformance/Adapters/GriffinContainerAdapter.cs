@@ -25,18 +25,17 @@ namespace IocPerformance.Adapters
         // It says it supports property injection but there is no documentation on how to turn it on and it doesn't work out of the box so ... it's turned off
         public override bool SupportsPropertyInjection => false;
 
-        public override object Resolve(Type type)
+        public override T Resolve<T>()
         {
+            var type = typeof(T);
             if (type.Equals(typeof(ICalculator1))
                 || type.Equals(typeof(ICalculator2))
                 || type.Equals(typeof(ICalculator3)))
             {
-                return this.containerWithLoggingInterception.Resolve(type);
+                return (T)this.containerWithLoggingInterception.Resolve(type);
             }
-            else
-            {
-                return this.container.Resolve(type);
-            }
+
+            return this.container.Resolve<T>();
         }
 
         public override void Dispose()

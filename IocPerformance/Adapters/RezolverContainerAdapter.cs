@@ -31,7 +31,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportAspNetCore => true;
 
-        public override object Resolve(Type type) => this.container.Resolve(type);
+        public override T Resolve<T>() => this.container.Resolve<T>();
 
         public override void Dispose()
         {
@@ -181,10 +181,7 @@ namespace IocPerformance.Adapters
                 this.childScope = this.child.CreateScope();
             }
 
-            public object Resolve(Type resolveType)
-            {
-                return this.childScope.Resolve(resolveType);
-            }
+            public T Resolve<T>() where T : class => this.childScope.Resolve<T>();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsBasic => true;
 
-        public override object Resolve(Type type) => this.container[type]();
+        public override T Resolve<T>() => (T)this.container[typeof(T)]();
 
         public override void Dispose()
         {
@@ -233,12 +233,12 @@ namespace IocPerformance.Adapters
         public void Prepare()
         {
             this.container[typeof(ITransient1)] = () => new ScopedTransient();
-            ISingleton1 singleton = (ISingleton1)this.parentAdapter.Resolve(typeof(ISingleton1));
+            ISingleton1 singleton = this.parentAdapter.Resolve<ISingleton1>();
             this.container[typeof(ICombined1)] = () => new ScopedCombined1(new ScopedTransient(), singleton);
             this.container[typeof(ICombined2)] = () => new ScopedCombined2(new ScopedTransient(), singleton);
             this.container[typeof(ICombined3)] = () => new ScopedCombined3(new ScopedTransient(), singleton);
         }
 
-        public object Resolve(Type resolveType) => this.container[resolveType]();
+        public T Resolve<T>() where T : class => (T)this.container[typeof(T)]();
     }
 }

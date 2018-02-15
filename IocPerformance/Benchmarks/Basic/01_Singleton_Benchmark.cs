@@ -10,9 +10,9 @@ namespace IocPerformance.Benchmarks.Basic
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {
-            var singleton1 = (ISingleton1)container.Resolve(typeof(ISingleton1));
-            var singleton2 = (ISingleton2)container.Resolve(typeof(ISingleton2));
-            var singleton3 = (ISingleton3)container.Resolve(typeof(ISingleton3));
+            var singleton1 = container.Resolve<ISingleton1>();
+            var singleton2 = container.Resolve<ISingleton2>();
+            var singleton3 = container.Resolve<ISingleton3>();
         }
 
         public override void Verify(Adapters.IContainerAdapter container)

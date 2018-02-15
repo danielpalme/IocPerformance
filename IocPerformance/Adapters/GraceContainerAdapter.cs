@@ -38,7 +38,7 @@ namespace IocPerformance.Adapters
 
         public override IChildContainerAdapter CreateChildContainerAdapter() => new GraceChildContainerAdapter(this.container.CreateChildScope());
 
-        public override object Resolve(Type type) => this.container.Locate(type);
+        public override T Resolve<T>() => this.container.Locate<T>();
 
         public override void Dispose()
         {
@@ -245,6 +245,6 @@ namespace IocPerformance.Adapters
                                           });
         }
 
-        public object Resolve(Type resolveType) => this.injectionScope.Locate(resolveType);
+        public T Resolve<T>() where T : class => this.injectionScope.Locate<T>();
     }
 }

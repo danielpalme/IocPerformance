@@ -17,21 +17,21 @@ namespace IocPerformance.Benchmarks.Advanced
             {
                 childContainer.Prepare();
 
-                var scopedCombined = (ICombined1)childContainer.Resolve(typeof(ICombined1));
+                var scopedCombined = childContainer.Resolve<ICombined1>();
             }
 
             using (var childContainer = container.CreateChildContainerAdapter())
             {
                 childContainer.Prepare();
 
-                var scopedCombined = (ICombined2)childContainer.Resolve(typeof(ICombined2));
+                var scopedCombined = childContainer.Resolve<ICombined2>();
             }
 
             using (var childContainer = container.CreateChildContainerAdapter())
             {
                 childContainer.Prepare();
 
-                var scopedCombined = (ICombined3)childContainer.Resolve(typeof(ICombined3));
+                var scopedCombined = childContainer.Resolve<ICombined3>();
             }
         }
 

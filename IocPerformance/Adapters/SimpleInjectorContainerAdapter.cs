@@ -42,7 +42,7 @@ namespace IocPerformance.Adapters
 
         public override IChildContainerAdapter CreateChildContainerAdapter() => new SimpleInjectorChildContainerAdapter(this.container, this.scopedRegistrations);
 
-        public override object Resolve(Type type) => this.container.GetInstance(type);
+        public override T Resolve<T>() => this.container.GetInstance<T>();
 
         public override void Dispose()
         {
@@ -224,16 +224,16 @@ namespace IocPerformance.Adapters
                 this.lifetimeScope.Dispose();
             }
 
-            public object Resolve(Type resolveType)
+            public T Resolve<T>() where T : class
             {
                 InstanceProducer producer;
-
+                Type resolveType = typeof(T);
                 if (this.scopedRegistrations.TryGetValue(resolveType, out producer))
                 {
-                    return producer.GetInstance();
+                    return (T)producer.GetInstance();
                 }
 
-                return this.container.GetInstance(resolveType);
+                return (T)this.container.GetInstance(resolveType);
             }
         }
     }

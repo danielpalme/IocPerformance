@@ -10,9 +10,9 @@ namespace IocPerformance.Benchmarks.Basic
 
         public override void MethodToBenchmark(IContainerAdapter container)
         {
-            var transient1 = (ITransient1)container.Resolve(typeof(ITransient1));
-            var transient2 = (ITransient2)container.Resolve(typeof(ITransient2));
-            var transient3 = (ITransient3)container.Resolve(typeof(ITransient3));
+            var transient1 = container.Resolve<ITransient1>();
+            var transient2 = container.Resolve<ITransient2>();
+            var transient3 = container.Resolve<ITransient3>();
         }
 
         public override void Verify(Adapters.IContainerAdapter container)

@@ -17,7 +17,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsPropertyInjection => true;
 
-        public override object Resolve(Type type) => this.container.GetObject(type.FullName);
+        public override T Resolve<T>() => this.container.GetObject<T>();
 
         public override void Dispose()
         {

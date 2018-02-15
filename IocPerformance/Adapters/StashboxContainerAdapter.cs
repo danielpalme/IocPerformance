@@ -56,7 +56,7 @@ namespace IocPerformance.Adapters
             this.RegisterBasic();
         }
 
-        public override object Resolve(Type type) => this.container.Resolve(type);
+        public override T Resolve<T>() => this.container.Resolve<T>();
 
         public override void Prepare()
         {
@@ -209,6 +209,6 @@ namespace IocPerformance.Adapters
             this.childContainer.RegisterType<ITransient1, ScopedTransient>();
         }
 
-        public object Resolve(Type resolveType) => this.childContainer.Resolve(resolveType);
+        public T Resolve<T>() where T : class => this.childContainer.Resolve<T>();
     }
 }
