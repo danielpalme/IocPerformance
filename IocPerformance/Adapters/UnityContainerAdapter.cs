@@ -8,17 +8,17 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using Microsoft.Extensions.DependencyInjection;
 using Unity;
 using Unity.Injection;
 using Unity.Interception.Interceptors.InstanceInterceptors.InterfaceInterception;
 using Unity.Lifetime;
-using Unity.Microsoft.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
     public sealed class UnityContainerAdapter : ContainerAdapterBase
     {
-        private UnityContainer container;
+        private IUnityContainer container;
 
         public override string PackageName => "Unity";
 
@@ -89,16 +89,16 @@ namespace IocPerformance.Adapters
 
         private void RegisterDummies()
         {
-            this.container.RegisterType<IDummyOne, DummyOne>();
-            this.container.RegisterType<IDummyTwo, DummyTwo>();
-            this.container.RegisterType<IDummyThree, DummyThree>();
-            this.container.RegisterType<IDummyFour, DummyFour>();
-            this.container.RegisterType<IDummyFive, DummyFive>();
-            this.container.RegisterType<IDummySix, DummySix>();
-            this.container.RegisterType<IDummySeven, DummySeven>();
-            this.container.RegisterType<IDummyEight, DummyEight>();
-            this.container.RegisterType<IDummyNine, DummyNine>();
-            this.container.RegisterType<IDummyTen, DummyTen>();
+            this.container.RegisterType<IDummyOne>(new InjectionFactory(c => new DummyOne()));
+            this.container.RegisterType<IDummyTwo>(new InjectionFactory(c => new DummyTwo()));
+            this.container.RegisterType<IDummyThree>(new InjectionFactory(c => new DummyThree()));
+            this.container.RegisterType<IDummyFour>(new InjectionFactory(c => new DummyFour()));
+            this.container.RegisterType<IDummyFive>(new InjectionFactory(c => new DummyFive()));
+            this.container.RegisterType<IDummySix>(new InjectionFactory(c => new DummySix()));
+            this.container.RegisterType<IDummySeven>(new InjectionFactory(c => new DummySeven()));
+            this.container.RegisterType<IDummyEight>(new InjectionFactory(c => new DummyEight()));
+            this.container.RegisterType<IDummyNine>(new InjectionFactory(c => new DummyNine()));
+            this.container.RegisterType<IDummyTen>(new InjectionFactory(c => new DummyTen()));
         }
 
         private void RegisterStandard()
@@ -106,9 +106,11 @@ namespace IocPerformance.Adapters
             this.container.RegisterType<ISingleton1>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new Singleton1()));
             this.container.RegisterType<ISingleton2>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new Singleton2()));
             this.container.RegisterType<ISingleton3>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new Singleton3()));
+
             this.container.RegisterType<ITransient1>(new InjectionFactory(c => new Transient1()));
             this.container.RegisterType<ITransient2>(new InjectionFactory(c => new Transient2()));
             this.container.RegisterType<ITransient3>(new InjectionFactory(c => new Transient3()));
+
             this.container.RegisterType<ICombined1>(new InjectionFactory(c => new Combined1(c.Resolve<ISingleton1>(), c.Resolve<ITransient1>())));
             this.container.RegisterType<ICombined2>(new InjectionFactory(c => new Combined2(c.Resolve<ISingleton2>(), c.Resolve<ITransient2>())));
             this.container.RegisterType<ICombined3>(new InjectionFactory(c => new Combined3(c.Resolve<ISingleton3>(), c.Resolve<ITransient3>())));
@@ -191,10 +193,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterAspCore()
         {
-            var factory = new ServiceProviderFactory(this.container);
-            var builder = factory.CreateBuilder(this.CreateServiceCollection());
-            this.container = (UnityContainer)factory.CreateServiceProvider(builder)
-                                                     .GetService(typeof(IUnityContainer));
+            var adapter = Unity.Microsoft.DependencyInjection.ServiceProviderExtensions.BuildServiceProvider(this.container, CreateServiceCollection());
+            this.container = (IUnityContainer)adapter.GetService(typeof(IUnityContainer));
+            container.RegisterInstance(adapter);
         }
 
         // This should be called when all other tests are done before Interception is tested
@@ -228,10 +229,11 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            this.childContainer.RegisterType(typeof(ICombined1), typeof(ScopedCombined1));
-            this.childContainer.RegisterType(typeof(ICombined2), typeof(ScopedCombined2));
-            this.childContainer.RegisterType(typeof(ICombined3), typeof(ScopedCombined3));
-            this.childContainer.RegisterType(typeof(ITransient1), typeof(ScopedTransient));
+            childContainer.RegisterType<ITransient1>( new InjectionFactory((c) => new ScopedTransient()));
+
+            childContainer.RegisterType<ICombined1>(new InjectionFactory((c) => new ScopedCombined1(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));
+            childContainer.RegisterType<ICombined2>(new InjectionFactory((c) => new ScopedCombined2(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));
+            childContainer.RegisterType<ICombined3>(new InjectionFactory((c) => new ScopedCombined3(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));
         }
 
         public object Resolve(Type resolveType) => this.childContainer.Resolve(resolveType, null, null);
