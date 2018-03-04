@@ -1,4 +1,8 @@
-﻿using IocPerformance.Classes.Child;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using Castle.DynamicProxy;
+using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -6,13 +10,8 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
-using Stashbox;
-using Stashbox.Infrastructure;
-using System;
-using System.Diagnostics;
-using System.Linq;
-using Castle.DynamicProxy;
 using Microsoft.Extensions.DependencyInjection;
+using Stashbox;
 
 namespace IocPerformance.Adapters
 {
