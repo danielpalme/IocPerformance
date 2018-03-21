@@ -9,6 +9,7 @@ using IocPerformance.Classes.Standard;
 
 namespace IocPerformance.Adapters
 {
+    [Fast]
     public sealed class AbiocContainerAdapter : ContainerAdapterBase
     {
         private AbiocContainer compilationContext;

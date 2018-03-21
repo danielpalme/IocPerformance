@@ -4,6 +4,7 @@ using DryIocZero;
 
 namespace IocPerformance.Adapters
 {
+    [Fast]
     public sealed class DryIocZeroAdapter : ContainerAdapterBase
     {
         private Container container;

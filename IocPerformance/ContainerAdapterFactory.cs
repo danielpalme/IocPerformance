@@ -5,6 +5,8 @@ using IocPerformance.Adapters;
 
 namespace IocPerformance
 {
+    public class FastAttribute : Attribute { }
+
     internal static class ContainerAdapterFactory
     {
         public static IEnumerable<IContainerAdapter> CreateAdapters()
@@ -14,6 +16,7 @@ namespace IocPerformance
             var containers = typeof(ContainerAdapterFactory).Assembly.GetTypes()
                  .Where(t => t.IsClass && !t.IsAbstract && t.GetInterfaces().Contains(typeof(IContainerAdapter)))
                  .Where(t => !t.Equals(typeof(NoContainerAdapter)))
+                 .Where(t => Attribute.IsDefined(t, typeof(FastAttribute)))
                  .Select(t => Activator.CreateInstance(t))
                  .Cast<IContainerAdapter>()
                  .OrderBy(c => c.Name);

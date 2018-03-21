@@ -12,6 +12,7 @@ using LightInject.Microsoft.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
+    [Fast]
     public sealed class LightInjectContainerAdapter : ContainerAdapterBase
     {
         private ServiceContainer container;

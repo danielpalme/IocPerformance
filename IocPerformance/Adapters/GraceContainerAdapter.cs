@@ -14,6 +14,7 @@ using IocPerformance.Interception;
 
 namespace IocPerformance.Adapters
 {
+    [Fast]
     public class GraceContainerAdapter : ContainerAdapterBase
     {
         private DependencyInjectionContainer container;
@@ -32,7 +33,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsInterception => true;
 
-        public override bool SupportsChildContainer => true;
+        public override bool SupportsChildContainer => false;
 
         public override bool SupportAspNetCore => true;
 
