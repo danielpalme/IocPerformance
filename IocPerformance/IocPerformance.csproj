@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="Adapters\DryIocZero\DryIocZero.props" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -56,6 +57,13 @@
     <Compile Include="Adapters\CatelContainerAdapter.cs" />
     <Compile Include="Adapters\ContainerAdapterBase.cs" />
     <Compile Include="Adapters\DryIocAdapter.cs" />
+    <Compile Include="Adapters\DryIocZero\Container.cs" />
+    <Compile Include="Adapters\DryIocZero\Container.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Container.Generated.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Adapters\DryIocZero\DryIocZeroAdapter.cs" />
     <Compile Include="Adapters\DynamoContainerAdapter.cs" />
     <Compile Include="Adapters\FFastInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\FunqContainerAdapter.cs" />
@@ -200,6 +208,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Adapters\DryIocZero\DryIocZero.props" />
+    <None Include="Adapters\DryIocZero\Registrations.ttinclude" />
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +245,9 @@
     </PackageReference>
     <PackageReference Include="DryIoc.Microsoft.DependencyInjection">
       <Version>2.0.0-preview-03</Version>
+    </PackageReference>
+    <PackageReference Include="DryIocZero">
+      <Version>4.0.0-preview-15</Version>
     </PackageReference>
     <PackageReference Include="Dynamo.Ioc">
       <Version>3.0.2</Version>
@@ -368,6 +381,15 @@
     <PackageReference Include="Unity.Microsoft.DependencyInjection">
       <Version>2.0.8</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Adapters\DryIocZero\Container.Generated.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Container.Generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

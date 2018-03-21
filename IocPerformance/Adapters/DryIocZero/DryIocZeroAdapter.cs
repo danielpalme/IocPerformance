@@ -1,5 +1,4 @@
-﻿// Ignored. Reason: Not installable in VS 2017 via Nuget
-using System;
+﻿using System;
 using DryIocZero;
 
 namespace IocPerformance.Adapters
@@ -15,11 +14,9 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsConditional => true;
 
-        public override bool SupportGeneric => false;
+        public override bool SupportGeneric => true;
 
         public override bool SupportsMultiple => true;
-
-        public override bool SupportsInterception => false;
 
         public override bool SupportsPropertyInjection => true;
 
