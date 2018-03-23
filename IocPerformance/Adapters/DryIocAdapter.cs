@@ -5,7 +5,6 @@ using Castle.DynamicProxy;
 using DryIoc;
 using DryIoc.Interception;
 using DryIoc.Microsoft.DependencyInjection;
-using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -36,21 +35,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsInterception => true;
 
-        public override bool SupportsChildContainer => false;
-
-        public override bool SupportAspNetCore => false;
-
-        // private static readonly string ChildContainerScopeName = "ChildContainerScopeName";
-        // public override IChildContainerAdapter CreateChildContainerAdapter()
-        // {
-        //     var scope = container.OpenScope(ChildContainerScopeName, PreferServiceWithChildContainerScopeName);
-        //     return new DryIocChildContainerAdapter(scope, ChildContainerScopeName);
-        // }
-
-        // private static Rules PreferServiceWithChildContainerScopeName(Rules rules)
-        // {
-        //     return rules.WithFactorySelector(Rules.PreferKeyOverDefault(ChildContainerScopeName));
-        // }
+        public override bool SupportAspNetCore => true;
 
         public override object Resolve(Type type) => this.container.Resolve(type);
 
@@ -81,7 +66,7 @@ namespace IocPerformance.Adapters
 
         public override void PrepareBasic()
         {
-            this.container = new Container(rule => rule.WithTrackingDisposableTransients().WithImplicitRootOpenScope());
+            this.container = new Container();
             this.RegisterBasic();
         }
 
@@ -201,31 +186,6 @@ namespace IocPerformance.Adapters
                 Debug.WriteLine("DryIocInterceptor: {0}({1})", invocation.GetConcreteMethod().Name, args);
                 invocation.Proceed();
             }
-        }
-
-        public class DryIocChildContainerAdapter : IChildContainerAdapter
-        {
-            private readonly IContainer child;
-
-            public DryIocChildContainerAdapter(IContainer child)
-            {
-                this.child = child;
-            }
-
-            public void Dispose()
-            {
-                this.child.Dispose();
-            }
-
-            public void Prepare()
-            {
-                this.child.Register<ICombined1, ScopedCombined1>();
-                this.child.Register<ICombined2, ScopedCombined2>();
-                this.child.Register<ICombined3, ScopedCombined3>();
-                this.child.Register<ITransient1, ScopedTransient>();
-            }
-
-            public object Resolve(Type resolveType) => this.child.Resolve(resolveType, false);
         }
     }
 }

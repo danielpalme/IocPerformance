@@ -116,7 +116,7 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectOne, SubObjectOne>();
             this.container.Register<ISubObjectTwo, SubObjectTwo>();
             this.container.Register<ISubObjectThree, SubObjectThree>();
-            
+
             this.container.Register<IComplex1, Complex1>();
             this.container.Register<IComplex2, Complex2>();
             this.container.Register<IComplex3, Complex3>();
@@ -132,7 +132,7 @@ namespace IocPerformance.Adapters
             this.container.Register<ISubObjectC, SubObjectC>();
             this.container.Register<IComplexPropertyObject1, ComplexPropertyObject1>();
             this.container.Register<IComplexPropertyObject2, ComplexPropertyObject2>();
-            this.container.Register<IComplexPropertyObject3, ComplexPropertyObject3>();                                                
+            this.container.Register<IComplexPropertyObject3, ComplexPropertyObject3>();
         }
 
         private void RegisterOpenGeneric()
