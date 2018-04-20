@@ -37,6 +37,12 @@ namespace IocPerformance.Adapters
 
         public override bool SupportAspNetCore => false;
 
+        public override bool SupportsCombined => false;
+
+        public override bool SupportsTransient => false;
+
+        public override bool SupportsBasic => true;
+
         public override IChildContainerAdapter CreateChildContainerAdapter() => new MvvmCrossChildContainerAdapter(this.provider.CreateChildContainer());
 
         public override object Resolve(Type type)
@@ -94,24 +100,22 @@ namespace IocPerformance.Adapters
         }
 
         private void RegisterStandard()
-        {
-            
+        {            
             this.provider.RegisterSingleton<ISingleton1>(new Singleton1());
             this.provider.RegisterSingleton<ISingleton2>(new Singleton2());
             this.provider.RegisterSingleton<ISingleton3>(new Singleton3());
+                        
+            this.provider.RegisterType<ITransient1, Transient1>();
+            this.provider.RegisterType<ITransient2, Transient2>();
+            this.provider.RegisterType<ITransient3, Transient3>();
+                        
+            this.provider.RegisterType<ICombined1, Combined1>();
+            this.provider.RegisterType<ICombined2, Combined2>();
+            this.provider.RegisterType<ICombined3, Combined3>();
 
-            /*
-            this.provider.RegisterSingleton<ITransient1, Transient1>();
-            this.provider.RegisterSingleton<ITransient2, Transient2>();
-            this.provider.RegisterSingleton<ITransient3, Transient3>();
-
-            this.provider.RegisterSingleton<ICombined1, Combined1>();
-            this.provider.RegisterSingleton<ICombined2, Combined2>();
-            this.provider.RegisterSingleton<ICombined3, Combined3>();
-
-            this.provider.RegisterSingleton<ICalculator1, Calculator1>();
-            this.provider.RegisterSingleton<ICalculator2, Calculator2>();
-            this.provider.RegisterSingleton<ICalculator3, Calculator3>();*/
+            this.provider.RegisterType<ICalculator1, Calculator1>();
+            this.provider.RegisterType<ICalculator2, Calculator2>();
+            this.provider.RegisterType<ICalculator3, Calculator3>();
         }
 
         private void RegisterComplex()

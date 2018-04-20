@@ -8,6 +8,8 @@ namespace IocPerformance.Benchmarks.Basic
     {
         public override BenchmarkCategory Category => BenchmarkCategory.Basic;
 
+        public override bool IsSupportedBy(IContainerAdapter container) => container.SupportsCombined;
+
         public override void MethodToBenchmark(IContainerAdapter container)
         {
             var combined1 = (ICombined1)container.Resolve(typeof(ICombined1));
@@ -17,6 +19,9 @@ namespace IocPerformance.Benchmarks.Basic
 
         public override void Verify(Adapters.IContainerAdapter container)
         {
+            if (!container.SupportsCombined)
+                return;
+
             if (Combined1.Instances != this.LoopCount
                 || Combined2.Instances != this.LoopCount
                 || Combined3.Instances != this.LoopCount)

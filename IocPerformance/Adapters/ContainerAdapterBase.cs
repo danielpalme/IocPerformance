@@ -49,10 +49,11 @@ namespace IocPerformance.Adapters
 
         public virtual bool SupportsMultiple => false;
 
-        public virtual bool SupportsBasic
-        {
-            get { return true; }
-        }
+        public virtual bool SupportsTransient => true;
+
+        public virtual bool SupportsCombined => true;
+
+        public virtual bool SupportsBasic => true;
 
         public abstract void PrepareBasic();
 

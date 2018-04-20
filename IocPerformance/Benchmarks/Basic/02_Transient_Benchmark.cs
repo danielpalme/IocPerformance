@@ -8,6 +8,8 @@ namespace IocPerformance.Benchmarks.Basic
     {
         public override BenchmarkCategory Category => BenchmarkCategory.Basic;
 
+        public override bool IsSupportedBy(IContainerAdapter container) => container.SupportsTransient;
+
         public override void MethodToBenchmark(IContainerAdapter container)
         {
             var transient1 = (ITransient1)container.Resolve(typeof(ITransient1));
@@ -17,6 +19,9 @@ namespace IocPerformance.Benchmarks.Basic
 
         public override void Verify(Adapters.IContainerAdapter container)
         {
+            if (!container.SupportsTransient)
+                return;
+
             if (Transient1.Instances != this.LoopCount
                 || Transient2.Instances != this.LoopCount
                 || Transient3.Instances != this.LoopCount)
