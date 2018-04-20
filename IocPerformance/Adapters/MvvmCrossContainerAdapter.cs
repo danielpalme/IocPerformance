@@ -37,9 +37,9 @@ namespace IocPerformance.Adapters
 
         public override bool SupportAspNetCore => false;
 
-        public override bool SupportsCombined => false;
+        public override bool SupportsCombined => true;
 
-        public override bool SupportsTransient => false;
+        public override bool SupportsTransient => true;
 
         public override bool SupportsBasic => true;
 
@@ -69,7 +69,7 @@ namespace IocPerformance.Adapters
             this.RegisterConditional();
             this.RegisterMultiple();
             this.RegisterInterceptor();
-            //this.RegisterAspNetCore();
+            this.RegisterAspNetCore();
         }
 
         public override void PrepareBasic()
@@ -120,18 +120,17 @@ namespace IocPerformance.Adapters
 
         private void RegisterComplex()
         {
-            /*
-            this.provider.RegisterSingleton<ISubObjectOne, SubObjectOne>();
-            this.provider.RegisterSingleton<ISubObjectTwo, SubObjectTwo>();
-            this.provider.RegisterSingleton<ISubObjectThree, SubObjectThree>();
+            this.provider.RegisterType<ISubObjectOne, SubObjectOne>();
+            this.provider.RegisterType<ISubObjectTwo, SubObjectTwo>();
+            this.provider.RegisterType<ISubObjectThree, SubObjectThree>();
 
-            this.provider.RegisterSingleton<IFirstService, FirstService>();
-            this.provider.RegisterSingleton<ISecondService, SecondService>();
-            this.provider.RegisterSingleton<IThirdService, ThirdService>();
+            this.provider.RegisterSingleton<IFirstService>(new FirstService());
+            this.provider.RegisterSingleton<ISecondService>(new SecondService());
+            this.provider.RegisterSingleton<IThirdService>(new ThirdService());
 
-            this.provider.RegisterSingleton<IComplex1, Complex1>();
-            this.provider.RegisterSingleton<IComplex2, Complex2>();
-            this.provider.RegisterSingleton<IComplex3, Complex3>();*/
+            this.provider.RegisterType<IComplex1, Complex1>();
+            this.provider.RegisterType<IComplex2, Complex2>();
+            this.provider.RegisterType<IComplex3, Complex3>();
         }
 
         private void RegisterPropertyInjection()
@@ -189,6 +188,11 @@ namespace IocPerformance.Adapters
             //this.container.Intercept<ICalculator1, CalculatorLogger>();
             //this.container.Intercept<ICalculator2, CalculatorLogger>();
             //this.container.Intercept<ICalculator3, CalculatorLogger>();
+        }
+
+        private void RegisterAspNetCore()
+        {
+
         }
     }
 
