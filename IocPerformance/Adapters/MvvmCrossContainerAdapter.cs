@@ -29,7 +29,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsMultiple => false;
 
-        public override bool SupportsPropertyInjection => false;
+        public override bool SupportsPropertyInjection => true;
 
         public override bool SupportsConditional => false;
 
@@ -134,18 +134,18 @@ namespace IocPerformance.Adapters
         }
 
         private void RegisterPropertyInjection()
-        {/*
-            this.provider.RegisterSingleton<IServiceA, ServiceA>(Reuse.Singleton);
-            this.provider.RegisterSingleton<IServiceB, ServiceB>(Reuse.Singleton);
-            this.provider.RegisterSingleton<IServiceC, ServiceC>(Reuse.Singleton);
+        {
+            this.provider.RegisterSingleton<IServiceA>(new ServiceA());
+            this.provider.RegisterSingleton<IServiceB>(new ServiceB());
+            this.provider.RegisterSingleton<IServiceC>(new ServiceC());
 
-            this.provider.RegisterSingleton<ISubObjectA, SubObjectA>(made: PropertiesAndFields.Auto);
-            this.provider.RegisterSingleton<ISubObjectB, SubObjectB>(made: PropertiesAndFields.Auto);
-            this.provider.RegisterSingleton<ISubObjectC, SubObjectC>(made: PropertiesAndFields.Auto);
+            this.provider.RegisterType<ISubObjectA, SubObjectA>();
+            this.provider.RegisterType<ISubObjectB, SubObjectB>();
+            this.provider.RegisterType<ISubObjectC, SubObjectC>();
 
-            this.provider.RegisterSingleton<IComplexPropertyObject1, ComplexPropertyObject1>(made: PropertiesAndFields.Auto);
-            this.provider.RegisterSingleton<IComplexPropertyObject2, ComplexPropertyObject2>(made: PropertiesAndFields.Auto);
-            this.provider.RegisterSingleton<IComplexPropertyObject3, ComplexPropertyObject3>(made: PropertiesAndFields.Auto);*/
+            this.provider.RegisterType<IComplexPropertyObject1, ComplexPropertyObject1>();
+            this.provider.RegisterType<IComplexPropertyObject2, ComplexPropertyObject2>();
+            this.provider.RegisterType<IComplexPropertyObject3, ComplexPropertyObject3>();
         }
 
         private void RegisterOpenGeneric()
