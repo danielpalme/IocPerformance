@@ -1,4 +1,5 @@
-﻿using IocPerformance.Classes.Complex;
+﻿using IocPerformance.Classes.Child;
+using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
@@ -25,7 +26,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsInterception => false;
 
-        public override bool SupportGeneric => false;
+        public override bool SupportGeneric => true;
 
         public override bool SupportsMultiple => false;
 
@@ -124,7 +125,7 @@ namespace IocPerformance.Adapters
             this.provider.RegisterType<ISubObjectTwo, SubObjectTwo>();
             this.provider.RegisterType<ISubObjectThree, SubObjectThree>();
 
-            this.provider.RegisterSingleton<IFirstService>(new FirstService());
+            this.provider.RegisterSingleton<IFirstService>( new FirstService());
             this.provider.RegisterSingleton<ISecondService>(new SecondService());
             this.provider.RegisterSingleton<IThirdService>(new ThirdService());
 
@@ -150,44 +151,39 @@ namespace IocPerformance.Adapters
 
         private void RegisterOpenGeneric()
         {
-            this.provider.RegisterSingleton(typeof(IGenericInterface<>), typeof(GenericExport<>));
-            this.provider.RegisterSingleton(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
+            this.provider.RegisterType(typeof(IGenericInterface<>), typeof(GenericExport<>));
+            this.provider.RegisterType(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
         }
 
         private void RegisterConditional()
-        {/*
-            this.provider.RegisterSingleton<ImportConditionObject1>();
-            this.provider.RegisterSingleton<ImportConditionObject2>();
-            this.provider.RegisterSingleton<ImportConditionObject3>();*/
+        {
+            this.provider.RegisterType<ImportConditionObject1, ImportConditionObject1>();
+            this.provider.RegisterType<ImportConditionObject2, ImportConditionObject2>();
+            this.provider.RegisterType<ImportConditionObject3, ImportConditionObject3>();
 
-            //this.provider.RegisterSingleton<IExportConditionInterface, ExportConditionalObject1>(
-            //    setup: Setup.With(condition: r => r.Parent.ImplementationType == typeof(ImportConditionObject1)));
-
-            //this.provider.RegisterSingleton<IExportConditionInterface, ExportConditionalObject2>(
-            //    setup: Setup.With(condition: r => r.Parent.ImplementationType == typeof(ImportConditionObject2)));
-
-            //this.provider.RegisterSingleton<IExportConditionInterface, ExportConditionalObject3>(
-            //    setup: Setup.With(condition: r => r.Parent.ImplementationType == typeof(ImportConditionObject3)));
+            //this.provider.RegisterType<IExportConditionInterface, ExportConditionalObject1>(condition: r => r.Parent.ImplementationType == typeof(ImportConditionObject1));
+            //this.provider.RegisterType<IExportConditionInterface, ExportConditionalObject2>(condition: r => r.Parent.ImplementationType == typeof(ImportConditionObject2));
+            //this.provider.RegisterType<IExportConditionInterface, ExportConditionalObject3>(condition: r => r.Parent.ImplementationType == typeof(ImportConditionObject3));
         }
 
         private void RegisterMultiple()
-        {/*
-            this.provider.RegisterSingleton<ImportMultiple1>();
-            this.provider.RegisterSingleton<ImportMultiple2>();
-            this.provider.RegisterSingleton<ImportMultiple3>();
-            this.provider.RegisterSingleton<ISimpleAdapter, SimpleAdapterOne>();
-            this.provider.RegisterSingleton<ISimpleAdapter, SimpleAdapterTwo>();
-            this.provider.RegisterSingleton<ISimpleAdapter, SimpleAdapterThree>();
-            this.provider.RegisterSingleton<ISimpleAdapter, SimpleAdapterFour>();
-            this.provider.RegisterSingleton<ISimpleAdapter, SimpleAdapterFive>();*/
+        {
+            this.provider.RegisterType<ImportMultiple1, ImportMultiple1>();
+            this.provider.RegisterType<ImportMultiple2, ImportMultiple2>();
+            this.provider.RegisterType<ImportMultiple3, ImportMultiple3>();
+            this.provider.RegisterType<ISimpleAdapter, SimpleAdapterOne>();
+            this.provider.RegisterType<ISimpleAdapter, SimpleAdapterTwo>();
+            this.provider.RegisterType<ISimpleAdapter, SimpleAdapterThree>();
+            this.provider.RegisterType<ISimpleAdapter, SimpleAdapterFour>();
+            this.provider.RegisterType<ISimpleAdapter, SimpleAdapterFive>();
         }
 
         private void RegisterInterceptor()
         {
             //this.provider.RegisterSingleton<CalculatorLogger>();
-            //this.container.Intercept<ICalculator1, CalculatorLogger>();
-            //this.container.Intercept<ICalculator2, CalculatorLogger>();
-            //this.container.Intercept<ICalculator3, CalculatorLogger>();
+            //this.provider.Intercept<ICalculator1, CalculatorLogger>();
+            //this.provider.Intercept<ICalculator2, CalculatorLogger>();
+            //this.provider.Intercept<ICalculator3, CalculatorLogger>();
         }
 
         private void RegisterAspNetCore()
@@ -212,11 +208,11 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            //childContainer.RegisterType<ITransient1>(new InjectionFactory((c) => new ScopedTransient()));
+            _childProvider.RegisterType<ITransient1, ScopedTransient>();
 
-            //childContainer.RegisterType<ICombined1>(new InjectionFactory((c) => new ScopedCombined1(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));
-            //childContainer.RegisterType<ICombined2>(new InjectionFactory((c) => new ScopedCombined2(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));
-            //childContainer.RegisterType<ICombined3>(new InjectionFactory((c) => new ScopedCombined3(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));
+            _childProvider.RegisterType<ICombined1, ScopedCombined1>();
+            _childProvider.RegisterType<ICombined2, ScopedCombined2>();
+            _childProvider.RegisterType<ICombined3, ScopedCombined3>();
         }
 
         public object Resolve(Type resolveType)
