@@ -6,6 +6,7 @@ using MugenAttr = MugenInjection.Attributes;
 using NinjectAttr = Ninject;
 using StashBoxAttr = Stashbox.Attributes;
 using UnityAttr = Unity.Attributes;
+using MvvmCrossAttr = MvvmCross.IoC;
 
 namespace IocPerformance.Classes.Properties
 {
@@ -55,6 +56,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
@@ -66,6 +68,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
@@ -77,6 +80,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
@@ -88,6 +92,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
@@ -99,6 +104,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
@@ -110,6 +116,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public ISubObjectC SubObjectC { get; set; }
 
         public void Verify(string containerName)
@@ -180,6 +187,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
@@ -191,6 +199,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
@@ -202,6 +211,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
@@ -213,6 +223,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
@@ -224,6 +235,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
@@ -235,6 +247,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public ISubObjectC SubObjectC { get; set; }
 
         public void Verify(string containerName)
@@ -305,6 +318,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
@@ -316,6 +330,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
@@ -327,6 +342,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
@@ -338,6 +354,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
@@ -349,6 +366,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
@@ -360,6 +378,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public ISubObjectC SubObjectC { get; set; }
 
         public void Verify(string containerName)

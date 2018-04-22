@@ -7,6 +7,7 @@ using NinjectAttr = Ninject;
 using StashBoxAttr = Stashbox.Attributes;
 using StructureAttr = StructureMap.Attributes;
 using UnityAttr = Unity.Attributes;
+using MvvmCrossAttr = MvvmCross.IoC;
 
 namespace IocPerformance.Classes.Properties
 {
@@ -32,6 +33,7 @@ namespace IocPerformance.Classes.Properties
         [Stiletto.Inject]
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
+        [MvvmCrossAttr.MvxInject]
         public IServiceA ServiceA { get; set; }
 
         public void Verify(string containerName)
