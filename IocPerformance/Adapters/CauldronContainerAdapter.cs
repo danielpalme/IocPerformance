@@ -5,7 +5,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class CauldronContainerAdapter : ContainerAdapterBase
     {
-        public override string Name => "1 Cauldron.Activator";
+        public override string Name => "Cauldron.Activator";
         public override string PackageName => "Capgemini.Cauldron.Activator";
         public override bool SupportGeneric => true;
         public override bool SupportsBasic => true;
