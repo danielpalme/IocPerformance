@@ -13,7 +13,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class NoContainerAdapter : ContainerAdapterBase
     {
-        private readonly Dictionary<Type, Func<object>> container = new Dictionary<Type, Func<object>>();
+        private readonly IocPerformanceDictionary<Type, Func<object>> container = new IocPerformanceDictionary<Type, Func<object>>();
 
         public override string PackageName => "No";
 
@@ -217,7 +217,7 @@ namespace IocPerformance.Adapters
 
     public class NoContainerChildContainerAdapter : IChildContainerAdapter
     {
-        private readonly Dictionary<Type, Func<object>> container = new Dictionary<Type, Func<object>>();
+        private readonly IocPerformanceDictionary<Type, Func<object>> container = new IocPerformanceDictionary<Type, Func<object>>();
 
         private NoContainerAdapter parentAdapter = null;
 
