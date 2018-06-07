@@ -96,7 +96,7 @@ namespace IocPerformance.Classes.Standard
         public override int Add(int first, int second)
         {
             var args = string.Join(", ", new string[] { first.ToString(), second.ToString() });
-            Debug.WriteLine(string.Format("Cauldron: {0}({1})", nameof(Add), args));
+            Debug.WriteLine(string.Format("No: {0}({1})", nameof(Add), args));
             return base.Add(first, second);
         }
     }
@@ -119,7 +119,7 @@ namespace IocPerformance.Classes.Standard
         public override int Add(int first, int second)
         {
             var args = string.Join(", ", new string[] { first.ToString(), second.ToString() });
-            Debug.WriteLine(string.Format("Cauldron: {0}({1})", nameof(Add), args));
+            Debug.WriteLine(string.Format("No: {0}({1})", nameof(Add), args));
             return base.Add(first, second);
         }
     }
@@ -142,7 +142,7 @@ namespace IocPerformance.Classes.Standard
         public override int Add(int first, int second)
         {
             var args = string.Join(", ", new string[] { first.ToString(), second.ToString() });
-            Debug.WriteLine(string.Format("Cauldron: {0}({1})", nameof(Add), args));
+            Debug.WriteLine(string.Format("No: {0}({1})", nameof(Add), args));
             return base.Add(first, second);
         }
     }
