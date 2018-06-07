@@ -209,9 +209,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterInterceptor()
         {
-            this.container[typeof(ICalculator1)] = () => new Calculator1();
-            this.container[typeof(ICalculator2)] = () => new Calculator2();
-            this.container[typeof(ICalculator3)] = () => new Calculator3();
+            this.container[typeof(ICalculator1)] = () => new NoCalculator1();
+            this.container[typeof(ICalculator2)] = () => new NoCalculator2();
+            this.container[typeof(ICalculator3)] = () => new NoCalculator3();
         }
     }
 
