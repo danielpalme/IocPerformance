@@ -13,7 +13,7 @@ namespace IocPerformance.Adapters
         public override bool SupportsInterception => true;
         public override bool SupportsMultiple => true;
         public override bool SupportsPropertyInjection => true;
-        public override bool SupportsTransient => true            ;
+        public override bool SupportsTransient => true;
         public override string Url => "https://github.com/Capgemini/Cauldron";
 
         public override void Dispose() => Factory.Destroy();
