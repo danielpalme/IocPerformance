@@ -13,7 +13,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class NoContainerAdapter : ContainerAdapterBase
     {
-        private readonly Dictionary<Type, Func<object>> container = new Dictionary<Type, Func<object>>();
+        private readonly IocPerformanceDictionary<Type, Func<object>> container = new IocPerformanceDictionary<Type, Func<object>>();
 
         public override string PackageName => "No";
 
@@ -209,15 +209,15 @@ namespace IocPerformance.Adapters
 
         private void RegisterInterceptor()
         {
-            this.container[typeof(ICalculator1)] = () => new Calculator1();
-            this.container[typeof(ICalculator2)] = () => new Calculator2();
-            this.container[typeof(ICalculator3)] = () => new Calculator3();
+            this.container[typeof(ICalculator1)] = () => new NoCalculator1();
+            this.container[typeof(ICalculator2)] = () => new NoCalculator2();
+            this.container[typeof(ICalculator3)] = () => new NoCalculator3();
         }
     }
 
     public class NoContainerChildContainerAdapter : IChildContainerAdapter
     {
-        private readonly Dictionary<Type, Func<object>> container = new Dictionary<Type, Func<object>>();
+        private readonly IocPerformanceDictionary<Type, Func<object>> container = new IocPerformanceDictionary<Type, Func<object>>();
 
         private NoContainerAdapter parentAdapter = null;
 

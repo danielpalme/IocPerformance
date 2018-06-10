@@ -57,7 +57,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public IServiceA ServiceA { get; set; }
+        public virtual IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -69,7 +69,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public IServiceB ServiceB { get; set; }
+        public virtual IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -81,7 +81,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public IServiceC ServiceC { get; set; }
+        public virtual IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -93,7 +93,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public ISubObjectA SubObjectA { get; set; }
+        public virtual ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -105,7 +105,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public ISubObjectB SubObjectB { get; set; }
+        public virtual ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -117,7 +117,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public ISubObjectC SubObjectC { get; set; }
+        public virtual ISubObjectC SubObjectC { get; set; }
 
         public void Verify(string containerName)
         {
@@ -188,7 +188,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public IServiceA ServiceA { get; set; }
+        public virtual IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -200,7 +200,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public IServiceB ServiceB { get; set; }
+        public virtual IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -212,7 +212,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public IServiceC ServiceC { get; set; }
+        public virtual IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -224,7 +224,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public ISubObjectA SubObjectA { get; set; }
+        public virtual ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -236,7 +236,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public ISubObjectB SubObjectB { get; set; }
+        public virtual ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -248,7 +248,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public ISubObjectC SubObjectC { get; set; }
+        public virtual ISubObjectC SubObjectC { get; set; }
 
         public void Verify(string containerName)
         {
@@ -319,7 +319,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public IServiceA ServiceA { get; set; }
+        public virtual IServiceA ServiceA { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -331,7 +331,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public IServiceB ServiceB { get; set; }
+        public virtual IServiceB ServiceB { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -343,7 +343,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public IServiceC ServiceC { get; set; }
+        public virtual IServiceC ServiceC { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -355,7 +355,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public ISubObjectA SubObjectA { get; set; }
+        public virtual ISubObjectA SubObjectA { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -367,7 +367,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public ISubObjectB SubObjectB { get; set; }
+        public virtual ISubObjectB SubObjectB { get; set; }
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
@@ -379,7 +379,7 @@ namespace IocPerformance.Classes.Properties
         [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
-        public ISubObjectC SubObjectC { get; set; }
+        public virtual ISubObjectC SubObjectC { get; set; }
 
         public void Verify(string containerName)
         {
@@ -420,4 +420,46 @@ namespace IocPerformance.Classes.Properties
             this.SubObjectC.Verify(containerName);
         }
     }
+
+
+
+    #region Cauldron 
+    /*
+        Cauldron is a weaver, means cauldron changes the IL code of the assembly during build.
+    */
+
+    [Cauldron.Activator.Component(typeof(IComplexPropertyObject1))]
+    public class CauldronComplexPropertyObject1 : ComplexPropertyObject1
+    {
+        [Cauldron.Activator.Inject] public override IServiceA ServiceA { get; set; }
+        [Cauldron.Activator.Inject] public override IServiceB ServiceB { get; set; }
+        [Cauldron.Activator.Inject] public override IServiceC ServiceC { get; set; }
+        [Cauldron.Activator.Inject] public override ISubObjectA SubObjectA { get; set; }
+        [Cauldron.Activator.Inject] public override ISubObjectB SubObjectB { get; set; }
+        [Cauldron.Activator.Inject] public override ISubObjectC SubObjectC { get; set; }
+    }
+
+    [Cauldron.Activator.Component(typeof(IComplexPropertyObject2))]
+    public class CauldronComplexPropertyObject2 : ComplexPropertyObject2
+    {
+        [Cauldron.Activator.Inject] public override IServiceA ServiceA { get; set; }
+        [Cauldron.Activator.Inject] public override IServiceB ServiceB { get; set; }
+        [Cauldron.Activator.Inject] public override IServiceC ServiceC { get; set; }
+        [Cauldron.Activator.Inject] public override ISubObjectA SubObjectA { get; set; }
+        [Cauldron.Activator.Inject] public override ISubObjectB SubObjectB { get; set; }
+        [Cauldron.Activator.Inject] public override ISubObjectC SubObjectC { get; set; }
+    }
+
+    [Cauldron.Activator.Component(typeof(IComplexPropertyObject3))]
+    public class CauldronComplexPropertyObject3 : ComplexPropertyObject3
+    {
+        [Cauldron.Activator.Inject] public override IServiceA ServiceA { get; set; }
+        [Cauldron.Activator.Inject] public override IServiceB ServiceB { get; set; }
+        [Cauldron.Activator.Inject] public override IServiceC ServiceC { get; set; }
+        [Cauldron.Activator.Inject] public override ISubObjectA SubObjectA { get; set; }
+        [Cauldron.Activator.Inject] public override ISubObjectB SubObjectB { get; set; }
+        [Cauldron.Activator.Inject] public override ISubObjectC SubObjectC { get; set; }
+    }
+
+    #endregion
 }

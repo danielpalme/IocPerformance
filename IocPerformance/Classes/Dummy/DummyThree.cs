@@ -6,6 +6,7 @@ namespace IocPerformance.Classes.Dummy
     {
     }
 
+    [Cauldron.Activator.Component(typeof(IDummyThree))]
     [Export(typeof(IDummyThree)), PartCreationPolicy(CreationPolicy.NonShared)]
     [System.Composition.Export(typeof(IDummyThree))]
     public class DummyThree : IDummyThree

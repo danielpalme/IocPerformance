@@ -42,4 +42,26 @@ namespace IocPerformance.Classes.Properties
             }
         }
     }
+
+    #region Cauldron 
+    /*
+        Cauldron is a weaver, means cauldron changes the IL code of the assembly during build.
+    */
+
+    [Cauldron.Activator.Component(typeof(ISubObjectB))]
+    public class CauldronSubObjectB : ISubObjectB
+    {
+        [Cauldron.Activator.Inject]
+        public IServiceB ServiceB { get; set; }
+
+        public void Verify(string containerName)
+        {
+            if (this.ServiceB == null)
+            {
+                throw new Exception("ServiceB was null for SubObjectC for container " + containerName);
+            }
+        }
+    }
+
+    #endregion
 }

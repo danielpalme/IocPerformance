@@ -1,4 +1,6 @@
 ﻿using IocPerformance.Interception;
+using IocPerformance.Interception.Cauldron;
+using System.Diagnostics;
 
 namespace IocPerformance.Classes.Standard
 {
@@ -73,4 +75,106 @@ namespace IocPerformance.Classes.Standard
 
         public virtual int Add(int first, int second) => first + second;
     }
+
+    #region No Interceptor
+
+    public class NoCalculator1 : Calculator1
+    {
+        private static int counter;
+
+        public NoCalculator1()
+        {
+            System.Threading.Interlocked.Increment(ref counter);
+        }
+
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
+
+        public override int Add(int first, int second)
+        {
+            var args = string.Join(", ", new string[] { first.ToString(), second.ToString() });
+            Debug.WriteLine(string.Format("No: {0}({1})", nameof(Add), args));
+            return base.Add(first, second);
+        }
+    }
+
+    public class NoCalculator2 : Calculator2
+    {
+        private static int counter;
+
+        public NoCalculator2()
+        {
+            System.Threading.Interlocked.Increment(ref counter);
+        }
+
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
+
+        public override int Add(int first, int second)
+        {
+            var args = string.Join(", ", new string[] { first.ToString(), second.ToString() });
+            Debug.WriteLine(string.Format("No: {0}({1})", nameof(Add), args));
+            return base.Add(first, second);
+        }
+    }
+
+    public class NoCalculator3 : Calculator3
+    {
+        private static int counter;
+
+        public NoCalculator3()
+        {
+            System.Threading.Interlocked.Increment(ref counter);
+        }
+
+        public static int Instances
+        {
+            get { return counter; }
+            set { counter = value; }
+        }
+
+        public override int Add(int first, int second)
+        {
+            var args = string.Join(", ", new string[] { first.ToString(), second.ToString() });
+            Debug.WriteLine(string.Format("No: {0}({1})", nameof(Add), args));
+            return base.Add(first, second);
+        }
+    }
+
+    #endregion No Interceptor
+
+    #region Cauldron
+
+    /*
+        Cauldron is a weaver, means cauldron changes the IL code of the assembly during build.
+     */
+
+    [Cauldron.Activator.Component(typeof(ICalculator1))]
+    public class CauldronCalculator1 : Calculator1
+    {
+        [CauldronLogger]
+        public override int Add(int first, int second) => base.Add(first, second);
+    }
+
+    [Cauldron.Activator.Component(typeof(ICalculator2))]
+    public class CauldronCalculator2 : Calculator2
+    {
+        [CauldronLogger]
+        public override int Add(int first, int second) => base.Add(first, second);
+    }
+
+    [Cauldron.Activator.Component(typeof(ICalculator3))]
+    public class CauldronCalculator3 : Calculator3
+    {
+        [CauldronLogger]
+        public override int Add(int first, int second) => base.Add(first, second);
+    }
+
+    #endregion Cauldron
 }

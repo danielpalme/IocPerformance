@@ -17,11 +17,12 @@ Results
 ### Basic Features
 |**Container**|**Singleton**|**Transient**|**Combined**|**Complex**|
 |:------------|------------:|------------:|-----------:|----------:|
-|**No**|61<br/>53|68<br/>62|83<br/>103|90<br/>82|
+|**No**|41<br/>49|49<br/>59|69<br/>76|99<br/>103|
 |**[abioc 0.7.0](https://github.com/JSkimming/abioc)**|27<br/>**38**|**32**<br/>**54**|**48**<br/>**73**|**64**<br/>**71**|
 |**[Autofac 4.8.1](https://github.com/autofac/Autofac)**|908<br/>914|804<br/>818|1917<br/>2140|6597<br/>7581|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|465<br/>270|533<br/>322|1583<br/>906|7403<br/>3712|
 |**[Catel 5.5.0](http://www.catelproject.com)**|401<br/>496|5140<br/>5927|10930<br/>13791|25721<br/>32013|
+|**[Cauldron.Activator 3.0.25](https://github.com/Capgemini/Cauldron)**|42<br/>53|56<br/>61|105<br/>106|206<br/>202|
 |**[DryIoc 3.0.0-preview-11](https://bitbucket.org/dadhi/dryioc)**|32<br/>48|43<br/>66|56<br/>89|72<br/>83|
 |**[DryIocZero 4.0.0-preview-15](https://bitbucket.org/dadhi/dryioc)**|110<br/>99|90<br/>94|96<br/>110|219<br/>170|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|95<br/>70|104<br/>86|207<br/>158|685<br/>381|
@@ -54,11 +55,12 @@ Results
 ### Advanced Features
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Asp Net Core**|**Interception With Proxy**|
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|---------------:|--------------------------:|
-|**No**|119<br/>99|73<br/>79|177<br/>139|78<br/>69|606<br/>361|<br/>|72<br/>65|
+|**No**|186<br/>134|70<br/>75|193<br/>176|53<br/>**63**|644<br/>596|<br/>|469<br/>438|
 |**[abioc 0.7.0](https://github.com/JSkimming/abioc)**|<br/>|<br/>|743<br/>453|<br/>|<br/>|<br/>|<br/>|
 |**[Autofac 4.8.1](https://github.com/autofac/Autofac)**|6299<br/>8246|1982<br/>2161|7889<br/>8397|1311<br/>1544|70219*<br/>55666|16308<br/>16321|23726<br/>16331|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9157<br/>4733|<br/>|5965<br/>3393|<br/>|<br/>|<br/>|<br/>|
 |**[Catel 5.5.0](http://www.catelproject.com)**|<br/>|10866<br/>13647|<br/>|<br/>|<br/>|<br/>|4954<br/>10575|
+|**[Cauldron.Activator 3.0.25](https://github.com/Capgemini/Cauldron)**|58<br/>69|80<br/>89|364<br/>354|<br/>|<br/>|<br/>|**706**<br/>633|
 |**[DryIoc 3.0.0-preview-11](https://bitbucket.org/dadhi/dryioc)**|110<br/>111|53<br/>80|280<br/>215|60<br/>74|<br/>|1011<br/>680|848<br/>532|
 |**[DryIocZero 4.0.0-preview-15](https://bitbucket.org/dadhi/dryioc)**|286<br/>200|87<br/>91|307<br/>281|403<br/>278|<br/>|<br/>|<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
@@ -66,7 +68,7 @@ Results
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1090<br/>639|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Grace 6.3.4](https://github.com/ipjohnson/Grace)**|100<br/>109|53<br/>81|303<br/>297|**44**<br/>**63**|55400<br/>42842|**531**<br/>**496**|928<br/>796|
 |**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|741<br/>443|<br/>|1860<br/>1198|<br/>|<br/>|<br/>|**774**<br/>**509**|
+|**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|741<br/>443|<br/>|1860<br/>1198|<br/>|<br/>|<br/>|774<br/>**509**|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|345<br/>227|147<br/>120|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2289<br/>1755|15862<br/>14477|34754<br/>20480|<br/>|<br/>|<br/>|<br/>|
 |**[LightInject 5.1.3](https://github.com/seesharper/LightInject)**|126<br/>104|**47**<br/>82|320<br/>274|352<br/>291|<br/>|2267<br/>1688|1407<br/>870|
@@ -91,11 +93,12 @@ Results
 ### Prepare
 |**Container**|**Prepare And Register**|**Prepare And Register And Simple Resolve**|
 |:------------|-----------------------:|------------------------------------------:|
-|**No**|2<br/>|3<br/>|
+|**No**|2<br/>|2<br/>|
 |**[abioc 0.7.0](https://github.com/JSkimming/abioc)**|5672<br/>|6613<br/>|
 |**[Autofac 4.8.1](https://github.com/autofac/Autofac)**|421<br/>|445<br/>|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|55<br/>|56<br/>|
 |**[Catel 5.5.0](http://www.catelproject.com)**|9507<br/>|10047<br/>|
+|**[Cauldron.Activator 3.0.25](https://github.com/Capgemini/Cauldron)**|4<br/>|5<br/>|
 |**[DryIoc 3.0.0-preview-11](https://bitbucket.org/dadhi/dryioc)**|58<br/>|211<br/>|
 |**[DryIocZero 4.0.0-preview-15](https://bitbucket.org/dadhi/dryioc)**|**0**<br/>|**1**<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|16240<br/>|16527<br/>|

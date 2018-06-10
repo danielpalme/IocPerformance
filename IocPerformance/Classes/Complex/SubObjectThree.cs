@@ -23,5 +23,32 @@ namespace IocPerformance.Classes.Complex
                 throw new ArgumentNullException(nameof(thirdService));
             }
         }
+
+        protected SubObjectThree()
+        {
+        }
     }
+
+    #region Cauldron 
+    /*
+        Cauldron is a weaver, means cauldron changes the IL code of the assembly during build.
+    */
+
+    [Cauldron.Activator.Component(typeof(ISubObjectThree))]
+    public class CauldronSubObjectThree : SubObjectThree
+    {
+        [Cauldron.Activator.Inject]
+        private IThirdService thirdService;
+
+        public CauldronSubObjectThree() : base()
+        {
+            if (thirdService == null)
+            {
+                throw new ArgumentNullException(nameof(thirdService));
+            }
+        }
+    }
+
+
+    #endregion
 }

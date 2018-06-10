@@ -8,6 +8,7 @@ namespace IocPerformance.Classes.Properties
     {
     }
 
+    [Cauldron.Activator.Component(typeof(IServiceB), Cauldron.Activator.FactoryCreationPolicy.Singleton)]
     [MEFAttr.ExportAttribute(typeof(IServiceB))]
     [MEFAttr.PartCreationPolicy(MEFAttr.CreationPolicy.Shared)]
     [MEF2Attr.ExportAttribute(typeof(IServiceB))]
