@@ -157,7 +157,7 @@ namespace IocPerformance.Adapters
 
         private void RegisterMultiple()
         {
-            this.container.RegisterCollection<ISimpleAdapter>(new[]
+            this.container.Collection.Register<ISimpleAdapter>(new[]
             {
                 typeof(SimpleAdapterOne),
                 typeof(SimpleAdapterTwo),
