@@ -13,13 +13,13 @@
     "SingleThreadedResult": {
       "Time": 41,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 49,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -37,13 +37,13 @@
     "SingleThreadedResult": {
       "Time": 49,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 59,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -61,13 +61,13 @@
     "SingleThreadedResult": {
       "Time": 69,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 76,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -85,13 +85,13 @@
     "SingleThreadedResult": {
       "Time": 99,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 103,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -109,13 +109,13 @@
     "SingleThreadedResult": {
       "Time": 186,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 134,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -133,13 +133,13 @@
     "SingleThreadedResult": {
       "Time": 70,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 75,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -157,13 +157,13 @@
     "SingleThreadedResult": {
       "Time": 193,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 176,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -181,13 +181,13 @@
     "SingleThreadedResult": {
       "Time": 53,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 63,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -205,13 +205,13 @@
     "SingleThreadedResult": {
       "Time": 644,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 596,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -229,13 +229,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -253,13 +253,13 @@
     "SingleThreadedResult": {
       "Time": 469,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 438,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -277,13 +277,13 @@
     "SingleThreadedResult": {
       "Time": 2,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -301,13 +301,13 @@
     "SingleThreadedResult": {
       "Time": 2,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1568,16 +1568,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
-      "Time": 42,
+      "Time": 58,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 53,
+      "Time": 57,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1592,16 +1592,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
-      "Time": 56,
+      "Time": 74,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 61,
+      "Time": 79,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1616,16 +1616,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
-      "Time": 105,
+      "Time": 145,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 106,
+      "Time": 109,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1640,16 +1640,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
-      "Time": 206,
+      "Time": 253,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 202,
+      "Time": 226,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1664,16 +1664,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
-      "Time": 58,
+      "Time": 76,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 69,
+      "Time": 72,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1688,16 +1688,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
-      "Time": 80,
+      "Time": 119,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 89,
+      "Time": 98,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1712,16 +1712,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
-      "Time": 364,
+      "Time": 414,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 354,
+      "Time": 375,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1736,7 +1736,7 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -1760,7 +1760,7 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -1784,7 +1784,7 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -1808,16 +1808,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
-      "Time": 706,
+      "Time": 828,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 633,
+      "Time": 598,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1832,10 +1832,10 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
-      "Time": 4,
+      "Time": 0,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1856,10 +1856,10 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.25"
+      "Version": "3.0.28"
     },
     "SingleThreadedResult": {
-      "Time": 5,
+      "Time": 1,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -3440,18 +3440,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 27,
+      "Time": 28,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 49,
+      "Time": 43,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3464,18 +3464,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 47,
+      "Time": 41,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 56,
+      "Time": 53,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3488,18 +3488,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 54,
+      "Time": 60,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 78,
+      "Time": 75,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3512,18 +3512,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 71,
+      "Time": 73,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 90,
+      "Time": 100,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3536,18 +3536,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 100,
+      "Time": 108,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 109,
+      "Time": 126,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3560,18 +3560,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 53,
+      "Time": 49,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 81,
+      "Time": 67,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3584,18 +3584,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 303,
+      "Time": 357,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 297,
+      "Time": 360,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3608,18 +3608,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 44,
+      "Time": 68,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 63,
+      "Time": 67,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3632,18 +3632,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 55400,
+      "Time": 47907,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 42842,
+      "Time": 30596,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3656,18 +3656,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 531,
+      "Time": 522,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 496,
+      "Time": 417,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3680,18 +3680,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 928,
+      "Time": 854,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 796,
+      "Time": 572,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -3704,18 +3704,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 158,
+      "Time": 145,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -3728,18 +3728,18 @@
     "ContainerInfo": {
       "Name": "Grace",
       "Url": "https://github.com/ipjohnson/Grace",
-      "Version": "6.3.4"
+      "Version": "6.4.0"
     },
     "SingleThreadedResult": {
-      "Time": 850,
+      "Time": 809,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8120,18 +8120,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 247,
+      "Time": 240,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 314,
+      "Time": 287,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8144,18 +8144,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 988,
+      "Time": 989,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1050,
+      "Time": 1114,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8168,18 +8168,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 2598,
+      "Time": 2789,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 2807,
+      "Time": 3022,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8192,18 +8192,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 7423,
+      "Time": 7698,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 8081,
+      "Time": 9155,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8216,18 +8216,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 955,
+      "Time": 1054,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1043,
+      "Time": 1109,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8240,18 +8240,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 6435,
+      "Time": 6909,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 6880,
+      "Time": 7903,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8264,18 +8264,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8288,18 +8288,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8312,18 +8312,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 4358,
+      "Time": 4344,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 2778,
+      "Time": 2942,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8336,18 +8336,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8360,18 +8360,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8384,18 +8384,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
       "Time": 10,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8408,18 +8408,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.0.1"
+      "Version": "6.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 14,
+      "Time": 13,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9680,18 +9680,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 30,
+      "Time": 31,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 48,
+      "Time": 45,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9704,18 +9704,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 40,
+      "Time": 45,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 61,
+      "Time": 62,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9728,18 +9728,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 57,
+      "Time": 56,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 89,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9752,18 +9752,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 70,
+      "Time": 74,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 79,
+      "Time": 81,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9776,18 +9776,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 96,
+      "Time": 109,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 109,
+      "Time": 115,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9800,18 +9800,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 53,
+      "Time": 54,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 73,
+      "Time": 68,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9824,18 +9824,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 280,
+      "Time": 276,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 219,
+      "Time": 211,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9848,18 +9848,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 58,
+      "Time": 47,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 69,
+      "Time": 67,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9872,18 +9872,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 172580,
+      "Time": 284231,
       "ExtraPolated": true,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
-      "Time": 101191,
+      "Time": 205433,
       "ExtraPolated": true,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9896,18 +9896,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 824,
+      "Time": 760,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 948,
+      "Time": 887,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9920,18 +9920,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 883,
+      "Time": 859,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 656,
+      "Time": 557,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9944,18 +9944,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 78,
+      "Time": 73,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9968,18 +9968,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.5.9"
+      "Version": "2.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 409,
+      "Time": 463,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
