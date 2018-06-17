@@ -92,6 +92,7 @@
     <Compile Include="Adapters\SimpleInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\SpringContainerAdapter.cs" />
     <Compile Include="Adapters\StashboxContainerAdapter.cs" />
+    <Compile Include="Adapters\LamarContainerAdapter.cs" />
     <Compile Include="Adapters\StructureMapContainerAdapter.cs" />
     <Compile Include="Adapters\UnityContainerAdapter.cs" />
     <Compile Include="Adapters\WindsorContainerAdapter.cs" />
@@ -283,6 +284,9 @@
     </PackageReference>
     <PackageReference Include="IfInjector">
       <Version>0.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="Lamar">
+      <Version>1.0.2</Version>
     </PackageReference>
     <PackageReference Include="LightCore">
       <Version>1.5.1</Version>
