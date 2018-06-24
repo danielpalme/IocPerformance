@@ -1568,16 +1568,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
-      "Time": 58,
+      "Time": 37,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 57,
+      "Time": 48,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1592,16 +1592,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
-      "Time": 74,
+      "Time": 43,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 79,
+      "Time": 61,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1616,16 +1616,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
-      "Time": 145,
+      "Time": 90,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 109,
+      "Time": 106,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1640,16 +1640,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
-      "Time": 253,
+      "Time": 184,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 226,
+      "Time": 145,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1664,16 +1664,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
-      "Time": 76,
+      "Time": 51,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 72,
+      "Time": 66,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1688,16 +1688,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
-      "Time": 119,
+      "Time": 77,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 98,
+      "Time": 84,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1712,16 +1712,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
-      "Time": 414,
+      "Time": 325,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 375,
+      "Time": 232,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1736,7 +1736,7 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -1760,7 +1760,7 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -1784,7 +1784,7 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -1808,16 +1808,16 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
-      "Time": 828,
+      "Time": 650,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 598,
+      "Time": 434,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1832,7 +1832,7 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
       "Time": 0,
@@ -1856,10 +1856,10 @@
     "ContainerInfo": {
       "Name": "Cauldron.Activator",
       "Url": "https://github.com/Capgemini/Cauldron",
-      "Version": "3.0.28"
+      "Version": "3.0.29"
     },
     "SingleThreadedResult": {
-      "Time": 1,
+      "Time": 0,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -1880,18 +1880,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
       "Time": 32,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 48,
+      "Time": 46,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -1904,18 +1904,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
       "Time": 43,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 66,
+      "Time": 64,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -1928,18 +1928,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 56,
+      "Time": 57,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 89,
+      "Time": 88,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -1952,18 +1952,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 72,
+      "Time": 67,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 83,
+      "Time": 79,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -1976,18 +1976,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 110,
+      "Time": 115,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 111,
+      "Time": 117,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2000,18 +2000,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 53,
+      "Time": 56,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 80,
+      "Time": 77,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2024,18 +2024,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 280,
+      "Time": 270,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 215,
+      "Time": 200,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2048,18 +2048,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 60,
+      "Time": 50,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 74,
+      "Time": 69,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2072,18 +2072,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -2096,18 +2096,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 1011,
+      "Time": 1018,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 680,
+      "Time": 664,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2120,18 +2120,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 848,
+      "Time": 826,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 532,
+      "Time": 508,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2144,18 +2144,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 58,
+      "Time": 59,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -2168,18 +2168,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "3.0.0-preview-11"
+      "Version": "3.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 211,
+      "Time": 222,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -3445,13 +3445,13 @@
     "SingleThreadedResult": {
       "Time": 28,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 43,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3469,13 +3469,13 @@
     "SingleThreadedResult": {
       "Time": 41,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 53,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3493,13 +3493,13 @@
     "SingleThreadedResult": {
       "Time": 60,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 75,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3517,13 +3517,13 @@
     "SingleThreadedResult": {
       "Time": 73,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 100,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3541,13 +3541,13 @@
     "SingleThreadedResult": {
       "Time": 108,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 126,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3565,13 +3565,13 @@
     "SingleThreadedResult": {
       "Time": 49,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 67,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3589,13 +3589,13 @@
     "SingleThreadedResult": {
       "Time": 357,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 360,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3613,13 +3613,13 @@
     "SingleThreadedResult": {
       "Time": 68,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 67,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3637,13 +3637,13 @@
     "SingleThreadedResult": {
       "Time": 47907,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 30596,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3661,13 +3661,13 @@
     "SingleThreadedResult": {
       "Time": 522,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 417,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3685,13 +3685,13 @@
     "SingleThreadedResult": {
       "Time": 854,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 572,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3709,13 +3709,13 @@
     "SingleThreadedResult": {
       "Time": 145,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -3733,13 +3733,13 @@
     "SingleThreadedResult": {
       "Time": 809,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -5000,18 +5000,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 27,
+      "Time": 31,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 44,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5024,18 +5024,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 39,
+      "Time": 36,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 65,
+      "Time": 60,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5048,18 +5048,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 60,
+      "Time": 54,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 84,
+      "Time": 81,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5072,18 +5072,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 72,
+      "Time": 66,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 100,
+      "Time": 82,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5096,18 +5096,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 126,
+      "Time": 110,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 104,
+      "Time": 110,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5120,18 +5120,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 47,
+      "Time": 51,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 82,
+      "Time": 81,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5144,18 +5144,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 320,
+      "Time": 257,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 274,
+      "Time": 199,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5168,18 +5168,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 352,
+      "Time": 308,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 291,
+      "Time": 215,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5192,18 +5192,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -5216,18 +5216,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 2267,
+      "Time": 2355,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1688,
+      "Time": 1794,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5240,18 +5240,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 1407,
+      "Time": 1347,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 870,
+      "Time": 795,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5264,18 +5264,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 153,
+      "Time": 104,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -5288,18 +5288,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.1.3"
+      "Version": "5.1.4"
     },
     "SingleThreadedResult": {
-      "Time": 678,
+      "Time": 626,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -7184,18 +7184,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 103,
+      "Time": 81,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 100,
+      "Time": 69,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -7208,18 +7208,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 139,
+      "Time": 116,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 126,
+      "Time": 106,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -7232,18 +7232,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 171,
+      "Time": 152,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 164,
+      "Time": 134,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -7256,18 +7256,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 232,
+      "Time": 199,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 216,
+      "Time": 152,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -7280,18 +7280,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -7304,18 +7304,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 168,
+      "Time": 141,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 148,
+      "Time": 135,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -7328,18 +7328,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 482,
+      "Time": 411,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 443,
+      "Time": 291,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -7352,18 +7352,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -7376,18 +7376,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -7400,18 +7400,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 1170,
+      "Time": 1004,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 930,
+      "Time": 676,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -7424,18 +7424,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -7448,18 +7448,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 23,
+      "Time": 22,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -7472,18 +7472,18 @@
     "ContainerInfo": {
       "Name": "Microsoft Extensions DependencyInjection",
       "Url": "https://github.com/aspnet/DependencyInjection",
-      "Version": "2.1.0"
+      "Version": "2.1.1"
     },
     "SingleThreadedResult": {
-      "Time": 32,
+      "Time": 28,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8120,16 +8120,16 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
-      "Time": 240,
+      "Time": 233,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 287,
+      "Time": 285,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -8144,16 +8144,16 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
-      "Time": 989,
+      "Time": 962,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1114,
+      "Time": 1011,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -8168,16 +8168,16 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
-      "Time": 2789,
+      "Time": 2617,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 3022,
+      "Time": 2855,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -8192,16 +8192,16 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
-      "Time": 7698,
+      "Time": 7756,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 9155,
+      "Time": 8181,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -8216,16 +8216,16 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
-      "Time": 1054,
+      "Time": 948,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1109,
+      "Time": 1034,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -8240,16 +8240,16 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
-      "Time": 6909,
+      "Time": 6458,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 7903,
+      "Time": 7098,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -8264,7 +8264,7 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -8288,7 +8288,7 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -8312,16 +8312,16 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
-      "Time": 4344,
+      "Time": 4175,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 2942,
+      "Time": 2825,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -8336,7 +8336,7 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -8360,7 +8360,7 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -8384,10 +8384,10 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
-      "Time": 10,
+      "Time": 15,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -8408,7 +8408,7 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.1.1"
+      "Version": "6.1.2"
     },
     "SingleThreadedResult": {
       "Time": 13,
@@ -9685,13 +9685,13 @@
     "SingleThreadedResult": {
       "Time": 31,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 45,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -9709,13 +9709,13 @@
     "SingleThreadedResult": {
       "Time": 45,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 62,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -9733,13 +9733,13 @@
     "SingleThreadedResult": {
       "Time": 56,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 89,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -9757,13 +9757,13 @@
     "SingleThreadedResult": {
       "Time": 74,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 81,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -9781,13 +9781,13 @@
     "SingleThreadedResult": {
       "Time": 109,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 115,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -9805,13 +9805,13 @@
     "SingleThreadedResult": {
       "Time": 54,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 68,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -9829,13 +9829,13 @@
     "SingleThreadedResult": {
       "Time": 276,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 211,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -9853,13 +9853,13 @@
     "SingleThreadedResult": {
       "Time": 47,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 67,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -9877,13 +9877,13 @@
     "SingleThreadedResult": {
       "Time": 284231,
       "ExtraPolated": true,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": 205433,
       "ExtraPolated": true,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -9901,13 +9901,13 @@
     "SingleThreadedResult": {
       "Time": 760,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 887,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -9925,13 +9925,13 @@
     "SingleThreadedResult": {
       "Time": 859,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 557,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -9949,13 +9949,13 @@
     "SingleThreadedResult": {
       "Time": 73,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -9973,13 +9973,13 @@
     "SingleThreadedResult": {
       "Time": 463,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
