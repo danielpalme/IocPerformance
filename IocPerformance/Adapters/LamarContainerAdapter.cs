@@ -30,7 +30,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportAspNetCore => false;
 
-        public override object Resolve(Type type) => this.container.GetRequiredService(type);
+        public override object Resolve(Type type) => this.container.GetService(type);
 
         public override void Dispose()
         {
