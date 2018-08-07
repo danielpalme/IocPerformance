@@ -12,6 +12,7 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
@@ -61,7 +62,10 @@ namespace IocPerformance.Adapters
 
         private void RegisterAspNetCore()
         {
-            this.container = this.container.WithDependencyInjectionAdapter(this.CreateServiceCollection());
+            ServiceCollection services = new ServiceCollection();
+            this.RegisterAspNetCoreClasses(services);
+
+            this.container = this.container.WithDependencyInjectionAdapter(services);
         }
 
         public override void PrepareBasic()

@@ -11,6 +11,7 @@ using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
@@ -92,7 +93,10 @@ namespace IocPerformance.Adapters
 
         private void RegisterAspNetCore()
         {
-            this.container.Populate(this.CreateServiceCollection());
+            ServiceCollection services = new ServiceCollection();
+            this.RegisterAspNetCoreClasses(services);
+
+            this.container.Populate(services);
         }
 
         private void RegisterConditional()

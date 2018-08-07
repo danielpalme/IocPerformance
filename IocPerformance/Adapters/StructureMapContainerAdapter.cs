@@ -8,6 +8,7 @@ using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
+using Microsoft.Extensions.DependencyInjection;
 using StructureMap;
 
 namespace IocPerformance.Adapters
@@ -61,7 +62,9 @@ namespace IocPerformance.Adapters
                                                RegisterMultiple(r);
                                                RegisterInterceptor(r, pg);
 
-                                               r.Populate(CreateServiceCollection());
+                                               ServiceCollection services = new ServiceCollection();
+                                               this.RegisterAspNetCoreClasses(services);
+                                               r.Populate(services);
                                            });
         }
 

@@ -193,7 +193,10 @@ namespace IocPerformance.Adapters
 
         private void RegisterAspCore()
         {
-            var adapter = Unity.Microsoft.DependencyInjection.ServiceProviderExtensions.BuildServiceProvider(this.container, CreateServiceCollection());
+            ServiceCollection services = new ServiceCollection();
+            this.RegisterAspNetCoreClasses(services);
+
+            var adapter = Unity.Microsoft.DependencyInjection.ServiceProviderExtensions.BuildServiceProvider(this.container, services);
             this.container = (IUnityContainer)adapter.GetService(typeof(IUnityContainer));
             container.RegisterInstance(adapter);
         }
@@ -229,7 +232,7 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            childContainer.RegisterType<ITransient1>( new InjectionFactory((c) => new ScopedTransient()));
+            childContainer.RegisterType<ITransient1>(new InjectionFactory((c) => new ScopedTransient()));
 
             childContainer.RegisterType<ICombined1>(new InjectionFactory((c) => new ScopedCombined1(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));
             childContainer.RegisterType<ICombined2>(new InjectionFactory((c) => new ScopedCombined2(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));

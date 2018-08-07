@@ -32,6 +32,7 @@ Results
 |**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|300<br/>205|318<br/>226|719<br/>476|2004<br/>1228|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|40<br/>48|51<br/>62|65<br/>88|103<br/>95|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|75<br/>60|128<br/>97|145<br/>124|197<br/>135|
+|**[Lamar 1.1.1](https://jasperfx.github.io/lamar/)**|62<br/>61|93<br/>92|110<br/>112|137<br/>120|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|184<br/>189|2191<br/>1301|26718<br/>31570|151128*<br/>188142*|
 |**[LightInject 5.1.5](https://github.com/seesharper/LightInject)**|28<br/>44|33<br/>59|55<br/>78|70<br/>79|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|3167<br/>1709|16506<br/>11878|45492<br/>29568|116514*<br/>76757*|
@@ -40,7 +41,6 @@ Results
 |**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|276<br/>260|341<br/>265|425<br/>374|901<br/>654|
 |**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|**25**<br/>39|34<br/>59|55<br/>77|92<br/>89|
 |**[MicroSliver 2.1.6](  )**|192<br/>232|742<br/>619|2394<br/>1786|7159<br/>6162|
-|**[Microsoft Extensions DependencyInjection 2.1.1](https://github.com/aspnet/DependencyInjection)**|81<br/>69|116<br/>106|152<br/>134|199<br/>152|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|484<br/>444|711<br/>751|2285<br/>2494|8297<br/>9494|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|90<br/>75|161<br/>107|517<br/>417|1812<br/>1050|
 |**[MvvmCross 6.1.2](https://github.com/MvvmCross/MvvmCross)**|233<br/>285|962<br/>1011|2617<br/>2855|7756<br/>8181|
@@ -70,6 +70,7 @@ Results
 |**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|741<br/>443|<br/>|1860<br/>1198|<br/>|<br/>|<br/>|774<br/>509|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|345<br/>227|147<br/>120|<br/>|<br/>|<br/>|<br/>|<br/>|
+|**[Lamar 1.1.1](https://jasperfx.github.io/lamar/)**|100<br/>92|106<br/>113|582<br/>384|<br/>|<br/>|932<br/>600|<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2289<br/>1755|15862<br/>14477|34754<br/>20480|<br/>|<br/>|<br/>|<br/>|
 |**[LightInject 5.1.5](https://github.com/seesharper/LightInject)**|108<br/>111|**49**<br/>82|266<br/>202|301<br/>202|<br/>|2908<br/>2237|1417<br/>837|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
@@ -78,7 +79,6 @@ Results
 |**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1525<br/>1272|310<br/>299|1554<br/>1273|<br/>|<br/>|<br/>|<br/>|
 |**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|**39**<br/>**62**|<br/>|**262**<br/>**195**|<br/>|<br/>|<br/>|<br/>|
 |**[MicroSliver 2.1.6](  )**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[Microsoft Extensions DependencyInjection 2.1.1](https://github.com/aspnet/DependencyInjection)**|<br/>|141<br/>135|411<br/>291|<br/>|<br/>|1004<br/>676|<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|10005<br/>8348|72189*<br/>72787*|5619<br/>7027|1824<br/>1883|550418*<br/>335171*|<br/>|13742<br/>16268|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1536<br/>847|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[MvvmCross 6.1.2](https://github.com/MvvmCross/MvvmCross)**|948<br/>1034|6458<br/>7098|<br/>|<br/>|**4175**<br/>**2825**|<br/>|<br/>|
@@ -108,6 +108,7 @@ Results
 |**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|8387<br/>|8960<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|54925<br/>|55463<br/>|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|1397<br/>|2016<br/>|
+|**[Lamar 1.1.1](https://jasperfx.github.io/lamar/)**|1929<br/>|314163*<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|226<br/>|204<br/>|
 |**[LightInject 5.1.5](https://github.com/seesharper/LightInject)**|109<br/>|616<br/>|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|107<br/>|338<br/>|
@@ -116,7 +117,6 @@ Results
 |**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|6053<br/>|7259<br/>|
 |**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|27322<br/>|67518<br/>|
 |**[MicroSliver 2.1.6](  )**|12<br/>|17<br/>|
-|**[Microsoft Extensions DependencyInjection 2.1.1](https://github.com/aspnet/DependencyInjection)**|22<br/>|28<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|424<br/>|1820<br/>|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|9079<br/>|9500<br/>|
 |**[MvvmCross 6.1.2](https://github.com/MvvmCross/MvvmCross)**|15<br/>|13<br/>|

@@ -28,7 +28,7 @@ namespace IocPerformance.Adapters
 
         public override bool SupportsChildContainer => false;
 
-        public override bool SupportAspNetCore => false;
+        public override bool SupportAspNetCore => true;
 
         public override object Resolve(Type type) => this.container.GetService(type);
 
@@ -52,6 +52,7 @@ namespace IocPerformance.Adapters
             RegisterPropertyInjection(registry);
             RegisterGeneric(registry);
             RegisterMultiple(registry);
+            this.RegisterAspNetCoreClasses(registry);
 
             this.container = new Container(registry);
         }

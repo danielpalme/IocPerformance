@@ -9,6 +9,7 @@ using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using LightInject;
 using LightInject.Microsoft.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
@@ -54,7 +55,10 @@ namespace IocPerformance.Adapters
 
         private void RegisterAspNetCore()
         {
-            this.container.CreateServiceProvider(this.CreateServiceCollection());
+            ServiceCollection services = new ServiceCollection();
+            this.RegisterAspNetCoreClasses(services);
+
+            this.container.CreateServiceProvider(services);
         }
 
         public override void PrepareBasic()

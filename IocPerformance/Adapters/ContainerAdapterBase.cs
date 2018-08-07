@@ -71,10 +71,8 @@ namespace IocPerformance.Adapters
 
         public abstract void Dispose();
 
-        protected ServiceCollection CreateServiceCollection()
+        protected void RegisterAspNetCoreClasses(IServiceCollection serviceCollection)
         {
-            var serviceCollection = new ServiceCollection();
-
             serviceCollection.AddTransient<TestController1>();
             serviceCollection.AddTransient<TestController2>();
             serviceCollection.AddTransient<TestController3>();
@@ -82,8 +80,6 @@ namespace IocPerformance.Adapters
             serviceCollection.AddTransient<IRepositoryTransient2, RepositoryTransient2>();
             serviceCollection.AddTransient<IRepositoryTransient3, RepositoryTransient3>();
             serviceCollection.AddScoped<IScopedService, ScopedService>();
-
-            return serviceCollection;
         }
     }
 }

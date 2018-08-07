@@ -6,8 +6,8 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
+using Microsoft.Extensions.DependencyInjection;
 using Rezolver;
-using Rezolver.Targets;
 
 namespace IocPerformance.Adapters
 {
@@ -46,7 +46,11 @@ namespace IocPerformance.Adapters
             RegisterPropertyInjection(targets);
             RegisterOpenGeneric(targets);
             RegisterMultiple(targets);
-            targets.Populate(this.CreateServiceCollection());
+
+            ServiceCollection services = new ServiceCollection();
+            this.RegisterAspNetCoreClasses(services);
+
+            targets.Populate(services);
 
             this.container = new Container(targets);
         }

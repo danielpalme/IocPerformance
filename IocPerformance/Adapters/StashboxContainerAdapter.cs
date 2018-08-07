@@ -59,7 +59,10 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            this.container = CreateServiceCollection().CreateBuilder();
+            ServiceCollection services = new ServiceCollection();
+            this.RegisterAspNetCoreClasses(services);
+
+            this.container = services.CreateBuilder();
             this.RegisterBasic();
             this.RegisterPropertyInjection();
             this.RegisterOpenGeneric();
