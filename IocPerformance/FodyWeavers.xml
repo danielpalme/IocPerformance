@@ -1,11 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Weavers ReferenceCopyLocal="false">
-  <Cauldron.Interception>
-    <CustomInterceptors>
-      $(ProjectDir)Interception\Cauldron\*.csx
-    </CustomInterceptors>
-    <OnlyIncludeAssemblies>
-      Cauldron
-    </OnlyIncludeAssemblies>
-  </Cauldron.Interception>
+<Weavers VerifyAssembly="True">
+  <Cauldron.Interception />
 </Weavers>

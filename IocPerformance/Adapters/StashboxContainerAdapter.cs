@@ -85,16 +85,16 @@ namespace IocPerformance.Adapters
 
         private void RegisterDummies()
         {
-            this.container.RegisterType<IDummyOne, DummyOne>();
-            this.container.RegisterType<IDummyTwo, DummyTwo>();
-            this.container.RegisterType<IDummyThree, DummyThree>();
-            this.container.RegisterType<IDummyFour, DummyFour>();
-            this.container.RegisterType<IDummyFive, DummyFive>();
-            this.container.RegisterType<IDummySix, DummySix>();
-            this.container.RegisterType<IDummySeven, DummySeven>();
-            this.container.RegisterType<IDummyEight, DummyEight>();
-            this.container.RegisterType<IDummyNine, DummyNine>();
-            this.container.RegisterType<IDummyTen, DummyTen>();
+            this.container.Register<IDummyOne, DummyOne>();
+            this.container.Register<IDummyTwo, DummyTwo>();
+            this.container.Register<IDummyThree, DummyThree>();
+            this.container.Register<IDummyFour, DummyFour>();
+            this.container.Register<IDummyFive, DummyFive>();
+            this.container.Register<IDummySix, DummySix>();
+            this.container.Register<IDummySeven, DummySeven>();
+            this.container.Register<IDummyEight, DummyEight>();
+            this.container.Register<IDummyNine, DummyNine>();
+            this.container.Register<IDummyTen, DummyTen>();
         }
 
         private void RegisterStandard()
@@ -102,12 +102,12 @@ namespace IocPerformance.Adapters
             this.container.RegisterSingleton<ISingleton1, Singleton1>();
             this.container.RegisterSingleton<ISingleton2, Singleton2>();
             this.container.RegisterSingleton<ISingleton3, Singleton3>();
-            this.container.RegisterType<ITransient1, Transient1>();
-            this.container.RegisterType<ITransient2, Transient2>();
-            this.container.RegisterType<ITransient3, Transient3>();
-            this.container.RegisterType<ICombined1, Combined1>();
-            this.container.RegisterType<ICombined2, Combined2>();
-            this.container.RegisterType<ICombined3, Combined3>();
+            this.container.Register<ITransient1, Transient1>();
+            this.container.Register<ITransient2, Transient2>();
+            this.container.Register<ITransient3, Transient3>();
+            this.container.Register<ICombined1, Combined1>();
+            this.container.Register<ICombined2, Combined2>();
+            this.container.Register<ICombined3, Combined3>();
         }
 
         private void RegisterComplex()
@@ -115,12 +115,12 @@ namespace IocPerformance.Adapters
             this.container.RegisterSingleton<IFirstService, FirstService>();
             this.container.RegisterSingleton<ISecondService, SecondService>();
             this.container.RegisterSingleton<IThirdService, ThirdService>();
-            this.container.RegisterType<ISubObjectOne, SubObjectOne>();
-            this.container.RegisterType<ISubObjectTwo, SubObjectTwo>();
-            this.container.RegisterType<ISubObjectThree, SubObjectThree>();
-            this.container.RegisterType<IComplex1, Complex1>();
-            this.container.RegisterType<IComplex2, Complex2>();
-            this.container.RegisterType<IComplex3, Complex3>();
+            this.container.Register<ISubObjectOne, SubObjectOne>();
+            this.container.Register<ISubObjectTwo, SubObjectTwo>();
+            this.container.Register<ISubObjectThree, SubObjectThree>();
+            this.container.Register<IComplex1, Complex1>();
+            this.container.Register<IComplex2, Complex2>();
+            this.container.Register<IComplex3, Complex3>();
         }
 
         private void RegisterPropertyInjection()
@@ -128,52 +128,52 @@ namespace IocPerformance.Adapters
             this.container.RegisterSingleton<IServiceA, ServiceA>();
             this.container.RegisterSingleton<IServiceB, ServiceB>();
             this.container.RegisterSingleton<IServiceC, ServiceC>();
-            this.container.RegisterType<ISubObjectA, SubObjectA>();
-            this.container.RegisterType<ISubObjectB, SubObjectB>();
-            this.container.RegisterType<ISubObjectC, SubObjectC>();
-            this.container.RegisterType<IComplexPropertyObject1, ComplexPropertyObject1>();
-            this.container.RegisterType<IComplexPropertyObject2, ComplexPropertyObject2>();
-            this.container.RegisterType<IComplexPropertyObject3, ComplexPropertyObject3>();
+            this.container.Register<ISubObjectA, SubObjectA>();
+            this.container.Register<ISubObjectB, SubObjectB>();
+            this.container.Register<ISubObjectC, SubObjectC>();
+            this.container.Register<IComplexPropertyObject1, ComplexPropertyObject1>();
+            this.container.Register<IComplexPropertyObject2, ComplexPropertyObject2>();
+            this.container.Register<IComplexPropertyObject3, ComplexPropertyObject3>();
         }
 
         private void RegisterMultiple()
         {
-            this.container.RegisterType<ISimpleAdapter, SimpleAdapterOne>();
-            this.container.RegisterType<ISimpleAdapter, SimpleAdapterTwo>();
-            this.container.RegisterType<ISimpleAdapter, SimpleAdapterThree>();
-            this.container.RegisterType<ISimpleAdapter, SimpleAdapterFour>();
-            this.container.RegisterType<ISimpleAdapter, SimpleAdapterFive>();
+            this.container.Register<ISimpleAdapter, SimpleAdapterOne>();
+            this.container.Register<ISimpleAdapter, SimpleAdapterTwo>();
+            this.container.Register<ISimpleAdapter, SimpleAdapterThree>();
+            this.container.Register<ISimpleAdapter, SimpleAdapterFour>();
+            this.container.Register<ISimpleAdapter, SimpleAdapterFive>();
 
-            this.container.RegisterType<ImportMultiple1>();
-            this.container.RegisterType<ImportMultiple2>();
-            this.container.RegisterType<ImportMultiple3>();
+            this.container.Register<ImportMultiple1>();
+            this.container.Register<ImportMultiple2>();
+            this.container.Register<ImportMultiple3>();
         }
 
         private void RegisterOpenGeneric()
         {
-            this.container.RegisterType(typeof(IGenericInterface<>), typeof(GenericExport<>));
-            this.container.RegisterType(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
+            this.container.Register(typeof(IGenericInterface<>), typeof(GenericExport<>));
+            this.container.Register(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
         }
 
         private void RegisterConditional()
         {
-            this.container.RegisterType<ImportConditionObject1>();
-            this.container.RegisterType<ImportConditionObject2>();
-            this.container.RegisterType<ImportConditionObject3>();
-            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject1>(context => context
+            this.container.Register<ImportConditionObject1>();
+            this.container.Register<ImportConditionObject2>();
+            this.container.Register<ImportConditionObject3>();
+            this.container.Register<IExportConditionInterface, ExportConditionalObject1>(context => context
                 .WhenDependantIs<ImportConditionObject1>());
-            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject2>(context => context
+            this.container.Register<IExportConditionInterface, ExportConditionalObject2>(context => context
                 .WhenDependantIs<ImportConditionObject2>());
-            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject3>(context => context
+            this.container.Register<IExportConditionInterface, ExportConditionalObject3>(context => context
                 .WhenDependantIs<ImportConditionObject3>());
         }
 
         private void RegisterInterceptor()
         {
-            this.container.RegisterType<IInterceptor, CalculatorLogger>();
-            this.container.RegisterType<ICalculator1, Calculator1>();
-            this.container.RegisterType<ICalculator2, Calculator2>();
-            this.container.RegisterType<ICalculator3, Calculator3>();
+            this.container.Register<IInterceptor, CalculatorLogger>();
+            this.container.Register<ICalculator1, Calculator1>();
+            this.container.Register<ICalculator2, Calculator2>();
+            this.container.Register<ICalculator3, Calculator3>();
 
             this.container.RegisterDecorator<ICalculator1>(this.proxyType1);
             this.container.RegisterDecorator<ICalculator2>(this.proxyType2);
@@ -205,10 +205,10 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            this.childContainer.RegisterType<ICombined1, ScopedCombined1>();
-            this.childContainer.RegisterType<ICombined2, ScopedCombined2>();
-            this.childContainer.RegisterType<ICombined3, ScopedCombined3>();
-            this.childContainer.RegisterType<ITransient1, ScopedTransient>();
+            this.childContainer.Register<ICombined1, ScopedCombined1>();
+            this.childContainer.Register<ICombined2, ScopedCombined2>();
+            this.childContainer.Register<ICombined3, ScopedCombined3>();
+            this.childContainer.Register<ITransient1, ScopedTransient>();
         }
 
         public object Resolve(Type resolveType) => this.childContainer.Resolve(resolveType);

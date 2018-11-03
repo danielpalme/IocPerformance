@@ -229,7 +229,7 @@
       <Version>4.3.0</Version>
     </PackageReference>
     <PackageReference Include="Autofac.Extras.DynamicProxy">
-      <Version>4.4.0</Version>
+      <Version>4.5.0</Version>
     </PackageReference>
     <PackageReference Include="Caliburn.Micro.Container">
       <Version>1.5.2</Version>
@@ -238,19 +238,19 @@
       <Version>3.2.0</Version>
     </PackageReference>
     <PackageReference Include="Capgemini.Cauldron.Activator">
-      <Version>3.0.32</Version>
+      <Version>3.2.3</Version>
     </PackageReference>
     <PackageReference Include="Castle.Windsor">
-      <Version>4.1.0</Version>
+      <Version>4.1.1</Version>
     </PackageReference>
     <PackageReference Include="Catel.Core">
-      <Version>5.6.0</Version>
+      <Version>5.7.0</Version>
     </PackageReference>
     <PackageReference Include="Catel.Extensions.Interception">
       <Version>4.5.4</Version>
     </PackageReference>
     <PackageReference Include="Cauldron.BasicInterceptors">
-      <Version>3.0.33</Version>
+      <Version>3.2.3</Version>
     </PackageReference>
     <PackageReference Include="DryIoc.dll">
       <Version>3.0.2</Version>
@@ -268,13 +268,13 @@
       <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="Grace">
-      <Version>6.4.1</Version>
+      <Version>6.4.2</Version>
     </PackageReference>
     <PackageReference Include="Grace.DependencyInjection.Extensions">
       <Version>6.4.0</Version>
     </PackageReference>
     <PackageReference Include="Grace.Dynamic">
-      <Version>6.4.1</Version>
+      <Version>6.4.2</Version>
     </PackageReference>
     <PackageReference Include="Griffin.Container">
       <Version>1.1.9</Version>
@@ -289,19 +289,19 @@
       <Version>0.8.1</Version>
     </PackageReference>
     <PackageReference Include="Lamar">
-      <Version>1.1.1</Version>
+      <Version>1.1.2</Version>
     </PackageReference>
     <PackageReference Include="LightCore">
       <Version>1.5.1</Version>
     </PackageReference>
     <PackageReference Include="LightInject">
-      <Version>5.1.8</Version>
+      <Version>5.2.0</Version>
     </PackageReference>
     <PackageReference Include="LightInject.Interception">
       <Version>2.0.2</Version>
     </PackageReference>
     <PackageReference Include="LightInject.Microsoft.DependencyInjection">
-      <Version>2.0.8</Version>
+      <Version>2.1.1</Version>
     </PackageReference>
     <PackageReference Include="LinFu.Core">
       <Version>2.3.0.41559</Version>
@@ -319,7 +319,7 @@
       <Version>2.1.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNet.Mvc">
-      <Version>3.0.50813.1</Version>
+      <Version>5.2.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Build.Framework">
       <Version>15.8.166</Version>
@@ -337,7 +337,7 @@
       <Version>3.1.6</Version>
     </PackageReference>
     <PackageReference Include="MvvmCross">
-      <Version>6.1.2</Version>
+      <Version>6.2.1</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>11.0.2</Version>
@@ -364,7 +364,7 @@
       <Version>4.2.0</Version>
     </PackageReference>
     <PackageReference Include="SimpleInjector">
-      <Version>4.3.0</Version>
+      <Version>4.4.0</Version>
     </PackageReference>
     <PackageReference Include="SimpleInjector.Extensions.LifetimeScoping">
       <Version>4.0.0</Version>
@@ -376,10 +376,10 @@
       <Version>2.0.1</Version>
     </PackageReference>
     <PackageReference Include="Stashbox">
-      <Version>2.6.1</Version>
+      <Version>2.6.3</Version>
     </PackageReference>
     <PackageReference Include="Stashbox.Extensions.Dependencyinjection">
-      <Version>2.6.2</Version>
+      <Version>2.6.3</Version>
     </PackageReference>
     <PackageReference Include="Stiletto">
       <Version>0.3.1</Version>
