@@ -32,7 +32,7 @@ Results
 |**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|300<br/>205|318<br/>226|719<br/>476|2004<br/>1228|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|40<br/>48|51<br/>62|65<br/>88|103<br/>95|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|75<br/>60|128<br/>97|145<br/>124|197<br/>135|
-|**[Lamar 2.0.1](https://jasperfx.github.io/lamar/)**|64<br/>64|100<br/>91|117<br/>119|140<br/>123|
+|**[Lamar 2.0.4](https://jasperfx.github.io/lamar/)**|64<br/>65|96<br/>88|117<br/>121|128<br/>123|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|184<br/>189|2191<br/>1301|26718<br/>31570|151128*<br/>188142*|
 |**[LightInject 5.3.0](https://github.com/seesharper/LightInject)**|26<br/>43|38<br/>61|54<br/>82|75<br/>85|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|3167<br/>1709|16506<br/>11878|45492<br/>29568|116514*<br/>76757*|
@@ -43,13 +43,14 @@ Results
 |**[MicroSliver 2.1.6](  )**|192<br/>232|742<br/>619|2394<br/>1786|7159<br/>6162|
 |**[Microsoft Extensions DependencyInjection 2.2.0](https://github.com/aspnet/DependencyInjection)**|81<br/>69|124<br/>107|148<br/>143|197<br/>159|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|484<br/>444|711<br/>751|2285<br/>2494|8297<br/>9494|
+|**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|102<br/>138|409<br/>715|2052<br/>2590|9348<br/>11352|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|90<br/>75|161<br/>107|517<br/>417|1812<br/>1050|
 |**[MvvmCross 6.2.2](https://github.com/MvvmCross/MvvmCross)**|242<br/>283|988<br/>1061|2722<br/>2972|7659<br/>8193|
 |**[Ninject 3.3.4](http://ninject.org)**|3473<br/>2563|8686<br/>6969|23529<br/>17635|63579*<br/>49285|
 |**[Rezolver 1.3.4](http://rezolver.co.uk)**|177<br/>136|202<br/>156|265<br/>207|409<br/>271|
 |**[SimpleInjector 4.4.3](https://simpleinjector.org)**|99<br/>82|81<br/>77|168<br/>116|163<br/>165|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|950<br/>987|9711<br/>11447|26941<br/>23873|74745*<br/>57777|
-|**[Stashbox 2.6.5](https://github.com/z4kn4fein/stashbox)**|36<br/>52|46<br/>67|62<br/>91|76<br/>83|
+|**[Stashbox 2.6.7](https://github.com/z4kn4fein/stashbox)**|36<br/>52|94<br/>70|72<br/>87|85<br/>97|
 |**[StructureMap 4.7.0](http://structuremap.net/structuremap)**|1200<br/>778|1329<br/>926|3625<br/>2210|9344<br/>6991|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|302<br/>281|437<br/>405|1282<br/>1095|3962<br/>3553|
 |**[Windsor 4.1.1](http://castleproject.org)**|501<br/>509|2270<br/>1773|7009<br/>5753|21178<br/>16403|
@@ -67,11 +68,11 @@ Results
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1090<br/>639|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[Grace 6.4.2](https://github.com/ipjohnson/Grace)**|127<br/>126|59<br/>**68**|348<br/>298|61<br/>**63**|52454<br/>43244|**561**<br/>**528**|1025<br/>845|
+|**[Grace 6.4.2](https://github.com/ipjohnson/Grace)**|127<br/>126|59<br/>**68**|348<br/>298|61<br/>**63**|52454<br/>43244|561<br/>**528**|1025<br/>845|
 |**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|741<br/>443|<br/>|1860<br/>1198|<br/>|<br/>|<br/>|774<br/>509|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|345<br/>227|147<br/>120|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[Lamar 2.0.1](https://jasperfx.github.io/lamar/)**|107<br/>99|105<br/>110|596<br/>398|<br/>|<br/>|1009<br/>1048|<br/>|
+|**[Lamar 2.0.4](https://jasperfx.github.io/lamar/)**|91<br/>92|112<br/>111|562<br/>383|<br/>|<br/>|976<br/>963|<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2289<br/>1755|15862<br/>14477|34754<br/>20480|<br/>|<br/>|<br/>|<br/>|
 |**[LightInject 5.3.0](https://github.com/seesharper/LightInject)**|115<br/>115|**52**<br/>87|278<br/>206|334<br/>220|<br/>|4921<br/>3456|1458<br/>894|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
@@ -82,13 +83,14 @@ Results
 |**[MicroSliver 2.1.6](  )**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Microsoft Extensions DependencyInjection 2.2.0](https://github.com/aspnet/DependencyInjection)**|<br/>|149<br/>130|430<br/>303|<br/>|<br/>|1080<br/>703|<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|10005<br/>8348|72189*<br/>72787*|5619<br/>7027|1824<br/>1883|550418*<br/>335171*|<br/>|13742<br/>16268|
+|**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|436<br/>705|<br/>|9749<br/>7094|<br/>|**4370**<br/>3103|<br/>|<br/>|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1536<br/>847|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[MvvmCross 6.2.2](https://github.com/MvvmCross/MvvmCross)**|971<br/>1057|6815<br/>7081|<br/>|<br/>|**4477**<br/>**2954**|<br/>|<br/>|
+|**[MvvmCross 6.2.2](https://github.com/MvvmCross/MvvmCross)**|971<br/>1057|6815<br/>7081|<br/>|<br/>|4477<br/>**2954**|<br/>|<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|62765*<br/>47908|24256<br/>15895|64193*<br/>49074|19294<br/>12954|73303000*<br/>50234113*|<br/>|20215<br/>15029|
 |**[Rezolver 1.3.4](http://rezolver.co.uk)**|558<br/>366|236<br/>186|8943<br/>5103|<br/>|8162125*<br/>4734064*|8679<br/>6836|<br/>|
 |**[SimpleInjector 4.4.3](https://simpleinjector.org)**|350<br/>183|105<br/>109|987<br/>616|78<br/>82|<br/>|<br/>|7599<br/>4372|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|52419<br/>51992|<br/>|<br/>|<br/>|<br/>|<br/>|43647<br/>43419|
-|**[Stashbox 2.6.5](https://github.com/z4kn4fein/stashbox)**|128<br/>121|64<br/>79|317<br/>232|56<br/>69|198784*<br/>118815*|697<br/>909|901<br/>606|
+|**[Stashbox 2.6.7](https://github.com/z4kn4fein/stashbox)**|132<br/>117|95<br/>89|309<br/>272|91<br/>83|173187*<br/>103021*|**531**<br/>634|870<br/>560|
 |**[StructureMap 4.7.0](http://structuremap.net/structuremap)**|10924<br/>5676|2494<br/>1621|9634<br/>5853|<br/>|3433333*<br/>2127641*|48794<br/>28191|8083<br/>5217|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|4097<br/>3333|1396<br/>1210|4815<br/>4031|1042<br/>861|7035<br/>9942|16895<br/>18546|<br/>|
 |**[Windsor 4.1.1](http://castleproject.org)**|39991<br/>33185|20830<br/>16604|19126<br/>14203|<br/>|241132*<br/>180365*|<br/>|16551<br/>12023|
@@ -110,7 +112,7 @@ Results
 |**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|8387<br/>|8960<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|54925<br/>|55463<br/>|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|1397<br/>|2016<br/>|
-|**[Lamar 2.0.1](https://jasperfx.github.io/lamar/)**|2127<br/>|378666*<br/>|
+|**[Lamar 2.0.4](https://jasperfx.github.io/lamar/)**|2080<br/>|369666*<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|226<br/>|204<br/>|
 |**[LightInject 5.3.0](https://github.com/seesharper/LightInject)**|114<br/>|744<br/>|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|107<br/>|338<br/>|
@@ -121,13 +123,14 @@ Results
 |**[MicroSliver 2.1.6](  )**|12<br/>|17<br/>|
 |**[Microsoft Extensions DependencyInjection 2.2.0](https://github.com/aspnet/DependencyInjection)**|22<br/>|30<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|424<br/>|1820<br/>|
+|**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|15<br/>|19<br/>|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|9079<br/>|9500<br/>|
 |**[MvvmCross 6.2.2](https://github.com/MvvmCross/MvvmCross)**|11<br/>|13<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|130706*<br/>|126470*<br/>|
 |**[Rezolver 1.3.4](http://rezolver.co.uk)**|10647<br/>|16189<br/>|
 |**[SimpleInjector 4.4.3](https://simpleinjector.org)**|710<br/>|3446<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|25014<br/>|24884<br/>|
-|**[Stashbox 2.6.5](https://github.com/z4kn4fein/stashbox)**|78<br/>|306<br/>|
+|**[Stashbox 2.6.7](https://github.com/z4kn4fein/stashbox)**|74<br/>|261<br/>|
 |**[StructureMap 4.7.0](http://structuremap.net/structuremap)**|1906<br/>|9909<br/>|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|84<br/>|79<br/>|
 |**[Windsor 4.1.1](http://castleproject.org)**|3331<br/>|4042<br/>|
