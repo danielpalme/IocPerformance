@@ -637,13 +637,13 @@
     "SingleThreadedResult": {
       "Time": 535,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 361,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -661,13 +661,13 @@
     "SingleThreadedResult": {
       "Time": 723,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 473,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -685,13 +685,13 @@
     "SingleThreadedResult": {
       "Time": 1909,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 1165,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -709,13 +709,13 @@
     "SingleThreadedResult": {
       "Time": 5685,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 3394,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -733,13 +733,13 @@
     "SingleThreadedResult": {
       "Time": 5821,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 3852,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -757,13 +757,13 @@
     "SingleThreadedResult": {
       "Time": 3069,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 1429,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -781,13 +781,13 @@
     "SingleThreadedResult": {
       "Time": 7161,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 4231,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -805,13 +805,13 @@
     "SingleThreadedResult": {
       "Time": 1377,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 859,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -829,13 +829,13 @@
     "SingleThreadedResult": {
       "Time": 82190,
       "ExtraPolated": true,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": 49350,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -853,13 +853,13 @@
     "SingleThreadedResult": {
       "Time": 14313,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 7937,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -877,13 +877,13 @@
     "SingleThreadedResult": {
       "Time": 22370,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 12660,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -901,13 +901,13 @@
     "SingleThreadedResult": {
       "Time": 321,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -925,13 +925,13 @@
     "SingleThreadedResult": {
       "Time": 369,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1261,13 +1261,13 @@
     "SingleThreadedResult": {
       "Time": 264,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 314,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1285,13 +1285,13 @@
     "SingleThreadedResult": {
       "Time": 4163,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 4951,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1309,13 +1309,13 @@
     "SingleThreadedResult": {
       "Time": 10848,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 10935,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1333,13 +1333,13 @@
     "SingleThreadedResult": {
       "Time": 21933,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 26551,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1357,13 +1357,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1381,13 +1381,13 @@
     "SingleThreadedResult": {
       "Time": 9771,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 13739,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1405,13 +1405,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1429,13 +1429,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1453,13 +1453,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1477,13 +1477,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1501,13 +1501,13 @@
     "SingleThreadedResult": {
       "Time": 5105,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 4890,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1525,13 +1525,13 @@
     "SingleThreadedResult": {
       "Time": 14507,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1549,13 +1549,13 @@
     "SingleThreadedResult": {
       "Time": 12973,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -4693,13 +4693,13 @@
     "SingleThreadedResult": {
       "Time": 61,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 67,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4717,13 +4717,13 @@
     "SingleThreadedResult": {
       "Time": 119,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 145,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4741,13 +4741,13 @@
     "SingleThreadedResult": {
       "Time": 137,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 127,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4765,13 +4765,13 @@
     "SingleThreadedResult": {
       "Time": 151,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 154,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4789,13 +4789,13 @@
     "SingleThreadedResult": {
       "Time": 119,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 107,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4813,13 +4813,13 @@
     "SingleThreadedResult": {
       "Time": 109,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 111,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4837,13 +4837,13 @@
     "SingleThreadedResult": {
       "Time": 611,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 498,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4861,13 +4861,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -4885,13 +4885,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -4909,13 +4909,13 @@
     "SingleThreadedResult": {
       "Time": 1123,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 1118,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4933,13 +4933,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -4957,13 +4957,13 @@
     "SingleThreadedResult": {
       "Time": 2544,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -4981,13 +4981,13 @@
     "SingleThreadedResult": {
       "Time": 436710,
       "ExtraPolated": true,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -5317,13 +5317,13 @@
     "SingleThreadedResult": {
       "Time": 33,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 45,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -5341,13 +5341,13 @@
     "SingleThreadedResult": {
       "Time": 45,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 67,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -5365,13 +5365,13 @@
     "SingleThreadedResult": {
       "Time": 64,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 89,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -5389,13 +5389,13 @@
     "SingleThreadedResult": {
       "Time": 80,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 100,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -5413,13 +5413,13 @@
     "SingleThreadedResult": {
       "Time": 115,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 113,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -5437,13 +5437,13 @@
     "SingleThreadedResult": {
       "Time": 52,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 81,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -5461,13 +5461,13 @@
     "SingleThreadedResult": {
       "Time": 275,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 215,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -5485,13 +5485,13 @@
     "SingleThreadedResult": {
       "Time": 311,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 230,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -5509,13 +5509,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -5533,13 +5533,13 @@
     "SingleThreadedResult": {
       "Time": 4654,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 2822,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -5557,13 +5557,13 @@
     "SingleThreadedResult": {
       "Time": 1373,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 962,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -5581,13 +5581,13 @@
     "SingleThreadedResult": {
       "Time": 112,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -5605,13 +5605,13 @@
     "SingleThreadedResult": {
       "Time": 698,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -8744,18 +8744,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
-      "Time": 242,
+      "Time": 233,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 283,
+      "Time": 291,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8768,18 +8768,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
-      "Time": 988,
+      "Time": 966,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1061,
+      "Time": 1085,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8792,18 +8792,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
-      "Time": 2722,
+      "Time": 2655,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 2972,
+      "Time": 2975,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8816,18 +8816,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
-      "Time": 7659,
+      "Time": 7674,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 8193,
+      "Time": 8583,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8840,18 +8840,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
-      "Time": 971,
+      "Time": 974,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1057,
+      "Time": 1107,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8864,18 +8864,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
-      "Time": 6815,
+      "Time": 6525,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 7081,
+      "Time": 8730,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8888,18 +8888,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8912,18 +8912,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8936,18 +8936,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
-      "Time": 4477,
+      "Time": 4645,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 2954,
+      "Time": 2945,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8960,18 +8960,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8984,18 +8984,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9008,18 +9008,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
-      "Time": 11,
+      "Time": 10,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9032,18 +9032,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.2"
+      "Version": "6.2.3"
     },
     "SingleThreadedResult": {
-      "Time": 13,
+      "Time": 15,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -10309,13 +10309,13 @@
     "SingleThreadedResult": {
       "Time": 34,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 47,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10333,13 +10333,13 @@
     "SingleThreadedResult": {
       "Time": 50,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 71,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10357,13 +10357,13 @@
     "SingleThreadedResult": {
       "Time": 61,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 89,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10381,13 +10381,13 @@
     "SingleThreadedResult": {
       "Time": 76,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 81,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10405,13 +10405,13 @@
     "SingleThreadedResult": {
       "Time": 143,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 121,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10429,13 +10429,13 @@
     "SingleThreadedResult": {
       "Time": 60,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 85,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10453,13 +10453,13 @@
     "SingleThreadedResult": {
       "Time": 299,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 218,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10477,13 +10477,13 @@
     "SingleThreadedResult": {
       "Time": 59,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 73,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10501,13 +10501,13 @@
     "SingleThreadedResult": {
       "Time": 179086,
       "ExtraPolated": true,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": 116651,
       "ExtraPolated": true,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -10525,13 +10525,13 @@
     "SingleThreadedResult": {
       "Time": 504,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 623,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10549,13 +10549,13 @@
     "SingleThreadedResult": {
       "Time": 880,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 562,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10573,13 +10573,13 @@
     "SingleThreadedResult": {
       "Time": 64,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -10597,13 +10597,13 @@
     "SingleThreadedResult": {
       "Time": 332,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -11240,18 +11240,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 501,
+      "Time": 437,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 509,
+      "Time": 350,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -11264,18 +11264,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 2270,
+      "Time": 1821,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1773,
+      "Time": 1108,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -11288,18 +11288,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 7009,
+      "Time": 6402,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 5753,
+      "Time": 3712,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -11312,18 +11312,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 21178,
+      "Time": 20536,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 16403,
+      "Time": 11821,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -11336,18 +11336,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 39991,
+      "Time": 38096,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 33185,
+      "Time": 19775,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -11360,18 +11360,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 20830,
+      "Time": 15557,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 16604,
+      "Time": 9071,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -11384,18 +11384,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 19126,
+      "Time": 17839,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 14203,
+      "Time": 10135,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -11408,18 +11408,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -11432,18 +11432,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 241132,
+      "Time": 239286,
       "ExtraPolated": true,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
-      "Time": 180365,
+      "Time": 140421,
       "ExtraPolated": true,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -11456,18 +11456,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -11480,18 +11480,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 16551,
+      "Time": 13662,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 12023,
+      "Time": 7695,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -11504,18 +11504,18 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 3331,
+      "Time": 2954,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -11528,18 +11528,330 @@
     "ContainerInfo": {
       "Name": "Windsor",
       "Url": "http://castleproject.org",
-      "Version": "4.1.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 4042,
+      "Time": 2990,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
+      "Successful": false
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 0,
+      "Name": "Singleton",
+      "FullName": "IocPerformance.Benchmarks.Basic.Singleton_01_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 479,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 448,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 0,
+      "Name": "Transient",
+      "FullName": "IocPerformance.Benchmarks.Basic.Transient_02_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 1370,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 1070,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 0,
+      "Name": "Combined",
+      "FullName": "IocPerformance.Benchmarks.Basic.Combined_03_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 3689,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 3065,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 0,
+      "Name": "Complex",
+      "FullName": "IocPerformance.Benchmarks.Basic.Complex_04_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 11142,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 10106,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Property",
+      "FullName": "IocPerformance.Benchmarks.Advanced.Property_05_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 15829,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 13135,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Generics",
+      "FullName": "IocPerformance.Benchmarks.Advanced.Generics_06_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 9021,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 6513,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "IEnumerable",
+      "FullName": "IocPerformance.Benchmarks.Advanced.IEnumerable_07_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 17932,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 12687,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Conditional",
+      "FullName": "IocPerformance.Benchmarks.Advanced.Conditional_08_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 3082,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 2428,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Child Container",
+      "FullName": "IocPerformance.Benchmarks.Advanced.ChildContainer_09_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 22250,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 18595,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Asp Net Core",
+      "FullName": "IocPerformance.Benchmarks.Advanced.AspNetCore_10_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": false
+    },
+    "MultiThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": false
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Interception With Proxy",
+      "FullName": "IocPerformance.Benchmarks.Advanced.InterceptionWithProxy_11_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": false
+    },
+    "MultiThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": false
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 2,
+      "Name": "Prepare And Register",
+      "FullName": "IocPerformance.Benchmarks.Prepare.PrepareAndRegister_12_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 199,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": false
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 2,
+      "Name": "Prepare And Register And Simple Resolve",
+      "FullName": "IocPerformance.Benchmarks.Prepare.PrepareAndRegisterAndSimpleResolve_13_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "Zenject",
+      "Url": "https://github.com/modesttree/Zenject",
+      "Version": "8.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 201,
+      "ExtraPolated": false,
+      "Error": null,
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": null,
       "Successful": false
     }
   }

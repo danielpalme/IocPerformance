@@ -45,7 +45,7 @@ Results
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|484<br/>444|711<br/>751|2285<br/>2494|8297<br/>9494|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|102<br/>138|409<br/>715|2052<br/>2590|9348<br/>11352|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|90<br/>75|161<br/>107|517<br/>417|1812<br/>1050|
-|**[MvvmCross 6.2.2](https://github.com/MvvmCross/MvvmCross)**|242<br/>283|988<br/>1061|2722<br/>2972|7659<br/>8193|
+|**[MvvmCross 6.2.3](https://github.com/MvvmCross/MvvmCross)**|233<br/>291|966<br/>1085|2655<br/>2975|7674<br/>8583|
 |**[Ninject 3.3.4](http://ninject.org)**|3473<br/>2563|8686<br/>6969|23529<br/>17635|63579*<br/>49285|
 |**[Rezolver 1.3.4](http://rezolver.co.uk)**|177<br/>136|202<br/>156|265<br/>207|409<br/>271|
 |**[SimpleInjector 4.4.3](https://simpleinjector.org)**|99<br/>82|81<br/>77|168<br/>116|163<br/>165|
@@ -53,7 +53,8 @@ Results
 |**[Stashbox 2.6.8](https://github.com/z4kn4fein/stashbox)**|34<br/>47|50<br/>71|61<br/>89|76<br/>81|
 |**[StructureMap 4.7.0](http://structuremap.net/structuremap)**|1200<br/>778|1329<br/>926|3625<br/>2210|9344<br/>6991|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|302<br/>281|437<br/>405|1282<br/>1095|3962<br/>3553|
-|**[Windsor 4.1.1](http://castleproject.org)**|501<br/>509|2270<br/>1773|7009<br/>5753|21178<br/>16403|
+|**[Windsor 5.0.0](http://castleproject.org)**|437<br/>350|1821<br/>1108|6402<br/>3712|20536<br/>11821|
+|**[Zenject 8.0.0](https://github.com/modesttree/Zenject)**|479<br/>448|1370<br/>1070|3689<br/>3065|11142<br/>10106|
 ### Advanced Features
 |**Container**|**Property**|**Generics**|**IEnumerable**|**Conditional**|**Child Container**|**Asp Net Core**|**Interception With Proxy**|
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|---------------:|--------------------------:|
@@ -85,7 +86,7 @@ Results
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|10005<br/>8348|72189*<br/>72787*|5619<br/>7027|1824<br/>1883|550418*<br/>335171*|<br/>|13742<br/>16268|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|436<br/>705|<br/>|9749<br/>7094|<br/>|**4370**<br/>3103|<br/>|<br/>|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1536<br/>847|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[MvvmCross 6.2.2](https://github.com/MvvmCross/MvvmCross)**|971<br/>1057|6815<br/>7081|<br/>|<br/>|4477<br/>**2954**|<br/>|<br/>|
+|**[MvvmCross 6.2.3](https://github.com/MvvmCross/MvvmCross)**|974<br/>1107|6525<br/>8730|<br/>|<br/>|4645<br/>**2945**|<br/>|<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|62765*<br/>47908|24256<br/>15895|64193*<br/>49074|19294<br/>12954|73303000*<br/>50234113*|<br/>|20215<br/>15029|
 |**[Rezolver 1.3.4](http://rezolver.co.uk)**|558<br/>366|236<br/>186|8943<br/>5103|<br/>|8162125*<br/>4734064*|8679<br/>6836|<br/>|
 |**[SimpleInjector 4.4.3](https://simpleinjector.org)**|350<br/>183|105<br/>109|987<br/>616|78<br/>82|<br/>|<br/>|7599<br/>4372|
@@ -93,7 +94,8 @@ Results
 |**[Stashbox 2.6.8](https://github.com/z4kn4fein/stashbox)**|143<br/>121|60<br/>85|299<br/>218|59<br/>73|179086*<br/>116651*|**504**<br/>623|880<br/>562|
 |**[StructureMap 4.7.0](http://structuremap.net/structuremap)**|10924<br/>5676|2494<br/>1621|9634<br/>5853|<br/>|3433333*<br/>2127641*|48794<br/>28191|8083<br/>5217|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|4097<br/>3333|1396<br/>1210|4815<br/>4031|1042<br/>861|7035<br/>9942|16895<br/>18546|<br/>|
-|**[Windsor 4.1.1](http://castleproject.org)**|39991<br/>33185|20830<br/>16604|19126<br/>14203|<br/>|241132*<br/>180365*|<br/>|16551<br/>12023|
+|**[Windsor 5.0.0](http://castleproject.org)**|38096<br/>19775|15557<br/>9071|17839<br/>10135|<br/>|239286*<br/>140421*|<br/>|13662<br/>7695|
+|**[Zenject 8.0.0](https://github.com/modesttree/Zenject)**|15829<br/>13135|9021<br/>6513|17932<br/>12687|3082<br/>2428|22250<br/>18595|<br/>|<br/>|
 ### Prepare
 |**Container**|**Prepare And Register**|**Prepare And Register And Simple Resolve**|
 |:------------|-----------------------:|------------------------------------------:|
@@ -125,7 +127,7 @@ Results
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|424<br/>|1820<br/>|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|15<br/>|19<br/>|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|9079<br/>|9500<br/>|
-|**[MvvmCross 6.2.2](https://github.com/MvvmCross/MvvmCross)**|11<br/>|13<br/>|
+|**[MvvmCross 6.2.3](https://github.com/MvvmCross/MvvmCross)**|10<br/>|15<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|130706*<br/>|126470*<br/>|
 |**[Rezolver 1.3.4](http://rezolver.co.uk)**|10647<br/>|16189<br/>|
 |**[SimpleInjector 4.4.3](https://simpleinjector.org)**|710<br/>|3446<br/>|
@@ -133,7 +135,8 @@ Results
 |**[Stashbox 2.6.8](https://github.com/z4kn4fein/stashbox)**|64<br/>|332<br/>|
 |**[StructureMap 4.7.0](http://structuremap.net/structuremap)**|1906<br/>|9909<br/>|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|84<br/>|79<br/>|
-|**[Windsor 4.1.1](http://castleproject.org)**|3331<br/>|4042<br/>|
+|**[Windsor 5.0.0](http://castleproject.org)**|2954<br/>|2990<br/>|
+|**[Zenject 8.0.0](https://github.com/modesttree/Zenject)**|199<br/>|201<br/>|
 ### Charts
 ![Basic features](http://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)
 ![Advanced features](http://www.palmmedia.de/content/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)
