@@ -49,6 +49,13 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Zenject">
+      <HintPath>..\libs\Zenject-NonUnity@v8.0.0\Zenject.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject-usage, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Zenject-NonUnity@v8.0.0\Zenject-usage.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\AbiocContainerAdapter.cs" />
@@ -97,6 +104,7 @@
     <Compile Include="Adapters\StructureMapContainerAdapter.cs" />
     <Compile Include="Adapters\UnityContainerAdapter.cs" />
     <Compile Include="Adapters\WindsorContainerAdapter.cs" />
+    <Compile Include="Adapters\ZenjectContainerAdapter.cs" />
     <Compile Include="BenchmarkFactory.cs" />
     <Compile Include="Benchmarks\Advanced\05_Property_Benchmark.cs" />
     <Compile Include="Benchmarks\Advanced\06_Generics_Benchmark.cs" />
