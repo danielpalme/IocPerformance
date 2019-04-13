@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using IocPerformance.Classes.AspNet;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
+using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Standard;
+using Microsoft.Extensions.DependencyInjection;
 using Singularity;
 
 namespace IocPerformance.Adapters
@@ -13,7 +18,9 @@ namespace IocPerformance.Adapters
         private Container _container;
 
         public override bool SupportGeneric => true;
-        public override bool SupportsChildContainer => true;
+        public override bool SupportsChildContainer => false;
+        public override bool SupportsMultiple => true;
+        public override bool SupportAspNetCore => true;
 
         public override string PackageName { get; } = "Singularity";
         public override string Url { get; } = "https://github.com/Barsonax/Singularity";
@@ -23,8 +30,9 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             var config = new BindingConfig();
-            RegisterBasic(config);
-            RegisterOpenGeneric(config);
+            this.RegisterBasic(config);
+            this.RegisterOpenGeneric(config);
+            this.RegisterMultiple(config);
             this._container = new Container(config);
         }
 
@@ -43,10 +51,30 @@ namespace IocPerformance.Adapters
             this.RegisterComplex(config);
         }
 
+        //private void RegisterAspNetCore()
+        //{
+        //    ServiceCollection services = new ServiceCollection();
+        //    this.RegisterAspNetCoreClasses(services);
+
+        //    this.container.CreateServiceProvider(services);
+        //}
+
         public override object Resolve(Type type)
         {
             return _container.GetInstance(type);
         }
+
+        //private void RegisterAspNetCore(BindingConfig config)
+        //{
+        //    ServiceCollection services = new ServiceCollection();
+        //    this.RegisterAspNetCoreClasses(services);
+
+        //    foreach (var service in services)
+        //    {
+        //        service.Lifetime.
+        //    }
+        //    this.container.CreateServiceProvider(services);
+        //}
 
         private void RegisterDummies(BindingConfig config)
         {
@@ -64,9 +92,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard(BindingConfig config)
         {
-            config.Register<ISingleton1, Singleton1>().With(CreationMode.Singleton);
-            config.Register<ISingleton2, Singleton2>().With(CreationMode.Singleton);
-            config.Register<ISingleton3, Singleton3>().With(CreationMode.Singleton);
+            config.Register<ISingleton1, Singleton1>().With(CreationMode.PerContainer);
+            config.Register<ISingleton2, Singleton2>().With(CreationMode.PerContainer);
+            config.Register<ISingleton3, Singleton3>().With(CreationMode.PerContainer);
             config.Register<ITransient1, Transient1>();
             config.Register<ITransient2, Transient2>();
             config.Register<ITransient3, Transient3>();
@@ -83,9 +111,9 @@ namespace IocPerformance.Adapters
             config.Register<ISubObjectOne, SubObjectOne>();
             config.Register<ISubObjectTwo, SubObjectTwo>();
             config.Register<ISubObjectThree, SubObjectThree>();
-            config.Register<IFirstService, FirstService>().With(CreationMode.Singleton);
-            config.Register<ISecondService, SecondService>().With(CreationMode.Singleton);
-            config.Register<IThirdService, ThirdService>().With(CreationMode.Singleton);
+            config.Register<IFirstService, FirstService>().With(CreationMode.PerContainer);
+            config.Register<ISecondService, SecondService>().With(CreationMode.PerContainer);
+            config.Register<IThirdService, ThirdService>().With(CreationMode.PerContainer);
             config.Register<IComplex1, Complex1>();
             config.Register<IComplex2, Complex2>();
             config.Register<IComplex3, Complex3>();
@@ -95,6 +123,15 @@ namespace IocPerformance.Adapters
         {
             config.Register(typeof(IGenericInterface<>), typeof(GenericExport<>));
             config.Register(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
+        }
+
+        private void RegisterMultiple(BindingConfig config)
+        {
+            config.Register<ISimpleAdapter, SimpleAdapterOne>();
+            config.Register<ISimpleAdapter, SimpleAdapterTwo>();
+            config.Register<ISimpleAdapter, SimpleAdapterThree>();
+            config.Register<ISimpleAdapter, SimpleAdapterFour>();
+            config.Register<ISimpleAdapter, SimpleAdapterFive>();
         }
 
         public override void Dispose()
