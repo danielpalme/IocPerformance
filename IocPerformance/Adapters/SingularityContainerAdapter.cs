@@ -10,6 +10,7 @@ using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Standard;
 using Microsoft.Extensions.DependencyInjection;
 using Singularity;
+using Singularity.Microsoft.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
@@ -33,6 +34,7 @@ namespace IocPerformance.Adapters
             this.RegisterBasic(config);
             this.RegisterOpenGeneric(config);
             this.RegisterMultiple(config);
+            this.RegisterAspNetCore(config);
             this._container = new Container(config);
         }
 
@@ -51,30 +53,22 @@ namespace IocPerformance.Adapters
             this.RegisterComplex(config);
         }
 
-        //private void RegisterAspNetCore()
-        //{
-        //    ServiceCollection services = new ServiceCollection();
-        //    this.RegisterAspNetCoreClasses(services);
-
-        //    this.container.CreateServiceProvider(services);
-        //}
-
         public override object Resolve(Type type)
         {
             return _container.GetInstance(type);
         }
 
-        //private void RegisterAspNetCore(BindingConfig config)
-        //{
-        //    ServiceCollection services = new ServiceCollection();
-        //    this.RegisterAspNetCoreClasses(services);
+        private void RegisterAspNetCore(BindingConfig config)
+        {
+            ServiceCollection services = new ServiceCollection();
 
-        //    foreach (var service in services)
-        //    {
-        //        service.Lifetime.
-        //    }
-        //    this.container.CreateServiceProvider(services);
-        //}
+            RegisterAspNetCoreClasses(services);
+            config.Register<Container>().Inject(() => this._container);
+            config.Register<IServiceProvider, SingularityServiceProvider>();
+            config.Register<IServiceScopeFactory, SingularityServiceScopeFactory>();
+
+            config.RegisterServices(services);
+        }
 
         private void RegisterDummies(BindingConfig config)
         {
@@ -92,9 +86,9 @@ namespace IocPerformance.Adapters
 
         private void RegisterStandard(BindingConfig config)
         {
-            config.Register<ISingleton1, Singleton1>().With(CreationMode.PerContainer);
-            config.Register<ISingleton2, Singleton2>().With(CreationMode.PerContainer);
-            config.Register<ISingleton3, Singleton3>().With(CreationMode.PerContainer);
+            config.Register<ISingleton1, Singleton1>().With(Lifetime.PerContainer);
+            config.Register<ISingleton2, Singleton2>().With(Lifetime.PerContainer);
+            config.Register<ISingleton3, Singleton3>().With(Lifetime.PerContainer);
             config.Register<ITransient1, Transient1>();
             config.Register<ITransient2, Transient2>();
             config.Register<ITransient3, Transient3>();
@@ -111,9 +105,9 @@ namespace IocPerformance.Adapters
             config.Register<ISubObjectOne, SubObjectOne>();
             config.Register<ISubObjectTwo, SubObjectTwo>();
             config.Register<ISubObjectThree, SubObjectThree>();
-            config.Register<IFirstService, FirstService>().With(CreationMode.PerContainer);
-            config.Register<ISecondService, SecondService>().With(CreationMode.PerContainer);
-            config.Register<IThirdService, ThirdService>().With(CreationMode.PerContainer);
+            config.Register<IFirstService, FirstService>().With(Lifetime.PerContainer);
+            config.Register<ISecondService, SecondService>().With(Lifetime.PerContainer);
+            config.Register<IThirdService, ThirdService>().With(Lifetime.PerContainer);
             config.Register<IComplex1, Complex1>();
             config.Register<IComplex2, Complex2>();
             config.Register<IComplex3, Complex3>();
