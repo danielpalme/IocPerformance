@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using System.Linq.Expressions;
 using IocPerformance.Classes.AspNet;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
@@ -35,7 +34,7 @@ namespace IocPerformance.Adapters
             this.RegisterOpenGeneric(config);
             this.RegisterMultiple(config);
             this.RegisterAspNetCore(config);
-            this._container = new Container(config);
+            this._container = new Container(config, new SingularitySettings() { AutoDispose = true });
         }
 
         public override void PrepareBasic()
@@ -43,7 +42,9 @@ namespace IocPerformance.Adapters
             var config = new BindingConfig();
             RegisterBasic(config);
 
-            this._container = new Container(config);
+            this._container = new Container(config, new SingularitySettings() { AutoDispose = true });
+
+
         }
 
         private void RegisterBasic(BindingConfig config)
@@ -63,7 +64,7 @@ namespace IocPerformance.Adapters
             ServiceCollection services = new ServiceCollection();
 
             RegisterAspNetCoreClasses(services);
-            config.Register<Container>().Inject(() => this._container);
+            config.Register<Container>().Inject(() => this._container).With(DisposeBehavior.Never);
             config.Register<IServiceProvider, SingularityServiceProvider>();
             config.Register<IServiceScopeFactory, SingularityServiceScopeFactory>();
 
