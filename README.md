@@ -39,7 +39,7 @@ Results
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|356<br/>254|1755<br/>2906|2437<br/>1743|4342<br/>2528|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|22679<br/>11820|37640<br/>25052|57462<br/>68730*|112712*<br/>131716*|
 |**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|276<br/>260|341<br/>265|425<br/>374|901<br/>654|
-|**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|25<br/>39|34<br/>59|55<br/>77|92<br/>89|
+|**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|**25**<br/>39|34<br/>59|55<br/>77|92<br/>89|
 |**[MicroSliver 2.1.6](  )**|192<br/>232|742<br/>619|2394<br/>1786|7159<br/>6162|
 |**[Microsoft Extensions DependencyInjection 2.2.0](https://github.com/aspnet/DependencyInjection)**|81<br/>69|124<br/>107|148<br/>143|197<br/>159|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|484<br/>444|711<br/>751|2285<br/>2494|8297<br/>9494|
@@ -49,7 +49,7 @@ Results
 |**[Ninject 3.3.4](http://ninject.org)**|3473<br/>2563|8686<br/>6969|23529<br/>17635|63579*<br/>49285|
 |**[Rezolver 1.4.0](http://rezolver.co.uk)**|176<br/>138|198<br/>161|248<br/>207|342<br/>245|
 |**[SimpleInjector 4.5.1](https://simpleinjector.org)**|63<br/>59|70<br/>73|109<br/>111|127<br/>110|
-|**[Singularity 0.9.1-ci0006](https://github.com/Barsonax/Singularity)**|**24**<br/>39|38<br/>64|51<br/>82|66<br/>76|
+|**[Singularity 0.10.0](https://github.com/Barsonax/Singularity)**|26<br/>42|41<br/>60|58<br/>87|73<br/>82|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|950<br/>987|9711<br/>11447|26941<br/>23873|74745*<br/>57777|
 |**[Stashbox 2.7.3](https://github.com/z4kn4fein/stashbox)**|36<br/>48|49<br/>68|64<br/>93|77<br/>79|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1121<br/>717|1281<br/>856|3410<br/>2166|8312<br/>6052|
@@ -65,7 +65,7 @@ Results
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9157<br/>4733|<br/>|5965<br/>3393|<br/>|<br/>|<br/>|<br/>|
 |**[Catel 5.10.0](http://www.catelproject.com)**|<br/>|9350<br/>10275|<br/>|<br/>|<br/>|<br/>|4087<br/>4533|
 |**[Cauldron.Activator 3.2.3](https://github.com/Capgemini/Cauldron)**|65<br/>76|80<br/>84|358<br/>256|<br/>|<br/>|<br/>|**54**<br/>**72**|
-|**[DryIoc 4.0.3](https://bitbucket.org/dadhi/dryioc)**|117<br/>116|56<br/>81|281<br/>205|**56**<br/>69|<br/>|641<br/>**484**|835<br/>556|
+|**[DryIoc 4.0.3](https://bitbucket.org/dadhi/dryioc)**|117<br/>116|56<br/>81|281<br/>205|**56**<br/>69|<br/>|641<br/>484|835<br/>556|
 |**[DryIocZero 4.0.0](https://bitbucket.org/dadhi/dryioc)**|294<br/>205|92<br/>92|302<br/>229|380<br/>270|<br/>|<br/>|<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
@@ -91,7 +91,7 @@ Results
 |**[Ninject 3.3.4](http://ninject.org)**|62765*<br/>47908|24256<br/>15895|64193*<br/>49074|19294<br/>12954|73303000*<br/>50234113*|<br/>|20215<br/>15029|
 |**[Rezolver 1.4.0](http://rezolver.co.uk)**|502<br/>338|231<br/>191|10945<br/>5286|<br/>|18076000*<br/>11632170*|27887<br/>16925|<br/>|
 |**[SimpleInjector 4.5.1](https://simpleinjector.org)**|237<br/>176|77<br/>89|809<br/>493|73<br/>76|<br/>|<br/>|7231<br/>4253|
-|**[Singularity 0.9.1-ci0006](https://github.com/Barsonax/Singularity)**|<br/>|**48**<br/>80|289<br/>214|<br/>|<br/>|1211<br/>833|<br/>|
+|**[Singularity 0.10.0](https://github.com/Barsonax/Singularity)**|<br/>|**49**<br/>83|293<br/>224|<br/>|<br/>|555<br/>**448**|<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|52419<br/>51992|<br/>|<br/>|<br/>|<br/>|<br/>|43647<br/>43419|
 |**[Stashbox 2.7.3](https://github.com/z4kn4fein/stashbox)**|116<br/>117|65<br/>81|294<br/>213|57<br/>70|169556*<br/>100439*|**505**<br/>635|862<br/>581|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|8697<br/>5284|2271<br/>1460|8399<br/>5170|<br/>|3215578*<br/>1887211*|42001<br/>26976|7859<br/>4464|
@@ -133,7 +133,7 @@ Results
 |**[Ninject 3.3.4](http://ninject.org)**|130706*<br/>|126470*<br/>|
 |**[Rezolver 1.4.0](http://rezolver.co.uk)**|29424<br/>|39964<br/>|
 |**[SimpleInjector 4.5.1](https://simpleinjector.org)**|671<br/>|3099<br/>|
-|**[Singularity 0.9.1-ci0006](https://github.com/Barsonax/Singularity)**|87<br/>|523<br/>|
+|**[Singularity 0.10.0](https://github.com/Barsonax/Singularity)**|91<br/>|572<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|25014<br/>|24884<br/>|
 |**[Stashbox 2.7.3](https://github.com/z4kn4fein/stashbox)**|65<br/>|243<br/>|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1325<br/>|7389<br/>|
