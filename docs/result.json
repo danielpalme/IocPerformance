@@ -320,18 +320,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
-      "Time": 27,
+      "Time": 26,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 38,
+      "Time": 43,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -344,18 +344,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
-      "Time": 32,
+      "Time": 33,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 54,
+      "Time": 56,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -368,18 +368,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
-      "Time": 48,
+      "Time": 51,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 73,
+      "Time": 82,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -392,18 +392,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
-      "Time": 64,
+      "Time": 67,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 71,
+      "Time": 78,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -416,18 +416,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -440,18 +440,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -464,18 +464,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
-      "Time": 743,
+      "Time": 799,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 453,
+      "Time": 506,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -488,18 +488,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -512,18 +512,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -536,18 +536,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -560,18 +560,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -584,18 +584,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
-      "Time": 5672,
+      "Time": 6327,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -608,18 +608,18 @@
     "ContainerInfo": {
       "Name": "abioc",
       "Url": "https://github.com/JSkimming/abioc",
-      "Version": "0.7.0"
+      "Version": "0.8.0"
     },
     "SingleThreadedResult": {
-      "Time": 6613,
+      "Time": 6556,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -1880,18 +1880,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 33,
+      "Time": 46,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 47,
+      "Time": 55,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -1904,18 +1904,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 45,
+      "Time": 66,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 68,
+      "Time": 70,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -1928,18 +1928,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 63,
+      "Time": 72,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 96,
+      "Time": 106,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -1952,18 +1952,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 76,
+      "Time": 81,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 79,
+      "Time": 101,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -1976,18 +1976,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 117,
+      "Time": 183,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 116,
+      "Time": 209,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2000,18 +2000,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 56,
+      "Time": 135,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 81,
+      "Time": 118,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2024,18 +2024,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 281,
+      "Time": 680,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 205,
+      "Time": 360,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2048,18 +2048,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 56,
+      "Time": 86,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 69,
+      "Time": 83,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2072,18 +2072,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -2096,18 +2096,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 641,
+      "Time": 742,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 484,
+      "Time": 526,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2120,18 +2120,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 835,
+      "Time": 924,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 556,
+      "Time": 625,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -2144,18 +2144,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 61,
+      "Time": 65,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -2168,18 +2168,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.3"
+      "Version": "4.0.4"
     },
     "SingleThreadedResult": {
-      "Time": 66,
+      "Time": 76,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -3445,13 +3445,13 @@
     "SingleThreadedResult": {
       "Time": 25,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 45,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3469,13 +3469,13 @@
     "SingleThreadedResult": {
       "Time": 35,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 55,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3493,13 +3493,13 @@
     "SingleThreadedResult": {
       "Time": 54,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 87,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3517,13 +3517,13 @@
     "SingleThreadedResult": {
       "Time": 68,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 79,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3541,13 +3541,13 @@
     "SingleThreadedResult": {
       "Time": 110,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 109,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3565,13 +3565,13 @@
     "SingleThreadedResult": {
       "Time": 50,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 80,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3589,13 +3589,13 @@
     "SingleThreadedResult": {
       "Time": 266,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 201,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3613,13 +3613,13 @@
     "SingleThreadedResult": {
       "Time": 47,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 69,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3637,13 +3637,13 @@
     "SingleThreadedResult": {
       "Time": 52706,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 30542,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3661,13 +3661,13 @@
     "SingleThreadedResult": {
       "Time": 432,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 431,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3685,13 +3685,13 @@
     "SingleThreadedResult": {
       "Time": 902,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 602,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -3709,13 +3709,13 @@
     "SingleThreadedResult": {
       "Time": 171,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -3733,13 +3733,13 @@
     "SingleThreadedResult": {
       "Time": 942,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -4688,18 +4688,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
-      "Time": 59,
+      "Time": 65,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 61,
+      "Time": 68,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -4712,18 +4712,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
-      "Time": 71,
+      "Time": 78,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 80,
+      "Time": 81,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -4736,18 +4736,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
-      "Time": 93,
+      "Time": 100,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 125,
+      "Time": 126,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -4760,18 +4760,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
-      "Time": 116,
+      "Time": 124,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 131,
+      "Time": 136,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -4784,18 +4784,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
-      "Time": 71,
+      "Time": 82,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 82,
+      "Time": 86,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -4808,18 +4808,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
-      "Time": 89,
+      "Time": 95,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 116,
+      "Time": 127,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -4832,12 +4832,12 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
-      "Time": 527,
+      "Time": 566,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
@@ -4856,18 +4856,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -4880,18 +4880,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -4904,18 +4904,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
-      "Time": 595,
+      "Time": 666,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 794,
+      "Time": 842,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -4928,18 +4928,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -4952,18 +4952,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
-      "Time": 2074,
+      "Time": 2315,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -4976,18 +4976,18 @@
     "ContainerInfo": {
       "Name": "Lamar",
       "Url": "https://jasperfx.github.io/lamar/",
-      "Version": "3.0.1"
+      "Version": "3.0.2"
     },
     "SingleThreadedResult": {
-      "Time": 2367,
+      "Time": 2600,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
