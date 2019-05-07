@@ -83,10 +83,16 @@ namespace IocPerformance.Benchmarks
             TestController2.Instances = 0;
             TestController3.DisposeCount = 0;
             TestController3.Instances = 0;
-            ScopedService.Instances = 0;
+            ScopedService1.Instances = 0;
+            ScopedService2.Instances = 0;
+            ScopedService3.Instances = 0;
+            ScopedService4.Instances = 0;
+            ScopedService5.Instances = 0;
             RepositoryTransient1.Instances = 0;
             RepositoryTransient2.Instances = 0;
             RepositoryTransient3.Instances = 0;
+            RepositoryTransient4.Instances = 0;
+            RepositoryTransient5.Instances = 0;
         }
     }
 }

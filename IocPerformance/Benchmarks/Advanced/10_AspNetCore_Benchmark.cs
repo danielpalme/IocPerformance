@@ -70,12 +70,18 @@ namespace IocPerformance.Benchmarks.Advanced
 
             if (RepositoryTransient1.Instances != this.LoopCount * 3 ||
                 RepositoryTransient2.Instances != this.LoopCount * 3 ||
-                RepositoryTransient3.Instances != this.LoopCount * 3)
+                RepositoryTransient3.Instances != this.LoopCount * 3 ||
+                RepositoryTransient4.Instances != this.LoopCount * 3 ||
+                RepositoryTransient5.Instances != this.LoopCount * 3)
             {
                 throw new Exception(string.Format("RepositoryTransient count must be {0}", this.LoopCount));
             }
 
-            if (ScopedService.Instances != this.LoopCount * 3)
+            if (ScopedService1.Instances != this.LoopCount * 3 ||
+                ScopedService2.Instances != this.LoopCount * 3 ||
+                ScopedService3.Instances != this.LoopCount * 3 ||
+                ScopedService4.Instances != this.LoopCount * 3 ||
+                ScopedService5.Instances != this.LoopCount * 3)
             {
                 throw new Exception(string.Format("ScopedService count must be {0}", this.LoopCount));
             }
