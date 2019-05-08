@@ -79,7 +79,13 @@ namespace IocPerformance.Adapters
             serviceCollection.AddTransient<IRepositoryTransient1, RepositoryTransient1>();
             serviceCollection.AddTransient<IRepositoryTransient2, RepositoryTransient2>();
             serviceCollection.AddTransient<IRepositoryTransient3, RepositoryTransient3>();
-            serviceCollection.AddScoped<IScopedService, ScopedService>();
+            serviceCollection.AddTransient<IRepositoryTransient4, RepositoryTransient4>();
+            serviceCollection.AddTransient<IRepositoryTransient5, RepositoryTransient5>();
+            serviceCollection.AddScoped<IScopedService1, ScopedService1>();
+            serviceCollection.AddScoped<IScopedService2, ScopedService2>();
+            serviceCollection.AddScoped<IScopedService3, ScopedService3>();
+            serviceCollection.AddScoped<IScopedService4, ScopedService4>();
+            serviceCollection.AddScoped<IScopedService5, ScopedService5>();
         }
     }
 }

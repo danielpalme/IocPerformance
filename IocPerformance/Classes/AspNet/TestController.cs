@@ -12,7 +12,9 @@ namespace IocPerformance.Classes.AspNet
         public TestController1(
             IRepositoryTransient1 transient1,
             IRepositoryTransient2 repositoryTransient2,
-            IRepositoryTransient3 repositoryTransient3)
+            IRepositoryTransient3 repositoryTransient3,
+            IRepositoryTransient4 repositoryTransient4,
+            IRepositoryTransient5 repositoryTransient5)
         {
             if (transient1 == null)
             {
@@ -27,6 +29,16 @@ namespace IocPerformance.Classes.AspNet
             if (repositoryTransient3 == null)
             {
                 throw new ArgumentNullException(nameof(repositoryTransient3));
+            }
+
+            if (repositoryTransient4 == null)
+            {
+                throw new ArgumentNullException(nameof(repositoryTransient4));
+            }
+
+            if (repositoryTransient5 == null)
+            {
+                throw new ArgumentNullException(nameof(repositoryTransient5));
             }
 
             Interlocked.Increment(ref counter);
@@ -59,7 +71,9 @@ namespace IocPerformance.Classes.AspNet
         public TestController2(
             IRepositoryTransient1 transient1,
             IRepositoryTransient2 repositoryTransient2,
-            IRepositoryTransient3 repositoryTransient3)
+            IRepositoryTransient3 repositoryTransient3,
+            IRepositoryTransient4 repositoryTransient4,
+            IRepositoryTransient5 repositoryTransient5)
         {
             if (transient1 == null)
             {
@@ -74,6 +88,16 @@ namespace IocPerformance.Classes.AspNet
             if (repositoryTransient3 == null)
             {
                 throw new ArgumentNullException(nameof(repositoryTransient3));
+            }
+
+            if (repositoryTransient4 == null)
+            {
+                throw new ArgumentNullException(nameof(repositoryTransient4));
+            }
+
+            if (repositoryTransient5 == null)
+            {
+                throw new ArgumentNullException(nameof(repositoryTransient5));
             }
 
             Interlocked.Increment(ref counter);
@@ -106,7 +130,9 @@ namespace IocPerformance.Classes.AspNet
         public TestController3(
             IRepositoryTransient1 transient1,
             IRepositoryTransient2 repositoryTransient2,
-            IRepositoryTransient3 repositoryTransient3)
+            IRepositoryTransient3 repositoryTransient3,
+            IRepositoryTransient4 repositoryTransient4,
+            IRepositoryTransient5 repositoryTransient5)
         {
             if (transient1 == null)
             {
@@ -121,6 +147,16 @@ namespace IocPerformance.Classes.AspNet
             if (repositoryTransient3 == null)
             {
                 throw new ArgumentNullException(nameof(repositoryTransient3));
+            }
+
+            if (repositoryTransient4 == null)
+            {
+                throw new ArgumentNullException(nameof(repositoryTransient4));
+            }
+
+            if (repositoryTransient5 == null)
+            {
+                throw new ArgumentNullException(nameof(repositoryTransient5));
             }
 
             Interlocked.Increment(ref counter);
