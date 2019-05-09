@@ -29,29 +29,25 @@ namespace IocPerformance.Adapters
 
         public override void Prepare()
         {
-            var config = new BindingConfig();
-            this.RegisterBasic(config);
-            this.RegisterOpenGeneric(config);
-            this.RegisterMultiple(config);
-            this.RegisterAspNetCore(config);
-            this._container = new Container(config, new SingularitySettings() { AutoDispose = true });
+            this._container = new Container(builder =>
+            {
+                this.RegisterBasic(builder);
+                this.RegisterOpenGeneric(builder);
+                this.RegisterMultiple(builder);
+                this.RegisterAspNetCore(builder);
+            }, new SingularitySettings { AutoDispose = true });
         }
 
         public override void PrepareBasic()
         {
-            var config = new BindingConfig();
-            RegisterBasic(config);
-
-            this._container = new Container(config, new SingularitySettings() { AutoDispose = true });
-
-
+            this._container = new Container(RegisterBasic, new SingularitySettings { AutoDispose = true });
         }
 
-        private void RegisterBasic(BindingConfig config)
+        private void RegisterBasic(ContainerBuilder builder)
         {
-            this.RegisterDummies(config);
-            this.RegisterStandard(config);
-            this.RegisterComplex(config);
+            this.RegisterDummies(builder);
+            this.RegisterStandard(builder);
+            this.RegisterComplex(builder);
         }
 
         public override object Resolve(Type type)
@@ -59,74 +55,78 @@ namespace IocPerformance.Adapters
             return _container.GetInstance(type);
         }
 
-        private void RegisterAspNetCore(BindingConfig config)
+        private void RegisterAspNetCore(ContainerBuilder builder)
         {
             ServiceCollection services = new ServiceCollection();
 
             RegisterAspNetCoreClasses(services);
-            config.Register<Container>().Inject(() => this._container).With(DisposeBehavior.Never);
-            config.Register<IServiceProvider, SingularityServiceProvider>();
-            config.Register<IServiceScopeFactory, SingularityServiceScopeFactory>();
+            builder.RegisterServiceProvider();
 
-            config.RegisterServices(services);
+            builder.RegisterServices(services);
         }
 
-        private void RegisterDummies(BindingConfig config)
+        private void RegisterDummies(ContainerBuilder builder)
         {
-            config.Register<IDummyOne, DummyOne>();
-            config.Register<IDummyTwo, DummyTwo>();
-            config.Register<IDummyThree, DummyThree>();
-            config.Register<IDummyFour, DummyFour>();
-            config.Register<IDummyFive, DummyFive>();
-            config.Register<IDummySix, DummySix>();
-            config.Register<IDummySeven, DummySeven>();
-            config.Register<IDummyEight, DummyEight>();
-            config.Register<IDummyNine, DummyNine>();
-            config.Register<IDummyTen, DummyTen>();
+            builder.Register<IDummyOne, DummyOne>();
+            builder.Register<IDummyTwo, DummyTwo>();
+            builder.Register<IDummyThree, DummyThree>();
+            builder.Register<IDummyFour, DummyFour>();
+            builder.Register<IDummyFive, DummyFive>();
+            builder.Register<IDummySix, DummySix>();
+            builder.Register<IDummySeven, DummySeven>();
+            builder.Register<IDummyEight, DummyEight>();
+            builder.Register<IDummyNine, DummyNine>();
+            builder.Register<IDummyTen, DummyTen>();
         }
 
-        private void RegisterStandard(BindingConfig config)
+        private void RegisterStandard(ContainerBuilder builder)
         {
-            config.Register<ISingleton1, Singleton1>().With(Lifetime.PerContainer);
-            config.Register<ISingleton2, Singleton2>().With(Lifetime.PerContainer);
-            config.Register<ISingleton3, Singleton3>().With(Lifetime.PerContainer);
-            config.Register<ITransient1, Transient1>();
-            config.Register<ITransient2, Transient2>();
-            config.Register<ITransient3, Transient3>();
-            config.Register<ICombined1, Combined1>();
-            config.Register<ICombined2, Combined2>();
-            config.Register<ICombined3, Combined3>();
-            config.Register<ICalculator1, Calculator1>();
-            config.Register<ICalculator2, Calculator2>();
-            config.Register<ICalculator3, Calculator3>();
+            builder.Register<ISingleton1, Singleton1>(c => c
+                .With(Lifetime.PerContainer));
+            builder.Register<ISingleton2, Singleton2>(c => c
+                .With(Lifetime.PerContainer));
+            builder.Register<ISingleton3, Singleton3>(c => c
+                .With(Lifetime.PerContainer));
+            builder.Register<ITransient1, Transient1>();
+            builder.Register<ITransient2, Transient2>();
+            builder.Register<ITransient3, Transient3>();
+            builder.Register<ICombined1, Combined1>();
+            builder.Register<ICombined2, Combined2>();
+            builder.Register<ICombined3, Combined3>();
+            builder.Register<ICalculator1, Calculator1>();
+            builder.Register<ICalculator2, Calculator2>();
+            builder.Register<ICalculator3, Calculator3>();
         }
 
-        private void RegisterComplex(BindingConfig config)
+        private void RegisterComplex(ContainerBuilder builder)
         {
-            config.Register<ISubObjectOne, SubObjectOne>();
-            config.Register<ISubObjectTwo, SubObjectTwo>();
-            config.Register<ISubObjectThree, SubObjectThree>();
-            config.Register<IFirstService, FirstService>().With(Lifetime.PerContainer);
-            config.Register<ISecondService, SecondService>().With(Lifetime.PerContainer);
-            config.Register<IThirdService, ThirdService>().With(Lifetime.PerContainer);
-            config.Register<IComplex1, Complex1>();
-            config.Register<IComplex2, Complex2>();
-            config.Register<IComplex3, Complex3>();
+            builder.Register<ISubObjectOne, SubObjectOne>();
+            builder.Register<ISubObjectTwo, SubObjectTwo>();
+            builder.Register<ISubObjectThree, SubObjectThree>();
+            builder.Register<IFirstService, FirstService>(c => c
+                .With(Lifetime.PerContainer));
+            builder.Register<ISecondService, SecondService>(c => c
+                .With(Lifetime.PerContainer));
+            builder.Register<IThirdService, ThirdService>(c => c
+                .With(Lifetime.PerContainer));
+            builder.Register<IComplex1, Complex1>();
+            builder.Register<IComplex2, Complex2>();
+            builder.Register<IComplex3, Complex3>();
         }
 
-        private void RegisterOpenGeneric(BindingConfig config)
+        private void RegisterOpenGeneric(ContainerBuilder builder)
         {
-            config.Register(typeof(IGenericInterface<>), typeof(GenericExport<>));
-            config.Register(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
+            builder.Register(typeof(IGenericInterface<>), typeof(GenericExport<>));
+            builder.Register(typeof(ImportGeneric<>), typeof(ImportGeneric<>));
         }
 
-        private void RegisterMultiple(BindingConfig config)
+        private void RegisterMultiple(ContainerBuilder builder)
         {
-            config.Register<ISimpleAdapter, SimpleAdapterOne>();
-            config.Register<ISimpleAdapter, SimpleAdapterTwo>();
-            config.Register<ISimpleAdapter, SimpleAdapterThree>();
-            config.Register<ISimpleAdapter, SimpleAdapterFour>();
-            config.Register<ISimpleAdapter, SimpleAdapterFive>();
+            builder.Register<ISimpleAdapter, SimpleAdapterOne>();
+            builder.Register<ISimpleAdapter, SimpleAdapterTwo>();
+            builder.Register<ISimpleAdapter, SimpleAdapterThree>();
+            builder.Register<ISimpleAdapter, SimpleAdapterFour>();
+            builder.Register<ISimpleAdapter, SimpleAdapterFive>();
         }
 
         public override void Dispose()
@@ -137,14 +137,11 @@ namespace IocPerformance.Adapters
         private sealed class SingularityChildContainerAdapter : IChildContainerAdapter
         {
             private Container _container;
-            private Container _parentContainer;
-            private BindingConfig _childBindingConfig;
+            private readonly Container _parentContainer;
 
             internal SingularityChildContainerAdapter(Container parentContainer)
             {
                 _parentContainer = parentContainer;
-                _childBindingConfig = new BindingConfig();
-                RegisterChild(_childBindingConfig);
             }
 
             public void Dispose()
@@ -154,7 +151,7 @@ namespace IocPerformance.Adapters
 
             public void Prepare()
             {
-                this._container = this._parentContainer.GetNestedContainer(_childBindingConfig);
+                this._container = this._parentContainer.GetNestedContainer(RegisterChild);
             }
 
             public object Resolve(Type resolveType)
@@ -162,7 +159,7 @@ namespace IocPerformance.Adapters
                 return this._container.GetInstance(resolveType);
             }
 
-            private void RegisterChild(BindingConfig config)
+            private void RegisterChild(ContainerBuilder config)
             {
                 config.Register<ICombined1, ScopedCombined1>();
                 config.Register<ICombined2, ScopedCombined2>();
