@@ -34,7 +34,7 @@ Results
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|75<br/>60|128<br/>97|145<br/>124|197<br/>135|
 |**[Lamar 3.0.2](https://jasperfx.github.io/lamar/)**|65<br/>68|78<br/>81|100<br/>126|124<br/>136|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|184<br/>189|2191<br/>1301|26718<br/>31570|151128*<br/>188142*|
-|**[LightInject 5.4.0](https://github.com/seesharper/LightInject)**|33<br/>45|45<br/>67|64<br/>89|80<br/>100|
+|**[LightInject 5.5.0](https://github.com/seesharper/LightInject)**|29<br/>49|36<br/>60|54<br/>86|75<br/>82|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|3167<br/>1709|16506<br/>11878|45492<br/>29568|116514*<br/>76757*|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|356<br/>254|1755<br/>2906|2437<br/>1743|4342<br/>2528|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|22679<br/>11820|37640<br/>25052|57462<br/>68730*|112712*<br/>131716*|
@@ -45,13 +45,13 @@ Results
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|484<br/>444|711<br/>751|2285<br/>2494|8297<br/>9494|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|102<br/>138|409<br/>715|2052<br/>2590|9348<br/>11352|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|90<br/>75|161<br/>107|517<br/>417|1812<br/>1050|
-|**[MvvmCross 6.2.3](https://github.com/MvvmCross/MvvmCross)**|233<br/>291|966<br/>1085|2655<br/>2975|7674<br/>8583|
+|**[MvvmCross 6.3.0](https://github.com/MvvmCross/MvvmCross)**|259<br/>292|984<br/>1133|2796<br/>3135|8138<br/>8968|
 |**[Ninject 3.3.4](http://ninject.org)**|3473<br/>2563|8686<br/>6969|23529<br/>17635|63579*<br/>49285|
 |**[Rezolver 1.4.0](http://rezolver.co.uk)**|176<br/>138|198<br/>161|248<br/>207|342<br/>245|
-|**[SimpleInjector 4.5.1](https://simpleinjector.org)**|63<br/>59|70<br/>73|109<br/>111|127<br/>110|
+|**[SimpleInjector 4.6.0](https://simpleinjector.org)**|69<br/>67|78<br/>77|107<br/>109|136<br/>115|
 |**[Singularity 0.12.1-ci0011](https://github.com/Barsonax/Singularity)**|27<br/>49|40<br/>**55**|53<br/>**66**|70<br/>85|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|950<br/>987|9711<br/>11447|26941<br/>23873|74745*<br/>57777|
-|**[Stashbox 2.7.3](https://github.com/z4kn4fein/stashbox)**|36<br/>48|49<br/>68|64<br/>93|77<br/>79|
+|**[Stashbox 2.7.4](https://github.com/z4kn4fein/stashbox)**|34<br/>48|48<br/>64|62<br/>96|94<br/>88|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1121<br/>717|1281<br/>856|3410<br/>2166|8312<br/>6052|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|302<br/>281|437<br/>405|1282<br/>1095|3962<br/>3553|
 |**[Windsor 5.0.0](http://castleproject.org)**|437<br/>350|1821<br/>1108|6402<br/>3712|20536<br/>11821|
@@ -76,7 +76,7 @@ Results
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|345<br/>227|147<br/>120|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Lamar 3.0.2](https://jasperfx.github.io/lamar/)**|82<br/>86|95<br/>127|566<br/>Error|<br/>|<br/>|1881<br/>2214|<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2289<br/>1755|15862<br/>14477|34754<br/>20480|<br/>|<br/>|<br/>|<br/>|
-|**[LightInject 5.4.0](https://github.com/seesharper/LightInject)**|115<br/>113|52<br/>81|275<br/>215|311<br/>230|<br/>|14941<br/>9834|1373<br/>962|
+|**[LightInject 5.5.0](https://github.com/seesharper/LightInject)**|122<br/>141|52<br/>81|296<br/>225|331<br/>227|<br/>|14895<br/>9956|1492<br/>927|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|4502<br/>2616|2103<br/>2128|4443<br/>2483|2186<br/>1691|<br/>|<br/>|7591<br/>4418|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|124500*<br/>133833*|137086*<br/>114221*|97231*<br/>100896*|<br/>|<br/>|<br/>|<br/>|
@@ -87,13 +87,13 @@ Results
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|10005<br/>8348|72189*<br/>72787*|5619<br/>7027|1824<br/>1883|550418*<br/>335171*|<br/>|13742<br/>16268|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|436<br/>705|<br/>|9749<br/>7094|<br/>|**4370**<br/>3103|<br/>|<br/>|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1536<br/>847|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[MvvmCross 6.2.3](https://github.com/MvvmCross/MvvmCross)**|974<br/>1107|6525<br/>8730|<br/>|<br/>|4645<br/>**2945**|<br/>|<br/>|
+|**[MvvmCross 6.3.0](https://github.com/MvvmCross/MvvmCross)**|1058<br/>1143|6856<br/>7571|<br/>|<br/>|4584<br/>**3013**|<br/>|<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|62765*<br/>47908|24256<br/>15895|64193*<br/>49074|19294<br/>12954|73303000*<br/>50234113*|<br/>|20215<br/>15029|
 |**[Rezolver 1.4.0](http://rezolver.co.uk)**|502<br/>338|231<br/>191|10945<br/>5286|<br/>|18076000*<br/>11632170*|89464*<br/>55793|<br/>|
-|**[SimpleInjector 4.5.1](https://simpleinjector.org)**|237<br/>176|77<br/>89|809<br/>493|73<br/>76|<br/>|<br/>|7231<br/>4253|
+|**[SimpleInjector 4.6.0](https://simpleinjector.org)**|247<br/>184|82<br/>93|843<br/>540|89<br/>84|<br/>|<br/>|7499<br/>4517|
 |**[Singularity 0.12.1-ci0011](https://github.com/Barsonax/Singularity)**|<br/>|55<br/>83|405<br/>309|<br/>|<br/>|**665**<br/>**575**|<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|52419<br/>51992|<br/>|<br/>|<br/>|<br/>|<br/>|43647<br/>43419|
-|**[Stashbox 2.7.3](https://github.com/z4kn4fein/stashbox)**|116<br/>117|65<br/>81|294<br/>213|57<br/>70|169556*<br/>100439*|1513<br/>2517|862<br/>581|
+|**[Stashbox 2.7.4](https://github.com/z4kn4fein/stashbox)**|128<br/>120|65<br/>84|307<br/>231|57<br/>74|199837*<br/>122123*|1497<br/>2464|926<br/>612|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|8697<br/>5284|2271<br/>1460|8399<br/>5170|<br/>|3215578*<br/>1887211*|65269*<br/>41725|7859<br/>4464|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|4097<br/>3333|1396<br/>1210|4815<br/>4031|1042<br/>861|7035<br/>9942|38392<br/>31255|<br/>|
 |**[Windsor 5.0.0](http://castleproject.org)**|38096<br/>19775|15557<br/>9071|17839<br/>10135|<br/>|239286*<br/>140421*|<br/>|13662<br/>7695|
@@ -118,7 +118,7 @@ Results
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|1397<br/>|2016<br/>|
 |**[Lamar 3.0.2](https://jasperfx.github.io/lamar/)**|2315<br/>|2600<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|226<br/>|204<br/>|
-|**[LightInject 5.4.0](https://github.com/seesharper/LightInject)**|112<br/>|698<br/>|
+|**[LightInject 5.5.0](https://github.com/seesharper/LightInject)**|115<br/>|774<br/>|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|107<br/>|338<br/>|
 |**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|172<br/>|747<br/>|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|17<br/>|2299<br/>|
@@ -129,13 +129,13 @@ Results
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|424<br/>|1820<br/>|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|15<br/>|19<br/>|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|9079<br/>|9500<br/>|
-|**[MvvmCross 6.2.3](https://github.com/MvvmCross/MvvmCross)**|10<br/>|15<br/>|
+|**[MvvmCross 6.3.0](https://github.com/MvvmCross/MvvmCross)**|11<br/>|14<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|130706*<br/>|126470*<br/>|
 |**[Rezolver 1.4.0](http://rezolver.co.uk)**|29424<br/>|39964<br/>|
-|**[SimpleInjector 4.5.1](https://simpleinjector.org)**|671<br/>|3099<br/>|
+|**[SimpleInjector 4.6.0](https://simpleinjector.org)**|725<br/>|3423<br/>|
 |**[Singularity 0.12.1-ci0011](https://github.com/Barsonax/Singularity)**|34<br/>|494<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|25014<br/>|24884<br/>|
-|**[Stashbox 2.7.3](https://github.com/z4kn4fein/stashbox)**|65<br/>|243<br/>|
+|**[Stashbox 2.7.4](https://github.com/z4kn4fein/stashbox)**|75<br/>|302<br/>|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1325<br/>|7389<br/>|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|84<br/>|79<br/>|
 |**[Windsor 5.0.0](http://castleproject.org)**|2954<br/>|2990<br/>|

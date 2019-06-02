@@ -5312,18 +5312,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 33,
+      "Time": 29,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 45,
+      "Time": 49,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5336,18 +5336,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 45,
+      "Time": 36,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 67,
+      "Time": 60,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5360,18 +5360,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 64,
+      "Time": 54,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 89,
+      "Time": 86,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5384,18 +5384,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 80,
+      "Time": 75,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 100,
+      "Time": 82,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5408,18 +5408,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 115,
+      "Time": 122,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 113,
+      "Time": 141,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5432,18 +5432,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
       "Time": 52,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 81,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5456,18 +5456,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 275,
+      "Time": 296,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 215,
+      "Time": 225,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5480,18 +5480,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 311,
+      "Time": 331,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 230,
+      "Time": 227,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5504,18 +5504,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -5528,18 +5528,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 14941,
+      "Time": 14895,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 9834,
+      "Time": 9956,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5552,18 +5552,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 1373,
+      "Time": 1492,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 962,
+      "Time": 927,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -5576,18 +5576,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 112,
+      "Time": 115,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -5600,18 +5600,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.4.0"
+      "Version": "5.5.0"
     },
     "SingleThreadedResult": {
-      "Time": 698,
+      "Time": 774,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8744,18 +8744,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 233,
+      "Time": 259,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 291,
+      "Time": 292,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8768,18 +8768,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 966,
+      "Time": 984,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1085,
+      "Time": 1133,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8792,18 +8792,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 2655,
+      "Time": 2796,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 2975,
+      "Time": 3135,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8816,18 +8816,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 7674,
+      "Time": 8138,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 8583,
+      "Time": 8968,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8840,18 +8840,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 974,
+      "Time": 1058,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1107,
+      "Time": 1143,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8864,18 +8864,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 6525,
+      "Time": 6856,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 8730,
+      "Time": 7571,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8888,18 +8888,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8912,18 +8912,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8936,18 +8936,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 4645,
+      "Time": 4584,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 2945,
+      "Time": 3013,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -8960,18 +8960,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -8984,18 +8984,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9008,18 +9008,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 10,
+      "Time": 11,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9032,18 +9032,18 @@
     "ContainerInfo": {
       "Name": "MvvmCross",
       "Url": "https://github.com/MvvmCross/MvvmCross",
-      "Version": "6.2.3"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 15,
+      "Time": 14,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9680,18 +9680,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 63,
+      "Time": 69,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 59,
+      "Time": 67,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9704,18 +9704,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 70,
+      "Time": 78,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 73,
+      "Time": 77,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9728,18 +9728,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 109,
+      "Time": 107,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 111,
+      "Time": 109,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9752,18 +9752,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 127,
+      "Time": 136,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 110,
+      "Time": 115,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9776,18 +9776,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 237,
+      "Time": 247,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 176,
+      "Time": 184,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9800,18 +9800,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 77,
+      "Time": 82,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 89,
+      "Time": 93,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9824,18 +9824,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 809,
+      "Time": 843,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 493,
+      "Time": 540,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9848,18 +9848,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 73,
+      "Time": 89,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 76,
+      "Time": 84,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9872,18 +9872,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9896,18 +9896,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9920,18 +9920,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 7231,
+      "Time": 7499,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 4253,
+      "Time": 4517,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -9944,18 +9944,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 671,
+      "Time": 725,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9968,18 +9968,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.5.1"
+      "Version": "4.6.0"
     },
     "SingleThreadedResult": {
-      "Time": 3099,
+      "Time": 3423,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -9997,13 +9997,13 @@
     "SingleThreadedResult": {
       "Time": 27,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 49,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10021,13 +10021,13 @@
     "SingleThreadedResult": {
       "Time": 40,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 55,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10045,13 +10045,13 @@
     "SingleThreadedResult": {
       "Time": 53,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 66,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10069,13 +10069,13 @@
     "SingleThreadedResult": {
       "Time": 70,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 85,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10093,13 +10093,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -10117,13 +10117,13 @@
     "SingleThreadedResult": {
       "Time": 55,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 83,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10141,13 +10141,13 @@
     "SingleThreadedResult": {
       "Time": 405,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 309,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10165,13 +10165,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -10189,13 +10189,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -10213,13 +10213,13 @@
     "SingleThreadedResult": {
       "Time": 665,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 575,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -10237,13 +10237,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -10261,13 +10261,13 @@
     "SingleThreadedResult": {
       "Time": 34,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -10285,13 +10285,13 @@
     "SingleThreadedResult": {
       "Time": 494,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -10616,18 +10616,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 36,
+      "Time": 34,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 48,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -10640,18 +10640,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 49,
+      "Time": 48,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 68,
+      "Time": 64,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -10664,18 +10664,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 64,
+      "Time": 62,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 93,
+      "Time": 96,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -10688,18 +10688,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 77,
+      "Time": 94,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 79,
+      "Time": 88,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -10712,18 +10712,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 116,
+      "Time": 128,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 117,
+      "Time": 120,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -10736,18 +10736,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
       "Time": 65,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 81,
+      "Time": 84,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -10760,18 +10760,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 294,
+      "Time": 307,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 213,
+      "Time": 231,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -10784,18 +10784,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
       "Time": 57,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 70,
+      "Time": 74,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -10808,18 +10808,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 169556,
+      "Time": 199837,
       "ExtraPolated": true,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
-      "Time": 100439,
+      "Time": 122123,
       "ExtraPolated": true,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -10832,18 +10832,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 1513,
+      "Time": 1497,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 2517,
+      "Time": 2464,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -10856,18 +10856,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 862,
+      "Time": 926,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 581,
+      "Time": 612,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     }
   },
@@ -10880,18 +10880,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 65,
+      "Time": 75,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
@@ -10904,18 +10904,18 @@
     "ContainerInfo": {
       "Name": "Stashbox",
       "Url": "https://github.com/z4kn4fein/stashbox",
-      "Version": "2.7.3"
+      "Version": "2.7.4"
     },
     "SingleThreadedResult": {
-      "Time": 243,
+      "Time": 302,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     }
   },
