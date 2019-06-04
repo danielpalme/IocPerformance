@@ -36,7 +36,7 @@ Results
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|184<br/>189|2191<br/>1301|26718<br/>31570|151128*<br/>188142*|
 |**[LightInject 5.5.0](https://github.com/seesharper/LightInject)**|29<br/>49|36<br/>60|54<br/>86|75<br/>82|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|3167<br/>1709|16506<br/>11878|45492<br/>29568|116514*<br/>76757*|
-|**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|356<br/>254|1755<br/>2906|2437<br/>1743|4342<br/>2528|
+|**[Maestro 3.6.0](https://github.com/JonasSamuelsson/Maestro)**|329<br/>229|304<br/>215|543<br/>387|1483<br/>962|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|22679<br/>11820|37640<br/>25052|57462<br/>68730*|112712*<br/>131716*|
 |**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|276<br/>260|341<br/>265|425<br/>374|901<br/>654|
 |**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|**25**<br/>**39**|34<br/>59|55<br/>77|92<br/>89|
@@ -78,7 +78,7 @@ Results
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2289<br/>1755|15862<br/>14477|34754<br/>20480|<br/>|<br/>|<br/>|<br/>|
 |**[LightInject 5.5.0](https://github.com/seesharper/LightInject)**|122<br/>141|52<br/>81|296<br/>225|331<br/>227|<br/>|14895<br/>9956|1492<br/>927|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|4502<br/>2616|2103<br/>2128|4443<br/>2483|2186<br/>1691|<br/>|<br/>|7591<br/>4418|
+|**[Maestro 3.6.0](https://github.com/JonasSamuelsson/Maestro)**|3402<br/>2335|514<br/>294|1598<br/>1079|<br/>|<br/>|9639<br/>7096|10385<br/>3878|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|124500*<br/>133833*|137086*<br/>114221*|97231*<br/>100896*|<br/>|<br/>|<br/>|<br/>|
 |**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1525<br/>1272|310<br/>299|1554<br/>1273|<br/>|<br/>|<br/>|<br/>|
 |**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|**39**<br/>**62**|<br/>|**262**<br/>**195**|<br/>|<br/>|<br/>|<br/>|
@@ -120,7 +120,7 @@ Results
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|226<br/>|204<br/>|
 |**[LightInject 5.5.0](https://github.com/seesharper/LightInject)**|115<br/>|774<br/>|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|107<br/>|338<br/>|
-|**[Maestro 1.5.4](https://github.com/JonasSamuelsson/Maestro)**|172<br/>|747<br/>|
+|**[Maestro 3.6.0](https://github.com/JonasSamuelsson/Maestro)**|145<br/>|157<br/>|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|17<br/>|2299<br/>|
 |**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|6053<br/>|7259<br/>|
 |**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|27322<br/>|67518<br/>|

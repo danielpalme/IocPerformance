@@ -1,6 +1,4 @@
-﻿using System;
-using IocPerformance.Classes.Complex;
-using IocPerformance.Classes.Conditions;
+﻿using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
@@ -9,189 +7,173 @@ using IocPerformance.Classes.Standard;
 using IocPerformance.Interception;
 using Maestro;
 using Maestro.Configuration;
+using System;
+using Maestro.Microsoft.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
-    public class MaestroContainerAdapter : ContainerAdapterBase
-    {
-        private IContainer container;
+   public class MaestroContainerAdapter : ContainerAdapterBase
+   {
+      private IContainer _container;
 
-        public override string PackageName => "Maestro";
+      public override string PackageName => "Maestro";
 
-        public override string Url => "https://github.com/JonasSamuelsson/Maestro";
+      public override string Url => "https://github.com/JonasSamuelsson/Maestro";
 
-        public override bool SupportsInterception => true;
+      public override bool SupportAspNetCore => true;
 
-        public override bool SupportsPropertyInjection => true;
+      public override bool SupportsInterception => true;
 
-        public override bool SupportsConditional => true;
+      public override bool SupportsPropertyInjection => true;
 
-        public override bool SupportGeneric => true;
+      public override bool SupportGeneric => true;
 
-        public override bool SupportsMultiple => true;
+      public override bool SupportsMultiple => true;
 
-        public override void Prepare()
-        {
-            this.container = new Container();
+      public override void Prepare()
+      {
+         _container = new Container(builder =>
+         {
+            RegisterBasic(builder);
+            RegisterPropertyInjection(builder);
+            RegisterGeneric(builder);
+            RegisterMultiple(builder);
+            RegisterInterceptor(builder);
 
-            this.container.Configure(x =>
-                                     {
-                                         RegisterBasic(x);
-                                         RegisterPropertyInjection(x);
-                                         RegisterGeneric(x);
-                                         RegisterConditional(x);
-                                         RegisterMultiple(x);
-                                         RegisterInterceptor(x);
-                                     });
-        }
+            var services = new ServiceCollection();
+            RegisterAspNetCoreClasses(services);
+            builder.Populate(services);
+         });
+      }
 
-        public override void PrepareBasic()
-        {
-            this.container = new Container();
+      public override void PrepareBasic()
+      {
+         _container = new Container(RegisterBasic);
+      }
 
-            this.container.Configure(x =>
-                                     {
-                                         RegisterBasic(x);
-                                     });
-        }
+      public override void Dispose()
+      {
+         // Allow the container and everything it references to be garbage collected.
+         if (_container == null)
+         {
+            return;
+         }
 
-        public override void Dispose()
-        {
-            // Allow the container and everything it references to be garbage collected.
-            if (this.container == null)
-            {
-                return;
-            }
+         _container.Dispose();
+         _container = null;
+      }
 
-            this.container.Dispose();
-            this.container = null;
-        }
+      public override object Resolve(Type type) => _container.GetService(type);
 
-        public override object Resolve(Type type) => this.container.Get(type);
+      private static void RegisterBasic(IContainerBuilder builder)
+      {
+         RegisterDummies(builder);
+         RegisterStandard(builder);
+         RegisterComplex(builder);
+      }
 
-        private static void RegisterBasic(IContainerExpression x)
-        {
-            RegisterDummies(x);
-            RegisterStandard(x);
-            RegisterComplex(x);
-        }
+      private static void RegisterDummies(IContainerBuilder builder)
+      {
+         builder.Add<IDummyOne>().Type<DummyOne>();
+         builder.Add<IDummyTwo>().Type<DummyTwo>();
+         builder.Add<IDummyThree>().Type<DummyThree>();
+         builder.Add<IDummyFour>().Type<DummyFour>();
+         builder.Add<IDummyFive>().Type<DummyFive>();
+         builder.Add<IDummySix>().Type<DummySix>();
+         builder.Add<IDummySeven>().Type<DummySeven>();
+         builder.Add<IDummyEight>().Type<DummyEight>();
+         builder.Add<IDummyNine>().Type<DummyNine>();
+         builder.Add<IDummyTen>().Type<DummyTen>();
+      }
 
-        private static void RegisterDummies(IContainerExpression expr)
-        {
-            expr.For<IDummyOne>().Use<DummyOne>();
-            expr.For<IDummyTwo>().Use<DummyTwo>();
-            expr.For<IDummyThree>().Use<DummyThree>();
-            expr.For<IDummyFour>().Use<DummyFour>();
-            expr.For<IDummyFive>().Use<DummyFive>();
-            expr.For<IDummySix>().Use<DummySix>();
-            expr.For<IDummySeven>().Use<DummySeven>();
-            expr.For<IDummyEight>().Use<DummyEight>();
-            expr.For<IDummyNine>().Use<DummyNine>();
-            expr.For<IDummyTen>().Use<DummyTen>();
-        }
+      private static void RegisterStandard(IContainerBuilder builder)
+      {
+         builder.Add<ISingleton1>().Type<Singleton1>().Singleton();
+         builder.Add<ISingleton2>().Type<Singleton2>().Singleton();
+         builder.Add<ISingleton3>().Type<Singleton3>().Singleton();
+         builder.Add<ITransient1>().Type<Transient1>();
+         builder.Add<ITransient2>().Type<Transient2>();
+         builder.Add<ITransient3>().Type<Transient3>();
+         builder.Add<ICombined1>().Type<Combined1>();
+         builder.Add<ICombined2>().Type<Combined2>();
+         builder.Add<ICombined3>().Type<Combined3>();
+      }
 
-        private static void RegisterStandard(IContainerExpression expr)
-        {
-            expr.For<ISingleton1>().Use<Singleton1>().Lifetime.Singleton();
-            expr.For<ISingleton2>().Use<Singleton2>().Lifetime.Singleton();
-            expr.For<ISingleton3>().Use<Singleton3>().Lifetime.Singleton();
-            expr.For<ITransient1>().Use<Transient1>();
-            expr.For<ITransient2>().Use<Transient2>();
-            expr.For<ITransient3>().Use<Transient3>();
-            expr.For<ICombined1>().Use<Combined1>();
-            expr.For<ICombined2>().Use<Combined2>();
-            expr.For<ICombined3>().Use<Combined3>();
-        }
+      private static void RegisterComplex(IContainerBuilder builder)
+      {
+         builder.Add<IFirstService>().Type<FirstService>().Singleton();
+         builder.Add<ISecondService>().Type<SecondService>().Singleton();
+         builder.Add<IThirdService>().Type<ThirdService>().Singleton();
+         builder.Add<ISubObjectOne>().Type<SubObjectOne>();
+         builder.Add<ISubObjectTwo>().Type<SubObjectTwo>();
+         builder.Add<ISubObjectThree>().Type<SubObjectThree>();
+         builder.Add<IComplex1>().Type<Complex1>();
+         builder.Add<IComplex2>().Type<Complex2>();
+         builder.Add<IComplex3>().Type<Complex3>();
+      }
 
-        private static void RegisterComplex(IContainerExpression expr)
-        {
-            expr.For<IFirstService>().Use<FirstService>().Lifetime.Singleton();
-            expr.For<ISecondService>().Use<SecondService>().Lifetime.Singleton();
-            expr.For<IThirdService>().Use<ThirdService>().Lifetime.Singleton();
-            expr.For<ISubObjectOne>().Use<SubObjectOne>();
-            expr.For<ISubObjectTwo>().Use<SubObjectTwo>();
-            expr.For<ISubObjectThree>().Use<SubObjectThree>();
-            expr.For<IComplex1>().Use<Complex1>();
-            expr.For<IComplex2>().Use<Complex2>();
-            expr.For<IComplex3>().Use<Complex3>();
-        }
+      private static void RegisterPropertyInjection(IContainerBuilder builder)
+      {
+         builder.Add<IServiceA>().Type<ServiceA>().Singleton();
+         builder.Add<IServiceB>().Type<ServiceB>().Singleton();
+         builder.Add<IServiceC>().Type<ServiceC>().Singleton();
 
-        private static void RegisterPropertyInjection(IContainerExpression expr)
-        {
-            expr.For<IServiceA>().Use<ServiceA>().Lifetime.Singleton();
-            expr.For<IServiceB>().Use<ServiceB>().Lifetime.Singleton();
-            expr.For<IServiceC>().Use<ServiceC>().Lifetime.Singleton();
+         builder.Add<ISubObjectA>().Type<SubObjectA>().SetProperty(x => x.ServiceA);
+         builder.Add<ISubObjectB>().Type<SubObjectB>().SetProperty(x => x.ServiceB);
+         builder.Add<ISubObjectC>().Type<SubObjectC>().SetProperty(x => x.ServiceC);
 
-            expr.For<ISubObjectA>().Use<SubObjectA>().Set(x => x.ServiceA);
-            expr.For<ISubObjectB>().Use<SubObjectB>().Set(x => x.ServiceB);
-            expr.For<ISubObjectC>().Use<SubObjectC>().Set(x => x.ServiceC);
+         builder.Add<IComplexPropertyObject1>().Type<ComplexPropertyObject1>()
+             .SetProperty(x => x.ServiceA)
+             .SetProperty(x => x.ServiceB)
+             .SetProperty(x => x.ServiceC)
+             .SetProperty(x => x.SubObjectA)
+             .SetProperty(x => x.SubObjectB)
+             .SetProperty(x => x.SubObjectC);
 
-            expr.For<IComplexPropertyObject1>().Use<ComplexPropertyObject1>()
-                .Set(x => x.ServiceA)
-                .Set(x => x.ServiceB)
-                .Set(x => x.ServiceC)
-                .Set(x => x.SubObjectA)
-                .Set(x => x.SubObjectB)
-                .Set(x => x.SubObjectC);
-            expr.For<IComplexPropertyObject2>().Use<ComplexPropertyObject2>()
-                .Set(x => x.ServiceA)
-                .Set(x => x.ServiceB)
-                .Set(x => x.ServiceC)
-                .Set(x => x.SubObjectA)
-                .Set(x => x.SubObjectB)
-                .Set(x => x.SubObjectC);
-            expr.For<IComplexPropertyObject3>().Use<ComplexPropertyObject3>()
-                .Set(x => x.ServiceA)
-                .Set(x => x.ServiceB)
-                .Set(x => x.ServiceC)
-                .Set(x => x.SubObjectA)
-                .Set(x => x.SubObjectB)
-                .Set(x => x.SubObjectC);
-        }
+         builder.Add<IComplexPropertyObject2>().Type<ComplexPropertyObject2>()
+             .SetProperty(x => x.ServiceA)
+             .SetProperty(x => x.ServiceB)
+             .SetProperty(x => x.ServiceC)
+             .SetProperty(x => x.SubObjectA)
+             .SetProperty(x => x.SubObjectB)
+             .SetProperty(x => x.SubObjectC);
 
-        private static void RegisterGeneric(IContainerExpression expr)
-        {
-            expr.For(typeof(IGenericInterface<>)).Use(typeof(GenericExport<>));
-            expr.For(typeof(ImportGeneric<>)).Use(typeof(ImportGeneric<>));
-        }
+         builder.Add<IComplexPropertyObject3>().Type<ComplexPropertyObject3>()
+             .SetProperty(x => x.ServiceA)
+             .SetProperty(x => x.ServiceB)
+             .SetProperty(x => x.ServiceC)
+             .SetProperty(x => x.SubObjectA)
+             .SetProperty(x => x.SubObjectB)
+             .SetProperty(x => x.SubObjectC);
+      }
 
-        private static void RegisterConditional(IContainerExpression expr)
-        {
-            expr.For<ImportConditionObject1>().Use<ImportConditionObject1>();
-            expr.For<ImportConditionObject2>().Use<ImportConditionObject2>();
-            expr.For<ImportConditionObject3>().Use<ImportConditionObject3>();
-            expr.For<IExportConditionInterface>()
-                .Use(x =>
-                     {
-                         x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject1))
-                             .Use<ExportConditionalObject1>();
-                         x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject2))
-                             .Use<ExportConditionalObject2>();
-                         x.If(ctx => ctx.TypeStack.Root == typeof(ImportConditionObject3))
-                             .Use<ExportConditionalObject3>();
-                     });
-        }
+      private static void RegisterGeneric(IContainerBuilder builder)
+      {
+         builder.Add(typeof(IGenericInterface<>)).Type(typeof(GenericExport<>));
+         builder.Add(typeof(ImportGeneric<>)).Self();
+      }
 
-        private static void RegisterMultiple(IContainerExpression expr)
-        {
-            expr.For<ISimpleAdapter>().Add<SimpleAdapterOne>();
-            expr.For<ISimpleAdapter>().Add<SimpleAdapterTwo>();
-            expr.For<ISimpleAdapter>().Add<SimpleAdapterThree>();
-            expr.For<ISimpleAdapter>().Add<SimpleAdapterFour>();
-            expr.For<ISimpleAdapter>().Add<SimpleAdapterFive>();
-            expr.For<ImportMultiple1>().Use<ImportMultiple1>();
-            expr.For<ImportMultiple2>().Use<ImportMultiple2>();
-            expr.For<ImportMultiple3>().Use<ImportMultiple3>();
-        }
+      private static void RegisterMultiple(IContainerBuilder builder)
+      {
+         builder.Add<ISimpleAdapter>().Type<SimpleAdapterOne>();
+         builder.Add<ISimpleAdapter>().Type<SimpleAdapterTwo>();
+         builder.Add<ISimpleAdapter>().Type<SimpleAdapterThree>();
+         builder.Add<ISimpleAdapter>().Type<SimpleAdapterFour>();
+         builder.Add<ISimpleAdapter>().Type<SimpleAdapterFive>();
+         builder.Add<ImportMultiple1>().Self();
+         builder.Add<ImportMultiple2>().Self();
+         builder.Add<ImportMultiple3>().Self();
+      }
 
-        private static void RegisterInterceptor(IContainerExpression expr)
-        {
-            expr.For<ICalculator1>().Use<Calculator1>()
-                .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator1>(x.Instance, new MaestroInterceptionLogger()));
-            expr.For<ICalculator2>().Use<Calculator2>()
-                .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator2>(x.Instance, new MaestroInterceptionLogger()));
-            expr.For<ICalculator3>().Use<Calculator3>()
-                .Proxy(x => x.ProxyGenerator.CreateInterfaceProxyWithTarget<ICalculator3>(x.Instance, new MaestroInterceptionLogger()));
-        }
-    }
+      private static void RegisterInterceptor(IContainerBuilder builder)
+      {
+         builder.Add<ICalculator1>().Type<Calculator1>()
+             .Proxy((x, pg) => pg.CreateInterfaceProxyWithTarget<ICalculator1>(x, new MaestroInterceptionLogger()));
+         builder.Add<ICalculator2>().Type<Calculator2>()
+             .Proxy((x, pg) => pg.CreateInterfaceProxyWithTarget<ICalculator2>(x, new MaestroInterceptionLogger()));
+         builder.Add<ICalculator3>().Type<Calculator3>()
+             .Proxy((x, pg) => pg.CreateInterfaceProxyWithTarget<ICalculator3>(x, new MaestroInterceptionLogger()));
+      }
+   }
 }
