@@ -18,7 +18,7 @@ namespace IocPerformance.Adapters
 
         public override string Name => "Microsoft Extensions DependencyInjection";
 
-        public override string Url => "https://github.com/aspnet/DependencyInjection";
+        public override string Url => "https://github.com/aspnet/Extensions";
 
         public override bool SupportGeneric => true;
 

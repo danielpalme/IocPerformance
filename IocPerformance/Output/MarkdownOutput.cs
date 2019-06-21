@@ -14,18 +14,16 @@ namespace IocPerformance.Output
             {
                 using (var writer = new StreamWriter(fileStream))
                 {
-                    writer.WriteLine("Ioc Performance");
-                    writer.WriteLine("===============");
+                    writer.WriteLine("# Ioc Performance");
                     writer.WriteLine(string.Empty);
                     writer.WriteLine("Source code of my performance comparison of the most popular .NET IoC containers:  ");
-                    writer.WriteLine("[www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison](http://www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison)");
+                    writer.WriteLine("[www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison](https://www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison)");
                     writer.WriteLine(string.Empty);
                     writer.WriteLine("Author: Daniel Palme  ");
-                    writer.WriteLine("Blog: [www.palmmedia.de](http://www.palmmedia.de)  ");
-                    writer.WriteLine("Twitter: [@danielpalme](http://twitter.com/danielpalme)  ");
+                    writer.WriteLine("Blog: [www.palmmedia.de](https://www.palmmedia.de)  ");
+                    writer.WriteLine("Twitter: [@danielpalme](https://twitter.com/danielpalme)  ");
                     writer.WriteLine(string.Empty);
-                    writer.WriteLine("Results");
-                    writer.WriteLine("-------");
+                    writer.WriteLine("## Results");
 
                     writer.WriteLine("### Explantions");
                     writer.WriteLine("**First value**: Time of single-threaded execution in [ms]  ");
@@ -56,9 +54,9 @@ namespace IocPerformance.Output
                     this.WriteBenchmarks(writer, benchmarks.Where(b => b.GetType().FullName.Contains("Prepare")), benchmarkResults);
 
                     writer.WriteLine("### Charts");
-                    writer.WriteLine("![Basic features](http://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)");
-                    writer.WriteLine("![Advanced features](http://www.palmmedia.de/content/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)");
-                    writer.WriteLine("![Prepare](http://www.palmmedia.de/content/blogimages/67b056a5-9da8-40b4-9ae6-0c838cdac180.png)");
+                    writer.WriteLine("![Basic features](https://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)");
+                    writer.WriteLine("![Advanced features](https://www.palmmedia.de/content/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)");
+                    writer.WriteLine("![Prepare](https://www.palmmedia.de/content/blogimages/67b056a5-9da8-40b4-9ae6-0c838cdac180.png)");
 
                     writer.WriteLine("### Machine");
                     writer.WriteLine("The benchmark was executed on the following machine:  ");
