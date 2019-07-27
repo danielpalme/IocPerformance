@@ -159,11 +159,11 @@ namespace IocPerformance.Adapters
 
         public class RezolverChildContainerAdapter : IChildContainerAdapter
         {
-            private readonly IContainer parent;
-            private IContainer child;
-            private IContainerScope childScope;
+            private readonly Container parent;
+            private Container child;
+            private ContainerScope childScope;
 
-            public RezolverChildContainerAdapter(IContainer parent)
+            public RezolverChildContainerAdapter(Container parent)
             {
                 this.parent = parent;
             }
@@ -177,11 +177,12 @@ namespace IocPerformance.Adapters
             {
                 var targets = new TargetContainer();
 
-                targets.RegisterType<ScopedTransient, ITransient1>();
-                targets.RegisterType<ScopedCombined1, ICombined1>();
-                targets.RegisterType<ScopedCombined2, ICombined2>();
-                targets.RegisterType<ScopedCombined3, ICombined3>();
-                this.child = new OverridingContainer(this.parent, targets);
+                this.child = new OverridingContainer(this.parent);
+                child.RegisterType<ScopedTransient, ITransient1>();
+                child.RegisterType<ScopedCombined1, ICombined1>();
+                child.RegisterType<ScopedCombined2, ICombined2>();
+                child.RegisterType<ScopedCombined3, ICombined3>();
+
                 this.childScope = this.child.CreateScope();
             }
 
