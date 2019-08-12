@@ -21,6 +21,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|465<br/>270|533<br/>322|1583<br/>906|7403<br/>3712|
 |**[Catel 5.11.2](http://www.catelproject.com)**|262<br/>308|4283<br/>4695|9693<br/>10646|22248<br/>24653|
 |**[DryIoc 4.0.5](https://bitbucket.org/dadhi/dryioc)**|33<br/>47|48<br/>76|68<br/>103|79<br/>89|
+|**[DryIocZero 4.0.0](https://bitbucket.org/dadhi/dryioc)**|110<br/>96|88<br/>89|98<br/>105|220<br/>169|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|95<br/>70|104<br/>86|207<br/>158|685<br/>381|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|66<br/>66|126<br/>99|249<br/>171|602<br/>350|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|118<br/>90|137<br/>110|381<br/>251|1124<br/>616|
@@ -61,6 +62,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9157<br/>4733|<br/>|5965<br/>3393|<br/>|<br/>|<br/>|<br/>|
 |**[Catel 5.11.2](http://www.catelproject.com)**|<br/>|9585<br/>10434|<br/>|<br/>|<br/>|<br/>|4295<br/>4634|
 |**[DryIoc 4.0.5](https://bitbucket.org/dadhi/dryioc)**|122<br/>121|58<br/>87|316<br/>218|56<br/>74|<br/>|1867<br/>1394|836<br/>545|
+|**[DryIocZero 4.0.0](https://bitbucket.org/dadhi/dryioc)**|294<br/>205|92<br/>92|302<br/>229|380<br/>270|<br/>|<br/>|<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1090<br/>639|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
@@ -101,9 +103,10 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|55<br/>|56<br/>|
 |**[Catel 5.11.2](http://www.catelproject.com)**|100278*<br/>|100744*<br/>|
 |**[DryIoc 4.0.5](https://bitbucket.org/dadhi/dryioc)**|73<br/>|79<br/>|
+|**[DryIocZero 4.0.0](https://bitbucket.org/dadhi/dryioc)**|**0**<br/>|**1**<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|16240<br/>|16527<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|6390<br/>|6336<br/>|
-|**[Funq 1.0.0.0](https://funq.codeplex.com)**|**8**<br/>|**8**<br/>|
+|**[Funq 1.0.0.0](https://funq.codeplex.com)**|8<br/>|8<br/>|
 |**[Grace 7.0.0](https://github.com/ipjohnson/Grace)**|171<br/>|942<br/>|
 |**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|8387<br/>|8960<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|54925<br/>|55463<br/>|

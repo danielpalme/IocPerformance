@@ -1261,13 +1261,13 @@
     "SingleThreadedResult": {
       "Time": 262,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 308,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1285,13 +1285,13 @@
     "SingleThreadedResult": {
       "Time": 4283,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 4695,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1309,13 +1309,13 @@
     "SingleThreadedResult": {
       "Time": 9693,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 10646,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1333,13 +1333,13 @@
     "SingleThreadedResult": {
       "Time": 22248,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 24653,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1357,13 +1357,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1381,13 +1381,13 @@
     "SingleThreadedResult": {
       "Time": 9585,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 10434,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1405,13 +1405,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1429,13 +1429,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1453,13 +1453,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1477,13 +1477,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1501,13 +1501,13 @@
     "SingleThreadedResult": {
       "Time": 4295,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 4634,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -1525,13 +1525,13 @@
     "SingleThreadedResult": {
       "Time": 100278,
       "ExtraPolated": true,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1549,13 +1549,13 @@
     "SingleThreadedResult": {
       "Time": 100744,
       "ExtraPolated": true,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -1860,6 +1860,318 @@
     },
     "SingleThreadedResult": {
       "Time": 79,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": false
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 0,
+      "Name": "Singleton",
+      "FullName": "IocPerformance.Benchmarks.Basic.Singleton_01_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 110,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 96,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 0,
+      "Name": "Transient",
+      "FullName": "IocPerformance.Benchmarks.Basic.Transient_02_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 88,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 89,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 0,
+      "Name": "Combined",
+      "FullName": "IocPerformance.Benchmarks.Basic.Combined_03_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 98,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 105,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 0,
+      "Name": "Complex",
+      "FullName": "IocPerformance.Benchmarks.Basic.Complex_04_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 220,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 169,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Property",
+      "FullName": "IocPerformance.Benchmarks.Advanced.Property_05_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 294,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 205,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Generics",
+      "FullName": "IocPerformance.Benchmarks.Advanced.Generics_06_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 92,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 92,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "IEnumerable",
+      "FullName": "IocPerformance.Benchmarks.Advanced.IEnumerable_07_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 302,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 229,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Conditional",
+      "FullName": "IocPerformance.Benchmarks.Advanced.Conditional_08_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 380,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": 270,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Child Container",
+      "FullName": "IocPerformance.Benchmarks.Advanced.ChildContainer_09_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": false
+    },
+    "MultiThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": false
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Asp Net Core",
+      "FullName": "IocPerformance.Benchmarks.Advanced.AspNetCore_10_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": false
+    },
+    "MultiThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": false
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 1,
+      "Name": "Interception With Proxy",
+      "FullName": "IocPerformance.Benchmarks.Advanced.InterceptionWithProxy_11_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": false
+    },
+    "MultiThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": false
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 2,
+      "Name": "Prepare And Register",
+      "FullName": "IocPerformance.Benchmarks.Prepare.PrepareAndRegister_12_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 0,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": true
+    },
+    "MultiThreadedResult": {
+      "Time": null,
+      "ExtraPolated": false,
+      "Error": "",
+      "Successful": false
+    }
+  },
+  {
+    "BenchmarkInfo": {
+      "Category": 2,
+      "Name": "Prepare And Register And Simple Resolve",
+      "FullName": "IocPerformance.Benchmarks.Prepare.PrepareAndRegisterAndSimpleResolve_13_Benchmark"
+    },
+    "ContainerInfo": {
+      "Name": "DryIocZero",
+      "Url": "https://bitbucket.org/dadhi/dryioc",
+      "Version": "4.0.0"
+    },
+    "SingleThreadedResult": {
+      "Time": 1,
       "ExtraPolated": false,
       "Error": "",
       "Successful": true
@@ -4069,13 +4381,13 @@
     "SingleThreadedResult": {
       "Time": 60,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 63,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4093,13 +4405,13 @@
     "SingleThreadedResult": {
       "Time": 69,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 76,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4117,13 +4429,13 @@
     "SingleThreadedResult": {
       "Time": 92,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 128,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4141,13 +4453,13 @@
     "SingleThreadedResult": {
       "Time": 115,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 136,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4165,13 +4477,13 @@
     "SingleThreadedResult": {
       "Time": 74,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 80,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4189,13 +4501,13 @@
     "SingleThreadedResult": {
       "Time": 89,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 133,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4213,7 +4525,7 @@
     "SingleThreadedResult": {
       "Time": 519,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
@@ -4237,13 +4549,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -4261,13 +4573,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -4285,13 +4597,13 @@
     "SingleThreadedResult": {
       "Time": 1667,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 1563,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     }
   },
@@ -4309,13 +4621,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -4333,13 +4645,13 @@
     "SingleThreadedResult": {
       "Time": 2350,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
@@ -4357,13 +4669,13 @@
     "SingleThreadedResult": {
       "Time": 2741,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     }
   },
