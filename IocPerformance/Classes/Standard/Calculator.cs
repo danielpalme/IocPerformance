@@ -148,33 +148,4 @@ namespace IocPerformance.Classes.Standard
     }
 
     #endregion No Interceptor
-
-    #region Cauldron
-
-    /*
-        Cauldron is a weaver, means cauldron changes the IL code of the assembly during build.
-     */
-
-    [Cauldron.Activator.Component(typeof(ICalculator1))]
-    public class CauldronCalculator1 : Calculator1
-    {
-        [CauldronLogger]
-        public override int Add(int first, int second) => base.Add(first, second);
-    }
-
-    [Cauldron.Activator.Component(typeof(ICalculator2))]
-    public class CauldronCalculator2 : Calculator2
-    {
-        [CauldronLogger]
-        public override int Add(int first, int second) => base.Add(first, second);
-    }
-
-    [Cauldron.Activator.Component(typeof(ICalculator3))]
-    public class CauldronCalculator3 : Calculator3
-    {
-        [CauldronLogger]
-        public override int Add(int first, int second) => base.Add(first, second);
-    }
-
-    #endregion Cauldron
 }

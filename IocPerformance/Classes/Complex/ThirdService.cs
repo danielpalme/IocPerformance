@@ -8,7 +8,6 @@ namespace IocPerformance.Classes.Complex
     {
     }
 
-    [Cauldron.Activator.Component(typeof(IThirdService), Cauldron.Activator.FactoryCreationPolicy.Singleton)]
     [Export(typeof(IThirdService)), PartCreationPolicy(CreationPolicy.Shared)]
     [MEF2Attr.Export(typeof(IThirdService))]
     [IfInjector.Singleton]

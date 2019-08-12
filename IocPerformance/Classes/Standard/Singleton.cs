@@ -22,7 +22,6 @@ namespace IocPerformance.Classes.Standard
         void DoSomething();
     }
 
-    [Cauldron.Activator.Component(typeof(ISingleton1), Cauldron.Activator.FactoryCreationPolicy.Singleton)]
     [Export(typeof(ISingleton1)), PartCreationPolicy(CreationPolicy.Shared)]
     [MEF2Attr.Export(typeof(ISingleton1)), MEF2Attr.Shared]
     [Stiletto.Singleton]
@@ -49,7 +48,6 @@ namespace IocPerformance.Classes.Standard
         }
     }
 
-    [Cauldron.Activator.Component(typeof(ISingleton2), Cauldron.Activator.FactoryCreationPolicy.Singleton)]
     [Export(typeof(ISingleton2)), PartCreationPolicy(CreationPolicy.Shared)]
     [MEF2Attr.Export(typeof(ISingleton2)), MEF2Attr.Shared]
     [Stiletto.Singleton]
@@ -76,7 +74,6 @@ namespace IocPerformance.Classes.Standard
         }
     }
 
-    [Cauldron.Activator.Component(typeof(ISingleton3), Cauldron.Activator.FactoryCreationPolicy.Singleton)]
     [Export(typeof(ISingleton3)), PartCreationPolicy(CreationPolicy.Shared)]
     [MEF2Attr.Export(typeof(ISingleton3)), MEF2Attr.Shared]
     [Stiletto.Singleton]

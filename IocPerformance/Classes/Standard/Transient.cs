@@ -21,7 +21,6 @@ namespace IocPerformance.Classes.Standard
         void DoSomething();
     }
 
-    [Cauldron.Activator.Component(typeof(ITransient1))]
     [Export(typeof(ITransient1)), PartCreationPolicy(CreationPolicy.NonShared)]
     [System.Composition.Export(typeof(ITransient1))]
     public class Transient1 : ITransient1
@@ -46,7 +45,6 @@ namespace IocPerformance.Classes.Standard
         }
     }
 
-    [Cauldron.Activator.Component(typeof(ITransient2))]
     [Export(typeof(ITransient2)), PartCreationPolicy(CreationPolicy.NonShared)]
     [System.Composition.Export(typeof(ITransient2))]
     public class Transient2 : ITransient2
@@ -71,7 +69,6 @@ namespace IocPerformance.Classes.Standard
         }
     }
 
-    [Cauldron.Activator.Component(typeof(ITransient3))]
     [Export(typeof(ITransient3)), PartCreationPolicy(CreationPolicy.NonShared)]
     [System.Composition.Export(typeof(ITransient3))]
     public class Transient3 : ITransient3

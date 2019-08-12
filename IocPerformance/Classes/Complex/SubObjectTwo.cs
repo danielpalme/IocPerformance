@@ -28,27 +28,4 @@ namespace IocPerformance.Classes.Complex
         {
         }
     }
-
-    #region Cauldron 
-    /*
-        Cauldron is a weaver, means cauldron changes the IL code of the assembly during build.
-    */
-
-    [Cauldron.Activator.Component(typeof(ISubObjectTwo))]
-    public class CauldronSubObjectTwo : SubObjectTwo
-    {
-        [Cauldron.Activator.Inject]
-        private ISecondService secondService;
-
-        public CauldronSubObjectTwo() : base()
-        {
-            if (secondService == null)
-            {
-                throw new ArgumentNullException(nameof(secondService));
-            }
-        }
-    }
-
-
-    #endregion
 }
