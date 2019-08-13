@@ -51,6 +51,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Stashbox 2.7.8](https://github.com/z4kn4fein/stashbox)**|34<br/>47|46<br/>68|61<br/>86|77<br/>83|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1121<br/>717|1281<br/>856|3410<br/>2166|8312<br/>6052|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|302<br/>281|437<br/>405|1282<br/>1095|3962<br/>3553|
+|**[VSMef 16.3.4-alpha+gea4d67d957.RR](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|8746<br/>5003|13331<br/>9119|20322<br/>14706|57554<br/>51201|
 |**[Windsor 5.0.0](http://castleproject.org)**|437<br/>350|1821<br/>1108|6402<br/>3712|20536<br/>11821|
 |**[Zenject 8.0.0](https://github.com/modesttree/Zenject)**|479<br/>448|1370<br/>1070|3689<br/>3065|11142<br/>10106|
 ### Advanced Features
@@ -92,6 +93,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Stashbox 2.7.8](https://github.com/z4kn4fein/stashbox)**|125<br/>119|58<br/>83|304<br/>222|59<br/>**69**|174697*<br/>99904*|1647<br/>1429|832<br/>554|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|8697<br/>5284|2271<br/>1460|8399<br/>5170|<br/>|3215578*<br/>1887211*|65269*<br/>41725|7859<br/>4464|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|4097<br/>3333|1396<br/>1210|4815<br/>4031|1042<br/>861|7035<br/>9942|38392<br/>31255|<br/>|
+|**[VSMef 16.3.4-alpha+gea4d67d957.RR](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|44220<br/>31690|<br/>|41589<br/>33803|<br/>|<br/>|<br/>|<br/>|
 |**[Windsor 5.0.0](http://castleproject.org)**|38096<br/>19775|15557<br/>9071|17839<br/>10135|<br/>|239286*<br/>140421*|<br/>|13662<br/>7695|
 |**[Zenject 8.0.0](https://github.com/modesttree/Zenject)**|15829<br/>13135|9021<br/>6513|17932<br/>12687|3082<br/>2428|22250<br/>18595|<br/>|<br/>|
 ### Prepare
@@ -133,6 +135,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Stashbox 2.7.8](https://github.com/z4kn4fein/stashbox)**|70<br/>|256<br/>|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1325<br/>|7389<br/>|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|84<br/>|79<br/>|
+|**[VSMef 16.3.4-alpha+gea4d67d957.RR](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|8579<br/>|8760<br/>|
 |**[Windsor 5.0.0](http://castleproject.org)**|2954<br/>|2990<br/>|
 |**[Zenject 8.0.0](https://github.com/modesttree/Zenject)**|199<br/>|201<br/>|
 ### Charts
