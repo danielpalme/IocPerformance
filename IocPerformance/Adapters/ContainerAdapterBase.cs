@@ -57,6 +57,11 @@ namespace IocPerformance.Adapters
 
         public abstract void PrepareBasic();
 
+        public override string ToString()
+        {
+            return this.Name;
+        }
+
         public virtual void Prepare()
         {
             this.PrepareBasic(); // by default any prepare should at least support basic one

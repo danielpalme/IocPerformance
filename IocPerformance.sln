@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IocPerformance", "IocPerformance\IocPerformance.csproj", "{C2CB4D53-6B69-4554-9DA6-759A69C528C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IocPerformance.Test", "IocPerformance.Test\IocPerformance.Test.csproj", "{7C9F7453-18AB-41CB-83F9-CA3F52535898}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C2CB4D53-6B69-4554-9DA6-759A69C528C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2CB4D53-6B69-4554-9DA6-759A69C528C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2CB4D53-6B69-4554-9DA6-759A69C528C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C9F7453-18AB-41CB-83F9-CA3F52535898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C9F7453-18AB-41CB-83F9-CA3F52535898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C9F7453-18AB-41CB-83F9-CA3F52535898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C9F7453-18AB-41CB-83F9-CA3F52535898}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

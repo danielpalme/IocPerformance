@@ -2,7 +2,7 @@
 *.suo
 *.user
 /IocPerformance.userprefs
-/IocPerformance/bin
-/IocPerformance/obj
+bin
+obj
 *.Cache
 _ReSharper*
