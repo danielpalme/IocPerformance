@@ -56,9 +56,9 @@ namespace IocPerformance.Output
                     this.WriteBenchmarks(writer, benchmarks.Where(b => b.GetType().FullName.Contains("Prepare")), benchmarkResults);
 
                     writer.WriteLine("### Charts");
-                    writer.WriteLine("![Basic features](https://www.palmmedia.de/content/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)");
-                    writer.WriteLine("![Advanced features](https://www.palmmedia.de/content/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)");
-                    writer.WriteLine("![Prepare](https://www.palmmedia.de/content/blogimages/67b056a5-9da8-40b4-9ae6-0c838cdac180.png)");
+                    writer.WriteLine("![Basic features](https://www.palmmedia.de/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)");
+                    writer.WriteLine("![Advanced features](https://www.palmmedia.de/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)");
+                    writer.WriteLine("![Prepare](https://www.palmmedia.de/blogimages/67b056a5-9da8-40b4-9ae6-0c838cdac180.png)");
 
                     writer.WriteLine("### Machine");
                     writer.WriteLine("The benchmark was executed on the following machine:  ");
