@@ -130,6 +130,7 @@
     <Compile Include="Benchmarks\Result\BenchmarkInfo.cs" />
     <Compile Include="Benchmarks\Result\BenchmarkResult.cs" />
     <Compile Include="Benchmarks\Result\ContainerAdapterInfo.cs" />
+    <Compile Include="Benchmarks\Result\HistoricMeasurement.cs" />
     <Compile Include="Benchmarks\Result\Measurement.cs" />
     <Compile Include="Benchmarks\SinglethreadedBenchmarkMeasurer.cs" />
     <Compile Include="Classes\AspNet\RepositoryTransients.cs" />

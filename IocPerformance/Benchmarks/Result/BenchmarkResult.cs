@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using IocPerformance.Adapters;
 
 namespace IocPerformance.Benchmarks
@@ -19,5 +20,12 @@ namespace IocPerformance.Benchmarks
         public Measurement SingleThreadedResult { get; set; }
 
         public Measurement MultiThreadedResult { get; set; }
+
+        public List<HistoricMeasurement> History { get; set; } = new List<HistoricMeasurement>();
+
+        public override string ToString()
+        {
+            return $"{this.ContainerInfo.Name} - {this.ContainerInfo.Version} (#History: {this.History.Count})";
+        }
     }
 }

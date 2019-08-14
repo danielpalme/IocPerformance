@@ -68,6 +68,8 @@ namespace IocPerformance
                 Console.WriteLine();
             }
 
+            XmlOutputReader.AddHistoricBenchmarkResults(benchmarkResults);
+
             IOutput output = new MultiOutput(
                 new XmlOutput(),
                 new HtmlOutput(),
