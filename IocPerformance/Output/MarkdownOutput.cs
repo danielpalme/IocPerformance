@@ -16,6 +16,8 @@ namespace IocPerformance.Output
                 {
                     writer.WriteLine("# Ioc Performance");
                     writer.WriteLine(string.Empty);
+                    writer.WriteLine("[![Build Status](https://dev.azure.com/danielpalme/IocPerformance/_apis/build/status/danielpalme.IocPerformance?branchName=master)](https://dev.azure.com/danielpalme/IocPerformance/_build/latest?definitionId=6&branchName=master)");
+                    writer.WriteLine(string.Empty);
                     writer.WriteLine("Source code of my performance comparison of the most popular .NET IoC containers:  ");
                     writer.WriteLine("[www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison](https://www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison)");
                     writer.WriteLine(string.Empty);
