@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text;
 using IocPerformance.Benchmarks;
 
 namespace IocPerformance.Output
 {
     public class GithubPagesOutput : IOutput
     {
+        private const int MaximumNumberOfHistoryEntrys = 25;
+
+        private const double ChartWidth = 50;
+
+        private const double ChartHeight = 20;
+
         public void Create(IEnumerable<IBenchmark> benchmarks, IEnumerable<BenchmarkResult> benchmarkResults)
         {
             string baseDirectory = "../../../docs";
@@ -32,15 +40,20 @@ namespace IocPerformance.Output
                     writer.Write("<!DOCTYPE html>");
                     writer.Write("<html lang=\"en\">");
                     writer.Write("<head>");
-                    writer.Write("<meta charset=\"utf -8\" />");                    writer.Write("<title>Ioc Performance - Results</title>");                    writer.Write("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css\" integrity=\"sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M\" crossorigin=\"anonymous\" />");
+                    writer.Write("<meta charset=\"utf -8\" />");
+                    writer.Write("<title>Ioc Performance - Results</title>");
+                    writer.Write("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">");
                     writer.Write("<style>");
                     writer.Write(".blue { background-color: #e7f6ff; }");
+                    writer.Write(".legendbox { border: 1px solid #c1c1c1; width: 20px; height: 20px; display: inline-block; position: relative; top: 3px; }");
+                    writer.Write(".imagecontainer:before { content: ' '; display: block; }");
                     writer.Write("</style>");
                     writer.Write("</head>");
                     writer.Write("<body>");
                     writer.Write("<div class=\"container-fluid\">");
                     writer.Write("<h1>Ioc Performance - Results</h1>");
                     writer.Write("<h2>Overview</h2>");
+                    writer.Write("<p>Chart legend: <span class=\"legendbox\" style =\"background-color: #c00;\">&nbsp;</span> Single thread <span class=\"legendbox ml-4\" style=\"background-color: #1c2298;\">&nbsp;</span> Multiple threads</p>");
                     writer.Write("<div class=\"table-responsive\">");
                     writer.Write("<table class=\"table table-sm table-striped\">");
 
@@ -92,12 +105,13 @@ namespace IocPerformance.Output
                                     .Min(r => r.MultiThreadedResult.Time) == containerResult.MultiThreadedResult.Time ? " style=\"font-weight:bold;\"" : string.Empty;
 
                             writer.Write(
-                                "<td class=\"{0}\" style=\"text-align:right;\"><span title=\"Single thread\"{1}>{2}</span><br /><span title=\"Multiple threads\"{3}>{4}</span></td>",
+                                "<td class=\"{0}\" style=\"text-align:right;\"><span title=\"Single thread\"{1}>{2}</span><br /><span title=\"Multiple threads\"{3}>{4}</span>{5}</td>",
                                 benchmark.Category == BenchmarkCategory.Advanced ? string.Empty : "blue",
                                 emphasisTime,
                                 containerResult.SingleThreadedResult,
                                 emphasisMultithreadedTime,
-                                containerResult.MultiThreadedResult);
+                                containerResult.MultiThreadedResult,
+                                CreateSvgHistoryChart(containerResult));
                         }
 
                         writer.WriteLine("</tr>");
@@ -127,6 +141,85 @@ namespace IocPerformance.Output
                     writer.Write("</html>");
                 }
             }
+        }
+
+        private static string CreateSvgHistoryChart(BenchmarkResult containerResult)
+        {
+            var history = containerResult.History.ToList();
+            history.RemoveRange(0, Math.Max(0, history.Count - MaximumNumberOfHistoryEntrys));
+
+            if (history.Count < 2)
+            {
+                return string.Empty;
+            }
+
+            var sb = new StringBuilder();
+            sb.AppendFormat(
+                "<div class=\"imagecontainer\" title=\"Container: {0}\r\nBenchmark: {1}\r\n\r\nVersions:\r\n{2}\">",
+                containerResult.ContainerInfo.Name,
+                containerResult.BenchmarkInfo.Name,
+                string.Join("\r\n", history.Select(h => h.ToString())));
+            sb.AppendFormat("<svg width=\"{0}\" height=\"{1}\" fill=\"#fff\" viewBox=\"0 0 {0} {1}\">", ChartWidth, ChartHeight);
+            sb.AppendFormat("<rect width=\"{0}\" height=\"{1}\" fill=\"#fff\" stroke=\"#c1c1c1\"/>", ChartWidth, ChartHeight);
+            sb.AppendLine("<g>");
+
+            string path = string.Empty;
+            var successfulHistoriesMultiThreaded = history.Select(h => h.MultiThreadedResult).Where(h => h.Successful).ToArray();
+            var successfulHistoriesSingleThreaded = history.Select(h => h.SingleThreadedResult).Where(h => h.Successful).ToArray();
+
+            if (successfulHistoriesMultiThreaded.Length == 0 && successfulHistoriesSingleThreaded.Length == 0)
+            {
+                return string.Empty;
+            }
+
+            long maximum = successfulHistoriesMultiThreaded.Concat(successfulHistoriesSingleThreaded).Max(h => h.Time.Value);
+
+            if (successfulHistoriesMultiThreaded.Length > 0)
+            {
+                for (int i = 0; i < history.Count; i++)
+                {
+                    if (history[i].MultiThreadedResult.Successful)
+                    {
+                        long value = history[i].MultiThreadedResult.Time.Value;
+
+                        path += path.Length == 0 ? "M" : "L";
+                        path += Math.Round(ChartWidth * i / (history.Count - 1), 1).ToString(CultureInfo.InvariantCulture);
+                        path += ",";
+                        path += Math.Round(ChartHeight - (ChartHeight * value / (maximum == 0 ? 1 : maximum)), 1).ToString(CultureInfo.InvariantCulture);
+
+                    }
+                }
+
+                sb.AppendFormat("<path d=\"{0}\" stroke=\"#1c2298\" fill=\"transparent\"></path>", path);
+            }
+
+            // Single threaded result
+            path = string.Empty;
+
+            if (successfulHistoriesSingleThreaded.Length > 0)
+            {
+                for (int i = 0; i < history.Count; i++)
+                {
+                    if (history[i].SingleThreadedResult.Successful)
+                    {
+                        long value = history[i].SingleThreadedResult.Time.Value;
+
+                        path += path.Length == 0 ? "M" : "L";
+                        path += Math.Round(ChartWidth * i / (history.Count - 1), 1).ToString(CultureInfo.InvariantCulture);
+                        path += ",";
+                        path += Math.Round(ChartHeight - (ChartHeight * value / (maximum == 0 ? 1 : maximum)), 1).ToString(CultureInfo.InvariantCulture);
+
+                    }
+                }
+
+                sb.AppendFormat("<path d=\"{0}\" stroke=\"#c00\" fill=\"transparent\"></path>", path);
+            }
+
+            sb.AppendLine("</g>");
+            sb.AppendLine("</svg>");
+            sb.AppendLine("</div>");
+
+            return sb.ToString();
         }
 
         private static string GetName(ContainerAdapterInfo container)

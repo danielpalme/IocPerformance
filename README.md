@@ -19,7 +19,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|41<br/>49|49<br/>59|69<br/>76|99<br/>103|
 |**[abioc 0.8.0](https://github.com/JSkimming/abioc)**|26<br/>43|**33**<br/>56|**51**<br/>82|67<br/>78|
-|**[Autofac 4.9.3](https://github.com/autofac/Autofac)**|569<br/>382|704<br/>475|1927<br/>1183|5727<br/>3449|
+|**[Autofac 4.9.4](https://github.com/autofac/Autofac)**|593<br/>389|754<br/>504|1953<br/>1191|5877<br/>3609|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|465<br/>270|533<br/>322|1583<br/>906|7403<br/>3712|
 |**[Catel 5.11.2](http://www.catelproject.com)**|262<br/>308|4283<br/>4695|9693<br/>10646|22248<br/>24653|
 |**[DryIoc 4.0.5](https://bitbucket.org/dadhi/dryioc)**|33<br/>47|48<br/>76|68<br/>103|79<br/>89|
@@ -61,7 +61,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|---------------:|--------------------------:|
 |**No**|186<br/>134|70<br/>75|193<br/>176|53<br/>63|644<br/>596|<br/>|469<br/>438|
 |**[abioc 0.8.0](https://github.com/JSkimming/abioc)**|<br/>|<br/>|799<br/>506|<br/>|<br/>|<br/>|<br/>|
-|**[Autofac 4.9.3](https://github.com/autofac/Autofac)**|5853<br/>3461|2104<br/>1286|8141<br/>5264|1396<br/>870|75656*<br/>45789|32221<br/>19866|21376<br/>12564|
+|**[Autofac 4.9.4](https://github.com/autofac/Autofac)**|6070<br/>3626|2243<br/>1377|7838<br/>4615|1445<br/>901|84497*<br/>53089|35800<br/>21902|22852<br/>14654|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9157<br/>4733|<br/>|5965<br/>3393|<br/>|<br/>|<br/>|<br/>|
 |**[Catel 5.11.2](http://www.catelproject.com)**|<br/>|9585<br/>10434|<br/>|<br/>|<br/>|<br/>|4295<br/>4634|
 |**[DryIoc 4.0.5](https://bitbucket.org/dadhi/dryioc)**|122<br/>121|58<br/>87|316<br/>218|56<br/>74|<br/>|1867<br/>1394|836<br/>545|
@@ -103,7 +103,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |:------------|-----------------------:|------------------------------------------:|
 |**No**|2<br/>|2<br/>|
 |**[abioc 0.8.0](https://github.com/JSkimming/abioc)**|6327<br/>|6556<br/>|
-|**[Autofac 4.9.3](https://github.com/autofac/Autofac)**|414<br/>|470<br/>|
+|**[Autofac 4.9.4](https://github.com/autofac/Autofac)**|361<br/>|410<br/>|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|55<br/>|56<br/>|
 |**[Catel 5.11.2](http://www.catelproject.com)**|100278*<br/>|100744*<br/>|
 |**[DryIoc 4.0.5](https://bitbucket.org/dadhi/dryioc)**|73<br/>|79<br/>|

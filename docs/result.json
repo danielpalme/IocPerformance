@@ -2049,18 +2049,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 569,
+      "Time": 593,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 382,
+      "Time": 389,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -2273,6 +2273,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 593,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 389,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -2285,18 +2300,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 704,
+      "Time": 754,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 475,
+      "Time": 504,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -2509,6 +2524,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 754,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 504,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -2521,18 +2551,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 1927,
+      "Time": 1953,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1183,
+      "Time": 1191,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -2745,6 +2775,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 1953,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 1191,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -2757,18 +2802,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 5727,
+      "Time": 5877,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 3449,
+      "Time": 3609,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -2981,6 +3026,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 5877,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 3609,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -2993,18 +3053,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 5853,
+      "Time": 6070,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 3461,
+      "Time": 3626,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -3217,6 +3277,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 6070,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 3626,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -3229,18 +3304,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 2104,
+      "Time": 2243,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1286,
+      "Time": 1377,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -3453,6 +3528,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 2243,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 1377,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -3465,18 +3555,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 8141,
+      "Time": 7838,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 5264,
+      "Time": 4615,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -3689,6 +3779,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 7838,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 4615,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -3701,18 +3806,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 1396,
+      "Time": 1445,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 870,
+      "Time": 901,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -3925,6 +4030,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 1445,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 901,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -3937,18 +4057,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 75656,
+      "Time": 84497,
       "ExtraPolated": true,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
-      "Time": 45789,
+      "Time": 53089,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -4161,6 +4281,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 84497,
+          "ExtraPolated": true,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": 53089,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -4173,18 +4308,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 32221,
+      "Time": 35800,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 19866,
+      "Time": 21902,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -4352,6 +4487,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 35800,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 21902,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -4364,18 +4514,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 21376,
+      "Time": 22852,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 12564,
+      "Time": 14654,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -4543,6 +4693,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 22852,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 14654,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -4555,18 +4720,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 414,
+      "Time": 361,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -4734,6 +4899,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 361,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -4746,18 +4926,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "4.9.3"
+      "Version": "4.9.4"
     },
     "SingleThreadedResult": {
-      "Time": 470,
+      "Time": 410,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -4923,6 +5103,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "4.9.4",
+        "SingleThreadedResult": {
+          "Time": 410,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }
