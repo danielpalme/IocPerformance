@@ -164,8 +164,8 @@ namespace IocPerformance.Output
             sb.AppendLine("<g>");
 
             string path = string.Empty;
-            var successfulHistoriesMultiThreaded = history.Select(h => h.MultiThreadedResult).Where(h => h.Successful).ToArray();
-            var successfulHistoriesSingleThreaded = history.Select(h => h.SingleThreadedResult).Where(h => h.Successful).ToArray();
+            var successfulHistoriesMultiThreaded = history.Select(h => h.MultiThreadedResult).Where(h => h.Time.HasValue).ToArray();
+            var successfulHistoriesSingleThreaded = history.Select(h => h.SingleThreadedResult).Where(h => h.Time.HasValue).ToArray();
 
             if (successfulHistoriesMultiThreaded.Length == 0 && successfulHistoriesSingleThreaded.Length == 0)
             {
@@ -178,7 +178,7 @@ namespace IocPerformance.Output
             {
                 for (int i = 0; i < history.Count; i++)
                 {
-                    if (history[i].MultiThreadedResult.Successful)
+                    if (history[i].MultiThreadedResult.Time.HasValue)
                     {
                         long value = history[i].MultiThreadedResult.Time.Value;
 
@@ -200,7 +200,7 @@ namespace IocPerformance.Output
             {
                 for (int i = 0; i < history.Count; i++)
                 {
-                    if (history[i].SingleThreadedResult.Successful)
+                    if (history[i].SingleThreadedResult.Time.HasValue)
                     {
                         long value = history[i].SingleThreadedResult.Time.Value;
 
