@@ -22,7 +22,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Autofac 4.9.4](https://github.com/autofac/Autofac)**|593<br/>389|754<br/>504|1953<br/>1191|5877<br/>3609|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|465<br/>270|533<br/>322|1583<br/>906|7403<br/>3712|
 |**[Catel 5.11.2](http://www.catelproject.com)**|262<br/>308|4283<br/>4695|9693<br/>10646|22248<br/>24653|
-|**[DryIoc 4.0.5](https://bitbucket.org/dadhi/dryioc)**|33<br/>47|48<br/>76|68<br/>103|79<br/>89|
+|**[DryIoc 4.0.6](https://bitbucket.org/dadhi/dryioc)**|33<br/>45|43<br/>74|60<br/>105|80<br/>90|
 |**[DryIocZero 4.0.0](https://bitbucket.org/dadhi/dryioc)**|110<br/>96|88<br/>89|98<br/>105|220<br/>169|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|95<br/>70|104<br/>86|207<br/>158|685<br/>381|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|66<br/>66|126<br/>99|249<br/>171|602<br/>350|
@@ -33,7 +33,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|75<br/>60|128<br/>97|145<br/>124|197<br/>135|
 |**[Lamar 3.0.5](https://jasperfx.github.io/lamar/)**|60<br/>63|69<br/>76|92<br/>128|115<br/>136|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|184<br/>189|2191<br/>1301|26718<br/>31570|151128*<br/>188142*|
-|**[LightInject 5.5.0](https://github.com/seesharper/LightInject)**|29<br/>49|36<br/>60|54<br/>86|75<br/>82|
+|**[LightInject 6.0.0](https://github.com/seesharper/LightInject)**|33<br/>47|37<br/>62|54<br/>86|77<br/>83|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|3167<br/>1709|16506<br/>11878|45492<br/>29568|116514*<br/>76757*|
 |**[Maestro 3.6.0](https://github.com/JonasSamuelsson/Maestro)**|329<br/>229|304<br/>215|543<br/>387|1483<br/>962|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|22679<br/>11820|37640<br/>25052|57462<br/>68730*|112712*<br/>131716*|
@@ -53,7 +53,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Stashbox 2.7.8](https://github.com/z4kn4fein/stashbox)**|34<br/>47|46<br/>68|61<br/>86|77<br/>83|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1121<br/>717|1281<br/>856|3410<br/>2166|8312<br/>6052|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|302<br/>281|437<br/>405|1282<br/>1095|3962<br/>3553|
-|**[VSMef 16.3.4-alpha+gea4d67d957.RR](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|8746<br/>5003|13331<br/>9119|20322<br/>14706|57554<br/>51201|
+|**[VSMef 16.3.7](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|10361<br/>5912|12524<br/>9313|19619<br/>16045|55722<br/>51621|
 |**[Windsor 5.0.0](http://castleproject.org)**|437<br/>350|1821<br/>1108|6402<br/>3712|20536<br/>11821|
 |**[Zenject 8.0.0](https://github.com/modesttree/Zenject)**|479<br/>448|1370<br/>1070|3689<br/>3065|11142<br/>10106|
 ### Advanced Features
@@ -64,18 +64,18 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Autofac 4.9.4](https://github.com/autofac/Autofac)**|6070<br/>3626|2243<br/>1377|7838<br/>4615|1445<br/>901|84497*<br/>53089|35800<br/>21902|22852<br/>14654|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9157<br/>4733|<br/>|5965<br/>3393|<br/>|<br/>|<br/>|<br/>|
 |**[Catel 5.11.2](http://www.catelproject.com)**|<br/>|9585<br/>10434|<br/>|<br/>|<br/>|<br/>|4295<br/>4634|
-|**[DryIoc 4.0.5](https://bitbucket.org/dadhi/dryioc)**|122<br/>121|58<br/>87|316<br/>218|56<br/>74|<br/>|1867<br/>1394|836<br/>545|
+|**[DryIoc 4.0.6](https://bitbucket.org/dadhi/dryioc)**|124<br/>117|63<br/>**79**|302<br/>215|60<br/>76|<br/>|1879<br/>1331|818<br/>530|
 |**[DryIocZero 4.0.0](https://bitbucket.org/dadhi/dryioc)**|294<br/>205|92<br/>92|302<br/>229|380<br/>270|<br/>|<br/>|<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1090<br/>639|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
-|**[Grace 7.0.0](https://github.com/ipjohnson/Grace)**|110<br/>109|50<br/>**80**|266<br/>201|**47**<br/>**69**|52706<br/>30542|786<br/>750|902<br/>602|
+|**[Grace 7.0.0](https://github.com/ipjohnson/Grace)**|110<br/>109|50<br/>80|266<br/>201|**47**<br/>**69**|52706<br/>30542|786<br/>750|902<br/>602|
 |**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|741<br/>443|<br/>|1860<br/>1198|<br/>|<br/>|<br/>|**774**<br/>**509**|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|345<br/>227|147<br/>120|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Lamar 3.0.5](https://jasperfx.github.io/lamar/)**|74<br/>80|89<br/>133|519<br/>Error|<br/>|<br/>|1667<br/>1563|<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|2289<br/>1755|15862<br/>14477|34754<br/>20480|<br/>|<br/>|<br/>|<br/>|
-|**[LightInject 5.5.0](https://github.com/seesharper/LightInject)**|122<br/>141|52<br/>81|296<br/>225|331<br/>227|<br/>|14895<br/>9956|1492<br/>927|
+|**[LightInject 6.0.0](https://github.com/seesharper/LightInject)**|115<br/>114|51<br/>81|288<br/>211|411<br/>280|<br/>|8778<br/>6569|2401<br/>1539|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Maestro 3.6.0](https://github.com/JonasSamuelsson/Maestro)**|3402<br/>2335|514<br/>294|1598<br/>1079|<br/>|<br/>|9639<br/>7096|10385<br/>3878|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|124500*<br/>133833*|137086*<br/>114221*|97231*<br/>100896*|<br/>|<br/>|<br/>|<br/>|
@@ -95,7 +95,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Stashbox 2.7.8](https://github.com/z4kn4fein/stashbox)**|125<br/>119|58<br/>83|304<br/>222|59<br/>**69**|174697*<br/>99904*|1647<br/>1429|832<br/>554|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|8697<br/>5284|2271<br/>1460|8399<br/>5170|<br/>|3215578*<br/>1887211*|65269*<br/>41725|7859<br/>4464|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|4097<br/>3333|1396<br/>1210|4815<br/>4031|1042<br/>861|7035<br/>9942|38392<br/>31255|<br/>|
-|**[VSMef 16.3.4-alpha+gea4d67d957.RR](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|44220<br/>31690|<br/>|41589<br/>33803|<br/>|<br/>|<br/>|<br/>|
+|**[VSMef 16.3.7](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|43823<br/>30865|<br/>|40858<br/>33776|<br/>|<br/>|<br/>|<br/>|
 |**[Windsor 5.0.0](http://castleproject.org)**|38096<br/>19775|15557<br/>9071|17839<br/>10135|<br/>|239286*<br/>140421*|<br/>|13662<br/>7695|
 |**[Zenject 8.0.0](https://github.com/modesttree/Zenject)**|15829<br/>13135|9021<br/>6513|17932<br/>12687|3082<br/>2428|22250<br/>18595|<br/>|<br/>|
 ### Prepare
@@ -106,7 +106,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Autofac 4.9.4](https://github.com/autofac/Autofac)**|361<br/>|410<br/>|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|55<br/>|56<br/>|
 |**[Catel 5.11.2](http://www.catelproject.com)**|100278*<br/>|100744*<br/>|
-|**[DryIoc 4.0.5](https://bitbucket.org/dadhi/dryioc)**|73<br/>|79<br/>|
+|**[DryIoc 4.0.6](https://bitbucket.org/dadhi/dryioc)**|76<br/>|80<br/>|
 |**[DryIocZero 4.0.0](https://bitbucket.org/dadhi/dryioc)**|**0**<br/>|**1**<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|16240<br/>|16527<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|6390<br/>|6336<br/>|
@@ -117,7 +117,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|1397<br/>|2016<br/>|
 |**[Lamar 3.0.5](https://jasperfx.github.io/lamar/)**|2350<br/>|2741<br/>|
 |**[LightCore 1.5.1](http://www.lightcore.ch)**|226<br/>|204<br/>|
-|**[LightInject 5.5.0](https://github.com/seesharper/LightInject)**|115<br/>|774<br/>|
+|**[LightInject 6.0.0](https://github.com/seesharper/LightInject)**|136<br/>|756<br/>|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|107<br/>|338<br/>|
 |**[Maestro 3.6.0](https://github.com/JonasSamuelsson/Maestro)**|145<br/>|157<br/>|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|17<br/>|2299<br/>|
@@ -137,7 +137,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Stashbox 2.7.8](https://github.com/z4kn4fein/stashbox)**|70<br/>|256<br/>|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1325<br/>|7389<br/>|
 |**[Unity 5.8.6](https://github.com/unitycontainer/unity)**|84<br/>|79<br/>|
-|**[VSMef 16.3.4-alpha+gea4d67d957.RR](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|8579<br/>|8760<br/>|
+|**[VSMef 16.3.7](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|9049<br/>|8611<br/>|
 |**[Windsor 5.0.0](http://castleproject.org)**|2954<br/>|2990<br/>|
 |**[Zenject 8.0.0](https://github.com/modesttree/Zenject)**|199<br/>|201<br/>|
 ### Charts

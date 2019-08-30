@@ -9348,18 +9348,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
       "Time": 33,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 47,
+      "Time": 45,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -9737,6 +9737,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 33,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 45,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -9749,18 +9764,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 48,
+      "Time": 43,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 76,
+      "Time": 74,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -10138,6 +10153,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 43,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 74,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -10150,18 +10180,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 68,
+      "Time": 60,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 103,
+      "Time": 105,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -10539,6 +10569,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 60,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 105,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -10551,18 +10596,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 79,
+      "Time": 80,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 89,
+      "Time": 90,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -10940,6 +10985,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 80,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 90,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -10952,18 +11012,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 122,
+      "Time": 124,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 121,
+      "Time": 117,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -11341,6 +11401,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 124,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 117,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -11353,18 +11428,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 58,
+      "Time": 63,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 87,
+      "Time": 79,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -11742,6 +11817,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 63,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 79,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -11754,18 +11844,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 316,
+      "Time": 302,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 218,
+      "Time": 215,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -12143,6 +12233,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 302,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 215,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -12155,18 +12260,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 56,
+      "Time": 60,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 74,
+      "Time": 76,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -12544,6 +12649,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 60,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 76,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -12556,18 +12676,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -12945,6 +13065,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -12957,18 +13092,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 1867,
+      "Time": 1879,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1394,
+      "Time": 1331,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -13166,6 +13301,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 1879,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 1331,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -13178,18 +13328,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 836,
+      "Time": 818,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 545,
+      "Time": 530,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -13387,6 +13537,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 818,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 530,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -13399,18 +13564,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 73,
+      "Time": 76,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -13608,6 +13773,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 76,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -13620,18 +13800,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://bitbucket.org/dadhi/dryioc",
-      "Version": "4.0.5"
+      "Version": "4.0.6"
     },
     "SingleThreadedResult": {
-      "Time": 79,
+      "Time": 80,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -13827,6 +14007,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "4.0.6",
+        "SingleThreadedResult": {
+          "Time": 80,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }
@@ -25726,18 +25921,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 29,
+      "Time": 33,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 49,
+      "Time": 47,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -26160,6 +26355,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 33,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 47,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -26172,18 +26382,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 36,
+      "Time": 37,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 60,
+      "Time": 62,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -26606,6 +26816,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 37,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 62,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -26618,18 +26843,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
       "Time": 54,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 86,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -27052,6 +27277,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 54,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 86,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -27064,18 +27304,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 75,
+      "Time": 77,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 82,
+      "Time": 83,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -27498,6 +27738,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 77,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 83,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -27510,18 +27765,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 122,
+      "Time": 115,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 141,
+      "Time": 114,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -27944,6 +28199,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 115,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 114,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -27956,18 +28226,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 52,
+      "Time": 51,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 81,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -28390,6 +28660,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 51,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 81,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -28402,18 +28687,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 296,
+      "Time": 288,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 225,
+      "Time": 211,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -28836,6 +29121,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 288,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 211,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -28848,18 +29148,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 331,
+      "Time": 411,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 227,
+      "Time": 280,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -29282,6 +29582,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 411,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 280,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -29294,18 +29609,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -29728,6 +30043,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -29740,18 +30070,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 14895,
+      "Time": 8778,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 9956,
+      "Time": 6569,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -29949,6 +30279,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 8778,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 6569,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -29961,18 +30306,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 1492,
+      "Time": 2401,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 927,
+      "Time": 1539,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -30170,6 +30515,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 2401,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 1539,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -30182,18 +30542,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 115,
+      "Time": 136,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -30391,6 +30751,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 136,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -30403,18 +30778,18 @@
     "ContainerInfo": {
       "Name": "LightInject",
       "Url": "https://github.com/seesharper/LightInject",
-      "Version": "5.5.0"
+      "Version": "6.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 774,
+      "Time": 756,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -30610,6 +30985,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "6.0.0",
+        "SingleThreadedResult": {
+          "Time": 756,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }
@@ -62126,18 +62516,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
-      "Time": 8746,
+      "Time": 10361,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 5003,
+      "Time": 5912,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -62155,6 +62545,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": 10361,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 5912,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -62167,18 +62572,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
-      "Time": 13331,
+      "Time": 12524,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 9119,
+      "Time": 9313,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -62196,6 +62601,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": 12524,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 9313,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -62208,18 +62628,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
-      "Time": 20322,
+      "Time": 19619,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 14706,
+      "Time": 16045,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -62237,6 +62657,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": 19619,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 16045,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -62249,18 +62684,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
-      "Time": 57554,
+      "Time": 55722,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 51201,
+      "Time": 51621,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -62278,6 +62713,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": 55722,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 51621,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -62290,18 +62740,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
-      "Time": 44220,
+      "Time": 43823,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 31690,
+      "Time": 30865,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -62319,6 +62769,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": 43823,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 30865,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -62331,18 +62796,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -62360,6 +62825,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -62372,18 +62852,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
-      "Time": 41589,
+      "Time": 40858,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 33803,
+      "Time": 33776,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -62401,6 +62881,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": 40858,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 33776,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -62413,18 +62908,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -62440,6 +62935,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }
@@ -62454,18 +62964,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -62481,6 +62991,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }
@@ -62495,18 +63020,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -62522,6 +63047,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }
@@ -62536,18 +63076,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -62565,6 +63105,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -62577,18 +63132,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
-      "Time": 8579,
+      "Time": 9049,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -62606,6 +63161,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": 9049,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -62618,18 +63188,18 @@
     "ContainerInfo": {
       "Name": "VSMef",
       "Url": "https://blogs.msdn.com/b/bclteam/p/composition.aspx",
-      "Version": "16.3.4-alpha+gea4d67d957.RR"
+      "Version": "16.3.7"
     },
     "SingleThreadedResult": {
-      "Time": 8760,
+      "Time": 8611,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -62645,6 +63215,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "16.3.7",
+        "SingleThreadedResult": {
+          "Time": 8611,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }

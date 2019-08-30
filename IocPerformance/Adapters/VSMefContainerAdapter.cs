@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
@@ -26,11 +25,6 @@ namespace IocPerformance.Adapters
         public override bool SupportsMultiple => true;
 
         public override bool SupportGeneric => false;
-
-        public override string Version
-        {
-            get => (string)typeof(ComposableCatalog).Assembly.CustomAttributes.Single(a => a.AttributeType == typeof(AssemblyInformationalVersionAttribute)).ConstructorArguments[0].Value;
-        }
 
         public override object Resolve(Type type) => this.container.GetExportedValues(type, null).Single();
 
