@@ -5,7 +5,7 @@ using MEFAttr = System.ComponentModel.Composition;
 using MugenAttr = MugenInjection.Attributes;
 using NinjectAttr = Ninject;
 using StashBoxAttr = Stashbox.Attributes;
-using UnityAttr = Unity.Attributes;
+using UnityAttr = Unity;
 using MvvmCrossAttr = MvvmCross.IoC;
 
 namespace IocPerformance.Classes.Properties

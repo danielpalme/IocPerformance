@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq.Expressions;
-using IocPerformance.Classes.AspNet;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Dummy;
@@ -35,12 +33,12 @@ namespace IocPerformance.Adapters
                 this.RegisterOpenGeneric(builder);
                 this.RegisterMultiple(builder);
                 this.RegisterAspNetCore(builder);
-            }, new SingularitySettings { AutoDispose = true });
+            }, SingularitySettings.Microsoft);
         }
 
         public override void PrepareBasic()
         {
-            this._container = new Container(RegisterBasic, new SingularitySettings { AutoDispose = true });
+            this._container = new Container(RegisterBasic, SingularitySettings.Microsoft);
         }
 
         private void RegisterBasic(ContainerBuilder builder)
@@ -82,11 +80,11 @@ namespace IocPerformance.Adapters
         private void RegisterStandard(ContainerBuilder builder)
         {
             builder.Register<ISingleton1, Singleton1>(c => c
-                .With(Lifetime.PerContainer));
+                .With(Lifetimes.PerContainer));
             builder.Register<ISingleton2, Singleton2>(c => c
-                .With(Lifetime.PerContainer));
+                .With(Lifetimes.PerContainer));
             builder.Register<ISingleton3, Singleton3>(c => c
-                .With(Lifetime.PerContainer));
+                .With(Lifetimes.PerContainer));
             builder.Register<ITransient1, Transient1>();
             builder.Register<ITransient2, Transient2>();
             builder.Register<ITransient3, Transient3>();
@@ -104,11 +102,11 @@ namespace IocPerformance.Adapters
             builder.Register<ISubObjectTwo, SubObjectTwo>();
             builder.Register<ISubObjectThree, SubObjectThree>();
             builder.Register<IFirstService, FirstService>(c => c
-                .With(Lifetime.PerContainer));
+                .With(Lifetimes.PerContainer));
             builder.Register<ISecondService, SecondService>(c => c
-                .With(Lifetime.PerContainer));
+                .With(Lifetimes.PerContainer));
             builder.Register<IThirdService, ThirdService>(c => c
-                .With(Lifetime.PerContainer));
+                .With(Lifetimes.PerContainer));
             builder.Register<IComplex1, Complex1>();
             builder.Register<IComplex2, Complex2>();
             builder.Register<IComplex3, Complex3>();

@@ -16,7 +16,7 @@ namespace IocPerformance.Adapters
 
         private ExportProvider container;
 
-        public override string PackageName => "VSMef";
+        public override string PackageName => "Microsoft.VisualStudio.Composition";
 
         public override string Url => "https://blogs.msdn.com/b/bclteam/p/composition.aspx";
 

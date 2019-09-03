@@ -3,11 +3,11 @@ using LinFuAttr = LinFu.IoC.Configuration;
 using MEF2Attr = System.Composition;
 using MEFAttr = System.ComponentModel.Composition;
 using MugenAttr = MugenInjection.Attributes;
+using MvvmCrossAttr = MvvmCross.IoC;
 using NinjectAttr = Ninject;
 using StashBoxAttr = Stashbox.Attributes;
 using StructureAttr = StructureMap.Attributes;
-using UnityAttr = Unity.Attributes;
-using MvvmCrossAttr = MvvmCross.IoC;
+using UnityAttr = Unity;
 
 namespace IocPerformance.Classes.Properties
 {

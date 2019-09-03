@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using IocPerformance.Classes.Child;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
@@ -24,7 +23,7 @@ namespace IocPerformance.Adapters
 
         public override string Url => "https://github.com/unitycontainer/unity";
 
-        // public override bool SupportsInterception => true;
+        public override bool SupportsInterception => true;
 
         public override bool SupportGeneric => true;
 
@@ -57,7 +56,7 @@ namespace IocPerformance.Adapters
         public override void Prepare()
         {
             this.container = new UnityContainer();
-            // this.container.AddNewExtension<Unity.Interception.ContainerIntegration.Interception>();
+            this.container.AddNewExtension<Unity.Interception.Interception>();
 
             this.RegisterBasic();
             this.RegisterOpenGeneric();
@@ -65,7 +64,7 @@ namespace IocPerformance.Adapters
             this.RegisterMultiple();
             this.RegisterConditional();
             this.RegisterAspCore();
-            // this.RegisterInterceptor();
+            this.RegisterInterceptor();
         }
 
         public override void PrepareBasic()
@@ -89,106 +88,101 @@ namespace IocPerformance.Adapters
 
         private void RegisterDummies()
         {
-            this.container.RegisterType<IDummyOne>(new InjectionFactory(c => new DummyOne()));
-            this.container.RegisterType<IDummyTwo>(new InjectionFactory(c => new DummyTwo()));
-            this.container.RegisterType<IDummyThree>(new InjectionFactory(c => new DummyThree()));
-            this.container.RegisterType<IDummyFour>(new InjectionFactory(c => new DummyFour()));
-            this.container.RegisterType<IDummyFive>(new InjectionFactory(c => new DummyFive()));
-            this.container.RegisterType<IDummySix>(new InjectionFactory(c => new DummySix()));
-            this.container.RegisterType<IDummySeven>(new InjectionFactory(c => new DummySeven()));
-            this.container.RegisterType<IDummyEight>(new InjectionFactory(c => new DummyEight()));
-            this.container.RegisterType<IDummyNine>(new InjectionFactory(c => new DummyNine()));
-            this.container.RegisterType<IDummyTen>(new InjectionFactory(c => new DummyTen()));
+            this.container.RegisterType<IDummyOne, DummyOne>();
+            this.container.RegisterType<IDummyTwo, DummyTwo>();
+            this.container.RegisterType<IDummyThree, DummyThree>();
+            this.container.RegisterType<IDummyFour, DummyFour>();
+            this.container.RegisterType<IDummyFive, DummyFive>();
+            this.container.RegisterType<IDummySix, DummySix>();
+            this.container.RegisterType<IDummySeven, DummySeven>();
+            this.container.RegisterType<IDummyEight, DummyEight>();
+            this.container.RegisterType<IDummyNine, DummyNine>();
+            this.container.RegisterType<IDummyTen, DummyTen>();
         }
 
         private void RegisterStandard()
         {
-            this.container.RegisterType<ISingleton1>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new Singleton1()));
-            this.container.RegisterType<ISingleton2>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new Singleton2()));
-            this.container.RegisterType<ISingleton3>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new Singleton3()));
+            this.container.RegisterType<ISingleton1, Singleton1>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<ISingleton2, Singleton2>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<ISingleton3, Singleton3>(new ContainerControlledLifetimeManager());
 
-            this.container.RegisterType<ITransient1>(new InjectionFactory(c => new Transient1()));
-            this.container.RegisterType<ITransient2>(new InjectionFactory(c => new Transient2()));
-            this.container.RegisterType<ITransient3>(new InjectionFactory(c => new Transient3()));
+            this.container.RegisterType<ITransient1, Transient1>();
+            this.container.RegisterType<ITransient2, Transient2>();
+            this.container.RegisterType<ITransient3, Transient3>();
 
-            this.container.RegisterType<ICombined1>(new InjectionFactory(c => new Combined1(c.Resolve<ISingleton1>(), c.Resolve<ITransient1>())));
-            this.container.RegisterType<ICombined2>(new InjectionFactory(c => new Combined2(c.Resolve<ISingleton2>(), c.Resolve<ITransient2>())));
-            this.container.RegisterType<ICombined3>(new InjectionFactory(c => new Combined3(c.Resolve<ISingleton3>(), c.Resolve<ITransient3>())));
+            this.container.RegisterType<ICombined1, Combined1>();
+            this.container.RegisterType<ICombined2, Combined2>();
+            this.container.RegisterType<ICombined3, Combined3>();
         }
 
         private void RegisterComplex()
         {
-            this.container.RegisterType<IFirstService>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new FirstService()));
-            this.container.RegisterType<ISecondService>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new SecondService()));
-            this.container.RegisterType<IThirdService>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new ThirdService()));
-            this.container.RegisterType<ISubObjectOne>(new InjectionFactory(c => new SubObjectOne(c.Resolve<IFirstService>())));
-            this.container.RegisterType<ISubObjectTwo>(new InjectionFactory(c => new SubObjectTwo(c.Resolve<ISecondService>())));
-            this.container.RegisterType<ISubObjectThree>(new InjectionFactory(c => new SubObjectThree(c.Resolve<IThirdService>())));
-            this.container.RegisterType<IComplex1>(new InjectionFactory(c => new Complex1(c.Resolve<IFirstService>(), c.Resolve<ISecondService>(), c.Resolve<IThirdService>(), c.Resolve<ISubObjectOne>(), c.Resolve<ISubObjectTwo>(), c.Resolve<ISubObjectThree>())));
-            this.container.RegisterType<IComplex2>(new InjectionFactory(c => new Complex2(c.Resolve<IFirstService>(), c.Resolve<ISecondService>(), c.Resolve<IThirdService>(), c.Resolve<ISubObjectOne>(), c.Resolve<ISubObjectTwo>(), c.Resolve<ISubObjectThree>())));
-            this.container.RegisterType<IComplex3>(new InjectionFactory(c => new Complex3(c.Resolve<IFirstService>(), c.Resolve<ISecondService>(), c.Resolve<IThirdService>(), c.Resolve<ISubObjectOne>(), c.Resolve<ISubObjectTwo>(), c.Resolve<ISubObjectThree>())));
+            this.container.RegisterType<IFirstService, FirstService>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<ISecondService, SecondService>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<IThirdService, ThirdService>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<ISubObjectOne, SubObjectOne>();
+            this.container.RegisterType<ISubObjectTwo, SubObjectTwo>();
+            this.container.RegisterType<ISubObjectThree, SubObjectThree>();
+            this.container.RegisterType<IComplex1, Complex1>();
+            this.container.RegisterType<IComplex2, Complex2>();
+            this.container.RegisterType<IComplex3, Complex3>();
         }
 
         private void RegisterPropertyInjection()
         {
-            this.container.RegisterType<IServiceA>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new ServiceA()));
-            this.container.RegisterType<IServiceB>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new ServiceB()));
-            this.container.RegisterType<IServiceC>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => new ServiceC()));
-            this.container.RegisterType<ISubObjectA>(new InjectionFactory(c => new SubObjectA { ServiceA = c.Resolve<IServiceA>() }));
-            this.container.RegisterType<ISubObjectB>(new InjectionFactory(c => new SubObjectB { ServiceB = c.Resolve<IServiceB>() }));
-            this.container.RegisterType<ISubObjectC>(new InjectionFactory(c => new SubObjectC { ServiceC = c.Resolve<IServiceC>() }));
-            this.container.RegisterType<IComplexPropertyObject1>(new InjectionFactory(c => new ComplexPropertyObject1
-            {
-                ServiceA = c.Resolve<IServiceA>(),
-                ServiceB = c.Resolve<IServiceB>(),
-                ServiceC = c.Resolve<IServiceC>(),
-                SubObjectA = c.Resolve<ISubObjectA>(),
-                SubObjectB = c.Resolve<ISubObjectB>(),
-                SubObjectC = c.Resolve<ISubObjectC>()
-            }));
-            this.container.RegisterType<IComplexPropertyObject2>(new InjectionFactory(c => new ComplexPropertyObject2
-            {
-                ServiceA = c.Resolve<IServiceA>(),
-                ServiceB = c.Resolve<IServiceB>(),
-                ServiceC = c.Resolve<IServiceC>(),
-                SubObjectA = c.Resolve<ISubObjectA>(),
-                SubObjectB = c.Resolve<ISubObjectB>(),
-                SubObjectC = c.Resolve<ISubObjectC>()
-            }));
-            this.container.RegisterType<IComplexPropertyObject3>(new InjectionFactory(c => new ComplexPropertyObject3
-            {
-                ServiceA = c.Resolve<IServiceA>(),
-                ServiceB = c.Resolve<IServiceB>(),
-                ServiceC = c.Resolve<IServiceC>(),
-                SubObjectA = c.Resolve<ISubObjectA>(),
-                SubObjectB = c.Resolve<ISubObjectB>(),
-                SubObjectC = c.Resolve<ISubObjectC>()
-            }));
+            this.container.RegisterType<IServiceA, ServiceA>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<IServiceB, ServiceB>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<IServiceC, ServiceC>(new ContainerControlledLifetimeManager());
+            this.container.RegisterType<ISubObjectA, SubObjectA>(new InjectionConstructor(), new InjectionProperty(nameof(SubObjectA.ServiceA)));
+            this.container.RegisterType<ISubObjectB, SubObjectB>(new InjectionConstructor(), new InjectionProperty(nameof(SubObjectB.ServiceB)));
+            this.container.RegisterType<ISubObjectC, SubObjectC>(new InjectionConstructor(), new InjectionProperty(nameof(SubObjectC.ServiceC)));
+            this.container.RegisterType<IComplexPropertyObject1, ComplexPropertyObject1>(
+                new InjectionConstructor(),
+                new InjectionProperty(nameof(ComplexPropertyObject1.ServiceA)),
+                new InjectionProperty(nameof(ComplexPropertyObject1.ServiceB)),
+                new InjectionProperty(nameof(ComplexPropertyObject1.ServiceC)),
+                new InjectionProperty(nameof(ComplexPropertyObject1.SubObjectA)),
+                new InjectionProperty(nameof(ComplexPropertyObject1.SubObjectB)),
+                new InjectionProperty(nameof(ComplexPropertyObject1.SubObjectC)));
+            this.container.RegisterType<IComplexPropertyObject2, ComplexPropertyObject2>(
+                new InjectionConstructor(),
+                new InjectionProperty(nameof(ComplexPropertyObject2.ServiceA)),
+                new InjectionProperty(nameof(ComplexPropertyObject2.ServiceB)),
+                new InjectionProperty(nameof(ComplexPropertyObject2.ServiceC)),
+                new InjectionProperty(nameof(ComplexPropertyObject2.SubObjectA)),
+                new InjectionProperty(nameof(ComplexPropertyObject2.SubObjectB)),
+                new InjectionProperty(nameof(ComplexPropertyObject2.SubObjectC)));
+            this.container.RegisterType<IComplexPropertyObject3, ComplexPropertyObject3>(
+                new InjectionConstructor(),
+                new InjectionProperty(nameof(ComplexPropertyObject3.ServiceA)),
+                new InjectionProperty(nameof(ComplexPropertyObject3.ServiceB)),
+                new InjectionProperty(nameof(ComplexPropertyObject3.ServiceC)),
+                new InjectionProperty(nameof(ComplexPropertyObject3.SubObjectA)),
+                new InjectionProperty(nameof(ComplexPropertyObject3.SubObjectB)),
+                new InjectionProperty(nameof(ComplexPropertyObject3.SubObjectC)));
         }
 
         private void RegisterMultiple()
         {
-            this.container.RegisterType<IEnumerable<ISimpleAdapter>, ISimpleAdapter[]>();
+            this.container.RegisterType<ISimpleAdapter, SimpleAdapterOne>("one");
+            this.container.RegisterType<ISimpleAdapter, SimpleAdapterTwo>("two");
+            this.container.RegisterType<ISimpleAdapter, SimpleAdapterThree>("three");
+            this.container.RegisterType<ISimpleAdapter, SimpleAdapterFour>("four");
+            this.container.RegisterType<ISimpleAdapter, SimpleAdapterFive>("five");
 
-            this.container.RegisterType<ISimpleAdapter>("one", new InjectionFactory(c => new SimpleAdapterOne()));
-            this.container.RegisterType<ISimpleAdapter>("two", new InjectionFactory(c => new SimpleAdapterTwo()));
-            this.container.RegisterType<ISimpleAdapter>("three", new InjectionFactory(c => new SimpleAdapterThree()));
-            this.container.RegisterType<ISimpleAdapter>("four", new InjectionFactory(c => new SimpleAdapterFour()));
-            this.container.RegisterType<ISimpleAdapter>("five", new InjectionFactory(c => new SimpleAdapterFive()));
-
-            this.container.RegisterType<ImportMultiple1>(new InjectionFactory(c => new ImportMultiple1(c.Resolve<IEnumerable<ISimpleAdapter>>())));
-            this.container.RegisterType<ImportMultiple2>(new InjectionFactory(c => new ImportMultiple2(c.Resolve<IEnumerable<ISimpleAdapter>>())));
-            this.container.RegisterType<ImportMultiple3>(new InjectionFactory(c => new ImportMultiple3(c.Resolve<IEnumerable<ISimpleAdapter>>())));
+            this.container.RegisterType<ImportMultiple1, ImportMultiple1>();
+            this.container.RegisterType<ImportMultiple2, ImportMultiple2>();
+            this.container.RegisterType<ImportMultiple3, ImportMultiple3>();
         }
 
         private void RegisterConditional()
         {
-            this.container.RegisterType<IExportConditionInterface>("ExportConditionalObject1", new InjectionFactory(c => new ExportConditionalObject1()));
-            this.container.RegisterType<IExportConditionInterface>("ExportConditionalObject2", new InjectionFactory(c => new ExportConditionalObject2()));
-            this.container.RegisterType<IExportConditionInterface>("ExportConditionalObject3", new InjectionFactory(c => new ExportConditionalObject3()));
-            this.container.RegisterType<ImportConditionObject1>(new InjectionFactory(c => new ImportConditionObject1(c.Resolve<IExportConditionInterface>("ExportConditionalObject1"))));
-            this.container.RegisterType<ImportConditionObject2>(new InjectionFactory(c => new ImportConditionObject2(c.Resolve<IExportConditionInterface>("ExportConditionalObject2"))));
-            this.container.RegisterType<ImportConditionObject3>(new InjectionFactory(c => new ImportConditionObject3(c.Resolve<IExportConditionInterface>("ExportConditionalObject3"))));
+            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject1>("ExportConditionalObject1");
+            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject2>("ExportConditionalObject2");
+            this.container.RegisterType<IExportConditionInterface, ExportConditionalObject3>("ExportConditionalObject3");
+            this.container.RegisterType<ImportConditionObject1>(new InjectionConstructor(new ResolvedParameter<IExportConditionInterface>("ExportConditionalObject1")));
+            this.container.RegisterType<ImportConditionObject2>(new InjectionConstructor(new ResolvedParameter<IExportConditionInterface>("ExportConditionalObject2")));
+            this.container.RegisterType<ImportConditionObject3>(new InjectionConstructor(new ResolvedParameter<IExportConditionInterface>("ExportConditionalObject3")));
         }
 
         private void RegisterAspCore()
@@ -205,13 +199,13 @@ namespace IocPerformance.Adapters
         private void RegisterInterceptor()
         {
             this.container.RegisterType<ICalculator1, Calculator1>()
-                .Configure<Unity.Interception.ContainerIntegration.Interception>()
+                .Configure<Unity.Interception.Interception>()
                 .SetInterceptorFor<ICalculator1>(new InterfaceInterceptor());
             this.container.RegisterType<ICalculator2, Calculator2>()
-                .Configure<Unity.Interception.ContainerIntegration.Interception>()
+                .Configure<Unity.Interception.Interception>()
                 .SetInterceptorFor<ICalculator2>(new InterfaceInterceptor());
             this.container.RegisterType<ICalculator3, Calculator3>()
-                .Configure<Unity.Interception.ContainerIntegration.Interception>()
+                .Configure<Unity.Interception.Interception>()
                 .SetInterceptorFor<ICalculator3>(new InterfaceInterceptor());
         }
     }
@@ -232,11 +226,11 @@ namespace IocPerformance.Adapters
 
         public void Prepare()
         {
-            childContainer.RegisterType<ITransient1>(new InjectionFactory((c) => new ScopedTransient()));
+            childContainer.RegisterType<ITransient1, ScopedTransient>();
 
-            childContainer.RegisterType<ICombined1>(new InjectionFactory((c) => new ScopedCombined1(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));
-            childContainer.RegisterType<ICombined2>(new InjectionFactory((c) => new ScopedCombined2(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));
-            childContainer.RegisterType<ICombined3>(new InjectionFactory((c) => new ScopedCombined3(c.Resolve<ITransient1>(), c.Resolve<ISingleton1>())));
+            childContainer.RegisterType<ICombined1, ScopedCombined1>();
+            childContainer.RegisterType<ICombined2, ScopedCombined2>();
+            childContainer.RegisterType<ICombined3, ScopedCombined3>();
         }
 
         public object Resolve(Type resolveType) => this.childContainer.Resolve(resolveType, null, null);
