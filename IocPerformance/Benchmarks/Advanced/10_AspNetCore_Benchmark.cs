@@ -39,7 +39,7 @@ namespace IocPerformance.Benchmarks.Advanced
         }
 
         /// <summary>
-        /// Ensures that container behaved validly. Called once after looping <see cref="M:IocPerformance.Benchmarks.IBenchmark.MethodToBenchmark(IocPerformance.Adapters.IContainerAdapter)" />.
+        /// Ensures that the container behavior was valid. Called once after looping <see cref="M:IocPerformance.Benchmarks.IBenchmark.MethodToBenchmark(IocPerformance.Adapters.IContainerAdapter)" />.
         /// </summary>
         /// <param name="container">The container.</param>
         /// <exception cref="T:System.Exception">Any exception indicates verification failure</exception>
