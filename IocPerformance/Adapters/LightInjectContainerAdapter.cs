@@ -57,13 +57,12 @@ namespace IocPerformance.Adapters
         {
             ServiceCollection services = new ServiceCollection();
             this.RegisterAspNetCoreClasses(services);
-
             this.container.CreateServiceProvider(services);
         }
 
         public override void PrepareBasic()
         {
-            this.container = new ServiceContainer();
+            this.container = new ServiceContainer(o => o.EnableCurrentScope = false);
             this.RegisterBasic();
         }
 
