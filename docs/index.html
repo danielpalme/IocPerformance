@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf -8" /><title>Ioc Performance - Results</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><style>.blue { background-color: #e7f6ff; }.legendbox { border: 1px solid #c1c1c1; width: 20px; height: 20px; display: inline-block; position: relative; top: 3px; }.imagecontainer:before { content: ' '; display: block; }</style></head><body><div class="container-fluid"><h1>Ioc Performance - Results</h1><h2>Overview</h2><p>Chart legend: <span class="legendbox" style ="background-color: #c00;">&nbsp;</span> Single thread <span class="legendbox ml-4" style="background-color: #1c2298;">&nbsp;</span> Multiple threads</p><div class="table-responsive"><table class="table table-sm table-striped"><tr><th></th><th class="text-center blue" colspan="4">Basic</th><th class="text-center " colspan="7">Advanced</th><th class="text-center blue" colspan="2">Prepare</th></tr><tr><th>Container</th><th class="text-right blue">Singleton</th><th class="text-right blue">Transient</th><th class="text-right blue">Combined</th><th class="text-right blue">Complex</th><th class="text-right ">Property</th><th class="text-right ">Generics</th><th class="text-right ">IEnumerable</th><th class="text-right ">Conditional</th><th class="text-right ">Child Container</th><th class="text-right ">Asp Net Core</th><th class="text-right ">Interception With Proxy</th><th class="text-right blue">Prepare And Register</th><th class="text-right blue">Prepare And Register And Simple Resolve</th></tr>
-<tr><th>No</th><td class="blue" style="text-align:right;"><span title="Single thread">41</span><br /><span title="Multiple threads">49</span></td><td class="blue" style="text-align:right;"><span title="Single thread">49</span><br /><span title="Multiple threads">59</span></td><td class="blue" style="text-align:right;"><span title="Single thread">69</span><br /><span title="Multiple threads">76</span></td><td class="blue" style="text-align:right;"><span title="Single thread">99</span><br /><span title="Multiple threads">103</span></td><td class="" style="text-align:right;"><span title="Single thread">186</span><br /><span title="Multiple threads">134</span></td><td class="" style="text-align:right;"><span title="Single thread">70</span><br /><span title="Multiple threads">75</span></td><td class="" style="text-align:right;"><span title="Single thread">193</span><br /><span title="Multiple threads">176</span></td><td class="" style="text-align:right;"><span title="Single thread">53</span><br /><span title="Multiple threads">63</span></td><td class="" style="text-align:right;"><span title="Single thread">644</span><br /><span title="Multiple threads">596</span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread">469</span><br /><span title="Multiple threads">438</span></td><td class="blue" style="text-align:right;"><span title="Single thread">2</span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">2</span><br /><span title="Multiple threads"></span></td></tr>
+<tr><th>No</th><td class="blue" style="text-align:right;"><span title="Single thread">41</span><br /><span title="Multiple threads">49</span></td><td class="blue" style="text-align:right;"><span title="Single thread">49</span><br /><span title="Multiple threads">59</span></td><td class="blue" style="text-align:right;"><span title="Single thread">69</span><br /><span title="Multiple threads">76</span></td><td class="blue" style="text-align:right;"><span title="Single thread">99</span><br /><span title="Multiple threads">103</span></td><td class="" style="text-align:right;"><span title="Single thread">186</span><br /><span title="Multiple threads">134</span></td><td class="" style="text-align:right;"><span title="Single thread">70</span><br /><span title="Multiple threads" style="font-weight:bold;">75</span></td><td class="" style="text-align:right;"><span title="Single thread">193</span><br /><span title="Multiple threads">176</span></td><td class="" style="text-align:right;"><span title="Single thread">53</span><br /><span title="Multiple threads">63</span></td><td class="" style="text-align:right;"><span title="Single thread">644</span><br /><span title="Multiple threads">596</span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread">469</span><br /><span title="Multiple threads">438</span></td><td class="blue" style="text-align:right;"><span title="Single thread">2</span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">2</span><br /><span title="Multiple threads"></span></td></tr>
 <tr><th><a href="https://github.com/JSkimming/abioc">abioc 0.8.0</a></th><td class="blue" style="text-align:right;"><span title="Single thread">26</span><br /><span title="Multiple threads">43</span><div class="imagecontainer" title="Container: abioc
 Benchmark: Singleton
 
@@ -26,7 +26,7 @@ Versions:
 <path d="M0,5.2L10,11.4L20,10.3L30,10.4L40,10.9L50,10.6" stroke="#1c2298" fill="transparent"></path><path d="M0,0L10,13.9L20,14.3L30,14.8L40,14.6L50,14.5" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">51</span><br /><span title="Multiple threads">82</span><div class="imagecontainer" title="Container: abioc
+</td><td class="blue" style="text-align:right;"><span title="Single thread">51</span><br /><span title="Multiple threads">82</span><div class="imagecontainer" title="Container: abioc
 Benchmark: Combined
 
 Versions:
@@ -39,7 +39,7 @@ Versions:
 <path d="M0,1.3L10,8.5L20,6L30,6L40,7.8L50,6.3" stroke="#1c2298" fill="transparent"></path><path d="M0,0L10,11.7L20,12.3L30,12L40,12L50,11.5" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">67</span><br /><span title="Multiple threads" style="font-weight:bold;">78</span><div class="imagecontainer" title="Container: abioc
+</td><td class="blue" style="text-align:right;"><span title="Single thread">67</span><br /><span title="Multiple threads" style="font-weight:bold;">78</span><div class="imagecontainer" title="Container: abioc
 Benchmark: Complex
 
 Versions:
@@ -1095,7 +1095,7 @@ Versions:
 </td></tr>
 <tr><th><a href="https://ffastinjector.codeplex.com">fFastInjector 1.0.1</a></th><td class="blue" style="text-align:right;"><span title="Single thread">66</span><br /><span title="Multiple threads">66</span></td><td class="blue" style="text-align:right;"><span title="Single thread">126</span><br /><span title="Multiple threads">99</span></td><td class="blue" style="text-align:right;"><span title="Single thread">249</span><br /><span title="Multiple threads">171</span></td><td class="blue" style="text-align:right;"><span title="Single thread">602</span><br /><span title="Multiple threads">350</span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">6390</span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">6336</span><br /><span title="Multiple threads"></span></td></tr>
 <tr><th><a href="https://funq.codeplex.com">Funq 1.0.0.0</a></th><td class="blue" style="text-align:right;"><span title="Single thread">118</span><br /><span title="Multiple threads">90</span></td><td class="blue" style="text-align:right;"><span title="Single thread">137</span><br /><span title="Multiple threads">110</span></td><td class="blue" style="text-align:right;"><span title="Single thread">381</span><br /><span title="Multiple threads">251</span></td><td class="blue" style="text-align:right;"><span title="Single thread">1124</span><br /><span title="Multiple threads">616</span></td><td class="" style="text-align:right;"><span title="Single thread">1090</span><br /><span title="Multiple threads">639</span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">8</span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">8</span><br /><span title="Multiple threads"></span></td></tr>
-<tr><th><a href="https://github.com/ipjohnson/Grace">Grace 7.0.0</a></th><td class="blue" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">25</span><br /><span title="Multiple threads">45</span><div class="imagecontainer" title="Container: Grace
+<tr><th><a href="https://github.com/ipjohnson/Grace">Grace 7.0.0</a></th><td class="blue" style="text-align:right;"><span title="Single thread">25</span><br /><span title="Multiple threads">45</span><div class="imagecontainer" title="Container: Grace
 Benchmark: Singleton
 
 Versions:
@@ -1225,7 +1225,7 @@ Versions:
 <path d="M0,9.9L2.8,11.1L5.6,8.8L8.3,10.9L11.1,11.5L13.9,19.4L16.7,19.4L19.4,19.4L22.2,19.3L25,19.4L27.8,19.3L30.6,19.4L33.3,19.4L36.1,19.2L38.9,19.3L41.7,19.2L44.4,19.3L47.2,19.2L50,19.3" stroke="#1c2298" fill="transparent"></path><path d="M0,2.1L2.8,4.8L5.6,0L8.3,5.1L11.1,5L13.9,19.5L16.7,19.4L19.4,19.4L22.2,19.3L25,19.4L27.8,19.3L30.6,19.5L33.3,19.4L36.1,19.4L38.9,19.4L41.7,19.3L44.4,19.2L47.2,19.2L50,19.3" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">50</span><br /><span title="Multiple threads">80</span><div class="imagecontainer" title="Container: Grace
+</td><td class="" style="text-align:right;"><span title="Single thread">50</span><br /><span title="Multiple threads">80</span><div class="imagecontainer" title="Container: Grace
 Benchmark: Generics
 
 Versions:
@@ -1473,7 +1473,7 @@ Versions:
 </td></tr>
 <tr><th><a href="https://bitbucket.org/Have/havebox">HaveBox 2.0.0</a></th><td class="blue" style="text-align:right;"><span title="Single thread">40</span><br /><span title="Multiple threads">48</span></td><td class="blue" style="text-align:right;"><span title="Single thread">51</span><br /><span title="Multiple threads">62</span></td><td class="blue" style="text-align:right;"><span title="Single thread">65</span><br /><span title="Multiple threads">88</span></td><td class="blue" style="text-align:right;"><span title="Single thread">103</span><br /><span title="Multiple threads">95</span></td><td class="" style="text-align:right;"><span title="Single thread">741</span><br /><span title="Multiple threads">443</span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread">1860</span><br /><span title="Multiple threads">1198</span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">774</span><br /><span title="Multiple threads" style="font-weight:bold;">509</span></td><td class="blue" style="text-align:right;"><span title="Single thread">54925</span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">55463</span><br /><span title="Multiple threads"></span></td></tr>
 <tr><th><a href="https://github.com/iamahern/IfInjector">IfInjector 0.8.1</a></th><td class="blue" style="text-align:right;"><span title="Single thread">75</span><br /><span title="Multiple threads">60</span></td><td class="blue" style="text-align:right;"><span title="Single thread">128</span><br /><span title="Multiple threads">97</span></td><td class="blue" style="text-align:right;"><span title="Single thread">145</span><br /><span title="Multiple threads">124</span></td><td class="blue" style="text-align:right;"><span title="Single thread">197</span><br /><span title="Multiple threads">135</span></td><td class="" style="text-align:right;"><span title="Single thread">345</span><br /><span title="Multiple threads">227</span></td><td class="" style="text-align:right;"><span title="Single thread">147</span><br /><span title="Multiple threads">120</span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">1397</span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">2016</span><br /><span title="Multiple threads"></span></td></tr>
-<tr><th><a href="https://jasperfx.github.io/lamar/">Lamar 3.0.5</a></th><td class="blue" style="text-align:right;"><span title="Single thread">60</span><br /><span title="Multiple threads">63</span><div class="imagecontainer" title="Container: Lamar
+<tr><th><a href="https://jasperfx.github.io/lamar/">Lamar 3.1.0</a></th><td class="blue" style="text-align:right;"><span title="Single thread">58</span><br /><span title="Multiple threads">68</span><div class="imagecontainer" title="Container: Lamar
 Benchmark: Singleton
 
 Versions:
@@ -1487,11 +1487,12 @@ Versions:
 3.0.2: 65/68
 3.0.3: 61/66
 3.0.4: 56/61
-3.0.5: 60/63"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,5.6L5,5.8L10,1.6L15,5.1L20,4.9L25,4.4L30,5.8L35,4.2L40,4.7L45,5.8L50,5.3" stroke="#1c2298" fill="transparent"></path><path d="M0,5.8L5,5.6L10,0L15,5.1L20,5.1L25,5.8L30,6.3L35,4.9L40,5.8L45,7L50,6" stroke="#c00" fill="transparent"></path></g>
+3.0.5: 60/63
+3.1.0: 58/68"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,5.6L4.5,5.8L9.1,1.6L13.6,5.1L18.2,4.9L22.7,4.4L27.3,5.8L31.8,4.2L36.4,4.7L40.9,5.8L45.5,5.3L50,4.2" stroke="#1c2298" fill="transparent"></path><path d="M0,5.8L4.5,5.6L9.1,0L13.6,5.1L18.2,5.1L22.7,5.8L27.3,6.3L31.8,4.9L36.4,5.8L40.9,7L45.5,6L50,6.5" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">69</span><br /><span title="Multiple threads">76</span><div class="imagecontainer" title="Container: Lamar
+</td><td class="blue" style="text-align:right;"><span title="Single thread">70</span><br /><span title="Multiple threads">103</span><div class="imagecontainer" title="Container: Lamar
 Benchmark: Transient
 
 Versions:
@@ -1505,11 +1506,12 @@ Versions:
 3.0.2: 78/81
 3.0.3: 73/77
 3.0.4: 71/73
-3.0.5: 69/76"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,7.6L5,7.3L10,2.3L15,7.4L20,7.9L25,0L30,9L35,8.8L40,9.4L45,9.9L50,9.5" stroke="#1c2298" fill="transparent"></path><path d="M0,6.6L5,7.2L10,5.7L15,6.2L20,6.8L25,3.6L30,10.2L35,9.2L40,9.9L45,10.2L50,10.5" stroke="#c00" fill="transparent"></path></g>
+3.0.5: 69/76
+3.1.0: 70/103"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,7.6L4.5,7.3L9.1,2.3L13.6,7.4L18.2,7.9L22.7,0L27.3,9L31.8,8.8L36.4,9.4L40.9,9.9L45.5,9.5L50,5.8" stroke="#1c2298" fill="transparent"></path><path d="M0,6.6L4.5,7.2L9.1,5.7L13.6,6.2L18.2,6.8L22.7,3.6L27.3,10.2L31.8,9.2L36.4,9.9L40.9,10.2L45.5,10.5L50,10.3" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">92</span><br /><span title="Multiple threads">128</span><div class="imagecontainer" title="Container: Lamar
+</td><td class="blue" style="text-align:right;"><span title="Single thread">99</span><br /><span title="Multiple threads">121</span><div class="imagecontainer" title="Container: Lamar
 Benchmark: Combined
 
 Versions:
@@ -1523,11 +1525,12 @@ Versions:
 3.0.2: 100/126
 3.0.3: 93/126
 3.0.4: 93/127
-3.0.5: 92/128"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,3.8L5,4.2L10,0.6L15,3.2L20,3L25,2.1L30,2.4L35,2.3L40,2.3L45,2.1L50,2" stroke="#1c2298" fill="transparent"></path><path d="M0,3.5L5,4.5L10,0L15,3.5L20,3.5L25,0.7L30,6.9L35,5.9L40,6.9L45,6.9L50,7" stroke="#c00" fill="transparent"></path></g>
+3.0.5: 92/128
+3.1.0: 99/121"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,3.8L4.5,4.2L9.1,0.6L13.6,3.2L18.2,3L22.7,2.1L27.3,2.4L31.8,2.3L36.4,2.3L40.9,2.1L45.5,2L50,3" stroke="#1c2298" fill="transparent"></path><path d="M0,3.5L4.5,4.5L9.1,0L13.6,3.5L18.2,3.5L22.7,0.7L27.3,6.9L31.8,5.9L36.4,6.9L40.9,6.9L45.5,7L50,6.1" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">115</span><br /><span title="Multiple threads">136</span><div class="imagecontainer" title="Container: Lamar
+</td><td class="blue" style="text-align:right;"><span title="Single thread">119</span><br /><span title="Multiple threads">138</span><div class="imagecontainer" title="Container: Lamar
 Benchmark: Complex
 
 Versions:
@@ -1541,11 +1544,12 @@ Versions:
 3.0.2: 124/136
 3.0.3: 114/127
 3.0.4: 113/127
-3.0.5: 115/136"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,6.3L5,6.3L10,0L15,5.9L20,5.9L25,2.4L30,5L35,4.5L40,5.5L45,5.5L50,4.5" stroke="#1c2298" fill="transparent"></path><path d="M0,4.9L5,4.3L10,1.8L15,4L20,5.4L25,2.7L30,6.7L35,5.8L40,7L45,7.1L50,6.9" stroke="#c00" fill="transparent"></path></g>
+3.0.5: 115/136
+3.1.0: 119/138"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,6.3L4.5,6.3L9.1,0L13.6,5.9L18.2,5.9L22.7,2.4L27.3,5L31.8,4.5L36.4,5.5L40.9,5.5L45.5,4.5L50,4.2" stroke="#1c2298" fill="transparent"></path><path d="M0,4.9L4.5,4.3L9.1,1.8L13.6,4L18.2,5.4L22.7,2.7L27.3,6.7L31.8,5.8L36.4,7L40.9,7.1L45.5,6.9L50,6.4" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread">74</span><br /><span title="Multiple threads">80</span><div class="imagecontainer" title="Container: Lamar
+</td><td class="" style="text-align:right;"><span title="Single thread">74</span><br /><span title="Multiple threads">89</span><div class="imagecontainer" title="Container: Lamar
 Benchmark: Property
 
 Versions:
@@ -1559,11 +1563,12 @@ Versions:
 3.0.2: 82/86
 3.0.3: 72/82
 3.0.4: 75/80
-3.0.5: 74/80"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,4.5L5,4.7L10,0L15,3.5L20,4.7L25,2.2L30,6.3L35,5.7L40,6.3L45,6.7L50,6.7" stroke="#1c2298" fill="transparent"></path><path d="M0,3.3L5,3.3L10,2.8L15,2.2L20,4.8L25,0.2L30,8.2L35,6.3L40,8L45,7.5L50,7.7" stroke="#c00" fill="transparent"></path></g>
+3.0.5: 74/80
+3.1.0: 74/89"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,4.5L4.5,4.7L9.1,0L13.6,3.5L18.2,4.7L22.7,2.2L27.3,6.3L31.8,5.7L36.4,6.3L40.9,6.7L45.5,6.7L50,5.2" stroke="#1c2298" fill="transparent"></path><path d="M0,3.3L4.5,3.3L9.1,2.8L13.6,2.2L18.2,4.8L22.7,0.2L27.3,8.2L31.8,6.3L36.4,8L40.9,7.5L45.5,7.7L50,7.7" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread">89</span><br /><span title="Multiple threads">133</span><div class="imagecontainer" title="Container: Lamar
+</td><td class="" style="text-align:right;"><span title="Single thread">86</span><br /><span title="Multiple threads">127</span><div class="imagecontainer" title="Container: Lamar
 Benchmark: Generics
 
 Versions:
@@ -1577,11 +1582,12 @@ Versions:
 3.0.2: 95/127
 3.0.3: 91/118
 3.0.4: 90/120
-3.0.5: 89/133"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,2.9L5,3L10,0.3L15,3.5L20,3.3L25,3.3L30,2.6L35,0.9L40,2.3L45,2L50,0" stroke="#1c2298" fill="transparent"></path><path d="M0,4.4L5,4.1L10,1.8L15,4.2L20,3.2L25,3.6L30,6.6L35,5.7L40,6.3L45,6.5L50,6.6" stroke="#c00" fill="transparent"></path></g>
+3.0.5: 89/133
+3.1.0: 86/127"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,2.9L4.5,3L9.1,0.3L13.6,3.5L18.2,3.3L22.7,3.3L27.3,2.6L31.8,0.9L36.4,2.3L40.9,2L45.5,0L50,0.9" stroke="#1c2298" fill="transparent"></path><path d="M0,4.4L4.5,4.1L9.1,1.8L13.6,4.2L18.2,3.2L22.7,3.6L27.3,6.6L31.8,5.7L36.4,6.3L40.9,6.5L45.5,6.6L50,7.1" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread">519</span><br /><span title="Multiple threads">Error</span><div class="imagecontainer" title="Container: Lamar
+</td><td class="" style="text-align:right;"><span title="Single thread">555</span><br /><span title="Multiple threads">410</span><div class="imagecontainer" title="Container: Lamar
 Benchmark: IEnumerable
 
 Versions:
@@ -1595,11 +1601,12 @@ Versions:
 3.0.2: 566/Error
 3.0.3: 583/Error
 3.0.4: 499/Error
-3.0.5: 519/Error"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,9L5,8.8L10,3.4L15,8.4L20,8.8L25,5.4" stroke="#1c2298" fill="transparent"></path><path d="M0,3.4L5,3L10,0L15,2.6L20,3.6L25,2.1L30,4.6L35,3.5L40,3L45,5.4L50,4.8" stroke="#c00" fill="transparent"></path></g>
+3.0.5: 519/Error
+3.1.0: 555/410"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,9L4.5,8.8L9.1,3.4L13.6,8.4L18.2,8.8L22.7,5.4L50,8" stroke="#1c2298" fill="transparent"></path><path d="M0,3.4L4.5,3L9.1,0L13.6,2.6L18.2,3.6L22.7,2.1L27.3,4.6L31.8,3.5L36.4,3L40.9,5.4L45.5,4.8L50,3.8" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread">1667</span><br /><span title="Multiple threads">1563</span><div class="imagecontainer" title="Container: Lamar
+</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread">1623</span><br /><span title="Multiple threads">1581</span><div class="imagecontainer" title="Container: Lamar
 Benchmark: Asp Net Core
 
 Versions:
@@ -1613,11 +1620,12 @@ Versions:
 3.0.2: 666/842
 3.0.3: 1848/1403
 3.0.4: 1603/1470
-3.0.5: 1667/1563"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M5,13.5L10,10.1L15,8.7L20,9.6L25,7.9L30,11.4L35,10.9L40,4.8L45,4.1L50,3.1" stroke="#1c2298" fill="transparent"></path><path d="M5,9.9L10,9L15,9.1L20,9.4L25,7.8L30,13.6L35,12.8L40,0L45,2.7L50,2" stroke="#c00" fill="transparent"></path></g>
+3.0.5: 1667/1563
+3.1.0: 1623/1581"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M4.5,13.5L9.1,10.1L13.6,8.7L18.2,9.6L22.7,7.9L27.3,11.4L31.8,10.9L36.4,4.8L40.9,4.1L45.5,3.1L50,2.9" stroke="#1c2298" fill="transparent"></path><path d="M4.5,9.9L9.1,9L13.6,9.1L18.2,9.4L22.7,7.8L27.3,13.6L31.8,12.8L36.4,0L40.9,2.7L45.5,2L50,2.4" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">2350</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Lamar
+</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">1986</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Lamar
 Benchmark: Prepare And Register
 
 Versions:
@@ -1631,11 +1639,12 @@ Versions:
 3.0.2: 2315/
 3.0.3: 2063/
 3.0.4: 2019/
-3.0.5: 2350/"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,5.2L5,4.8L10,3L15,3.3L20,3.6L25,0L30,3.7L35,1.8L40,3.8L45,4.1L50,1.5" stroke="#c00" fill="transparent"></path></g>
+3.0.5: 2350/
+3.1.0: 1986/"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,5.2L4.5,4.8L9.1,3L13.6,3.3L18.2,3.6L22.7,0L27.3,3.7L31.8,1.8L36.4,3.8L40.9,4.1L45.5,1.5L50,4.4" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">2741</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Lamar
+</td><td class="blue" style="text-align:right;"><span title="Single thread">2373</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Lamar
 Benchmark: Prepare And Register And Simple Resolve
 
 Versions:
@@ -1649,8 +1658,9 @@ Versions:
 3.0.2: 2600/
 3.0.3: 2366/
 3.0.4: 2320/
-3.0.5: 2741/"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,5.9L5,5.7L10,0L15,2.7L20,3.1L25,0.1L30,19.9L35,19.9L40,19.9L45,19.9L50,19.9" stroke="#c00" fill="transparent"></path></g>
+3.0.5: 2741/
+3.1.0: 2373/"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,5.9L4.5,5.7L9.1,0L13.6,2.7L18.2,3.1L22.7,0.1L27.3,19.9L31.8,19.9L36.4,19.9L40.9,19.9L45.5,19.9L50,19.9" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
 </td></tr>
@@ -2231,7 +2241,7 @@ Versions:
 </svg>
 </div>
 </td></tr>
-<tr><th><a href="https://github.com/neuecc/MicroResolver">MicroResolver 2.3.5</a></th><td class="blue" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">25</span><br /><span title="Multiple threads" style="font-weight:bold;">39</span><div class="imagecontainer" title="Container: MicroResolver
+<tr><th><a href="https://github.com/neuecc/MicroResolver">MicroResolver 2.3.5</a></th><td class="blue" style="text-align:right;"><span title="Single thread">25</span><br /><span title="Multiple threads" style="font-weight:bold;">39</span><div class="imagecontainer" title="Container: MicroResolver
 Benchmark: Singleton
 
 Versions:
@@ -3299,7 +3309,7 @@ Versions:
 </svg>
 </div>
 </td></tr>
-<tr><th><a href="https://github.com/Barsonax/Singularity">Singularity 0.14.0</a></th><td class="blue" style="text-align:right;"><span title="Single thread">71</span><br /><span title="Multiple threads">84</span><div class="imagecontainer" title="Container: Singularity
+<tr><th><a href="https://github.com/Barsonax/Singularity">Singularity 0.14.0</a></th><td class="blue" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">24</span><br /><span title="Multiple threads">45</span><div class="imagecontainer" title="Container: Singularity
 Benchmark: Singleton
 
 Versions:
@@ -3307,11 +3317,11 @@ Versions:
 0.10.0: 26/42
 0.12.1-ci0011: 27/49
 0.13.0: 32/44
-0.14.0: 71/84"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,10.7L12.5,10L25,8.3L37.5,9.5L50,0" stroke="#1c2298" fill="transparent"></path><path d="M0,14.3L12.5,13.8L25,13.6L37.5,12.4L50,3.1" stroke="#c00" fill="transparent"></path></g>
+0.14.0: 24/45"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,4.1L12.5,2.9L25,0L37.5,2L50,1.6" stroke="#1c2298" fill="transparent"></path><path d="M0,10.2L12.5,9.4L25,9L37.5,6.9L50,10.2" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">78</span><br /><span title="Multiple threads">92</span><div class="imagecontainer" title="Container: Singularity
+</td><td class="blue" style="text-align:right;"><span title="Single thread">38</span><br /><span title="Multiple threads">61</span><div class="imagecontainer" title="Container: Singularity
 Benchmark: Transient
 
 Versions:
@@ -3319,11 +3329,11 @@ Versions:
 0.10.0: 41/60
 0.12.1-ci0011: 40/55
 0.13.0: 37/57
-0.14.0: 78/92"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,6.1L12.5,7L25,8L37.5,7.6L50,0" stroke="#1c2298" fill="transparent"></path><path d="M0,11.7L12.5,11.1L25,11.3L37.5,12L50,3" stroke="#c00" fill="transparent"></path></g>
+0.14.0: 38/61"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,0L12.5,1.2L25,2.8L37.5,2.2L50,0.9" stroke="#1c2298" fill="transparent"></path><path d="M0,8.1L12.5,7.2L25,7.5L37.5,8.4L50,8.1" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">72</span><br /><span title="Multiple threads">109</span><div class="imagecontainer" title="Container: Singularity
+</td><td class="blue" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">50</span><br /><span title="Multiple threads">88</span><div class="imagecontainer" title="Container: Singularity
 Benchmark: Combined
 
 Versions:
@@ -3331,11 +3341,11 @@ Versions:
 0.10.0: 58/87
 0.12.1-ci0011: 53/66
 0.13.0: 52/83
-0.14.0: 72/109"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,5L12.5,4L25,7.9L37.5,4.8L50,0" stroke="#1c2298" fill="transparent"></path><path d="M0,10.6L12.5,9.4L25,10.3L37.5,10.5L50,6.8" stroke="#c00" fill="transparent"></path></g>
+0.14.0: 50/88"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,1.4L12.5,0.2L25,5L37.5,1.1L50,0" stroke="#1c2298" fill="transparent"></path><path d="M0,8.4L12.5,6.8L25,8L37.5,8.2L50,8.6" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">115</span><br /><span title="Multiple threads">109</span><div class="imagecontainer" title="Container: Singularity
+</td><td class="blue" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">65</span><br /><span title="Multiple threads">82</span><div class="imagecontainer" title="Container: Singularity
 Benchmark: Complex
 
 Versions:
@@ -3343,11 +3353,11 @@ Versions:
 0.10.0: 73/82
 0.12.1-ci0011: 70/85
 0.13.0: 66/77
-0.14.0: 115/109"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,6.8L12.5,5.7L25,5.2L37.5,6.6L50,1" stroke="#1c2298" fill="transparent"></path><path d="M0,8.5L12.5,7.3L25,7.8L37.5,8.5L50,0" stroke="#c00" fill="transparent"></path></g>
+0.14.0: 65/82"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,2.1L12.5,0.7L25,0L37.5,1.9L50,0.7" stroke="#1c2298" fill="transparent"></path><path d="M0,4.5L12.5,2.8L25,3.5L37.5,4.5L50,4.7" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread">54</span><br /><span title="Multiple threads" style="font-weight:bold;">76</span><div class="imagecontainer" title="Container: Singularity
+</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">49</span><br /><span title="Multiple threads" style="font-weight:bold;">75</span><div class="imagecontainer" title="Container: Singularity
 Benchmark: Generics
 
 Versions:
@@ -3355,11 +3365,11 @@ Versions:
 0.10.0: 49/83
 0.12.1-ci0011: 55/83
 0.13.0: 49/83
-0.14.0: 54/76"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,0.7L12.5,0L25,0L37.5,0L50,1.7" stroke="#1c2298" fill="transparent"></path><path d="M0,8.4L12.5,8.2L25,6.7L37.5,8.2L50,7" stroke="#c00" fill="transparent"></path></g>
+0.14.0: 49/75"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,0.7L12.5,0L25,0L37.5,0L50,1.9" stroke="#1c2298" fill="transparent"></path><path d="M0,8.4L12.5,8.2L25,6.7L37.5,8.2L50,8.2" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread">398</span><br /><span title="Multiple threads">325</span><div class="imagecontainer" title="Container: Singularity
+</td><td class="" style="text-align:right;"><span title="Single thread">292</span><br /><span title="Multiple threads">220</span><div class="imagecontainer" title="Container: Singularity
 Benchmark: IEnumerable
 
 Versions:
@@ -3367,11 +3377,11 @@ Versions:
 0.10.0: 293/224
 0.12.1-ci0011: 405/309
 0.13.0: 287/214
-0.14.0: 398/325"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,9.4L12.5,8.9L25,4.7L37.5,9.4L50,4" stroke="#1c2298" fill="transparent"></path><path d="M0,5.7L12.5,5.5L25,0L37.5,5.8L50,0.3" stroke="#c00" fill="transparent"></path></g>
+0.14.0: 292/220"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,9.4L12.5,8.9L25,4.7L37.5,9.4L50,9.1" stroke="#1c2298" fill="transparent"></path><path d="M0,5.7L12.5,5.5L25,0L37.5,5.8L50,5.6" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">716</span><br /><span title="Multiple threads" style="font-weight:bold;">634</span><div class="imagecontainer" title="Container: Singularity
+</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread" style="font-weight:bold;">507</span><br /><span title="Multiple threads" style="font-weight:bold;">555</span><div class="imagecontainer" title="Container: Singularity
 Benchmark: Asp Net Core
 
 Versions:
@@ -3379,8 +3389,8 @@ Versions:
 0.10.0: 555/448
 0.12.1-ci0011: 665/575
 0.13.0: 530/560
-0.14.0: 716/634"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,6.2L12.5,12.6L25,10.5L37.5,10.8L50,9.5" stroke="#1c2298" fill="transparent"></path><path d="M0,0L12.5,10.8L25,9L37.5,11.2L50,8.2" stroke="#c00" fill="transparent"></path></g>
+0.14.0: 507/555"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,6.2L12.5,12.6L25,10.5L37.5,10.8L50,10.8" stroke="#1c2298" fill="transparent"></path><path d="M0,0L12.5,10.8L25,9L37.5,11.2L50,11.6" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
 </td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="blue" style="text-align:right;"><span title="Single thread">27</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Singularity
@@ -3395,7 +3405,7 @@ Versions:
 <path d="M0,0.9L12.5,0L25,12.5L37.5,13.4L50,14.1" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">500</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Singularity
+</td><td class="blue" style="text-align:right;"><span title="Single thread">443</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Singularity
 Benchmark: Prepare And Register And Simple Resolve
 
 Versions:
@@ -3403,8 +3413,8 @@ Versions:
 0.10.0: 572/
 0.12.1-ci0011: 494/
 0.13.0: 439/
-0.14.0: 500/"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,1.7L12.5,0L25,2.7L37.5,4.7L50,2.5" stroke="#c00" fill="transparent"></path></g>
+0.14.0: 443/"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,1.7L12.5,0L25,2.7L37.5,4.7L50,4.5" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
 </td></tr>
@@ -4352,7 +4362,7 @@ Versions:
 </svg>
 </div>
 </td></tr>
-<tr><th><a href="http://castleproject.org">Windsor 5.0.0</a></th><td class="blue" style="text-align:right;"><span title="Single thread">437</span><br /><span title="Multiple threads">350</span><div class="imagecontainer" title="Container: Windsor
+<tr><th><a href="http://castleproject.org">Windsor 5.0.1</a></th><td class="blue" style="text-align:right;"><span title="Single thread">454</span><br /><span title="Multiple threads">342</span><div class="imagecontainer" title="Container: Windsor
 Benchmark: Singleton
 
 Versions:
@@ -4360,11 +4370,12 @@ Versions:
 4.0.0: 516/405
 4.1.0: 459/289
 4.1.1: 501/509
-5.0.0: 437/350"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,5.2L12.5,4.4L25,8.9L37.5,0.4L50,6.5" stroke="#1c2298" fill="transparent"></path><path d="M0,0L12.5,0.1L25,2.3L37.5,0.7L50,3.2" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 437/350
+5.0.1: 454/342"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,5.2L10,4.4L20,8.9L30,0.4L40,6.5L50,6.8" stroke="#1c2298" fill="transparent"></path><path d="M0,0L10,0.1L20,2.3L30,0.7L40,3.2L50,2.5" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">1821</span><br /><span title="Multiple threads">1108</span><div class="imagecontainer" title="Container: Windsor
+</td><td class="blue" style="text-align:right;"><span title="Single thread">1796</span><br /><span title="Multiple threads">1092</span><div class="imagecontainer" title="Container: Windsor
 Benchmark: Transient
 
 Versions:
@@ -4372,11 +4383,12 @@ Versions:
 4.0.0: 1967/1164
 4.1.0: 1772/1050
 4.1.1: 2270/1773
-5.0.0: 1821/1108"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,0L12.5,13.6L25,14.3L37.5,10.3L50,13.9" stroke="#1c2298" fill="transparent"></path><path d="M0,5.6L12.5,9.2L25,10.3L37.5,7.6L50,10" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 1821/1108
+5.0.1: 1796/1092"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,0L10,13.6L20,14.3L30,10.3L40,13.9L50,14" stroke="#1c2298" fill="transparent"></path><path d="M0,5.6L10,9.2L20,10.3L30,7.6L40,10L50,10.2" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">6402</span><br /><span title="Multiple threads">3712</span><div class="imagecontainer" title="Container: Windsor
+</td><td class="blue" style="text-align:right;"><span title="Single thread">5618</span><br /><span title="Multiple threads">3523</span><div class="imagecontainer" title="Container: Windsor
 Benchmark: Combined
 
 Versions:
@@ -4384,11 +4396,12 @@ Versions:
 4.0.0: 5812/3392
 4.1.0: 6018/3601
 4.1.1: 7009/5753
-5.0.0: 6402/3712"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,9.1L12.5,12.4L25,11.9L37.5,7.1L50,11.7" stroke="#1c2298" fill="transparent"></path><path d="M0,0L12.5,6.9L25,6.5L37.5,4.2L50,5.6" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 6402/3712
+5.0.1: 5618/3523"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,9.1L10,12.4L20,11.9L30,7.1L40,11.7L50,12.1" stroke="#1c2298" fill="transparent"></path><path d="M0,0L10,6.9L20,6.5L30,4.2L40,5.6L50,7.4" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">20536</span><br /><span title="Multiple threads">11821</span><div class="imagecontainer" title="Container: Windsor
+</td><td class="blue" style="text-align:right;"><span title="Single thread">16853</span><br /><span title="Multiple threads">10289</span><div class="imagecontainer" title="Container: Windsor
 Benchmark: Complex
 
 Versions:
@@ -4396,11 +4409,12 @@ Versions:
 4.0.0: 17496/9639
 4.1.0: 19319/10972
 4.1.1: 21178/16403
-5.0.0: 20536/11821"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,7.2L12.5,12.6L25,11.6L37.5,7.4L50,10.9" stroke="#1c2298" fill="transparent"></path><path d="M0,0L12.5,6.6L25,5.2L37.5,3.8L50,4.3" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 20536/11821
+5.0.1: 16853/10289"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,7.2L10,12.6L20,11.6L30,7.4L40,10.9L50,12.1" stroke="#1c2298" fill="transparent"></path><path d="M0,0L10,6.6L20,5.2L30,3.8L40,4.3L50,7.1" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread">38096</span><br /><span title="Multiple threads">19775</span><div class="imagecontainer" title="Container: Windsor
+</td><td class="" style="text-align:right;"><span title="Single thread">34532</span><br /><span title="Multiple threads">19632</span><div class="imagecontainer" title="Container: Windsor
 Benchmark: Property
 
 Versions:
@@ -4408,11 +4422,12 @@ Versions:
 4.0.0: 34788/19114
 4.1.0: 39708/20526
 4.1.1: 39991/33185
-5.0.0: 38096/19775"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,7.5L12.5,12.7L25,12.1L37.5,7.3L50,12.4" stroke="#1c2298" fill="transparent"></path><path d="M0,0L12.5,6.6L25,4.8L37.5,4.6L50,5.4" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 38096/19775
+5.0.1: 34532/19632"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,7.5L10,12.7L20,12.1L30,7.3L40,12.4L50,12.5" stroke="#1c2298" fill="transparent"></path><path d="M0,0L10,6.6L20,4.8L30,4.6L40,5.4L50,6.7" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread">15557</span><br /><span title="Multiple threads">9071</span><div class="imagecontainer" title="Container: Windsor
+</td><td class="" style="text-align:right;"><span title="Single thread">15140</span><br /><span title="Multiple threads">9111</span><div class="imagecontainer" title="Container: Windsor
 Benchmark: Generics
 
 Versions:
@@ -4420,11 +4435,12 @@ Versions:
 4.0.0: 14730/8383
 4.1.0: 15333/8640
 4.1.1: 20830/16604
-5.0.0: 15557/9071"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,7.5L12.5,13.8L25,13.6L37.5,7.8L50,13.3" stroke="#1c2298" fill="transparent"></path><path d="M0,0L12.5,9.2L25,8.7L37.5,4.7L50,8.5" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 15557/9071
+5.0.1: 15140/9111"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,7.5L10,13.8L20,13.6L30,7.8L40,13.3L50,13.3" stroke="#1c2298" fill="transparent"></path><path d="M0,0L10,9.2L20,8.7L30,4.7L40,8.5L50,8.9" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread">17839</span><br /><span title="Multiple threads">10135</span><div class="imagecontainer" title="Container: Windsor
+</td><td class="" style="text-align:right;"><span title="Single thread">15426</span><br /><span title="Multiple threads">9609</span><div class="imagecontainer" title="Container: Windsor
 Benchmark: IEnumerable
 
 Versions:
@@ -4432,11 +4448,12 @@ Versions:
 4.0.0: 16344/9298
 4.1.0: 15709/9482
 4.1.1: 19126/14203
-5.0.0: 17839/10135"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,9.8L12.5,13L25,12.9L37.5,9.3L50,12.4" stroke="#1c2298" fill="transparent"></path><path d="M0,0L12.5,7.7L25,8.2L37.5,5.6L50,6.6" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 17839/10135
+5.0.1: 15426/9609"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,9.8L10,13L20,12.9L30,9.3L40,12.4L50,12.8" stroke="#1c2298" fill="transparent"></path><path d="M0,0L10,7.7L20,8.2L30,5.6L40,6.6L50,8.4" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread">239286*</span><br /><span title="Multiple threads">140421*</span><div class="imagecontainer" title="Container: Windsor
+</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread">226334*</span><br /><span title="Multiple threads">120937*</span><div class="imagecontainer" title="Container: Windsor
 Benchmark: Child Container
 
 Versions:
@@ -4444,41 +4461,45 @@ Versions:
 4.0.0: 233653*/127558*
 4.1.0: 236090*/136957*
 4.1.1: 241132*/180365*
-5.0.0: 239286*/140421*"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M12.5,12.5L25,12L37.5,9.4L50,11.7" stroke="#1c2298" fill="transparent"></path><path d="M0,0L12.5,6.3L25,6.1L37.5,5.8L50,5.9" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 239286*/140421*
+5.0.1: 226334*/120937*"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M10,12.5L20,12L30,9.4L40,11.7L50,12.9" stroke="#1c2298" fill="transparent"></path><path d="M0,0L10,6.3L20,6.1L30,5.8L40,5.9L50,6.7" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread">13662</span><br /><span title="Multiple threads">7695</span><div class="imagecontainer" title="Container: Windsor
+</td><td class="" style="text-align:right;"><span title="Single thread"></span><br /><span title="Multiple threads"></span></td><td class="" style="text-align:right;"><span title="Single thread">13105</span><br /><span title="Multiple threads">7493</span><div class="imagecontainer" title="Container: Windsor
 Benchmark: Interception With Proxy
 
 Versions:
 4.0.0: 13738/7473
 4.1.0: 16538/7592
 4.1.1: 16551/12023
-5.0.0: 13662/7695"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,11L16.7,10.8L33.3,5.5L50,10.7" stroke="#1c2298" fill="transparent"></path><path d="M0,3.4L16.7,0L33.3,0L50,3.5" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 13662/7695
+5.0.1: 13105/7493"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,11L12.5,10.8L25,5.5L37.5,10.7L50,10.9" stroke="#1c2298" fill="transparent"></path><path d="M0,3.4L12.5,0L25,0L37.5,3.5L50,4.2" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">2954</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Windsor
+</td><td class="blue" style="text-align:right;"><span title="Single thread">2912</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Windsor
 Benchmark: Prepare And Register
 
 Versions:
 4.0.0: 2985/
 4.1.0: 3098/
 4.1.1: 3331/
-5.0.0: 2954/"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,2.1L16.7,1.4L33.3,0L50,2.3" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 2954/
+5.0.1: 2912/"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,2.1L12.5,1.4L25,0L37.5,2.3L50,2.5" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
-</td><td class="blue" style="text-align:right;"><span title="Single thread">2990</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Windsor
+</td><td class="blue" style="text-align:right;"><span title="Single thread">2934</span><br /><span title="Multiple threads"></span><div class="imagecontainer" title="Container: Windsor
 Benchmark: Prepare And Register And Simple Resolve
 
 Versions:
 4.0.0: 3137/
 4.1.0: 3090/
 4.1.1: 4042/
-5.0.0: 2990/"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
-<path d="M0,4.5L16.7,4.7L33.3,0L50,5.2" stroke="#c00" fill="transparent"></path></g>
+5.0.0: 2990/
+5.0.1: 2934/"><svg width="50" height="20" fill="#fff" viewBox="0 0 50 20"><rect width="50" height="20" fill="#fff" stroke="#c1c1c1"/><g>
+<path d="M0,4.5L12.5,4.7L25,0L37.5,5.2L50,5.5" stroke="#c00" fill="transparent"></path></g>
 </svg>
 </div>
 </td></tr>
