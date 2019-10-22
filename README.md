@@ -37,10 +37,11 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|3167<br/>1709|16506<br/>11878|45492<br/>29568|116514*<br/>76757*|
 |**[Maestro 3.6.2](https://github.com/JonasSamuelsson/Maestro)**|365<br/>254|302<br/>211|540<br/>390|1493<br/>979|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|22679<br/>11820|37640<br/>25052|57462<br/>68730*|112712*<br/>131716*|
-|**[Mef2 1.0.34.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|230<br/>172|236<br/>179|367<br/>251|679<br/>438|
+|**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|294<br/>226|294<br/>206|357<br/>252|677<br/>462|
 |**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|25<br/>**39**|34<br/>59|55<br/>**77**|92<br/>89|
 |**[MicroSliver 2.1.6](  )**|192<br/>232|742<br/>619|2394<br/>1786|7159<br/>6162|
 |**[Microsoft Extensions DependencyInjection 3.0.0](https://github.com/aspnet/Extensions)**|85<br/>84|108<br/>101|128<br/>124|143<br/>129|
+|**[Microsoft.VisualStudio.Composition 16.4.11](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|9074<br/>4916|13891<br/>9399|19760<br/>14962|57910<br/>51972|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|484<br/>444|711<br/>751|2285<br/>2494|8297<br/>9494|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|102<br/>138|409<br/>715|2052<br/>2590|9348<br/>11352|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|90<br/>75|161<br/>107|517<br/>417|1812<br/>1050|
@@ -78,10 +79,11 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Maestro 3.6.2](https://github.com/JonasSamuelsson/Maestro)**|3200<br/>2005|385<br/>286|1303<br/>837|<br/>|<br/>|8309<br/>5461|5776<br/>3311|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|124500*<br/>133833*|137086*<br/>114221*|97231*<br/>100896*|<br/>|<br/>|<br/>|<br/>|
-|**[Mef2 1.0.34.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1411<br/>881|301<br/>219|1392<br/>860|<br/>|<br/>|<br/>|<br/>|
+|**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1360<br/>881|294<br/>212|1368<br/>839|<br/>|<br/>|<br/>|<br/>|
 |**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|**39**<br/>**62**|<br/>|**262**<br/>**195**|<br/>|<br/>|<br/>|<br/>|
 |**[MicroSliver 2.1.6](  )**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Microsoft Extensions DependencyInjection 3.0.0](https://github.com/aspnet/Extensions)**|<br/>|124<br/>114|361<br/>265|<br/>|<br/>|3020<br/>1967|<br/>|
+|**[Microsoft.VisualStudio.Composition 16.4.11](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|44285<br/>31830|<br/>|42023<br/>35658|<br/>|<br/>|<br/>|<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|10005<br/>8348|72189*<br/>72787*|5619<br/>7027|1824<br/>1883|550418*<br/>335171*|<br/>|13742<br/>16268|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|436<br/>705|<br/>|9749<br/>7094|<br/>|**4370**<br/>**3103**|<br/>|<br/>|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|1536<br/>847|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
@@ -119,10 +121,11 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|107<br/>|338<br/>|
 |**[Maestro 3.6.2](https://github.com/JonasSamuelsson/Maestro)**|141<br/>|148<br/>|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|17<br/>|2299<br/>|
-|**[Mef2 1.0.34.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|5440<br/>|6835<br/>|
+|**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|5313<br/>|6601<br/>|
 |**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|27322<br/>|67518<br/>|
 |**[MicroSliver 2.1.6](  )**|12<br/>|17<br/>|
 |**[Microsoft Extensions DependencyInjection 3.0.0](https://github.com/aspnet/Extensions)**|23<br/>|32<br/>|
+|**[Microsoft.VisualStudio.Composition 16.4.11](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|7904<br/>|8540<br/>|
 |**[Mugen 3.5.1](http://mugeninjection.codeplex.com)**|424<br/>|1820<br/>|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|15<br/>|19<br/>|
 |**[Munq 3.1.6](http://munq.codeplex.com)**|9079<br/>|9500<br/>|
