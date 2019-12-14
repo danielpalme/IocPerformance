@@ -22,8 +22,8 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Autofac 4.9.4](https://github.com/autofac/Autofac)**|593<br/>389|754<br/>504|1953<br/>1191|5877<br/>3609|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|465<br/>270|533<br/>322|1583<br/>906|7403<br/>3712|
 |**[Catel 5.11.2](http://www.catelproject.com)**|262<br/>308|4283<br/>4695|9693<br/>10646|22248<br/>24653|
-|**[DryIoc 4.0.7](https://bitbucket.org/dadhi/dryioc)**|36<br/>49|56<br/>79|57<br/>102|76<br/>89|
-|**[DryIocZero 4.0.0](https://bitbucket.org/dadhi/dryioc)**|110<br/>96|88<br/>89|98<br/>105|220<br/>169|
+|**[DryIoc 4.0.7](https://github.com/dadhi/DryIoc)**|36<br/>49|56<br/>79|57<br/>102|76<br/>89|
+|**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|110<br/>96|88<br/>89|98<br/>105|220<br/>169|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|95<br/>70|104<br/>86|207<br/>158|685<br/>381|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|66<br/>66|126<br/>99|249<br/>171|602<br/>350|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|118<br/>90|137<br/>110|381<br/>251|1124<br/>616|
