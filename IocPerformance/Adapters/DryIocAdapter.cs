@@ -24,7 +24,7 @@ namespace IocPerformance.Adapters
 
         public override string Name => "DryIoc";
 
-        public override string Url => "https://bitbucket.org/dadhi/dryioc";
+        public override string Url => "https://github.com/dadhi/DryIoc";
 
         public override bool SupportsConditional => true;
 

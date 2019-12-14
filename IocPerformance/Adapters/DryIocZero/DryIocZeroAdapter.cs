@@ -9,7 +9,7 @@ namespace IocPerformance.Adapters
 
         public override string PackageName => "DryIocZero";
 
-        public override string Url => "https://bitbucket.org/dadhi/dryioc";
+        public override string Url => "https://github.com/dadhi/DryIoc";
 
         public override bool SupportsConditional => true;
 
