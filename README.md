@@ -64,8 +64,8 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Autofac 4.9.4](https://github.com/autofac/Autofac)**|6070<br/>3626|2243<br/>1377|7838<br/>4615|1445<br/>901|84497*<br/>53089|35800<br/>21902|22852<br/>14654|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9157<br/>4733|<br/>|5965<br/>3393|<br/>|<br/>|<br/>|<br/>|
 |**[Catel 5.11.2](http://www.catelproject.com)**|<br/>|9585<br/>10434|<br/>|<br/>|<br/>|<br/>|4295<br/>4634|
-|**[DryIoc 4.0.7](https://bitbucket.org/dadhi/dryioc)**|122<br/>123|58<br/>83|326<br/>232|58<br/>78|<br/>|1842<br/>1358|838<br/>540|
-|**[DryIocZero 4.0.0](https://bitbucket.org/dadhi/dryioc)**|294<br/>205|92<br/>92|302<br/>229|380<br/>270|<br/>|<br/>|<br/>|
+|**[DryIoc 4.0.7](https://github.com/dadhi/DryIoc)**|122<br/>123|58<br/>83|326<br/>232|58<br/>78|<br/>|1842<br/>1358|838<br/>540|
+|**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|294<br/>205|92<br/>92|302<br/>229|380<br/>270|<br/>|<br/>|<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|1090<br/>639|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
@@ -106,8 +106,8 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Autofac 4.9.4](https://github.com/autofac/Autofac)**|361<br/>|410<br/>|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|55<br/>|56<br/>|
 |**[Catel 5.11.2](http://www.catelproject.com)**|100278*<br/>|100744*<br/>|
-|**[DryIoc 4.0.7](https://bitbucket.org/dadhi/dryioc)**|76<br/>|83<br/>|
-|**[DryIocZero 4.0.0](https://bitbucket.org/dadhi/dryioc)**|**0**<br/>|**1**<br/>|
+|**[DryIoc 4.0.7](https://github.com/dadhi/DryIoc)**|76<br/>|83<br/>|
+|**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|**0**<br/>|**1**<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|16240<br/>|16527<br/>|
 |**[fFastInjector 1.0.1](https://ffastinjector.codeplex.com)**|6390<br/>|6336<br/>|
 |**[Funq 1.0.0.0](https://funq.codeplex.com)**|8<br/>|8<br/>|
