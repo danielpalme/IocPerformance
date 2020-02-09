@@ -1,5 +1,4 @@
 ﻿using System;
-using LinFuAttr = LinFu.IoC.Configuration;
 using MEF2Attr = System.Composition;
 using MEFAttr = System.ComponentModel.Composition;
 using NinjectAttr = Ninject;
@@ -14,7 +13,6 @@ namespace IocPerformance.Classes.Properties
         void Verify(string containerName);
     }
 
-    [LinFuAttr.Implements(typeof(ISubObjectB))]
     [MEFAttr.ExportAttribute(typeof(ISubObjectB))]
     [MEFAttr.PartCreationPolicy(MEFAttr.CreationPolicy.NonShared)]
     [MEF2Attr.ExportAttribute(typeof(ISubObjectB))]
@@ -22,7 +20,6 @@ namespace IocPerformance.Classes.Properties
     {
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]

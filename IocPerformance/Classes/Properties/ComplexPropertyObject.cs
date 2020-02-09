@@ -1,5 +1,4 @@
 ﻿using System;
-using LinFuAttr = LinFu.IoC.Configuration;
 using MEF2Attr = System.Composition;
 using MEFAttr = System.ComponentModel.Composition;
 using NinjectAttr = Ninject;
@@ -24,7 +23,6 @@ namespace IocPerformance.Classes.Properties
         void Verify(string containerName);
     }
 
-    [LinFuAttr.Implements(typeof(IComplexPropertyObject1))]
     [MEFAttr.ExportAttribute(typeof(IComplexPropertyObject1))]
     [MEFAttr.PartCreationPolicy(MEFAttr.CreationPolicy.NonShared)]
     [MEF2Attr.Export(typeof(IComplexPropertyObject1))]
@@ -45,7 +43,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -55,7 +52,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -65,7 +61,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -75,7 +70,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -85,7 +79,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -95,7 +88,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -143,7 +135,6 @@ namespace IocPerformance.Classes.Properties
         }
     }
 
-    [LinFuAttr.Implements(typeof(IComplexPropertyObject2))]
     [MEFAttr.ExportAttribute(typeof(IComplexPropertyObject2))]
     [MEFAttr.PartCreationPolicy(MEFAttr.CreationPolicy.NonShared)]
     [MEF2Attr.Export(typeof(IComplexPropertyObject2))]
@@ -164,7 +155,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -174,7 +164,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -184,7 +173,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -194,7 +182,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -204,7 +191,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -214,7 +200,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -262,7 +247,6 @@ namespace IocPerformance.Classes.Properties
         }
     }
 
-    [LinFuAttr.Implements(typeof(IComplexPropertyObject3))]
     [MEFAttr.ExportAttribute(typeof(IComplexPropertyObject3))]
     [MEFAttr.PartCreationPolicy(MEFAttr.CreationPolicy.NonShared)]
     [MEF2Attr.Export(typeof(IComplexPropertyObject3))]
@@ -283,7 +267,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -293,7 +276,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -303,7 +285,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -313,7 +294,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -323,7 +303,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
@@ -333,7 +312,6 @@ namespace IocPerformance.Classes.Properties
 
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]

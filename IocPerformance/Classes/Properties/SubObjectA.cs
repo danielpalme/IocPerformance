@@ -1,5 +1,4 @@
 ﻿using System;
-using LinFuAttr = LinFu.IoC.Configuration;
 using MEF2Attr = System.Composition;
 using MEFAttr = System.ComponentModel.Composition;
 using MvvmCrossAttr = MvvmCross.IoC;
@@ -15,7 +14,6 @@ namespace IocPerformance.Classes.Properties
         void Verify(string containerName);
     }
 
-    [LinFuAttr.Implements(typeof(ISubObjectA))]
     [MEFAttr.ExportAttribute(typeof(ISubObjectA))]
     [MEFAttr.PartCreationPolicy(MEFAttr.CreationPolicy.NonShared)]
     [MEF2Attr.ExportAttribute(typeof(ISubObjectA))]
@@ -23,7 +21,6 @@ namespace IocPerformance.Classes.Properties
     {
         [MEFAttr.Import]
         [MEF2Attr.Import]
-        [LinFuAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [StructureAttr.SetterProperty]
