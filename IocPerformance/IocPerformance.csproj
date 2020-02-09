@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Funq">
-      <HintPath>..\libs\Funq.1.0\NET40\Funq.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -71,7 +68,6 @@
     </Compile>
     <Compile Include="Adapters\DryIocZero\DryIocZeroAdapter.cs" />
     <Compile Include="Adapters\DynamoContainerAdapter.cs" />
-    <Compile Include="Adapters\FunqContainerAdapter.cs" />
     <Compile Include="Adapters\GraceContainerAdapter.cs" />
     <Compile Include="Adapters\GriffinContainerAdapter.cs" />
     <Compile Include="Adapters\HaveBoxContainerAdapter.cs" />
