@@ -36,7 +36,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Microsoft Extensions DependencyInjection 3.0.0](https://github.com/aspnet/Extensions)**|85<br/>84|108<br/>101|128<br/>124|143<br/>129|
 |**[Microsoft.VisualStudio.Composition 16.4.11](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|9074<br/>4916|13891<br/>9399|19760<br/>14962|57910<br/>51972|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|102<br/>138|409<br/>715|2052<br/>2590|9348<br/>11352|
-|**[Munq 3.1.6](http://munq.codeplex.com)**|90<br/>75|161<br/>107|517<br/>417|1812<br/>1050|
 |**[MvvmCross 6.4.1](https://github.com/MvvmCross/MvvmCross)**|254<br/>288|1326<br/>1426|3440<br/>3721|10322<br/>9997|
 |**[Ninject 3.3.4](http://ninject.org)**|3473<br/>2563|8686<br/>6969|23529<br/>17635|63579*<br/>49285|
 |**[Rezolver 2.0.0](http://rezolver.co.uk)**|91<br/>98|120<br/>93|174<br/>147|303<br/>231|
@@ -70,7 +69,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Microsoft Extensions DependencyInjection 3.0.0](https://github.com/aspnet/Extensions)**|<br/>|124<br/>114|361<br/>265|<br/>|<br/>|3020<br/>1967|<br/>|
 |**[Microsoft.VisualStudio.Composition 16.4.11](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|44285<br/>31830|<br/>|42023<br/>35658|<br/>|<br/>|<br/>|<br/>|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|436<br/>705|<br/>|9749<br/>7094|<br/>|**4370**<br/>**3103**|<br/>|<br/>|
-|**[Munq 3.1.6](http://munq.codeplex.com)**|1536<br/>847|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[MvvmCross 6.4.1](https://github.com/MvvmCross/MvvmCross)**|1338<br/>1437|7389<br/>8213|<br/>|<br/>|5302<br/>3460|<br/>|<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|62765*<br/>47908|24256<br/>15895|64193*<br/>49074|19294<br/>12954|73303000*<br/>50234113*|<br/>|20215<br/>15029|
 |**[Rezolver 2.0.0](http://rezolver.co.uk)**|454<br/>360|139<br/>156|490<br/>354|<br/>|6570200*<br/>4095208*|59211<br/>33867|<br/>|
@@ -104,7 +102,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Microsoft Extensions DependencyInjection 3.0.0](https://github.com/aspnet/Extensions)**|23<br/>|32<br/>|
 |**[Microsoft.VisualStudio.Composition 16.4.11](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|7904<br/>|8540<br/>|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|15<br/>|19<br/>|
-|**[Munq 3.1.6](http://munq.codeplex.com)**|9079<br/>|9500<br/>|
 |**[MvvmCross 6.4.1](https://github.com/MvvmCross/MvvmCross)**|10<br/>|16<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|130706*<br/>|126470*<br/>|
 |**[Rezolver 2.0.0](http://rezolver.co.uk)**|12625<br/>|18413<br/>|
