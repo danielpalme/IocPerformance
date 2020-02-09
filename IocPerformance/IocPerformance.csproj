@@ -79,7 +79,6 @@
     <Compile Include="Adapters\MefContainerAdapter.cs" />
     <Compile Include="Adapters\MicroResolverContainerAdapter.cs" />
     <Compile Include="Adapters\MicrosoftExtensionsDependencyInjectionContainerAdapter.cs" />
-    <Compile Include="Adapters\MugenContainerAdapter.cs" />
     <Compile Include="Adapters\MugenMvvmToolkitContainerAdapter.cs" />
     <Compile Include="Adapters\MunqContainerAdapter.cs" />
     <Compile Include="Adapters\MvvmCrossContainerAdapter.cs" />
@@ -185,7 +184,6 @@
     <Compile Include="Interception\LightInjectInterceptionLogger.cs" />
     <Compile Include="Interception\LinfuInterceptionLogger.cs" />
     <Compile Include="Interception\MaestroInterceptionLogger.cs" />
-    <Compile Include="Interception\MugenInjectionInterceptionLogger.cs" />
     <Compile Include="Interception\NinjectInterceptionLogger.cs" />
     <Compile Include="Interception\SimpleInjectorInterceptionExtensions.cs" />
     <Compile Include="Interception\SimpleInjectorInterceptionLogger.cs" />
@@ -302,12 +300,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Composition">
       <Version>16.4.11</Version>
-    </PackageReference>
-    <PackageReference Include="MugenInjection">
-      <Version>3.5.1</Version>
-    </PackageReference>
-    <PackageReference Include="MugenInjection.Interception">
-      <Version>1.3.1</Version>
     </PackageReference>
     <PackageReference Include="MugenMvvmToolkit">
       <Version>6.5.0</Version>

@@ -2,7 +2,6 @@
 using LinFuAttr = LinFu.IoC.Configuration;
 using MEF2Attr = System.Composition;
 using MEFAttr = System.ComponentModel.Composition;
-using MugenAttr = MugenInjection.Attributes;
 using MvvmCrossAttr = MvvmCross.IoC;
 using NinjectAttr = Ninject;
 using StashBoxAttr = Stashbox.Attributes;
@@ -25,7 +24,6 @@ namespace IocPerformance.Classes.Properties
         [MEFAttr.Import]
         [MEF2Attr.Import]
         [LinFuAttr.Inject]
-        [MugenAttr.Inject]
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [StructureAttr.SetterProperty]
