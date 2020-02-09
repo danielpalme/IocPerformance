@@ -71,7 +71,6 @@
     </Compile>
     <Compile Include="Adapters\DryIocZero\DryIocZeroAdapter.cs" />
     <Compile Include="Adapters\DynamoContainerAdapter.cs" />
-    <Compile Include="Adapters\FFastInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\FunqContainerAdapter.cs" />
     <Compile Include="Adapters\GraceContainerAdapter.cs" />
     <Compile Include="Adapters\GriffinContainerAdapter.cs" />
@@ -267,9 +266,6 @@
     </PackageReference>
     <PackageReference Include="Dynamo.Ioc">
       <Version>3.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="fFastInjector">
-      <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="Grace">
       <Version>7.1.0</Version>
