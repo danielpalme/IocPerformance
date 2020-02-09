@@ -26,7 +26,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|110<br/>96|88<br/>89|98<br/>105|220<br/>169|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|95<br/>70|104<br/>86|207<br/>158|685<br/>381|
 |**[Grace 7.1.0](https://github.com/ipjohnson/Grace)**|26<br/>42|36<br/>62|55<br/>83|67<br/>83|
-|**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|300<br/>205|318<br/>226|719<br/>476|2004<br/>1228|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|40<br/>48|51<br/>62|65<br/>88|103<br/>95|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|75<br/>60|128<br/>97|145<br/>124|197<br/>135|
 |**[Lamar 3.1.0](https://jasperfx.github.io/lamar/)**|58<br/>68|70<br/>103|99<br/>121|119<br/>138|
@@ -66,7 +65,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|294<br/>205|92<br/>92|302<br/>229|380<br/>270|<br/>|<br/>|<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Grace 7.1.0](https://github.com/ipjohnson/Grace)**|104<br/>116|**49**<br/>87|291<br/>215|**47**<br/>**70**|54478<br/>32637|868<br/>680|1151<br/>689|
-|**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|741<br/>443|<br/>|1860<br/>1198|<br/>|<br/>|<br/>|**774**<br/>**509**|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|345<br/>227|147<br/>120|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Lamar 3.1.0](https://jasperfx.github.io/lamar/)**|74<br/>89|86<br/>127|555<br/>410|<br/>|<br/>|1623<br/>1581|<br/>|
@@ -106,7 +104,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|**0**<br/>|**1**<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|16240<br/>|16527<br/>|
 |**[Grace 7.1.0](https://github.com/ipjohnson/Grace)**|213<br/>|1128<br/>|
-|**[Griffin 1.1.9](https://github.com/jgauffin/griffin.container)**|8387<br/>|8960<br/>|
 |**[HaveBox 2.0.0](https://bitbucket.org/Have/havebox)**|54925<br/>|55463<br/>|
 |**[IfInjector 0.8.1](https://github.com/iamahern/IfInjector)**|1397<br/>|2016<br/>|
 |**[Lamar 3.1.0](https://jasperfx.github.io/lamar/)**|1986<br/>|2373<br/>|
