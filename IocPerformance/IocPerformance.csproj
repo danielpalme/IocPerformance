@@ -78,7 +78,6 @@
     <Compile Include="Adapters\VSMefContainerAdapter.cs" />
     <Compile Include="Adapters\MefContainerAdapter.cs" />
     <Compile Include="Adapters\MicroResolverContainerAdapter.cs" />
-    <Compile Include="Adapters\MicroSliverContainerAdapter.cs" />
     <Compile Include="Adapters\MicrosoftExtensionsDependencyInjectionContainerAdapter.cs" />
     <Compile Include="Adapters\MugenContainerAdapter.cs" />
     <Compile Include="Adapters\MugenMvvmToolkitContainerAdapter.cs" />
@@ -291,9 +290,6 @@
     </PackageReference>
     <PackageReference Include="MicroResolver">
       <Version>2.3.5</Version>
-    </PackageReference>
-    <PackageReference Include="MicroSliver">
-      <Version>2.1.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNet.Mvc">
       <Version>5.2.7</Version>
