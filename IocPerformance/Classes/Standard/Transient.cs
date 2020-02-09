@@ -3,19 +3,16 @@ using System.ComponentModel.Composition;
 
 namespace IocPerformance.Classes.Standard
 {
-    [IfInjector.ImplementedBy(typeof(Transient1))]
     public interface ITransient1
     {
         void DoSomething();
     }
 
-    [IfInjector.ImplementedBy(typeof(Transient2))]
     public interface ITransient2
     {
         void DoSomething();
     }
 
-    [IfInjector.ImplementedBy(typeof(Transient3))]
     public interface ITransient3
     {
         void DoSomething();

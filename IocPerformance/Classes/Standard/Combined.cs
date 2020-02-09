@@ -3,19 +3,16 @@ using System.ComponentModel.Composition;
 
 namespace IocPerformance.Classes.Standard
 {
-    [IfInjector.ImplementedBy(typeof(Combined1))]
     public interface ICombined1
     {
         void DoSomething();
     }
 
-    [IfInjector.ImplementedBy(typeof(Combined2))]
     public interface ICombined2
     {
         void DoSomething();
     }
 
-    [IfInjector.ImplementedBy(typeof(Combined3))]
     public interface ICombined3
     {
         void DoSomething();

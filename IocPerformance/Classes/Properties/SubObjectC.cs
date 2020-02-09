@@ -10,7 +10,6 @@ using MvvmCrossAttr = MvvmCross.IoC;
 
 namespace IocPerformance.Classes.Properties
 {
-    [IfInjector.ImplementedBy(typeof(SubObjectC))]
     public interface ISubObjectC
     {
         void Verify(string containerName);
@@ -29,7 +28,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public IServiceC ServiceC { get; set; }

@@ -4,7 +4,6 @@ using MEF2Attr = System.Composition;
 
 namespace IocPerformance.Classes.Complex
 {
-    [IfInjector.ImplementedBy(typeof(SubObjectOne))]
     public interface ISubObjectOne
     {
     }

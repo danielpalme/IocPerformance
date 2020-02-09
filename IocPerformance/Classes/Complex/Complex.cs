@@ -4,17 +4,14 @@ using MEF2Attr = System.Composition;
 
 namespace IocPerformance.Classes.Complex
 {
-    [IfInjector.ImplementedBy(typeof(Complex1))]
     public interface IComplex1
     {
     }
 
-    [IfInjector.ImplementedBy(typeof(Complex2))]
     public interface IComplex2
     {
     }
 
-    [IfInjector.ImplementedBy(typeof(Complex2))]
     public interface IComplex3
     {
     }
@@ -28,7 +25,6 @@ namespace IocPerformance.Classes.Complex
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         public Complex1(
             IFirstService firstService,
             ISecondService secondService,
@@ -90,7 +86,6 @@ namespace IocPerformance.Classes.Complex
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         public Complex2(
             IFirstService firstService,
             ISecondService secondService,
@@ -152,7 +147,6 @@ namespace IocPerformance.Classes.Complex
         [ImportingConstructor]
         [System.Composition.ImportingConstructor]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         public Complex3(
             IFirstService firstService,
             ISecondService secondService,

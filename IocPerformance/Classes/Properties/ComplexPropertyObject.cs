@@ -10,19 +10,16 @@ using MvvmCrossAttr = MvvmCross.IoC;
 
 namespace IocPerformance.Classes.Properties
 {
-    [IfInjector.ImplementedBy(typeof(ComplexPropertyObject1))]
     public interface IComplexPropertyObject1
     {
         void Verify(string containerName);
     }
 
-    [IfInjector.ImplementedBy(typeof(ComplexPropertyObject2))]
     public interface IComplexPropertyObject2
     {
         void Verify(string containerName);
     }
 
-    [IfInjector.ImplementedBy(typeof(ComplexPropertyObject3))]
     public interface IComplexPropertyObject3
     {
         void Verify(string containerName);
@@ -54,7 +51,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual IServiceA ServiceA { get; set; }
@@ -66,7 +62,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual IServiceB ServiceB { get; set; }
@@ -78,7 +73,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual IServiceC ServiceC { get; set; }
@@ -90,7 +84,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual ISubObjectA SubObjectA { get; set; }
@@ -102,7 +95,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual ISubObjectB SubObjectB { get; set; }
@@ -114,7 +106,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual ISubObjectC SubObjectC { get; set; }
@@ -185,7 +176,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual IServiceA ServiceA { get; set; }
@@ -197,7 +187,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual IServiceB ServiceB { get; set; }
@@ -209,7 +198,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual IServiceC ServiceC { get; set; }
@@ -221,7 +209,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual ISubObjectA SubObjectA { get; set; }
@@ -233,7 +220,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual ISubObjectB SubObjectB { get; set; }
@@ -245,7 +231,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual ISubObjectC SubObjectC { get; set; }
@@ -316,7 +301,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual IServiceA ServiceA { get; set; }
@@ -328,7 +312,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual IServiceB ServiceB { get; set; }
@@ -340,7 +323,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual IServiceC ServiceC { get; set; }
@@ -352,7 +334,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual ISubObjectA SubObjectA { get; set; }
@@ -364,7 +345,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual ISubObjectB SubObjectB { get; set; }
@@ -376,7 +356,6 @@ namespace IocPerformance.Classes.Properties
         [NinjectAttr.Inject]
         [UnityAttr.Dependency]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public virtual ISubObjectC SubObjectC { get; set; }

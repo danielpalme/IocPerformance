@@ -4,19 +4,16 @@ using MEF2Attr = System.Composition;
 
 namespace IocPerformance.Classes.Standard
 {
-    [IfInjector.ImplementedBy(typeof(Singleton1))]
     public interface ISingleton1
     {
         void DoSomething();
     }
 
-    [IfInjector.ImplementedBy(typeof(Singleton2))]
     public interface ISingleton2
     {
         void DoSomething();
     }
 
-    [IfInjector.ImplementedBy(typeof(Singleton3))]
     public interface ISingleton3
     {
         void DoSomething();
@@ -25,7 +22,6 @@ namespace IocPerformance.Classes.Standard
     [Export(typeof(ISingleton1)), PartCreationPolicy(CreationPolicy.Shared)]
     [MEF2Attr.Export(typeof(ISingleton1)), MEF2Attr.Shared]
     [Stiletto.Singleton]
-    [IfInjector.Singleton]
     public class Singleton1 : ISingleton1
     {
         private static int counter;
@@ -51,7 +47,6 @@ namespace IocPerformance.Classes.Standard
     [Export(typeof(ISingleton2)), PartCreationPolicy(CreationPolicy.Shared)]
     [MEF2Attr.Export(typeof(ISingleton2)), MEF2Attr.Shared]
     [Stiletto.Singleton]
-    [IfInjector.Singleton]
     public class Singleton2 : ISingleton2
     {
         private static int counter;
@@ -77,7 +72,6 @@ namespace IocPerformance.Classes.Standard
     [Export(typeof(ISingleton3)), PartCreationPolicy(CreationPolicy.Shared)]
     [MEF2Attr.Export(typeof(ISingleton3)), MEF2Attr.Shared]
     [Stiletto.Singleton]
-    [IfInjector.Singleton]
     public class Singleton3 : ISingleton3
     {
         private static int counter;

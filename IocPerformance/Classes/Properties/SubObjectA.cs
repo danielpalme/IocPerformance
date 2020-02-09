@@ -11,7 +11,6 @@ using UnityAttr = Unity;
 
 namespace IocPerformance.Classes.Properties
 {
-    [IfInjector.ImplementedBy(typeof(SubObjectA))]
     public interface ISubObjectA
     {
         void Verify(string containerName);
@@ -31,7 +30,6 @@ namespace IocPerformance.Classes.Properties
         [UnityAttr.Dependency]
         [StructureAttr.SetterProperty]
         [Stiletto.Inject]
-        [IfInjector.Inject]
         [StashBoxAttr.Dependency]
         [MvvmCrossAttr.MvxInject]
         public IServiceA ServiceA { get; set; }
