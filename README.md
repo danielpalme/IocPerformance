@@ -27,7 +27,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|95<br/>70|104<br/>86|207<br/>158|685<br/>381|
 |**[Grace 7.1.0](https://github.com/ipjohnson/Grace)**|26<br/>42|36<br/>62|55<br/>83|67<br/>83|
 |**[Lamar 3.1.0](https://jasperfx.github.io/lamar/)**|58<br/>68|70<br/>103|99<br/>121|119<br/>138|
-|**[LightCore 1.5.1](http://www.lightcore.ch)**|184<br/>189|2191<br/>1301|26718<br/>31570|151128*<br/>188142*|
 |**[LightInject 6.2.0](https://github.com/seesharper/LightInject)**|30<br/>47|37<br/>66|56<br/>89|78<br/>88|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|3167<br/>1709|16506<br/>11878|45492<br/>29568|116514*<br/>76757*|
 |**[Maestro 3.6.2](https://github.com/JonasSamuelsson/Maestro)**|365<br/>254|302<br/>211|540<br/>390|1493<br/>979|
@@ -64,7 +63,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Grace 7.1.0](https://github.com/ipjohnson/Grace)**|104<br/>116|**49**<br/>87|291<br/>215|**47**<br/>**70**|54478<br/>32637|868<br/>680|1151<br/>689|
 |**[Lamar 3.1.0](https://jasperfx.github.io/lamar/)**|74<br/>89|86<br/>127|555<br/>410|<br/>|<br/>|1623<br/>1581|<br/>|
-|**[LightCore 1.5.1](http://www.lightcore.ch)**|2289<br/>1755|15862<br/>14477|34754<br/>20480|<br/>|<br/>|<br/>|<br/>|
 |**[LightInject 6.2.0](https://github.com/seesharper/LightInject)**|116<br/>122|53<br/>77|300<br/>225|350<br/>252|<br/>|2291<br/>1627|1496<br/>923|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Maestro 3.6.2](https://github.com/JonasSamuelsson/Maestro)**|3200<br/>2005|385<br/>286|1303<br/>837|<br/>|<br/>|8309<br/>5461|5776<br/>3311|
@@ -101,7 +99,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|16240<br/>|16527<br/>|
 |**[Grace 7.1.0](https://github.com/ipjohnson/Grace)**|213<br/>|1128<br/>|
 |**[Lamar 3.1.0](https://jasperfx.github.io/lamar/)**|1986<br/>|2373<br/>|
-|**[LightCore 1.5.1](http://www.lightcore.ch)**|226<br/>|204<br/>|
 |**[LightInject 6.2.0](https://github.com/seesharper/LightInject)**|114<br/>|821<br/>|
 |**[LinFu 2.3.0.41559](https://github.com/philiplaureano/LinFu)**|107<br/>|338<br/>|
 |**[Maestro 3.6.2](https://github.com/JonasSamuelsson/Maestro)**|141<br/>|148<br/>|
