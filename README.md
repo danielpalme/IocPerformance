@@ -54,7 +54,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Autofac 4.9.4](https://github.com/autofac/Autofac)**|6070<br/>3626|2243<br/>1377|7838<br/>4615|1445<br/>901|84497*<br/>53089|35800<br/>21902|22852<br/>14654|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9157<br/>4733|<br/>|5965<br/>3393|<br/>|<br/>|<br/>|<br/>|
 |**[Catel 5.11.2](http://www.catelproject.com)**|<br/>|9585<br/>10434|<br/>|<br/>|<br/>|<br/>|4295<br/>4634|
-|**[DryIoc 4.0.7](https://github.com/dadhi/DryIoc)**|122<br/>123|58<br/>83|326<br/>232|58<br/>78|<br/>|1842<br/>1358|838<br/>540|
+|**[DryIoc 4.0.7](https://github.com/dadhi/DryIoc)**|122<br/>123|58<br/>83|326<br/>232|58<br/>78|<br/>|1842<br/>1358|**838**<br/>**540**|
 |**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|294<br/>205|92<br/>92|302<br/>229|380<br/>270|<br/>|<br/>|<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Grace 7.1.0](https://github.com/ipjohnson/Grace)**|104<br/>116|**49**<br/>87|291<br/>215|**47**<br/>**70**|54478<br/>32637|868<br/>680|1151<br/>689|
