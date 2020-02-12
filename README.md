@@ -40,7 +40,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Rezolver 2.0.0](http://rezolver.co.uk)**|91<br/>98|120<br/>93|174<br/>147|303<br/>231|
 |**[SimpleInjector 4.7.1](https://simpleinjector.org)**|80<br/>77|96<br/>93|128<br/>121|169<br/>144|
 |**[Singularity 0.14.0](https://github.com/Barsonax/Singularity)**|**24**<br/>45|38<br/>61|**50**<br/>88|**65**<br/>82|
-|**[Spring.NET 2.0.1](http://www.springframework.net/)**|950<br/>987|9711<br/>11447|26941<br/>23873|74745*<br/>57777|
 |**[Stashbox 2.8.5](https://github.com/z4kn4fein/stashbox)**|39<br/>55|46<br/>68|65<br/>92|90<br/>112|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1121<br/>717|1281<br/>856|3410<br/>2166|8312<br/>6052|
 |**[Unity 5.11.1](https://github.com/unitycontainer/unity)**|231<br/>160|1598<br/>926|3599<br/>1995|8365<br/>4647|
@@ -72,7 +71,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Rezolver 2.0.0](http://rezolver.co.uk)**|454<br/>360|139<br/>156|490<br/>354|<br/>|6570200*<br/>4095208*|59211<br/>33867|<br/>|
 |**[SimpleInjector 4.7.1](https://simpleinjector.org)**|255<br/>246|123<br/>111|1390<br/>838|78<br/>79|<br/>|<br/>|7219<br/>4205|
 |**[Singularity 0.14.0](https://github.com/Barsonax/Singularity)**|<br/>|**49**<br/>**75**|292<br/>220|<br/>|<br/>|**507**<br/>**555**|<br/>|
-|**[Spring.NET 2.0.1](http://www.springframework.net/)**|52419<br/>51992|<br/>|<br/>|<br/>|<br/>|<br/>|43647<br/>43419|
 |**[Stashbox 2.8.5](https://github.com/z4kn4fein/stashbox)**|142<br/>140|67<br/>90|358<br/>336|65<br/>85|203135*<br/>120429*|1700<br/>1611|840<br/>543|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|8697<br/>5284|2271<br/>1460|8399<br/>5170|<br/>|3215578*<br/>1887211*|65269*<br/>41725|7859<br/>4464|
 |**[Unity 5.11.1](https://github.com/unitycontainer/unity)**|8560<br/>4885|9191<br/>5255|15421<br/>8702|3319<br/>1861|119255*<br/>70861*|54284<br/>39245|50324<br/>27704|
@@ -104,7 +102,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Rezolver 2.0.0](http://rezolver.co.uk)**|12625<br/>|18413<br/>|
 |**[SimpleInjector 4.7.1](https://simpleinjector.org)**|674<br/>|3185<br/>|
 |**[Singularity 0.14.0](https://github.com/Barsonax/Singularity)**|27<br/>|443<br/>|
-|**[Spring.NET 2.0.1](http://www.springframework.net/)**|25014<br/>|24884<br/>|
 |**[Stashbox 2.8.5](https://github.com/z4kn4fein/stashbox)**|72<br/>|301<br/>|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1325<br/>|7389<br/>|
 |**[Unity 5.11.1](https://github.com/unitycontainer/unity)**|113<br/>|299<br/>|
