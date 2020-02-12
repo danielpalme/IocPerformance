@@ -24,7 +24,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Catel 5.11.2](http://www.catelproject.com)**|262<br/>308|4283<br/>4695|9693<br/>10646|22248<br/>24653|
 |**[DryIoc 4.0.7](https://github.com/dadhi/DryIoc)**|36<br/>49|56<br/>79|57<br/>102|76<br/>89|
 |**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|110<br/>96|88<br/>89|98<br/>105|220<br/>169|
-|**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|95<br/>70|104<br/>86|207<br/>158|685<br/>381|
 |**[Grace 7.1.0](https://github.com/ipjohnson/Grace)**|26<br/>42|36<br/>62|55<br/>83|67<br/>83|
 |**[Lamar 3.1.0](https://jasperfx.github.io/lamar/)**|58<br/>68|70<br/>103|99<br/>121|119<br/>138|
 |**[LightInject 6.2.0](https://github.com/seesharper/LightInject)**|30<br/>47|37<br/>66|56<br/>89|78<br/>88|
@@ -56,7 +55,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Catel 5.11.2](http://www.catelproject.com)**|<br/>|9585<br/>10434|<br/>|<br/>|<br/>|<br/>|4295<br/>4634|
 |**[DryIoc 4.0.7](https://github.com/dadhi/DryIoc)**|122<br/>123|58<br/>83|326<br/>232|58<br/>78|<br/>|1842<br/>1358|**838**<br/>**540**|
 |**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|294<br/>205|92<br/>92|302<br/>229|380<br/>270|<br/>|<br/>|<br/>|
-|**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Grace 7.1.0](https://github.com/ipjohnson/Grace)**|104<br/>116|**49**<br/>87|291<br/>215|**47**<br/>**70**|54478<br/>32637|868<br/>680|1151<br/>689|
 |**[Lamar 3.1.0](https://jasperfx.github.io/lamar/)**|74<br/>89|86<br/>127|555<br/>410|<br/>|<br/>|1623<br/>1581|<br/>|
 |**[LightInject 6.2.0](https://github.com/seesharper/LightInject)**|116<br/>122|53<br/>77|300<br/>225|350<br/>252|<br/>|2291<br/>1627|1496<br/>923|
@@ -88,7 +86,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Catel 5.11.2](http://www.catelproject.com)**|100278*<br/>|100744*<br/>|
 |**[DryIoc 4.0.7](https://github.com/dadhi/DryIoc)**|76<br/>|83<br/>|
 |**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|**0**<br/>|**1**<br/>|
-|**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|16240<br/>|16527<br/>|
 |**[Grace 7.1.0](https://github.com/ipjohnson/Grace)**|213<br/>|1128<br/>|
 |**[Lamar 3.1.0](https://jasperfx.github.io/lamar/)**|1986<br/>|2373<br/>|
 |**[LightInject 6.2.0](https://github.com/seesharper/LightInject)**|114<br/>|821<br/>|
