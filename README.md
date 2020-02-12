@@ -31,7 +31,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Maestro 3.6.2](https://github.com/JonasSamuelsson/Maestro)**|365<br/>254|302<br/>211|540<br/>390|1493<br/>979|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|22679<br/>11820|37640<br/>25052|57462<br/>68730*|112712*<br/>131716*|
 |**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|294<br/>226|294<br/>206|357<br/>252|677<br/>462|
-|**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|25<br/>**39**|34<br/>59|55<br/>**77**|92<br/>89|
 |**[Microsoft Extensions DependencyInjection 3.0.0](https://github.com/aspnet/Extensions)**|85<br/>84|108<br/>101|128<br/>124|143<br/>129|
 |**[Microsoft.VisualStudio.Composition 16.4.11](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|9074<br/>4916|13891<br/>9399|19760<br/>14962|57910<br/>51972|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|102<br/>138|409<br/>715|2052<br/>2590|9348<br/>11352|
@@ -63,7 +62,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Maestro 3.6.2](https://github.com/JonasSamuelsson/Maestro)**|3200<br/>2005|385<br/>286|1303<br/>837|<br/>|<br/>|8309<br/>5461|5776<br/>3311|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|124500*<br/>133833*|137086*<br/>114221*|97231*<br/>100896*|<br/>|<br/>|<br/>|<br/>|
 |**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|1360<br/>881|294<br/>212|1368<br/>839|<br/>|<br/>|<br/>|<br/>|
-|**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|**39**<br/>**62**|<br/>|**262**<br/>**195**|<br/>|<br/>|<br/>|<br/>|
 |**[Microsoft Extensions DependencyInjection 3.0.0](https://github.com/aspnet/Extensions)**|<br/>|124<br/>114|361<br/>265|<br/>|<br/>|3020<br/>1967|<br/>|
 |**[Microsoft.VisualStudio.Composition 16.4.11](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|44285<br/>31830|<br/>|42023<br/>35658|<br/>|<br/>|<br/>|<br/>|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|436<br/>705|<br/>|9749<br/>7094|<br/>|**4370**<br/>**3103**|<br/>|<br/>|
@@ -95,7 +93,6 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Maestro 3.6.2](https://github.com/JonasSamuelsson/Maestro)**|141<br/>|148<br/>|
 |**[Mef 4.0.0.0](https://github.com/MicrosoftArchive/mef)**|17<br/>|2299<br/>|
 |**[Mef2 1.0.33.0](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|5313<br/>|6601<br/>|
-|**[MicroResolver 2.3.5](https://github.com/neuecc/MicroResolver)**|27322<br/>|67518<br/>|
 |**[Microsoft Extensions DependencyInjection 3.0.0](https://github.com/aspnet/Extensions)**|23<br/>|32<br/>|
 |**[Microsoft.VisualStudio.Composition 16.4.11](https://blogs.msdn.com/b/bclteam/p/composition.aspx)**|7904<br/>|8540<br/>|
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|15<br/>|19<br/>|

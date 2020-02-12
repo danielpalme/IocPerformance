@@ -76,7 +76,6 @@
     <Compile Include="Adapters\Mef2ContainerAdapter.cs" />
     <Compile Include="Adapters\VSMefContainerAdapter.cs" />
     <Compile Include="Adapters\MefContainerAdapter.cs" />
-    <Compile Include="Adapters\MicroResolverContainerAdapter.cs" />
     <Compile Include="Adapters\MicrosoftExtensionsDependencyInjectionContainerAdapter.cs" />
     <Compile Include="Adapters\MugenMvvmToolkitContainerAdapter.cs" />
     <Compile Include="Adapters\MvvmCrossContainerAdapter.cs" />
@@ -279,9 +278,6 @@
     </PackageReference>
     <PackageReference Include="Maestro.Microsoft.DependencyInjection">
       <Version>2.1.2</Version>
-    </PackageReference>
-    <PackageReference Include="MicroResolver">
-      <Version>2.3.5</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNet.Mvc">
       <Version>5.2.7</Version>
