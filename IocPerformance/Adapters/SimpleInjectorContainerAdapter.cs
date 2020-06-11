@@ -162,10 +162,15 @@ namespace IocPerformance.Adapters
                 typeof(SimpleAdapterFour),
                 typeof(SimpleAdapterFive)
             });
+    
+            this.container.Register<ImportMultiple1>();
+            this.container.Register<ImportMultiple2>();
+            this.container.Register<ImportMultiple3>();
         }
 
         private void RegisterIntercepter()
         {
+            this.container.Register<SimpleInjectorInterceptionLogger>();
             this.container.InterceptWith<SimpleInjectorInterceptionLogger>(t => t.Equals(typeof(ICalculator1))
                 || t.Equals(typeof(ICalculator2))
                 || t.Equals(typeof(ICalculator3)));
@@ -189,8 +194,10 @@ namespace IocPerformance.Adapters
         private void CreateContainer()
         {
             this.container = new Container();
-            this.container.Options.EnableDynamicAssemblyCompilation = true;
+            this.container.Options.EnableDynamicAssemblyCompilation();
             this.container.Options.PropertySelectionBehavior = new InjectPropertiesMarkedWithImportAttribute();
+            this.container.Options.EnableAutoVerification = false;
+            this.container.Options.SuppressLifestyleMismatchVerification = true;
         }
 
         private sealed class InjectPropertiesMarkedWithImportAttribute : IPropertySelectionBehavior
