@@ -15,7 +15,6 @@ using IocPerformance.Interception;
 using SimpleInjector;
 using SimpleInjector.Advanced;
 using SimpleInjector.Extensions.Interception;
-using SimpleInjector.Lifestyles;
 
 namespace IocPerformance.Adapters
 {
@@ -39,8 +38,6 @@ namespace IocPerformance.Adapters
         public override bool SupportsMultiple => true;
 
         public override bool SupportsInterception => true;
-
-        public override IChildContainerAdapter CreateChildContainerAdapter() => new SimpleInjectorChildContainerAdapter(this.container, this.scopedRegistrations);
 
         public override object Resolve(Type type) => this.container.GetInstance(type);
 
@@ -165,10 +162,15 @@ namespace IocPerformance.Adapters
                 typeof(SimpleAdapterFour),
                 typeof(SimpleAdapterFive)
             });
+    
+            this.container.Register<ImportMultiple1>();
+            this.container.Register<ImportMultiple2>();
+            this.container.Register<ImportMultiple3>();
         }
 
         private void RegisterIntercepter()
         {
+            this.container.Register<SimpleInjectorInterceptionLogger>();
             this.container.InterceptWith<SimpleInjectorInterceptionLogger>(t => t.Equals(typeof(ICalculator1))
                 || t.Equals(typeof(ICalculator2))
                 || t.Equals(typeof(ICalculator3)));
@@ -192,49 +194,15 @@ namespace IocPerformance.Adapters
         private void CreateContainer()
         {
             this.container = new Container();
-            this.container.Options.EnableDynamicAssemblyCompilation = true;
+            this.container.Options.EnableDynamicAssemblyCompilation();
             this.container.Options.PropertySelectionBehavior = new InjectPropertiesMarkedWithImportAttribute();
+            this.container.Options.EnableAutoVerification = false;
+            this.container.Options.SuppressLifestyleMismatchVerification = true;
         }
 
         private sealed class InjectPropertiesMarkedWithImportAttribute : IPropertySelectionBehavior
         {
             public bool SelectProperty(Type serviceType, PropertyInfo property) => property.GetCustomAttributes<ImportAttribute>().Any();
-        }
-
-        private sealed class SimpleInjectorChildContainerAdapter : IChildContainerAdapter
-        {
-            private readonly Container container;
-            private readonly Dictionary<Type, InstanceProducer> scopedRegistrations;
-
-            private Scope lifetimeScope;
-
-            internal SimpleInjectorChildContainerAdapter(Container container, Dictionary<Type, InstanceProducer> scopedRegistrations)
-            {
-                this.container = container;
-                this.scopedRegistrations = scopedRegistrations;
-            }
-
-            public void Prepare()
-            {
-                this.lifetimeScope = ThreadScopedLifestyle.BeginScope(this.container);
-            }
-
-            public void Dispose()
-            {
-                this.lifetimeScope.Dispose();
-            }
-
-            public object Resolve(Type resolveType)
-            {
-                InstanceProducer producer;
-
-                if (this.scopedRegistrations.TryGetValue(resolveType, out producer))
-                {
-                    return producer.GetInstance();
-                }
-
-                return this.container.GetInstance(resolveType);
-            }
         }
     }
 }

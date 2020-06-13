@@ -41081,18 +41081,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 80,
+      "Time": 67,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 77,
+      "Time": 74,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -41575,6 +41575,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 67,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 74,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -41587,18 +41602,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 96,
+      "Time": 98,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 93,
+      "Time": 89,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -42081,6 +42096,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 98,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 89,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -42093,18 +42123,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 128,
+      "Time": 111,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 121,
+      "Time": 114,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -42587,6 +42617,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 111,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 114,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -42599,18 +42644,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 169,
+      "Time": 135,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 144,
+      "Time": 113,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -43093,6 +43138,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 135,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 113,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -43105,18 +43165,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 255,
+      "Time": 244,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 246,
+      "Time": 186,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -43599,6 +43659,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 244,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 186,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -43611,18 +43686,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 123,
+      "Time": 81,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 111,
+      "Time": 94,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -44105,6 +44180,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 81,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 94,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -44117,18 +44207,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 1390,
+      "Time": 628,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 838,
+      "Time": 599,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -44611,6 +44701,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 628,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 599,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -44623,18 +44728,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 78,
+      "Time": 80,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 79,
+      "Time": 84,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -45117,6 +45222,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 80,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 84,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -45129,18 +45249,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -45623,6 +45743,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -45635,18 +45770,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -45904,6 +46039,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -45916,18 +46066,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 7219,
+      "Time": 5606,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 4205,
+      "Time": 3204,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -46185,6 +46335,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 5606,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 3204,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -46197,18 +46362,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 674,
+      "Time": 683,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -46466,6 +46631,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 683,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -46478,18 +46658,18 @@
     "ContainerInfo": {
       "Name": "SimpleInjector",
       "Url": "https://simpleinjector.org",
-      "Version": "4.7.1"
+      "Version": "5.0.0"
     },
     "SingleThreadedResult": {
-      "Time": 3185,
+      "Time": 3207,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -46745,6 +46925,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "5.0.0",
+        "SingleThreadedResult": {
+          "Time": 3207,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Linq;
-using SimpleInjector.Extensions.Interception;
+using Castle.DynamicProxy;
 
 namespace IocPerformance.Interception
 {

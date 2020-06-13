@@ -67,6 +67,8 @@ namespace IocPerformance.Output
 
         public static void AddHistoricBenchmarkResults(IEnumerable<BenchmarkResult> benchmarkResults)
         {
+            Directory.CreateDirectory("output");
+
             foreach (var file in Directory.GetFiles("output", "result_*.xml").OrderBy(f => f).Concat(Directory.GetFiles("output", "result.xml")))
             {
                 XDocument doc = XDocument.Load(file);
