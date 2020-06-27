@@ -85,6 +85,7 @@
     <Compile Include="Adapters\RezolverContainerAdapter.cs" />
     <Compile Include="Adapters\SimpleInjectorContainerAdapter.cs" />
     <Compile Include="Adapters\SingularityContainerAdapter.cs" />
+    <Compile Include="Adapters\SmartDiContainerAdapter.cs" />        
     <Compile Include="Adapters\SpringContainerAdapter.cs" />
     <Compile Include="Adapters\StashboxContainerAdapter.cs" />
     <Compile Include="Adapters\LamarContainerAdapter.cs" />
@@ -203,7 +204,6 @@
     <Compile Include="Output\ZipOutput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Adapters\SmartDiContainerAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Adapters\DryIocZero\DryIocZero.props" />
