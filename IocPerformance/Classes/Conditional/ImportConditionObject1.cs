@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using SmartDi;
 
 namespace IocPerformance.Classes.Conditions
 {
@@ -8,7 +9,8 @@ namespace IocPerformance.Classes.Conditions
     {
         private static int counter;
 
-        public ImportConditionObject1(IExportConditionInterface exportConditionInterface)
+        public ImportConditionObject1(
+            [ResolveNamed("ExportConditionalObject1")] IExportConditionInterface exportConditionInterface)
         {
             if (exportConditionInterface == null)
             {
