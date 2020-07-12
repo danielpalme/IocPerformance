@@ -1,0 +1,36 @@
+name: Smoketest
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
+
+    - name: Run tests with coverage
+      run: dotnet test --configuration Release --collect:"XPlat Code Coverage"
+
+    - name: ReportGenerator
+      uses: danielpalme/ReportGenerator-GitHub-Action@4.6.1
+      with:
+        reports: '*Test/TestResults/*/coverage.cobertura.xml'
+        targetdir: 'CoverageReports'
+        reporttypes: 'HtmlInline;Cobertura'
+        verbosity: 'Verbose'
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: CoverageReports # Artifact name        
+        path: CoverageReports # Directory containing files to upload
