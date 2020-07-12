@@ -12,14 +12,12 @@ namespace IocPerformance.Adapters
         {
             get
             {
-                XNamespace ns = "http://schemas.microsoft.com/developer/msbuild/2003";
-
                 return XDocument
                    .Load("../../IocPerformance.csproj")
                    .Root
-                   .Descendants(ns + "PackageReference")
+                   .Descendants("PackageReference")
                    .First(e => e.Attribute("Include").Value == this.PackageName)
-                   .Element(ns + "Version").Value;
+                   .Attribute("Version").Value;
             }
         }
 
