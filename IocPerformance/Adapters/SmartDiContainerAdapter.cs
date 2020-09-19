@@ -63,8 +63,7 @@ namespace IocPerformance.Adapters
 
         public override void PrepareBasic()
         {
-            this.container = new DiContainer();
-            DiContainer.Settings.TryResolveUnregistered = false;
+            this.container = new DiContainer(o => o.TryResolveUnregistered = false);
 
             RegisterDummies();
             RegisterStandard();
