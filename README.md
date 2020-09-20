@@ -1,6 +1,6 @@
 # Ioc Performance
 
-[![Build Status](https://github.com/danielpalme/IocPerformance/workflows/Smoketest/badge.svg)](https://github.com/danielpalme/IocPerformance/actions?query=workflow%3A%22Smoketest%22)
+[![Build Status](https://dev.azure.com/danielpalme/IocPerformance/_apis/build/status/danielpalme.IocPerformance?branchName=master)](https://dev.azure.com/danielpalme/IocPerformance/_build/latest?definitionId=6&branchName=master)
 
 Source code of my performance comparison of the most popular .NET IoC containers:  
 [www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison](https://www.palmmedia.de/Blog/2011/8/30/ioc-container-benchmark-performance-comparison)
@@ -40,7 +40,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Rezolver 2.1.0](http://rezolver.co.uk)**|121<br/>100|137<br/>126|194<br/>171|328<br/>238|
 |**[SimpleInjector 5.0.1](https://simpleinjector.org)**|90<br/>104|175<br/>144|148<br/>138|176<br/>166|
 |**[Singularity 0.14.0](https://github.com/Barsonax/Singularity)**|**24**<br/>45|38<br/>61|**50**<br/>88|**65**<br/>82|
-|**[SmartDi 1.3.12](https://github.com/z33bs/SmartDi)**|222<br/>165|311<br/>247|661<br/>446|2291<br/>1596|
+|**[SmartDi 1.4.1](https://github.com/z33bs/SmartDi)**|193<br/>144|348<br/>233|615<br/>374|2344<br/>1410|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|950<br/>987|9711<br/>11447|26941<br/>23873|74745*<br/>57777|
 |**[Stashbox 3.1.2](https://github.com/z4kn4fein/stashbox)**|37<br/>67|64<br/>84|91<br/>112|126<br/>139|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1121<br/>717|1281<br/>856|3410<br/>2166|8312<br/>6052|
@@ -73,7 +73,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Rezolver 2.1.0](http://rezolver.co.uk)**|520<br/>385|183<br/>145|669<br/>408|<br/>|9589857*<br/>5697265*|86587*<br/>56374|<br/>|
 |**[SimpleInjector 5.0.1](https://simpleinjector.org)**|347<br/>250|121<br/>120|948<br/>665|124<br/>109|<br/>|<br/>|8357<br/>4889|
 |**[Singularity 0.14.0](https://github.com/Barsonax/Singularity)**|<br/>|**49**<br/>**75**|292<br/>220|<br/>|<br/>|**507**<br/>**555**|<br/>|
-|**[SmartDi 1.3.12](https://github.com/z33bs/SmartDi)**|314<br/>243|300<br/>251|807<br/>545|342<br/>302|418347*<br/>343858*|<br/>|<br/>|
+|**[SmartDi 1.4.1](https://github.com/z33bs/SmartDi)**|246<br/>181|275<br/>203|675<br/>447|273<br/>191|574619*<br/>411964*|<br/>|<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|52419<br/>51992|<br/>|<br/>|<br/>|<br/>|<br/>|43647<br/>43419|
 |**[Stashbox 3.1.2](https://github.com/z4kn4fein/stashbox)**|216<br/>158|95<br/>108|392<br/>287|73<br/>99|316554*<br/>239829*|2063<br/>2277|1802<br/>927|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|8697<br/>5284|2271<br/>1460|8399<br/>5170|<br/>|3215578*<br/>1887211*|65269*<br/>41725|7859<br/>4464|
@@ -106,7 +106,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Rezolver 2.1.0](http://rezolver.co.uk)**|20835<br/>|27706<br/>|
 |**[SimpleInjector 5.0.1](https://simpleinjector.org)**|989<br/>|5191<br/>|
 |**[Singularity 0.14.0](https://github.com/Barsonax/Singularity)**|27<br/>|443<br/>|
-|**[SmartDi 1.3.12](https://github.com/z33bs/SmartDi)**|110<br/>|832<br/>|
+|**[SmartDi 1.4.1](https://github.com/z33bs/SmartDi)**|69<br/>|843<br/>|
 |**[Spring.NET 2.0.1](http://www.springframework.net/)**|25014<br/>|24884<br/>|
 |**[Stashbox 3.1.2](https://github.com/z4kn4fein/stashbox)**|77<br/>|801<br/>|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|1325<br/>|7389<br/>|
