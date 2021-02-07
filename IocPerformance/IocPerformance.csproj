@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net472</TargetFramework>
@@ -99,7 +99,7 @@
     <PackageReference Include="Unity" Version="5.11.7" />
     <PackageReference Include="Unity.Interception" Version="5.11.1" />
     <PackageReference Include="Unity.Microsoft.DependencyInjection" Version="5.11.5" />
-    <PackageReference Include="SmartDi" Version="1.3.12" />
+    <PackageReference Include="ZenIoc" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Adapters\DryIocZero\Container.Generated.tt">

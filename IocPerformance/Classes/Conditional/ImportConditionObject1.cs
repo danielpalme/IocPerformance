@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
-using SmartDi;
+using ZenIoc;
 
 namespace IocPerformance.Classes.Conditions
 {
