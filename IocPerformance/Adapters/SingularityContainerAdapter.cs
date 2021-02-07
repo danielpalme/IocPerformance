@@ -7,7 +7,6 @@ using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Standard;
 using Microsoft.Extensions.DependencyInjection;
 using Singularity;
-using Singularity.Microsoft.DependencyInjection;
 
 namespace IocPerformance.Adapters
 {
@@ -29,16 +28,25 @@ namespace IocPerformance.Adapters
         {
             this._container = new Container(builder =>
             {
+                builder.ConfigureSettings(SingularitySettings.Microsoft);
+
                 this.RegisterBasic(builder);
                 this.RegisterOpenGeneric(builder);
                 this.RegisterMultiple(builder);
                 this.RegisterAspNetCore(builder);
-            }, SingularitySettings.Microsoft);
+            });
         }
 
         public override void PrepareBasic()
         {
-            this._container = new Container(RegisterBasic, SingularitySettings.Microsoft);
+            this._container = new Container(RegisterBasic);
+
+            this._container = new Container(builder =>
+            {
+                builder.ConfigureSettings(SingularitySettings.Microsoft);
+
+                this.RegisterBasic(builder);
+            });
         }
 
         private void RegisterBasic(ContainerBuilder builder)

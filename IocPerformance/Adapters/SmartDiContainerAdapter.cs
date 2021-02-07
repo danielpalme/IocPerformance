@@ -4,7 +4,7 @@ using IocPerformance.Classes.Dummy;
 using IocPerformance.Classes.Standard;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Child;
-using SmartDi;
+using ZenIoc;
 using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Conditions;
@@ -12,13 +12,13 @@ using System.Collections.Generic;
 
 namespace IocPerformance.Adapters
 {
-    public sealed class SmartDiContainerAdapter : ContainerAdapterBase
+    public sealed class ZenIocContainerAdapter : ContainerAdapterBase
     {
-        private IDiContainer container;
+        private IIocContainer container;
 
-        public override string PackageName => "SmartDi";
+        public override string PackageName => "ZenIoc";
 
-        public override string Url => "https://github.com/z33bs/SmartDi";
+        public override string Url => "https://github.com/zenmvvm/ZenIoc";
 
         public override bool SupportsInterception => false;
 
@@ -35,7 +35,7 @@ namespace IocPerformance.Adapters
         public override bool SupportAspNetCore => false;
 
         public override IChildContainerAdapter CreateChildContainerAdapter()
-            => new SmartDiChildContainerAdapter(this.container as DiContainer);
+            => new ZenIocChildContainerAdapter(this.container as IocContainer);
 
         public override object Resolve(Type type) => container.Resolve(type);
 
@@ -63,8 +63,7 @@ namespace IocPerformance.Adapters
 
         public override void PrepareBasic()
         {
-            this.container = new DiContainer(o => o.TryResolveUnregistered = false);
-
+            this.container = new IocContainer(o => o.TryResolveUnregistered = false);
             RegisterDummies();
             RegisterStandard();
             RegisterComplexObject();
@@ -161,11 +160,11 @@ namespace IocPerformance.Adapters
         }
     }
 
-    public class SmartDiChildContainerAdapter : IChildContainerAdapter
+    public class ZenIocChildContainerAdapter : IChildContainerAdapter
     {
-        private readonly IDiContainer container;
+        private readonly IIocContainer container;
 
-        public SmartDiChildContainerAdapter(DiContainer parent)
+        public ZenIocChildContainerAdapter(IocContainer parent)
         {
             this.container = parent.NewChildContainer();
         }
