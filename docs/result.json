@@ -50022,18 +50022,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 222,
+      "Time": 193,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 165,
+      "Time": 144,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -50051,6 +50051,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 193,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 144,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -50063,18 +50078,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 311,
+      "Time": 348,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 247,
+      "Time": 233,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -50092,6 +50107,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 348,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 233,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -50104,18 +50134,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 661,
+      "Time": 615,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 446,
+      "Time": 374,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -50133,6 +50163,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 615,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 374,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -50145,18 +50190,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 2291,
+      "Time": 2344,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1596,
+      "Time": 1410,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -50174,6 +50219,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 2344,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 1410,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -50186,18 +50246,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 314,
+      "Time": 246,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 243,
+      "Time": 181,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -50215,6 +50275,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 246,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 181,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -50227,18 +50302,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 300,
+      "Time": 275,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 251,
+      "Time": 203,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -50256,6 +50331,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 275,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 203,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -50268,18 +50358,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 807,
+      "Time": 675,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 545,
+      "Time": 447,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -50297,6 +50387,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 675,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 447,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -50309,18 +50414,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 342,
+      "Time": 273,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 302,
+      "Time": 191,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -50338,6 +50443,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 273,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 191,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -50350,18 +50470,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 418347,
+      "Time": 574619,
       "ExtraPolated": true,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
-      "Time": 343858,
+      "Time": 411964,
       "ExtraPolated": true,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -50379,6 +50499,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 574619,
+          "ExtraPolated": true,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": 411964,
+          "ExtraPolated": true,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -50391,18 +50526,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -50418,6 +50553,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }
@@ -50432,18 +50582,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -50461,6 +50611,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -50473,18 +50638,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 110,
+      "Time": 69,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -50502,6 +50667,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 69,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -50514,18 +50694,18 @@
     "ContainerInfo": {
       "Name": "SmartDi",
       "Url": "https://github.com/z33bs/SmartDi",
-      "Version": "1.3.12"
+      "Version": "1.4.1"
     },
     "SingleThreadedResult": {
-      "Time": 832,
+      "Time": 843,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -50541,6 +50721,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.4.1",
+        "SingleThreadedResult": {
+          "Time": 843,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }

@@ -64,7 +64,6 @@ namespace IocPerformance.Adapters
         public override void PrepareBasic()
         {
             this.container = new IocContainer(o => o.TryResolveUnregistered = false);
-
             RegisterDummies();
             RegisterStandard();
             RegisterComplexObject();
