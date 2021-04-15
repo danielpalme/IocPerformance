@@ -53,6 +53,8 @@ namespace IocPerformance.Adapters
 
         public virtual bool SupportsBasic => true;
 
+        public virtual bool SupportsPrepareAndRegister => true;
+
         public abstract void PrepareBasic();
 
         public override string ToString()

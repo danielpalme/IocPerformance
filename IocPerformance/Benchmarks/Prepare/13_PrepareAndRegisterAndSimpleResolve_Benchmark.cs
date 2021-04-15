@@ -13,6 +13,8 @@ namespace IocPerformance.Benchmarks.Prepare
     /// </summary>
     public class PrepareAndRegisterAndSimpleResolve_13_Benchmark : PrepareAndRegister_12_Benchmark
     {
+        public override bool IsSupportedBy(IContainerAdapter container) => container.SupportsPrepareAndRegister;
+
         public override void Warmup(IContainerAdapter container)
         {
             container.PrepareBasic();

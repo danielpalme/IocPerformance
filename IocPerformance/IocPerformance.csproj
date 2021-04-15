@@ -79,6 +79,11 @@
     <PackageReference Include="Ninject.Extensions.ChildKernel" Version="3.3.0" />
     <PackageReference Include="Ninject.Extensions.Interception" Version="3.3.5" />
     <PackageReference Include="Ninject.Extensions.Interception.Linfu" Version="3.3.5" />
+    <PackageReference Include="Pure.DI" Version="1.0.0-beta32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pure.DI.Contracts" Version="1.0.0-beta3" />
     <PackageReference Include="Rezolver" Version="2.1.0" />
     <PackageReference Include="Rezolver.Microsoft.Extensions.DependencyInjection" Version="3.0.0" />
     <PackageReference Include="RIAServices.Server" Version="4.2.0" />
