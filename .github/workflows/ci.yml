@@ -13,7 +13,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.102
+        dotnet-version: 5.0.202
 
     - name: Build with dotnet
       run: dotnet build --configuration Release
@@ -22,7 +22,7 @@ jobs:
       run: dotnet test --configuration Release --collect:"XPlat Code Coverage"
 
     - name: ReportGenerator
-      uses: danielpalme/ReportGenerator-GitHub-Action@4.8.5
+      uses: danielpalme/ReportGenerator-GitHub-Action@4.8.7
       with:
         reports: '*Test/TestResults/*/coverage.cobertura.xml'
         targetdir: 'CoverageReports'
