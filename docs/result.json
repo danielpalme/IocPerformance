@@ -43143,16 +43143,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
-      "Time": 33,
+      "Time": 39,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 49,
+      "Time": 32,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -43178,11 +43178,26 @@
         "SingleThreadedResult": {
           "Time": 33,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 49,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
+        "SingleThreadedResult": {
+          "Time": 39,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 32,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -43199,16 +43214,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
-      "Time": 56,
+      "Time": 35,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 68,
+      "Time": 60,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -43234,11 +43249,26 @@
         "SingleThreadedResult": {
           "Time": 56,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 68,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
+        "SingleThreadedResult": {
+          "Time": 35,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 60,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -43255,16 +43285,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
-      "Time": 83,
+      "Time": 65,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 104,
+      "Time": 86,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -43290,11 +43320,26 @@
         "SingleThreadedResult": {
           "Time": 83,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 104,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
+        "SingleThreadedResult": {
+          "Time": 65,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 86,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -43311,16 +43356,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
-      "Time": 125,
+      "Time": 73,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 121,
+      "Time": 84,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -43346,11 +43391,26 @@
         "SingleThreadedResult": {
           "Time": 125,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 121,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
+        "SingleThreadedResult": {
+          "Time": 73,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 84,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -43367,16 +43427,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
-      "Time": 62,
+      "Time": 45,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 78,
+      "Time": 63,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -43402,11 +43462,26 @@
         "SingleThreadedResult": {
           "Time": 62,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 78,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
+        "SingleThreadedResult": {
+          "Time": 45,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 63,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -43423,16 +43498,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
-      "Time": 83,
+      "Time": 53,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 79,
+      "Time": 70,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -43458,11 +43533,26 @@
         "SingleThreadedResult": {
           "Time": 83,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 79,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
+        "SingleThreadedResult": {
+          "Time": 53,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 70,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -43479,16 +43569,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
-      "Time": 238,
+      "Time": 177,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 251,
+      "Time": 156,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -43514,11 +43604,26 @@
         "SingleThreadedResult": {
           "Time": 238,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 251,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
+        "SingleThreadedResult": {
+          "Time": 177,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 156,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -43535,16 +43640,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
-      "Time": 85,
+      "Time": 45,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 71,
+      "Time": 68,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -43570,11 +43675,26 @@
         "SingleThreadedResult": {
           "Time": 85,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 71,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
+        "SingleThreadedResult": {
+          "Time": 45,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 68,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -43591,7 +43711,7 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -43623,6 +43743,21 @@
       },
       {
         "Version": "1.0.0-beta36",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
@@ -43647,7 +43782,7 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -43679,6 +43814,21 @@
       },
       {
         "Version": "1.0.0-beta36",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
@@ -43703,7 +43853,7 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -43738,6 +43888,21 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
           "Error": null,
           "Successful": false
         },
@@ -43759,7 +43924,7 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
       "Time": 0,
@@ -43794,6 +43959,21 @@
         "SingleThreadedResult": {
           "Time": 0,
           "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
+        "SingleThreadedResult": {
+          "Time": 0,
+          "ExtraPolated": false,
           "Error": null,
           "Successful": true
         },
@@ -43815,7 +43995,7 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.0.0-beta36"
+      "Version": "1.0.0-beta47"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -43847,6 +44027,21 @@
       },
       {
         "Version": "1.0.0-beta36",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.0.0-beta47",
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
