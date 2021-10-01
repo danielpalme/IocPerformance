@@ -14,7 +14,7 @@ namespace IocPerformance.Adapters
 {
     public sealed class PureDiAdapter : ContainerAdapterBase
     {
-        static PureDiAdapter()
+        private static void Setup()
         {
             DI.Setup("Composer")
                 .TagAttribute<ResolveNamedAttribute>()
@@ -67,15 +67,15 @@ namespace IocPerformance.Adapters
                 .Bind<ImportConditionObject1>().To<ImportConditionObject1>()
                 .Bind<ImportConditionObject2>().To<ImportConditionObject2>()
                 .Bind<ImportConditionObject3>().To<ImportConditionObject3>()
-                .Bind<IExportConditionInterface>().Tag("ExportConditionalObject1").To<ExportConditionalObject1>()
-                .Bind<IExportConditionInterface>().Tag("ExportConditionalObject2").To<ExportConditionalObject2>()
-                .Bind<IExportConditionInterface>().Tag("ExportConditionalObject3").To<ExportConditionalObject3>()
+                .Bind<IExportConditionInterface>("ExportConditionalObject1").To<ExportConditionalObject1>()
+                .Bind<IExportConditionInterface>("ExportConditionalObject2").To<ExportConditionalObject2>()
+                .Bind<IExportConditionInterface>("ExportConditionalObject3").To<ExportConditionalObject3>()
 
                 .Bind<ISimpleAdapter>().To<SimpleAdapterOne>()
-                .Bind<ISimpleAdapter>().Tag(2).To<SimpleAdapterTwo>()
-                .Bind<ISimpleAdapter>().Tag(3).To<SimpleAdapterThree>()
-                .Bind<ISimpleAdapter>().Tag(4).To<SimpleAdapterFour>()
-                .Bind<ISimpleAdapter>().Tag(5).To<SimpleAdapterFive>()
+                .Bind<ISimpleAdapter>(2).To<SimpleAdapterTwo>()
+                .Bind<ISimpleAdapter>(3).To<SimpleAdapterThree>()
+                .Bind<ISimpleAdapter>(4).To<SimpleAdapterFour>()
+                .Bind<ISimpleAdapter>(5).To<SimpleAdapterFive>()
                 .Bind<ImportMultiple1>().To<ImportMultiple1>()
                 .Bind<ImportMultiple2>().To<ImportMultiple2>()
                 .Bind<ImportMultiple3>().To<ImportMultiple3>();

@@ -51,35 +51,35 @@
     <PackageReference Include="Caliburn.Micro.Container" Version="1.5.2" />
     <PackageReference Include="Caliburn.Micro.Core" Version="4.0.173" />
     <PackageReference Include="Castle.Windsor" Version="5.1.1" />
-    <PackageReference Include="Catel.Core" Version="5.12.17" />
+    <PackageReference Include="Catel.Core" Version="5.12.18" />
     <PackageReference Include="Catel.Extensions.Interception" Version="4.5.4" />
     <PackageReference Include="DryIoc.dll" Version="4.8.1" />
     <PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
     <PackageReference Include="DryIocZero" Version="4.0.0" />
     <PackageReference Include="Dynamo.Ioc" Version="3.0.2" />
-    <PackageReference Include="Grace" Version="7.2.0" />
+    <PackageReference Include="Grace" Version="7.2.1" />
     <PackageReference Include="Grace.DependencyInjection.Extensions" Version="7.1.0" />
-    <PackageReference Include="Grace.Dynamic" Version="7.2.0" />
-    <PackageReference Include="Lamar" Version="5.0.4" />
+    <PackageReference Include="Grace.Dynamic" Version="7.2.1" />
+    <PackageReference Include="Lamar" Version="6.0.0" />
     <PackageReference Include="LightInject" Version="6.4.0" />
-    <PackageReference Include="LightInject.Interception" Version="2.0.3" />
+    <PackageReference Include="LightInject.Interception" Version="2.0.4" />
     <PackageReference Include="LightInject.Microsoft.DependencyInjection" Version="3.3.6" />
     <PackageReference Include="Maestro" Version="3.6.5" />
     <PackageReference Include="Maestro.Castle.DynamicProxy" Version="2.1.0" />
     <PackageReference Include="Maestro.Microsoft.DependencyInjection" Version="2.1.2" />
     <PackageReference Include="MicroResolver" Version="2.3.5" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
-    <PackageReference Include="Microsoft.Build.Framework" Version="16.10.0" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="16.11.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Composition" Version="16.9.20" />
     <PackageReference Include="MugenMvvmToolkit" Version="6.5.0" />
-    <PackageReference Include="MvvmCross" Version="8.0.1" />
+    <PackageReference Include="MvvmCross" Version="8.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Ninject" Version="3.3.4" />
     <PackageReference Include="Ninject.Extensions.ChildKernel" Version="3.3.0" />
     <PackageReference Include="Ninject.Extensions.Interception" Version="3.3.5" />
     <PackageReference Include="Ninject.Extensions.Interception.Linfu" Version="3.3.5" />
-    <PackageReference Include="Pure.DI" Version="1.0.1">
+    <PackageReference Include="Pure.DI" Version="1.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -90,9 +90,9 @@
     <PackageReference Include="SimpleInjector.DynamicAssemblyCompilation" Version="5.0.0" />
     <PackageReference Include="Singularity" Version="0.18.0" />
     <PackageReference Include="Singularity.Microsoft.DependencyInjection" Version="0.18.0" />
-    <PackageReference Include="Spring.Aop" Version="2.0.1" />
-    <PackageReference Include="Spring.Core" Version="2.0.1" />
-    <PackageReference Include="Stashbox" Version="3.6.3" />
+    <PackageReference Include="Spring.Aop" Version="3.0.0" />
+    <PackageReference Include="Spring.Core" Version="3.0.0" />
+    <PackageReference Include="Stashbox" Version="3.6.4" />
     <PackageReference Include="Stashbox.Extensions.Dependencyinjection" Version="2.11.4" />
     <PackageReference Include="Stiletto" Version="0.3.1" />
     <PackageReference Include="StructureMap" Version="4.7.1" />
