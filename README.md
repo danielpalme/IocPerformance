@@ -117,9 +117,9 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[ZenIoc 1.0.1](https://github.com/zenmvvm/ZenIoc)**|77<br/>|964<br/>|
 |**[Zenject 8.0.0](https://github.com/modesttree/Zenject)**|199<br/>|201<br/>|
 ### Charts
-![Basic features](https://www.palmmedia.de/blogimages/5225c515-2f25-498f-84fe-6c6e931d2042.png)
-![Advanced features](https://www.palmmedia.de/blogimages/e0401485-20c6-462e-b5d4-c9cf854e6bee.png)
-![Prepare](https://www.palmmedia.de/blogimages/67b056a5-9da8-40b4-9ae6-0c838cdac180.png)
+![Basic features](https://raw.githubusercontent.com/danielpalme/IocPerformance/master/docs/img/Overview_Basic_Fast.png)
+![Advanced features](https://raw.githubusercontent.com/danielpalme/IocPerformance/master/docs/img/Overview_Advanced_Fast.png)
+![Prepare](https://raw.githubusercontent.com/danielpalme/IocPerformance/master/docs/img/Overview_Prepare_Fast.png)
 ### Machine
 The benchmark was executed on the following machine:  
 **CPU**: Intel(R) Core(TM) i5-6260U CPU @ 1.80GHz  
