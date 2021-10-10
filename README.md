@@ -19,10 +19,10 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |:------------|------------:|------------:|-----------:|----------:|
 |**No**|41<br/>49|49<br/>59|69<br/>76|99<br/>103|
 |**[abioc 0.8.0](https://github.com/JSkimming/abioc)**|26<br/>43|**33**<br/>56|**51**<br/>82|**67**<br/>**78**|
-|**[Autofac 6.2.0](https://github.com/autofac/Autofac)**|732<br/>523|893<br/>629|2414<br/>1511|7819<br/>4625|
+|**[Autofac 6.3.0](https://github.com/autofac/Autofac)**|744<br/>541|887<br/>637|2463<br/>1539|7421<br/>4568|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|465<br/>270|533<br/>322|1583<br/>906|7403<br/>3712|
 |**[Catel 5.12.18](http://www.catelproject.com)**|246<br/>290|3906<br/>4410|8882<br/>10117|20367<br/>23097|
-|**[DryIoc 4.8.1](https://github.com/dadhi/DryIoc)**|60<br/>58|69<br/>66|87<br/>101|107<br/>99|
+|**[DryIoc 4.8.2](https://github.com/dadhi/DryIoc)**|60<br/>62|71<br/>77|88<br/>101|108<br/>105|
 |**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|110<br/>96|88<br/>89|98<br/>105|220<br/>169|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|95<br/>70|104<br/>86|207<br/>158|685<br/>381|
 |**[Grace 7.2.1](https://github.com/ipjohnson/Grace)**|**20**<br/>**31**|39<br/>**55**|52<br/>84|73<br/>83|
@@ -37,7 +37,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|102<br/>138|409<br/>715|2052<br/>2590|9348<br/>11352|
 |**[MvvmCross 8.0.2](https://github.com/MvvmCross/MvvmCross)**|205<br/>251|1318<br/>1402|3316<br/>3726|8677<br/>9516|
 |**[Ninject 3.3.4](http://ninject.org)**|3473<br/>2563|8686<br/>6969|23529<br/>17635|63579*<br/>49285|
-|**[Pure.DI 1.1.0](https://github.com/DevTeam/Pure.DI)**|31<br/>39|42<br/>60|58<br/>81|73<br/>85|
+|**[Pure.DI 1.1.3](https://github.com/DevTeam/Pure.DI)**|33<br/>43|51<br/>70|83<br/>80|95<br/>106|
 |**[Rezolver 2.1.0](http://rezolver.co.uk)**|121<br/>100|137<br/>126|194<br/>171|328<br/>238|
 |**[SimpleInjector 5.3.2](https://simpleinjector.org)**|56<br/>63|91<br/>77|119<br/>113|127<br/>110|
 |**[Singularity 0.18.0](https://github.com/Barsonax/Singularity)**|24<br/>39|39<br/>59|66<br/>82|76<br/>84|
@@ -53,10 +53,10 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |:------------|-----------:|-----------:|--------------:|--------------:|------------------:|---------------:|--------------------------:|
 |**No**|186<br/>134|70<br/>75|193<br/>176|53<br/>63|644<br/>596|<br/>|469<br/>438|
 |**[abioc 0.8.0](https://github.com/JSkimming/abioc)**|<br/>|<br/>|799<br/>506|<br/>|<br/>|<br/>|<br/>|
-|**[Autofac 6.2.0](https://github.com/autofac/Autofac)**|7562<br/>5979|2177<br/>1419|8032<br/>4777|1799<br/>1160|70738*<br/>55892|40839<br/>37031|22538<br/>12548|
+|**[Autofac 6.3.0](https://github.com/autofac/Autofac)**|7448<br/>4570|2165<br/>1445|8127<br/>5176|1858<br/>1195|75548*<br/>57801|46484<br/>41519|28432<br/>16233|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|9157<br/>4733|<br/>|5965<br/>3393|<br/>|<br/>|<br/>|<br/>|
 |**[Catel 5.12.18](http://www.catelproject.com)**|<br/>|8650<br/>9881|<br/>|<br/>|<br/>|<br/>|3869<br/>4273|
-|**[DryIoc 4.8.1](https://github.com/dadhi/DryIoc)**|134<br/>121|83<br/>86|283<br/>212|80<br/>76|<br/>|1316<br/>1014|862<br/>**548**|
+|**[DryIoc 4.8.2](https://github.com/dadhi/DryIoc)**|144<br/>126|82<br/>90|301<br/>228|81<br/>83|<br/>|1429<br/>1140|980<br/>664|
 |**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|294<br/>205|92<br/>92|302<br/>229|380<br/>270|<br/>|<br/>|<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|828<br/>455|<br/>|<br/>|<br/>|<br/>|<br/>|<br/>|
 |**[Grace 7.2.1](https://github.com/ipjohnson/Grace)**|101<br/>112|**50**<br/>80|257<br/>210|**45**<br/>70|50375<br/>32231|657<br/>674|827<br/>571|
@@ -71,7 +71,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|436<br/>705|<br/>|9749<br/>7094|<br/>|**4370**<br/>**3103**|<br/>|<br/>|
 |**[MvvmCross 8.0.2](https://github.com/MvvmCross/MvvmCross)**|1310<br/>1415|6576<br/>7299|<br/>|<br/>|4968<br/>3230|<br/>|<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|62765*<br/>47908|24256<br/>15895|64193*<br/>49074|19294<br/>12954|73303000*<br/>50234113*|<br/>|20215<br/>15029|
-|**[Pure.DI 1.1.0](https://github.com/DevTeam/Pure.DI)**|51<br/>64|52<br/>79|321<br/>199|85<br/>76|<br/>|<br/>|<br/>|
+|**[Pure.DI 1.1.3](https://github.com/DevTeam/Pure.DI)**|65<br/>70|80<br/>87|289<br/>226|66<br/>85|<br/>|<br/>|4165<br/>2339|
 |**[Rezolver 2.1.0](http://rezolver.co.uk)**|520<br/>385|183<br/>145|669<br/>408|<br/>|9589857*<br/>5697265*|86587*<br/>56374|<br/>|
 |**[SimpleInjector 5.3.2](https://simpleinjector.org)**|254<br/>187|111<br/>106|586<br/>360|106<br/>90|<br/>|<br/>|5382<br/>3141|
 |**[Singularity 0.18.0](https://github.com/Barsonax/Singularity)**|<br/>|54<br/>80|**241**<br/>**193**|<br/>|<br/>|**631**<br/>**652**|<br/>|
@@ -87,10 +87,10 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |:------------|-----------------------:|------------------------------------------:|
 |**No**|2<br/>|2<br/>|
 |**[abioc 0.8.0](https://github.com/JSkimming/abioc)**|6327<br/>|6556<br/>|
-|**[Autofac 6.2.0](https://github.com/autofac/Autofac)**|317<br/>|347<br/>|
+|**[Autofac 6.3.0](https://github.com/autofac/Autofac)**|374<br/>|363<br/>|
 |**[Caliburn.Micro 1.5.2](https://github.com/Caliburn-Micro/Caliburn.Micro)**|55<br/>|56<br/>|
 |**[Catel 5.12.18](http://www.catelproject.com)**|9929<br/>|10503<br/>|
-|**[DryIoc 4.8.1](https://github.com/dadhi/DryIoc)**|57<br/>|62<br/>|
+|**[DryIoc 4.8.2](https://github.com/dadhi/DryIoc)**|62<br/>|61<br/>|
 |**[DryIocZero 4.0.0](https://github.com/dadhi/DryIoc)**|**0**<br/>|**1**<br/>|
 |**[Dynamo 3.0.2](http://martinf.github.io/Dynamo.IoC)**|16240<br/>|16527<br/>|
 |**[Grace 7.2.1](https://github.com/ipjohnson/Grace)**|157<br/>|966<br/>|
@@ -105,7 +105,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|15<br/>|19<br/>|
 |**[MvvmCross 8.0.2](https://github.com/MvvmCross/MvvmCross)**|10<br/>|16<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|130706*<br/>|126470*<br/>|
-|**[Pure.DI 1.1.0](https://github.com/DevTeam/Pure.DI)**|**0**<br/>|<br/>|
+|**[Pure.DI 1.1.3](https://github.com/DevTeam/Pure.DI)**|**0**<br/>|<br/>|
 |**[Rezolver 2.1.0](http://rezolver.co.uk)**|20835<br/>|27706<br/>|
 |**[SimpleInjector 5.3.2](https://simpleinjector.org)**|639<br/>|3011<br/>|
 |**[Singularity 0.18.0](https://github.com/Barsonax/Singularity)**|314<br/>|874<br/>|

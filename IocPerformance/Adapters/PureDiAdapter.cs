@@ -1,4 +1,5 @@
 ﻿using System;
+using Castle.DynamicProxy;
 using IocPerformance.Classes.Complex;
 using IocPerformance.Classes.Conditions;
 using IocPerformance.Classes.Dummy;
@@ -6,8 +7,9 @@ using IocPerformance.Classes.Generics;
 using IocPerformance.Classes.Multiple;
 using IocPerformance.Classes.Properties;
 using IocPerformance.Classes.Standard;
-using Pure.DI;
+using IocPerformance.Interception;
 using ZenIoc;
+using Pure.DI;
 using static Pure.DI.Lifetime;
 
 namespace IocPerformance.Adapters
@@ -78,7 +80,13 @@ namespace IocPerformance.Adapters
                 .Bind<ISimpleAdapter>(5).To<SimpleAdapterFive>()
                 .Bind<ImportMultiple1>().To<ImportMultiple1>()
                 .Bind<ImportMultiple2>().To<ImportMultiple2>()
-                .Bind<ImportMultiple3>().To<ImportMultiple3>();
+                .Bind<ImportMultiple3>().To<ImportMultiple3>()
+                
+                .Bind<IProxyGenerator>().As(Singleton).To<ProxyGenerator>()
+                .Bind<IFactory>().As(Singleton).To<PureDiInterceptionLogger>()
+                .Bind<ICalculator1>().To<Calculator1>()
+                .Bind<ICalculator2>().To<Calculator2>()
+                .Bind<ICalculator3>().To<Calculator3>();
         }
 
         public override string PackageName => "Pure.DI";
@@ -94,6 +102,8 @@ namespace IocPerformance.Adapters
         public override bool SupportsMultiple => true;
 
         public override bool SupportsPrepareAndRegister => false;
+        
+        public override bool SupportsInterception => true;
 
         public override object Resolve(Type type) => Composer.Resolve(type);
 

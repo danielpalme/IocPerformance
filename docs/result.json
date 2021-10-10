@@ -2049,18 +2049,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 732,
+      "Time": 744,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 523,
+      "Time": 541,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -2318,6 +2318,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 744,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 541,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -2330,18 +2345,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 893,
+      "Time": 887,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 629,
+      "Time": 637,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -2599,6 +2614,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 887,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 637,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -2611,18 +2641,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 2414,
+      "Time": 2463,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1511,
+      "Time": 1539,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -2880,6 +2910,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 2463,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 1539,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -2892,18 +2937,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 7819,
+      "Time": 7421,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 4625,
+      "Time": 4568,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -3161,6 +3206,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 7421,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 4568,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -3173,18 +3233,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 7562,
+      "Time": 7448,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 5979,
+      "Time": 4570,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -3442,6 +3502,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 7448,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 4570,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -3454,18 +3529,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 2177,
+      "Time": 2165,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1419,
+      "Time": 1445,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -3723,6 +3798,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 2165,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 1445,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -3735,18 +3825,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 8032,
+      "Time": 8127,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 4777,
+      "Time": 5176,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -4004,6 +4094,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 8127,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 5176,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -4016,18 +4121,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 1799,
+      "Time": 1858,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1160,
+      "Time": 1195,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -4285,6 +4390,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 1858,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 1195,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -4297,18 +4417,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 70738,
+      "Time": 75548,
       "ExtraPolated": true,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
-      "Time": 55892,
+      "Time": 57801,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -4566,6 +4686,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 75548,
+          "ExtraPolated": true,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": 57801,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -4578,18 +4713,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 40839,
+      "Time": 46484,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 37031,
+      "Time": 41519,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -4802,6 +4937,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 46484,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 41519,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -4814,18 +4964,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 22538,
+      "Time": 28432,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 12548,
+      "Time": 16233,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -5038,6 +5188,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 28432,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 16233,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -5050,18 +5215,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 317,
+      "Time": 374,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -5274,6 +5439,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 374,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -5286,18 +5466,18 @@
     "ContainerInfo": {
       "Name": "Autofac",
       "Url": "https://github.com/autofac/Autofac",
-      "Version": "6.2.0"
+      "Version": "6.3.0"
     },
     "SingleThreadedResult": {
-      "Time": 347,
+      "Time": 363,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -5508,6 +5688,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "6.3.0",
+        "SingleThreadedResult": {
+          "Time": 363,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }
@@ -6060,13 +6255,13 @@
     "SingleThreadedResult": {
       "Time": 246,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 290,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -6420,13 +6615,13 @@
         "SingleThreadedResult": {
           "Time": 246,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 290,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -6446,13 +6641,13 @@
     "SingleThreadedResult": {
       "Time": 3906,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 4410,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -6806,13 +7001,13 @@
         "SingleThreadedResult": {
           "Time": 3906,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 4410,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -6832,13 +7027,13 @@
     "SingleThreadedResult": {
       "Time": 8882,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 10117,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -7192,13 +7387,13 @@
         "SingleThreadedResult": {
           "Time": 8882,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 10117,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -7218,13 +7413,13 @@
     "SingleThreadedResult": {
       "Time": 20367,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 23097,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -7578,13 +7773,13 @@
         "SingleThreadedResult": {
           "Time": 20367,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 23097,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -7604,13 +7799,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -7964,13 +8159,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -7990,13 +8185,13 @@
     "SingleThreadedResult": {
       "Time": 8650,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 9881,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -8350,13 +8545,13 @@
         "SingleThreadedResult": {
           "Time": 8650,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 9881,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -8376,13 +8571,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -8736,13 +8931,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -8762,13 +8957,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -9122,13 +9317,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -9148,13 +9343,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -9508,13 +9703,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -9534,13 +9729,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -9804,13 +9999,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -9830,13 +10025,13 @@
     "SingleThreadedResult": {
       "Time": 3869,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 4273,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -10100,13 +10295,13 @@
         "SingleThreadedResult": {
           "Time": 3869,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 4273,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -10126,13 +10321,13 @@
     "SingleThreadedResult": {
       "Time": 9929,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -10396,13 +10591,13 @@
         "SingleThreadedResult": {
           "Time": 9929,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -10422,13 +10617,13 @@
     "SingleThreadedResult": {
       "Time": 10503,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -10692,13 +10887,13 @@
         "SingleThreadedResult": {
           "Time": 10503,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -10713,18 +10908,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
       "Time": 60,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 58,
+      "Time": 62,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -11192,6 +11387,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 60,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 62,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -11204,18 +11414,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 69,
+      "Time": 71,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 66,
+      "Time": 77,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -11683,6 +11893,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 71,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 77,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -11695,18 +11920,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 87,
+      "Time": 88,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 101,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -12174,6 +12399,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 88,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 101,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -12186,18 +12426,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 107,
+      "Time": 108,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 99,
+      "Time": 105,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -12665,6 +12905,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 108,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 105,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -12677,18 +12932,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 134,
+      "Time": 144,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 121,
+      "Time": 126,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -13156,6 +13411,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 144,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 126,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -13168,18 +13438,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 83,
+      "Time": 82,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 86,
+      "Time": 90,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -13647,6 +13917,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 82,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 90,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -13659,18 +13944,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 283,
+      "Time": 301,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 212,
+      "Time": 228,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -14138,6 +14423,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 301,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 228,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -14150,18 +14450,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 80,
+      "Time": 81,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 76,
+      "Time": 83,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -14629,6 +14929,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 81,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 83,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -14641,18 +14956,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -15120,6 +15435,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -15132,18 +15462,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 1316,
+      "Time": 1429,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 1014,
+      "Time": 1140,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -15431,6 +15761,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 1429,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 1140,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -15443,18 +15788,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 862,
+      "Time": 980,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 548,
+      "Time": 664,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "History": [
@@ -15742,6 +16087,21 @@
           "Error": "",
           "Successful": true
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 980,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 664,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        }
       }
     ]
   },
@@ -15754,18 +16114,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 57,
+      "Time": 62,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -16053,6 +16413,21 @@
           "Error": "",
           "Successful": false
         }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 62,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": false
+        }
       }
     ]
   },
@@ -16065,18 +16440,18 @@
     "ContainerInfo": {
       "Name": "DryIoc",
       "Url": "https://github.com/dadhi/DryIoc",
-      "Version": "4.8.1"
+      "Version": "4.8.2"
     },
     "SingleThreadedResult": {
-      "Time": 62,
+      "Time": 61,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": "",
+      "Error": null,
       "Successful": false
     },
     "History": [
@@ -16362,6 +16737,21 @@
           "Time": null,
           "ExtraPolated": false,
           "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "4.8.2",
+        "SingleThreadedResult": {
+          "Time": 61,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": null,
           "Successful": false
         }
       }
@@ -18437,13 +18827,13 @@
     "SingleThreadedResult": {
       "Time": 20,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 31,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -18782,13 +19172,13 @@
         "SingleThreadedResult": {
           "Time": 20,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 31,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -18808,13 +19198,13 @@
     "SingleThreadedResult": {
       "Time": 39,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 55,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -19153,13 +19543,13 @@
         "SingleThreadedResult": {
           "Time": 39,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 55,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -19179,13 +19569,13 @@
     "SingleThreadedResult": {
       "Time": 52,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 84,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -19524,13 +19914,13 @@
         "SingleThreadedResult": {
           "Time": 52,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 84,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -19550,13 +19940,13 @@
     "SingleThreadedResult": {
       "Time": 73,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 83,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -19895,13 +20285,13 @@
         "SingleThreadedResult": {
           "Time": 73,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 83,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -19921,13 +20311,13 @@
     "SingleThreadedResult": {
       "Time": 101,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 112,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -20266,13 +20656,13 @@
         "SingleThreadedResult": {
           "Time": 101,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 112,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -20292,13 +20682,13 @@
     "SingleThreadedResult": {
       "Time": 50,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 80,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -20637,13 +21027,13 @@
         "SingleThreadedResult": {
           "Time": 50,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 80,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -20663,13 +21053,13 @@
     "SingleThreadedResult": {
       "Time": 257,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 210,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -21008,13 +21398,13 @@
         "SingleThreadedResult": {
           "Time": 257,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 210,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -21034,13 +21424,13 @@
     "SingleThreadedResult": {
       "Time": 45,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 70,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -21379,13 +21769,13 @@
         "SingleThreadedResult": {
           "Time": 45,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 70,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -21405,13 +21795,13 @@
     "SingleThreadedResult": {
       "Time": 50375,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 32231,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -21750,13 +22140,13 @@
         "SingleThreadedResult": {
           "Time": 50375,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 32231,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -21776,13 +22166,13 @@
     "SingleThreadedResult": {
       "Time": 657,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 674,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -22016,13 +22406,13 @@
         "SingleThreadedResult": {
           "Time": 657,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 674,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -22042,13 +22432,13 @@
     "SingleThreadedResult": {
       "Time": 827,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 571,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -22282,13 +22672,13 @@
         "SingleThreadedResult": {
           "Time": 827,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 571,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -22308,13 +22698,13 @@
     "SingleThreadedResult": {
       "Time": 157,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -22548,13 +22938,13 @@
         "SingleThreadedResult": {
           "Time": 157,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -22574,13 +22964,13 @@
     "SingleThreadedResult": {
       "Time": 966,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -22814,13 +23204,13 @@
         "SingleThreadedResult": {
           "Time": 966,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -22840,13 +23230,13 @@
     "SingleThreadedResult": {
       "Time": 51,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 59,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -23080,13 +23470,13 @@
         "SingleThreadedResult": {
           "Time": 51,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 59,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -23106,13 +23496,13 @@
     "SingleThreadedResult": {
       "Time": 74,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 79,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -23346,13 +23736,13 @@
         "SingleThreadedResult": {
           "Time": 74,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 79,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -23372,13 +23762,13 @@
     "SingleThreadedResult": {
       "Time": 98,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 110,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -23612,13 +24002,13 @@
         "SingleThreadedResult": {
           "Time": 98,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 110,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -23638,13 +24028,13 @@
     "SingleThreadedResult": {
       "Time": 108,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 109,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -23878,13 +24268,13 @@
         "SingleThreadedResult": {
           "Time": 108,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 109,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -23904,13 +24294,13 @@
     "SingleThreadedResult": {
       "Time": 83,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 84,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -24144,13 +24534,13 @@
         "SingleThreadedResult": {
           "Time": 83,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 84,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -24170,13 +24560,13 @@
     "SingleThreadedResult": {
       "Time": 90,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 100,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -24410,13 +24800,13 @@
         "SingleThreadedResult": {
           "Time": 90,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 100,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -24436,13 +24826,13 @@
     "SingleThreadedResult": {
       "Time": 473,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 366,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -24676,13 +25066,13 @@
         "SingleThreadedResult": {
           "Time": 473,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 366,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -24702,13 +25092,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -24942,13 +25332,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -24968,13 +25358,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -25208,13 +25598,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -25234,13 +25624,13 @@
     "SingleThreadedResult": {
       "Time": 4268,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 3886,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -25474,13 +25864,13 @@
         "SingleThreadedResult": {
           "Time": 4268,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 3886,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -25500,13 +25890,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -25740,13 +26130,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -25766,13 +26156,13 @@
     "SingleThreadedResult": {
       "Time": 2006,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -26006,13 +26396,13 @@
         "SingleThreadedResult": {
           "Time": 2006,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -26032,13 +26422,13 @@
     "SingleThreadedResult": {
       "Time": 2437,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -26272,13 +26662,13 @@
         "SingleThreadedResult": {
           "Time": 2437,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -40522,13 +40912,13 @@
     "SingleThreadedResult": {
       "Time": 205,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 251,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -40747,13 +41137,13 @@
         "SingleThreadedResult": {
           "Time": 205,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 251,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -40773,13 +41163,13 @@
     "SingleThreadedResult": {
       "Time": 1318,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 1402,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -40998,13 +41388,13 @@
         "SingleThreadedResult": {
           "Time": 1318,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 1402,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -41024,13 +41414,13 @@
     "SingleThreadedResult": {
       "Time": 3316,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 3726,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -41249,13 +41639,13 @@
         "SingleThreadedResult": {
           "Time": 3316,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 3726,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -41275,13 +41665,13 @@
     "SingleThreadedResult": {
       "Time": 8677,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 9516,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -41500,13 +41890,13 @@
         "SingleThreadedResult": {
           "Time": 8677,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 9516,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -41526,13 +41916,13 @@
     "SingleThreadedResult": {
       "Time": 1310,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 1415,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -41751,13 +42141,13 @@
         "SingleThreadedResult": {
           "Time": 1310,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 1415,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -41777,13 +42167,13 @@
     "SingleThreadedResult": {
       "Time": 6576,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 7299,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -42002,13 +42392,13 @@
         "SingleThreadedResult": {
           "Time": 6576,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 7299,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -42028,13 +42418,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -42253,13 +42643,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -42279,13 +42669,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -42504,13 +42894,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -42530,13 +42920,13 @@
     "SingleThreadedResult": {
       "Time": 4968,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 3230,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -42755,13 +43145,13 @@
         "SingleThreadedResult": {
           "Time": 4968,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 3230,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -42781,13 +43171,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -43006,13 +43396,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -43032,13 +43422,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -43257,13 +43647,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -43283,13 +43673,13 @@
     "SingleThreadedResult": {
       "Time": 10,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -43508,13 +43898,13 @@
         "SingleThreadedResult": {
           "Time": 10,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -43534,13 +43924,13 @@
     "SingleThreadedResult": {
       "Time": 16,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -43759,13 +44149,13 @@
         "SingleThreadedResult": {
           "Time": 16,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -45093,16 +45483,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
-      "Time": 31,
+      "Time": 33,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 39,
+      "Time": 43,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -45173,11 +45563,26 @@
         "SingleThreadedResult": {
           "Time": 31,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 39,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.1.3",
+        "SingleThreadedResult": {
+          "Time": 33,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 43,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -45194,16 +45599,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
-      "Time": 42,
+      "Time": 51,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 60,
+      "Time": 70,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -45274,11 +45679,26 @@
         "SingleThreadedResult": {
           "Time": 42,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 60,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.1.3",
+        "SingleThreadedResult": {
+          "Time": 51,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 70,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -45295,16 +45715,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
-      "Time": 58,
+      "Time": 83,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 81,
+      "Time": 80,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -45375,11 +45795,26 @@
         "SingleThreadedResult": {
           "Time": 58,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 81,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.1.3",
+        "SingleThreadedResult": {
+          "Time": 83,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 80,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -45396,16 +45831,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
-      "Time": 73,
+      "Time": 95,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 85,
+      "Time": 106,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -45476,11 +45911,26 @@
         "SingleThreadedResult": {
           "Time": 73,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 85,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.1.3",
+        "SingleThreadedResult": {
+          "Time": 95,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 106,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -45497,16 +45947,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
-      "Time": 51,
+      "Time": 65,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 64,
+      "Time": 70,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -45577,11 +46027,26 @@
         "SingleThreadedResult": {
           "Time": 51,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 64,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.1.3",
+        "SingleThreadedResult": {
+          "Time": 65,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 70,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -45598,16 +46063,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
-      "Time": 52,
+      "Time": 80,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 79,
+      "Time": 87,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -45678,11 +46143,26 @@
         "SingleThreadedResult": {
           "Time": 52,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 79,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.1.3",
+        "SingleThreadedResult": {
+          "Time": 80,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 87,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -45699,16 +46179,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
-      "Time": 321,
+      "Time": 289,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 199,
+      "Time": 226,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -45779,11 +46259,26 @@
         "SingleThreadedResult": {
           "Time": 321,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 199,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.1.3",
+        "SingleThreadedResult": {
+          "Time": 289,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 226,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -45800,16 +46295,16 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
-      "Time": 85,
+      "Time": 66,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": 76,
+      "Time": 85,
       "ExtraPolated": false,
       "Error": null,
       "Successful": true
@@ -45880,11 +46375,26 @@
         "SingleThreadedResult": {
           "Time": 85,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 76,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        }
+      },
+      {
+        "Version": "1.1.3",
+        "SingleThreadedResult": {
+          "Time": 66,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 85,
           "ExtraPolated": false,
           "Error": null,
           "Successful": true
@@ -45901,7 +46411,7 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -45978,6 +46488,21 @@
       },
       {
         "Version": "1.1.0",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.1.3",
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
@@ -46002,7 +46527,7 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -46079,6 +46604,21 @@
       },
       {
         "Version": "1.1.0",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.1.3",
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
@@ -46103,19 +46643,19 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
-      "Time": null,
+      "Time": 4165,
       "ExtraPolated": false,
       "Error": null,
-      "Successful": false
+      "Successful": true
     },
     "MultiThreadedResult": {
-      "Time": null,
+      "Time": 2339,
       "ExtraPolated": false,
       "Error": null,
-      "Successful": false
+      "Successful": true
     },
     "History": [
       {
@@ -46183,14 +46723,29 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
+        }
+      },
+      {
+        "Version": "1.1.3",
+        "SingleThreadedResult": {
+          "Time": 4165,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": 2339,
+          "ExtraPolated": false,
+          "Error": null,
+          "Successful": true
         }
       }
     ]
@@ -46204,7 +46759,7 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
       "Time": 0,
@@ -46284,6 +46839,21 @@
         "SingleThreadedResult": {
           "Time": 0,
           "ExtraPolated": false,
+          "Error": "",
+          "Successful": true
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.1.3",
+        "SingleThreadedResult": {
+          "Time": 0,
+          "ExtraPolated": false,
           "Error": null,
           "Successful": true
         },
@@ -46305,7 +46875,7 @@
     "ContainerInfo": {
       "Name": "Pure.DI",
       "Url": "https://github.com/DevTeam/Pure.DI",
-      "Version": "1.1.0"
+      "Version": "1.1.3"
     },
     "SingleThreadedResult": {
       "Time": null,
@@ -46382,6 +46952,21 @@
       },
       {
         "Version": "1.1.0",
+        "SingleThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        },
+        "MultiThreadedResult": {
+          "Time": null,
+          "ExtraPolated": false,
+          "Error": "",
+          "Successful": false
+        }
+      },
+      {
+        "Version": "1.1.3",
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
@@ -56800,13 +57385,13 @@
     "SingleThreadedResult": {
       "Time": 553,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 446,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -56860,13 +57445,13 @@
         "SingleThreadedResult": {
           "Time": 553,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 446,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -56886,13 +57471,13 @@
     "SingleThreadedResult": {
       "Time": 2533,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 1535,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -56946,13 +57531,13 @@
         "SingleThreadedResult": {
           "Time": 2533,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 1535,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -56972,13 +57557,13 @@
     "SingleThreadedResult": {
       "Time": 8190,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 5084,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -57032,13 +57617,13 @@
         "SingleThreadedResult": {
           "Time": 8190,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 5084,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -57058,13 +57643,13 @@
     "SingleThreadedResult": {
       "Time": 23729,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 15167,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -57118,13 +57703,13 @@
         "SingleThreadedResult": {
           "Time": 23729,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 15167,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -57144,13 +57729,13 @@
     "SingleThreadedResult": {
       "Time": 18982,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 11962,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -57204,13 +57789,13 @@
         "SingleThreadedResult": {
           "Time": 18982,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 11962,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -57230,13 +57815,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -57290,13 +57875,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -57316,13 +57901,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -57376,13 +57961,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -57402,13 +57987,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -57462,13 +58047,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -57488,13 +58073,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -57548,13 +58133,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -57574,13 +58159,13 @@
     "SingleThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -57604,13 +58189,13 @@
         "SingleThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -57630,13 +58215,13 @@
     "SingleThreadedResult": {
       "Time": 18461,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 11065,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -57660,13 +58245,13 @@
         "SingleThreadedResult": {
           "Time": 18461,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 11065,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -57686,13 +58271,13 @@
     "SingleThreadedResult": {
       "Time": 14198,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -57716,13 +58301,13 @@
         "SingleThreadedResult": {
           "Time": 14198,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -57742,13 +58327,13 @@
     "SingleThreadedResult": {
       "Time": 14141,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -57772,13 +58357,13 @@
         "SingleThreadedResult": {
           "Time": 14141,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -57798,13 +58383,13 @@
     "SingleThreadedResult": {
       "Time": 33,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 42,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -58308,13 +58893,13 @@
         "SingleThreadedResult": {
           "Time": 33,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 42,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -58334,13 +58919,13 @@
     "SingleThreadedResult": {
       "Time": 57,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 64,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -58844,13 +59429,13 @@
         "SingleThreadedResult": {
           "Time": 57,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 64,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -58870,13 +59455,13 @@
     "SingleThreadedResult": {
       "Time": 68,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 96,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -59380,13 +59965,13 @@
         "SingleThreadedResult": {
           "Time": 68,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 96,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -59406,13 +59991,13 @@
     "SingleThreadedResult": {
       "Time": 85,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 87,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -59916,13 +60501,13 @@
         "SingleThreadedResult": {
           "Time": 85,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 87,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -59942,13 +60527,13 @@
     "SingleThreadedResult": {
       "Time": 112,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 116,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -60452,13 +61037,13 @@
         "SingleThreadedResult": {
           "Time": 112,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 116,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -60478,13 +61063,13 @@
     "SingleThreadedResult": {
       "Time": 61,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 79,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -60988,13 +61573,13 @@
         "SingleThreadedResult": {
           "Time": 61,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 79,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -61014,13 +61599,13 @@
     "SingleThreadedResult": {
       "Time": 273,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 217,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -61524,13 +62109,13 @@
         "SingleThreadedResult": {
           "Time": 273,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 217,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -61550,13 +62135,13 @@
     "SingleThreadedResult": {
       "Time": 60,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 68,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -62060,13 +62645,13 @@
         "SingleThreadedResult": {
           "Time": 60,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 68,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -62086,13 +62671,13 @@
     "SingleThreadedResult": {
       "Time": 329202,
       "ExtraPolated": true,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "MultiThreadedResult": {
       "Time": 215002,
       "ExtraPolated": true,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -62596,13 +63181,13 @@
         "SingleThreadedResult": {
           "Time": 329202,
           "ExtraPolated": true,
-          "Error": null,
+          "Error": "",
           "Successful": false
         },
         "MultiThreadedResult": {
           "Time": 215002,
           "ExtraPolated": true,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -62622,13 +63207,13 @@
     "SingleThreadedResult": {
       "Time": 1403,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 1155,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -63027,13 +63612,13 @@
         "SingleThreadedResult": {
           "Time": 1403,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 1155,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -63053,13 +63638,13 @@
     "SingleThreadedResult": {
       "Time": 809,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": 548,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "History": [
@@ -63458,13 +64043,13 @@
         "SingleThreadedResult": {
           "Time": 809,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": 548,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         }
       }
@@ -63484,13 +64069,13 @@
     "SingleThreadedResult": {
       "Time": 56,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -63889,13 +64474,13 @@
         "SingleThreadedResult": {
           "Time": 56,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
@@ -63915,13 +64500,13 @@
     "SingleThreadedResult": {
       "Time": 578,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": true
     },
     "MultiThreadedResult": {
       "Time": null,
       "ExtraPolated": false,
-      "Error": null,
+      "Error": "",
       "Successful": false
     },
     "History": [
@@ -64320,13 +64905,13 @@
         "SingleThreadedResult": {
           "Time": 578,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": true
         },
         "MultiThreadedResult": {
           "Time": null,
           "ExtraPolated": false,
-          "Error": null,
+          "Error": "",
           "Successful": false
         }
       }
