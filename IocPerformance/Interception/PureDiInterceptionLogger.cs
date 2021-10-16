@@ -3,23 +3,31 @@ using Castle.DynamicProxy;
 using Pure.DI;
 using System.Diagnostics;
 using System.Linq;
+using Expression = System.Linq.Expressions.Expression;
+using IInterceptor = Castle.DynamicProxy.IInterceptor;
+using IProxyBuilder = Castle.DynamicProxy.IProxyBuilder;
 
 namespace IocPerformance.Interception
 {
-    [Include(@".+\.Calculator\d{1}$")]
-    public sealed class PureDiInterceptionLogger : IFactory, IInterceptor
+    [Include(@"\.+Calculator\d$")]
+    public sealed class PureDiInterceptionLogger<T> : IFactory<T>, IInterceptor
     {
-        private readonly IProxyGenerator proxyGenerator;
-        private readonly IInterceptor[] interceptors;
+        private readonly Func<T, T> proxyFactory;
 
-        public PureDiInterceptionLogger(IProxyGenerator proxyGenerator)
+        public PureDiInterceptionLogger(IProxyBuilder proxyBuilder) => 
+            proxyFactory = CreateProxyFactory(proxyBuilder, this);
+
+        private static Func<T, T> CreateProxyFactory(IProxyBuilder proxyBuilder, params IInterceptor[] interceptors)
         {
-            this.proxyGenerator = proxyGenerator;
-            interceptors = new IInterceptor[] { this };
+            var proxyType = proxyBuilder.CreateInterfaceProxyTypeWithTargetInterface(typeof(T), Type.EmptyTypes, ProxyGenerationOptions.Default);
+            var ctor = proxyType.GetConstructors().Single(i => i.GetParameters().Length == 2);
+            var instance = Expression.Parameter(typeof(T));
+            var newProxyExpression = Expression.New(ctor, Expression.Constant(interceptors), instance);
+            return Expression.Lambda<Func<T, T>>(newProxyExpression, instance).Compile();
         }
 
-        public T Create<T>(Func<T> factory, Type implementationType, object tag) =>
-            (T)proxyGenerator.CreateInterfaceProxyWithTargetInterface(typeof(T), factory(), interceptors);
+        public T Create(Func<T> factory, Type implementationType, object tag) => 
+            proxyFactory(factory());
 
         void IInterceptor.Intercept(IInvocation invocation)
         {
