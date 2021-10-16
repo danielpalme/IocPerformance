@@ -82,8 +82,8 @@ namespace IocPerformance.Adapters
                 .Bind<ImportMultiple2>().To<ImportMultiple2>()
                 .Bind<ImportMultiple3>().To<ImportMultiple3>()
                 
-                .Bind<IProxyGenerator>().As(Singleton).To<ProxyGenerator>()
-                .Bind<IFactory>().As(Singleton).To<PureDiInterceptionLogger>()
+                .Bind<IProxyBuilder>().As(Singleton).To<DefaultProxyBuilder>()
+                .Bind<IFactory<TT>>().As(Singleton).To<PureDiInterceptionLogger<TT>>()
                 .Bind<ICalculator1>().To<Calculator1>()
                 .Bind<ICalculator2>().To<Calculator2>()
                 .Bind<ICalculator3>().To<Calculator3>();
