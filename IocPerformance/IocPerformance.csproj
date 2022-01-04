@@ -46,14 +46,14 @@
   <ItemGroup>
     <PackageReference Include="abioc" Version="0.8.0" />
     <PackageReference Include="Autofac" Version="6.3.0" />
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
     <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
     <PackageReference Include="Caliburn.Micro.Container" Version="1.5.2" />
     <PackageReference Include="Caliburn.Micro.Core" Version="4.0.173" />
     <PackageReference Include="Castle.Windsor" Version="5.1.1" />
-    <PackageReference Include="Catel.Core" Version="5.12.18" />
+    <PackageReference Include="Catel.Core" Version="5.12.22" />
     <PackageReference Include="Catel.Extensions.Interception" Version="4.5.4" />
-    <PackageReference Include="DryIoc.dll" Version="4.8.2" />
+    <PackageReference Include="DryIoc.dll" Version="4.8.5" />
     <PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
     <PackageReference Include="DryIocZero" Version="4.0.0" />
     <PackageReference Include="Dynamo.Ioc" Version="3.0.2" />
@@ -64,7 +64,7 @@
     <PackageReference Include="LightInject" Version="6.4.0" />
     <PackageReference Include="LightInject.Interception" Version="2.0.4" />
     <PackageReference Include="LightInject.Microsoft.DependencyInjection" Version="3.3.6" />
-    <PackageReference Include="Maestro" Version="3.6.5" />
+    <PackageReference Include="Maestro" Version="3.6.6" />
     <PackageReference Include="Maestro.Castle.DynamicProxy" Version="2.1.0" />
     <PackageReference Include="Maestro.Microsoft.DependencyInjection" Version="2.1.2" />
     <PackageReference Include="MicroResolver" Version="2.3.5" />
