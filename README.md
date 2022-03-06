@@ -37,7 +37,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|102<br/>138|409<br/>715|2052<br/>2590|9348<br/>11352|
 |**[MvvmCross 8.0.2](https://github.com/MvvmCross/MvvmCross)**|205<br/>251|1318<br/>1402|3316<br/>3726|8677<br/>9516|
 |**[Ninject 3.3.4](http://ninject.org)**|3473<br/>2563|8686<br/>6969|23529<br/>17635|63579*<br/>49285|
-|**[Pure.DI 1.1.*](https://github.com/DevTeam/Pure.DI)**|25<br/>40|41<br/>60|59<br/>85|75<br/>83|
+|**[Pure.DI 1.1.35](https://github.com/DevTeam/Pure.DI)**|28<br/>36|38<br/>58|56<br/>82|71<br/>80|
 |**[Rezolver 2.1.0](http://rezolver.co.uk)**|121<br/>100|137<br/>126|194<br/>171|328<br/>238|
 |**[SimpleInjector 5.3.2](https://simpleinjector.org)**|56<br/>63|91<br/>77|119<br/>113|127<br/>110|
 |**[Singularity 0.18.0](https://github.com/Barsonax/Singularity)**|24<br/>39|39<br/>59|66<br/>82|76<br/>84|
@@ -71,12 +71,12 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|436<br/>705|<br/>|9749<br/>7094|<br/>|**4370**<br/>**3103**|<br/>|<br/>|
 |**[MvvmCross 8.0.2](https://github.com/MvvmCross/MvvmCross)**|1310<br/>1415|6576<br/>7299|<br/>|<br/>|4968<br/>3230|<br/>|<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|62765*<br/>47908|24256<br/>15895|64193*<br/>49074|19294<br/>12954|73303000*<br/>50234113*|<br/>|20215<br/>15029|
-|**[Pure.DI 1.1.*](https://github.com/DevTeam/Pure.DI)**|44<br/>65|56<br/>**71**|**180**<br/>**156**|53<br/>**68**|<br/>|<br/>|**226**<br/>**205**|
+|**[Pure.DI 1.1.35](https://github.com/DevTeam/Pure.DI)**|42<br/>64|51<br/>**68**|**189**<br/>**152**|46<br/>**67**|<br/>|<br/>|**228**<br/>**208**|
 |**[Rezolver 2.1.0](http://rezolver.co.uk)**|520<br/>385|183<br/>145|669<br/>408|<br/>|9589857*<br/>5697265*|86587*<br/>56374|<br/>|
 |**[SimpleInjector 5.3.2](https://simpleinjector.org)**|254<br/>187|111<br/>106|586<br/>360|106<br/>90|<br/>|<br/>|5382<br/>3141|
 |**[Singularity 0.18.0](https://github.com/Barsonax/Singularity)**|<br/>|54<br/>80|241<br/>193|<br/>|<br/>|**631**<br/>**652**|<br/>|
 |**[Spring.NET 3.0.0](http://www.springframework.net/)**|18982<br/>11962|<br/>|<br/>|<br/>|<br/>|<br/>|18461<br/>11065|
-|**[Stashbox 3.6.4](https://github.com/z4kn4fein/stashbox)**|112<br/>116|61<br/>79|273<br/>217|60<br/>**68**|329202*<br/>215002*|1403<br/>1155|809<br/>548|
+|**[Stashbox 3.6.4](https://github.com/z4kn4fein/stashbox)**|112<br/>116|61<br/>79|273<br/>217|60<br/>68|329202*<br/>215002*|1403<br/>1155|809<br/>548|
 |**[StructureMap 4.7.1](http://structuremap.net/structuremap)**|8697<br/>5284|2271<br/>1460|8399<br/>5170|<br/>|3215578*<br/>1887211*|65269*<br/>41725|7859<br/>4464|
 |**[Unity 5.11.10](https://github.com/unitycontainer/unity)**|9045<br/>5814|9842<br/>6443|17755<br/>12048|3547<br/>2046|147355*<br/>74313*|61350*<br/>39009|56226<br/>31096|
 |**[Windsor 5.1.1](http://castleproject.org)**|40830<br/>22225|15542<br/>9318|19361<br/>10763|<br/>|242149*<br/>176823*|<br/>|18018<br/>8775|
@@ -105,7 +105,7 @@ Twitter: [@danielpalme](https://twitter.com/danielpalme)
 |**[Mugen MVVM Toolkit 6.5.0](https://github.com/MugenMvvmToolkit/MugenMvvmToolkit)**|15<br/>|19<br/>|
 |**[MvvmCross 8.0.2](https://github.com/MvvmCross/MvvmCross)**|10<br/>|16<br/>|
 |**[Ninject 3.3.4](http://ninject.org)**|130706*<br/>|126470*<br/>|
-|**[Pure.DI 1.1.*](https://github.com/DevTeam/Pure.DI)**|**0**<br/>|<br/>|
+|**[Pure.DI 1.1.35](https://github.com/DevTeam/Pure.DI)**|**0**<br/>|<br/>|
 |**[Rezolver 2.1.0](http://rezolver.co.uk)**|20835<br/>|27706<br/>|
 |**[SimpleInjector 5.3.2](https://simpleinjector.org)**|639<br/>|3011<br/>|
 |**[Singularity 0.18.0](https://github.com/Barsonax/Singularity)**|314<br/>|874<br/>|
