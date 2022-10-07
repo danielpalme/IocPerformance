@@ -57,6 +57,7 @@
     <PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
     <PackageReference Include="DryIocZero" Version="4.0.0" />
     <PackageReference Include="Dynamo.Ioc" Version="3.0.2" />
+    <PackageReference Include="Faster.Ioc" Version="1.0.0" />
     <PackageReference Include="Grace" Version="7.2.1" />
     <PackageReference Include="Grace.DependencyInjection.Extensions" Version="7.1.0" />
     <PackageReference Include="Grace.Dynamic" Version="7.2.1" />
