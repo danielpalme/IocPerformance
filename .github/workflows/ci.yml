@@ -11,9 +11,9 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 5.0.202
+        dotnet-version: 6.0.401
 
     - name: Build with dotnet
       run: dotnet build --configuration Release
@@ -22,7 +22,7 @@ jobs:
       run: dotnet test --configuration Release --collect:"XPlat Code Coverage"
 
     - name: ReportGenerator
-      uses: danielpalme/ReportGenerator-GitHub-Action@5.0.2
+      uses: danielpalme/ReportGenerator-GitHub-Action@5.1.10
       with:
         reports: '*Test/TestResults/*/coverage.cobertura.xml'
         targetdir: 'CoverageReports'
@@ -30,7 +30,7 @@ jobs:
         verbosity: 'Verbose'
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v1.0.0
+      uses: actions/upload-artifact@v3
       with:
         name: CoverageReports # Artifact name        
         path: CoverageReports # Directory containing files to upload
