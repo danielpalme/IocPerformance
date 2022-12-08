@@ -75,7 +75,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Composition" Version="17.2.41" />
     <PackageReference Include="MugenMvvmToolkit" Version="6.5.0" />
     <PackageReference Include="MvvmCross" Version="8.0.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Ninject" Version="3.3.6" />
     <PackageReference Include="Ninject.Extensions.ChildKernel" Version="3.3.0" />
     <PackageReference Include="Ninject.Extensions.Interception" Version="3.3.5" />
