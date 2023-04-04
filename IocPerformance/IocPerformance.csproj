@@ -2,12 +2,15 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net472</TargetFramework>
+    <LangVersion>9.0</LangVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <AssemblyTitle>IocPerformance</AssemblyTitle>
     <Product>IocPerformance</Product>
     <Copyright>Copyright ©  2020</Copyright>
     <OutputPath>bin\$(Configuration)\</OutputPath>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)Generated</CompilerGeneratedFilesOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -53,8 +56,8 @@
     <PackageReference Include="Castle.Windsor" Version="5.1.2" />
     <PackageReference Include="Catel.Core" Version="5.12.22" />
     <PackageReference Include="Catel.Extensions.Interception" Version="4.5.4" />
-	  <PackageReference Include="DryIoc.dll" Version="4.8.5" />
-	  <PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
+    <PackageReference Include="DryIoc.dll" Version="4.8.5" />
+	<PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
     <PackageReference Include="DryIocZero" Version="4.0.0" />
     <PackageReference Include="Dynamo.Ioc" Version="3.0.2" />
     <PackageReference Include="Faster.Ioc" Version="1.0.0" />
@@ -80,7 +83,7 @@
     <PackageReference Include="Ninject.Extensions.ChildKernel" Version="3.3.0" />
     <PackageReference Include="Ninject.Extensions.Interception" Version="3.3.5" />
     <PackageReference Include="Ninject.Extensions.Interception.Linfu" Version="3.3.5" />
-    <PackageReference Include="Pure.DI" Version="1.1.55">
+    <PackageReference Include="Pure.DI" Version="2.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
